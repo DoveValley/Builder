@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "los-alamos-nm",
+  "slug": "capm-certification-training-los-alamos-nm",
+  "title": "CAPM Certification & Boot Camp {city}",
+  "city_vars": {
+    "id": "los-alamos-nm",
+    "city": "Los Alamos",
+    "state": "New Mexico",
+    "SS": "NM",
+    "city_slug": "los-alamos-nm",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
+    ],
+    "city_spotlight": "<p>Los Alamos's project management landscape centers on Los Alamos National Laboratory and its federal contractor ecosystem, where complex scientific, engineering, and environmental remediation programs create steady demand for PMP-certified professionals. Government contracting expertise and technical project oversight are highly valued across national security initiatives, including plutonium pit production modernization and legacy cleanup efforts. Granite PM Academy delivers live-virtual PMP Certification to Los Alamos professionals seeking to advance their careers in this specialized, security-focused market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Los Alamos's concentration of federal research and national laboratory work demands project managers who understand complex, regulated environments. Granite PM Academy's live-virtual CAPM Boot Camp delivers the instructor-led training and PMI contact hours required to earn your CAPM® certification, building the credentials that national laboratory contractors and government agencies actively seek when staffing project roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:13.098215Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "acb1c58ca4ef65ed",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification & Boot Camp for Los Alamos Project Managers",
+      "text": "<p>Los Alamos National Laboratory and its extensive network of federal contractors drive one of the region's most specialized project management markets. Professionals managing complex scientific, engineering, and environmental remediation programs within Los Alamos's national security and nuclear research ecosystem need credentials that demonstrate competency in structured methodologies and government contracting environments. The CAPM® (Certified Associate in Project Management) credential, recognized across the federal contracting community, validates your ability to support project managers on technically demanding initiatives—a direct asset when competing for roles across Los Alamos's major employers and their supporting organizations.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers CAPM certification and boot camp training through live-virtual, instructor-led sessions designed for working professionals in Los Alamos. Our curriculum meets the Project Management Institute's contact-hour requirements for CAPM eligibility and is taught by active certified practitioners who understand the realities of federal and technical project environments. Whether you're advancing within a national laboratory contractor, county government, or supporting infrastructure projects tied to Los Alamos's growth, our boot camp accelerates your path to certification and equips you with frameworks you'll use immediately on the job.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:17.175589Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "bd5065c852b66bae",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "CAPM Certification for Los Alamos' Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Path to Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, delivering CAPM® certification training that meets PMI's rigorous standards. Your training hours count directly toward certification eligibility—no guesswork, no additional requirements."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend live-virtual instructor-led sessions that fit working professionals' calendars. Earn required contact hours in real time with certified instructors, ask questions as they arise, and complete your CAPM® eligibility without self-study gaps."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Learn from active certified practitioners currently managing projects in defense, research, and federal environments. Instructors bring real-world scenarios from security-cleared work and complex technical programs—not classroom theory alone."
+        },
+        {
+          "heading": "CAPM® Demand at Los Alamos Employers",
+          "text": "LANL, Triad National Security, NNSA, and DOE contractor teams increasingly seek CAPM®-certified professionals for program-management roles. The credential signals readiness for advancement in Los Alamos' national security and research sector."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:21.454149Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7ec4111748f1fc47",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers at Los Alamos National Laboratory",
+      "text": "<p>Los Alamos National Laboratory and its contractors—including Triad National Security, LLC and N3B Los Alamos—anchor a distinctive project-management job market centered on national security, nuclear science, and environmental remediation. These organizations manage some of the most complex federal initiatives in the country, from the plutonium pit production modernization program to the Chemistry and Metallurgy Research Replacement facility upgrades and legacy environmental cleanup efforts. Project managers supporting these programs must demonstrate proficiency in rigorous compliance, technical controls, and stakeholder coordination—exactly the competencies that structured PM credentials validate. The U.S. Department of Energy, NNSA, and Los Alamos County Government also employ certified project managers to oversee infrastructure and research-support initiatives across the region.</p><p>Certification in project management carries genuine weight in Los Alamos, where employers increasingly expect PMP or entry-level CAPM credentials as proof of capability to lead federally funded, security-conscious programs. Cleared, technically skilled project managers command competitive compensation in this market, with rates driven by program scope, clearance level, and contractor demand. Earning your CAPM Certification & Boot Camp through Granite PM Academy positions you to enter this specialized field with a recognized credential, or to advance from coordinator or support roles into management responsibilities on high-stakes initiatives. The structured training prepares you for Los Alamos's control-intensive environment while equipping you to meet both employer expectations and PMI standards.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:26.217814Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "512dcd973c192c4c",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CAPM Boot Camp",
+          "badge": "BEST VALUE",
+          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Los Alamos",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you hold a secondary degree or equivalent and can document the required project management education hours. No prior work experience is necessary—CAPM is designed for professionals new to the field and those building credentials in Los Alamos's research and technical sectors."
+        },
+        {
+          "heading": "Complete 23 Contact Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. This intensive format condenses core PMBOK® principles into a focused schedule, allowing you to meet PMI's education requirement while balancing your current work and responsibilities in the Los Alamos area."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI, document your education completion, and pay the exam fee. Our team provides guidance through each step so your application is accurate and submitted without delay, keeping your certification timeline on track."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and final-review sessions—to build confidence in PMBOK® knowledge and test-taking strategy. Schedule your exam when ready; our instructors remain available for targeted support."
+        },
+        {
+          "heading": "Maintain Your CAPM Credential",
+          "text": "After certification, earn professional development units across the standard three-year renewal cycle to keep your credential active. Granite PM Academy offers resources and course options to help you meet ongoing PMI requirements and advance your project-management expertise."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:30.699355Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "05950c76871fc43b",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Los Alamos National Laboratory careers?",
+          "answer": "<p>Yes. LANL and its prime contractors increasingly value CAPM as evidence of structured project management capability, especially for professionals entering federal program roles. The credential demonstrates familiarity with the compliance, documentation, and control frameworks that national laboratory work demands. For early-career staff in national security, nuclear science, or research support functions, CAPM can accelerate advancement into project coordinator and assistant project manager positions where cleared, credentialed personnel command competitive compensation.</p>"
+        },
+        {
+          "question": "Which Los Alamos employers hire project managers with CAPM certification?",
+          "answer": "<p>LANL contractors including Triad National Security, N3B Los Alamos, and firms specializing in environmental remediation and cybersecurity actively recruit credentialed project managers. The Department of Energy and NNSA offices in Los Alamos also value the credential for federal program and administrative roles. Los Alamos County Government and public schools occasionally hire certified project coordinators for capital and facilities initiatives. CAPM signals readiness for the technical compliance rigor that nuclear, defense, and federal research environments require.</p>"
+        },
+        {
+          "question": "Do Los Alamos project managers earn more with CAPM certification?",
+          "answer": "<p>Project managers in Los Alamos typically see competitive compensation driven by security clearance level, contractor affiliation, and program scope rather than credential alone. However, CAPM holders supporting LANL and national security programs often qualify for higher-paying coordinator and management-track roles sooner than uncertified peers. Exact earnings vary widely by employer and clearance status, but the credential strengthens negotiating power in a market where cleared, technically skilled personnel are in high demand.</p>"
+        },
+        {
+          "question": "Can I attend CAPM boot camp from my Los Alamos workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows Los Alamos professionals to attend from their office, home, or facility—provided you have a reliable internet connection and a quiet workspace. Many LANL and contractor employees join from their workplaces with supervisor approval. Check your employer's remote-learning and security policies beforehand, especially if you handle classified information or restricted data; some facilities have specific guidelines for third-party online training.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:37.464934Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7276fa54d4709ca0",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Los Alamos's project management landscape centers on Los Alamos National Laboratory and its federal contractor ecosystem, where complex scientific, engineering, and environmental remediation programs create consistent demand for certified PM professionals. Government contracting expertise and technical project oversight experience are particularly valued across LANL, the Department of Energy, and supporting infrastructure initiatives. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp designed for Los Alamos professionals seeking PMI credentials and the skills to advance in this specialized, security-focused market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:48:39.434198Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "78cb81fde8594125",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-los-alamos-nm/",
+    "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Los Alamos, NM, CAPM boot camp Los Alamos, CAPM training Los Alamos, NM, CAPM classes Los Alamos NM, CAPM exam prep Los Alamos",
+    "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification & Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification & Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/\",\n      \"name\": \"CAPM Certification & Boot Camp in Los Alamos, NM | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Los Alamos, NM. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Los Alamos, NM\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Los Alamos, NM\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Los Alamos, NM. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-los-alamos-nm/\"\n    }\n  ]\n}",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "b94b510d8a403901d4e015501d62b58f"
+}

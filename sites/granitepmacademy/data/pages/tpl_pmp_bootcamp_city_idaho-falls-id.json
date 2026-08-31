@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "idaho-falls-id",
+  "slug": "pmp-bootcamp-idaho-falls-id",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "idaho-falls-id",
+    "city": "Idaho Falls",
+    "state": "Idaho",
+    "SS": "ID",
+    "city_slug": "idaho-falls-id",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
+    ],
+    "city_spotlight": "<p>Idaho Falls' project management demand centers on Idaho National Laboratory and its contractor network, alongside expanding healthcare and manufacturing sectors. INL's modernization initiatives and the proposed Versatile Test Reactor project create strong opportunities for credentialed professionals across research, engineering, and facility management roles. Granite PM Academy delivers live-virtual PMP® Certification to Idaho Falls professionals seeking to advance their careers in this growing regional hub.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Idaho Falls's energy sector—anchored by nuclear facilities and hydroelectric operations—depends on professionals who can manage complex, regulated projects at scale. Granite PM Academy's live-virtual PMP Boot Camp delivers instructor-led training that satisfies PMI's contact-hour requirements, fitting working schedules while preparing you for the PMP exam. Earning your PMP credential positions you to advance into senior roles managing mission-critical infrastructure projects where the region's employers actively seek certified talent.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:26.543911Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "22a0c73b364960a1",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Idaho Falls: Fast-Track Certification for Research and Engineering Leaders",
+      "text": "<p>Idaho Falls' economy is anchored by Idaho National Laboratory and its network of scientific contractors, where project management excellence directly impacts mission-critical research and energy initiatives. Professionals working across INL's complex programs, as well as those in the expanding healthcare and manufacturing sectors throughout Idaho Falls, recognize that formal PMP® certification signals readiness to lead sophisticated, regulated projects. The PMP® credential is increasingly expected in roles managing federal research contracts, infrastructure upgrades, and multi-disciplinary teams—making an intensive boot camp the fastest route to meeting employer requirements and advancing your career in this competitive market.</p><p>Granite PM Academy delivers a live, instructor-led PMP Boot Camp designed to compress study and preparation into an accelerated schedule while meeting all Project Management Institute contact-hour requirements. Our instructors are active, certified practitioners who teach real-world project scenarios relevant to Idaho Falls' dominant industries, ensuring you learn methods and frameworks you'll apply immediately. Upon completing the boot camp, you'll be prepared to sit for the PMP® exam and join the thousands of project managers leading high-stakes initiatives across research, healthcare, government, and manufacturing. Your certification opens doors to leadership roles, salary advancement, and recognition as a qualified professional in one of the region's most in-demand disciplines.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:31.030607Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "60d689607723cec9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Earn Your PMP in Idaho Falls' Nuclear and Healthcare Hub",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your boot camp hours count directly toward PMP eligibility. No ambiguity about course recognition—you're training with PMI's seal of approval from day one."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Our live-virtual instructor-led format lets you satisfy the contact-hour requirement without relocating. Attend from Idaho Falls while experienced, active PMP-certified practitioners teach in real time—no recorded lectures or self-paced gaps."
+        },
+        {
+          "heading": "Exam Prep Integrated Throughout",
+          "text": "Your instructors are practicing project managers, not trainers-only. They embed PMP exam strategy, question formats, and time-management tactics into every session, so you finish boot camp exam-ready, not just course-complete."
+        },
+        {
+          "heading": "Match INL and Regional Employer Demand",
+          "text": "Idaho National Laboratory, Eastern Idaho Regional Medical Center, and Melaleuca all hire credentialed project managers. The PMP credential signals readiness for leadership roles in Idaho Falls' nuclear, healthcare, and operations sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:35.380983Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9c1fc25d265d644d",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Idaho Falls",
+      "text": "<p>Idaho Falls' economy is anchored by Idaho National Laboratory and its contractor network, Battelle Energy Alliance, which drive demand for certified project managers across nuclear energy, research infrastructure, and related technical programs. Major employers including Eastern Idaho Regional Medical Center, Melaleuca, Inc., and the City of Idaho Falls also hire project managers to lead initiatives ranging from healthcare operations and corporate campus expansions to downtown redevelopment and Greenbelt improvement projects. The technical and compliance-intensive nature of INL-connected work, in particular, creates a sustained market for professionals who can demonstrate structured project-delivery expertise.</p><p>PMP® certification positions you competitively within Idaho Falls' dominant sectors—energy, healthcare, manufacturing, and government administration—where employers value formal credentials for engineering and program management roles. Project managers in this market benefit from compensation that reflects both the technical demands of nuclear and energy projects and the presence of large institutional employers. Completing Granite PM Academy's PMP Boot Camp equips you with the knowledge and discipline to meet the rigorous standards these organizations expect, helping you advance into roles where your certification directly influences your earning potential and career trajectory in Idaho Falls.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:39.266106Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "e692ce2ddc29bf06",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Idaho Falls",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify that your education and project-management experience meet PMI's requirements for PMP certification. Review the specific hour thresholds tied to your degree level. Granite PM Academy's advisors can clarify whether your background qualifies before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Attend all scheduled sessions synchronously, engage with instructors and peers in real time, and complete the full curriculum to earn your 35 contact hours of formal education."
+        },
+        {
+          "heading": "Apply to PMI and Pay Fee",
+          "text": "Submit your official PMI application with your education and work history. Once PMI approves your eligibility, pay the examination fee to activate your testing window. Granite PM Academy staff will guide you through the application portal and deadlines."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor office hours to strengthen weak areas. Schedule your exam at a Pearson VUE testing center. Plan to dedicate focused study time in the weeks before your test date."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to earning professional development units (PDUs) throughout each three-year renewal cycle. Granite PM Academy and PMI offer multiple pathways—education, mentoring, and volunteering—to help you sustain your certification."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:43.238961Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "53144ecf95a5f3db",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Idaho Falls nuclear energy careers?",
+          "answer": "<p>Yes. Idaho National Laboratory and its contractor network—major employers in Idaho Falls—frequently prioritize PMP certification for engineering and program management roles. The technical and compliance-driven nature of nuclear and energy-sector projects creates strong demand for certified project managers. PMP credentials position you for advancement and higher compensation in these sectors compared to non-certified peers.</p>"
+        },
+        {
+          "question": "Which Idaho Falls employers actively hire PMP-certified project managers?",
+          "answer": "<p>Idaho National Laboratory contractors, healthcare systems like Eastern Idaho Regional Medical Center, manufacturing firms, and government agencies in Bonneville County value PMP certification. While formal certification requirements vary by role, the energy, healthcare, and manufacturing sectors—all well-represented in Idaho Falls—consistently seek out PMP-certified candidates for leadership and technical program roles.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP Boot Camp from my Idaho Falls workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your workplace, home, or any location with reliable internet. Many Idaho Falls professionals attending boot camp participate from their office or during flexible work schedules. Check with your employer about quiet space and internet bandwidth before starting, especially if your organization has remote-work policies.</p>"
+        },
+        {
+          "question": "How does the Idaho Falls job market affect when to get PMP certified?",
+          "answer": "<p>Idaho Falls' strong nuclear energy and healthcare sectors mean PMP-certified candidates are in consistent demand year-round. However, certification before a role change or promotion within INL-connected contractors or regional healthcare networks can accelerate your advancement timeline and strengthen your candidacy. Starting boot camp early positions you ahead of internal promotion cycles and competitive hiring periods.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:48.062926Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b08d833adaff975e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Idaho Falls' project management demand centers on Idaho National Laboratory and its contractor ecosystem, alongside expanding healthcare and manufacturing sectors. Major initiatives like INL's modernization efforts and the proposed Versatile Test Reactor create sustained demand for credentialed project managers across research, healthcare, and local government roles. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Idaho Falls professionals seeking formal certification.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:49.791062Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "cecef7868b122488",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Idaho Falls, ID, PMP bootcamp Idaho Falls, PMP certification boot camp Idaho Falls, ID, PMP bootcamp near me, intensive PMP training Idaho Falls",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/\",\n      \"name\": \"PMP Boot Camp in Idaho Falls, ID | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Idaho Falls, ID. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Idaho Falls, ID\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/#course\",\n      \"name\": \"PMP Boot Camp in Idaho Falls, ID\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Idaho Falls, ID. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-idaho-falls-id/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

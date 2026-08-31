@@ -564,5 +564,164 @@
         "pages_skipped": 0,
         "pages_backed_up": 5,
         "errors": []
+    },
+    {
+        "run_id": "e7d23d8d7b1d249a",
+        "started_at": "2026-08-31T04:06:18+00:00",
+        "finished_at": "2026-08-31T04:06:18+00:00",
+        "duration_ms": 4,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "dayton-oh"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 4,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "05001072ea302306",
+        "started_at": "2026-08-31T04:13:56+00:00",
+        "finished_at": "2026-08-31T04:13:56+00:00",
+        "duration_ms": 5,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "fayetteville-nc"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 4,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "c305e8c8a0733e15",
+        "started_at": "2026-08-31T04:13:56+00:00",
+        "finished_at": "2026-08-31T04:13:56+00:00",
+        "duration_ms": 4,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "killeen-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 4,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "87b31605a3a5c4e0",
+        "started_at": "2026-08-31T04:24:26+00:00",
+        "finished_at": "2026-08-31T04:24:26+00:00",
+        "duration_ms": 24,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "tier1",
+            "force_locked": false
+        },
+        "pages_written": 100,
+        "pages_skipped": 0,
+        "pages_backed_up": 12,
+        "errors": []
+    },
+    {
+        "run_id": "da3d1710330b83e9",
+        "started_at": "2026-08-31T04:24:31+00:00",
+        "finished_at": "2026-08-31T04:24:31+00:00",
+        "duration_ms": 13,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "tier2",
+            "force_locked": false
+        },
+        "pages_written": 60,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "8f2aa9f952b60fee",
+        "started_at": "2026-08-31T04:24:32+00:00",
+        "finished_at": "2026-08-31T04:24:32+00:00",
+        "duration_ms": 10,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "tier3",
+            "force_locked": false
+        },
+        "pages_written": 40,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "7ed2e40e123e7efa",
+        "started_at": "2026-08-31T04:24:32+00:00",
+        "finished_at": "2026-08-31T04:24:32+00:00",
+        "duration_ms": 26,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "tier4",
+            "force_locked": false
+        },
+        "pages_written": 140,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "1a498d8cc9544644",
+        "started_at": "2026-08-31T04:24:32+00:00",
+        "finished_at": "2026-08-31T04:24:32+00:00",
+        "duration_ms": 7,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "tier5",
+            "force_locked": false
+        },
+        "pages_written": 20,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
+    },
+    {
+        "run_id": "cf2042000fbc6b81",
+        "started_at": "2026-08-31T04:24:32+00:00",
+        "finished_at": "2026-08-31T04:24:32+00:00",
+        "duration_ms": 9,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "tier6",
+            "force_locked": false
+        },
+        "pages_written": 40,
+        "pages_skipped": 0,
+        "pages_backed_up": 0,
+        "errors": []
     }
 ]

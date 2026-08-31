@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "lincoln-ne",
+  "slug": "pmp-bootcamp-lincoln-ne",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "lincoln-ne",
+    "city": "Lincoln",
+    "state": "Nebraska",
+    "SS": "NE",
+    "city_slug": "lincoln-ne",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Lincoln's insurance and financial services sector, anchored by major employers like Ameritas and Assurity Life Insurance, drives steady demand for credentialed project managers. State government operations and University of Nebraska-Lincoln expansions further fuel opportunities across public and academic settings. Granite PM Academy delivers live-virtual PMP® Certification to Lincoln professionals seeking to advance their careers in this growing market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Lincoln's growing healthcare and public-sector organizations increasingly rely on certified project managers to coordinate complex initiatives across operations and infrastructure. Granite PM Academy's PMP Boot Camp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour education requirement, designed to fit working schedules while preparing you for the PMP exam. Earning your PMP credential positions you for advancement and higher compensation within Lincoln's mission-driven employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:49.650845Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "119a543ca0483af8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Lincoln: Certification for Insurance and Government Leaders",
+      "text": "<p>Lincoln's insurance and financial services sector—home to major employers like Ameritas, Assurity Life Insurance, and Union Bank & Trust—demands project managers who can navigate complex, regulated environments with confidence and structure. Whether you work in risk management, product development, or operational transformation, the Project Management Professional (PMP)® credential signals mastery of the frameworks and disciplines these organizations expect. State government operations and the University of Nebraska-Lincoln add further momentum to Lincoln's PM job market, creating consistent demand for certified professionals who can lead cross-functional teams and deliver results on time and within scope.</p><p>Granite PM Academy is a PMI Authorized Training Partner, and our PMP Boot Camp is designed for working professionals in Lincoln who need intensive, focused preparation. Our live-virtual, instructor-led format fits your schedule while delivering the full contact-hour curriculum required for PMP eligibility. Every instructor is an active certified practitioner—they bring real-world project experience from industries just like yours, translating theory into the decisions you'll make on the job. Upon completion, you'll be prepared to sit for the PMP exam and join thousands of credential holders who have accelerated their careers. Start your certification journey with Granite PM Academy today.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:53.684219Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "d8aa7ecf14bd9233",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification: Lincoln's Path to Credential Recognition",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Advantage",
+          "text": "Granite PM Academy's PMI authorization ensures your boot camp hours count directly toward PMP eligibility—no questions about provider legitimacy. You complete the required contact hours through a vetted partner, streamlining your application to PMI."
+        },
+        {
+          "heading": "Live Instruction, Real-Time Learning",
+          "text": "Our live-virtual instructor-led format delivers the interactive, real-time teaching environment required to satisfy contact-hour mandates for PMP certification. You engage with instructors and peers throughout, not recorded video, meeting PMI's core training standards."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Granite's faculty are active, certified project and program managers applying PMP principles in their own roles. Their current field experience surfaces practical exam scenarios and workplace context beyond textbook content."
+        },
+        {
+          "heading": "Lincoln's Growing PM Job Market Demands Credentials",
+          "text": "Insurance firms (Ameritas, Assurity), financial services (Nelnet, Union Bank & Trust), state government, and healthcare (Bryan Health, CHI Health) increasingly hire certified project managers. The PMP credential strengthens your candidacy in Lincoln's largest employment sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:58.401736Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5a25f41c014d0802",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Nebraska's Capital",
+      "text": "<p>Lincoln's government, healthcare, and insurance sectors are primary employers of certified project managers. The Nebraska State Government and state-based firms like Ameritas and Assurity Life Insurance regularly staff projects requiring formal PM credentials and structured delivery methodologies. University of Nebraska-Lincoln's ongoing campus expansions and research facility development, alongside healthcare systems Bryan Health and CHI Health St. Elizabeth, create sustained demand for professionals who can manage complex, multi-stakeholder initiatives. Duncan Aviation and Kawasaki Motors Manufacturing also rely on project managers to oversee operations and facility improvements. These organizations increasingly list PMP certification or equivalent experience as a preferred qualification when hiring.</p><p>The PMP credential carries particular weight in Lincoln's insurance, healthcare, and government sectors, where standardized project delivery practices have become central to competitive operations. While project manager compensation in Lincoln tracks slightly below national metro averages, the city's lower cost of living and steady demand for PM talent across healthcare, finance, and public agencies make the credential a genuine career accelerant. Completing Granite PM Academy's PMP Boot Camp positions you to meet the qualification expectations these Lincoln employers value, opening pathways to roles with meaningful responsibility and professional growth in the city's strongest employment sectors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:02.555612Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "ff2eb297d9c0aa18",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Lincoln",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific eligibility criteria—which account for your educational background and years leading projects—before enrolling. Granite PM Academy's advisors can help you verify you meet the prerequisites for PMP candidacy."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our expert trainers deliver the full required contact hours over an intensive schedule, covering the PMBOK® Guide framework, real-world case studies, and exam-focused content. You'll learn alongside other Lincoln professionals in an interactive, collaborative environment."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your formal education, submit your PMP application directly to PMI. You'll document your project-management experience and education, then pay PMI's exam fee. Granite PM Academy provides guidance on the application process to ensure your submission is complete and accurate."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and Q&A sessions—to build confidence before test day. You'll schedule your computer-based exam with Pearson VUE at a testing center convenient to Lincoln. Our instructors remain available to clarify complex topics as you finalize your readiness."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, you'll earn your PMP credential and begin a three-year renewal cycle. Maintain your credential by earning professional development units (PDUs) through continued learning, certifications, and project-management contributions. Granite PM Academy offers ongoing PMP-focused training to help you accumulate PDUs and stay current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:08.389770Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "439604439359fe12",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Lincoln's government and healthcare sectors?",
+          "answer": "<p>Yes. Lincoln's largest employers—Nebraska State Government, Bryan Health, and CHI Health St. Elizabeth—increasingly list PMP or equivalent experience as a preferred qualification in job postings. These sectors are adopting standardized project delivery practices, making the credential a genuine competitive advantage for advancement and internal mobility within the city's most stable, growing employers.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP Boot Camp from my Lincoln workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office or home in Lincoln without travel. Many professionals in state government, insurance, and healthcare use their work environment to attend, though you should confirm with your employer about scheduling and internet access during business hours if you plan to attend during work time.</p>"
+        },
+        {
+          "question": "Which Lincoln employers actively recruit PMP-certified project managers?",
+          "answer": "<p>Insurance and financial services firms (Ameritas, Assurity Life Insurance, Nelnet, Union Bank & Trust), the University of Nebraska-Lincoln, state government agencies, and healthcare systems (Bryan Health, CHI Health St. Elizabeth) regularly seek PMP-credentialed professionals. The credential signals capability in complex, regulated environments where these organizations operate.</p>"
+        },
+        {
+          "question": "Should I get PMP certified before or after changing jobs in Lincoln?",
+          "answer": "<p>Earning the credential before a job transition strengthens your candidacy, especially in Lincoln's competitive insurance, healthcare, and government sectors. Since PMP demand is steady and growing across the city's major employers, certification now positions you to move within or between industries—from higher education to state government to healthcare—with credibility intact.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:13.347874Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b4a5607842ab21f6",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lincoln's project management demand is driven by a robust insurance and financial services sector alongside state government operations and University of Nebraska-Lincoln's ongoing campus expansions. Major employers including Ameritas, Nelnet, and Bryan Health regularly recruit skilled PMs for infrastructure, technology, and healthcare initiatives. Granite PM Academy delivers live-virtual PMP® Boot Camp instruction tailored to Lincoln professionals seeking certification and career advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:14.995108Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9474762e2f806365",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Lincoln, NE, PMP bootcamp Lincoln, PMP certification boot camp Lincoln, NE, PMP bootcamp near me, intensive PMP training Lincoln",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/\",\n      \"name\": \"PMP Boot Camp in Lincoln, NE | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Lincoln, NE. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Lincoln, NE\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/#course\",\n      \"name\": \"PMP Boot Camp in Lincoln, NE\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Lincoln, NE. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lincoln-ne/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

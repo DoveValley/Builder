@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "pensacola-fl",
+  "slug": "pmp-bootcamp-pensacola-fl",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "pensacola-fl",
+    "city": "Pensacola",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "pensacola-fl",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Pensacola's project management demand is anchored by Naval Air Station Pensacola and a diversifying economy spanning healthcare, aerospace maintenance, and financial services. Complex initiatives—from NAS infrastructure modernization to Navy Federal Credit Union's campus expansion—require professionals who can coordinate multi-department efforts across defense, healthcare, and manufacturing sectors. Granite PM Academy delivers live-virtual PMP® Certification training to Pensacola professionals seeking the credential employers in this region increasingly value.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Pensacola's defense and aerospace sector relies on project managers who speak PMI's language, and Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that satisfies PMI's rigorous contact-hour requirements for the credential. Our accelerated format gets working professionals across the panhandle exam-ready without disrupting their careers. Earn your PMP and position yourself for advancement in the region's largest employers and the contractors supporting them.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:07.513547Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "77548c6a0cf87fc9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Pensacola: Project Management Certification for Military & Aerospace Professionals",
+      "text": "<p>Pensacola's economy runs on complex, mission-critical projects. With Naval Air Station Pensacola as the region's largest employer and a thriving aerospace maintenance sector anchored by firms like ST Engineering Aerospace, the demand for credentialed project managers has become essential. Defense contractors, naval commands, and the supporting supply chain all depend on professionals who can coordinate budgets, timelines, and cross-functional teams under rigorous compliance frameworks. A PMP® certification signals to employers in Pensacola—from NAS to Baptist Health Care to Navy Federal Credit Union—that you possess the discipline and methodology to lead projects that matter. In a market where project management rigor directly impacts mission success and organizational efficiency, the PMP credential is no longer optional.</p><p>Granite PM Academy delivers PMP Boot Camp as a PMI Authorized Training Partner, offering live-virtual, instructor-led training that meets the contact-hour requirements for PMP® eligibility. Our instructors are active certified practitioners who bring real-world experience from industries like defense, healthcare, and financial services—the sectors driving Pensacola's growth. We combine structured curriculum with practical problem-solving so you're ready not just to pass the exam, but to apply PMP principles on day one. Whether you're advancing within a military contracting firm, a healthcare system, or an aerospace operation, our boot camp accelerates your path to certification and positions you for higher-impact roles where project leadership drives career advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:11.984063Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a08238cd691241c5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Accelerator for Pensacola Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI® authorization, ensuring your boot camp hours count toward PMP® eligibility without question. Direct alignment with Project Management Institute® requirements removes guesswork and protects your certification timeline."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Instructor-led virtual sessions deliver the contact hours required for PMP® certification while accommodating Pensacola's working schedules. Engage with certified trainers in real time, ask questions, and complete your prerequisite training without relocating."
+        },
+        {
+          "heading": "Practitioners Teaching Practitioners",
+          "text": "Our instructors hold active PMP® credentials and apply project management daily in defense, healthcare, and aerospace roles. Learn from professionals navigating the same industries and challenges you face in Pensacola's market."
+        },
+        {
+          "heading": "Credential Aligned to Local Demand",
+          "text": "Naval Air Station Pensacola, Navy Federal, Baptist Health Care, and ST Engineering actively seek PMP®-certified project managers. The boot camp equips you for advancement in the military-industrial, healthcare, and aviation sectors anchoring Pensacola's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:15.609321Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "6b8df212c5b8848b",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Military-Anchored Pensacola",
+      "text": "<p>Naval Air Station Pensacola stands as the region's largest employer and primary driver of project management hiring across defense contracting, aerospace maintenance, and facility modernization. The NAS Pensacola infrastructure modernization initiative alone has created sustained demand for certified PMs managing complex, standards-bound work. Beyond defense, Baptist Health Care, Ascension Sacred Heart, and Navy Federal Credit Union—each expanding operations and upgrading systems—actively recruit project managers to oversee capital projects, technology rollouts, and organizational change. The Navy Federal Credit Union campus expansion and downtown Pensacola redevelopment initiatives represent the kind of multi-stakeholder, regulated projects where PMP and CAPM credentials signal competency employers now expect.</p><p>Project manager compensation in Pensacola tracks slightly below larger Florida metros, but demand in defense, healthcare, and financial services is strong, and PMP certification positions you competitively for higher-paying roles that typically command premium responsibility and scope. As more Pensacola-area employers—particularly those in defense contracting and healthcare administration—list PMP or CAPM as preferred or required, completing the PMP Boot Camp through Granite PM Academy directly aligns your credential with local hiring criteria. A recognized certification removes ambiguity from your qualifications and speeds your path into leadership roles managing the infrastructure, technology, and operational projects reshaping Pensacola's economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:20.118891Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "cb20bf7e9a45d992",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Pensacola",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific hour thresholds based on your degree level. Granite PM Academy's advisors can clarify your qualification status before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Attend all sessions synchronously with experienced instructors and fellow Pensacola professionals. You'll earn the 35 PMI contact hours required to apply for the PMP exam."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, submit your formal PMP application directly to PMI. Include your education credentials, work experience details, and proof of the 35 contact hours from Granite PM Academy. Pay the PMI examination fee when you file."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor guidance to build confidence. Schedule your exam through Pearson VUE at a local testing center. Sit for the four-hour, computer-based PMP examination on your chosen date."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to the three-year renewal cycle by earning Professional Development Units (PDUs) through training, volunteer work, and professional engagement. Granite PM Academy offers continuing education to help you stay current and compliant."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:24.206228Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "50ddbf3ec820297d",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Pensacola defense and aerospace careers?",
+          "answer": "<p>Yes. Defense contracting, aerospace maintenance, and related industries around NAS Pensacola increasingly list PMP or CAPM as preferred or required qualifications. Certified professionals stand out in a competitive market where standardized project management practices are becoming the norm. While Pensacola salaries track slightly below larger Florida metros, PMP holders qualify for higher-tier roles, making certification a direct path to advancement in the region's largest employment sector.</p>"
+        },
+        {
+          "question": "Which Pensacola employers actively seek PMP-certified project managers?",
+          "answer": "<p>Defense contractors, healthcare systems (Baptist Health Care, Ascension Sacred Heart, West Florida Hospital), Navy Federal Credit Union, and education institutions are primary drivers of PMP demand locally. Financial services and government agencies also increasingly post positions requiring or preferring the credential. Manufacturing and aerospace maintenance organizations value standardized PM practices. Certification signals readiness for these fast-growing sectors in Pensacola's job market.</p>"
+        },
+        {
+          "question": "Can I take the PMP Boot Camp live-virtual course from my Pensacola workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to attend from your workplace, home office, or any location with reliable internet. This is ideal for Pensacola professionals balancing full-time roles at NAS Pensacola, healthcare systems, financial services, or other major employers. You'll interact with instructors and peers in real time without commuting, making certification feasible around your existing schedule.</p>"
+        },
+        {
+          "question": "Should Pensacola project managers rush to certify, or is timing flexible?",
+          "answer": "<p>While demand for PMP and CAPM credentials is growing steadily across Pensacola's defense, healthcare, and financial services sectors, timing depends on your career goals. If you're targeting a promotion or competing for open roles, earlier certification improves your candidacy. The regional job market rewards certified professionals consistently, but there's no urgent rush if you're early in your PM career—plan around your current employer's project cycles and professional development budget.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:30.622538Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7cb7429bc017b85d",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Pensacola's project management demand is anchored by Naval Air Station Pensacola and a growing roster of healthcare, aerospace maintenance, and financial services employers like Navy Federal Credit Union—all coordinating increasingly complex initiatives across multiple departments. Major infrastructure projects, including the Pensacola Bay Bridge replacement and NAS modernization efforts, underscore the region's need for skilled PMs. Granite PM Academy delivers live-virtual PMP Boot Camp instruction to Pensacola professionals seeking certification and the credentials employers here value most.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:32.511807Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d1ac524fc09f9c00",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Pensacola, FL, PMP bootcamp Pensacola, PMP certification boot camp Pensacola, FL, PMP bootcamp near me, intensive PMP training Pensacola",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/\",\n      \"name\": \"PMP Boot Camp in Pensacola, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Pensacola, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Pensacola, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/#course\",\n      \"name\": \"PMP Boot Camp in Pensacola, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Pensacola, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-pensacola-fl/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

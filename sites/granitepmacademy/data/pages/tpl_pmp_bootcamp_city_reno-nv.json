@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "reno-nv",
+  "slug": "pmp-bootcamp-reno-nv",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "reno-nv",
+    "city": "Reno",
+    "state": "Nevada",
+    "SS": "NV",
+    "city_slug": "reno-nv",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Reno's logistics and advanced manufacturing sector—anchored by Tesla's Gigafactory Nevada and Amazon's distribution operations—continues driving steady demand for certified project managers across construction, data centers, and infrastructure development. Major expansion projects at Switch's Citadel Campus and downtown's Neon Line District redevelopment underscore the region's need for skilled program leadership. Granite PM Academy delivers live-virtual PMP® Certification to Reno professionals ready to advance in this growing market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Reno's mining and construction sectors rely on skilled project managers to coordinate complex operations across remote sites and tight timelines. Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that fulfills PMI's contact-hour requirements and prepares you to sit for the PMP exam. Earning your PMP credential strengthens your qualifications for leadership roles in Reno's resource-extraction and development industries, where certified project managers command higher compensation and broader advancement opportunities.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:11.630491Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "232a91a0815505fa",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Reno: Accelerate Your Career in Advanced Manufacturing",
+      "text": "<p>Reno's transformation into a global advanced manufacturing and logistics hub has created unprecedented demand for certified project managers. Tesla's Gigafactory Nevada and Amazon's regional operations have raised the bar for project leadership across the region, while construction projects tied to the Tahoe Reno Industrial Center and downtown redevelopment continue to expand opportunities in infrastructure and program management. Whether you work in manufacturing, logistics, healthcare, or construction, the PMP® certification has become essential credential for advancing into leadership roles and commanding competitive compensation in Reno's growing professional market.</p><p>Granite PM Academy delivers intensive, instructor-led PMP Boot Camp training designed for working professionals in Reno who need to earn their credential quickly without sacrificing depth. As a PMI Authorized Training Partner, we offer live-virtual sessions taught by active certified practitioners who bring real-world project experience to every lesson. Our boot camp format satisfies PMI's required contact hours for PMP® eligibility, combines exam-focused preparation with practical frameworks you'll use immediately, and positions you to pass the certification exam with confidence. Start your path to PMP® certification and unlock leadership opportunities across Reno's thriving industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:15.885815Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "5829af99a345b2eb",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Fast-Track for Reno Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Instruction",
+          "text": "Granite PM Academy's boot camp meets PMI's strict training standards, ensuring your contact hours satisfy PMP eligibility requirements without doubt. You earn recognized credentials, not unvetted alternatives."
+        },
+        {
+          "heading": "Live Instructors, Real Experience",
+          "text": "Your instructors hold active PMP or CAPM certifications and work as practicing project managers. They teach current methodologies from the field, not theory alone, and answer questions grounded in day-to-day practice."
+        },
+        {
+          "heading": "Exam Prep Built In",
+          "text": "Boot camp curriculum aligns directly with PMP exam domains. You receive focused preparation, practice exams, and strategy guidance designed to help you pass on your first attempt."
+        },
+        {
+          "heading": "Match Tesla, Amazon, and Local Demand",
+          "text": "Reno's tech, manufacturing, and logistics employers—including Tesla Gigafactory Nevada and Amazon—actively hire certified project managers. PMP credential opens doors to senior roles and competitive compensation in your region's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:19.875824Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1c13ebc29fa3306a",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Reno's Growing Industrial Hub",
+      "text": "<p>Reno's economy is anchored by advanced manufacturing and logistics operations that demand rigorous project oversight. Tesla's Gigafactory Nevada and the expansion of Switch's Citadel Campus data center are reshaping the region's infrastructure and creating sustained demand for certified project managers. Beyond these flagship employers, Amazon, Panasonic, and construction firms driving the Reno-Tahoe International Airport terminal improvements and Downtown Reno's Neon Line District redevelopment actively recruit professionals with formal project-management credentials. Healthcare systems like Renown Health and public employers including Washoe County School District also rely on PMP-certified leaders to manage complex initiatives.</p><p>The PMP credential carries measurable weight in Reno's job market—particularly in construction, manufacturing, and healthcare sectors where formalized project oversight is increasingly expected or required. While compensation for project managers in this region remains competitive within Nevada and reflects steady regional demand, it typically tracks slightly below larger West Coast metros, making the cost of certification a smart early-career investment. Completing Granite PM Academy's PMP Boot Camp positions you to stand out among local candidates and advance into roles managing the infrastructure, industrial, and logistics projects that define Reno's next growth phase.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:23.874674Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "b7e7195d9408224e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Reno",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review PMI's official guidelines to confirm your background qualifies, then gather documentation of your work history and formal education to support your application."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Attend all sessions synchronously with experienced instructors, interact with peers, and earn the formal education hours PMI requires before you can apply for the credential."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "File your PMP application directly with PMI, providing proof of your education, work experience, and boot camp completion. Pay PMI's examination fee to activate your application and secure your eligibility to sit for the exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, review materials, and guidance—to reinforce your knowledge. Schedule your proctored PMP exam through PMI's testing partner and complete the computer-based assessment at your chosen testing center."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) throughout your three-year certification cycle by attending training, conferences, or professional activities. Submit your PDU record to PMI before your renewal deadline to maintain your active PMP status."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:28.640126Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "a78f398e1f53194f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in Reno's advanced manufacturing sector?",
+          "answer": "<p>Yes. Reno's rapid growth in battery production and EV manufacturing—anchored by major facilities like Tesla's Gigafactory Nevada—has created sustained demand for formalized project management expertise. PMP certification is increasingly listed as preferred or required in local manufacturing and construction job postings, giving certified professionals a competitive edge in a region where industrial oversight and structured project delivery are now core business requirements.</p>"
+        },
+        {
+          "question": "Which Reno employers actively hire PMP-certified project managers?",
+          "answer": "<p>Construction firms, healthcare systems like Renown Health, logistics operators including Amazon and Switch data centers, and advanced manufacturing employers across the region seek PMP-certified professionals. Gaming and hospitality companies also value the credential for capital projects and operational initiatives. The credential is particularly valued in sectors where formalized project oversight directly supports Reno's infrastructure and industrial growth trajectory.</p>"
+        },
+        {
+          "question": "Can I attend PMP Boot Camp online from my Reno workplace or home?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual PMP Boot Camp format allows Reno professionals to participate from their office, home, or any location with reliable internet. This flexibility is especially valuable for working professionals in Reno's logistics, manufacturing, and healthcare sectors who need to balance certification training with ongoing job responsibilities without relocation or commuting constraints.</p>"
+        },
+        {
+          "question": "Should Reno project managers pursue PMP certification before or after job searching?",
+          "answer": "<p>Pursuing certification before actively job searching gives you an edge in Reno's competitive market. With PMP increasingly listed as preferred or required in local construction, healthcare, and manufacturing postings, completing the boot camp now positions you to respond quickly to openings. Given the region's steady demand for trained project managers, early certification can accelerate your entry into higher-responsibility roles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:34.194426Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0b55ebf18c47fca4",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Reno's logistics and advanced manufacturing boom—anchored by Tesla's Gigafactory Nevada and Amazon's regional operations—has created sustained demand for certified project managers across construction, data centers, and infrastructure. Downtown redevelopment and airport improvements add to the pipeline of leadership roles requiring PMP® credentials. Granite PM Academy delivers live-virtual PMP Boot Camp instruction tailored to Reno professionals navigating these growth sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:35.736310Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "80b3a2c07769448a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-reno-nv/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Reno, NV, PMP bootcamp Reno, PMP certification boot camp Reno, NV, PMP bootcamp near me, intensive PMP training Reno",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/\",\n      \"name\": \"PMP Boot Camp in Reno, NV | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Reno, NV. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Reno, NV\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/#course\",\n      \"name\": \"PMP Boot Camp in Reno, NV\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Reno, NV. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-reno-nv/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

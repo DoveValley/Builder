@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "allentown-pa",
+  "slug": "pmp-bootcamp-allentown-pa",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "allentown-pa",
+    "city": "Allentown",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "allentown-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Allentown's healthcare and advanced manufacturing sectors—anchored by employers like Lehigh Valley Health Network and Air Products—drive consistent demand for skilled project managers overseeing facility expansions, process improvements, and large-scale operations. Major initiatives such as downtown revitalization through the Neighborhood Improvement Zone and regional logistics growth create steady career opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification training to Allentown professionals seeking to advance in this competitive market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Allentown's manufacturing and logistics sectors rely on project managers to coordinate complex supply chains and production schedules. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led training and PMI contact hours required to sit for the PMP credential, structured to fit your working schedule. Earning your PMP positions you for leadership roles and higher compensation within the region's growing operations and engineering management pipeline.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:54.329696Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2ea004adb59a91e3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Allentown: Fast-Track Certification for Healthcare Leaders",
+      "text": "<p>Allentown's healthcare sector—anchored by Lehigh Valley Health Network and St. Luke's University Health Network—drives significant demand for skilled project managers who can oversee facility expansions, clinical system implementations, and operational transformations. These major health systems, along with advanced manufacturers like Air Products and Mack Trucks, consistently seek PMP-certified professionals to lead complex, cross-functional initiatives. The Lehigh Valley's position as a regional hub for healthcare delivery, logistics, and industrial operations means project management expertise translates directly into career advancement and competitive salary positioning in Allentown's job market.</p><p>Granite PM Academy's PMP Boot Camp is delivered by PMI-authorized instructors—active certified practitioners who bring real-world experience from healthcare, manufacturing, and enterprise environments. Our live-virtual, instructor-led format condenses the credential pathway into an intensive schedule, satisfying all contact-hour requirements while accommodating working professionals in Allentown. You'll gain mastery of the PMBOK Guide framework, exam strategy, and practical application in a structured cohort setting. Upon completion, you'll be positioned to sit for the PMP examination and earn the credential recognized globally by employers across the industries driving Allentown's growth.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:58.358796Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "8e5752bfd54d9098",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Fast-Track for Allentown Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI® Authorized Training Partner status, ensuring your boot camp hours meet the Project Management Institute's strict requirements for PMP® eligibility and maintain the credential's industry recognition."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Instructor-led live-virtual sessions let you complete required contact hours without relocating. Attend from your Allentown workplace or home, keeping your job and family commitments intact while preparing for exam success."
+        },
+        {
+          "heading": "Instructors Still Managing Projects",
+          "text": "Your instructors hold active PMP® certifications and manage real projects today—not just teach theory. They bring current best practices from their own portfolios into every lesson, strengthening your practical readiness."
+        },
+        {
+          "heading": "Credential Demand Across Lehigh Valley Industries",
+          "text": "Healthcare systems, manufacturing plants, logistics networks, and construction firms across Allentown actively hire PMP®-certified professionals for leadership roles. The credential directly aligns with career advancement at major local employers and opens doors region-wide."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:02.361050Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "57880f0183d29b71",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Allentown's Growing Market",
+      "text": "<p>Allentown's healthcare and manufacturing sectors drive consistent demand for certified project managers. Lehigh Valley Health Network and St. Luke's University Health Network are undertaking major facility expansions and campus modernization efforts that require skilled project leadership across clinical, operational, and infrastructure domains. Simultaneously, manufacturers like Mack Trucks (Volvo Group) and Air Products and Chemicals, along with the region's expanding logistics presence anchored by Amazon, depend on structured project delivery to meet production timelines and operational goals. The downtown Allentown Neighborhood Improvement Zone redevelopment—including the PPL Center arena district—has also created demand for project professionals in real estate development and construction management.</p><p>The PMP credential carries real weight in Allentown's job market, particularly among healthcare systems, industrial manufacturers, and logistics employers where disciplined project execution is non-negotiable. While certification is not universally required, holding a PMP or CAPM designation meaningfully strengthens your competitiveness in local postings and positions you for roles with stronger compensation as employers increasingly value certified expertise. Completing the PMP Boot Camp through Granite PM Academy equips you with both the technical knowledge and the credential employers in the Lehigh Valley actively seek—giving you a concrete advantage as you advance your career in a market where experienced project managers remain in steady demand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:06.511537Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "d35f2fc2fc4ade3b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Allentown",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review your academic background and documented work hours leading teams or managing projects. PMI sets specific thresholds; Granite PM Academy's admissions team will review your profile before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Attend all required formal education sessions synchronously with experienced instructors. This structured coursework covers the PMBOK Guide framework and prepares you directly for PMI's examination standards."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "File your official PMI credential application and pay the associated examination fee. Document your project experience and education through PMI's portal. Our team can guide you through the submission process to ensure accuracy and completeness."
+        },
+        {
+          "heading": "Prepare and Sit for Your Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and strategy sessions. Schedule your proctored exam when you feel confident. Our instructors remain available to clarify complex topics and reinforce readiness before test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn continuing professional development units (PDUs) over PMI's standard three-year renewal cycle. Engage in training, volunteer work, or professional activities that strengthen your project-management expertise. Renew with PMI before your credential expires to remain certified."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:11.689826Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "4beba8cb1751b30a",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Allentown healthcare and manufacturing careers?",
+          "answer": "<p>Yes. Allentown's largest employers—Lehigh Valley Health Network, St. Luke's University Health System, Mack Trucks, Air Products, and B. Braun Medical—increasingly favor PMP or CAPM credentials for project management roles. In healthcare and manufacturing especially, structured project delivery is critical, and certification meaningfully strengthens your competitiveness in local job postings. While not universally required, holding the credential signals readiness for larger, more complex initiatives and typically improves advancement prospects.</p>"
+        },
+        {
+          "question": "Which Allentown employers most value PMP certification for project managers?",
+          "answer": "<p>Healthcare systems (Lehigh Valley Health Network, St. Luke's), industrial manufacturers (Mack Trucks, Air Products, B. Braun Medical), and logistics operations (Amazon, local distribution centers) actively recruit certified project managers. PPL Corporation, Cedar Crest College, and the City of Allentown also prioritize the credential for roles requiring compliance, budget oversight, and cross-functional coordination. These sectors represent Allentown's strongest job markets for certified professionals.</p>"
+        },
+        {
+          "question": "Can I attend Allentown PMP boot camp live-virtual from my workplace or home?",
+          "answer": "<p>Yes. Our live-virtual PMP Boot Camp format allows you to join from any location with internet access—your office, home, or elsewhere in the Lehigh Valley. This flexibility is ideal for Allentown professionals who want to earn their credential without commuting or disrupting their current role. You'll interact with instructors and peers in real time while maintaining your work schedule.</p>"
+        },
+        {
+          "question": "When should Allentown professionals pursue PMP certification given local job market demand?",
+          "answer": "<p>Demand for certified project managers in Allentown remains consistently strong across healthcare, manufacturing, and logistics. The best time is when you're ready to advance into higher-responsibility roles or plan a job transition—the credential typically takes weeks to complete and positions you competitively before applying. Given the concentration of large employers in the Lehigh Valley, pursuing certification sooner rather than later can accelerate your career growth and marketability.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:18.179062Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "92a24606b701a79f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Allentown's healthcare and advanced manufacturing sectors—anchored by employers like Lehigh Valley Health Network and Air Products—drive consistent demand for skilled project managers overseeing facility expansions, process improvements, and large-scale operations. The city's downtown revitalization and industrial growth projects further sustain opportunities for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Boot Camp training to Allentown professionals seeking certification on a schedule that fits working life.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:19.463606Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "947112f5bbeb0fb3",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-allentown-pa/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Allentown, PA, PMP bootcamp Allentown, PMP certification boot camp Allentown, PA, PMP bootcamp near me, intensive PMP training Allentown",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/\",\n      \"name\": \"PMP Boot Camp in Allentown, PA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Allentown, PA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Allentown, PA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/#course\",\n      \"name\": \"PMP Boot Camp in Allentown, PA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Allentown, PA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-allentown-pa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

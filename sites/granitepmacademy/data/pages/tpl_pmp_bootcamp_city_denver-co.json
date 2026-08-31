@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "denver-co",
+  "slug": "pmp-bootcamp-denver-co",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "denver-co",
+    "city": "Denver",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "denver-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Denver's aerospace and defense sector—anchored by Lockheed Martin and supported by robust telecommunications, energy, and healthcare industries—drives consistent demand for credentialed project managers. Major initiatives like the RTD FasTracks Transit Expansion and Central 70 Project underscore the city's ongoing infrastructure investment, creating real opportunities for professionals holding the PMP® credential. Granite PM Academy delivers live-virtual PMP Certification training tailored to Denver's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Denver's energy, aerospace, and construction sectors rely heavily on PMP-certified project managers to lead complex, regulated initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI contact-hour education requirement through instructor-led training on a schedule that fits working professionals, positioning you to qualify for the PMP credential and command stronger roles across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:46.939397Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2ac4604ea2367661",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp Denver: Intensive Certification for Aerospace & Defense Professionals",
+      "text": "<p>Denver's aerospace and defense sector—anchored by major employers like Lockheed Martin—demands project managers who can deliver complex, regulated programs on schedule and within budget. Beyond aerospace, the city's robust economy spanning telecommunications, energy, healthcare, and financial services creates steady demand for professionals who hold the Project Management Professional (PMP)® credential. Whether you're managing infrastructure projects, healthcare initiatives, or technology implementations across Denver's diverse industries, the PMP® certification signals to employers that you possess the technical rigor and professional standards they require. An intensive boot camp format lets you compress months of self-study into a focused training experience, allowing you to enter the job market or advance within your current organization without prolonged delays.</p><p>Granite PM Academy delivers PMP® Boot Camp as a PMI Authorized Training Partner, offering live-virtual instructor-led training taught by active certified practitioners who apply real-world project management in their own careers. Our program satisfies the contact-hour requirement mandated by the Project Management Institute and prepares you for the PMP® exam with the depth and pacing that working professionals need. Whether you're seeking promotion within Denver's aerospace ecosystem, transitioning into project management, or building credentials across industries, our intensive format and expert instruction position you to earn your PMP® credential and step confidently into your next career milestone.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:51.381320Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "861d08ceb33de892",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Denver's Aerospace and Defense Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your boot camp meets all PMI requirements for PMP eligibility. Your investment counts toward the credential that employers across Denver's major industries—from Lockheed Martin to Kaiser Permanente—actively seek and value."
+        },
+        {
+          "heading": "Live Instruction, Real Contact Hours",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP application without sacrificing flexibility. Attend synchronously from your Denver office or home, interact with instructors in real time, and complete certification requirements on a timeline that fits your schedule."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Every Granite instructor holds active PMP certification and works as a practicing project manager. They bring current methodologies, real-world examples, and exam strategies refined in industries hiring in Colorado—telecommunications, energy, aerospace, and financial services."
+        },
+        {
+          "heading": "Credential Demand Across Denver Employers",
+          "text": "PMP certification is a credential benchmark for program and project roles at Denver's largest employers: Lockheed Martin, United Airlines, DaVita, Charles Schwab, and the City and County of Denver all hire certified project managers. This boot camp positions you directly for those opportunities."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:55.999550Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b77c86bd80655ade",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Denver's Growth Industries",
+      "text": "<p>Denver's aerospace and defense sector anchors strong demand for certified project managers. Lockheed Martin and other defense contractors in the region manage complex, multi-year initiatives that require rigorous project governance—precisely what PMP® certification demonstrates. Beyond aerospace, healthcare employers like Kaiser Permanente Colorado and Children's Hospital Colorado rely on certified PMs to oversee clinical IT implementations, facility expansions, and service-line launches. Telecommunications and financial services firms—including Lumen Technologies, Western Union, and Charles Schwab—also actively seek PMs with credentials. Local infrastructure projects such as the RTD FasTracks Transit Expansion and the Central 70 Project illustrate the scale and complexity of work happening here, work that depends on skilled project leadership.</p><p>PMP® and CAPM® credentials carry real weight in Denver's job market, particularly among aerospace, healthcare, and IT employers who list these qualifications as preferred or required. Project manager compensation in the Denver area remains competitive with national urban averages, and those holding a PMP® credential often see above-average earning potential as employers recognize the standardized competency the credential signals. Completing Granite PM Academy's PMP Boot Camp positions you to qualify for these high-visibility roles and command stronger compensation as the Denver market continues to expand its tech, aerospace, and healthcare footprint. In a city where certified talent is actively sought, the credential translates directly into career momentum.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:00.396549Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "ef84970da0481f67",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Denver",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma will determine your required experience hours. Granite PM Academy can help you assess whether you qualify before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Denver-based instructors deliver the full PMI-required curriculum across interactive sessions. You'll cover the PMBOK® Guide framework, exam domains, and real-world application—earning all contact hours needed to satisfy PMI's prerequisite for application."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your boot camp, submit your formal PMP application directly to PMI. You'll document your project-management experience and education, then pay PMI's exam fee. Granite PM Academy guides you through the application process to ensure accuracy and timely submission."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor office hours—to reinforce what you've learned. When you're ready, schedule your proctored PMP exam through PMI's testing partner. Our instructors remain available to clarify concepts as you close knowledge gaps."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to the standard three-year renewal cycle by earning professional development units (PDUs). Granite PM Academy offers continuing education courses, webinars, and resources to help you accumulate PDUs and stay current with project-management best practices."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:06.239846Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "acdd9cfc624a89c2",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Denver aerospace and defense careers?",
+          "answer": "<p>Yes. Denver's aerospace and defense sector—anchored by major employers like Lockheed Martin—consistently seeks project managers with PMP or CAPM credentials as a signal of standardized competency. Certification strengthens your candidacy for roles managing complex, regulated programs typical of defense contracting, and positions you competitively within a robust local talent market where demand for certified PMs outpaces supply.</p>"
+        },
+        {
+          "question": "Which Denver employers value PMP certification most in job postings?",
+          "answer": "<p>Healthcare systems like Kaiser Permanente Colorado and Children's Hospital Colorado, tech and telecom firms including Lumen Technologies and Charles Schwab, and aerospace firms regularly list PMP or CAPM as preferred or required qualifications. The City and County of Denver and energy companies also prioritize the credential. Across these sectors, certified project managers command stronger candidacy and often negotiate above-average compensation packages locally.</p>"
+        },
+        {
+          "question": "Can I attend Denver's live-virtual PMP Boot Camp from my workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet. Many Denver professionals—especially those at larger employers like United Airlines, DaVita, or Arrow Electronics—attend during flexible schedules without relocating. Check your company's policies on professional development and any workspace video-call facilities before enrolling.</p>"
+        },
+        {
+          "question": "How does Denver's job market affect the timing of PMP certification?",
+          "answer": "<p>Denver's growing tech, healthcare, and aerospace sectors mean demand for certified project managers remains strong year-round. However, many companies budget for professional development in Q1 and budget cycles often align with hiring surges in spring and fall. Certifying before peak hiring seasons—or before applying to roles at Lockheed Martin, Kaiser, or other major local employers—can accelerate your entry into higher-compensation positions.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:12.452392Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "230b2bdb5e37eda3",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Denver's aerospace and defense sector—anchored by employers like Lockheed Martin—drives robust demand for credentialed project managers across the city's diverse economy. Infrastructure initiatives including the RTD FasTracks Transit Expansion and Central 70 Project further fuel opportunities for skilled PMs in energy, telecommunications, and healthcare. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Denver professionals seeking to advance their careers through PMI certification.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:14.226965Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a869103768d90740",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-denver-co/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Denver, CO, PMP bootcamp Denver, PMP certification boot camp Denver, CO, PMP bootcamp near me, intensive PMP training Denver",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/\",\n      \"name\": \"PMP Boot Camp in Denver, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Denver, CO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Denver, CO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/#course\",\n      \"name\": \"PMP Boot Camp in Denver, CO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Denver, CO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-denver-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

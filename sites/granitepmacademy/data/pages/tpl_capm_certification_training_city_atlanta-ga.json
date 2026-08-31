@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "atlanta-ga",
+  "slug": "capm-certification-training-atlanta-ga",
+  "title": "CAPM Certification & Boot Camp {city}",
+  "city_vars": {
+    "id": "atlanta-ga",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "SS": "GA",
+    "city_slug": "atlanta-ga",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier5"
+    ],
+    "city_spotlight": "<p>Atlanta's logistics and supply-chain infrastructure—anchored by UPS, Delta Air Lines, and Hartsfield-Jackson International Airport's ongoing capital modernization—creates consistent demand for credentialed project managers across the metro area. The city's diverse economy in technology, healthcare, and real estate development further expands PM career opportunities. Granite PM Academy delivers live-virtual PMP® Certification training designed for Atlanta professionals balancing work and study.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Atlanta's thriving logistics and distribution sector relies on entry-level project coordinators who understand PMI fundamentals. Granite PM Academy's CAPM Certification & Boot Camp delivers live-virtual, instructor-led training that satisfies PMI's required contact hours, positioning you to pass the CAPM exam and step into supervisory roles where credential holders command respect across Georgia's supply-chain operations.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:18.556177Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ed774c24259131fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification & Boot Camp in Atlanta for Growing Project Managers",
+      "text": "<p>Atlanta's logistics and supply chain sector stands as a defining force in the city's project management landscape, with industry leaders like UPS and The Home Depot anchoring sustained demand for certified professionals. Beyond these logistics powerhouses, Atlanta's economy thrives across healthcare systems, financial services, technology, and entertainment—sectors where project management expertise directly influences career advancement and organizational success. For professionals in Atlanta seeking to formalize their project management credentials, the Certified Associate in Project Management (CAPM) credential opens doors across these growth industries while establishing foundational competency recognized by the Project Management Institute.</p><p>Granite PM Academy delivers CAPM Certification & Boot Camp as a PMI Authorized Training Partner, offering live-virtual, instructor-led training designed to fit working professionals' schedules. Our courses satisfy the contact-hour requirements mandated by PMI for CAPM eligibility and are taught by active certified practitioners who bring real-world project experience into every session. Whether you work in Atlanta's logistics hub, healthcare network, or tech sector, our structured boot camp format accelerates your readiness for the CAPM exam while building practical skills you'll apply immediately. Your certification journey with Granite PM Academy positions you for advancement in Atlanta's competitive project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:22.082980Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "88eb910db0550895",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Atlanta's Project Management Path: CAPM Certification Fast-Tracked",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Validity",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status guarantees your CAPM preparation meets PMI standards. Atlanta employers—from Delta Air Lines to The Home Depot—trust PMI credentials. You earn recognized credentials, not certificates of attendance."
+        },
+        {
+          "heading": "Live Instruction Meets Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for CAPM eligibility while fitting Atlanta's working professional pace. Attend sessions from home or office, ask questions in real time, and complete requirements without relocating or taking extended leave."
+        },
+        {
+          "heading": "Learn From Active Practitioners",
+          "text": "Granite's instructors hold active CAPM and PMP credentials and work in Atlanta's supply chain, IT, healthcare, and construction sectors. They teach from real project experience—not theory alone—so you understand how to apply concepts on day one in your role."
+        },
+        {
+          "heading": "Credential Demand Across Atlanta Industries",
+          "text": "Atlanta's logistics, healthcare, fintech, and construction employers actively seek CAPM-certified professionals for coordinator and junior PM roles. The credential opens doors at major regional employers and signals readiness for advancement into higher-paying project-management tracks."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:26.857811Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "be89e7a274b22ef0",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Atlanta's Growth Industries",
+      "text": "<p>Atlanta's logistics and supply chain sector anchors local demand for certified project managers, with UPS and The Home Depot among the region's largest employers actively seeking candidates with formal PM credentials. Beyond logistics, Delta Air Lines, Southern Company, and The Coca-Cola Company regularly hire project managers to oversee operations and strategic initiatives. Real-world demand is visible in concrete projects reshaping the city: Hartsfield-Jackson Atlanta International Airport's ongoing capital improvement and terminal modernization work, the Centennial Yards mixed-use development in downtown Atlanta, and Microsoft's Atlanta data center and campus development all require experienced, credentialed project managers to keep teams aligned and deliverables on track. Healthcare systems including Emory Healthcare and Wellstar Health System, along with growing fintech and IT firms, further diversify opportunities across industries.</p><p>The CAPM credential is recognized throughout Atlanta's job market as a meaningful entry point for those building project management careers, particularly in logistics, IT, and healthcare roles where employers frequently list it as a preferred qualification. Project manager compensation in the region tracks close to national averages, with roles in tech and logistics often positioned at the higher end of that range—and PMP certification has proven leverage in salary negotiations. Completing the CAPM Certification & Boot Camp through Granite PM Academy positions you to step into a competitive local market where demand for credentialed talent remains strong and growing. Whether you're early in your career or transitioning into project management, this credential signals to Atlanta employers that you understand industry-standard practices and are serious about professional advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:30.961264Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "b45db157713c2471",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CAPM Boot Camp",
+          "badge": "BEST VALUE",
+          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Atlanta",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you hold a secondary diploma or equivalent and can complete the required contact hours of project management education. The CAPM credential requires no prior work experience, making it accessible to career changers and early-career professionals entering Atlanta's growing logistics and tech sectors."
+        },
+        {
+          "heading": "Complete 23 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format compresses the required education into a focused schedule, letting you balance certification prep with your current role while learning from experienced instructors who understand Atlanta's project environment."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing coursework, submit your official PMI application and pay the designated exam fee. Granite PM Academy guides you through the submission process to ensure your eligibility is confirmed before exam day."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and review sessions—to build confidence in the CAPM knowledge domains. Schedule your exam when ready and complete it at an authorized testing center in the Atlanta area."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your CAPM, commit to the three-year renewal cycle by earning professional development units through training, volunteer work, and project involvement. Granite PM Academy offers continuing education resources to help you sustain your certification and advance your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:35.687635Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "071b3266c9006bcf",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing for Atlanta logistics and supply chain roles?",
+          "answer": "<p>Atlanta's logistics sector—anchored by UPS, Delta, and other major employers—increasingly values credentialed project managers, particularly those managing complex supply-chain initiatives. CAPM demonstrates foundational PM discipline and positions you competitively for advancement within these high-demand roles. The credential signals readiness for leadership positions where process control and stakeholder communication directly impact operational efficiency.</p>"
+        },
+        {
+          "question": "Which Atlanta industries most actively seek CAPM or PMP certification?",
+          "answer": "<p>Atlanta's IT, healthcare (Emory, Wellstar), and logistics sectors show the strongest demand for certified project managers. Healthcare organizations particularly value credentials for clinical IT projects and operational improvements. Tech roles at Cox Enterprises, AT&T, and local fintech firms frequently list PMP or CAPM as preferred qualifications. Entertainment and construction sectors also recognize the credential as a career differentiator.</p>"
+        },
+        {
+          "question": "Can I attend CAPM boot camp classes while working at my Atlanta office?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual boot camp format allows you to attend from your office, home, or any location with reliable internet. This flexibility is ideal for Atlanta professionals balancing full-time roles at major employers while pursuing certification. You'll maintain your work schedule while completing the intensive training over the designated boot camp period.</p>"
+        },
+        {
+          "question": "How does Atlanta's project manager job market affect CAPM certification timing?",
+          "answer": "<p>Strong, sustained demand for credentialed PMs in Atlanta—especially in logistics, IT, and healthcare—means certification can accelerate your career trajectory year-round. However, many employers post roles in Q1 and Q3, so timing your CAPM completion before these hiring cycles gives you a competitive edge in salary negotiations and role selection within the Atlanta market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:41.802481Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e16181369f8f7e80",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Atlanta's logistics and supply chain sector—anchored by UPS, Delta Air Lines, and The Home Depot—fuels steady demand for skilled project managers across the metro area. Beyond transportation and retail, the city's expanding tech ecosystem, healthcare institutions, and infrastructure projects like MARTA transit expansion create diverse career pathways for certified professionals. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp designed for Atlanta's working professionals seeking PMI® credential recognition and practical skill advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:43.792027Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "e6502a037e0de4c3",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-atlanta-ga/",
+    "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Atlanta, GA, CAPM boot camp Atlanta, CAPM training Atlanta, GA, CAPM classes Atlanta GA, CAPM exam prep Atlanta",
+    "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification & Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification & Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/\",\n      \"name\": \"CAPM Certification & Boot Camp in Atlanta, GA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Atlanta, GA. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Atlanta, GA\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Atlanta, GA\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Atlanta, GA. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-atlanta-ga/\"\n    }\n  ]\n}",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "b94b510d8a403901d4e015501d62b58f"
+}

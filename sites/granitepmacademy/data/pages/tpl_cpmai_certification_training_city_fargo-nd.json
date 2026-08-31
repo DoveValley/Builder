@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "fargo-nd",
+  "slug": "ai-training-fargo-nd",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "fargo-nd",
+    "city": "Fargo",
+    "state": "North Dakota",
+    "SS": "ND",
+    "city_slug": "fargo-nd",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Fargo's healthcare sector—anchored by Sanford Health and complemented by growing tech and manufacturing employers like Microsoft and CNH Industrial—regularly seeks skilled project managers for facility expansions, system implementations, and product development. The city's diversified, stable economy creates consistent demand for PMP-certified professionals across multiple industries. Granite PM Academy serves Fargo professionals with live-virtual PMP Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Fargo's healthcare and technology sectors increasingly rely on project managers who can integrate AI tools into their workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI's contact-hour requirements, letting you earn credentials without leaving North Dakota. Mastering AI-enhanced project management positions you competitively in Fargo's growing sectors where automation and data-driven decision-making drive career advancement.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:42.372478Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6bbfba7acfab4e79",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Fargo, North Dakota",
+      "text": "<p>Fargo's healthcare systems—led by Sanford Health and Essentia Health—are driving urgent demand for project managers who can navigate digital transformation, clinical system implementations, and care-delivery expansions. These large, mission-critical initiatives require PMs who understand both traditional project governance and the emerging role of artificial intelligence in planning, resource optimization, and risk management. As healthcare organizations across Fargo invest in AI-enabled platforms and data analytics infrastructure, certified project managers with AI competency command real competitive advantage in a market where healthcare employers consistently seek skilled PM talent to lead complex, technology-centered change.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for working project managers in Fargo. Our curriculum satisfies the contact-hour requirements for PMP® and CAPM® credential maintenance and advancement, taught by active certified practitioners who bring real-world experience from organizations like those operating in Fargo's healthcare, technology, and agribusiness sectors. Whether you are strengthening your existing certification or pursuing your first credential, our flexible scheduling and expert instruction position you to integrate AI tools and methodologies into your project leadership—equipping you to lead the next generation of Fargo's most demanding initiatives.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:46.521398Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "7785fbfe094d618c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills Drive Project Management Demand Across Fargo's Healthcare and Tech Sectors",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your training meets PMI's rigorous standards. Employers at Sanford Health, Microsoft, and CNH Industrial recognize PMI credentials as proof of genuine project-management competency—not generic certificates."
+        },
+        {
+          "heading": "Live Instruction Satisfies Certification Requirements",
+          "text": "Our live-virtual instructor-led format delivers the contact hours required for PMP® or CAPM® eligibility. You attend real-time sessions with active practitioners, not self-paced videos, ensuring both learning depth and regulatory compliance for PMI application."
+        },
+        {
+          "heading": "Certified Practitioners Teach Real-World Context",
+          "text": "Your instructors are working project managers holding active PMP® or CAPM® credentials. They bring current examples from healthcare systems, software deployments, and manufacturing environments—the industries where Fargo professionals build careers."
+        },
+        {
+          "heading": "Local Hiring Growth Rewards Certification",
+          "text": "Fargo's major employers—Sanford Health, Essentia Health, Microsoft, and Blue Cross Blue Shield of North Dakota—actively hire certified project managers. A PMI credential strengthens your candidacy in a market where healthcare and technology project leadership commands premium roles and competitive compensation."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:51.217267Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "dd89d887e5506dd5",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Fargo",
+      "text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—represents one of the region's most active markets for certified project managers, with facility expansions and service-delivery initiatives creating sustained demand for skilled practitioners. Technology employers, including Microsoft's expanding Fargo campus and its associated IT infrastructure projects, similarly seek PMs who can navigate complex deployments and cross-functional teams. Manufacturing and agribusiness firms like CNH Industrial (Case IH) also rely on certified project leaders to manage capital projects, supply-chain improvements, and operational transitions. Even the Fargo-Moorhead Metro Flood Diversion Project demonstrates how public and private collaboration in the region depends on rigorous project governance—a standard that extends across local employers in financial services, insurance, and higher education.</p><p>PMP and CAPM certifications carry real weight in Fargo's hiring landscape, particularly among mid- to senior-level roles where employers increasingly expect standardized project delivery practices. Compensation for certified project managers remains competitive relative to the region's cost of living, with healthcare, technology, and manufacturing organizations consistently offering strong packages to attract experienced talent. Completing AI Training for Project Managers through Granite PM Academy equips you with both the technical knowledge and the credential that local employers recognize—positioning you to advance into higher-responsibility roles and command competitive salaries in a market where proven project leadership remains in steady demand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:55.488506Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "616d6986c017e2ba",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Fargo healthcare careers?",
+          "answer": "<p>Yes. Sanford Health, Essentia Health, and other major regional healthcare systems are increasingly adopting standardized project delivery and seeking certified project managers. AI training equips you to lead digital transformation, clinical IT rollouts, and operational improvement initiatives—areas where healthcare employers in Fargo actively invest. Combined with PMP or CAPM certification, this skill set strengthens your candidacy for mid- to senior-level roles in a sector that values demonstrated methodology expertise.</p>"
+        },
+        {
+          "question": "Which Fargo employers value AI and project management certifications most?",
+          "answer": "<p>Healthcare organizations (Sanford, Essentia), technology companies (Microsoft, Amazon, Aldevron), and manufacturing firms (CNH Industrial/Case IH) are the most active recruiters of certified project managers in Fargo. Financial services and insurance employers—including Noridian, Blue Cross Blue Shield of North Dakota, and Bell Bank—also increasingly prefer certified candidates. Across these industries, AI literacy combined with PMP or CAPM credentials signals readiness for complex, data-driven project environments.</p>"
+        },
+        {
+          "question": "When should I pursue AI project manager certification in Fargo's job market?",
+          "answer": "<p>Fargo's project management demand remains steady across healthcare, tech, and manufacturing sectors. Pursuing certification now positions you ahead of candidates in slower regional markets; local employers regularly post roles requiring or preferring certification. If you're employed in one of Fargo's major industries or planning a transition, the live-virtual format lets you maintain your current role while earning credentials that directly increase your competitiveness and compensation potential locally.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual AI training from my Fargo workplace?",
+          "answer": "<p>Yes. The live-virtual format is designed for working professionals and allows you to participate from your office, home, or any location with reliable internet. Many Fargo professionals in healthcare IT, manufacturing operations, and financial services use this flexibility to fit certification around full-time schedules. Check with your employer's IT policies on external platform access, but the asynchronous and live session mix accommodates typical corporate environments.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:02.467337Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a1f83e54022f26e5",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—drives consistent demand for skilled project managers overseeing facility expansions and system implementations. Microsoft's local campus and CNH Industrial's manufacturing operations further strengthen the market across technology and agribusiness. Granite PM Academy delivers live-virtual AI Training for Project Managers to help Fargo professionals advance their credentials and lead complex initiatives in this diversified, growing economy.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:04.285458Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "b989b6c86b09e1e7",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-fargo-nd/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Fargo, ND, AI courses Fargo, CPMAI certification Fargo, AI project management training Fargo, ND, AI for project managers Fargo",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fargo-nd/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fargo-nd/\",\n      \"name\": \"AI Training for Project Managers in Fargo, ND — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Fargo, ND for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Fargo, ND\",\n            \"item\": \"https://granitepmacademy.com/ai-training-fargo-nd/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fargo-nd/#course\",\n      \"name\": \"AI Training for Project Managers in Fargo, ND\",\n      \"description\": \"CPMAI certification training for project managers in Fargo, ND who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fargo-nd/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fargo-nd/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fargo-nd/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fargo-nd/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-fargo-nd/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

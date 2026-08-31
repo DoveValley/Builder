@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "montgomery-al",
+  "slug": "pmp-bootcamp-montgomery-al",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "montgomery-al",
+    "city": "Montgomery",
+    "state": "Alabama",
+    "SS": "AL",
+    "city_slug": "montgomery-al",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Montgomery's project management demand flows from its identity as Alabama's state capital paired with major military and industrial anchors—Maxwell-Gunter Air Force Base, Hyundai Motor Manufacturing Alabama, and a robust healthcare sector all rely on skilled program managers for complex infrastructure and production initiatives. Public agencies, defense contractors, and automotive manufacturers actively recruit PMs to lead multi-year modernization and expansion projects. Granite PM Academy delivers live-virtual PMP® Certification to Montgomery professionals seeking to advance in this stable, growth-oriented market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Montgomery's aerospace and defense sector relies heavily on credentialed project managers to oversee complex, regulated initiatives. Granite PM Academy's PMP Boot Camp delivers live-virtual, instructor-led training that satisfies PMI's contact-hour requirements, designed to fit working professionals' schedules while preparing you to sit for the PMP exam. Earning your PMP credential positions you to advance into senior project roles and command competitive compensation in Montgomery's high-stakes manufacturing and defense contracting environment.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:02.850193Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "93d68605d538f1f3",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Montgomery: Certification for Government & Defense Leaders",
+      "text": "<p>Montgomery's project management landscape is defined by its role as Alabama's state capital and home to Maxwell-Gunter Air Force Base, where federal agencies and defense contractors manage mission-critical, multi-year initiatives that demand rigorous PM discipline. Public-sector organizations, aerospace and defense firms, and the growing automotive manufacturing sector throughout Montgomery all compete for certified project managers who can handle complex stakeholder environments, strict compliance requirements, and large-scale budgets. The PMP® credential—recognized globally and required by many government contracts and federal agencies—positions you to advance into leadership roles at these employers and demonstrates mastery of the processes and frameworks they depend on.</p><p>Granite PM Academy delivers PMP Boot Camp through live, instructor-led virtual sessions that condense study into an intensive format, taught by active, certified practitioners who bring real-world experience from projects like yours. As a PMI Authorized Training Partner, we deliver the contact-hour requirement necessary to sit for the PMP® exam and provide the rigorous preparation that leads to exam readiness. Whether you're advancing within a public agency, transitioning into a defense contractor role, or strengthening your credentials in Montgomery's industrial sector, our boot camp is designed to accelerate your path to PMP® certification and the career opportunities that follow.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:07.273910Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "2df428643a36c48b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Montgomery's Federal & Defense Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is an official PMI Authorized Training Partner. Your boot camp completion satisfies PMI's required contact hours, positioning you to sit for the PMP exam with confidence and full credential recognition."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers real-time interaction with certified practitioners without travel constraints. You gain contact-hour eligibility while learning from professionals actively managing projects at organizations like Maxwell Air Force Base and regional manufacturers."
+        },
+        {
+          "heading": "Exam Readiness from Day One",
+          "text": "Instructors are active PMP certificants who embed exam-preparation strategies into every module. You'll practice question formats, review high-yield domains, and leave boot camp with a study plan tailored to your learning gaps."
+        },
+        {
+          "heading": "Credential Demand Across Montgomery's Top Employers",
+          "text": "Government agencies, aerospace contractors, automotive manufacturers, and healthcare systems across Montgomery actively recruit PMP-certified project managers. The certification signals readiness for leadership roles and positions you competitively for advancement in the region's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:10.943973Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "90445467083ad601",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Montgomery's Growing Economy",
+      "text": "<p>Montgomery's role as Alabama's state capital and home to Maxwell-Gunter Air Force Base creates steady demand for certified project managers across government, defense, and manufacturing sectors. Baptist Health, Jackson Hospital, and the City of Montgomery itself regularly hire PMs to oversee operational and infrastructure initiatives. Meanwhile, Hyundai Motor Manufacturing Alabama's expansion into electric vehicle production and Maxwell-Gunert's ongoing infrastructure modernization projects represent concrete examples of the complex, governance-heavy work where PMP certification carries real competitive weight. Employers in these sectors—along with firms like CGI Group supporting government contracting—actively seek professionals who can demonstrate formal project management credentials and methodology.</p><p>While project manager compensation in Montgomery tends to run slightly below national figures due to the region's lower cost of living, certified professionals command stronger salaries within their local market and stand out in sectors where formal credentials are prerequisites for advancement. Steady demand across government contracting, healthcare, automotive, and defense means that completing the PMP Boot Camp through Granite PM Academy positions you to move into higher-responsibility and higher-paying roles without relocating. For those earlier in their career, the CAPM credential serves as a solid foundation toward PMP-level positions. In Montgomery's tight professional networks, certification from a recognized academy strengthens your profile and opens doors to roles managing the region's most visible and complex projects.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:15.418411Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "9a8229430275cb59",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Montgomery",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of education and project-management experience. Review PMI's specific eligibility criteria to verify you meet the required hours in both categories. Granite PM Academy's advisors can help you assess your background and confirm readiness before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. This formal education satisfies PMI's required contact hours and covers the PMBOK Guide, real-world case studies, and exam domains. Attend all sessions to earn your certificate of completion."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, submit your PMI application online and pay the associated examination fee. Your Granite PM Academy certificate of completion will support your application. PMI will review and approve your eligibility before you can schedule the exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation resources to reinforce key content. Schedule your proctored PMP exam once PMI approves your application. You may test at an authorized Pearson VUE center or via remote proctoring at your convenience."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "The PMP credential is valid for three years. During each renewal cycle, earn Professional Development Units (PDUs) through continuing education, volunteering, or authoring. Renew your credential on schedule to keep your competitive edge in Montgomery's growing project-management field."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:20.699187Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "2aa6d1c18b6949ae",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Montgomery defense and government careers?",
+          "answer": "<p>Yes. Maxwell-Gunter Air Force Base and Alabama's state government agencies increasingly require or strongly prefer PMP certification for project leadership roles. Defense contractors and government organizations emphasize formal project governance and documented methodology, making the PMP credential a competitive differentiator that can accelerate promotion and eligibility for higher-responsibility positions in Montgomery's largest employment sector.</p>"
+        },
+        {
+          "question": "Which Montgomery employers actively hire certified project managers?",
+          "answer": "<p>Montgomery's major employers—including Maxwell-Gunter AFB, Hyundai Motor Manufacturing Alabama, Baptist Health, state and city government agencies, and Alfa Insurance—regularly seek PMP-certified professionals for infrastructure, manufacturing, healthcare, and IT initiatives. The credential is particularly valued in government contracting and defense roles where project governance standards are non-negotiable.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP Boot Camp from my Montgomery workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to join from your office, home, or any location with reliable internet. This is especially convenient for Montgomery professionals at large campuses like Maxwell-Gunter AFB or major manufacturers who may have limited flexibility to travel off-site during business hours.</p>"
+        },
+        {
+          "question": "When should Montgomery professionals pursue PMP certification for career growth?",
+          "answer": "<p>Montgomery's steady demand for certified PMs across government, manufacturing, and healthcare makes certification timing flexible but strategic. If you're targeting advancement within the next 12–18 months—especially in defense contracting or state government—pursuing certification now positions you ahead of competitors and qualifies you for roles that command higher responsibility and compensation than the regional average.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:26.253113Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f7119bab434a40d1",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Montgomery's project management market draws strength from its role as Alabama's state capital and home to Maxwell-Gunter Air Force Base, where defense contractors and public agencies manage large-scale infrastructure and modernization initiatives. Hyundai Motor Manufacturing Alabama and healthcare systems like Baptist Health add automotive and clinical expertise to the demand for skilled program managers. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Montgomery professionals seeking credential advancement without geographic barriers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:28.093420Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0c26c4bf08582fd6",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-montgomery-al/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Montgomery, AL, PMP bootcamp Montgomery, PMP certification boot camp Montgomery, AL, PMP bootcamp near me, intensive PMP training Montgomery",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/\",\n      \"name\": \"PMP Boot Camp in Montgomery, AL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Montgomery, AL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Montgomery, AL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/#course\",\n      \"name\": \"PMP Boot Camp in Montgomery, AL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Montgomery, AL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-montgomery-al/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

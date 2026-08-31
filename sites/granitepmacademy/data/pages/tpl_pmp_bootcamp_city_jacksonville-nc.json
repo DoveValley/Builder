@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "jacksonville-nc",
+  "slug": "pmp-bootcamp-jacksonville-nc",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "jacksonville-nc",
+    "city": "Jacksonville",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "jacksonville-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Jacksonville's project management demand centers on military and defense contracting tied to Camp Lejeune and MCAS New River, alongside growth in healthcare, construction, and public-sector infrastructure. Organizations like Onslow Memorial Hospital and the City of Jacksonville regularly hire certified project managers for facility expansions and roadway initiatives. Granite PM Academy delivers live-virtual PMP Certification for Jacksonville professionals seeking to advance in this steady, opportunity-rich market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Jacksonville's military and defense contracting sector relies heavily on structured project management across complex operations and procurement cycles. Granite PM Academy's live-virtual PMP Boot Camp delivers instructor-led training that satisfies PMI's required contact hours, preparing you to sit for the PMP® exam on an accelerated schedule. Earning your PMP® credential strengthens your qualifications for advanced roles in defense, logistics, and government contracting—sectors that value certified project managers and typically offer competitive advancement opportunities.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:44.693005Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a4016c7c293fddb5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp Jacksonville: Certification for Defense & Military Contractors",
+      "text": "<p>Jacksonville's project management landscape is anchored by Camp Lejeune and MCAS New River, two of the region's largest employers, alongside a robust ecosystem of defense contractors, construction firms, and logistics operations that depend on certified project leaders. The PMP® credential has become essential currency in this market—defense and military-adjacent organizations in Jacksonville increasingly require or strongly prefer PMP certification for mid- and senior-level roles, and the credential directly strengthens your candidacy for project management positions at these major employers and their supporting contractors. Whether you work in healthcare, government, construction, or supply chain management, earning your PMP in Jacksonville positions you to advance into roles that command higher responsibility and compensation within the city's thriving defense-supported economy.</p><p>Granite PM Academy delivers an intensive, instructor-led PMP Boot Camp designed specifically for working professionals in Jacksonville who need flexibility and proven results. As a PMI Authorized Training Partner, we provide live-virtual classes taught by active certified practitioners with real-world project experience, ensuring every contact hour satisfies PMI's rigorous requirements for PMP eligibility. Our boot camp format compresses months of self-study into a focused program, combining expert instruction with practical insights drawn from defense, healthcare, and construction projects—the very sectors driving Jacksonville's demand for certified PMs. Upon completion, you'll have met your contact-hour requirement and be ready to sit for the PMP examination, positioning yourself to earn a credential that opens doors throughout Jacksonville's growing project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:49.637711Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "915a900940f5c015",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Jacksonville's Defense and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, meaning your boot camp hours satisfy PMI's eligibility requirements directly. No additional paperwork or third-party verification needed—your path to sitting for the PMP exam is streamlined and officially recognized."
+        },
+        {
+          "heading": "Live Instruction Meets Your Schedule",
+          "text": "Our live-virtual instructor-led format delivers required contact hours without relocating. Attend from Jacksonville while learning from certified practitioners actively managing projects. Synchronous sessions ensure you engage with instructors and peers in real time, building the foundation employers expect."
+        },
+        {
+          "heading": "Instructors Practicing What They Teach",
+          "text": "Every Granite instructor holds active PMP or equivalent credentials and manages live projects—not classroom theory alone. You learn direct strategies from practitioners who navigate the same challenges your local employers face in defense contracting, healthcare delivery, and construction."
+        },
+        {
+          "heading": "Credential Demanded by Camp Lejeune and Regional Employers",
+          "text": "Marine Corps Base Camp Lejeune, Naval Hospital Camp Lejeune, and major construction firms across Jacksonville actively hire project and program managers with PMP credentials. Certification positions you competitively for advancement in the military contracting, healthcare administration, and real estate development sectors dominating the local job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:54.273253Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "617f2e9f06f2ec05",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Military-Anchored Jacksonville",
+      "text": "<p>Jacksonville's economy centers on defense and military operations, with Camp Lejeune and MCAS New River anchoring major construction and infrastructure initiatives that demand skilled project managers. Beyond the bases themselves, defense contractors, Onslow Memorial Hospital, and the City of Jacksonville all actively recruit PMs to oversee facility expansions, roadway improvements, and military construction (MILCON) projects. Healthcare systems and government agencies in the region increasingly rely on certified project managers to coordinate complex, regulated work—making the PMP® credential a meaningful differentiator when competing for these roles.</p><p>Salaries for project managers in Jacksonville track competitive regional and military-support market rates, driven by strong demand from defense contractors and healthcare organizations that require standardized project management practices for government-linked work. The PMP® certification is increasingly valued by local employers, particularly those supporting defense operations and healthcare expansion. Completing Granite PM Academy's PMP Boot Camp equips you with the credential and framework that healthcare systems, military-adjacent employers, and municipal government agencies in Jacksonville actively seek, positioning you to move into or advance within high-demand roles in a market where certified PMs are in genuine demand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:58.096740Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "71c6d31e526feb6b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Jacksonville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific requirements for your background—secondary degree holders and bachelor's degree holders have different experience thresholds. Granite PM Academy can help you verify your qualifications before you apply."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our course is delivered by experienced practitioners and covers the PMBOK Guide framework, exam domains, and real-world scenarios. Attend all sessions to earn your required contact hours and prepare thoroughly for exam day."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your training hours, submit your PMP application directly to PMI. You'll document your education, project experience, and training completion. Pay the associated exam fee to secure your testing eligibility—PMI will review and approve your application within their standard timeline."
+        },
+        {
+          "heading": "Prepare and Take the PMP Exam",
+          "text": "Leverage Granite PM Academy's exam-preparation resources, including practice questions, study guides, and instructor office hours. Schedule your exam at a PMI-authorized testing center. On exam day, you'll demonstrate mastery of project-management knowledge and best practices across all five domains."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "The PMP credential is valid for three years. During this renewal cycle, earn Professional Development Units (PDUs) through approved training, volunteer work, or professional activities. Renew your credential before expiration to keep your competitive edge in Jacksonville's growing project-management market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:03.334498Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "5e7650f5e54df58d",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Jacksonville defense and healthcare careers?",
+          "answer": "<p>Yes. Jacksonville's largest employers—Camp Lejeune, Naval Hospital, and regional healthcare systems—increasingly require or strongly prefer PMP certification for project and program management roles, especially among defense contractors and hospital systems managing federal compliance work. The credential signals standardized practices these organizations demand, making it a competitive advantage even where not explicitly required.</p>"
+        },
+        {
+          "question": "Can Jacksonville professionals take live virtual PMP boot camp from their workplace?",
+          "answer": "<p>Absolutely. The live-virtual format lets you attend from Camp Lejeune, a hospital, government office, or home with a stable internet connection and private space. Many Jacksonville professionals use quiet conference rooms or offices during the boot camp to avoid interruptions while maintaining their work location and schedule flexibility.</p>"
+        },
+        {
+          "question": "Which Jacksonville employers value PMP certification most in hiring?",
+          "answer": "<p>Defense contractors supporting Camp Lejeune and MCAS New River, healthcare systems like Onslow Memorial Hospital, Onslow County Schools, City of Jacksonville departments, and logistics/supply-chain firms in the region actively seek PMP-certified project managers. Government and public-administration roles also increasingly favor the credential for federal and state grant-funded initiatives.</p>"
+        },
+        {
+          "question": "How does Jacksonville's job market affect timing for PMP certification?",
+          "answer": "<p>Jacksonville's strong demand for project managers in defense, healthcare, and government sectors means earning your PMP before competing for mid-to-senior roles can accelerate advancement and salary growth. Many employers backfill vacancies quickly, so obtaining certification positions you to move faster when opportunities arise in this competitive regional market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:08.189989Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "614a07772d756854",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Jacksonville's project management demand centers on military and defense contracting, with Camp Lejeune and MCAS New River driving steady opportunities in construction, logistics, and infrastructure projects. Healthcare and government sectors—including Onslow Memorial Hospital and local agencies—also actively recruit certified PMs. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Jacksonville professionals seeking competitive advantage in this growth market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:10.297812Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "e9c55ad89f798a7b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Jacksonville, NC, PMP bootcamp Jacksonville, PMP certification boot camp Jacksonville, NC, PMP bootcamp near me, intensive PMP training Jacksonville",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/\",\n      \"name\": \"PMP Boot Camp in Jacksonville, NC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Jacksonville, NC. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Jacksonville, NC\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/#course\",\n      \"name\": \"PMP Boot Camp in Jacksonville, NC\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Jacksonville, NC. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-jacksonville-nc/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

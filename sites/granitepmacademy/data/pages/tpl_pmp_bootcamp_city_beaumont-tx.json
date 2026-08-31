@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "beaumont-tx",
+  "slug": "pmp-bootcamp-beaumont-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "beaumont-tx",
+    "city": "Beaumont",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "beaumont-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
+    ],
+    "city_spotlight": "<p>Beaumont's refining and petrochemical sector—anchored by major operations like the ExxonMobil Beaumont Refinery—drives steady demand for project managers overseeing plant expansions and capital construction. Healthcare systems, the Port of Beaumont, and public agencies add consistent opportunities for professionals with formal credentials. Granite PM Academy delivers live-virtual PMP Certification to Beaumont professionals seeking to formalize their expertise and advance in this industrial-focused job market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Beaumont's petrochemical and refining sector relies on structured project delivery, making PMP® certification a competitive edge for operations and engineering professionals. Granite PM Academy's live-virtual PMP Boot Camp delivers PMI-required contact hours through instructor-led training, letting you complete the credential program without relocating. Employers across Beaumont's industrial base recognize PMP® as proof of systematic project management capability, directly supporting advancement in roles overseeing capital projects and operational initiatives.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:07.441784Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fed4f7912c964e2e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Beaumont: Accelerate Your Career in Refining & Petrochemicals",
+      "text": "<p>Beaumont's project management market is anchored by world-class refining and petrochemical operations—including major facilities operated by ExxonMobil and DuPont—where capital projects, turnarounds, and plant expansions demand rigorously trained project managers. Beyond the industrial core, healthcare systems, the Port of Beaumont, and government agencies create steady additional demand for certified professionals. Employers across these sectors increasingly expect formal PMP® (Project Management Professional) certification as evidence of structured methodology and leadership capability. In Beaumont's competitive environment, where large-scale industrial projects and compliance-heavy operations dominate, the PMP credential distinguishes you as someone equipped to manage complexity, stakeholder risk, and budget discipline from day one.</p><p>Granite PM Academy delivers PMP Boot Camp as a live, instructor-led, and virtual-accessible intensive program designed to compress months of study into a focused timeline while satisfying the contact-hour requirements set by the Project Management Institute. Our instructors are active certified practitioners who draw on real-world experience in project delivery, risk management, and organizational leadership. The Boot Camp format suits working professionals in Beaumont who need flexible scheduling without sacrificing depth or rigor. By completion, you'll be prepared to sit for the PMP exam with the confidence that comes from both structured framework and practical application—and the credential to open doors across Beaumont's industrial, healthcare, and logistics sectors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:12.280345Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "291341a4373a14eb",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Beaumont's Energy and Industrial Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP certification path meets all Project Management Institute standards. This recognition guarantees the rigor and validity employers in Beaumont's energy and manufacturing sectors expect and require."
+        },
+        {
+          "heading": "Live Instruction, Contact Hours Met",
+          "text": "Our instructor-led live-virtual format delivers the contact hours required for PMP eligibility while fitting working professionals' schedules. Study alongside peers from ExxonMobil, DuPont, and other major Beaumont employers without sacrificing job or family commitments."
+        },
+        {
+          "heading": "Active Practitioners as Instructors",
+          "text": "Learn from instructors who actively hold the PMP and work in energy, petrochemicals, healthcare, and industrial construction—the industries driving Beaumont's economy. Real-world project examples replace generic case studies, preparing you for the credential and your next role."
+        },
+        {
+          "heading": "Direct Path to Local Hiring Demand",
+          "text": "Beaumont's major employers—from ExxonMobil and DuPont to Christus St. Elizabeth and the Port—actively recruit PMP-certified project managers. This credential opens doors across refining, manufacturing, healthcare operations, and logistics in your own market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:16.291813Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c2878e1b68bdfaa3",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Beaumont's Industrial Hub",
+      "text": "<p>Beaumont's economy is anchored by large-scale refining and petrochemical operations—most notably the ExxonMobil Beaumont Refinery, one of the largest crude processing facilities in the United States. Beyond oil and gas, employers like DuPont, Huntsman Corporation, and the Port of Beaumont regularly hire certified project managers to oversee capital projects, plant turnarounds, and infrastructure work. Recent initiatives such as the Sabine-Neches Waterway deepening project and Port of Beaumont terminal expansions demonstrate the ongoing demand for skilled professionals managing complex, multi-stakeholder initiatives. Healthcare systems including Christus St. Elizabeth Hospital and Baptist Hospitals of Southeast Texas, along with public agencies and Lamar University, also employ project managers—broadening career pathways beyond the industrial sector.</p><p>The PMP credential carries genuine weight in Beaumont's market. Local employers in industrial and engineering roles particularly value certified professionals who can demonstrate competency in capital-project delivery and risk management; those with relevant experience typically command stronger compensation than uncertified peers. Completing Granite PM Academy's PMP Boot Camp positions you to meet the steady demand for trained project managers in a region where infrastructure, plant operations, and port logistics continue to drive economic activity. Whether you're advancing within an established employer or positioning yourself for roles across Beaumont's diverse industries, the credential strengthens your competitive standing and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:20.984146Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "69b258055fba31c7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Beaumont",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Most candidates hold a bachelor's degree plus specific years of direct project-leadership experience. Review PMI's official eligibility matrix, then contact Granite PM Academy to confirm your qualifications before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Beaumont-focused cohorts deliver the PMI-required formal education in an interactive classroom setting, with real-world examples and hands-on exercises designed for working professionals managing complex projects in petrochemical and industrial sectors."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the boot camp, submit your official PMP application directly to PMI, documenting your experience and education. Pay the associated PMI exam fee at the time of application. Granite PM Academy staff will guide you through the submission process and answer questions about required documentation."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and optional review sessions—to reinforce key concepts. Schedule your proctored PMP exam when you feel confident. Our instructors remain available to clarify challenging topics as you move toward test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, commit to the PMI's three-year renewal cycle by earning professional-development units (PDUs) through training, volunteer work, and on-the-job project management. Granite PM Academy offers continuing-education courses to help you build PDUs and stay current with evolving industry standards."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:26.760813Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "1665081c723f8b1f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Beaumont's refining sector?",
+          "answer": "<p>Yes. Beaumont's economy centers on petrochemical refining and heavy industrial operations where capital projects and plant turnarounds demand rigorous project governance. PMP-certified professionals managing these initiatives command stronger negotiating positions and demonstrate competency that local employers—including major refineries and chemical plants—actively seek. The credential signals readiness for complex, high-stakes work typical of the region's core industries.</p>"
+        },
+        {
+          "question": "Which Beaumont employers value PMP certification most for advancement?",
+          "answer": "<p>Organizations overseeing capital projects, plant maintenance cycles, and engineering construction—such as petrochemical refineries, manufacturing operations, and healthcare systems managing facility expansions—prioritize PMP credentials. Port and maritime logistics roles, infrastructure projects within city and county government, and utility-sector work also favor certified professionals. Your credential becomes most valuable when your role directly touches planning, budget control, or multi-phase industrial/healthcare initiatives.</p>"
+        },
+        {
+          "question": "Can I attend PMP boot camp online from my Beaumont workplace?",
+          "answer": "<p>Yes. Our live-virtual boot camp format accommodates professionals attending from their workplace, home, or any secure internet connection. Many Beaumont-area industrial and healthcare professionals join from their facilities during scheduled training hours. Confirm with your employer that participation during work time aligns with company policy, and ensure a quiet, professional setup for video attendance and interactive coursework.</p>"
+        },
+        {
+          "question": "Should Beaumont project managers pursue PMP certification now or wait?",
+          "answer": "<p>Beaumont's steady industrial and infrastructure activity creates consistent demand for certified project leaders. If you manage or aspire to lead capital projects, plant turnarounds, construction initiatives, or healthcare/public-sector programs, certification strengthens your candidacy immediately rather than later. Early certification positions you ahead of uncertified peers as local employers continue recruiting for complex, regulated projects that value PMI credentials.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:32.853925Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ebd89bbc72f3263f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Beaumont's project management demand centers on its role as a major Gulf Coast refining hub—ExxonMobil Beaumont Refinery and DuPont Beaumont Plant drive consistent need for professionals managing capital expansions and turnarounds. Healthcare systems, the Port of Beaumont, and regional government agencies add sustained opportunities across logistics, construction, and public works. Granite PM Academy serves Beaumont professionals with live-virtual PMP Boot Camp, building the formal credentials employers in this industrial and institutional market expect.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:35.045361Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "34ddda9864acb41e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Beaumont, TX, PMP bootcamp Beaumont, PMP certification boot camp Beaumont, TX, PMP bootcamp near me, intensive PMP training Beaumont",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/\",\n      \"name\": \"PMP Boot Camp in Beaumont, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Beaumont, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Beaumont, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/#course\",\n      \"name\": \"PMP Boot Camp in Beaumont, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Beaumont, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-beaumont-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

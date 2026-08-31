@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "fredericksburg-va",
+  "slug": "pmp-bootcamp-fredericksburg-va",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "fredericksburg-va",
+    "city": "Fredericksburg",
+    "state": "Virginia",
+    "SS": "VA",
+    "city_slug": "fredericksburg-va",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Fredericksburg's healthcare and defense sectors are driving demand for skilled project managers overseeing everything from Mary Washington Healthcare facility expansions to complex infrastructure initiatives along the I-95 corridor. With major employers spanning government agencies, education systems, and federal contractors near Naval Support Facility Dahlgren, plus proximity to Northern Virginia's federal contracting hub, the region offers robust career pathways for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Fredericksburg-area professionals seeking to advance in this growing market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Fredericksburg's federal contracting and defense sector depends on project managers who hold the PMP credential. Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that fulfills PMI's rigorous contact-hour requirements, preparing you to sit for the exam on an accelerated timeline. Earning your PMP positions you competitively for roles across the region's government and contractor ecosystems, where certification directly influences advancement and compensation.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:39.153841Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "0b00c73f921215d0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Fredericksburg: Train for High-Demand Project Leadership",
+      "text": "<p>Fredericksburg's healthcare sector—anchored by Mary Washington Healthcare and supported by regional medical facilities—faces a critical demand for skilled project managers to coordinate clinical transformations, facility expansions, and care delivery innovations. Simultaneously, the city's proximity to Naval Support Facility Dahlgren and the broader federal contracting corridor drives intense competition for certified professionals who can manage defense and government projects. Add to this the steady growth in residential and commercial development across Fredericksburg and Stafford County, and employers from GEICO to local construction firms urgently need PMP-certified leaders capable of managing complex, multi-stakeholder initiatives. A PMP certification positions you to command these opportunities in one of Northern Virginia's fastest-evolving job markets.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers an intensive, live-virtual PMP Boot Camp designed for working professionals in Fredericksburg who need flexibility without compromising depth. Our instructor-led sessions are taught by active certified practitioners who bring real-world experience from healthcare, defense, government, and construction—the sectors driving your region's growth. This program satisfies the PMI contact-hour requirement for the PMP credential and prepares you to pass the rigorous exam. Whether you're commuting from Northern Virginia, working hybrid, or based locally, our focused boot camp format accelerates your path to certification and positions you for advancement in Fredericksburg's expanding project management landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:43.798328Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "ac2cb132149e68e2",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Fredericksburg's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy holds PMI® authorization to deliver PMP® boot camp instruction. This credential carries weight across Fredericksburg's healthcare systems, government agencies, and defense contractors—employers who verify training pedigree before hiring."
+        },
+        {
+          "heading": "Live Instruction, Real Contact Hours",
+          "text": "Our instructor-led format, delivered live-virtual, satisfies PMI's rigorous contact-hour requirement for PMP® eligibility. You attend synchronous sessions with certified professionals, not prerecorded videos—critical for exam readiness and employer confidence."
+        },
+        {
+          "heading": "Practitioners Teaching Practitioners",
+          "text": "Granite's instructors are active PMP®-certified professionals working in construction, healthcare, and government contracting. They bring current-day project challenges and solutions into the classroom, not theory alone."
+        },
+        {
+          "heading": "Local Demand Across Major Employers",
+          "text": "Fredericksburg's largest employers—BAE Systems, Mary Washington Healthcare, Stafford and Spotsylvania school districts, and City government—actively hire project managers with the PMP® credential. Earn it now; build your competitive edge locally."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:48.330717Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ac6934b7a51f0b10",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Fredericksburg",
+      "text": "<p>Mary Washington Healthcare stands as a major anchor for project management talent in Fredericksburg, alongside the University of Mary Washington, both managing substantial capital improvement and facility expansion initiatives. Spotsylvania County Public Schools and Stafford County Public Schools similarly employ project coordinators and managers to oversee construction, technology rollouts, and district-wide improvements. BAE Systems in the nearby Dahlgren area and GEICO further strengthen the regional demand for certified professionals who can manage complex, regulated projects. Silver Companies' Celebrate Virginia mixed-use development and ongoing VDOT Interstate 95 corridor improvements near Fredericksburg exemplify the kinds of multi-phase construction and infrastructure projects that rely on standardized project management discipline—and the professionals who deliver them.</p><p>The Fredericksburg job market rewards PMP and CAPM certification, particularly in healthcare, government, and construction sectors where employers expect candidates to demonstrate command of proven methodologies. Salaries for certified project managers in the region track competitively with the broader Northern Virginia and D.C. commuter corridor, especially for those with experience in these high-demand industries. Completing the PMP Boot Camp through Granite PM Academy gives you the credential, exam readiness, and framework that hiring managers in Fredericksburg actively seek—positioning you to advance from coordinator roles into management and to command stronger compensation as you build your career in a market where complex projects and steady organizational growth create consistent opportunity.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:52.612874Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "3bdef9dc16de7e55",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fredericksburg",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Fredericksburg professionals in defense contracting, federal agencies, and software development typically meet these standards. Verify your qualifications before enrolling to ensure a smooth application process."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our interactive sessions fit working schedules and deliver comprehensive coverage of the PMBOK Guide and exam domains. You'll earn the formal education hours PMI requires to sit for the exam."
+        },
+        {
+          "heading": "Submit PMI Application",
+          "text": "After finishing the boot camp, submit your PMP application directly to PMI and pay the exam fee. Our team guides you through documentation and submission to avoid delays. PMI will review your credentials before you're eligible to test."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor support to build confidence. Schedule your proctored PMP exam when ready. Our boot camp alumni receive ongoing access to study materials and Q&A support before test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) throughout the three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing-education courses and resources aligned with PMI standards. Plan ahead to complete renewal requirements before your certification expires."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:56.992556Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "11d7d1949931ff1e",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth getting in Fredericksburg's healthcare and government job market?",
+          "answer": "<p>Yes. Healthcare systems like Mary Washington Healthcare and government employers across Spotsylvania and Stafford counties increasingly value PMP credentials for roles managing complex, multi-phase initiatives. While not universally required, certification strengthens candidacy for project coordinator and manager positions in these competitive sectors and aligns with Northern Virginia hiring standards that influence the local market.</p>"
+        },
+        {
+          "question": "Which Fredericksburg employers actively hire PMP-certified project managers?",
+          "answer": "<p>Healthcare systems, government agencies (City, County, Schools), defense contractors like BAE Systems in the Dahlgren area, and construction/real estate firms in the region prioritize PMP and CAPM credentials. Education institutions including the University of Mary Washington and larger employers like GEICO also recognize the value of standardized project-management credentials when filling project leadership roles.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP boot camp from my Fredericksburg workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows Fredericksburg professionals to join from their office, home, or any location with internet access. This flexibility suits the region's mix of healthcare, government, and corporate environments where remote participation is increasingly standard, letting you advance your certification without travel disruption.</p>"
+        },
+        {
+          "question": "When is the best time to pursue PMP boot camp certification in Fredericksburg?",
+          "answer": "<p>Demand for qualified project managers in Fredericksburg remains steady across healthcare, government, and defense sectors. Pursuing certification sooner rather than later strengthens your candidacy in a competitive regional job market influenced by Northern Virginia trends—especially if you're targeting healthcare, construction, or public-sector roles where standardized methodologies are increasingly expected.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:02.699911Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b82d944afb28b802",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fredericksburg's healthcare and defense sectors—anchored by Mary Washington Healthcare and nearby Naval Support Facility Dahlgren—drive steady demand for credentialed project managers overseeing capital expansions, infrastructure upgrades, and multi-agency initiatives. Growth in residential and commercial development, plus proximity to the federal contracting corridor, extends opportunities across government, education, and construction. Granite PM Academy delivers live-virtual PMP Boot Camp scheduling to fit Fredericksburg working professionals pursuing this globally recognized credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:04.699252Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "94337a7f997be0f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Fredericksburg, VA, PMP bootcamp Fredericksburg, PMP certification boot camp Fredericksburg, VA, PMP bootcamp near me, intensive PMP training Fredericksburg",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/\",\n      \"name\": \"PMP Boot Camp in Fredericksburg, VA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Fredericksburg, VA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Fredericksburg, VA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/#course\",\n      \"name\": \"PMP Boot Camp in Fredericksburg, VA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Fredericksburg, VA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fredericksburg-va/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

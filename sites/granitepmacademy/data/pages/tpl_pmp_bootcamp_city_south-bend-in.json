@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "south-bend-in",
+  "slug": "pmp-bootcamp-south-bend-in",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "south-bend-in",
+    "city": "South Bend",
+    "state": "Indiana",
+    "SS": "IN",
+    "city_slug": "south-bend-in",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>South Bend's healthcare and higher-education anchors—including Beacon Health System and the University of Notre Dame—drive steady demand for credentialed project managers across clinical expansions, campus infrastructure, and advanced manufacturing operations. As the region diversifies into logistics, data services, and innovation hubs like Ignition Park, employers increasingly seek professionals with formal PMP® certification. Granite PM Academy delivers live-virtual PMP Certification training designed for South Bend's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>South Bend's manufacturing and logistics sector relies on skilled project managers to coordinate complex supply chains and production timelines. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led, PMI-approved contact hours required to sit for the PMP exam, fitting around your work schedule while you earn the credential employers in this region actively seek. Completing your PMP positions you for leadership roles and salary progression across South Bend's industrial and distribution operations.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:36.468417Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "dea2b85bd9ff8344",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in South Bend: Intensive Certification for Healthcare and Manufacturing Leaders",
+      "text": "<p>South Bend's healthcare sector—anchored by Beacon Health System and Saint Joseph Health System—represents one of the region's fastest-growing employers, and both organizations depend on skilled project managers to oversee clinical initiatives, facility expansions, and digital transformation efforts. Alongside these health systems, the University of Notre Dame and a strengthening base of advanced manufacturing and logistics firms all compete for certified professionals who can deliver complex projects on time and within scope. A PMP certification signals to South Bend employers that you've mastered the frameworks and practices they need, positioning you for leadership roles and advancement in roles that touch patient care, research, operations, and supply-chain excellence.</p><p>Granite PM Academy delivers intensive PMP Boot Camp training as a PMI Authorized Training Partner, offering live virtual and instructor-led classes that fit working professionals' schedules while meeting all contact-hour requirements for PMP eligibility. Our instructors are active, certified practitioners who bring real-world project experience from healthcare, manufacturing, technology, and education sectors—the very industries driving South Bend's economic growth. You'll work through the PMBOK® Guide framework, tackle mock exams, and build the confidence you need to pass the PMP exam and accelerate your career in South Bend's expanding project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:40.285982Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "5a7f30817cb351a6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path Aligned With South Bend's Advanced Industries",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training You Can Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your boot camp meets PMI's rigorous curriculum standards. This designation ensures your contact hours count directly toward PMP eligibility—no surprises, no rework."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Our live-virtual instructor-led format delivers the required contact hours without relocating. Attend from your South Bend office or home, engage in real time with certified instructors, and earn the credential without sacrificing your current role."
+        },
+        {
+          "heading": "Learn From Active Practitioners",
+          "text": "Your instructors are certified project managers actively working in healthcare, manufacturing, and logistics—the sectors that drive South Bend's economy. Expect real-world examples, not textbook theory, grounded in the industries hiring in your region."
+        },
+        {
+          "heading": "High-Demand Credential for Local Employers",
+          "text": "Advanced manufacturers, health systems, and logistics firms across South Bend increasingly require PMP certification for project leadership roles. The credential opens doors at employers like Honeywell, Beacon Health System, and AM General—companies actively building their project-management teams."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:44.188500Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f724c136a7edafd7",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in South Bend's Growing Sectors",
+      "text": "<p>South Bend's healthcare and higher-education anchors drive steady demand for certified project managers. Beacon Health System and Saint Joseph Health System are actively pursuing facility expansions and modernization initiatives that require skilled program oversight, while the University of Notre Dame's Campus Crossroads project represents a multi-year capital investment calling for rigorous project governance. Beyond healthcare and academia, AM General, Honeywell, and Bosch—major advanced-manufacturing employers in the region—increasingly seek PMP®-certified talent to manage complex production and operational initiatives. The City of South Bend's Smart Streets downtown infrastructure redevelopment further illustrates how local employers across sectors are investing in projects that benefit from formal project management credentials.</p><p>While project manager compensation in South Bend tracks slightly below larger Midwest metros, the credential advantage is real: PMP®-certified candidates command stronger earning potential and advancement opportunities than uncertified peers in a steady-demand market. Healthcare, manufacturing, and higher-education employers here are listing PMP® and CAPM® certification as preferred qualifications, reflecting a genuine shift toward formalized credentials in hiring. Completing Granite PM Academy's PMP Boot Camp positions you to compete effectively in this growing market, equipping you with both the knowledge and the credential that South Bend employers actively value when filling project leadership roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:48.222876Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "8420ff53935c234b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in South Bend",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific combination of formal education and hours leading projects or supporting project teams that PMI requires before you apply."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our expert instructors guide you through the PMBOK Guide and real-world scenarios over the required formal education hours, preparing you thoroughly for application and exam."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your boot camp, submit your PMP application directly to PMI and pay the credential exam fee. We'll guide you through the online process and help you gather the documentation PMI requires for verification."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and study materials to reinforce your boot camp learning. Schedule your proctored PMP exam with Pearson VUE when you feel ready, and we remain available for last-minute review support."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) across PMI's standard three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing-education courses and resources that count toward your annual PDU requirement."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:52.854033Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "17eec3e91f12beb7",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in South Bend?",
+          "answer": "<p>Yes. South Bend's largest employers—Notre Dame, Beacon Health System, Saint Joseph Health System, AM General, Honeywell, and Bosch—increasingly list PMP or CAPM as preferred qualifications in project manager postings. While South Bend salaries track slightly below larger Midwest metros, PMP-certified candidates command measurably stronger compensation than uncertified peers. Steady demand across healthcare, manufacturing, higher education, and insurance makes certification a reliable career accelerator here.</p>"
+        },
+        {
+          "question": "Which South Bend industries most value the PMP credential?",
+          "answer": "<p>Healthcare, advanced manufacturing, higher education, and insurance are South Bend's primary sectors actively seeking PMP-certified talent. Major employers like Beacon Health System, Saint Joseph Health System, AM General, Bosch, and Notre Dame regularly post roles requiring or preferring formal project management credentials. Logistics, IT/data services, and city government also recognize PMP as a competitive differentiator in hiring and advancement.</p>"
+        },
+        {
+          "question": "Can I attend South Bend PMP Boot Camp live-virtual from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows South Bend professionals to join from their office, home, or any location with reliable internet. This flexibility suits manufacturing floors, hospital administrative offices, university project teams, and corporate environments across the city. You'll interact with instructors and peers in real time without commuting, making the program accessible to full-time working professionals.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait in South Bend's job market?",
+          "answer": "<p>Pursue it now. South Bend's job market for certified project managers is steady rather than cyclical; healthcare, education, and manufacturing employers maintain consistent hiring. Certification typically takes weeks to complete through a boot camp format, so early enrollment positions you ahead of competing candidates. The sooner you earn PMP, the sooner you qualify for higher-paying roles and advancement opportunities in your current or next position.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:58.907706Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "fcbe0c1504ec1fd9",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>South Bend's healthcare and higher-education anchors—including Beacon Health System and the University of Notre Dame's major Campus Crossroads expansion—drive steady demand for credentialed project managers across the region. As the city diversifies into logistics, data services, and advanced manufacturing, employers increasingly seek formal PMP® training to strengthen project governance and delivery. Granite PM Academy delivers live-virtual PMP Boot Camp to South Bend professionals seeking the Project Management Institute credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:01.038991Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "42a375a09308fd8c",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-south-bend-in/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp South Bend, IN, PMP bootcamp South Bend, PMP certification boot camp South Bend, IN, PMP bootcamp near me, intensive PMP training South Bend",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/\",\n      \"name\": \"PMP Boot Camp in South Bend, IN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in South Bend, IN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in South Bend, IN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/#course\",\n      \"name\": \"PMP Boot Camp in South Bend, IN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in South Bend, IN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-south-bend-in/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

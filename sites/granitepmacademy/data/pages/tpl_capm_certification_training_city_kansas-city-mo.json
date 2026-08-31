@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_capm_certification_training_city",
+  "city_id": "kansas-city-mo",
+  "slug": "capm-certification-training-kansas-city-mo",
+  "title": "CAPM Certification & Boot Camp {city}",
+  "city_vars": {
+    "id": "kansas-city-mo",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "SS": "MO",
+    "city_slug": "kansas-city-mo",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Kansas City's engineering and construction sector—anchored by firms like Burns & McDonnell and Black & Veatch—drives steady demand for certified project managers across infrastructure, healthcare IT, and logistics. Major initiatives including the Kansas City International Airport Single Terminal project and the Panasonic Energy battery plant expansion underscore local employers' need for PMP-credentialed leaders. Granite PM Academy delivers live-virtual PMP Certification to Kansas City professionals seeking to advance their careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "CAPM Certification & Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Kansas City's thriving financial services and healthcare sectors increasingly rely on certified project managers to deliver complex initiatives. Granite PM Academy's live-virtual CAPM Boot Camp delivers the PMI contact-hour education requirement through instructor-led training, enabling you to sit for the Certified Associate in Project Management exam on your timeline. Earn a credential that signals technical competency to employers across the region's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#capm_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "CAPM certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:17:54.143785Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ffc488d713cf9d12",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "CAPM Certification & Boot Camp for Kansas City's Engineering Leaders",
+      "text": "<p>Kansas City's engineering and construction sector—anchored by powerhouse firms like Burns & McDonnell and Black & Veatch—drives continuous demand for certified project managers who can lead complex infrastructure and capital projects. Beyond construction, healthcare systems, financial services, and logistics companies across Kansas City increasingly require CAPM-certified professionals to manage initiatives at scale. The CAPM® credential signals foundational project management competency to employers in these high-growth industries and positions you for advancement into senior project roles where structured methodology and risk management expertise directly impact project outcomes and career progression.</p><p>Granite PM Academy delivers CAPM Certification & Boot Camp as a PMI Authorized Training Partner through live-virtual, instructor-led sessions designed to fit working professionals' schedules while meeting the contact-hour requirements for CAPM eligibility. Our instructors are active certified practitioners who bring real-world experience from the industries that define Kansas City's economy—engineering, healthcare IT, manufacturing, and supply chain. Upon completion of our boot camp and your successful PMI exam, you'll hold a credential recognized by employers nationwide and earn a competitive advantage in Kansas City's robust project management job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:17:57.984172Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "7c19c71683709e9e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Launch Your PM Career in Kansas City's Engineering Hub",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your CAPM boot camp meets all PMI eligibility requirements. Study with confidence knowing your contact hours count toward credential qualification without gaps or compliance questions."
+        },
+        {
+          "heading": "Live Instruction, Real Schedules",
+          "text": "Our live-virtual instructor-led format fits Kansas City working professionals. Attend synchronous sessions from home or office, satisfy contact-hour mandates, and interact directly with instructors—no asynchronous recordings or self-paced gaps that leave questions unanswered."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Learn from active certified practitioners managing real projects in construction, healthcare, and tech. Your instructors bring current workplace examples—not textbook theory—so you see exactly how CAPM fundamentals apply across Kansas City's major industries."
+        },
+        {
+          "heading": "Local Demand Meets Your Credential",
+          "text": "Engineering firms, hospitals, and manufacturers across Kansas City—from Burns & McDonnell to Cerner to Ford Kansas City Assembly—actively hire certified project coordinators and associate project managers. CAPM opens doors in industries anchoring the region's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:02.145845Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f77101da4c49b998",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "23",
+          "label": "PMI contact hours included with every CAPM course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Kansas City",
+      "text": "<p>Kansas City's engineering and construction sector anchors strong demand for certified project managers. Burns & McDonnell and Black & Veatch, two of the region's largest employers, consistently seek professionals who can manage complex infrastructure and energy projects. Beyond traditional construction, healthcare organizations like Children's Mercy Hospital and University of Kansas Health System rely on certified PMs to oversee clinical IT implementations and facility expansions. Manufacturing and aerospace employers—including Ford Motor Company's Kansas City Assembly Plant and Honeywell's Kansas City National Security Campus—also prioritize project management credentials for roles overseeing production and systems integration. Major local initiatives such as the Kansas City International Airport New Single Terminal project and the Panasonic Energy electric vehicle battery plant in the metro area further illustrate the region's appetite for structured project oversight.</p><p>The CAPM credential opens doors in Kansas City's competitive landscape. Project managers holding advanced certifications command respect among the region's engineering, construction, and healthcare IT sectors, where PMP-certified candidates often see measurable advancement and compensation benefits relative to peers without credentials. Completing Granite PM Academy's CAPM Certification & Boot Camp positions you to meet the formal requirements that Kansas City employers list as preferred or required for mid-to-senior roles, giving you a concrete edge as you advance your career in one of the Midwest's strongest project management markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:05.970236Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2db1862c1a19660b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "CAPM Certification & Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual CAPM Boot Camp",
+          "badge": "BEST VALUE",
+          "desc": "Three-day live-virtual course satisfying PMI’s 23 contact hour requirement. Taught by certified PMs. No experience required.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$795",
+          "period": "per person",
+          "features": "23 PMI contact hours included\nNo PM experience required\nLive Q&A with certified instructor\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#capm_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "capm_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to CAPM Certification in Kansas City",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you hold a secondary diploma or equivalent and can complete the required contact hours of project management education. The CAPM® requires no prior work experience—making it accessible to career-changers and early-stage professionals entering Kansas City's growing project-driven sectors."
+        },
+        {
+          "heading": "Complete 23 Hours of Education",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led boot camp. Our intensive format condenses the PMI-required contact hours into a focused schedule, letting you master PMBOK® fundamentals without extended classroom commitments while maintaining your local job or responsibilities."
+        },
+        {
+          "heading": "Submit PMI Application & Fee",
+          "text": "Register with PMI and submit your eligibility documentation through the official PMI portal. Granite PM Academy guides you through the application process to ensure all materials meet PMI standards before you move forward to exam preparation."
+        },
+        {
+          "heading": "Prepare and Test",
+          "text": "Leverage Granite PM Academy's exam-prep resources—practice questions, study guides, and instructor review sessions—to build confidence. Then schedule and sit for the CAPM® exam, which validates your foundational knowledge of project management principles and terminology."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "Earn professional development units across the standard three-year renewal cycle to keep your CAPM® active. Granite PM Academy offers ongoing training and PDU-eligible courses to support continuous learning and career advancement in Kansas City's project management community."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:10.904997Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "capm_pathway",
+      "_ai_input_hash": "1abad2aa51a05c33",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CAPM Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need project management experience to take the CAPM?",
+          "answer": "<p>No prior PM experience is required. The CAPM only requires secondary education (high school diploma or equivalent) and 23 contact hours of project management education &mdash; which our course fulfills.</p>"
+        },
+        {
+          "question": "Is the CAPM a good starting credential for {city} professionals?",
+          "answer": "<p>Yes. The CAPM is one of the most recognized entry-level PM credentials and is highly regarded across industries in {city_state}. It demonstrates PM knowledge to employers even before you have years of experience.</p>"
+        },
+        {
+          "question": "How does the CAPM differ from the PMP?",
+          "answer": "<p>The PMP requires 36&ndash;60 months of project leadership experience; the CAPM does not. Many professionals earn the CAPM early in their career, gain experience, then pursue the PMP.</p>"
+        },
+        {
+          "question": "Is this training delivered online?",
+          "answer": "<p>Yes. Our CAPM training is fully live-virtual &mdash; no travel required. {city} students attend via video conference from wherever they are.</p>"
+        },
+        {
+          "question": "Is CAPM certification worth pursuing in Kansas City's project management market?",
+          "answer": "<p>Yes. Kansas City's major employers—including Burns & McDonnell, Black & Veatch, Cerner, and Ford Motor Company—actively seek certified project managers, particularly in engineering, construction, and healthcare IT. CAPM demonstrates foundational PM competency and positions you competitively for advancement into roles where PMP certification becomes the next step. The credential is especially valued as entry-level validation in a region where structured project management expertise remains in steady demand across manufacturing, logistics, and financial services.</p>"
+        },
+        {
+          "question": "Which Kansas City employers prefer or require CAPM certification?",
+          "answer": "<p>Engineering and construction firms dominate Kansas City's PM certification demand, with Burns & McDonnell and Black & Veatch leading the region. Healthcare IT employers like Cerner and University of Kansas Health System also prioritize certified candidates. Additionally, manufacturing (Ford, GM), aerospace (Honeywell), and logistics-heavy organizations value CAPM as evidence of project discipline. While PMP remains preferred for senior roles, CAPM is increasingly recognized as a legitimate credential for project coordinators and junior managers across these sectors.</p>"
+        },
+        {
+          "question": "How does Kansas City's job market timing affect when to pursue CAPM?",
+          "answer": "<p>Kansas City's project-heavy industries—construction, engineering, and automotive—maintain consistent hiring year-round, but spring and early fall often see increased PM openings as organizations ramp capital projects. If you're aiming for a mid-year promotion or job transition, completing CAPM by late winter or early summer positions you to capitalize on the region's peak hiring cycles. Starting the boot camp now allows you to credential while competitive opportunities are active in your target sector.</p>"
+        },
+        {
+          "question": "Can Kansas City professionals attend CAPM boot camp while working full-time?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format lets you attend from your Kansas City office, home, or workspace without relocating or traveling. This flexibility is ideal for working professionals at major local employers like T-Mobile, H&R Block, or Federal Reserve Bank of Kansas City who cannot step away during business hours. You maintain your job and income while completing the structured curriculum around your existing schedule.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:17.788604Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "af30f533b6f74a3b",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Kansas City's engineering and construction sector—anchored by national firms like Burns & McDonnell and Black & Veatch—drives consistent demand for certified project managers, particularly across infrastructure, healthcare IT, and manufacturing initiatives. Major employers including Cerner, Ford, and General Motors actively seek CAPM® and PMP® credential holders to lead complex programs. Granite PM Academy delivers live-virtual CAPM Certification & Boot Camp for Kansas City professionals ready to advance their careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:19.688837Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9fd8b247c48e785e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Launch Your PM Career from {city}",
+      "cb_subtext": "The CAPM is the credential that opens doors. Earn it with Granite PM Academy from the comfort of your home or office in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#capm_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/capm-certification-training-kansas-city-mo/",
+    "meta_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+    "meta_keywords": "CAPM certification Kansas City, MO, CAPM boot camp Kansas City, CAPM training Kansas City, MO, CAPM classes Kansas City MO, CAPM exam prep Kansas City",
+    "og_title": "CAPM Certification & Boot Camp in {city}, {SS} | Granite PM Academy",
+    "og_description": "CAPM Certification & Boot Camp for {city}, {SS} professionals — a live-virtual, instructor-led intensive from a PMI Authorized Training Partner. 23 contact hours, no experience required, exam-prep support.",
+    "og_image": "",
+    "service_name": "CAPM Certification & Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual CAPM Certification & Boot Camp for professionals in {city}, {SS}, including 23 contact hours and exam preparation; no prior project management experience required.",
+    "bc_label": "CAPM Certification & Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/#webpage\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/\",\n      \"name\": \"CAPM Certification & Boot Camp in Kansas City, MO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized CAPM certification training in Kansas City, MO. 3-day live-virtual or on-demand. 23 contact hours, no experience required.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"CAPM Certification & Boot Camp in Kansas City, MO\",\n            \"item\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/#course\",\n      \"name\": \"CAPM Certification & Boot Camp in Kansas City, MO\",\n      \"description\": \"PMI Premier Authorized CAPM certification training for professionals entering project management in Kansas City, MO. 3-day live-virtual ($795) or self-paced on-demand ($495). Includes 23 PMI contact hours and Pass Guarantee. No work experience required.\",\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/#credential\",\n      \"name\": \"Certified Associate in Project Management (CAPM)\",\n      \"description\": \"The CAPM is PMI's entry-level project management credential, recognized globally by employers for coordinator, analyst, and associate PM roles. No professional experience required.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/capm-certification-training-kansas-city-mo/\"\n    }\n  ]\n}",
+    "secondary_keywords": "CAPM certification {city}, CAPM boot camp {city}, CAPM training {city}, CAPM classes {city} {SS}, CAPM certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "b94b510d8a403901d4e015501d62b58f"
+}

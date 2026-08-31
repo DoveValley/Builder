@@ -55,6 +55,7 @@ if (!ACTIVE_SITE_ID) {
 // ── Parse options ─────────────────────────────────────────────────────────────
 $action        = $_POST['action']   ?? 'generate';  // generate | research | sync
 $cityId        = trim($_POST['city_id'] ?? '');
+$tag           = trim($_POST['tag'] ?? '');
 $scope         = in_array($_POST['scope'] ?? '', ['homepage', 'landing', 'core', 'all'], true) ? $_POST['scope'] : 'landing';
 $research      = !empty($_POST['research']);
 $refresh       = !empty($_POST['refresh']);
@@ -65,9 +66,12 @@ if (model_is_valid($_mo)) {
     $modelOverride = $_mo;
 }
 
-// Sanitize city_id: allow only safe slugs
+// Sanitize city_id / tag: allow only safe slugs
 if ($cityId && !preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $cityId)) {
     $cityId = '';
+}
+if ($tag && !preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $tag)) {
+    $tag = '';
 }
 
 // ── API key (not needed for sync-templates) ───────────────────────────────────
@@ -101,6 +105,7 @@ switch ($action) {
     case 'research':
         $parts[] = '--research-only';
         if ($cityId) { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
+        if ($tag)    { $parts[] = '--tag';  $parts[] = escapeshellarg($tag); }
         if ($dryRun) $parts[] = '--dry-run';
         break;
 
@@ -113,8 +118,9 @@ switch ($action) {
         }
         if ($research)       $parts[] = '--research';
         if ($refresh)        $parts[] = '--refresh';
-        // --file only filters landing pages by city; irrelevant for homepage/core scopes.
+        // --file/--tag only filter landing pages by city; irrelevant for homepage/core scopes.
         if ($cityId && ($scope === 'landing' || $scope === 'all')) { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
+        if ($tag    && ($scope === 'landing' || $scope === 'all')) { $parts[] = '--tag';  $parts[] = escapeshellarg($tag); }
         if ($dryRun)         $parts[] = '--dry-run';
         if ($modelOverride)  { $parts[] = '--model'; $parts[] = escapeshellarg($modelOverride); }
         break;

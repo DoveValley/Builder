@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "melbourne-fl",
+  "slug": "pmp-bootcamp-melbourne-fl",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "melbourne-fl",
+    "city": "Melbourne",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "melbourne-fl",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Melbourne's aerospace and defense sector—anchored by L3Harris Technologies, Northrop Grumman, and proximity to Kennedy Space Center—creates sustained demand for project managers who can lead complex, multi-disciplinary programs. Major facility expansions and advanced manufacturing initiatives across the Space Coast require PMP®-certified professionals to coordinate resources and timelines at scale. Granite PM Academy delivers live-virtual PMP Certification training to Melbourne professionals seeking to advance their careers in this high-demand market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Melbourne's aerospace and defense sector relies on rigorous project governance, making the PMP credential essential for advancement in this competitive market. Granite PM Academy's live-virtual PMP Boot Camp delivers instructor-led training that fulfills PMI's contact-hour education requirement, balancing intensive preparation with the flexibility Melbourne professionals need. Earn your PMP and position yourself for leadership roles managing complex technical programs across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:27.628162Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "0e25163be26a0f43",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Melbourne: Aerospace & Defense Demand",
+      "text": "<p>Melbourne's project management landscape is defined by its aerospace and defense sector, anchored by industry leaders like L3Harris Technologies and Northrop Grumman alongside Kennedy Space Center proximity. These organizations—along with Collins Aerospace, Health First, and growing technology employers—routinely seek PMP-certified professionals to lead complex, multi-disciplinary programs involving tight schedules, regulatory compliance, and cross-functional teams. In Melbourne, the PMP credential signals your readiness to manage the kind of high-stakes initiatives these employers depend on, making it a tangible asset for career advancement in a city where engineering, healthcare, and defense projects are the economic engine.</p><p>Granite PM Academy delivers PMP Boot Camp as a PMI Authorized Training Partner, offering live-virtual, instructor-led instruction that fits working professionals' schedules while meeting all contact-hour requirements for PMP eligibility. Our instructors are active certified practitioners—not just trainers—who bring real-world project scenarios from aerospace, manufacturing, technology, and healthcare into every class. Over the intensive boot camp format, you'll master the PMBOK framework, tackle exam-style questions, and build the confidence needed to pass your PMP exam and step into senior project leadership roles across Melbourne's competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:31.319310Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "f7ae2199436e8053",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Fast-Track for Space Coast Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Recognition",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP Boot Camp instruction meets PMI's rigorous standards. That designation means employers across Melbourne's aerospace, defense, and healthcare sectors trust the training's quality and your earned credential immediately."
+        },
+        {
+          "heading": "Live Instruction Fulfills Contact-Hour Requirements",
+          "text": "Our live-virtual instructor-led format satisfies PMI's contact-hour requirements for PMP eligibility without forcing you to attend in person. Work full-time at L3Harris, Northrop Grumman, or Health First while earning the hours needed to sit for the exam on your schedule."
+        },
+        {
+          "heading": "Active Practitioners Teach Real-World Skills",
+          "text": "Granite instructors are actively certified PMs working in aerospace, defense, healthcare, and IT—the industries anchoring Melbourne's economy. You learn current best practices and gain direct insight into how PMP methodologies solve problems at major local employers."
+        },
+        {
+          "heading": "Local Demand Backs Your Investment",
+          "text": "Melbourne's largest employers—including Collins Aerospace, Health First, and the City of Melbourne—actively hire certified PMs. The PMP credential signals readiness for leadership roles in these organizations and strengthens your advancement path in Brevard's advanced-manufacturing and defense-contractor landscape."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:36.143003Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ba101025833eeca3",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Melbourne's Aerospace Hub",
+      "text": "<p>Melbourne's economy centers on aerospace, defense, and healthcare—industries where certified project managers are in steady demand. L3Harris Technologies and Northrop Grumman operate major facilities here, managing complex engineering programs that depend on skilled project leadership. Health First operates multiple healthcare facilities across Brevard County, including expansions that require PMP-credentialed professionals to oversee capital projects and operational initiatives. Blue Origin's New Glenn rocket manufacturing facility at Exploration Park and ongoing infrastructure improvements at Melbourne Orlando International Airport further illustrate the region's concentration of technically demanding projects that value standardized project management credentials.</p><p>The combination of aerospace, defense, and healthcare employers creates a competitive market where PMP certification meaningfully improves your prospects for advancement and compensation. Project managers in these sectors typically earn competitive salaries reflecting the region's depth of engineering and technical talent—though actual compensation varies by industry, employer, and your experience level. Completing Granite PM Academy's PMP Boot Camp positions you to meet the credential demand from employers who view PMP certification as essential for leadership roles in complex, mission-critical work. In Melbourne's tight talent market, the credential accelerates your path to higher-responsibility roles and stronger earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:39.907201Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "073253f0085961d7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Melbourne",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a four-year degree with three years of project-management experience, or a high-school diploma with five years of experience. Review PMI's education and experience matrix to confirm you meet the baseline. Granite PM Academy can clarify your specific standing before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. This formal education delivers the contact hours PMI requires, taught by certified instructors who integrate real-world project scenarios. Schedule fits working professionals; attend from your Melbourne location on your own equipment."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, submit your PMP application directly to PMI with proof of your education and professional experience. Pay PMI's exam fee at that time. Granite PM Academy provides guidance on application submission and deadlines to keep your timeline on track."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice exams and targeted review sessions, to strengthen your readiness. Take the PMP exam at a Pearson VUE test center in the Melbourne area. PMI's computerized format assesses your command of project-management principles and processes."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to the three-year renewal cycle by earning professional-development units (PDUs) through continuing education, volunteer work, or professional contributions. Plan ahead to meet PMI's renewal requirements and keep your credential active and current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:44.478644Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "5eb1ea13df2a527d",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for aerospace and defense project managers in Melbourne?",
+          "answer": "<p>Melbourne's concentration of aerospace and defense employers—including L3Harris Technologies, Northrop Grumman, and Rockwell Collins—makes PMP certification highly relevant. These organizations operate in technically complex, regulated environments where standardized project management practices are essential for leadership advancement. The credential signals readiness for senior roles and aligns with industry expectations in your local job market.</p>"
+        },
+        {
+          "question": "Can Melbourne project managers attend the live-virtual PMP Boot Camp from their workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet. Many Melbourne professionals in defense and healthcare sectors choose to attend during work hours or arrange flexible scheduling with their employer. Confirm your workplace internet capacity and find a quiet space for focused participation during the intensive program.</p>"
+        },
+        {
+          "question": "Which Melbourne employers value PMP certification for project management roles?",
+          "answer": "<p>Health First, Florida Institute of Technology, and the city's aerospace and defense contractors actively seek PMP-certified professionals for project leadership. These organizations manage complex programs requiring formal certification credentials. Advanced manufacturing and IT sectors in the Space Coast region also recognize PMP as a competitive differentiator for mid- and senior-level roles.</p>"
+        },
+        {
+          "question": "Does Melbourne's job market timing affect when I should pursue PMP certification?",
+          "answer": "<p>Melbourne's defense and healthcare sectors experience steady hiring cycles tied to contract awards and budget planning. Earning your PMP certification before peak hiring seasons—typically spring and fall—positions you competitively. Early certification also allows time to leverage the credential in applications and interviews with major local employers before position postings close.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:50.024186Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d6b607357246a9ac",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Melbourne's aerospace and defense sector—home to L3Harris Technologies, Northrop Grumman, and Blue Origin's New Glenn manufacturing facility—drives consistent demand for PMP-certified professionals who can lead complex, multi-disciplinary programs. Health First and Florida Institute of Technology add healthcare and education opportunities, creating a diverse landscape where skilled project managers command respect and advancement. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Melbourne's working professionals.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:51.997399Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "038151bc1e097a74",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Melbourne, FL, PMP bootcamp Melbourne, PMP certification boot camp Melbourne, FL, PMP bootcamp near me, intensive PMP training Melbourne",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/\",\n      \"name\": \"PMP Boot Camp in Melbourne, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Melbourne, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Melbourne, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/#course\",\n      \"name\": \"PMP Boot Camp in Melbourne, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Melbourne, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-melbourne-fl/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

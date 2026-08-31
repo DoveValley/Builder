@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "palmdale-ca",
+  "slug": "ai-training-palmdale-ca",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "palmdale-ca",
+    "city": "Palmdale",
+    "state": "California",
+    "SS": "CA",
+    "city_slug": "palmdale-ca",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Palmdale's project management demand is driven by aerospace and defense manufacturing—particularly Air Force Plant 42 and programs at Lockheed Martin and Northrop Grumman—alongside expanding public sector roles in city government, education, and healthcare. Regional infrastructure projects, including the California High-Speed Rail corridor development, are accelerating demand for certified project managers who can lead complex, multi-phase initiatives. Granite PM Academy serves Palmdale professionals with live-virtual PMP® Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Palmdale's aerospace and defense sector demands project managers who can integrate AI tools into complex, regulated workflows. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that satisfies PMI contact-hour requirements, allowing you to earn credentials while mastering automation and data analytics on your own schedule. Completing this training positions you to lead high-stakes initiatives across Palmdale's largest employers and command competitive advancement in a market where AI competency is rapidly becoming standard.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:02.087482Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "dc5c6a629f065d3b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Palmdale, California",
+      "text": "<p>Palmdale's project management landscape is defined by its aerospace and defense manufacturing sector, anchored by Air Force Plant 42 and major contractors including Lockheed Martin and Northrop Grumman. As these organizations and their supply chains modernize operations with artificial intelligence and automation, project managers in Palmdale face a critical skill gap. AI competency is no longer optional—it directly influences how you manage timelines, resource allocation, risk, and stakeholder communication across the complex, multi-phase programs that define aerospace and defense work. Whether you're coordinating manufacturing initiatives, infrastructure projects, or public-sector programs in Palmdale, understanding AI tools and their role in modern project delivery positions you as an indispensable leader in your organization.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led AI training designed for working project managers in Palmdale who are pursuing PMP®, CAPM®, or maintaining current PMI credentials. Our live-virtual courses are taught by active certified practitioners who apply real aerospace, defense, and public-sector examples to every lesson. We meet PMI contact-hour requirements while ensuring you gain immediately applicable skills in AI-assisted planning, predictive analytics, and decision-making. Upon completion, you'll hold a credential recognized across Palmdale's major employers and be equipped to lead AI-enabled projects with confidence and competence.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:06.008490Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a606d99bc5feeb10",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Certification Meets Aerospace Demand in Palmdale",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP or CAPM training meets all official requirements. You earn recognized contact hours toward PMI certification without concern for program validity or eligibility gaps."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend instructor-led classes live online, satisfying PMI's contact-hour mandate while fitting work around your schedule. Active certified practitioners teach each session, bringing real project experience from industries like aerospace and defense that anchor Palmdale's economy."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Granite PM Academy weaves exam preparation throughout the curriculum, not as an afterthought. Practice questions, strategy coaching, and knowledge checks prepare you to pass on your first attempt and earn credentials employers recognize."
+        },
+        {
+          "heading": "Local Hiring Demand for Certified PMs",
+          "text": "Palmdale's aerospace, defense, and government sectors—Lockheed Martin, Northrop Grumman, Boeing, and City of Palmdale among them—prioritize PMP and CAPM certification for project leadership roles. Your credential directly addresses documented hiring criteria in your regional job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:10.446701Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "8ddc6299388a9cec",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Palmdale's Aerospace Sector",
+      "text": "<p>Palmdale's economy is anchored by aerospace and defense manufacturing, making it one of Southern California's most dynamic markets for certified project managers. Lockheed Martin's Skunk Works division and Northrop Grumman's operations at Air Force Plant 42—home to the B-21 Raider program—represent the scale of local demand for skilled program and project leadership. Boeing, AeroVironment, and public agencies including the City of Palmdale and Los Angeles County also employ project managers across engineering, construction, and administrative functions. The California High-Speed Rail corridor development and Palmdale Regional Medical Center expansions further illustrate the breadth of infrastructure and capital projects where certification adds competitive advantage in local hiring.</p><p>In Palmdale's aerospace and defense corridor, PMP® and CAPM® certifications carry real market weight. Government contracting requirements and formal methodology standards make PMI credentials preferred or required qualifications for project manager roles across engineering, construction, and public administration. Project management salaries in Palmdale track competitively within the broader Antelope Valley region, and PMP-certified candidates consistently command a premium over uncertified applicants—a gap that widens with experience and scope. Completing AI Training for Project Managers through Granite PM Academy positions you to meet both the technical and credentialing expectations that Palmdale employers value, strengthening your candidacy for roles with the region's largest employers and emerging infrastructure projects.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:14.353996Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "75989abe77d422bd",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Palmdale aerospace careers?",
+          "answer": "<p>Yes. Palmdale's aerospace and defense sector—anchored by employers like Lockheed Martin, Northrop Grumman, and Boeing—increasingly integrates AI and automation into project workflows. AI training equips you to lead modern, data-driven projects in an industry where formal methodology and government contracting compliance are non-negotiable. PMP certification combined with AI competency makes you distinctly competitive for advancement.</p>"
+        },
+        {
+          "question": "Which Palmdale employers prefer or require project management certifications?",
+          "answer": "<p>Defense contractors (Lockheed Martin, Northrop Grumman, Boeing, AeroVironment) and local public agencies (City of Palmdale, Los Angeles County, school districts) routinely list PMP or CAPM as preferred or required for project and program manager roles. These employers tie formal certification to government contracting requirements and risk management standards, making credentials a direct asset in hiring and promotion decisions.</p>"
+        },
+        {
+          "question": "Do Palmdale project managers earn more with PMP certification?",
+          "answer": "<p>Project managers with PMP certification typically command a measurable salary premium over uncertified peers in the Palmdale and Antelope Valley corridor. Compensation varies by industry (aerospace and defense roles often outpace education or public administration), years of experience, and employer, but certification consistently strengthens your negotiating position and eligibility for higher-grade positions.</p>"
+        },
+        {
+          "question": "Can I attend Granite PM Academy's live-virtual AI training from my Palmdale workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your office, home, or any location with a stable internet connection. Palmdale professionals in aerospace, government, or healthcare settings can participate during flexible scheduling windows, making it practical to balance certification with your existing role and employer requirements.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:19.246279Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "20d69b0fcb1c1eb8",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Palmdale's project management market is anchored by aerospace and defense manufacturing—including Lockheed Martin, Northrop Grumman, and Air Force Plant 42—where complex, multi-phase programs demand skilled project leaders. Public sector growth in city government, education, and healthcare, combined with major infrastructure initiatives like the California High-Speed Rail corridor development, continues to expand PM roles across industries. Granite PM Academy serves Palmdale professionals with live-virtual AI Training for Project Managers, designed to equip you for your local market's evolving demands.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:21.333009Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "ad5b3ac09a2be542",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-palmdale-ca/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Palmdale, CA, AI courses Palmdale, CPMAI certification Palmdale, AI project management training Palmdale, CA, AI for project managers Palmdale",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-palmdale-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-palmdale-ca/\",\n      \"name\": \"AI Training for Project Managers in Palmdale, CA — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Palmdale, CA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Palmdale, CA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-palmdale-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-palmdale-ca/#course\",\n      \"name\": \"AI Training for Project Managers in Palmdale, CA\",\n      \"description\": \"CPMAI certification training for project managers in Palmdale, CA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-palmdale-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-palmdale-ca/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-palmdale-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-palmdale-ca/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-palmdale-ca/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

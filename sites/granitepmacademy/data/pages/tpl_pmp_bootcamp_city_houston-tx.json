@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "houston-tx",
+  "slug": "pmp-bootcamp-houston-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "houston-tx",
+    "city": "Houston",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "houston-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>As a global energy hub anchored by ExxonMobil, Chevron, Shell, and other major operators, Houston's project management market thrives across oil & gas, petrochemicals, healthcare, aerospace, and construction. Major initiatives like the Port of Houston expansion and Texas Medical Center projects sustain consistent demand for skilled PMs and program managers. Granite PM Academy serves Houston professionals with live-virtual PMP® Certification training designed to fit working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Houston's energy sector—from upstream oil and gas to renewable infrastructure projects—depends on PMP-certified professionals to deliver complex, high-stakes initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led training and PMI contact hours required for credential eligibility, condensed into an accelerated format that fits working schedules. Earning your PMP® opens doors across Houston's largest employers and positions you for roles commanding deeper responsibility and compensation growth in project leadership.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:48.351145Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "929043dd6d51973a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Houston: Energy Sector Demand",
+      "text": "<p>As a global energy hub, Houston's project management landscape is shaped by the intensive infrastructure and capital projects that define oil, gas, and petrochemical operations. Major employers including ExxonMobil, Chevron, Shell, and Baker Hughes routinely seek certified project managers to lead complex, mission-critical initiatives—yet this demand extends equally across healthcare systems like Memorial Hermann and the Texas Medical Center, aerospace operations centered on NASA's Johnson Space Center, and the construction and manufacturing sectors fueling the region's growth. The PMP® credential has become essential for professionals in Houston seeking advancement, competitive compensation, and the credibility to manage high-stakes projects across these diverse industries. An intensive boot camp format addresses the reality that Houston professionals need efficient, focused preparation without prolonged part-time study.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP Boot Camp that condenses months of study into an accelerated program while meeting all PMI contact-hour requirements. Our instructors are active certified practitioners with hands-on experience in Houston's dominant sectors—energy, construction, healthcare, and aerospace—so course examples and case studies reflect real-world challenges you'll encounter. The boot camp structure pairs rigorous exam preparation with flexible scheduling, allowing working professionals to earn their PMP® credential without stepping away from their roles. Upon completion, you'll be ready to sit for the PMP® exam, positioning yourself for career growth and expanded leadership opportunities in Houston's robust project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:52.915416Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "880e3d84e70a3043",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Houston's Energy and Aerospace Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Real Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your boot camp completion satisfies PMI contact-hour requirements, so you can apply for the PMP credential with confidence that your training meets the organization's strict standards."
+        },
+        {
+          "heading": "Live Instructors, Real Project Experience",
+          "text": "Our instructors are active, certified project managers working in Houston's energy, aerospace, and construction sectors. You learn from practitioners who apply PMP principles daily at companies like ExxonMobil, NASA Johnson Space Center, and Baker Hughes."
+        },
+        {
+          "heading": "Virtual Format Fits Your Schedule",
+          "text": "Live-virtual instructor-led sessions let you earn your required contact hours without relocating or disrupting your career. Attend from Houston and interact with the instructor and cohort in real time—not pre-recorded content."
+        },
+        {
+          "heading": "Credential Demand Across Houston's Major Industries",
+          "text": "Energy, petrochemical, construction, aerospace, and manufacturing employers across Houston actively hire PMP-certified project managers. The credential signals readiness for leadership roles at major regional employers and unlocks advancement in Houston's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:57.576357Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b2e9a96a0905ef45",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Houston's Energy Sector",
+      "text": "<p>Houston's energy industry—anchored by global leaders like ExxonMobil, Chevron, Shell, and ConocoPhillips—drives sustained demand for certified project managers across upstream, downstream, and engineering functions. Beyond oil and gas, major employers including Bechtel, Baker Hughes, and Halliburton rely on PMP-certified professionals to manage complex capital projects and operational initiatives. Healthcare systems such as Memorial Hermann and Houston Methodist, alongside aerospace activities supporting NASA Johnson Space Center's Artemis program, further diversify the local PM job market. The Port of Houston's ongoing expansion and modernization efforts similarly create openings for project managers with formal credentials and structured methodology training.</p><p>In Houston, PMP certification functions as a tangible differentiator—major employers in energy, engineering, and healthcare sectors actively list the credential as preferred or required for mid- to senior-level roles, and compensation tends to scale meaningfully with both certification and industry sector. The local market rewards candidates who can demonstrate standardized project management expertise, particularly in oil and gas and construction-intensive fields where stakeholder expectations and regulatory complexity demand disciplined execution. Completing the PMP Boot Camp through Granite PM Academy positions you to meet that demand directly, equipping you with both the knowledge framework and credential that Houston's largest employers use when evaluating advancement and compensation decisions.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:01.969223Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2384a380b384bf7b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Houston",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Houston's energy and construction sectors reward this credential—confirm your background qualifies before enrolling in our boot camp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Houston-focused cohorts deliver the required formal education in an accelerated format, fitting professional schedules while meeting PMI's strict contact-hour standard."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, submit your PMP application directly to PMI and pay the exam fee. Granite PM Academy guides you through the documentation process to ensure your application meets all PMI requirements."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources and practice assessments to build confidence. Schedule your PMP exam and take it at an authorized testing center; our instructors remain available for final-stage support."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) throughout the three-year renewal cycle to keep your credential active. Granite PM Academy offers continuing-education options that help you sustain PMP status while advancing your project-management expertise."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:06.362398Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "10fc763595c5d5e0",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Houston energy sector careers?",
+          "answer": "<p>Yes. Houston's dominance in oil & gas, petrochemicals, and energy services creates sustained demand for PMP-certified project managers. Major employers like ExxonMobil, Chevron, Shell, ConocoPhillips, and Baker Hughes frequently list PMP or equivalent certification as a competitive differentiator for mid- to senior-level roles. The credential directly influences compensation tiers and advancement opportunities in these high-value industries, making boot camp investment aligned with regional career growth.</p>"
+        },
+        {
+          "question": "Do Houston construction and engineering firms require PMP certification?",
+          "answer": "<p>PMP certification is widely preferred and often required by Houston construction and engineering employers managing complex projects. Firms like Bechtel actively seek certified professionals. While not universally mandatory, the credential significantly strengthens candidacy for project management roles and typically correlates with higher compensation bands. In a competitive Houston market, PMP status often separates candidates for premium-tier positions.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP boot camp from my Houston workplace?",
+          "answer": "<p>Yes. Our live-virtual boot camp format allows you to join from your office, home, or any location with reliable internet—including your employer's Houston facility. This flexibility suits professionals managing active project loads at energy companies, healthcare systems, and engineering firms throughout the region who cannot step away for multi-day in-person training.</p>"
+        },
+        {
+          "question": "When should Houston project managers pursue PMP certification to stay competitive?",
+          "answer": "<p>The Houston job market moves quickly, especially in energy and healthcare sectors where certified talent remains in high demand. Project managers targeting mid-level advancement or role transitions benefit from obtaining PMP certification sooner rather than later. Strong local employer preference for the credential means certification often unlocks better-positioned opportunities and salary progression faster than waiting, particularly as competition intensifies.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:12.145664Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b8809485853f71cf",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Houston's energy sector—anchored by ExxonMobil, Chevron, Shell, and other major operators—fuels relentless demand for skilled project managers across oil, gas, petrochemicals, and downstream industries. Beyond energy, the Texas Medical Center expansion, NASA Johnson Space Center's Artemis initiatives, and Port of Houston modernization projects create diverse career pathways for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Boot Camp instruction tailored to Houston's working professionals.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:13.970994Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "f86454251f7bc280",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-houston-tx/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Houston, TX, PMP bootcamp Houston, PMP certification boot camp Houston, TX, PMP bootcamp near me, intensive PMP training Houston",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/\",\n      \"name\": \"PMP Boot Camp in Houston, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Houston, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Houston, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/#course\",\n      \"name\": \"PMP Boot Camp in Houston, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Houston, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-houston-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

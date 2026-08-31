@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "sierra-vista-az",
+  "slug": "pmp-certification-training-sierra-vista-az",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "sierra-vista-az",
+    "city": "Sierra Vista",
+    "state": "Arizona",
+    "SS": "AZ",
+    "city_slug": "sierra-vista-az",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Fort Huachuca anchors Sierra Vista's project management demand, with defense contractors and military intelligence operations creating steady roles for certified PMs across program management and network modernization initiatives. Healthcare, education, and local government add career diversity beyond the defense sector. Granite PM Academy delivers live-virtual PMP® Certification to Sierra Vista professionals seeking credentials that align with this defense-anchored employment landscape.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Sierra Vista's robust defense and aerospace sector demands rigorous project discipline across contractors and federal agencies alike. Granite PM Academy delivers PMI's PMP Certification Training through live-virtual, instructor-led sessions that satisfy PMI's required contact-hour education, preparing you to sit for the exam on a schedule that fits working professionals. Earning your PMP credential opens doors to higher-level roles and competitive compensation within the region's mission-critical project management community.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:34.491456Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "f6a6457c48b87103",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Sierra Vista for Defense and Government Leaders",
+      "text": "<p>Fort Huachuca's role as the U.S. Army's intelligence and network enterprise hub makes Sierra Vista unique among Arizona cities in its demand for credentialed project managers. Defense contractors, systems integrators, and government agencies throughout the region—including Northrop Grumman, General Dynamics Information Technology, Leonardo DRS, and L3Harris Technologies—actively seek professionals who hold the Project Management Professional (PMP) credential. Beyond the defense sector, healthcare organizations like Canyon Vista Medical Center, educational institutions, and city government offices also recognize PMP certification as a marker of operational excellence. For Sierra Vista professionals working in program delivery, infrastructure modernization, or mission-critical initiatives, PMP certification directly strengthens both your technical credibility and your advancement prospects in a market shaped by rigorous compliance and performance standards.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP certification training designed for working professionals in Sierra Vista who cannot pause their careers for traditional classroom schedules. Our courses are taught by active certified practitioners who bring real-world experience from defense, government, and commercial sectors—ensuring every lesson connects to the challenges you face on the job. We cover the full PMBOK Guide framework and satisfy the contact-hour requirement mandated by PMI, preparing you to sit for the PMP exam with both confidence and practical knowledge. Whether you're advancing within Fort Huachuca's contracting ecosystem or building your credential portfolio across Sierra Vista's diverse industries, Granite PM Academy provides the flexible, expert instruction you need to earn your PMP certification and move your career forward.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:39.395645Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "f45f6c0e54863733",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Training for Sierra Vista's Defense and Government Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "As a PMI Authorized Training Partner, Granite PM Academy delivers PMP® training that meets PMI's rigorous standards. Your certification carries the weight employers across Fort Huachuca, Northrop Grumman, and General Dynamics expect when hiring project managers."
+        },
+        {
+          "heading": "Live Instruction Meets Certification Contact Hours",
+          "text": "Our instructor-led virtual format delivers the contact hours required for PMP® eligibility without sacrificing flexibility. Attend live sessions from Sierra Vista on your schedule while building the practical knowledge military and defense contractors demand."
+        },
+        {
+          "heading": "Active Practitioners Teaching Real-World Methods",
+          "text": "Our instructors are certified, working project managers in defense, government, and IT sectors. Learn techniques they apply daily at organizations like Leonardo DRS and L3Harris, then bring proven strategies directly into your role."
+        },
+        {
+          "heading": "Local Demand: Fort Huachuca and Defense Contracting",
+          "text": "Sierra Vista's largest employers—Fort Huachuca and regional defense contractors—prioritize the PMP® credential for advancement into program and project leadership. Certification positions you competitively in a market where military and government project expertise commands strong career growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:43.481138Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c7e044a93ee2cf5d",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Defense-Centered Sierra Vista",
+      "text": "<p>Fort Huachuca stands as Sierra Vista's primary employment hub, and the Army installation's ongoing Network Enterprise Technology Command infrastructure modernization and Intelligence Center of Excellence facility upgrades represent sustained demand for skilled project managers. Beyond the base, defense contractors including Northrop Grumman, General Dynamics Information Technology, Leonardo DRS, and L3Harris Technologies maintain local operations and regularly manage complex initiatives tied to federal contracts. Canyon Vista Medical Center and Cochise College also pursue facility and program expansion projects that require disciplined project oversight. Certified project managers in Sierra Vista typically work within these defense, government, healthcare, and education sectors—industries where structured methodology and formal credentials carry measurable weight.</p><p>PMP® certification gains particular relevance here because many federal and military-adjacent roles explicitly favor formal project management credentials. Compensation for certified project managers in Sierra Vista tracks closely with defense and government contracting pay scales rather than typical private-sector benchmarks, meaning your credential can position you competitively for roles that often command premiums tied to federal demand and security clearance requirements. Completing PMP® Certification Training through Granite PM Academy equips you with the recognized credential and practical skills that Sierra Vista's dominant employers—from Fort Huachuca to regional defense contractors—value when staffing critical infrastructure, intelligence operations, and mission-support projects. In a market shaped by contract complexity and compliance rigor, that certification directly strengthens your candidacy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:48.185595Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "04d777d5fd34d594",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Sierra Vista",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's eligibility criteria to confirm you meet the education and hours requirements, then gather your project documentation. Granite PM Academy's advisors can help you assess whether you qualify before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our Sierra Vista-based professionals benefit from flexible scheduling that fits working schedules. You'll study the PMBOK® Guide framework, real-world case studies, and exam-aligned content across five intensive days or part-time modules."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the 35-hour course, submit your formal PMP application directly to PMI with your experience documentation and proof of course completion from Granite PM Academy. Pay the associated exam fee at the time of application. PMI will review and approve your eligibility within one to two weeks."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation resources, practice tests, and one-on-one coaching to reinforce your readiness. Schedule your proctored exam through PMI's testing partner. Most Sierra Vista professionals sit for the exam within four weeks of application approval."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "The PMP credential is valid for three years. During this cycle, you must earn a set number of professional development units (PDUs) through continuing education, volunteering, or project work. Granite PM Academy offers PDU-eligible workshops and webinars to support your ongoing certification maintenance."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:53.689130Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "01ed6bdf699b6e38",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Sierra Vista defense contractors?",
+          "answer": "<p>Yes. Fort Huachuca and major defense contracting firms (Northrop Grumman, General Dynamics Information Technology, Leonardo DRS, L3Harris Technologies) throughout Sierra Vista regularly prioritize PMP certification for project leadership roles. Federal and military-adjacent contracting environments favor formal credentials, making certification a meaningful differentiator for career advancement and eligibility for higher-responsibility assignments in this region's dominant employment sector.</p>"
+        },
+        {
+          "question": "Which Sierra Vista employers value PMP certification most?",
+          "answer": "<p>Defense and government contracting organizations—including Fort Huachuca-affiliated roles, Northrop Grumman, General Dynamics Information Technology, and Leonardo DRS—show steady demand for PMP-certified professionals. Government agencies, healthcare institutions like Canyon Vista Medical Center, and educational employers also recognize the credential. The concentration of federal contracting work in Sierra Vista makes PMP particularly valuable for professionals targeting project roles in those sectors.</p>"
+        },
+        {
+          "question": "How does Fort Huachuca's presence shape project manager salaries in Sierra Vista?",
+          "answer": "<p>Project management compensation in Sierra Vista is heavily influenced by federal contracting and military-adjacent pay scales tied to Fort Huachuca's dominance in the regional economy. Salaries often reflect defense industry benchmarks rather than typical private-sector rates, and may vary significantly based on clearance level and contracting tier. PMP certification can strengthen your competitiveness for roles where these higher federal-linked compensation levels apply.</p>"
+        },
+        {
+          "question": "Can I attend PMP training from my workplace in Sierra Vista?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual delivery format allows Sierra Vista professionals to attend training from their workplace, home, or any location with reliable internet. This flexibility is especially valuable for those at Fort Huachuca, defense contractors, healthcare, and government offices, enabling you to balance certification with your current workload without commuting or relocation.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:58.986464Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d64a6a9161531f9c",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Huachuca's role as the U.S. Army's intelligence and network technology center anchors Sierra Vista's project management market, creating consistent demand among defense contractors and government agencies for certified professionals. Healthcare, education, and local government round out the employment landscape, offering diverse career paths for PMP-certified practitioners. Granite PM Academy delivers live-virtual PMP Certification Training to Sierra Vista professionals seeking credential advancement in this defense-driven market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:36:00.740721Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "32888e402e89d53a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Sierra Vista, AZ, PMP exam prep Sierra Vista, PMP course Sierra Vista AZ, project management certification Sierra Vista, AZ, PMI PMP training Sierra Vista",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/\",\r\n      \"name\": \"PMP Certification Training in Sierra Vista, AZ | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Sierra Vista, AZ. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Sierra Vista, AZ\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/#course\",\r\n      \"name\": \"PMP Certification Training in Sierra Vista, AZ\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Sierra Vista, AZ. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-sierra-vista-az/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

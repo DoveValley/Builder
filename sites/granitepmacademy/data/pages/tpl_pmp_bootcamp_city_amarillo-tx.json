@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "amarillo-tx",
+  "slug": "pmp-bootcamp-amarillo-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "amarillo-tx",
+    "city": "Amarillo",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "amarillo-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
+    ],
+    "city_spotlight": "<p>Amarillo's energy, agriculture, and defense sectors—anchored by employers like Tyson Foods, Xcel Energy, and the Pantex Plant—create steady demand for certified project managers across construction, logistics, and infrastructure modernization. As downtown revitalization and regional wind projects expand, PMP® certification positions professionals to lead high-impact initiatives in the Texas Panhandle's fastest-growing industries. Granite PM Academy delivers live-virtual PMP® Certification training designed for Amarillo's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Amarillo's energy sector and heavy industrial base depend on skilled project managers to coordinate complex operations and capital projects. Granite PM Academy delivers live-virtual PMP Boot Camp instruction that fulfills PMI's required contact hours, preparing you to sit for the PMP exam without disrupting your current role. Earning your PMP credential positions you for leadership roles and competitive compensation in Amarillo's project-driven industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:07.062596Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "db6d0aa46df80c9a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Amarillo: Project Leadership Training for Texas Panhandle Growth",
+      "text": "<p>Amarillo's project management market is anchored by major employers in agriculture, energy, manufacturing, and defense—from large-scale food processing operations to aerospace and nuclear facilities—all of which demand skilled project leaders to coordinate complex, high-stakes work. As these sectors expand alongside infrastructure development across the Texas Panhandle, organizations in Amarillo are actively recruiting certified project managers who can demonstrate mastery of industry-standard practices. The PMP® credential, recognized globally and trusted by employers in every sector represented in Amarillo's economy, positions you to compete for leadership roles in construction, logistics, healthcare, and defense contracting where certification is increasingly expected.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers intensive PMP Boot Camp instruction through live-virtual, instructor-led sessions taught by active certified practitioners with real-world experience in project delivery. Our curriculum satisfies the contact-hour requirements mandated by the Project Management Institute and equips you with the knowledge, tools, and confidence to pass the PMP exam on your first attempt. Whether you work in Amarillo's energy sector, a healthcare system, or a manufacturing environment, our boot camp accelerates your path to certification and positions you for advancement in a competitive regional market where project management expertise directly influences organizational success.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:10.797187Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4708a7d5b524ca95",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Amarillo's PMP Boot Camp: Credential Employers Actually Hire For",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Recognized Rigor",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your boot camp meets PMI's strict curriculum and instructor standards. This authorization validates that your 35 contact hours count directly toward PMP eligibility—no surprises, no shortcuts."
+        },
+        {
+          "heading": "Live Instruction Without the Commute",
+          "text": "Our live-virtual instructor-led format delivers real-time teaching from active project management practitioners. You attend from Amarillo, interact with instructors daily, and satisfy PMI contact-hour requirements without traveling or relying on self-paced video recordings."
+        },
+        {
+          "heading": "Exam-Ready Support Built In",
+          "text": "Instructors are certified practitioners working in the field today, not trainers reading slides. Boot camp includes targeted exam-prep coaching, practice questions aligned to PMP domains, and post-course support to maximize your certification success on the first attempt."
+        },
+        {
+          "heading": "Amarillo's Industrial Growth Demands Certified PMs",
+          "text": "Tyson Foods, JBS USA, Pantex Plant, and Xcel Energy operate major facilities here and hire managers who hold PMP credentials. Energy, defense manufacturing, and food processing increasingly require project managers to lead complex, regulated operations—the PMP credential sets you apart in Amarillo's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:15.802751Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c91a701096daa5c3",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Amarillo's Growing Sectors",
+      "text": "<p>Amarillo's economy runs on large-scale operations across food processing, energy infrastructure, and defense manufacturing—all sectors that depend heavily on skilled project managers. Tyson Foods and JBS USA operate major facilities here, coordinating complex supply chains and facility upgrades that require disciplined project oversight. Beyond food production, employers like Xcel Energy are advancing regional wind and transmission infrastructure projects, while the Pantex Plant continues modernization and nuclear stockpile stewardship programs that demand certified professionals capable of managing mission-critical timelines and compliance. Healthcare systems including BSA Health System and Northwest Texas Healthcare System are also expanding services and capital projects, creating steady demand for project managers who can guide these initiatives from planning through delivery.</p><p>While project manager compensation in Amarillo tends to run somewhat below larger Texas metros, the credential gap works in your favor. Local employers increasingly favor candidates with PMP or CAPM certification for higher-paying roles, especially in manufacturing, energy, and government contexts tied to major capital projects. Completing the PMP Boot Camp through Granite PM Academy positions you to meet that credential demand directly—giving you a concrete advantage in a market where steady expansion across multiple industries means real career mobility. The Amarillo job market rewards certified professionals, and the shorter path to credentialing here means faster advancement compared to waiting for experience alone to open doors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:20.470915Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f710a94e34692e29",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Amarillo",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review your academic background and documented work experience in project leadership roles. PMI sets specific thresholds; Granite PM Academy's advisors can help you confirm qualification before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Attend all required formal education sessions delivered by experienced instructors. This PMI-mandated training covers the PMBOK Guide framework and exam domains essential for Amarillo professionals in energy, agriculture, and construction sectors."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "File your official PMP application directly with PMI and pay the associated examination fee. Granite PM Academy provides guidance on documentation and submission. PMI reviews your eligibility claim; once approved, you receive authorization to schedule your exam at a Pearson VUE testing center."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice questions, study guides, and instructor Q&A sessions—to reinforce your knowledge. Schedule your computer-based exam at a local or regional testing center. On exam day, demonstrate mastery of project-management practices across all PMBOK domains."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) during your three-year certification cycle through training, conferences, and project work. Renew your credential before expiration by submitting proof of PDU completion to PMI. Granite PM Academy offers continuing education options to help you stay current and advance your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:25.169888Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "863d37d4eef7a8bc",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth getting in Amarillo's manufacturing and energy sector?",
+          "answer": "<p>Yes. Amarillo's dominant employers—Tyson Foods, JBS USA, Pantex Plant, and Xcel Energy—increasingly require or strongly prefer PMP credentials for project management roles tied to capital projects and operations expansion. While project coordination experience alone remains viable, PMP certification directly unlocks higher-paying positions in these sectors and signals capability to employers evaluating candidates for leadership track roles.</p>"
+        },
+        {
+          "question": "Which Amarillo employers actively hire PMP-certified project managers?",
+          "answer": "<p>Healthcare systems (BSA Health System, Northwest Texas Healthcare System), manufacturing and defense (Bell Textron Inc., Owens Corning, Ardagh Group), energy utilities (Xcel Energy), government agencies (City of Amarillo), and food processing operations consistently seek PMP-certified professionals for project leadership. These sectors drive Amarillo's job market and reward certification through advancement and compensation opportunities above entry-level project coordination roles.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP boot camp from my Amarillo workplace?",
+          "answer": "<p>Yes. Live-virtual boot camp formats allow you to join sessions from your office, home, or any location with reliable internet—ideal for Amarillo professionals managing work schedules at companies like Pantex or regional healthcare networks. Confirm your employer's remote-access policies beforehand, and ensure a quiet, distraction-free space for the intensive, instructor-led format.</p>"
+        },
+        {
+          "question": "When should Amarillo project managers pursue PMP certification?",
+          "answer": "<p>Now is optimal. Amarillo's steady demand for certified project managers across healthcare expansion, energy initiatives, and manufacturing operations means credentials remain valuable year-round. However, pursuing certification early—before competing for senior project roles at major local employers—positions you to capitalize on promotion cycles and command higher compensation in a market where credentials increasingly differentiate candidates.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:31.391753Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "bab73fe60595c4d9",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Amarillo's energy and food-processing sectors—anchored by employers like Tyson Foods, Bell Textron, and the Pantex Plant—create steady demand for certified project managers across construction, logistics, and defense coordination. Downtown revitalization and infrastructure expansions underscore the region's growth trajectory and the value PMP® certification brings to career advancement. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Amarillo professionals seeking PMI® credentials without relocating.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:33.289455Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "86f138a5d6aa69b5",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Amarillo, TX, PMP bootcamp Amarillo, PMP certification boot camp Amarillo, TX, PMP bootcamp near me, intensive PMP training Amarillo",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/\",\n      \"name\": \"PMP Boot Camp in Amarillo, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Amarillo, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Amarillo, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/#course\",\n      \"name\": \"PMP Boot Camp in Amarillo, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Amarillo, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-amarillo-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

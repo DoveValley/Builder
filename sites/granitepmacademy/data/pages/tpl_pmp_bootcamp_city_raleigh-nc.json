@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "raleigh-nc",
+  "slug": "pmp-bootcamp-raleigh-nc",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "raleigh-nc",
+    "city": "Raleigh",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "raleigh-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Raleigh's Research Triangle anchors demand for skilled project managers across technology, biotech, and higher education, with major employers like Red Hat, IBM, and NC State University actively hiring coordinators and program leads. State government roles, healthcare systems, and finance sectors add further breadth to career pathways for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Raleigh professionals ready to advance in this active market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Raleigh's research and technology sector relies on project managers who can demonstrate PMI credentials. Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that fulfills PMI's contact-hour requirements, preparing you to sit for the certification exam. Earning your PMP® opens doors to higher compensation and leadership roles across the region's competitive tech and biotech employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:11.349285Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3b4ae812f8456995",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Raleigh: Accelerate Your Career in the Research Triangle",
+      "text": "<p>Raleigh's technology and software sector, anchored by industry leaders like Red Hat, IBM, and Cisco Systems within the Research Triangle ecosystem, creates sustained demand for project managers who can navigate complex, fast-paced development environments. Beyond tech, Raleigh's thriving biotechnology, healthcare, finance, and state government sectors consistently seek certified professionals to lead cross-functional teams and deliver mission-critical initiatives. The PMP credential—recognized globally and required by many organizations in these industries—positions you to compete for roles with higher responsibility and compensation. A PMP Boot Camp equips you with the frameworks and tools these employers value, whether you're advancing within a current role or transitioning across Raleigh's diverse professional landscape.</p><p>Granite PM Academy delivers an intensive, instructor-led PMP Boot Camp designed for working professionals in Raleigh who need flexible scheduling and expert guidance. As a PMI Authorized Training Partner, we offer live-virtual instruction that fulfills the contact-hour requirements for PMP eligibility while keeping you engaged with active certified practitioners who bring real-world experience to every session. Our boot camp format condenses learning into a focused timeframe, allowing you to sit for the PMP examination with confidence and immediately apply project management best practices in your organization. Whether your goal is promotion, career mobility, or salary advancement, earning your PMP certification through Granite PM Academy opens doors across Raleigh's competitive job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:16.100775Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "e4a3ef27b081f350",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification in Raleigh: Unlock Your Career Edge",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your boot camp meets all official PMP credential requirements. You'll complete the required contact hours through structured, standards-aligned instruction designed for certification success."
+        },
+        {
+          "heading": "Live Instruction, Real Flexibility",
+          "text": "Our live-virtual instructor-led format lets you satisfy PMP contact-hour requirements without sacrificing your work schedule. Raleigh professionals attend classes from anywhere while receiving direct instruction and immediate feedback from active practitioners."
+        },
+        {
+          "heading": "Taught by Working Project Managers",
+          "text": "Your instructors hold active PMP and CAPM certifications and manage real projects—not just teach them. This blend of current credentials and hands-on experience translates directly into exam prep that covers what you'll face in practice."
+        },
+        {
+          "heading": "Aligned with Raleigh's Growth Industries",
+          "text": "Tech firms in the Triangle, biotech companies, state agencies, and major healthcare systems—Red Hat, WakeMed, NC State—all hire certified project managers. The PMP credential positions you competitively for leadership roles across Raleigh's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:21.417125Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "bdb580019a6d0cf2",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Raleigh's Research Triangle",
+      "text": "<p>Raleigh's position as the anchor of the Research Triangle draws major employers across technology, healthcare, government, and finance—all sectors where certified project managers are in high demand. Red Hat, IBM, and Cisco Systems operate significant operations here, managing complex software and infrastructure initiatives. Beyond tech, WakeMed Health & Hospitals, the State of North Carolina, and Fidelity Investments regularly seek PMP®-certified professionals to lead cross-functional teams. Visible local projects underscore this need: the Raleigh Union Station transit hub redevelopment and RDU International Airport's terminal expansion represent the scale of infrastructure and coordination that organizations across the city depend on skilled project managers to deliver.</p><p>The PMP® credential carries particular weight in Raleigh's competitive job market. Employers in the Research Triangle increasingly prefer or require formal project management certification for mid- and senior-level roles, especially in technology, healthcare, and government sectors. Project managers with PMP® certification command a measurable premium over non-certified peers, and compensation for PM roles in this region aligns with other major Southeastern tech and finance hubs—reflecting the strong, sustained demand from Raleigh's diverse employer base. Completing Granite PM Academy's PMP Boot Camp positions you to meet that demand directly, equipping you with both the credential and the practical frameworks that Raleigh's employers actively seek when filling their most critical leadership roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:25.484965Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a008d0d1c7c5dcff",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Raleigh",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. PMI sets specific thresholds based on your degree level and hours managing projects. Review the eligibility checklist on PMI's website or contact Granite PM Academy to confirm your qualifications before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our expert trainers deliver the full required contact hours in an accelerated format, covering the PMBOK Guide framework and real-world application. You'll gain structured prep for the exam while maintaining your work schedule in the Raleigh area."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, submit your formal application to PMI and pay the exam fee directly to PMI. Granite PM Academy will guide you through the application process and provide documentation of your completed training hours to support your submission."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation materials, practice tests, and instructor support to strengthen your readiness. Schedule your proctored PMP exam through PMI's testing partner. Our instructors remain available to answer questions and clarify complex topics as you finalize your preparation."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Upon passing, you'll earn the PMP credential with a three-year renewal cycle. During this period, earn Professional Development Units by attending training, conferences, or contributing to the project-management profession. Granite PM Academy offers continuing education options to help you meet renewal requirements and stay current in your field."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:30.224311Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6fd3b9b9d85bc22d",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Raleigh tech and biotech careers?",
+          "answer": "<p>Yes. The Research Triangle's technology, biotech, and software sectors actively seek PMP-certified project managers for mid- and senior-level roles. Employers like those in Research Triangle Park and local healthcare systems increasingly list PMP as preferred or required. Certification signals structured methodology expertise that commands respect—and typically a salary premium—among Raleigh's competitive employer base.</p>"
+        },
+        {
+          "question": "Which Raleigh employers value PMP certification most?",
+          "answer": "<p>Technology and software companies, government agencies, healthcare systems like WakeMed, financial services firms, and the State of North Carolina all prioritize PMP credentials. Federal and state contracting roles often require or strongly prefer it. Higher education and research institutions also recognize the credential as a differentiator. If you work in or target these sectors, PMP certification meaningfully strengthens your candidacy.</p>"
+        },
+        {
+          "question": "Can I attend live online PMP boot camp from my Raleigh office?",
+          "answer": "<p>Yes. The live-virtual boot camp format allows you to participate from your office, home, or any location with reliable internet. Many Raleigh professionals in corporate, government, and healthcare settings join from their workplace during scheduled training hours. Confirm with your employer on any policy around professional development time, but the online delivery is designed for working professionals who need flexibility.</p>"
+        },
+        {
+          "question": "Should Raleigh PMs get PMP certified before or after a job change?",
+          "answer": "<p>Getting certified before a job transition gives you an edge in the Raleigh market. PMP appears frequently in local job postings across tech, government, healthcare, and finance—having it completed signals readiness for higher-level roles and often justifies a higher offer. If you're already employed, boot camp timing around your current workload matters more than job-search timing; a certified candidate is competitive whenever you're ready to move.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:20:41.868420Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8ce29486fff62ef7",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Raleigh's Research Triangle anchors one of the nation's most dynamic tech corridors, where employers like Red Hat, IBM, and Cisco Systems compete for skilled project managers. Beyond software, the state capital's banking, healthcare, and government sectors—plus major infrastructure projects such as Raleigh Union Station and RDU Airport expansion—create sustained demand for certified PMs across industries. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for working Raleigh professionals seeking the credentials that open doors in this diversified market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:38.209594Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "74c9c0cb8d3b90f8",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Raleigh, NC, PMP bootcamp Raleigh, PMP certification boot camp Raleigh, NC, PMP bootcamp near me, intensive PMP training Raleigh",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/\",\n      \"name\": \"PMP Boot Camp in Raleigh, NC | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Raleigh, NC. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Raleigh, NC\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/#course\",\n      \"name\": \"PMP Boot Camp in Raleigh, NC\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Raleigh, NC. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-raleigh-nc/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

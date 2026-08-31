@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "dallas-tx",
+  "slug": "pmp-certification-training-dallas-tx",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Dallas's telecommunications and banking sectors anchor a robust project management market, with industry leaders like AT&T and JPMorgan Chase driving consistent demand for skilled PMs across corporate headquarters and major infrastructure initiatives—from the DFW Airport Terminal F expansion to downtown redevelopment projects. The city's diversified economy spans healthcare, transportation, and technology, creating multiple pathways for PMP-certified professionals to advance. Granite PM Academy delivers live-virtual PMP Certification training designed for Dallas professionals balancing work and study.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Dallas's energy and infrastructure sectors rely heavily on credentialed project managers to deliver complex, regulated initiatives. Granite PM Academy delivers PMI's official PMP Certification Training through live-virtual, instructor-led instruction that fulfills all PMI contact-hour requirements, fitting working professionals into an accelerated schedule. Earning your PMP in Dallas positions you for advancement in roles managing mission-critical projects across the region's largest employers and consulting firms.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:16.102957Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "bf8d204779749b6a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Dallas for Project Managers",
+      "text": "<p>Dallas's telecommunications and financial services sectors—anchored by industry leaders like AT&T, Bank of America, and JPMorgan Chase—drive intense demand for credentialed project managers who can oversee complex, mission-critical initiatives. Beyond these corporate headquarters, the city's robust construction, healthcare, and transportation industries create a diversified job market where the Project Management Professional (PMP)® credential has become a competitive advantage. Whether you're managing infrastructure expansion, digital transformation, or large-scale operational programs in Dallas, employers across sectors expect and reward the demonstrated expertise that PMP Certification represents.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers PMP Certification Training through live-virtual, instructor-led courses taught by active certified practitioners who understand real-world project challenges in Dallas's professional environment. Our training satisfies the contact-hour requirements mandated by the Project Management Institute and prepares you for exam success. We combine rigorous curriculum, interactive instruction, and flexible scheduling so working professionals can earn their credential without disrupting their careers. When you complete Granite PM Academy's PMP training program in Dallas, you'll be ready to sit for the PMP exam and advance into higher-impact roles that command greater responsibility and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:20.171059Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "8936632d45442ee9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP® Certification in Dallas: Real Skills for Local Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training",
+          "text": "Granite PM Academy delivers PMI-authorized instruction, ensuring your contact hours meet PMP® eligibility requirements directly. No gaps, no workarounds—your path to certification is built on PMI standards from day one."
+        },
+        {
+          "heading": "Live Instructors, Real Practice",
+          "text": "Your instructors are active PMP®-certified practitioners managing projects today—not retired trainers or script readers. You learn modern frameworks and troubleshoot real scenarios from professionals working in Dallas industries right now."
+        },
+        {
+          "heading": "Flexible Virtual Schedule",
+          "text": "Live-virtual instructor-led classes fit working professionals. Attend from anywhere, maintain your job, and complete contact hours on a realistic timeline without sacrificing your paycheck or commute."
+        },
+        {
+          "heading": "Credential Dallas Employers Need",
+          "text": "AT&T, American Airlines, JPMorgan Chase, and AECOM actively hire certified project managers. Your PMP® opens doors at the Fortune 500 companies and top regional firms that anchor Dallas's technology, finance, and infrastructure sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:23.969550Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "21bcd0533874ed65",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Dallas–Fort Worth",
+      "text": "<p>Dallas–Fort Worth's telecom and financial services sectors anchor steady demand for certified project managers. AT&T, a regional cornerstone, continuously staffs PMP-credentialed professionals across infrastructure and organizational initiatives, while major financial institutions including Bank of America, JPMorgan Chase, Capital One, and Fidelity Investments compete for talent with rigorous project governance standards. Beyond these anchors, healthcare systems like Baylor Scott & White Health, engineering firms including AECOM and Jacobs Engineering, and logistics leaders such as American Airlines and Southwest Airlines all actively recruit certified project managers. Visible local projects—from the DFW International Airport Terminal F expansion to the Dallas Area Rapid Transit Silver Line construction and the AT&T Discovery District downtown redevelopment—illustrate the scale and complexity of initiatives where PMP certification is a recognized advantage in hiring and advancement.</p><p>The Dallas–Fort Worth market rewards certified professionals with competitive compensation and steady job placement, driven by the region's concentration of corporate headquarters and lower cost of living relative to comparable metros. Employers across telecom, finance, and engineering actively seek PMP and CAPM credentials as a differentiator, viewing standardized project management practices as essential to operational excellence. Completing your PMP Certification Training at Granite PM Academy positions you to meet this regional demand directly—strengthening your negotiating position with major employers, accelerating your eligibility for senior project roles, and establishing credibility in a market where the credential is increasingly preferred or required on job postings.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:28.572501Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "75d704fa3874350b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Dallas",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Dallas professionals in defense, aerospace, and technology roles often qualify through a combination of formal education and documented hands-on leadership experience. Review PMI's specific thresholds before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our Dallas-based instructors deliver the PMI-required contact hours on a schedule that fits working professionals. You'll cover all five PMBOK process groups and earn your completion certificate upon finishing."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Apply directly to PMI with your education credentials, project experience, and completion certificate from Granite PM Academy. Pay the PMI examination fee at application. PMI will review your qualifications before you're authorized to schedule your exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Access Granite PM Academy's exam-preparation resources, including practice tests, study guides, and instructor review sessions. Schedule your exam at a PMI-approved testing center in the Dallas area. You'll have four hours to complete the computer-delivered PMP exam."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to the standard three-year renewal cycle by earning professional development units (PDUs) through training, volunteer work, or published contributions. Granite PM Academy offers ongoing learning opportunities to help Dallas project managers stay current and retain certification."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:33.749250Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "5d2d90fe5a181e01",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Dallas?",
+          "answer": "<p>Yes. Dallas's strong presence in telecom, finance, and engineering means PMP credential holders gain a measurable edge in salary negotiations and job placement. Major employers across these sectors view PMP as a preferred or required standard for project management roles. The credential also reflects standardized practices that resonate with large corporate environments typical of the Dallas–Fort Worth region, making it a competitive differentiator for both entry-level and experienced professionals.</p>"
+        },
+        {
+          "question": "Which Dallas employers actively hire PMP-certified project managers?",
+          "answer": "<p>AT&T, Texas Instruments, and other telecommunications and technology firms throughout Dallas prioritize PMP credentials. Banking and financial services employers—including Capital One, JPMorgan Chase, and Bank of America—frequently list PMP or CAPM as preferred qualifications in job postings. Engineering and aerospace firms, healthcare systems like Baylor Scott & White Health, and transportation companies also value certified project managers for managing complex, mission-critical initiatives across their Dallas operations.</p>"
+        },
+        {
+          "question": "How does the Dallas job market affect when to pursue PMP certification?",
+          "answer": "<p>Dallas's steady demand for project managers across multiple industries means certification opportunities exist year-round, but timing your application strategically can boost your advantage. Many employers conduct hiring cycles aligned with fiscal planning—particularly in finance and telecom sectors. Completing your PMP before major corporate hiring windows in Dallas can position you for better salary negotiation and selection among competitive candidates within the region's talent pool.</p>"
+        },
+        {
+          "question": "Can Dallas professionals take PMP training while working full-time remotely?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual course format allows Dallas professionals to attend from their workplace, home office, or anywhere with reliable internet. This flexibility suits the growing number of remote and hybrid workers across Dallas's banking, tech, and healthcare sectors. You can maintain your job and income while completing training hours, making certification more accessible without relocating or taking unpaid leave.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:40.093664Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e71969f950c231c8",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Dallas's telecommunications and banking sectors—anchored by AT&T, Bank of America, and JPMorgan Chase—fuel robust demand for credentialed project managers across the region. Large-scale infrastructure initiatives like the DFW Airport Terminal F expansion and DART Silver Line construction underscore consistent opportunities for skilled practitioners across public and private sectors. Granite PM Academy delivers live-virtual PMP® Certification Training designed for Dallas professionals seeking to advance their credentials and careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:41.558158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "90b73c483098a015",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-dallas-tx/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Dallas, TX, PMP exam prep Dallas, PMP course Dallas TX, project management certification Dallas, TX, PMI PMP training Dallas",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/\",\r\n      \"name\": \"PMP Certification Training in Dallas, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Dallas, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Dallas, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/#course\",\r\n      \"name\": \"PMP Certification Training in Dallas, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Dallas, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-dallas-tx/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

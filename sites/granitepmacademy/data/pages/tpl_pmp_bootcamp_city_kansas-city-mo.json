@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "kansas-city-mo",
+  "slug": "pmp-bootcamp-kansas-city-mo",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "kansas-city-mo",
+    "city": "Kansas City",
+    "state": "Missouri",
+    "SS": "MO",
+    "city_slug": "kansas-city-mo",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Kansas City's engineering and construction sector—anchored by firms like Burns & McDonnell and Black & Veatch—drives steady demand for certified project managers across infrastructure, healthcare IT, and logistics. Major initiatives including the Kansas City International Airport Single Terminal project and the Panasonic Energy battery plant expansion underscore local employers' need for PMP-credentialed leaders. Granite PM Academy delivers live-virtual PMP Certification to Kansas City professionals seeking to advance their careers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Kansas City's financial services and healthcare sectors rely heavily on credentialed project managers to deliver complex initiatives on schedule and within budget. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led contact hours required by PMI while fitting your work schedule, preparing you to sit for the PMP exam and command the salary premiums and leadership roles that credential unlocks across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:08.418541Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "894139333524d11a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Kansas City: Meet Certification Demand in Engineering & Construction",
+      "text": "<p>Kansas City's project management market is built on a foundation of world-class engineering and construction firms—Burns & McDonnell and Black & Veatch lead major infrastructure projects across North America—and that demand for certified PMs extends into healthcare IT, financial services, logistics, and advanced manufacturing. Employers throughout Kansas City increasingly require or strongly prefer the Project Management Professional (PMP)® credential to advance into leadership roles overseeing complex capital projects, system implementations, and supply-chain initiatives. Whether you work in construction, healthcare technology, or one of the region's growing logistics hubs, earning your PMP® in Kansas City positions you to compete for higher-responsibility roles and command career growth in a market where certified expertise is actively sought.</p><p>Granite PM Academy delivers intensive, live-virtual PMP Boot Camp training as a PMI Authorized Training Partner, combining structured instruction with the contact-hour requirements mandated by the Project Management Institute. Our courses are led by active certified practitioners who bring real-world experience from Kansas City's major industries—engineering, healthcare, manufacturing, and beyond—into every session. You'll work through the PMBOK® Guide framework, tackle practice exams, and develop the depth of knowledge required to pass the PMP® exam on your first attempt. Upon completion, you'll have satisfied your eligibility requirements and gained the skills and confidence to earn one of project management's most respected credentials and unlock new career opportunities in Kansas City.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:13.355135Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6b369ea0f78d02ae",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Built for Kansas City's Engineering & Construction Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Validity",
+          "text": "Granite PM Academy's PMP Boot Camp is delivered by a PMI Authorized Training Partner, ensuring your 35 contact hours meet PMI's rigorous standards. You earn a recognized credential trusted by major employers—not a generic training certificate."
+        },
+        {
+          "heading": "Live Instructors Who Practice What They Teach",
+          "text": "Your instructors are active PMP-certified professionals working in Kansas City's engineering, healthcare, and financial sectors. They bring real-world project challenges—not just theory—into every session, grounding your preparation in scenarios you'll face on the job."
+        },
+        {
+          "heading": "Structured Exam Prep From Day One",
+          "text": "Beyond contact hours, the boot camp includes targeted PMP exam strategy, practice test analysis, and focused review of high-risk content areas. You'll sit for the exam with confidence, not guesswork, backed by a proven preparation framework."
+        },
+        {
+          "heading": "Credential in High Demand Across Kansas City Employers",
+          "text": "Burns & McDonnell, Black & Veatch, Cerner, and Honeywell actively hire PMP-certified program managers. The credential opens doors in construction, healthcare IT, aerospace, and supply chain—industries that anchor Kansas City's economy and offer competitive advancement."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:17.984321Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d91db9e4e54737e8",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Kansas City",
+      "text": "<p>Kansas City's engineering and construction sector anchors demand for certified project managers. Major firms like Burns & McDonnell and Black & Veatch—both headquartered here—regularly seek PMP®-certified professionals to lead complex infrastructure and industrial projects. That demand extends across healthcare and health IT, where Cerner (Oracle Health) and Children's Mercy Hospital manage large-scale system implementations and capital programs. Current and upcoming initiatives like the Kansas City International Airport New Single Terminal project and the Panasonic Energy battery plant development in the Kansas City metro area represent the kinds of high-stakes, multi-year efforts where certified project managers command respect and responsibility.</p><p>The PMP® credential carries real weight in Kansas City's job market, particularly in engineering, construction, and healthcare IT roles where employers often list it as preferred or required for mid-to-senior positions. Project manager compensation in the region is competitive with other Midwest metros, with documented premiums for PMP-certified candidates in these key sectors. Completing the Granite PM Academy PMP Boot Camp positions you to compete effectively for those higher-value roles and to advance your career within Kansas City's stable, established base of major employers and ongoing infrastructure investment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:22.090342Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "00be73a51cb14f7a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Kansas City",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review PMI's official eligibility criteria, then contact Granite PM Academy to confirm your qualifications before enrolling in the Boot Camp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Attend all sessions to fulfill PMI's mandatory 35 contact-hour education requirement. Our Kansas City cohorts combine expert instruction with real-world project scenarios relevant to the region's infrastructure and manufacturing sectors."
+        },
+        {
+          "heading": "Submit Application & Fee",
+          "text": "After completing the Boot Camp, submit your PMI application and examination fee directly to PMI. Granite PM Academy will guide you through the submission process and answer questions about documentation and next steps."
+        },
+        {
+          "heading": "Prepare & Sit for Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice questions, and study guides to strengthen your readiness. Schedule your PMP exam through PMI's testing partner, then sit for the computer-based exam with confidence backed by our instructor support."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning the PMP, commit to the standard three-year renewal cycle by earning Professional Development Units (PDUs). Granite PM Academy offers ongoing courses and resources to help you meet renewal requirements and stay current in project-management practice."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:26.861585Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "080416820c3407a6",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Kansas City engineering and construction careers?",
+          "answer": "<p>Yes. Kansas City's major engineering and construction employers—including Burns & McDonnell and Black & Veatch—regularly list PMP certification as preferred or required for mid-to-senior project management roles. The credential signals mastery of structured methodology these firms depend on for complex infrastructure and industrial projects. Certified professionals often command competitive salary premiums in this sector compared to uncertified peers.</p>"
+        },
+        {
+          "question": "Which Kansas City employers value PMP certification most?",
+          "answer": "<p>PMP certification is well regarded across multiple Kansas City sectors. Engineering firms (Burns & McDonnell, Black & Veatch, Honeywell), healthcare IT (Cerner/Oracle Health, Children's Mercy, University of Kansas Health System), financial services (H&R Block, Federal Reserve Bank of Kansas City), and manufacturing (Ford, GM, Garmin) actively seek or prefer PMP-certified project managers. The credential is especially valued in roles overseeing capital projects, system implementations, and regulated environments.</p>"
+        },
+        {
+          "question": "Can I attend a live online PMP Boot Camp from my Kansas City workplace?",
+          "answer": "<p>Yes. Our live-virtual PMP Boot Camp is designed for working professionals and can be attended from your office, home, or any location with reliable internet. Many Kansas City professionals across Burns & McDonnell, Cerner, T-Mobile, and healthcare systems attend from their workplace during scheduled sessions. Check your employer's remote-learning policies and confirm a quiet, distraction-free environment for optimal focus during the intensive course.</p>"
+        },
+        {
+          "question": "When should Kansas City project managers pursue PMP certification?",
+          "answer": "<p>Kansas City's steady demand for certified project managers means timing is flexible, but consider certification when you're targeting promotion to senior roles or moving between employers. Many mid-level PMs at major local firms pursue it to remain competitive; healthcare IT and engineering sectors show particularly strong preference. Boot Camp format lets you complete requirements in weeks rather than months, so you can align certification with your next career move or organizational need.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:33.283205Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b815f9a6821047f8",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Kansas City's engineering and construction sector—anchored by national firms like Burns & McDonnell and Black & Veatch—drives steady demand for certified project managers, alongside growth in healthcare IT, logistics, and advanced manufacturing. Major initiatives including the Kansas City International Airport terminal project and the Panasonic Energy battery plant underscore the region's need for skilled PMP® credential holders to lead complex infrastructure and technical programs. Granite PM Academy delivers live-virtual PMP Boot Camp to Kansas City professionals ready to advance their careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:34.935423Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "212c055f8e6b4234",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Kansas City, MO, PMP bootcamp Kansas City, PMP certification boot camp Kansas City, MO, PMP bootcamp near me, intensive PMP training Kansas City",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/\",\n      \"name\": \"PMP Boot Camp in Kansas City, MO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Kansas City, MO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Kansas City, MO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/#course\",\n      \"name\": \"PMP Boot Camp in Kansas City, MO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Kansas City, MO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-kansas-city-mo/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "south-bend-in",
+  "slug": "ai-training-south-bend-in",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "south-bend-in",
+    "city": "South Bend",
+    "state": "Indiana",
+    "SS": "IN",
+    "city_slug": "south-bend-in",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>South Bend's healthcare and higher-education anchors—including Beacon Health System and the University of Notre Dame—drive steady demand for credentialed project managers across clinical expansions, campus infrastructure, and advanced manufacturing operations. As the region diversifies into logistics, data services, and innovation hubs like Ignition Park, employers increasingly seek professionals with formal PMP® certification. Granite PM Academy delivers live-virtual PMP Certification training designed for South Bend's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>South Bend's manufacturing and automotive supply base depends on project managers who can integrate AI tools into production timelines and quality workflows. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that satisfies PMI contact-hour requirements, keeping your credentials current while you master the technical skills local employers now expect. Gain competitive advantage in a regional market where AI fluency directly shapes advancement and earning potential.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:30.195998Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "9f7a887a7c4d1aee",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in South Bend",
+      "text": "<p>South Bend's healthcare systems—anchored by Beacon Health System and Saint Joseph Health System—have emerged as the region's largest employers and primary drivers of project management demand. As these organizations modernize clinical workflows, expand service lines, and integrate new technologies, they increasingly rely on project managers who understand both traditional delivery methods and artificial intelligence applications. Healthcare leaders across South Bend recognize that AI fluency is no longer optional; it shapes how teams manage timelines, allocate resources, and respond to change. For professionals working in or seeking roles within South Bend's health systems or the broader ecosystem of manufacturing, logistics, and technology firms, AI training equips you to lead initiatives that competitors cannot yet execute—and positions you as a strategic asset in a market where formal credentials matter.</p><p>Granite PM Academy delivers AI training for project managers through PMI-authorized, live-virtual instruction taught by active certified practitioners who understand real-world project constraints. Our courses satisfy the contact-hour requirements for PMP, CAPM, and ongoing professional development, meaning your investment directly advances your credential standing with the Project Management Institute. Unlike recorded modules or self-paced alternatives, instructor-led sessions allow you to ask questions, work through South Bend-specific case studies, and build confidence before certification. We structure every program around job-ready skills—AI prompt engineering for risk analysis, machine learning in resource forecasting, generative tools for stakeholder communication—so you leave ready to apply what you've learned. Whether you're advancing toward your first certification or renewing an existing credential, Granite PM Academy makes earning your edge in AI-driven project management straightforward and accessible.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:35.061565Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "0da2c7b7dec8ba74",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills South Bend Project Managers Need Now",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential",
+          "text": "Granite's AI training satisfies PMI contact-hour requirements for PMP® and CAPM® certification. Your credential holds recognized authority with employers across South Bend's healthcare, manufacturing, and financial sectors who hire certified practitioners."
+        },
+        {
+          "heading": "Live Instructors, Real Experience",
+          "text": "Learn from active certified project managers working in South Bend industries today. Instructors bring current workflows and AI applications from healthcare systems, advanced manufacturers, and logistics firms—not textbook examples."
+        },
+        {
+          "heading": "Exam-Ready, Schedule-Flexible",
+          "text": "Live-virtual instruction fits working professionals' calendars while delivering structured prep for PMI exams. Granite's format builds the contact hours you need without demanding full-time attendance or evening-only sessions."
+        },
+        {
+          "heading": "Local Hiring Demand for This Credential",
+          "text": "South Bend's major employers—from Notre Dame and Beacon Health System to AM General and Honeywell—actively seek PMP® and CAPM® holders who understand AI tools in project delivery. This credential opens doors with the region's largest hiring organizations."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:39.030699Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5b9ba42585fb1c1c",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in South Bend's Growing Sectors",
+      "text": "<p>South Bend's healthcare and higher-education anchors drive steady demand for certified project managers. Beacon Health System and Saint Joseph Health System both manage ongoing facility expansions and modernization initiatives that require skilled program oversight. Similarly, the University of Notre Dame's Campus Crossroads expansion represents the kind of large-scale, multi-year initiative where PMP and CAPM certification strengthens a manager's candidacy. Beyond healthcare and education, advanced manufacturers like AM General, Honeywell, and Bosch, along with professional services firms such as Crowe LLP, routinely seek project managers with formal credentials to lead cross-functional teams and deliver on schedule and budget.</p><p>Certification matters measurably in South Bend's job market. While project manager compensation here tracks slightly below larger Midwest metros, the credential advantage is real: employers increasingly list PMP or CAPM as preferred qualifications, and certified candidates command stronger salary positioning than their uncertified peers. The City of South Bend's Smart Streets infrastructure redevelopment and the Renaissance District's Ignition Park innovation hub further illustrate local momentum in complex project work. By completing AI Training for Project Managers through Granite PM Academy, you equip yourself to compete effectively for these roles and signal to South Bend employers that you understand both technical execution and the emerging tools reshaping how projects are managed.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:43.556721Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "62080ac36d65d3ab",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for South Bend healthcare careers?",
+          "answer": "<p>South Bend's healthcare sector—anchored by Beacon Health System and Saint Joseph Health System—increasingly seeks certified project managers to lead digital transformation and operational initiatives. AI training equips you to manage complex, data-driven projects in this environment. Certification (PMP or CAPM) strengthens your candidacy for advancement and typically commands higher compensation relative to uncertified peers in the local market, making it a strategic investment for healthcare professionals.</p>"
+        },
+        {
+          "question": "Which South Bend employers actively hire certified project managers?",
+          "answer": "<p>Major South Bend employers—including University of Notre Dame, Honeywell, Bosch, AM General, and Crowe LLP—regularly list PMP or CAPM certification as a preferred qualification in project manager postings. The healthcare, advanced manufacturing, higher education, and financial services sectors are particularly active in recruiting certified talent. This credential signals readiness for complex, multi-stakeholder environments common in these industries.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual AI project management training from my South Bend workplace?",
+          "answer": "<p>Yes. Our live-virtual format is designed for working professionals who want to train from their office, home, or any location with internet access. Many South Bend–based professionals in manufacturing, healthcare, and higher education choose this flexibility to balance certification with their current role. Check with your employer or IT department to confirm any firewall or software requirements before enrollment.</p>"
+        },
+        {
+          "question": "When should South Bend project managers pursue AI certification given local job market timing?",
+          "answer": "<p>South Bend's steady demand for certified project managers across healthcare, manufacturing, and higher education means certification is valuable year-round. However, many employers plan hiring and promotions in Q1 and Q3. Starting your training 3–4 months before your target career move—whether internal advancement or external opportunity—positions you competitively without unnecessary delay in a market where certified candidates consistently outpace uncertified applicants for roles and compensation.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:50.267578Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "99cff260fe2475c0",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>South Bend's healthcare systems and Notre Dame anchor a growing demand for project managers across higher education, advanced manufacturing, and emerging tech sectors. Major initiatives like the University's Campus Crossroads expansion and Beacon Health System's facility modernization require skilled PMs to lead complex, multiphase work. Granite PM Academy serves South Bend professionals with live-virtual AI Training for Project Managers, bringing credential prep and workforce development directly to your community.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:52.141853Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "f2261c0e76b6fe1b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-south-bend-in/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training South Bend, IN, AI courses South Bend, CPMAI certification South Bend, AI project management training South Bend, IN, AI for project managers South Bend",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-south-bend-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-south-bend-in/\",\n      \"name\": \"AI Training for Project Managers in South Bend, IN — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in South Bend, IN for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in South Bend, IN\",\n            \"item\": \"https://granitepmacademy.com/ai-training-south-bend-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-south-bend-in/#course\",\n      \"name\": \"AI Training for Project Managers in South Bend, IN\",\n      \"description\": \"CPMAI certification training for project managers in South Bend, IN who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-south-bend-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-south-bend-in/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-south-bend-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-south-bend-in/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-south-bend-in/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "billings-mt",
+  "slug": "pmp-certification-training-billings-mt",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "billings-mt",
+    "city": "Billings",
+    "state": "Montana",
+    "SS": "MT",
+    "city_slug": "billings-mt",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Billings' healthcare sector—anchored by Billings Clinic and St. Vincent Healthcare—drives consistent demand for project managers overseeing campus expansions and operational upgrades. Energy infrastructure, rail logistics, and regional construction projects further strengthen opportunities for credentialed PMs across Montana's largest city. Granite PM Academy delivers live-virtual PMP® Certification to Billings professionals seeking to advance in this stable, regionally connected market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Billings' energy, construction, and healthcare sectors increasingly rely on structured project management to coordinate complex operations. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, allowing you to earn your credential while maintaining your current role. Completion positions you for advancement into senior project leadership and higher earning potential across Montana's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:11.267272Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "102eac5eac5088fc",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Billings for Healthcare and Energy Leaders",
+      "text": "<p>Billings' role as a regional healthcare hub—anchored by major medical centers like Billings Clinic and St. Vincent Healthcare—creates a distinct demand for project managers who can lead hospital expansions, digital health initiatives, and operational upgrades. Simultaneously, the city's energy sector presence, including significant refinery operations and NorthWestern Energy's regional footprint, generates ongoing project management opportunities in capital projects, infrastructure maintenance, and safety-critical operations. Professionals in these sectors increasingly find that the PMP credential opens doors to leadership roles and career advancement, as employers across Billings recognize the value of certified practitioners who can manage complex, multi-stakeholder initiatives within regulated industries.</p><p>Granite PM Academy delivers PMP Certification Training through live-virtual, instructor-led classes designed around your schedule and learning style. As a PMI Authorized Training Partner, we ensure every course meets the rigorous contact-hour requirements the Project Management Institute mandates for PMP eligibility and maintains the instructional quality you expect from active, working certified professionals. Our curriculum bridges theory and real-world application, so concepts land immediately in the context of projects you'll manage. Upon completion, you'll be prepared not only to pass the PMP exam but to step into your certification with confidence and the practical toolkit Billings employers are actively seeking.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:15.063308Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "38c29449277c738c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Billings' Energy and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training You Can Trust",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours count directly toward PMP eligibility. No extra paperwork or verification delays—your training meets PMI's standards from day one."
+        },
+        {
+          "heading": "Live Instruction Fits Your Schedule",
+          "text": "Attend live-virtual instructor-led sessions that satisfy PMP contact-hour requirements without relocating. Instructors teach in real time, answer questions immediately, and adapt pacing to your pace—not a recorded course."
+        },
+        {
+          "heading": "Learn From Active Certified Practitioners",
+          "text": "Your instructors hold current PMP or CAPM credentials and manage projects in real Billings industries. They share practical examples from energy, healthcare, and construction—not just textbook theory."
+        },
+        {
+          "heading": "Credential Demand in Billings' Growing Sectors",
+          "text": "Healthcare systems, NorthWestern Energy, BNSF Railway, and Billings' construction boom increasingly hire credentialed project managers. PMP certification distinguishes you in a competitive local market where major employers value formal PM credentials."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:19.102370Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ee21045dd8820fb2",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Billings",
+      "text": "<p>Billings' healthcare sector is a major employer of certified project managers, with Billings Clinic and St. Vincent Healthcare overseeing substantial campus expansions and facility upgrades that demand rigorous project oversight. Beyond healthcare, the city's energy infrastructure—anchored by refineries and power utilities like NorthWestern Energy—creates steady demand for professionals who can manage complex operations and capital projects. The One Big Sky Center downtown redevelopment and Montana Department of Transportation I-90 corridor improvements near Billings further illustrate the breadth of infrastructure work happening locally. BNSF Railway, banking institutions such as First Interstate BancSystem, and municipal government also employ project managers to coordinate their initiatives, making certification a recognizable credential across Billings' major employers.</p><p>A PMP® or CAPM® certification positions you competitively in Billings' job market, where formal credentials increasingly differentiate candidates for advancement and higher starting offers—particularly in healthcare, energy, and construction sectors. While Billings salaries for project management professionals track slightly below national metro averages, they remain competitive within Montana, and the credential helps offset geographic differences by signaling expertise employers value. Completing PMP Certification Training through Granite PM Academy equips you with the methodology and knowledge these local organizations seek, accelerating your path to leadership roles and stronger compensation as Billings' infrastructure and facility projects continue to expand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:23.437814Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "d8c92e10ff0dcd1c",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Billings",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience before you apply. Review the official PMI eligibility matrix to confirm you meet the combination of degree level and hours leading projects. Granite PM Academy can help you verify your qualifications during a brief intake conversation."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP® course—the formal education PMI requires. Our Billings-based cohorts run on a schedule that accommodates working professionals in the energy and construction sectors. You'll learn the PMBOK® framework, real-world case studies, and exam-focused content over 5–6 weeks."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, you'll apply directly to PMI through their online portal. Provide documentation of your education, work experience, and course completion. Pay the exam fee at the time of application. Granite PM Academy's team will guide you through each required field."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Study using Granite PM Academy's exam-prep resources, practice tests, and optional one-on-one coaching sessions. The PMP® exam is offered year-round at testing centers in Billings and online. Schedule your exam window to allow adequate study time after course completion."
+        },
+        {
+          "heading": "Maintain Your PMP® Credential",
+          "text": "Once certified, you'll earn your PMP® credential and join a global community of project leaders. Maintain it by earning Professional Development Units (PDUs) over the standard three-year renewal cycle. Granite PM Academy offers ongoing workshops and courses to help you meet your PDU requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:29.021651Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6e06ea14163ba46b",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Billings healthcare project managers?",
+          "answer": "<p>Yes. Billings Clinic and St. Vincent Healthcare represent major employers actively managing capital projects, facility expansions, and operational initiatives. Both organizations increasingly favor candidates with formal PMP or CAPM credentials when advancing into project management roles. The credential strengthens your candidacy for leadership positions and can support higher starting offers—particularly valuable in Billings, where project management salaries track slightly below national metro averages but remain competitive within Montana's market.</p>"
+        },
+        {
+          "question": "Which Billings employers value PMP certification most?",
+          "answer": "<p>Healthcare systems (Billings Clinic, St. Vincent Healthcare), energy firms (NorthWestern Energy, ExxonMobil and Phillips 66 refineries), and infrastructure-focused agencies (Montana Department of Transportation, BNSF Railway) view PMP and CAPM certifications favorably. Construction and banking sectors also recognize the credential as a differentiator. While not always mandatory for entry-level roles, certification strengthens advancement prospects across these sectors, which drive much of Billings' project-based employment.</p>"
+        },
+        {
+          "question": "Can I attend PMP training in Billings while working locally?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your workplace or home in Billings, eliminating travel to distant training centers. This flexibility is especially valuable for professionals at Billings Clinic, energy companies, and government agencies who need to balance ongoing project responsibilities with certification preparation. You'll complete the course on your schedule while staying embedded in your local role.</p>"
+        },
+        {
+          "question": "When should Billings professionals pursue PMP certification timing?",
+          "answer": "<p>Billings' infrastructure and facility expansion projects create steady demand for certified project managers. Healthcare system modernizations, energy sector initiatives, and transportation projects mean hiring cycles remain consistent year-round. Consider certification when you're ready to advance into or solidify a project management role—delaying may mean missing internal promotion windows or losing competitive advantage against other candidates at employers like Billings Clinic, NorthWestern Energy, or local construction firms.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:34.583414Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a26142023f716eda",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Billings' healthcare sector—anchored by major medical centers like Billings Clinic—drives consistent demand for skilled project managers overseeing campus expansions, infrastructure upgrades, and operational initiatives. Energy refining operations and transportation logistics across Montana's largest city further strengthen opportunities for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training tailored to Billings professionals pursuing credentials that advance their careers in these growth sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:36.384935Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9a6ae33e9c02f204",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-billings-mt/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Billings, MT, PMP exam prep Billings, PMP course Billings MT, project management certification Billings, MT, PMI PMP training Billings",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/\",\r\n      \"name\": \"PMP Certification Training in Billings, MT | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Billings, MT. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Billings, MT\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/#course\",\r\n      \"name\": \"PMP Certification Training in Billings, MT\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Billings, MT. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-billings-mt/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

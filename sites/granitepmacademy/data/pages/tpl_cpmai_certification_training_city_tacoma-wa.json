@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "tacoma-wa",
+  "slug": "ai-training-tacoma-wa",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "tacoma-wa",
+    "city": "Tacoma",
+    "state": "Washington",
+    "SS": "WA",
+    "city_slug": "tacoma-wa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Tacoma's logistics-driven economy anchors steady demand for project managers across the Port of Tacoma, healthcare systems like MultiCare, and major infrastructure initiatives including Sound Transit's Tacoma Link expansion. Proximity to Seattle amplifies regional career opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification training designed for Tacoma's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Tacoma's port and maritime industries depend on skilled project managers to coordinate complex operations across shipping, logistics, and supply-chain infrastructure. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, enabling you to master AI tools and methodologies without leaving your desk. Earning this credential positions you to lead modernization initiatives and command competitive advancement opportunities throughout the region's growing tech-forward operations.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:14.122588Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "89a22456509aa6fa",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Tacoma",
+      "text": "<p>Tacoma's role as the Pacific Northwest's premier logistics and maritime hub creates urgent demand for project managers who can lead complex operations at the Port of Tacoma and across the supply chain ecosystem it anchors. As artificial intelligence reshapes how cargo moves, schedules are optimized, and risk is managed in maritime and logistics environments, project managers in Tacoma face a clear competitive advantage in mastering AI tools and frameworks. Whether you work in healthcare expansion, construction infrastructure, or the public sector—all of which are growing here—integrating AI into your project management toolkit directly increases your value to employers managing increasingly data-driven portfolios and timelines.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers pursuing PMP®, CAPM®, or PMI credential advancement. Our courses satisfy the contact-hour requirements for certification maintenance and renewal, taught by active certified practitioners who apply AI techniques in real project environments. You'll gain hands-on experience with AI applications for scheduling, resource allocation, risk forecasting, and stakeholder communication—skills that resonate across Tacoma's major employers and position you as a forward-ready leader. Enroll today and begin your path to certification with training built for working professionals in your region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:18.271318Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b146d215c6cec1df",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills That Port of Tacoma Employers Demand Now",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy's authorization by the Project Management Institute means your certification carries weight with Tacoma's major employers—Port of Tacoma, MultiCare, Boeing, and government agencies. Direct path to PMP or CAPM without detours."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Instructor-led virtual sessions meet PMI contact-hour requirements while letting you stay employed. Tacoma professionals in logistics, healthcare, and defense sectors attend live classes around shift work and project deadlines—no asynchronous gaps."
+        },
+        {
+          "heading": "Instructors Who Certify Daily",
+          "text": "Our trainers actively hold PMP and CAPM credentials and work in Tacoma's industries—maritime operations, manufacturing, military programs. You learn from practitioners solving real problems, not theoretical educators, sharpening skills that transfer immediately."
+        },
+        {
+          "heading": "Credential Opens Local Doors",
+          "text": "Sound Transit, Pierce County, Joint Base Lewis-McChord, and healthcare systems across the region prioritize PMI-certified project managers. Certification positions you for advancement in Tacoma's fastest-growing sectors and differentiates you in competitive hiring."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:22.680295Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b2cb1544a32f82c4",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Tacoma's Growing Sectors",
+      "text": "<p>Tacoma's position as a major Pacific Northwest logistics and healthcare hub creates consistent demand for certified project managers. The Port of Tacoma, one of the region's largest employers, regularly seeks PMs to lead terminal modernization and infrastructure projects that shape regional commerce. Beyond the waterfront, MultiCare Health System and Virginia Mason Franciscan Health drive facility expansion initiatives across the South Sound, while Sound Transit's ongoing Tacoma Link light rail expansion and the Tacoma Dome station redevelopment project represent significant infrastructure opportunities requiring skilled project oversight. Government agencies including the City of Tacoma and Pierce County, along with Joint Base Lewis-McChord, also maintain active project portfolios where certified professionals advance faster.</p><p>Employers across Tacoma's healthcare, construction, and logistics sectors increasingly list PMP® certification as a preferred or required qualification—a trend that positions certified candidates for stronger compensation packages and leadership roles compared to non-certified peers. The competitive Seattle-Tacoma metro market means that credentials like PMP® and CAPM® open doors to roles and salary ranges that reflect regional demand. Completing AI Training for Project Managers through Granite PM Academy equips you with both traditional PM fundamentals and emerging artificial intelligence tools that Tacoma's modernizing employers actively seek, giving you a measurable advantage as the local market continues to evolve.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:26.875585Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "ebf97bf465811117",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Do Port of Tacoma and logistics employers value AI project management training?",
+          "answer": "<p>Yes. The Port of Tacoma and regional logistics operators increasingly adopt AI-driven tools for supply chain optimization, cargo scheduling, and risk management. Project managers in maritime and port operations who understand AI applications gain a competitive edge in roles managing complex, data-intensive workflows. This skill set aligns with broader Puget Sound industry demand and strengthens candidacy for advancement into senior logistics and operations roles.</p>"
+        },
+        {
+          "question": "Is AI training for project managers worth pursuing in Tacoma's healthcare sector?",
+          "answer": "<p>Healthcare employers in Tacoma—including MultiCare Health System and Virginia Mason Franciscan Health—increasingly rely on AI for patient scheduling, resource allocation, and clinical trial management. Project managers who combine PMP or CAPM certification with AI competency are positioned for stronger advancement and compensation within these large, competitive regional employers. The credential differentiates you in a talent market where healthcare organizations actively seek certified professionals.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual course from my Tacoma workplace during work hours?",
+          "answer": "<p>Yes. The live-virtual format allows you to attend from your office, remote workspace, or home with a stable internet connection. Many Tacoma professionals in fast-paced industries—logistics, healthcare, and public sector—use the flexible scheduling to fit training around demanding project timelines. Confirm your workplace's video conferencing policies beforehand to ensure uninterrupted access during sessions.</p>"
+        },
+        {
+          "question": "Should Tacoma project managers get certified before the job market shifts?",
+          "answer": "<p>Certification timing matters in Tacoma's competitive market. Employers across healthcare, construction, government, and Port operations increasingly list PMP or CAPM as preferred or required qualifications. Professionals who certify now build advantage before demand intensifies further. Early enrollment also allows you to lead AI-informed projects while peers are still building foundational skills, strengthening your position for advancement and negotiation leverage.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:32.598022Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ac22cd99ecd3118f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>As a major Pacific Northwest logistics hub, Tacoma's project management demand is anchored by Port of Tacoma modernization initiatives, alongside robust healthcare expansion and Sound Transit infrastructure projects. Employers like MultiCare Health System, Joint Base Lewis-McChord, and the City of Tacoma consistently seek skilled program and project managers to lead complex operations. Granite PM Academy delivers live-virtual AI Training for Project Managers to Tacoma professionals seeking to advance their careers in this growing market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:34.525017Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0945a81a72bfa0a0",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-tacoma-wa/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Tacoma, WA, AI courses Tacoma, CPMAI certification Tacoma, AI project management training Tacoma, WA, AI for project managers Tacoma",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-tacoma-wa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-tacoma-wa/\",\n      \"name\": \"AI Training for Project Managers in Tacoma, WA — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Tacoma, WA for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Tacoma, WA\",\n            \"item\": \"https://granitepmacademy.com/ai-training-tacoma-wa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-tacoma-wa/#course\",\n      \"name\": \"AI Training for Project Managers in Tacoma, WA\",\n      \"description\": \"CPMAI certification training for project managers in Tacoma, WA who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-tacoma-wa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-tacoma-wa/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-tacoma-wa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-tacoma-wa/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-tacoma-wa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

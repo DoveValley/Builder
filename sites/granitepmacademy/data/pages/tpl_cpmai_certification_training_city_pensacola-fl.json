@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "pensacola-fl",
+  "slug": "ai-training-pensacola-fl",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "pensacola-fl",
+    "city": "Pensacola",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "pensacola-fl",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Pensacola's project management demand is anchored by Naval Air Station Pensacola and a diversifying economy spanning healthcare, aerospace maintenance, and financial services. Complex initiatives—from NAS infrastructure modernization to Navy Federal Credit Union's campus expansion—require professionals who can coordinate multi-department efforts across defense, healthcare, and manufacturing sectors. Granite PM Academy delivers live-virtual PMP® Certification training to Pensacola professionals seeking the credential employers in this region increasingly value.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Pensacola's defense and aerospace sector relies on project managers who can integrate emerging technologies into mission-critical workflows. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that satisfies PMI's contact-hour requirements, enabling you to master AI applications in scheduling, risk analysis, and resource allocation without leaving your role. Earn credentials that align with the technical depth employers in this region demand.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:53.538133Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "f9d2f536108e6658",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Pensacola",
+      "text": "<p>Pensacola's project management landscape is anchored by Naval Air Station Pensacola and its defense-sector ecosystem, where coordinating complex, multi-disciplinary initiatives across military and aerospace contractors demands both traditional PM rigor and emerging technical fluency. As AI tools reshape how project managers forecast timelines, allocate resources, and communicate across distributed teams, professionals in Pensacola working on defense contracts, healthcare systems, and aerospace maintenance projects face immediate pressure to integrate AI literacy into their skill set. Employers like Navy Federal Credit Union, Baptist Health Care, and ST Engineering Aerospace increasingly expect their project leaders to understand AI's role in streamlining workflows and reducing project risk—making formal AI training not a luxury but a competitive necessity in a region where defense and mission-critical industries set the standard for operational excellence.</p><p>Granite PM Academy delivers AI Training for Project Managers through PMI-authorized, live-virtual instruction led by active certified practitioners who bring real-world experience from complex, regulated industries. Our courses satisfy the contact-hour requirements for PMP® and CAPM® certification pathways while embedding practical AI applications into every module—from predictive analytics to intelligent resource scheduling. Whether you are early in your project management career or advancing toward senior leadership in Pensacola's defense, healthcare, or aviation sectors, our instructor-led format ensures you earn recognized credentials while developing the AI competencies your employers demand, positioning you for higher responsibility and career growth in a market where certified, tech-enabled project managers command respect and advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:58.657155Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6c9160858a987281",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills for Pensacola's Defense & Aerospace Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP® or CAPM® credential carries full industry weight. Local defense contractors, aerospace firms, and federal employers verify this partnership—your certification arrives with institutional credibility employers in Pensacola demand."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Instructor-led virtual sessions let you complete all contact-hour requirements without relocating or abandoning your job. Pensacola professionals in healthcare systems, shipyards, and naval support roles attend live classes on their own time, staying employed while earning PMP® or CAPM® eligibility."
+        },
+        {
+          "heading": "Practicing Instructors Teach Real Scenarios",
+          "text": "Your instructors hold active PMP® or CAPM® certifications and work project management roles today—not from textbooks alone. They bring examples from defense programs, manufacturing schedules, and aviation maintenance cycles familiar to Pensacola's workforce, grounding theory in your industry's actual challenges."
+        },
+        {
+          "heading": "Meet Regional Employer Demand for AI-Ready PMs",
+          "text": "Naval Air Station Pensacola, ST Engineering Aerospace, Baptist Health Care, and Gulf Power's successor entities actively hire certified project managers who integrate AI tools into planning and risk management. This credential, sharpened with AI fundamentals, directly addresses how Pensacola's largest employers now staff their programs."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:03.997445Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9f63ba99543c9c20",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Pensacola's Defense Hub",
+      "text": "<p>Naval Air Station Pensacola stands as the region's largest employer and primary driver of project management demand. Defense contractors, aerospace maintenance organizations, and NAS itself rely on certified project managers to oversee infrastructure modernization, facility upgrades, and mission-critical operations. Beyond defense, Baptist Health Care, Ascension Sacred Heart, and Navy Federal Credit Union—each operating major campuses and undertaking significant expansions—actively recruit PMs to manage healthcare system improvements, financial services technology deployments, and organizational growth. The Three Mile Bridge replacement project and downtown Pensacola redevelopment initiatives further illustrate the breadth of infrastructure and mixed-use projects creating local demand for skilled, credentialed project leadership.</p><p>Pensacola's project management market rewards certified professionals distinctly. While compensation in this market tends to track below larger Florida metros, demand remains strong in defense, healthcare, and financial services—and PMP and CAPM certifications are increasingly listed as preferred or required qualifications in local job postings. Certified candidates consistently position themselves for higher-paying roles and advancement. Completing AI Training for Project Managers through Granite PM Academy equips you with both foundational PM rigor and practical AI literacy, a pairing that resonates strongly with Pensacola employers modernizing operations and standardizing project practices. The credential opens doors across the region's most resilient sectors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:07.733729Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f23dc2ea9db6f3ab",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Pensacola defense and aerospace careers?",
+          "answer": "<p>Yes. Defense contractors and aerospace firms operating near NAS Pensacola increasingly require or prefer PMP and CAPM certifications as baseline qualifications. AI training builds on that foundation by teaching you to manage complex, data-driven projects—a skillset defense and MRO organizations actively seek. Certified professionals in Pensacola's defense sector command competitive salaries and advance faster into senior roles.</p>"
+        },
+        {
+          "question": "Which Pensacola employers value AI project management certification most?",
+          "answer": "<p>Defense contracting firms, ST Engineering Aerospace, healthcare systems (Baptist Health Care, Ascension Sacred Heart, West Florida Hospital), Navy Federal Credit Union, and government agencies prioritize PMI credentials. These sectors are expanding in Pensacola and openly list PMP or CAPM as preferred qualifications in project management postings. AI certification signals readiness for next-generation project delivery in these fields.</p>"
+        },
+        {
+          "question": "Can I attend AI project manager training from my Pensacola workplace?",
+          "answer": "<p>Yes. Our live-virtual format lets you join from your office, home, or any location with internet access—ideal if you're working at NAS Pensacola, a healthcare campus, or a downtown financial services firm. You'll participate in real-time instruction and group work without commuting, making it practical for busy Pensacola professionals balancing full-time roles and certification.</p>"
+        },
+        {
+          "question": "When should Pensacola project managers pursue AI certification to stay competitive?",
+          "answer": "<p>Timing matters. Pensacola's job market for certified project managers is strong in defense, healthcare, and financial services—sectors actively recruiting now. Starting AI training while employed gives you a credential advantage before your next advancement or role opportunity. Early adoption positions you ahead of peers in a competitive local market where demand for certified talent outpaces supply.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:13.064634Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a71292f2e9d79f96",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Pensacola's project management demand flows from its military backbone at Naval Air Station Pensacola, complemented by expanding healthcare systems, aerospace maintenance operations, and financial services anchored by Navy Federal Credit Union. As the region diversifies, employers across defense, healthcare, and aviation increasingly seek professionals with formal project management credentials to lead complex, cross-functional work. Granite PM Academy delivers live-virtual AI Training for Project Managers to Pensacola professionals ready to advance their careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:14.612581Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "e49e30ef5b4a0e9b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-pensacola-fl/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Pensacola, FL, AI courses Pensacola, CPMAI certification Pensacola, AI project management training Pensacola, FL, AI for project managers Pensacola",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-pensacola-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-pensacola-fl/\",\n      \"name\": \"AI Training for Project Managers in Pensacola, FL — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Pensacola, FL for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Pensacola, FL\",\n            \"item\": \"https://granitepmacademy.com/ai-training-pensacola-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-pensacola-fl/#course\",\n      \"name\": \"AI Training for Project Managers in Pensacola, FL\",\n      \"description\": \"CPMAI certification training for project managers in Pensacola, FL who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-pensacola-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-pensacola-fl/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-pensacola-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-pensacola-fl/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-pensacola-fl/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

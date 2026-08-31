@@ -219,7 +219,25 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
 
     <!-- City list -->
     <div class="card">
-        <h2>Cities <span style="font-weight:400;font-size:0.85em;color:#888;">(<?= count($cities) ?>)</span></h2>
+        <?php
+        // Same "needs research" test generate.py's _needs_research() uses, so the
+        // count shown here always matches what a no-filter research run will do.
+        $citiesNeedingResearch = array_filter($cities, function ($c) {
+            if (!empty($c['_researched'])) return false;
+            return empty($c['industries']) && empty($c['top_employers']);
+        });
+        $needResearchCount = count($citiesNeedingResearch);
+        ?>
+        <h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <span>Cities <span style="font-weight:400;font-size:0.85em;color:#888;">(<?= count($cities) ?>)</span></span>
+            <?php if ($needResearchCount > 0): ?>
+            <button type="button" class="ai-run-btn" id="city-research-all-btn"
+                    style="font-size:.75rem;padding:5px 12px;"
+                    onclick="cityResearchAll()">&#128269; Research All Missing (<?= $needResearchCount ?>)</button>
+            <div class="ai-spinner" id="city-research-all-spinner"></div>
+            <span id="city-research-all-status" style="font-size:.78rem;font-weight:400;color:#6b7280;"></span>
+            <?php endif; ?>
+        </h2>
         <?php if (empty($cities)): ?>
             <p class="hint">No cities yet. Add one above or import from CSV.</p>
         <?php else: ?>
@@ -286,6 +304,86 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
 
         <?php endif; ?>
     </div>
+
+    <?php if ($needResearchCount > 0): ?>
+    <script>
+    window.cityResearchAll = function () {
+        var btn     = document.getElementById('city-research-all-btn');
+        var spinner = document.getElementById('city-research-all-spinner');
+        var status  = document.getElementById('city-research-all-status');
+        if (!btn) return;
+        if (!confirm('Research <?= $needResearchCount ?> ' + '<?= $needResearchCount === 1 ? "city" : "cities" ?>'
+            + ' with AI? Cities that already have research data are skipped automatically.')) return;
+
+        btn.disabled = true;
+        spinner.classList.add('on');
+        status.textContent = 'Researching…';
+        status.style.color = '';
+
+        var startedAt = Date.now();
+        var ticker = setInterval(function () {
+            status.textContent = 'Researching… ' + ((Date.now() - startedAt) / 1000).toFixed(0) + 's';
+        }, 1000);
+
+        var fd = new FormData();
+        fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
+        fd.append('action', 'research');
+        // No city_id — generate.py's --research-only runs with no --file filter,
+        // which processes every city in cities.json still missing research data
+        // (skipping ones that already have it), in one pass.
+
+        function handleLine(raw) {
+            var msg;
+            try { msg = JSON.parse(raw); } catch (e) { return; }
+
+            if (msg.type === 'line') {
+                var txt = msg.text.replace(/^\s+/, '');
+                status.textContent = txt.length > 72 ? txt.slice(0, 69) + '…' : txt;
+            } else if (msg.type === 'done') {
+                clearInterval(ticker);
+                btn.disabled = false;
+                spinner.classList.remove('on');
+                if (msg.success) {
+                    status.textContent = 'Done — reloading…';
+                    setTimeout(function () { location.reload(); }, 1200);
+                } else {
+                    status.textContent = msg.error || 'Research failed.';
+                    status.style.color = '#dc2626';
+                }
+            }
+        }
+
+        fetch('ai_generate.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+        .then(function (r) {
+            var reader  = r.body.getReader();
+            var decoder = new TextDecoder();
+            var buffer  = '';
+
+            function pump() {
+                return reader.read().then(function (chunk) {
+                    if (chunk.done) {
+                        if (buffer.trim()) handleLine(buffer.trim());
+                        return;
+                    }
+                    buffer += decoder.decode(chunk.value, { stream: true });
+                    var parts = buffer.split('\n');
+                    buffer = parts.pop();
+                    parts.forEach(function (ln) { if (ln.trim()) handleLine(ln.trim()); });
+                    return pump();
+                });
+            }
+            return pump();
+        })
+        .catch(function (err) {
+            clearInterval(ticker);
+            btn.disabled = false;
+            spinner.classList.remove('on');
+            status.textContent = 'Request failed: ' + err.message;
+            status.style.color = '#dc2626';
+        });
+    };
+    </script>
+    <?php endif; ?>
 
 <?php else: ?>
 

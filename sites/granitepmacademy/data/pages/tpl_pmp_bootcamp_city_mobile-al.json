@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "mobile-al",
+  "slug": "pmp-bootcamp-mobile-al",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "mobile-al",
+    "city": "Mobile",
+    "state": "Alabama",
+    "SS": "AL",
+    "city_slug": "mobile-al",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Mobile's project management demand is anchored by shipbuilding and aerospace manufacturing—Austal USA and Airbus drive consistent hiring for skilled program managers across Navy contracts and commercial aircraft production. The region's growing port infrastructure, healthcare expansions, and industrial operations create steady PMP® opportunities in both public and private sectors. Granite PM Academy delivers live-virtual PMP Certification designed for Mobile professionals seeking to advance in this thriving Gulf Coast industrial hub.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Mobile's shipbuilding and maritime defense sector relies on project managers who can navigate complex, regulated environments—and the PMP credential is the standard that employers in this industry recognize. Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that meets PMI's contact-hour requirements, letting you earn your certification on a schedule that fits your work. Completing the PMP positions you for leadership roles and higher compensation across Mobile's major industrial employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:28.693395Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "9102635504aa4401",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Mobile: Train for High-Demand Project Leadership",
+      "text": "<p>Mobile's shipbuilding and aerospace sectors—anchored by industry leaders like Austal USA and the Airbus U.S. Manufacturing Facility—drive consistent demand for skilled project managers who can lead complex, mission-critical programs. In these capital-intensive industries, where schedules and budgets directly impact competitiveness and safety, the Project Management Professional (PMP)® credential signals mastery of the frameworks and disciplines these employers actively seek. Beyond manufacturing, Mobile's healthcare systems, port operations, and chemical manufacturers equally value certified project managers to oversee expansions, operational upgrades, and cross-functional initiatives. Earning your PMP in Mobile positions you to compete for roles across these growth sectors and establishes you as a credible practitioner in a regional job market that rewards formal certification.</p><p>Granite PM Academy delivers intensive PMP Boot Camp through live-virtual, instructor-led training, designed to compress your preparation into a focused timeframe while meeting the contact-hour requirements mandated by the Project Management Institute. Our instructors are active, certified practitioners who bring real-world project experience into every session, ensuring you grasp both the PMBOK® Guide framework and the problem-solving mindset that employers in Mobile's industrial and healthcare sectors expect. Upon completion of the Boot Camp, you'll be prepared to sit for the PMP exam with confidence, ready to earn the credential that opens doors to higher-impact roles and career advancement across the region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:34.146244Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "51ab3de5cdd90e13",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path for Mobile's Shipbuilding & Marine Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Guarantee",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your boot camp satisfies all contact-hour requirements for PMP eligibility. No gaps, no workarounds—direct path to credential recognition."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Your instructors hold active PMP certification and work daily as practicing project managers. They bring shipbuilding, aerospace, and manufacturing scenarios directly into classroom discussion, not case studies from textbooks."
+        },
+        {
+          "heading": "Exam Prep Built Into Boot Camp",
+          "text": "Granite includes focused exam-preparation modules throughout the course, not as an afterthought. Practice tests, question strategy, and time-management drills prepare you to sit for the PMP exam with confidence."
+        },
+        {
+          "heading": "Credential Valued by Mobile Employers",
+          "text": "Austal USA, Airbus, and Alabama State Port Authority actively hire project managers with PMP credentials. The certification opens doors across shipbuilding, aerospace, logistics, and healthcare—industries anchoring Mobile's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:38.342927Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f7d707ef4e288a47",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Mobile's Industrial Hub",
+      "text": "<p>Mobile's economy is anchored by advanced manufacturing and maritime industries where certified project managers are in steady demand. Austal USA's shipbuilding programs for the U.S. Navy—including Independence-class and future combatant ship contracts—require skilled PMs to coordinate complex, multi-phase vessel construction. The Airbus U.S. Manufacturing Facility's A320 Family aircraft production expansion at Brookley Aeroplex similarly drives local need for project management expertise. Beyond aerospace and shipbuilding, the Port of Mobile's container terminal and infrastructure expansion, along with major employers like AM/NS Calvert and Evonik Corporation, create consistent opportunities for credentialed project managers in chemical, industrial manufacturing, and logistics sectors.</p><p>In Mobile, the PMP and CAPM credentials carry real career weight, particularly in shipbuilding, aerospace, and industrial manufacturing where employers increasingly list formal project management certification as a preferred qualification. While compensation for project managers in Mobile tracks slightly below national metro averages, the local shipbuilding, aerospace, and industrial sectors offer competitive pay premiums for candidates holding PMP certification and relevant engineering or manufacturing experience. Completing Granite PM Academy's PMP Boot Camp positions you to meet these employer preferences and advance into the specialized, higher-responsibility roles that Mobile's large-scale industrial projects demand—making certification a strategic investment in your local career trajectory.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:42.513986Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2d1a4b0ee2f28841",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Mobile",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires applicants to meet specific education and project-management experience thresholds before applying. Review PMI's eligibility requirements based on your degree level and years of verifiable project work. Granite PM Academy's enrollment team can help you assess whether you qualify to sit for the exam."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp and complete the required formal training. Attend sessions on your schedule, interact with experienced instructors in real time, and receive your contact-hour certificate upon completion. This credential is a non-negotiable prerequisite for PMI application and exam eligibility."
+        },
+        {
+          "heading": "Submit PMI Application",
+          "text": "Register with the Project Management Institute, submit your formal application, and pay the exam fee directly to PMI. Include proof of your 35 contact hours from Granite PM Academy and document your project-management experience. PMI will review and approve your application before you can schedule your exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, study materials, and instructor guidance to build confidence. Schedule your computer-based exam with PMI's testing partner at a center or from home. Bring valid identification and follow PMI's exam policies on the day of your test."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to earning professional development units (PDUs) across each three-year renewal cycle. Engage in project-management training, conferences, volunteer work, or published contributions to stay current. Renew your certification with PMI before your cycle closes to keep your credential active."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:47.817655Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6c5f3e4508032be7",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Mobile's shipbuilding industry?",
+          "answer": "<p>Yes. Austal USA and other shipbuilding employers in Mobile increasingly seek PMP-certified candidates for large-scale, multi-phase vessel construction projects. While certification is not always mandatory, employers in this sector frequently list PMP or CAPM as preferred qualifications and often offer premium compensation to certified PMs with manufacturing or engineering experience. The credential demonstrates formal expertise in the complex scheduling and resource management shipbuilding demands.</p>"
+        },
+        {
+          "question": "Which Mobile-area employers value PMP certification most?",
+          "answer": "<p>Shipbuilding firms, aerospace manufacturers (including Airbus U.S. Manufacturing Facility), chemical and industrial manufacturers (AM/NS Calvert, Evonik, Continental Tire, International Paper), and the Alabama State Port Authority actively seek PMP credentials. Healthcare systems like USA Health and Infirmary Health also value certification for infrastructure and operational project leadership. Demand is strongest where projects span multiple phases, large budgets, and cross-functional teams.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP boot camp from my Mobile workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join sessions from your office, home, or any location with internet access. Many Mobile professionals in manufacturing, aerospace, and healthcare use this flexibility to complete the boot camp during work hours or after shift without traveling. Check with your employer about any training-time policies or quiet workspace availability on-site.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now given Mobile's current job market?",
+          "answer": "<p>Yes. Mobile's competitive demand for certified project managers—particularly in shipbuilding, aerospace, and industrial manufacturing—makes this an ideal time to certify. Project manager compensation in Mobile remains competitive within Alabama, especially for certified candidates in these high-growth sectors. Early certification positions you ahead of local peers and strengthens your candidacy as employers expand operations and complex projects.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:53.053001Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "14ea5055337e613f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Mobile's industrial corridor—anchored by Austal USA shipbuilding, Airbus aerospace manufacturing, and Alabama State Port Authority operations—consistently demands skilled project managers to lead complex programs and expansions. Healthcare systems and chemical manufacturers across the Gulf Coast hub add further depth to local PM opportunities. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Mobile professionals seeking certification without disrupting their schedules.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:54.745848Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a7b3ec6fdc5e46f1",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-mobile-al/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Mobile, AL, PMP bootcamp Mobile, PMP certification boot camp Mobile, AL, PMP bootcamp near me, intensive PMP training Mobile",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/\",\n      \"name\": \"PMP Boot Camp in Mobile, AL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Mobile, AL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Mobile, AL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/#course\",\n      \"name\": \"PMP Boot Camp in Mobile, AL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Mobile, AL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-mobile-al/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

@@ -212,6 +212,26 @@ def resolve_city(idx, city_vars):
     return {}
 
 
+def resolve_tag_city_ids(paths, tag):
+    """Return the set of city ids in cities.json carrying `tag`, or None when no
+    tag was given. Lets a run be scoped to e.g. --tag tier1 the same way
+    --file scopes to a single city, without threading tags through the file
+    naming scheme."""
+    if not tag:
+        return None
+    raw = load_json(paths['cities']) or []
+    rows = raw if isinstance(raw, list) else list(raw.values())
+    return {r.get('id') for r in rows if isinstance(r, dict) and tag in (r.get('tags') or []) and r.get('id')}
+
+
+def _page_city_id(fpath):
+    """Landing page filenames are '{template_id}_{city_id}.json'; city ids are
+    always hyphen-only (see admin/cities_save.php::_city_make_id), so the
+    segment after the LAST underscore is always the city id."""
+    base = os.path.splitext(os.path.basename(fpath))[0]
+    return base.rsplit('_', 1)[-1] if '_' in base else base
+
+
 # ── Context assembly ──────────────────────────────────────────────────────────
 
 DEFAULT_HOOD_THRESHOLD = 14000
@@ -579,7 +599,7 @@ def _merge_stats(total, s):
     for k in total:
         total[k] += s.get(k, 0)
 
-def generate_site_spotlight(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None):
+def generate_site_spotlight(paths, site_data, registry, c_idx, api_key, refresh, dry_run, model_override=None, city_filter=None, tag_ids=None):
     """Generate the City Spotlight prose ONCE PER CITY and store it in cities.json[city].city_spotlight.
 
     Every page's Map+Info block renders it via the {city_spotlight} shortcode token:
@@ -623,6 +643,12 @@ def generate_site_spotlight(paths, site_data, registry, c_idx, api_key, refresh,
     generated = 0
     for row in rows:
         if not isinstance(row, dict):
+            continue
+        if city_filter:
+            hay = f'{row.get("id","")} {row.get("city","")} {row.get("city_slug","")}'.lower()
+            if city_filter.lower() not in hay:
+                continue
+        if tag_ids is not None and row.get('id') not in tag_ids:
             continue
         if row.get('city_spotlight') and not refresh:
             _log(f'  {row.get("city","?")}, {row.get("SS","?")} — present, skipping')
@@ -762,7 +788,7 @@ def _fetch_city_image(paths, city, refresh=False, dry_run=False):
     }
 
 
-def sync_city_images(paths, site_data, refresh=False, dry_run=False, city_filter=None):
+def sync_city_images(paths, site_data, refresh=False, dry_run=False, city_filter=None, tag_ids=None):
     """Fetch-if-missing city images into cities.json, then mirror the primary
     city's image into site_vars. Always runs on generate (cheap after the first
     time thanks to fetch-once caching). Returns the number of images fetched."""
@@ -780,6 +806,8 @@ def sync_city_images(paths, site_data, refresh=False, dry_run=False, city_filter
             hay = f'{row.get("id","")} {row.get("city","")} {row.get("city_slug","")}'.lower()
             if city_filter.lower() not in hay:
                 continue
+        if tag_ids is not None and row.get('id') not in tag_ids:
+            continue
         img = _fetch_city_image(paths, row, refresh=refresh, dry_run=dry_run)
         if img:
             row.update(img)
@@ -859,7 +887,7 @@ def process_core_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_
 
     return total
 
-def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, file_filter=None, model_override=None, workers=1):
+def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, dry_run, file_filter=None, model_override=None, workers=1, tag_ids=None):
     _log('\n── Landing Pages ────────────────────────────────────')
     site_vars = site_data.get('site_vars', {})
     pages_dir = paths['pages_dir']
@@ -871,6 +899,8 @@ def process_landing_pages(paths, site_data, registry, c_idx, api_key, refresh, d
     json_files = sorted(glob.glob(os.path.join(pages_dir, '*.json')))
     if file_filter:
         json_files = [f for f in json_files if file_filter in os.path.basename(f)]
+    if tag_ids is not None:
+        json_files = [f for f in json_files if _page_city_id(f) in tag_ids]
     total = {'processed': 0, 'skipped': 0, 'errors': 0}
     threshold = _hood_threshold(paths)
 
@@ -1017,7 +1047,7 @@ def _needs_research(city_data):
         return False
     return not city_data.get('industries') and not city_data.get('top_employers')
 
-def run_research_step(paths, api_key, dry_run=False, city_filter=None):
+def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=None):
     """
     For every city in cities.json that lacks research fields, call Claude to fill them.
     Writes results back to cities.json.  Returns number of cities researched.
@@ -1042,6 +1072,9 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None):
             haystack = f'{city_id} {city_name} {city.get("city_slug","")}'.lower()
             if city_filter.lower() not in haystack:
                 continue
+
+        if tag_ids is not None and city_id not in tag_ids:
+            continue
 
         if not _needs_research(city):
             _log(f'  {city_name} — research data present, skipping')
@@ -1231,6 +1264,7 @@ def main():
     ap.add_argument('--page',            default='landing',   help='homepage | core | landing (default: landing)')
     ap.add_argument('--all',             action='store_true', help='Process homepage + core + landing pages')
     ap.add_argument('--file',            default=None,        help='Limit to page files whose name contains this string')
+    ap.add_argument('--tag',             default=None,        help='Limit to cities carrying this tag in cities.json (e.g. tier1)')
     ap.add_argument('--refresh',         action='store_true', help='Regenerate even _ai_locked blocks')
     ap.add_argument('--research',        action='store_true', help='Research missing city data before generating content')
     ap.add_argument('--research-only',   action='store_true', dest='research_only',
@@ -1270,10 +1304,14 @@ def main():
         _err(f'Site directory not found: {paths["site_dir"]}')
         sys.exit(1)
 
+    tag_ids = resolve_tag_city_ids(paths, args.tag)
+    if args.tag and not tag_ids:
+        _warn(f'  --tag {args.tag} matched no cities in cities.json')
+
     _log(f'\n{"═"*54}')
     _log(f'generate.py · site={args.site}')
     scope = '--all' if args.all else ('--research-only' if args.research_only else args.page)
-    _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else ''))
+    _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else '') + (f' --tag {args.tag}' if args.tag else ''))
     _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}  |  Workers : {args.workers}')
     if args.model:
         _log(f'Model    : {args.model} (override)')
@@ -1304,7 +1342,7 @@ def main():
 
     # ── Step 1: Research (fills cities.json research fields) ──────────────────
     if args.research:
-        researched = run_research_step(paths, api_key, dry_run=args.dry_run, city_filter=args.file)
+        researched = run_research_step(paths, api_key, dry_run=args.dry_run, city_filter=args.file, tag_ids=tag_ids)
         if args.research_only:
             _log(f'\n{"═"*54}')
             _ok(f'Research complete: {researched} city/cities enriched')
@@ -1316,13 +1354,14 @@ def main():
 
     # ── Step 1b: City Spotlight (once per site; every page reuses {city_spotlight}) ──
     generate_site_spotlight(paths, site_data, registry, c_idx, api_key,
-                            args.refresh, args.dry_run, args.model or None)
+                            args.refresh, args.dry_run, args.model or None,
+                            city_filter=args.file, tag_ids=tag_ids)
 
     # ── Step 1c: City Images (fetch-once from Wikimedia, cache per-city, mirror
     #    the primary city → site_vars so {city_image} resolves). No API key
     #    needed; skipped per-city when already cached unless --refresh. ──
     sync_city_images(paths, site_data, refresh=args.refresh,
-                     dry_run=args.dry_run, city_filter=args.file)
+                     dry_run=args.dry_run, city_filter=args.file, tag_ids=tag_ids)
 
     # ── Step 2: Content generation ────────────────────────────────────────────
     model_override = args.model or None
@@ -1340,6 +1379,8 @@ def main():
             for _lp_f in sorted(glob.glob(os.path.join(_lp_dir, '*.json'))):
                 if args.file and args.file not in os.path.basename(_lp_f):
                     continue
+                if tag_ids is not None and _page_city_id(_lp_f) not in tag_ids:
+                    continue
                 _lp_data = load_json(_lp_f)
                 if _lp_data:
                     pre_total += _count_blocks(_lp_data.get('content_blocks', []), args.refresh)
@@ -1352,7 +1393,7 @@ def main():
         _merge_stats(total, process_core_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))
 
     if args.all or args.page == 'landing':
-        _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file, model_override=model_override, workers=args.workers))
+        _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file, model_override=model_override, workers=args.workers, tag_ids=tag_ids))
 
     print_summary(total, researched)
     if not args.dry_run:

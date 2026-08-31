@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "nashville-tn",
+  "slug": "pmp-bootcamp-nashville-tn",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "nashville-tn",
+    "city": "Nashville",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "nashville-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Nashville's healthcare sector—anchored by HCA Healthcare and Vanderbilt University Medical Center—drives sustained demand for certified project managers, while concurrent growth in finance, automotive, and tech sectors amplifies opportunities across industries. Major initiatives like Oracle's East Bank campus development and the new Nissan operations expansion underscore the city's need for skilled program leadership. Granite PM Academy delivers live-virtual PMP Certification training designed for Nashville professionals balancing work and study.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Nashville's healthcare and music-industry sectors rely heavily on cross-functional project coordination, making PMP certification a recognized asset in the local market. Granite PM Academy delivers a live-virtual, instructor-led PMP Boot Camp that satisfies PMI's contact-hour education requirement in an accelerated format, fitting working professionals' schedules. Earning your PMP positions you for advancement into senior project and program leadership roles across Nashville's growing healthcare systems and entertainment enterprises.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:08.841863Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e4efbf0b671fabf0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp Nashville: Accelerate Your Healthcare Career",
+      "text": "<p>Nashville's explosive growth as a healthcare industry hub has created urgent demand for credentialed project managers across hospital systems, medical device companies, and health tech firms. HCA Healthcare, Vanderbilt University Medical Center, and other major health systems here routinely seek PMP-certified professionals to lead clinical technology rollouts, facility expansions, and operational transformation initiatives. Beyond healthcare, Nashville's thriving finance, automotive, and logistics sectors—anchored by employers like Nissan North America, Bridgestone Americas, and Oracle—compete for the same talent pool. If you work in any of these industries or are targeting a transition into project leadership, the Project Management Professional (PMP) credential is no longer optional; it's the standard credential employers in Nashville use to evaluate promotion candidates and hiring decisions.</p><p>Granite PM Academy delivers an intensive, instructor-led PMP Boot Camp designed to fit Nashville professionals' schedules through live-virtual sessions taught by active, certified practitioners. As a PMI Authorized Training Partner, we satisfy the contact-hour requirement mandated by the Project Management Institute and prepare you to sit for the PMP exam with confidence. Our curriculum reflects real-world project challenges from Nashville's dominant industries, so the examples and case studies align with your local market. Whether you're advancing within healthcare, finance, or manufacturing, or repositioning your career in a growing Nashville sector, earning your PMP credential with Granite PM Academy opens doors to leadership roles and competitive compensation across the region's most resilient employers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:13.595454Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a562f51a388b707c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Nashville's PMP Boot Camp: PMI-Authorized Certification Path",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization, Verified Credential",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring every contact hour meets PMI's rigorous standards. Your PMP credential arrives recognized by employers across Nashville's healthcare, automotive, and finance sectors—no shortcuts, no guesswork."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Every Granite instructor holds active PMP certification and practices project management full-time in industries like HCA Healthcare and Nissan North America operations. You learn from practitioners solving Nashville problems today, not recycled case studies."
+        },
+        {
+          "heading": "Exam-Ready in Weeks, Not Months",
+          "text": "Live-virtual instructor-led sessions compress study into an intensive schedule while satisfying PMI's contact-hour requirement. Granite's structured exam-prep support—practice tests, strategy coaching, targeted review—closes the gap between classroom and certification day."
+        },
+        {
+          "heading": "Unlock Nashville's High-Demand Roles",
+          "text": "Nissan, Bridgestone, Deloitte, and UBS actively hire PMP-certified project managers across Nashville. This credential signals capability to employers managing complex supply chains, healthcare delivery, and technology rollouts in the region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:18.385410Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5e3cfde8387408df",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing Across Nashville",
+      "text": "<p>Healthcare dominates Nashville's project management landscape, with HCA Healthcare and Vanderbilt University Medical Center anchoring a sector that consistently seeks certified professionals to lead clinical expansions, infrastructure upgrades, and IT implementations. Beyond healthcare, major employers including Nissan North America, Bridgestone Americas, and Asurion fuel demand for PMs across automotive manufacturing, finance, and corporate operations. The city's transformation is visible in landmark initiatives like Oracle's East Bank riverfront campus development, Amazon's Operations Center of Excellence, and the New Nashville stadium project—each representing significant portfolio opportunities where certified project managers oversee complex, multi-stakeholder deliverables.</p><p>PMP® certification carries measurable weight in Nashville's hiring market, particularly in healthcare, corporate, and construction sectors where employers routinely list it as preferred or required. The city's competitive compensation landscape—strengthened by healthcare growth, financial-services expansion, and ongoing corporate relocation—rewards certified professionals with career advancement and earning potential that aligns with other major Southeastern metros. Completing Granite PM Academy's PMP Boot Camp positions you to meet the credential demand that Nashville employers actively source, equipping you to compete for leadership roles across the industries reshaping the region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:21.748883Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4b86c597725e315f",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Nashville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific hour and credential requirements for the PMP to ensure you meet the baseline before enrolling. Granite PM Academy staff can clarify whether your background qualifies."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Nashville-based trainers deliver the PMI-required contact hours in an interactive format, covering the PMBOK® Guide and real-world case studies aligned to your local project-management context."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the boot camp, apply directly to PMI with your education documentation and project experience. Pay the associated exam fee to activate your eligibility window. Granite PM Academy guides you through submission to ensure accuracy and avoid delays."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study guides, to strengthen your readiness. Schedule your exam through PMI's official testing partner. Our instructors remain available to clarify complex topics before test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) throughout the standard three-year renewal cycle to keep your PMP active. Granite PM Academy offers workshops, webinars, and continuing-education courses that count toward your PDU requirement while deepening your project-management expertise."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:26.147952Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "937836a9b7cb23d4",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth getting in Nashville's healthcare sector?",
+          "answer": "<p>Healthcare dominates Nashville's economy through major employers like HCA Healthcare and Vanderbilt University Medical Center, both of which frequently list PMP certification as preferred or required for project management roles. Certified professionals managing clinical IT implementations, facility upgrades, and operational transformations typically command stronger compensation and advancement opportunities than non-certified peers in this talent-competitive market.</p>"
+        },
+        {
+          "question": "Which Nashville employers actively hire PMP-certified project managers?",
+          "answer": "<p>Beyond healthcare, Nissan North America, Bridgestone Americas, Asurion, and finance firms like AllianceBernstein and UBS regularly post project management roles favoring PMP certification. Corporate relocation and growth in logistics, automotive manufacturing, and financial services have intensified demand for certified professionals across Nashville's major employment centers.</p>"
+        },
+        {
+          "question": "Can I take PMP boot camp online while working in Nashville?",
+          "answer": "<p>Yes. Our live-virtual boot camp format allows Nashville professionals to attend from their office, home, or any location with reliable internet, accommodating full-time work schedules without relocation. This flexibility is especially valuable for employed professionals at HCA, Vanderbilt, Nissan, or other major Nashville employers seeking certification without workplace disruption.</p>"
+        },
+        {
+          "question": "When should Nashville project managers pursue PMP certification?",
+          "answer": "<p>Nashville's strong hiring demand for certified project managers—particularly in healthcare, finance, and manufacturing—means earlier certification often accelerates career growth and compensation. If you're actively job-searching or leading complex initiatives at a major employer, obtaining the credential sooner positions you competitively in this expanding regional market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:31.135264Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a7123539329b6fa5",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Nashville's healthcare sector—anchored by HCA Healthcare and Vanderbilt University Medical Center—drives robust demand for credentialed project managers, while high-profile developments like Oracle's East Bank campus and BNA Vision expansion underscore the city's growth across finance, tech, and logistics. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Nashville professionals balancing work and certification prep, connecting you with the skills major employers in healthcare, automotive, and corporate services actively seek.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:33.101797Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0c39e33f59596c45",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-nashville-tn/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Nashville, TN, PMP bootcamp Nashville, PMP certification boot camp Nashville, TN, PMP bootcamp near me, intensive PMP training Nashville",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/\",\n      \"name\": \"PMP Boot Camp in Nashville, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Nashville, TN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Nashville, TN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/#course\",\n      \"name\": \"PMP Boot Camp in Nashville, TN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Nashville, TN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-nashville-tn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

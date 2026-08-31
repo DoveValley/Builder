@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "ann-arbor-mi",
+  "slug": "pmp-certification-training-ann-arbor-mi",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "ann-arbor-mi",
+    "city": "Ann Arbor",
+    "state": "Michigan",
+    "SS": "MI",
+    "city_slug": "ann-arbor-mi",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Ann Arbor's project management demand centers on its research and higher-education ecosystem, led by the University of Michigan and Michigan Medicine, alongside growing mobility-tech and software sectors including Google and Cisco's Duo Security. Major initiatives like U of M's Mcity autonomous vehicle testing facility and hospital expansions create active PM roles across academia, healthcare, and tech. Granite PM Academy serves Ann Arbor professionals with live-virtual PMP® Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Ann Arbor's robust automotive supply and advanced manufacturing sectors rely on project managers who can navigate complex product development cycles and regulatory requirements. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, allowing you to earn your credential while maintaining your work schedule. Completing PMP certification positions you to move into leadership roles and command higher compensation across the region's engineering-driven companies.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:05.595674Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "83cffc866e497434",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Ann Arbor for Growing Tech and Research Sectors",
+      "text": "<p>Ann Arbor's project management market is anchored by the University of Michigan and Michigan Medicine—two of the region's largest employers—where managing complex research initiatives, infrastructure projects, and interdisciplinary teams is fundamental to daily operations. Beyond higher education and healthcare, the city's expanding presence in mobility technology, software development, and biomedical innovation creates sustained demand for certified project managers who can lead cross-functional initiatives in highly regulated and fast-moving environments. Whether you're advancing your career at a major research institution, a healthcare system, or one of Ann Arbor's growing tech employers, the PMP® credential signals your mastery of industry-standard practices and positions you for leadership roles and competitive compensation.</p><p>Granite PM Academy is a PMI Authorized Training Partner offering live, instructor-led PMP Certification Training delivered in a flexible virtual format that fits working professionals in Ann Arbor. Our courses are taught by active certified practitioners with real-world experience across the industries that define this region, and each program satisfies the contact-hour requirements necessary to sit for the PMP® exam. We guide you through the entire certification journey—from eligibility verification and exam preparation to application and testing logistics—so you can earn your credential with confidence and begin applying your new expertise immediately in your organization.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:10.141163Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "cbdac591f6870c86",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Ann Arbor's Research & Tech Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP® preparation meets all Project Management Institute standards. Your contact hours count directly toward PMI credential eligibility—no guesswork, no gaps."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Attend instructor-led sessions online in real time, balancing work at Michigan Medicine, U of M, or Toyota's Ann Arbor hub with rigorous exam prep. Synchronous learning preserves accountability without commute friction."
+        },
+        {
+          "heading": "Instructors Who Do the Work",
+          "text": "Your instructors hold active PMP® certification and manage live projects in healthcare, automotive, or software environments. They teach what they practice, grounding theory in the challenges Ann Arbor employers actually face."
+        },
+        {
+          "heading": "Credential That Matches Local Demand",
+          "text": "Higher education, biomedical research, and automotive R&D in Ann Arbor increasingly require PMP® for program leadership roles. This credential opens doors at major regional employers seeking certified project professionals."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:14.092348Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b62c4af1a97c9bef",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Ann Arbor's Research Hub",
+      "text": "<p>Ann Arbor's economy rests on a foundation of research, healthcare, and technology—all sectors that depend heavily on certified project managers. The University of Michigan and Michigan Medicine are among the largest employers in the region, regularly hiring PMP and CAPM credential holders to lead complex initiatives, from hospital and research facility expansions to coordinating interdisciplinary teams. Beyond healthcare and academia, Google's Ann Arbor office expansion and technology firms like Barracuda Networks and Thomson Reuters have intensified local demand for structured project delivery expertise. The University of Michigan's Mcity autonomous vehicle testing facility exemplifies the kind of sophisticated, cross-functional initiative that benefits from certified PM leadership—and signals the caliber of projects happening in your backyard.</p><p>The PMP and CAPM certifications carry real weight with Ann Arbor employers, particularly those in healthcare systems and technology firms seeking to standardize project delivery and reduce risk. Salaries for certified project managers here are competitive with peer Midwest tech and healthcare markets, and the combination of a thriving research sector, major medical institutions, and growing technology presence means strong ongoing demand for your credential. Completing PMP Certification Training through Granite PM Academy positions you to meet that demand immediately, whether you're advancing within Michigan Medicine, the University of Michigan, or one of the region's expanding tech companies. Your certification becomes a differentiator in a local market where employers understand its value and invest accordingly.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:18.615391Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "64398a69d0b74f42",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Ann Arbor",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review the specific education and hours-of-experience benchmarks for your background. Granite PM Academy's advisors can verify your qualifications before enrollment and help you understand any gaps."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our sessions are scheduled to fit working professionals in Ann Arbor. You'll cover all five process groups and knowledge areas required by PMI in an interactive, cohort-based environment with expert instructors."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the course, submit your formal PMP application directly to PMI and pay the associated exam fee. Granite PM Academy provides guidance on application completion and eligibility documentation. PMI reviews and either approves or requests additional information within a set timeframe."
+        },
+        {
+          "heading": "Prepare and Take Your Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions, study guides, and instructor office hours. You'll sit for the PMP exam at a Pearson VUE testing center in or near Ann Arbor. Our students benefit from targeted review sessions covering high-priority domains."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "PMP certification lasts three years. You'll earn Professional Development Units (PDUs) through approved learning activities, volunteer work, or teaching to maintain your credential. Granite PM Academy offers ongoing PDU-eligible courses and resources to keep your skills current and your certification active."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:23.710373Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "53a6e28735bce7f3",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Ann Arbor healthcare and tech careers?",
+          "answer": "<p>Yes. Ann Arbor's dominant employers—Michigan Medicine, University of Michigan, and a growing tech sector—actively seek PMP and CAPM-certified project managers for structured delivery of complex initiatives. Healthcare systems and IT firms in particular offer competitive compensation packages to certified professionals, and the credential is increasingly required or preferred for advancement into leadership roles across these industries.</p>"
+        },
+        {
+          "question": "Which Ann Arbor employers value PMP certification most?",
+          "answer": "<p>Healthcare systems like Michigan Medicine, research institutions tied to the University of Michigan, and technology companies (including software and automotive mobility firms) prioritize PMP certification. Toyota Motor North America's Ann Arbor Technical Center, Domino's corporate operations, and IT-focused employers also recognize the credential as a differentiator for project management roles and career progression.</p>"
+        },
+        {
+          "question": "Can I attend PMP certification training remotely from my Ann Arbor workplace?",
+          "answer": "<p>Yes. Our live-virtual PMP training format allows you to participate from your office, home, or any location with reliable internet—ideal for Ann Arbor professionals balancing work at Michigan Medicine, tech firms, or University of Michigan departments. You'll have the same instructor interaction and peer engagement as in-person classes without commuting constraints.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait in Ann Arbor's job market?",
+          "answer": "<p>Pursue it now. Demand for certified project managers in Ann Arbor remains strong across healthcare, higher education, research, and tech sectors. Earning your credential positions you competitively before roles open—especially valuable given the credential's increasing importance at major local employers and the time required to meet prerequisites and complete the program.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:29.307287Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9f5844d042402090",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Ann Arbor's project management demand centers on its research and healthcare ecosystem—anchored by the University of Michigan and Michigan Medicine—alongside a thriving mobility-tech and software corridor that includes Google and other innovation-focused firms. This combination creates consistent PM roles across higher education, healthcare, autonomous vehicle development, and IT sectors. Granite PM Academy delivers live-virtual PMP Certification Training to Ann Arbor professionals seeking to advance their careers in this diverse, opportunity-rich market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:31.318675Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "46b050a9e0f36dec",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Ann Arbor, MI, PMP exam prep Ann Arbor, PMP course Ann Arbor MI, project management certification Ann Arbor, MI, PMI PMP training Ann Arbor",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/\",\r\n      \"name\": \"PMP Certification Training in Ann Arbor, MI | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Ann Arbor, MI. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Ann Arbor, MI\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/#course\",\r\n      \"name\": \"PMP Certification Training in Ann Arbor, MI\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Ann Arbor, MI. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-ann-arbor-mi/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

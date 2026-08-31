@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "green-bay-wi",
+  "slug": "pmp-bootcamp-green-bay-wi",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "green-bay-wi",
+    "city": "Green Bay",
+    "state": "Wisconsin",
+    "SS": "WI",
+    "city_slug": "green-bay-wi",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Green Bay's manufacturing and logistics backbone—anchored by Schneider National, Georgia-Pacific, and ongoing expansions like Green Bay Packaging's containerboard mill—creates sustained demand for project managers who can navigate complex, cross-functional operations. Healthcare system growth and major developments like Titletown District further diversify career opportunities for certified professionals. Granite PM Academy delivers live-virtual PMP® Certification to Green Bay's working professionals, aligned with the credentials employers across these sectors actively seek.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Green Bay's manufacturing and industrial sectors rely heavily on skilled project managers to coordinate complex production timelines and supply chains. Granite PM Academy's live-virtual PMP Boot Camp delivers instructor-led training that satisfies PMI's contact-hour requirements, letting you earn your Project Management Professional credential while working. A PMP qualification positions you for leadership roles and higher compensation across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:41.796261Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "eca0013ea735027e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Green Bay: Accelerate Your PM Career",
+      "text": "<p>Green Bay's manufacturing and paper-processing sectors are undergoing significant modernization, with operations expanding and supply chains becoming increasingly complex. Companies like Georgia-Pacific, Green Bay Packaging, and Schreiber Foods are investing heavily in facility upgrades and cross-functional initiatives that demand skilled project managers capable of leading large-scale operations. Alongside this manufacturing base, healthcare systems and logistics providers—anchored by Schneider National—are equally committed to operational excellence. The PMP credential has become essential for professionals in Green Bay who want to advance into leadership roles, command competitive compensation, and gain recognition across these capital-intensive industries where certified project management expertise directly impacts bottom-line results.</p><p>Granite PM Academy delivers an intensive, instructor-led PMP Boot Camp designed for working professionals in Green Bay. As a PMI Authorized Training Partner, we combine live-virtual instruction with experienced, active PMP-certified practitioners who understand both the exam content and real-world project challenges. Our program satisfies the contact-hour requirements mandated by the Project Management Institute, positioning you to sit for the PMP exam with confidence and comprehensive preparation. Whether you're advancing within manufacturing, healthcare, logistics, or another sector, our boot camp format accelerates your path to certification so you can earn the credential, validate your expertise, and unlock new career opportunities without lengthy delays.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:45.884804Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "24aa563c83fffc2b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path Built for Green Bay Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Curriculum You Can Trust",
+          "text": "Granite PM Academy's PMP Boot Camp is delivered by a PMI Authorized Training Partner, ensuring your instruction meets PMI standards. This accreditation removes guesswork—you're preparing through a curriculum officially recognized by the credential-issuing body itself."
+        },
+        {
+          "heading": "Live Instructors, Real Project Experience",
+          "text": "Your instructors are active PMP-certified practitioners working in project management today, not retired academics. They bring current case studies and field insights into every session, translating certification concepts into the challenges you'll face at employers like Schneider National and Bellin Health."
+        },
+        {
+          "heading": "Structured Exam Prep From Day One",
+          "text": "The boot camp integrates exam-preparation strategy throughout—not as an afterthought. Mock exams, question-bank walkthroughs, and tailored feedback on weak domains are built into the course, raising your confidence and readiness before test day."
+        },
+        {
+          "heading": "Meet Growing PMP Demand Locally",
+          "text": "Manufacturing, healthcare systems, and logistics—Green Bay's largest sectors—are actively hiring certified project managers. The PMP credential signals readiness to lead complex initiatives at employers including Georgia-Pacific, HSHS St. Vincent, and American Foods Group, directly strengthening your candidacy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:50.345718Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b9a19e121dcf21b6",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Green Bay",
+      "text": "<p>Green Bay's economy is anchored by manufacturing, logistics, and healthcare—sectors where certified project managers are in steady demand. Schneider National, one of the region's largest employers, relies on project managers to oversee supply-chain and operational initiatives. Similarly, Bellin Health and HSHS St. Vincent Hospital are expanding their facilities and service lines, creating roles for PMs who can manage complex healthcare capital projects. Schreiber Foods and Georgia-Pacific also draw on project management expertise to run production and facility work. Beyond traditional operations, even the Titletown District mixed-use development championed by the Green Bay Packers organization illustrates how local investment in community infrastructure creates project-driven employment across sectors.</p><p>While project manager compensation in Green Bay tracks slightly below larger Midwest metros like Milwaukee or Minneapolis, the competitive demand—driven by the concentration of manufacturing, healthcare, and transportation employers—makes certification increasingly valuable for career advancement. Employers across these industries now favor formal credentials like the PMP® or CAPM® when evaluating candidates for mid-level and senior roles, reflecting a regional shift toward structured project delivery. Completing Granite PM Academy's PMP Boot Camp positions you to meet that credential expectation and strengthens your candidacy for roles where formal project management training is becoming the standard rather than the exception.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:54.652727Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "e8ca0083bdb39082",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Green Bay",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's specific requirements for your background—secondary diploma holders and bachelor's degree holders face different thresholds. Granite PM Academy's advisors can quickly verify whether you meet PMI's criteria before you invest in training."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Boot Camp, taught by experienced instructors who deliver the full PMI curriculum in real time. Attend sessions on your schedule—evenings and weekends available for Green Bay professionals. Upon completion, you'll receive a certificate of training required for your PMI application."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After earning your contact hours, create your PMI account and formally apply for the PMP credential. Upload your education and experience documentation, then pay the PMI exam fee directly to the Project Management Institute. Granite PM Academy staff can guide you through the online submission process."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and Q&A sessions—to build confidence before test day. Schedule your computer-based exam through PMI's testing partner at a local Green Bay testing center. Our instructors remain available to clarify difficult concepts during your final weeks of study."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "Once certified, you'll renew your PMP every three years by earning Professional Development Units (PDUs) through approved learning activities, training, and project work. Granite PM Academy offers PDU-eligible courses and workshops to help you stay current and keep your credential active throughout your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:00.021095Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "baf6797ca27ab32b",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in Green Bay's manufacturing sector?",
+          "answer": "<p>Yes. Green Bay's concentration of paper, packaging, and food-processing employers—including major operations by Georgia-Pacific, Schreiber Foods, and Green Bay Packaging—increasingly values formal project management credentials for advancement into mid-level and leadership roles. While not every job posting explicitly requires PMP or CAPM, candidates with certification often stand out in salary negotiations and promotion consideration, offsetting Green Bay's slightly lower compensation range compared to larger Midwest metros.</p>"
+        },
+        {
+          "question": "Which Green Bay employers actively seek PMP-certified project managers?",
+          "answer": "<p>Manufacturing, logistics, and healthcare employers across Green Bay are the strongest markets for PMP credentials. Schneider National's operations, Bellin Health's system-wide projects, and the region's food and packaging manufacturers increasingly structure delivery around formal project management practices. Financial institutions like Associated Bank and Nicolet National Bank also value certification for IT and operational initiatives. Even smaller firms in these sectors recognize certification as a competitive differentiator.</p>"
+        },
+        {
+          "question": "Can I attend Green Bay's PMP boot camp from my workplace office?",
+          "answer": "<p>Yes. Our live-virtual format allows you to join from any location with stable internet—your office, home, or even during breaks between shifts. This flexibility is especially valuable for Green Bay professionals balancing roles at large employers like the Packers organization or hospital systems. You'll participate fully in instruction and peer activities without needing to travel, making certification accessible alongside your current responsibilities.</p>"
+        },
+        {
+          "question": "Should I get PMP certified now or wait in Green Bay's job market?",
+          "answer": "<p>Green Bay's competitive demand for certified project managers favors acting sooner rather than later. The region's ongoing investment in structured project delivery—across healthcare, logistics, and manufacturing—means employers are actively recruiting and promoting credential-holders. Delaying certification may cost you advancement or salary growth opportunities, especially if you're targeting mid-level or senior roles at established employers in these high-demand sectors.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:05.814125Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "3be5a8f1f8eb0e7f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Green Bay's manufacturing and logistics sectors—anchored by Schneider National and ongoing expansions at facilities like Green Bay Packaging's containerboard mill—fuel steady demand for skilled project managers who can orchestrate cross-functional teams through modernization and growth initiatives. Healthcare systems and food processing round out a robust job market where PMP®-certified professionals command respect and advancement opportunities. Granite PM Academy delivers live-virtual PMP Boot Camp to Green Bay professionals ready to formalize their credentials.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:07.657244Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "6cdc0dd7f52d3d8d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Green Bay, WI, PMP bootcamp Green Bay, PMP certification boot camp Green Bay, WI, PMP bootcamp near me, intensive PMP training Green Bay",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/\",\n      \"name\": \"PMP Boot Camp in Green Bay, WI | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Green Bay, WI. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Green Bay, WI\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/#course\",\n      \"name\": \"PMP Boot Camp in Green Bay, WI\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Green Bay, WI. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-green-bay-wi/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "durham-nc",
+  "slug": "pmp-certification-training-durham-nc",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "durham-nc",
+    "city": "Durham",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "durham-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Durham's project management market thrives within the Research Triangle Park ecosystem, anchored by Duke University, Duke Health, and major life sciences firms like IQVIA and Biogen that drive sustained demand for skilled PMs. Capital-intensive initiatives—from Duke's campus expansion to the American Tobacco Campus redevelopment—create real career momentum for certified project managers across healthcare, biotech, and technology sectors. Granite PM Academy serves Durham professionals with live-virtual PMP® Certification training aligned to local industry needs.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Durham's biotech and life-sciences sector demands rigorous project oversight across clinical trials, regulatory submissions, and product launches. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, equipping you with the frameworks and credentials that life-sciences employers actively seek. Earn your PMP and position yourself for leadership roles managing high-stakes, regulated projects in one of the region's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:32.514100Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "0609e9e8e271d01c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Durham for Life Sciences Leaders",
+      "text": "<p>Durham's project management market is distinctly shaped by its role as a life sciences and healthcare innovation hub. Duke University, Duke University Health System, IQVIA, GlaxoSmithKline, and Biogen anchor a region where complex research programs, clinical trials, regulatory initiatives, and cross-functional product launches demand seasoned project leadership. Professionals managing these initiatives in Durham face stakeholder coordination, compliance rigor, and timeline pressures that the PMP® credential directly addresses. Earning your PMP® certification signals to employers throughout the Research Triangle that you bring structured methodology, risk management discipline, and PMI standards to projects that matter—whether you're driving innovation at a biotech firm, coordinating clinical operations at Duke Health, or scaling technology infrastructure across the region.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP® Certification Training designed to fit Durham professionals' schedules while meeting all contact-hour requirements for PMP® eligibility. Our instructors are active certified practitioners who bring real-world project experience from the industries that define Durham's economy. We combine structured curriculum, interactive problem-solving, and exam strategy so you leave not just prepared to pass, but ready to lead projects with confidence. Whether you're advancing within Duke, launching initiatives at a life sciences company, or building your credentials in Durham's competitive PM market, Granite PM Academy provides the training framework and expert guidance to achieve your PMP® certification and accelerate your career trajectory.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:37.767550Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "20b4cddd326da29d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification in Durham's Life Sciences Hub",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy delivers PMP training as an official PMI Authorized Training Partner, ensuring your contact hours meet PMI eligibility requirements without doubt. You earn recognized credentials backed by PMI's global standards."
+        },
+        {
+          "heading": "Live-Virtual Instructors, Real Expertise",
+          "text": "Our instructors are active PMP-certified practitioners working in Durham's life sciences, healthcare, and IT sectors. You learn frameworks from professionals managing complex projects at employers like Duke Health and IQVIA today."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Beyond contact hours, Granite includes targeted PMP exam-preparation support—practice questions, domain review, and test-taking strategy. Structured preparation increases confidence and readiness before you sit for certification."
+        },
+        {
+          "heading": "Local Demand Across Major Employers",
+          "text": "Durham's largest employers—Duke University, IQVIA, IBM, and GlaxoSmithKline—actively hire PMP-certified project managers in life sciences, biotech, healthcare IT, and research programs. This certification opens doors in your local market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:42.113771Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d4adaec599f494f8",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Durham's Life Sciences Hub",
+      "text": "<p>Durham's concentration of life sciences, healthcare, and technology employers creates sustained demand for certified project managers. Duke University Health System, IQVIA, GlaxoSmithKline, and Biogen regularly hire PMs to oversee complex initiatives—from clinical trials and pharmaceutical development to research infrastructure and IT deployments. The American Tobacco Campus redevelopment and Duke University's ongoing capital construction projects exemplify the scale of work driving local project management needs. Whether managing cross-functional teams in a pharmaceutical research environment or coordinating large-scale infrastructure efforts, Durham's employers recognize the PMP® credential as a meaningful differentiator in competitive hiring processes, particularly across healthcare systems, life sciences firms, and IT organizations concentrated in the Research Triangle Park region.</p><p>PMP certification is widely preferred or required in Durham-area job postings, especially within the sectors that anchor the local economy. Certified project managers command a meaningful premium over non-certified peers, though compensation varies by industry and experience level—generally tracking with the broader Research Triangle Park market, which remains competitive due to concentrated demand from healthcare, life sciences, and technology sectors. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for these roles and advance into leadership positions where the credential opens doors across Durham's largest employers. For professionals already working in project-related roles or transitioning into formal project management, the certification validates your expertise and strengthens your standing in a market where employers actively seek PMI credentials.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:46.783530Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "dead3b88532045fe",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Durham",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and verifiable project-management experience. Review PMI's official eligibility criteria to confirm you meet the experience and educational prerequisites. Document your project hours and educational background before applying—this foundation is essential for approval."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our Durham-focused cohorts meet online with experienced instructors who teach the PMBOK® Guide framework and real-world application. Finish all 35 required contact hours before submitting your PMI application."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your formal education, create your PMI account and submit your PMP application with proof of your contact hours and work experience. Pay the applicable PMI examination fee when you apply. PMI reviews applications to confirm you meet all credential requirements."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice questions, and study guides to strengthen your readiness. Schedule your PMP exam through PMI's testing partner. Sit for the computer-based exam at an authorized testing center—Durham has several locations within easy reach."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After passing, maintain your PMP by earning professional development units (PDUs) over a three-year cycle. Attend training, contribute to the profession, and stay current with project-management practice. Renew your credential on schedule to keep it active and recognized by employers across North Carolina and beyond."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:51.242641Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "57c67530d807c288",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Durham healthcare and life sciences careers?",
+          "answer": "<p>Yes. Durham's dominant employers—Duke University Health System, IQVIA, GlaxoSmithKline, and Biogen—actively seek PMP-certified professionals for clinical trial management, regulatory projects, and healthcare IT initiatives. The credential is often preferred or required in job postings across these sectors, and certified project managers typically command measurable compensation premiums over non-certified peers, making it a strategic investment for your Research Triangle career.</p>"
+        },
+        {
+          "question": "Which Durham employers most value PMP or CAPM certification credentials?",
+          "answer": "<p>Healthcare systems (particularly Duke University Health System), pharmaceutical companies (GlaxoSmithKline, Biogen, IQVIA), and tech-focused organizations (IBM, Cisco Systems, Fidelity Investments) in the Durham area consistently emphasize PMP and CAPM credentials in hiring and advancement criteria. Government agencies and NC Central University also recognize these certifications as differentiators for program and project management roles.</p>"
+        },
+        {
+          "question": "Can I attend Durham PMP training live-virtual from my workplace or home office?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual course format allows Durham professionals to participate from any location with reliable internet—your office, home, or coffee shop. This flexibility is ideal for busy project managers at Duke, IQVIA, or other Research Triangle employers who need to balance training with ongoing work commitments without commuting to a physical classroom.</p>"
+        },
+        {
+          "question": "How does Durham's competitive job market affect PMP certification timing?",
+          "answer": "<p>Durham's concentrated demand from healthcare, life sciences, and technology sectors means certified candidates often move faster through hiring pipelines and into higher-responsibility roles. If you're actively job-searching or planning a career transition within the Research Triangle, obtaining your PMP before applications gives you a significant edge—especially in pharmaceutical project management and healthcare systems roles where the credential is increasingly standard.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:57.537231Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "606c3ef3b572d96b",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Durham's project management demand is anchored in the Research Triangle Park's life sciences and healthcare ecosystem, where Duke University, Duke Health, IQVIA, and GSK drive sustained growth in skilled PM roles. Major initiatives—from Duke's campus expansion to the American Tobacco Campus redevelopment—create ongoing opportunities for certified professionals across biotech, pharmaceutical, and technology sectors. Granite PM Academy delivers live-virtual PMP® Certification Training tailored to Durham's working professionals.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:59.299357Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0373e08a4926304a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-durham-nc/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Durham, NC, PMP exam prep Durham, PMP course Durham NC, project management certification Durham, NC, PMI PMP training Durham",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/\",\r\n      \"name\": \"PMP Certification Training in Durham, NC | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Durham, NC. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Durham, NC\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/#course\",\r\n      \"name\": \"PMP Certification Training in Durham, NC\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Durham, NC. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-durham-nc/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

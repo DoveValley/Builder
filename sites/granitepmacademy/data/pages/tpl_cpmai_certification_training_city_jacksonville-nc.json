@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "jacksonville-nc",
+  "slug": "ai-training-jacksonville-nc",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "jacksonville-nc",
+    "city": "Jacksonville",
+    "state": "North Carolina",
+    "SS": "NC",
+    "city_slug": "jacksonville-nc",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Jacksonville's project management demand centers on military and defense contracting tied to Camp Lejeune and MCAS New River, alongside growth in healthcare, construction, and public-sector infrastructure. Organizations like Onslow Memorial Hospital and the City of Jacksonville regularly hire certified project managers for facility expansions and roadway initiatives. Granite PM Academy delivers live-virtual PMP Certification for Jacksonville professionals seeking to advance in this steady, opportunity-rich market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Jacksonville's military and defense contracting sector demands project managers who can integrate emerging technologies into complex operations. Granite PM Academy delivers live-virtual, instructor-led AI training that fulfills PMI contact-hour requirements while equipping you to apply artificial intelligence tools to real-world project challenges. Completing this training positions you to command higher responsibility and compensation in a regional market where technical project leadership is actively recruited.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:31.849768Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6deb77b6dc9ecf11",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Jacksonville, NC",
+      "text": "<p>Jacksonville's project management landscape is defined by its proximity to Camp Lejeune and MCAS New River, anchoring a robust demand for certified PMs in defense contracting, military-adjacent construction, and logistics support. As these organizations modernize their operations and integrate artificial intelligence into planning, execution, and risk management, project managers without AI competency face a competitive gap. Whether you work directly with defense contractors, support healthcare systems like Onslow Memorial Hospital, or manage infrastructure projects across Jacksonville's growing public sector, understanding how AI reshapes project delivery has become essential to career advancement and organizational impact.</p><p>Granite PM Academy delivers instructor-led, live-virtual AI training designed by active certified practitioners who understand both PMI® standards and real-world application. As a PMI Authorized Training Partner, we structure every course to satisfy the contact-hour requirements for your chosen credential—whether PMP® or CAPM®—while embedding practical AI tools and frameworks you'll use immediately in your Jacksonville-based role. Our flexible scheduling accommodates working professionals managing defense, healthcare, construction, and government projects. Earn your certification and gain the AI literacy that positions you as a strategic asset in a market where continuous learning directly influences career trajectory and organizational success.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:36.071718Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b00e85af3e994f7c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMI Certification Training Built for Jacksonville's Defense and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Authorized PMI Training Partner",
+          "text": "Granite PM Academy holds PMI authorization to deliver PMP® and CAPM® training that satisfies official contact-hour requirements. Your credentials are recognized by employers across Camp Lejeune, Naval Hospital, and regional contractors managing complex defense and healthcare projects."
+        },
+        {
+          "heading": "Live Instructors Who Still Practice",
+          "text": "Our certified instructors actively manage projects in defense, healthcare, and construction—the industries driving Jacksonville's economy. Learn directly from practitioners who've navigated real timelines, budgets, and stakeholder challenges in your local market."
+        },
+        {
+          "heading": "Virtual Schedule, Exam-Ready Support",
+          "text": "Attend live-virtual classes that fit your work schedule while meeting PMI contact-hour standards. Granite includes exam-preparation coaching and practice assessments so you pass confident on your first attempt."
+        },
+        {
+          "heading": "Credential Demand Among Local Employers",
+          "text": "Camp Lejeune, Naval Hospital, Onslow County Schools, and local construction firms actively hire and promote certified project managers. PMP® and CAPM® credentials open advancement pathways in Jacksonville's largest employment sectors and competitive defense-contracting jobs."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:40.561011Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "a0f581e76b3c131c",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers at Camp Lejeune and Beyond",
+      "text": "<p>Jacksonville's economy is anchored by military and defense operations, with Camp Lejeune and Marine Corps Air Station New River driving consistent demand for skilled project managers across multiple sectors. Organizations managing the construction, infrastructure, and operational programs at these installations—along with healthcare systems like Onslow Memorial Hospital, which regularly undertakes facility expansions—actively seek certified professionals who understand government procurement standards and can lead complex, high-stakes initiatives. The City of Jacksonville's ongoing infrastructure and roadway improvement projects, combined with support roles across local government and education, further establish project management as a core career pathway in the region.</p><p>PMP® certification carries particular weight among Jacksonville-area employers, especially defense contractors and healthcare organizations that depend on standardized project management practices for government-related work. While project manager salaries in the region reflect competitive defense-support and healthcare market rates, exact compensation varies by industry, certification level, and experience. By completing the AI Training for Project Managers program at Granite PM Academy, you equip yourself with both the practical skills and credential recognition that strengthen candidacy for advancement in Jacksonville's robust project and program management roles—whether in military support, hospital operations, municipal services, or supply-chain logistics.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:44.226518Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "136f64af324fc65a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI training valuable for project managers working at Jacksonville military and defense contractors?",
+          "answer": "<p>Yes. Defense contractors and military-support organizations around Camp Lejeune and MCAS New River increasingly adopt AI-driven project management tools for scheduling, risk analysis, and resource optimization. Earning formal AI credentials demonstrates you can lead modernized workflows—a competitive advantage in a market where standardized practices and compliance documentation are essential. This training complements PMP® certification and strengthens candidacy for senior roles in the region's largest employment sector.</p>"
+        },
+        {
+          "question": "Which Jacksonville employers value AI and project management certifications most?",
+          "answer": "<p>Defense contractors, healthcare systems like Onslow Memorial Hospital, Coastal Carolina Community College, and Onslow County Government actively seek project managers with both traditional PM and AI competencies. These organizations manage complex, compliance-heavy initiatives where AI-augmented planning reduces delays and cost overruns. Local healthcare and government roles especially benefit from certified professionals who can integrate AI tools into standard project governance frameworks.</p>"
+        },
+        {
+          "question": "Can I take the AI training course from my Jacksonville workplace or military base?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office, military installation, or remote workspace—no commute required. This flexibility is ideal for Jacksonville professionals balancing full-time roles at Camp Lejeune, MCAS New River, Onslow Memorial, or other major employers. You'll need a reliable internet connection and a quiet environment; many participants join from their workplace during approved training time.</p>"
+        },
+        {
+          "question": "Should I pursue AI certification now given Jacksonville's project management job market?",
+          "answer": "<p>The Jacksonville market favors early adoption. Defense, healthcare, and government sectors are actively hiring project managers and upgrading processes to incorporate AI tools. Earning this credential now positions you ahead of the competitive curve—particularly if you're targeting roles in the region's largest employers or advancing from entry-level to mid-career positions. Waiting typically means facing more AI-skilled candidates for the same roles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:50.782841Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e33a0c52984be02e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Jacksonville's project management demand centers on military and defense contracting tied to Camp Lejeune and MCAS New River, where MILCON projects and base operations create steady opportunities for certified PMs. Healthcare expansion at Onslow Memorial Hospital and infrastructure initiatives across city and county government further broaden the market. Granite PM Academy delivers live-virtual AI Training for Project Managers to Jacksonville professionals seeking certification and career advancement in these high-demand sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:32:52.506114Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "12efff87ce17417b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-jacksonville-nc/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Jacksonville, NC, AI courses Jacksonville, CPMAI certification Jacksonville, AI project management training Jacksonville, NC, AI for project managers Jacksonville",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/\",\n      \"name\": \"AI Training for Project Managers in Jacksonville, NC — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Jacksonville, NC for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Jacksonville, NC\",\n            \"item\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/#course\",\n      \"name\": \"AI Training for Project Managers in Jacksonville, NC\",\n      \"description\": \"CPMAI certification training for project managers in Jacksonville, NC who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-jacksonville-nc/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

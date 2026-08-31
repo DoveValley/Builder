@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "springfield-mo",
+  "slug": "pmp-bootcamp-springfield-mo",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "springfield-mo",
+    "city": "Springfield",
+    "state": "Missouri",
+    "SS": "MO",
+    "city_slug": "springfield-mo",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Springfield's healthcare systems—led by CoxHealth and Mercy Springfield Communities—drive steady demand for project managers overseeing facility expansions, service rollouts, and process improvements across the region. Logistics, manufacturing, and public infrastructure projects further anchor Springfield's project-management job market as southwest Missouri's economic center. Granite PM Academy delivers live-virtual PMP® Certification to working professionals in Springfield, combining flexible scheduling with exam-focused preparation.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Springfield's healthcare and manufacturing sectors increasingly demand credentialed project managers to lead complex operational initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers PMI-approved contact-hour instruction on a schedule that fits working professionals, preparing you to sit for the PMP examination. Earning your PMP credential opens doors to leadership roles and competitive compensation across Springfield's growing healthcare systems and industrial employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:37.637368Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "c395ab024297e858",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Springfield: Project Management Certification for Healthcare and Logistics Leaders",
+      "text": "<p>Springfield's healthcare systems—anchored by major employers like CoxHealth and Mercy Springfield Communities—drive consistent demand for project managers who can lead facility expansions, clinical technology implementations, and operational improvements. Alongside this healthcare anchor, the region's robust logistics and manufacturing sectors, including Prime Inc. and Kraft Heinz operations, continually seek certified professionals to oversee supply chain upgrades, process transformations, and cross-functional initiatives. For Springfield professionals working across these industries, the Project Management Professional (PMP)® credential signals expertise to employers who value disciplined project governance and measurable delivery—particularly in roles managing multimillion-dollar infrastructure or technology projects where stakes are high and stakeholder alignment is critical.</p><p>Granite PM Academy delivers this intensive PMP Boot Camp as a PMI Authorized Training Partner, offering live-virtual, instructor-led sessions designed to compress preparation into a focused timeframe while meeting all contact-hour requirements mandated by the Project Management Institute. Our instructors are active, certified practitioners who bring real-world project scenarios into each session, helping you master the PMBOK® Guide framework and exam strategy in parallel. Upon completion, you'll hold a recognized credential that opens advancement opportunities across Springfield's healthcare systems, distribution networks, and manufacturing operations—and positions you competitively for roles that demand both technical capability and strategic credibility.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:42.251339Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b88e294065f4ecb6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Earn Your PMP in Springfield's Growing Healthcare and Manufacturing Sectors",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy is an official PMI Authorized Training Partner, ensuring your boot camp meets all PMI standards. You'll complete required contact hours through a curriculum designed and reviewed by PMI itself, giving you confidence your certification path is legitimate and recognized globally."
+        },
+        {
+          "heading": "Live Instructor-Led Format, Your Schedule",
+          "text": "Our synchronous virtual delivery means you engage with a certified instructor and classmates in real time, satisfying PMI contact-hour requirements without sacrificing flexibility. You'll complete your training while remaining in Springfield, without long commutes or relocating."
+        },
+        {
+          "heading": "Instructors Who Practice, Not Just Teach",
+          "text": "Your instructors are active PMP-certified professionals managing real projects today. They bring current case studies, industry challenges, and practical problem-solving methods into every session, ensuring what you learn applies immediately to your role."
+        },
+        {
+          "heading": "Credential Valued by Springfield Employers",
+          "text": "Healthcare systems like CoxHealth and Mercy, manufacturers, logistics leaders, and major employers across Springfield actively hire and promote project and program managers holding the PMP credential. Certification strengthens your candidacy and earning potential in this competitive local market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:46.186757Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "391b7ae1e22524b6",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Springfield",
+      "text": "<p>Healthcare dominates Springfield's project management landscape, with CoxHealth and Mercy Springfield Communities investing heavily in facility expansions and service line growth that require certified project leadership. Beyond healthcare, O'Reilly Automotive, Prime Inc., and Bass Pro Shops—three of the region's largest employers—actively manage complex operations and logistics initiatives demanding formal PM credentials. Manufacturing and transportation sectors, supported by firms like Kraft Heinz and Associated Electric Cooperative, similarly depend on structured project delivery. City Utilities of Springfield and the Springfield Public Schools system also regularly post for project management roles tied to infrastructure upgrades and campus improvements. PMP certification is frequently listed as preferred or required in these Springfield-area postings, signaling employer demand for demonstrated competency.</p><p>The Springfield market rewards certified project managers with competitive compensation packages, particularly within healthcare, manufacturing, and logistics organizations—sectors where PMP credentials strengthen both candidacy and negotiating power. While Springfield salaries tend to track slightly below national metro averages, demand-driven compensation remains strong for professionals who can document formal training and credentials. Completing Granite PM Academy's PMP Boot Camp positions you to move into these high-demand roles and advance your career within Springfield's thriving employer base. The credential signals to local hiring managers that you bring industry-standard discipline and frameworks to their most critical initiatives.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:50.115891Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "be4576c04f53cdb9",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Springfield",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of education and documented project-management experience. Review PMI's eligibility criteria to confirm you meet the hours and education level required. Granite PM Academy's advisors can clarify whether your background qualifies before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Boot Camp, delivered by experienced instructors. Our structured classroom hours meet PMI's formal-education requirement and prepare you directly for the exam. Flexible scheduling accommodates full-time professionals and shift workers across the Springfield region."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the Boot Camp, submit your official PMP application to PMI and pay the associated exam fee. Granite PM Academy guides you through the submission process to ensure accuracy and avoid delays. PMI reviews and approves your application before you can schedule your exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor Q&A sessions—to reinforce key concepts. Schedule your exam through Pearson VUE at a testing center convenient to Springfield. Test-day support from our team helps you approach the exam with confidence."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After earning your PMP, commit to earning Professional Development Units (PDUs) over the standard three-year renewal cycle. Granite PM Academy offers continuing-education courses and resources to help you meet PMI's maintenance requirements. Renew on time to keep your credential active and your career competitive."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:55.428702Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "2ae1bdff67d5f486",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in Springfield's healthcare and manufacturing sectors?",
+          "answer": "<p>Yes. Healthcare systems like CoxHealth and Mercy Springfield Communities, along with manufacturing employers including Kraft Heinz, actively list PMP as preferred or required for project manager roles. These industries often offer stronger compensation packages for certified candidates than other local sectors. Certification signals capability in managing complex, regulated projects—a direct match to Springfield's largest employers' needs.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP boot camp while working at a Springfield office?",
+          "answer": "<p>Yes. Our live-virtual boot camp format allows you to participate from your workplace, home, or any location with internet access. This flexibility suits Springfield professionals managing full-time roles at organizations like Bass Pro Shops, O'Reilly Automotive, or City Utilities. Many local candidates attend during work hours with employer support, since PMP training is often recognized as professional development.</p>"
+        },
+        {
+          "question": "What project management salaries look like for Springfield professionals post-PMP?",
+          "answer": "<p>PMP-certified project managers in Springfield typically earn competitive salaries within Missouri, though regional pay trends run slightly below national metro averages. Logistics and transportation firms (such as Prime Inc.), healthcare systems, and manufacturing organizations typically offer the strongest compensation for certified candidates. Actual salary ranges are demand-driven and negotiable based on industry, experience, and employer—candidates should expect variation rather than a fixed benchmark.</p>"
+        },
+        {
+          "question": "Should Springfield professionals earn PMP or CAPM certification first?",
+          "answer": "<p>If you have project management experience, pursue PMP directly through our boot camp. If you're in an entry-level project coordinator or associate role—common at Springfield Public Schools, City Utilities, or smaller logistics firms—CAPM may align better with your current profile while building credentials for advancement. Springfield employers value both; the choice depends on your experience level and career stage, not market timing.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:01.665575Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "6157e1cde3cceb08",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Springfield's healthcare sector—anchored by systems like CoxHealth and Mercy Springfield Communities—drives consistent demand for project managers overseeing facility expansions, service-line launches, and technology integrations. Paired with robust logistics, manufacturing, and public-sector operations, the region sustains steady roles across corporate and nonprofit environments. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Springfield professionals pursuing this in-demand credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:03.416754Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "3cdb7797894885a0",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-springfield-mo/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Springfield, MO, PMP bootcamp Springfield, PMP certification boot camp Springfield, MO, PMP bootcamp near me, intensive PMP training Springfield",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/\",\n      \"name\": \"PMP Boot Camp in Springfield, MO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Springfield, MO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Springfield, MO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/#course\",\n      \"name\": \"PMP Boot Camp in Springfield, MO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Springfield, MO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-springfield-mo/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

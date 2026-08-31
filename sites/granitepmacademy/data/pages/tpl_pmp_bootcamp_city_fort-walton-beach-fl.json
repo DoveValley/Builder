@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "fort-walton-beach-fl",
+  "slug": "pmp-bootcamp-fort-walton-beach-fl",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "fort-walton-beach-fl",
+    "city": "Fort Walton Beach",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "fort-walton-beach-fl",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Fort Walton Beach's project management landscape centers on defense and aerospace activity at Eglin Air Force Base and Hurlburt Field, where prime contractors like Lockheed Martin, L3Harris, and Leidos drive consistent demand for credentialed project managers. Infrastructure modernization at these installations and airport terminal expansions create openings across entry-level and senior roles—positions where PMP® and CAPM® credentials are valued for navigating technical requirements and compliance standards. Granite PM Academy delivers live-virtual PMP Certification training to working professionals throughout Fort Walton Beach.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>The aerospace and defense sector anchors Fort Walton Beach's economy, where project managers drive complex contract-driven initiatives across manufacturing and systems integration. Granite PM Academy's PMP Boot Camp delivers live-virtual, instructor-led training that fulfills PMI's required contact hours, condensing months of study into an intensive program you can complete while maintaining your current role. Earning your PMP credential positions you to advance into higher-responsibility roles managing mission-critical programs at the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:39.071035Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "37a79a33845d40a9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Fort Walton Beach for Defense & Aerospace Professionals",
+      "text": "<p>Fort Walton Beach's project management market is uniquely shaped by the defense and aerospace sector—Eglin Air Force Base, Hurlburt Field, and their network of federal contractors including Lockheed Martin, L3Harris Technologies, Leidos, and SAIC drive consistent demand for credentialed project managers. These organizations operate under strict compliance, security, and quality standards where PMP certification signals competency in managing complex, high-stakes initiatives. Whether you're supporting military modernization programs, government-contracting operations, or the healthcare and infrastructure projects that round out Fort Walton Beach's economy, earning your PMP credential positions you for advancement and higher responsibility in a market where technical rigor and formal credentials matter.</p><p>Granite PM Academy delivers intensive PMP Boot Camp training as a PMI Authorized Training Partner, offering live-virtual, instructor-led sessions that satisfy the contact-hour requirements for PMP eligibility while fitting working professionals' schedules. Our instructors are active certified practitioners who bring real-world project experience—not just theory—into every session. You'll master the PMBOK® Guide framework, tackle exam-style questions, and build confidence in the knowledge areas that matter most on test day. Upon completion of our boot camp and successful exam passage, you'll hold a credential recognized across Fort Walton Beach's defense, government, and private sectors, opening doors to roles with greater scope, leadership opportunity, and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:43.552406Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "45e0d32ae826eeae",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Fort Walton Beach Defense & Aerospace Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your boot camp contact hours satisfy PMP eligibility requirements directly. No secondary verification needed—your certification path begins with a trusted, vetted instructor."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Our live-virtual instructor-led format meets the contact-hour mandate while letting you complete training around work commitments. Real-time interaction with certified practitioners replaces recorded modules, accelerating your readiness for exam day."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Your instructors hold active PMP and CAPM credentials and work in project management roles. Expect current frameworks, real-world problem-solving, and exam-focused preparation grounded in their own recent certification and professional experience."
+        },
+        {
+          "heading": "Local Defense & Aerospace Demand",
+          "text": "Eglin AFB, Hurlburt Field contractors, Lockheed Martin, L3Harris, Leidos, and SAIC in Fort Walton Beach actively hire PMP-certified professionals for program and project leadership. The credential directly strengthens candidacy for advancement in the region's dominant sector."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:47.348693Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ee9793a9a499bad8",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Defense-Driven Fort Walton Beach",
+      "text": "<p>Fort Walton Beach's job market for certified project managers is anchored by Eglin Air Force Base and Hurlburt Field, whose modernization initiatives and construction programs create steady demand for skilled PMs across the region's defense and government-contracting ecosystem. Lockheed Martin, L3Harris Technologies, Leidos, SAIC, ManTech International, and Northrop Grumman maintain significant operations here, all actively managing complex mission-support projects. Recent infrastructure upgrades at Hurlburt Field and facility expansions tied to Eglin AFB infrastructure modernization exemplify the scale and scope of work these employers oversee—projects that require disciplined scheduling, risk management, and stakeholder coordination.</p><p>The PMP credential holds particular weight in this market. Defense contractors and government-adjacent employers in Fort Walton Beach integrate structured program management and DOD acquisition standards into their hiring criteria, and job postings for project and program manager roles frequently list PMP certification as preferred or required. Certified professionals command stronger offers than uncertified peers, and the competitive compensation reflects the security clearances and technical rigor these roles demand. Completing Granite PM Academy's PMP Boot Camp positions you to meet those credentials and step into roles where your certification directly translates to career advancement and earning power in Fort Walton Beach's dominant industry.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:51.707650Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2cbb478cd379f7fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fort Walton Beach",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Most candidates need a secondary degree plus several years of direct project-leadership experience. Granite PM Academy advisors can verify your qualifications and identify any gaps before you apply."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our course covers the PMBOK® Guide framework, exam domains, and real-world scenario practice. Classes run on a flexible schedule suited to working professionals in the Fort Walton Beach area."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, submit your PMP application directly to PMI and pay the associated exam fee. Our team guides you through the online registration process and ensures your documentation meets PMI standards before submission."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests, study guides, and instructor office hours. Schedule your computer-based PMP exam through Pearson VUE at a testing center or via remote proctoring, then complete your certification assessment."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) over a three-year renewal cycle to keep your PMP active. Granite PM Academy offers ongoing training and continuing-education courses to help you meet PMI renewal requirements and advance your project-management career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:56.549967Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "55275cc5d332f6f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Fort Walton Beach defense contractors?",
+          "answer": "<p>Yes. Fort Walton Beach's economy is heavily shaped by Eglin Air Force Base, Hurlburt Field, and their prime contractors—Lockheed Martin, L3Harris, Leidos, SAIC, and others. These organizations structure hiring and advancement around DOD acquisition frameworks and formal program management standards. PMP certification signals mastery of those processes and typically strengthens both offer negotiations and internal promotions for project and program managers supporting federal contracts.</p>"
+        },
+        {
+          "question": "Which Fort Walton Beach employers most value PMP certification?",
+          "answer": "<p>Defense and aerospace contractors dominate local demand: Lockheed Martin, L3Harris Technologies, Leidos, SAIC, ManTech International, and Boeing's regional support operations regularly list PMP or equivalent certification as preferred or required for project manager roles. HCA Florida's hospital system and Okaloosa County schools also value it for large infrastructure and capital projects. Healthcare and public-sector employers increasingly adopt DOD-aligned PM practices, making the credential competitive across these sectors.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP boot camp from my Fort Walton Beach workplace?",
+          "answer": "<p>Yes. Live-virtual boot camp formats allow you to join from your office, home, or anywhere with a reliable internet connection. Many Fort Walton Beach professionals working at Eglin-area offices or remote defense-contractor roles attend this way, avoiding commute time while maintaining real-time interaction with instructors and peers. Confirm your employer's remote-meeting policies beforehand, particularly if you work on a secure facility network.</p>"
+        },
+        {
+          "question": "How does Fort Walton Beach's job market affect when to pursue PMP certification?",
+          "answer": "<p>Fort Walton Beach's defense-contractor sector experiences consistent, program-driven hiring cycles tied to federal budget and contract awards. If you're actively job-searching or positioned for promotion within an Eglin- or Hurlburt-supporting organization, completing certification before interviews or promotion cycles strengthens your candidacy. Conversely, if your employer funds or encourages certification, timing it with contract ramp-ups or new program wins can boost visibility and ROI on the credential.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:03.758148Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "cc83ed7f46504959",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Walton Beach's project management market centers on defense and aerospace activity at Eglin Air Force Base and Hurlburt Field, where major contractors like Lockheed Martin, L3Harris, and Leidos drive consistent demand for credentialed PMs on infrastructure modernization and mission-support projects. Healthcare, tourism development, and municipal infrastructure round out opportunities across the region. Granite PM Academy delivers live-virtual PMP and CAPM Boot Camp to Fort Walton Beach professionals seeking credentials valued in the technical and compliance-intensive defense contracting space.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:05.551732Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "42bce697b58cef2b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Fort Walton Beach, FL, PMP bootcamp Fort Walton Beach, PMP certification boot camp Fort Walton Beach, FL, PMP bootcamp near me, intensive PMP training Fort Walton Beach",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/\",\n      \"name\": \"PMP Boot Camp in Fort Walton Beach, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Fort Walton Beach, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Fort Walton Beach, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/#course\",\n      \"name\": \"PMP Boot Camp in Fort Walton Beach, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Fort Walton Beach, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-walton-beach-fl/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

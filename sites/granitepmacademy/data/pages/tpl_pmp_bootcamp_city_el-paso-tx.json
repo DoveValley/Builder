@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "el-paso-tx",
+  "slug": "pmp-bootcamp-el-paso-tx",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "el-paso-tx",
+    "city": "El Paso",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "el-paso-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Fort Bliss modernization and El Paso's role as a cross-border logistics hub drive sustained demand for skilled project managers across military, healthcare, and infrastructure sectors. Major employers including the University of Texas at El Paso, El Paso Electric, and City of El Paso actively seek professionals who can navigate complex supply chains, public-sector programs, and facility upgrades. Granite PM Academy delivers live-virtual PMP® Certification training designed for El Paso professionals balancing work and study.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>El Paso's defense and aerospace sector drives consistent demand for credentialed project managers across military contracting and manufacturing operations. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led instruction and PMI contact hours required to sit for the PMP credential, with scheduling designed for working professionals. Earning your PMP opens advancement into senior PM and program leadership roles where El Paso's largest employers actively recruit certified talent.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:36.553991Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8a693403361c97c5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in El Paso: Accelerate Your Project Management Career",
+      "text": "<p>El Paso's position as a critical logistics and defense hub—anchored by Fort Bliss and a thriving cross-border supply chain network—has created sustained demand for skilled project managers who can navigate complex, multi-stakeholder operations. Whether you're managing infrastructure projects, coordinating international trade initiatives, or overseeing military and public-sector programs, employers across El Paso's government, manufacturing, and healthcare sectors actively recruit PMP®-certified professionals to lead initiatives that require proven methodology and credibility. A PMP Boot Camp gives you the intensive preparation and structured curriculum needed to qualify for and pass the PMP certification exam, positioning you to advance within these high-opportunity sectors.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers PMP Boot Camp as a live, instructor-led program designed for working professionals in El Paso who need flexible, accelerated learning. Our boot camp format satisfies the Project Management Institute's contact-hour requirements while being taught by active certified practitioners who bring real-world experience to every module. You'll gain the knowledge and confidence to tackle the PMP exam, and upon certification, you'll hold a credential recognized globally—one that El Paso's major employers value as a differentiator for promotion and leadership roles in project-intensive fields.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:40.720903Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "e1bcfe6073393f2d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why El Paso Professionals Choose Granite for PMP Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your boot camp meets all official contact-hour requirements for PMP eligibility. This authorization guarantees curriculum rigor and direct alignment with PMI standards, eliminating doubt about credential acceptance."
+        },
+        {
+          "heading": "Live Instruction, Your Schedule",
+          "text": "Our live-virtual instructor-led format lets you complete required contact hours without relocating or juggling in-person attendance. El Paso professionals balance military timelines, shift work, and border-region demands—our flexible delivery meets you there."
+        },
+        {
+          "heading": "Practitioners Teaching Practitioners",
+          "text": "Your instructors are active certified project managers working in defense, logistics, healthcare, and government today. They teach real problems you'll face at Fort Bliss, UMC El Paso, or El Paso Electric—not theory alone."
+        },
+        {
+          "heading": "Credential Built for El Paso Employers",
+          "text": "Fort Bliss, L3Harris Technologies, El Paso Electric, and regional healthcare systems actively hire PMP-certified program and project managers. This credential directly opens doors with El Paso's largest employers across defense, utilities, and public administration."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:45.131104Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "46a7b3e0616309b4",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in El Paso's Defense and Healthcare Sectors",
+      "text": "<p>Fort Bliss and its ongoing facility modernization and expansion initiatives anchor El Paso's project management job market, drawing certified professionals into roles managing complex military and defense operations. Beyond the base, major regional employers—including University Medical Center of El Paso, El Paso Electric, and UTEP—regularly seek project managers to oversee healthcare expansion, grid modernization and renewable energy projects, and institutional capital programs. Additionally, the City of El Paso's Downtown revitalization and Duranguito development projects represent the kind of infrastructure-scale work where certified project managers are increasingly expected to lead cross-functional teams and deliver outcomes on time and within scope.</p><p>While project manager compensation in El Paso tends to run below national metropolitan averages due to the region's lower cost of living, demand remains steady across defense, healthcare, and logistics sectors—and PMP® certification gives candidates a decisive competitive edge in salary negotiations. Employers in these industries increasingly list PMP® or CAPM® as preferred qualifications for mid-to-senior roles, recognizing that the credential signals standardized, PMI®-validated competency. Completing Granite PM Academy's PMP Boot Camp positions you to meet that growing expectation, sharpen your ability to compete for higher-responsibility positions locally, and demonstrate to El Paso's largest employers that you bring the discipline and framework they need.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:49.468634Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "14c19f1eef138e71",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in El Paso",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review your academic background and hours leading projects or teams. PMI sets specific thresholds; Granite PM Academy staff can help you document and validate your qualifications before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Participate in structured, real-time sessions covering the PMBOK Guide and exam domains. This formal education fulfills PMI's mandatory contact-hour requirement and equips you with frameworks used across El Paso's military, aerospace, and construction sectors."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Complete your official PMI application, documenting your education and project experience. Pay the associated exam fee through PMI's portal. Granite PM Academy guides you through the submission process to ensure accuracy and timely approval before your exam window opens."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and instructor feedback, to solidify your readiness. Schedule your exam at a Pearson VUE testing center in El Paso or online. Sit for the PMP exam with confidence, knowing you have instructor support throughout your preparation phase."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) during the standard three-year renewal cycle to keep your PMP active. Participate in training, volunteer work, or professional activities recognized by PMI. Granite PM Academy offers ongoing resources to help El Paso professionals stay current and advance their project-management careers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:54.997090Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "d3be0022119ab5b2",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing in El Paso's defense and healthcare job market?",
+          "answer": "<p>Yes. Fort Bliss, UMC El Paso, and L3Harris actively seek project managers with standardized credentials. While PMP is often listed as preferred rather than mandatory, certified candidates gain a competitive advantage in salary negotiations and advancement—particularly valuable in El Paso's defense and healthcare sectors where employers increasingly expect formal project management credentials for mid-to-senior roles.</p>"
+        },
+        {
+          "question": "Which El Paso employers most value PMP certification for project managers?",
+          "answer": "<p>Fort Bliss (military and defense contracting), healthcare systems like UMC El Paso and Providence Health Network, logistics firms serving the border region, and government agencies (City and County of El Paso) consistently prioritize PMP or CAPM credentials. L3Harris Technologies and El Paso Electric also regularly seek certified project managers for complex infrastructure and operational projects.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Boot Camp live-virtual course from my El Paso workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to attend from your office, home, or any secure location with reliable internet. This works well for El Paso professionals at Fort Bliss, hospitals, and corporate offices who need flexibility. Confirm your employer's remote-training policies beforehand, especially if you're on a military installation or regulated healthcare facility.</p>"
+        },
+        {
+          "question": "Should I get PMP certified now if I'm a project manager in El Paso?",
+          "answer": "<p>Timing matters. El Paso's steady demand for certified project managers across defense, healthcare, and logistics means jobs favor candidates with credentials. If you're in or targeting a mid-to-senior role, pursuing certification now strengthens your position before competing for promotions or lateral moves in sectors where PMP is increasingly expected.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:59.746527Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "61250fc812d3161e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>As a major U.S.-Mexico border logistics and manufacturing hub with significant military presence at Fort Bliss, El Paso's project managers find steady demand managing cross-border supply chains, infrastructure upgrades, and public-sector initiatives. Current opportunities span Fort Bliss modernization, airport terminal improvements, and grid modernization projects across defense, healthcare, and energy sectors. Granite PM Academy delivers live-virtual PMP Boot Camp training to El Paso professionals seeking the credential employers in these growth industries increasingly require.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:01.483073Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9375a8c324282f6b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp El Paso, TX, PMP bootcamp El Paso, PMP certification boot camp El Paso, TX, PMP bootcamp near me, intensive PMP training El Paso",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/\",\n      \"name\": \"PMP Boot Camp in El Paso, TX | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in El Paso, TX. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in El Paso, TX\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/#course\",\n      \"name\": \"PMP Boot Camp in El Paso, TX\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in El Paso, TX. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-el-paso-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

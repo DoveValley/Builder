@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "lake-charles-la",
+  "slug": "pmp-bootcamp-lake-charles-la",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "lake-charles-la",
+    "city": "Lake Charles",
+    "state": "Louisiana",
+    "SS": "LA",
+    "city_slug": "lake-charles-la",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
+    ],
+    "city_spotlight": "<p>Lake Charles's project management landscape is shaped by multibillion-dollar energy infrastructure—from Venture Global's Calcasieu Pass LNG facility to Golden Pass LNG's QatarEnergy partnership—creating sustained demand for certified project managers across petrochemical, refining, and industrial construction sectors. Major employers including Phillips 66, Westlake Chemical, and Turner Industries regularly seek professionals with formal PMP® credentials to lead complex capital projects. Granite PM Academy delivers live-virtual PMP® Certification training designed for Lake Charles working professionals seeking to advance in this dynamic regional market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Lake Charles's energy sector and petrochemical infrastructure demand project managers who can navigate complex, regulated environments—and the PMP credential is the industry standard for proving that capability. Granite PM Academy delivers live-virtual, instructor-led PMP Boot Camp training that satisfies PMI's required contact hours, preparing you to sit for the exam on an accelerated timeline. Earning your PMP opens doors across the region's largest employers and positions you for advancement in a market where certification directly correlates with leadership roles and competitive compensation.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:27.746473Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "26ec8f5cee8acd52",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Lake Charles: Certification for Energy Project Leaders",
+      "text": "<p>Lake Charles has emerged as one of North America's premier petrochemical and liquefied natural gas hubs, with multibillion-dollar energy infrastructure projects driving sustained demand for credentialed project managers. Organizations like Venture Global LNG, Phillips 66, Sasol, and Turner Industries regularly seek professionals who can lead complex construction, engineering, and operational initiatives—work that demands both technical expertise and formal project management credentials. For Lake Charles professionals working in these capital-intensive sectors, or in the supporting healthcare, port operations, and industrial services industries, the PMP® (Project Management Professional) credential is not merely an advantage: it signals readiness to manage the scope, schedule, and risk inherent in large-scale industrial delivery.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP Boot Camp designed to prepare you for the PMP® examination while meeting the contact-hour requirements mandated by the Project Management Institute. Our courses are taught by active, certified practitioners who bring real-world experience from projects comparable to those you encounter in Lake Charles's energy and industrial sectors. The intensive format compresses training into a focused schedule, allowing working professionals to earn their credential without prolonged career interruption. Upon completion and successful examination, you'll hold a globally recognized certification that strengthens your marketability, eligibility for senior project roles, and long-term earning potential across Lake Charles's thriving project-driven economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:32.412243Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "31e0d879e2379bf2",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Lake Charles Energy and Industrial Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP preparation meets PMI's rigorous standards. This accreditation guarantees your contact hours count toward certification eligibility—no gaps, no retraining required."
+        },
+        {
+          "heading": "Live Instruction, Real Schedules",
+          "text": "Our live-virtual instructor-led boot camp fits working professionals' calendars while delivering interactive, real-time instruction. You complete PMI's contact-hour requirement through structured classroom time with certified instructors—not self-paced modules."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Your instructors are active PMP-certified practitioners managing live projects in petrochemical, refining, and industrial construction environments. They teach from current field experience, not theory alone, preparing you for exam scenarios grounded in actual work."
+        },
+        {
+          "heading": "Demand from Major Lake Charles Employers",
+          "text": "CITGO, Phillips 66, Venture Global LNG, Turner Industries, and CHRISTUS health systems prioritize PMP-certified project leaders. Certification positions you competitively for roles managing capital projects, shutdowns, and program delivery across the region's largest employers."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:36.916427Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "43d9fec85ab3a469",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lake Charles Energy Sector",
+      "text": "<p>Lake Charles's economy centers on energy infrastructure and petrochemical manufacturing, creating sustained demand for credentialed project managers. CITGO Petroleum, Phillips 66, Westlake Chemical, and Sasol all operate major facilities here and regularly hire PMs to oversee complex industrial operations and expansions. The region's most visible current undertakings—including the Golden Pass LNG export terminal (a QatarEnergy and ExxonMobil joint venture) and the Venture Global Calcasieu Pass LNG facility—require experienced project and program managers to coordinate schedules, budgets, and cross-functional teams across multi-year timelines. These large-scale capital projects depend on managers who can demonstrate competency in risk management, stakeholder communication, and process discipline; the PMP® credential signals that mastery to employers in ways that unverified experience alone cannot.</p><p>PMP® certification is widely valued by Lake Charles's energy, petrochemical, and engineering/construction employers for roles managing projects of genuine scale and complexity. Compensation in this market tends to track the heavy industrial and energy construction cycles—firms working on LNG facilities and petrochemical expansions typically offer competitive pay to credentialed managers, especially those with demonstrable expertise. Completing Granite PM Academy's PMP Boot Camp positions you to command respect in a tight labor market where major employers explicitly seek the credential. CAPM® certification can similarly accelerate entry-level candidates into project coordination roles within these same organizations. In Lake Charles, your certification directly translates to eligibility and advancement in the industries that define the local economy.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:41.616093Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "28f654c449423efd",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Lake Charles",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires either a secondary degree plus documented project-management experience, or a four-year degree with less experience. Review PMI's specific education and hours thresholds on the official PMI website, then contact Granite PM Academy to verify your background meets the credential's entry requirements."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our expert instructors deliver the full PMI-required curriculum in an interactive, real-time format designed to fit working professionals' schedules while building the knowledge you'll need for exam success."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the course, prepare and submit your formal PMI application, which includes verification of your education and project-management experience. Pay the associated examination fee to PMI directly. Granite PM Academy staff can guide you through the submission process to ensure accuracy."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—including practice tests, study guides, and instructor support—to review PMP domains and refine your test-taking strategy. Schedule your exam with Pearson VUE, and sit for the computer-based exam at an approved testing center near Lake Charles."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After you earn your PMP, commit to PMI's three-year renewal cycle by earning Professional Development Units (PDUs) through approved training, conference attendance, volunteer work, or published articles. Renew your credential before expiration to keep it active and protect your professional standing."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:46.913128Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "01ab48a5241ab4f5",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth getting in Lake Charles for energy sector jobs?",
+          "answer": "<p>Yes. Lake Charles's petrochemical, LNG, and refining employers—including major operators like CITGO Petroleum, Westlake Chemical, Phillips 66, Sasol, Venture Global LNG, and Golden Pass LNG—consistently list PMP as preferred or advantageous for project and program manager roles. The scale and complexity of industrial projects in the region create strong, ongoing demand for credentialed managers. Experienced PMP holders typically command competitive compensation tied to the heavy industrial and energy construction cycles that drive the local economy.</p>"
+        },
+        {
+          "question": "Which Lake Charles employers value the PMP credential most?",
+          "answer": "<p>Energy, petrochemical, and engineering/construction firms dominate Lake Charles's employer landscape and actively seek PMP-credentialed managers. CITGO Petroleum, Westlake Chemical, Phillips 66, Sasol, Turner Industries, and Brand Industrial Services all manage large-scale industrial and LNG projects where formal project management credentials are valued. Healthcare systems like CHRISTUS Ochsner St. Patrick Hospital and Lake Charles Memorial also recognize PMP for managing complex capital and operational initiatives, as do port operations at the Port of Lake Charles.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Boot Camp live-virtual from my Lake Charles workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to participate from your office, home, or any location with reliable internet—including your workplace if your employer permits. Many Lake Charles professionals in industrial and energy roles attend during flexible scheduling windows. Check with your HR or training department about company policy on professional development time; many local employers support certification training for roles in project management.</p>"
+        },
+        {
+          "question": "When should Lake Charles professionals pursue PMP certification?",
+          "answer": "<p>Lake Charles's project market is most active during upswings in petrochemical, LNG, and industrial construction—periods when competition for experienced PMP-credentialed managers peaks. If you're already in a project coordination or management role, early certification can position you ahead of project cycle swings and make you more competitive for senior roles. Entry-level candidates should also consider CAPM as a stepping stone into project coordination roles at local firms before pursuing PMP.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:52.629567Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b0609aad0414b448",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lake Charles's project management market centers on large-scale energy infrastructure: majors like Venture Global LNG and Golden Pass LNG are driving multibillion-dollar construction pipelines that consistently demand certified project managers. Petrochemical refiners, healthcare systems, and the Port of Lake Charles round out a diverse employer base where PMP® certification opens doors across sectors. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Lake Charles professionals balancing work and study.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:54.494301Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "8474e437d4807cd8",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Lake Charles, LA, PMP bootcamp Lake Charles, PMP certification boot camp Lake Charles, LA, PMP bootcamp near me, intensive PMP training Lake Charles",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/\",\n      \"name\": \"PMP Boot Camp in Lake Charles, LA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Lake Charles, LA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Lake Charles, LA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/#course\",\n      \"name\": \"PMP Boot Camp in Lake Charles, LA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Lake Charles, LA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-lake-charles-la/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

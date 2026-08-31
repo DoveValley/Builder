@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "peoria-il",
+  "slug": "pmp-bootcamp-peoria-il",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "peoria-il",
+    "city": "Peoria",
+    "state": "Illinois",
+    "SS": "IL",
+    "city_slug": "peoria-il",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Peoria's project management demand centers on Caterpillar's manufacturing footprint and supplier ecosystem, bolstered by healthcare expansion at OSF HealthCare and infrastructure modernization across the region. As major employers pursue facility upgrades and innovation initiatives, PMP-certified professionals find clear career pathways in advanced manufacturing, healthcare systems, and public-sector projects. Granite PM Academy delivers live-virtual PMP Certification to Peoria professionals seeking to formalize expertise and advance in a market that values structured project leadership.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Peoria's manufacturing and heavy equipment sectors rely on professionals who can coordinate complex, regulated projects across supply chains and production schedules. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led instruction and PMI contact hours required to sit for the Project Management Professional credential, fitting into your working schedule while meeting all eligibility requirements. Earning your PMP positions you to lead high-stakes initiatives and command the salary premium that employers throughout central Illinois offer certified project managers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:51.454168Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "f111f10a3130327a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Peoria: Intensive Certification for Manufacturing Leaders",
+      "text": "<p>Peoria's project management landscape is defined by its deep manufacturing heritage and the complex, large-scale operations that drive it. Caterpillar and its extensive supplier network have long set the standard for rigorous project execution, and as these organizations modernize equipment lines, expand facilities, and integrate new technologies, they increasingly rely on formally certified project managers to lead cross-functional teams. Earning your PMP credential in Peoria means positioning yourself for roles in an industry that values structured methodology and proven competency—and the healthcare and insurance sectors anchoring the region's economy offer additional pathways for certified professionals seeking career growth or mobility.</p><p>Granite PM Academy delivers the intensive PMP Boot Camp through live-virtual, instructor-led sessions designed to meet PMI's contact-hour requirements and prepare you for the PMP exam. Our instructors are active, certified practitioners who bring real-world project experience into every module, ensuring you master both the theoretical framework and the practical application expected by Peoria employers. Whether you're advancing within manufacturing, healthcare, or public administration, our structured curriculum and focused schedule accelerate your readiness for certification and position you to lead higher-visibility initiatives in your career.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:55.501310Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "12fccb2c6037b42c",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Trusted by Peoria's Largest Employers",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy holds PMI authorization to deliver PMP® exam-prep training that satisfies official contact-hour requirements. This credential carries weight across Caterpillar, OSF HealthCare, and other major Peoria employers who recognize PMI standards."
+        },
+        {
+          "heading": "Live Instructors, Real-World Expertise",
+          "text": "Our instructors are active PMP®-certified practitioners working in advanced manufacturing, healthcare, and government sectors. They teach current best practices—not textbook theory—drawn from project leadership in industries that dominate Peoria's job market."
+        },
+        {
+          "heading": "Exam Pass Support Included",
+          "text": "Live-virtual boot camp format combines intensive classroom instruction with dedicated exam-prep coaching. You'll complete required contact hours and receive targeted support to build confidence before sitting for the PMP® exam."
+        },
+        {
+          "heading": "Match Peoria's Growing Demand",
+          "text": "Healthcare systems, insurance firms, and manufacturing leaders in Peoria actively hire PMP®-certified project managers. This certification directly positions you for advancement in the industries that drive local employment and career growth."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:59.247460Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7f7ca77ed8eeb519",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Peoria's Manufacturing Hub",
+      "text": "<p>Caterpillar Inc. remains Peoria's largest employer and a primary driver of project management demand across the region. The company's ongoing facility modernization and manufacturing investments require experienced professionals who can oversee complex capital projects and plant operations. Beyond heavy equipment, OSF HealthCare's continued expansion of clinical and innovation facilities, alongside healthcare and insurance organizations like UnityPoint Health–Methodist and RLI Insurance, actively seek certified project managers to lead initiatives in IT, infrastructure, and care delivery. Public sector agencies—including the City of Peoria and Peoria County Government—also hire PMP-certified candidates for infrastructure projects such as the McClugage Bridge reconstruction and downtown redevelopment efforts, creating steady mid- to senior-level opportunities.</p><p>While project manager compensation in Peoria tracks slightly below national metro averages, the area's lower cost of living delivers strong purchasing power. PMP and CAPM certifications are increasingly referenced in local job postings, particularly within manufacturing and healthcare—often viewed as a differentiator when competing for leadership roles. Completing Granite PM Academy's PMP Boot Camp positions you to meet the credential demand that employers like Caterpillar and OSF HealthCare value, giving you a concrete edge in a competitive market while building the technical and strategic skills that command respect in Peoria's project-driven industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:03.063127Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c64bd2c9950543d5",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Peoria",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific hours and years of hands-on experience required, then document your background. Granite PM Academy's enrollment team can help you assess whether your qualifications align with PMI standards."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our expert instructors deliver intensive, interactive sessions covering the PMBOK Guide and real-world project scenarios. You'll earn the 35 contact hours required by PMI to sit for the exam—all on a schedule that fits working professionals."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your formal education, file your PMP application directly with PMI and pay the associated exam fee. Our team will guide you through the submission process to ensure all documentation is complete and accurate. PMI will review and approve your application before you schedule your exam."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's targeted exam-preparation resources—practice questions, study guides, and review sessions—to build confidence before test day. Our instructors remain available to address your questions. When you're ready, register with Pearson VUE and sit for the computer-based PMP exam."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn continuing professional education units (PDUs) throughout your three-year certification cycle to keep your PMP active. Granite PM Academy offers multiple pathways to accumulate PDUs, from advanced courses to mentoring and conference attendance. Plan your renewal strategy early to stay current with PMI requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:08.683256Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "5467ec1394f00f82",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for project managers at Caterpillar and other Peoria manufacturers?",
+          "answer": "<p>Yes. Peoria's advanced manufacturing sector—anchored by heavy equipment and industrial companies—increasingly values PMP certification for roles overseeing plant operations, capital projects, and supply-chain initiatives. While not universally required, the credential distinguishes candidates competing for mid- to senior-level positions and aligns with industry-standard project delivery practices that major employers expect.</p>"
+        },
+        {
+          "question": "Do Peoria project managers earn less without PMP certification compared to national peers?",
+          "answer": "<p>Project manager compensation in Peoria tracks slightly below national metro averages but reflects the area's lower cost of living, offering strong purchasing power. PMP certification typically improves earning potential and advancement prospects, especially within manufacturing, healthcare, and insurance organizations where standardized credential experience is viewed as a meaningful differentiator for leadership roles.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Boot Camp online from my Peoria workplace or home?",
+          "answer": "<p>Yes. Our live-virtual format accommodates professionals working from offices, remote locations, or home across Peoria and surrounding areas. This flexibility is ideal for working professionals at employers like OSF HealthCare, RLI Insurance, or Caterpillar who need to balance training with existing project responsibilities without traveling offsite.</p>"
+        },
+        {
+          "question": "When is the best time to pursue PMP Boot Camp certification in Peoria's job market?",
+          "answer": "<p>Peoria's steady demand for PMP-certified candidates—particularly in manufacturing, healthcare, and government—makes certification valuable year-round. However, pursuing boot camp training before or alongside active job searches in sectors like OSF HealthCare or City of Peoria capital projects strengthens your candidacy when positions open for project and program leadership roles.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:13.415543Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b4f0495f1d5b85e0",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Peoria's project management demand is rooted in Caterpillar's manufacturing footprint and ongoing facility modernization, complemented by healthcare expansion at OSF HealthCare and infrastructure projects like the McClugage Bridge reconstruction. Certified project managers find roles across advanced manufacturing, healthcare systems, insurance, and government—sectors where structured expertise directly supports operational growth. Granite PM Academy delivers live-virtual PMP Boot Camp classes tailored to Peoria professionals pursuing this credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:15.197437Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "29665b6243c3ed0b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-peoria-il/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Peoria, IL, PMP bootcamp Peoria, PMP certification boot camp Peoria, IL, PMP bootcamp near me, intensive PMP training Peoria",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/\",\n      \"name\": \"PMP Boot Camp in Peoria, IL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Peoria, IL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Peoria, IL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/#course\",\n      \"name\": \"PMP Boot Camp in Peoria, IL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Peoria, IL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-peoria-il/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

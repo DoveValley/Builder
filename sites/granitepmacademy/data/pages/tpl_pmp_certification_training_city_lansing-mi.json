@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "lansing-mi",
+  "slug": "pmp-certification-training-lansing-mi",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "lansing-mi",
+    "city": "Lansing",
+    "state": "Michigan",
+    "SS": "MI",
+    "city_slug": "lansing-mi",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>As Michigan's capital, Lansing anchors a diversified PM job market spanning state government infrastructure projects, automotive manufacturing at General Motors, and expanding healthcare and higher-education sectors led by Michigan State University and systems like Sparrow and McLaren. Insurance and financial services firms headquartered locally—including Auto-Owners Insurance and Accident Fund—consistently recruit experienced project managers. Granite PM Academy delivers live-virtual PMP® Certification designed for Lansing professionals seeking to advance in these growing sectors.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Lansing's government and public-sector workforce drives demand for certified project managers who can navigate complex compliance and stakeholder requirements. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, letting you earn your credential while maintaining your current role. Completing your PMP positions you competitively for advancement in Lansing's administrative and infrastructure-focused organizations.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:58.616968Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "44d79ac5cbaf9d59",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Lansing for State & Manufacturing Leaders",
+      "text": "<p>As Michigan's capital, Lansing anchors a distinctive project management market shaped by state government infrastructure, General Motors' major manufacturing operations, and a robust healthcare sector. Public-sector agencies, the automotive plants at Lansing Grand River and Delta Township, and organizations like Sparrow Health System and Michigan State University consistently seek PMP-certified professionals to lead complex initiatives—from policy implementation and production optimization to clinical expansion and campus development. For Lansing professionals in these sectors, the Project Management Institute's PMP credential signals advanced capability in scope, schedule, and resource management, directly addressing the technical and leadership demands your local employers prioritize.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers PMP Certification Training through live-virtual, instructor-led courses designed for working professionals. Our instructors are active certified practitioners who bring real-world experience from the industries that shape Lansing's economy. Each course satisfies PMI's required contact hours and prepares you thoroughly for the PMP exam. Whether you're managing state initiatives, plant operations, healthcare programs, or university projects, our training equips you with the frameworks and tools recognized across your field. When you're ready to advance your career and credentials in Lansing's competitive market, we're here to guide you to certification.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:02.622600Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "52be30e04b710872",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lansing Professionals Choose Granite for PMP Training",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Validity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP training meets the Project Management Institute's rigorous standards. This authorization confirms contact hours count toward your certification eligibility—no uncertainty, no extra steps."
+        },
+        {
+          "heading": "Live Instructors Who Practice What They Teach",
+          "text": "Every Granite instructor holds active PMP certification and works as a practicing project manager. You learn current methodologies and real-world problem-solving from professionals managing projects today, not from trainers teaching theory alone."
+        },
+        {
+          "heading": "Virtual Format Built for Busy Schedules",
+          "text": "Live-virtual instructor-led delivery lets you earn required contact hours without commuting across Lansing. Attend from your office or home, ask questions in real time, and complete the credential while keeping your current role."
+        },
+        {
+          "heading": "Meet Lansing's Growing PM Job Demand",
+          "text": "General Motors, State of Michigan, MSU, Sparrow Health, and insurance carriers across Lansing actively hire credentialed project managers. The PMP credential opens doors with the region's largest employers—and Granite's exam-prep support maximizes your first-attempt success."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:07.101669Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5534f0f588dde588",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lansing's Growth Sectors",
+      "text": "<p>Lansing's economy is anchored by automotive manufacturing, state government, and healthcare—three sectors where certified project managers are in steady demand. General Motors operates two major assembly plants in the region, both undergoing significant retooling and capital investments that require disciplined project oversight. Simultaneously, the State of Michigan, Michigan State University, and systems like Sparrow Health System and McLaren Greater Lansing manage continuous infrastructure, campus modernization, and operational projects where structured governance and certified leadership drive results. Insurance firms including Auto-Owners Insurance, Accident Fund Insurance Company of America, and Jackson National Life also maintain active project portfolios. These employers recognize that certified professionals bring credibility and standardized methodologies to complex initiatives.</p><p>While project manager compensation in Lansing tracks below major metropolitan centers, the credential advantage is pronounced: PMP-certified candidates attract stronger offers and more competitive interest than non-certified peers in the same roles. Employers in manufacturing, healthcare, and state government increasingly list PMP or equivalent certification as a preferred qualification for mid-to-senior positions, making the credential a practical career accelerator in this market. Completing your PMP Certification Training through Granite PM Academy positions you to meet that demand directly, strengthening your candidacy and earning potential within Lansing's established professional network.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:11.230615Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2bc9d1f79d33a976",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Lansing",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and measurable project-management experience. Review PMI's current eligibility criteria to verify you meet both the educational background and hours of documented project leadership. Granite PM Academy can guide you through this verification step before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course designed for working professionals in the Lansing area. Our experienced instructors deliver the PMI-required contact hours on a schedule that fits your work commitments while building the knowledge foundation needed for exam success."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your formal training, submit your PMP application directly to PMI and pay the associated exam fee. Granite PM Academy provides clear guidance on the application process and documentation requirements so your submission is complete and timely."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and review sessions, to reinforce key concepts and test-taking strategies. When you're ready, schedule your exam at a Lansing-area testing center and demonstrate your project-management competency to earn the PMP credential."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "PMI credentials require renewal every three years by earning professional development units (PDUs). Granite PM Academy offers continuing education options to help you meet renewal requirements while staying current with evolving project-management practices and industry standards."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:16.062842Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "146b100b328fe353",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Lansing project managers?",
+          "answer": "<p>Yes. Lansing's concentrated base of automotive manufacturing, state government, healthcare, and insurance employers increasingly prefer or require PMP certification for mid-to-senior project management roles. While the credential is not universally mandated, certified professionals command stronger offers and attract more competitive interest than non-certified candidates in the local market. The investment typically pays off quickly in career advancement and negotiating power.</p>"
+        },
+        {
+          "question": "Which Lansing employers value PMP certification most?",
+          "answer": "<p>State of Michigan, General Motors' Lansing plants, Sparrow Health System, McLaren Greater Lansing, and major insurers like Auto-Owners and Accident Fund all operate structured project governance frameworks where PMP certification is viewed favorably. Manufacturing, healthcare, and state government sectors particularly emphasize certified project management credentials. Tech and professional services firms in the area also recognize PMP as a meaningful differentiator for career progression.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training from my Lansing workplace?",
+          "answer": "<p>Yes. Our live-virtual PMP training format allows you to join sessions directly from your office or workspace in Lansing, eliminating commute time while maintaining real-time interaction with instructors and peers. This flexibility is ideal for working professionals at GM, state agencies, healthcare systems, or insurance companies who need to balance training with existing responsibilities without taking full days off-site.</p>"
+        },
+        {
+          "question": "When should Lansing professionals pursue PMP certification?",
+          "answer": "<p>Lansing's steady demand for certified project managers—driven by ongoing automotive, healthcare, and government operations—means timing is flexible, but certifying sooner rather than later strengthens your candidacy. If you're planning a role transition or anticipate promotion in the next 12–18 months, pursuing PMP now positions you competitively before job postings list certification as preferred or required. Local employers reward early certification with faster advancement.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:22.300677Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "d4877df1bd2f8697",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>As Michigan's state capital, Lansing anchors a diverse project management market spanning automotive manufacturing—notably General Motors' Lansing plants—state government infrastructure, healthcare systems like Sparrow and McLaren, and insurance firms including Auto-Owners and Accident Fund. This mix of public-sector work and private-sector growth creates steady demand for credentialed PMs across industries. Granite PM Academy delivers live-virtual PMP Certification Training to Lansing professionals seeking to advance their careers in this expanding regional market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:24.334712Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "72c9c9e407550e07",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-lansing-mi/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Lansing, MI, PMP exam prep Lansing, PMP course Lansing MI, project management certification Lansing, MI, PMI PMP training Lansing",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/\",\r\n      \"name\": \"PMP Certification Training in Lansing, MI | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Lansing, MI. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Lansing, MI\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/#course\",\r\n      \"name\": \"PMP Certification Training in Lansing, MI\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Lansing, MI. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-lansing-mi/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

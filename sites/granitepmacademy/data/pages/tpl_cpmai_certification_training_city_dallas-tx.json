@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "dallas-tx",
+  "slug": "ai-training-dallas-tx",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Dallas's telecommunications and banking sectors anchor a robust project management market, with industry leaders like AT&T and JPMorgan Chase driving consistent demand for skilled PMs across corporate headquarters and major infrastructure initiatives—from the DFW Airport Terminal F expansion to downtown redevelopment projects. The city's diversified economy spans healthcare, transportation, and technology, creating multiple pathways for PMP-certified professionals to advance. Granite PM Academy delivers live-virtual PMP Certification training designed for Dallas professionals balancing work and study.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Dallas's energy, aerospace, and infrastructure sectors rely heavily on project managers who can integrate AI tools into planning and execution workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, designed to fit working professionals' schedules. Mastering AI-driven project delivery positions you to command higher responsibility and compensation across Dallas's largest employers and competitive consulting firms.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:21.282616Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "348e1563aa083ff8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Dallas",
+      "text": "<p>Dallas's telecommunications and banking sectors—anchored by global leaders like AT&T, JPMorgan Chase, and Bank of America—are rapidly integrating artificial intelligence into project delivery and portfolio management. As these major employers expand infrastructure, digital transformation, and corporate initiatives across the city, project managers who understand how to leverage AI for planning, risk analysis, and resource optimization have become essential to competitive advancement. In Dallas's robust and diversified project management job market, AI competency is no longer optional; it directly influences career progression and salary potential for professionals managing complex, technology-driven programs.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training specifically designed for project managers seeking to integrate emerging technologies into their practice. Our courses satisfy the contact-hour requirements for PMP®, CAPM®, and ongoing professional development, and are taught by active certified practitioners who bring real-world experience from Dallas's leading industries. Whether you're preparing for initial certification or advancing your credentials, our structured curriculum and flexible scheduling support working professionals in the Dallas area committed to staying ahead in a competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:25.557401Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4d1679cf6762192e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Certification That Advances Your Dallas Career",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Value",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your certification meets rigorous national standards. Dallas employers—from AT&T to JPMorgan Chase—recognize PMI credentials as proof of genuine project-management competence, not generic online training."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Virtual instructor-led sessions deliver the contact hours required for certification while letting you stay in Dallas and keep your job. Our active certified practitioners teach real scenarios from banking, telecom, and construction—the industries driving Dallas hiring right now."
+        },
+        {
+          "heading": "Exam Prep From Practicing Experts",
+          "text": "Your instructors hold current certifications and manage projects daily. They build exam-readiness into every session, not as an afterthought, so you walk into the testing center confident and prepared to pass on your first attempt."
+        },
+        {
+          "heading": "Dallas Employers Actively Hire Certified PMs",
+          "text": "Major Dallas employers across financial services, technology, aerospace, and construction prioritize certified project managers for advancement and leadership roles. This credential directly addresses the local talent demand, positioning you competitively in a strong regional job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:30.165162Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "fdb65322dfede477",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Dallas's Corporate Hub",
+      "text": "<p>Dallas's telecommunications, financial services, and engineering sectors consistently recruit certified project managers to lead enterprise initiatives. AT&T, headquartered in the city, maintains substantial demand for PMP® and CAPM® credential holders across network infrastructure and digital transformation programs. Similarly, major financial institutions including JPMorgan Chase, Bank of America, and Capital One hire certified professionals to oversee technology deployments and operational improvements. Engineering and construction firms like AECOM and Jacobs Engineering actively seek certified project managers for large-scale work, including the DFW International Airport Terminal F expansion and the Dallas Area Rapid Transit Silver Line construction—both ongoing projects that require disciplined, credential-backed project governance.</p><p>Earning your PMP® or CAPM® credential positions you competitively within Dallas's labor market, where employers across telecom, finance, and healthcare view certification as a meaningful differentiator in hiring and advancement decisions. The region's strong corporate presence and lower cost of living relative to national markets create steady demand for certified professionals, often translating to favorable salary negotiations. Completing the AI Training for Project Managers program through Granite PM Academy equips you with both the technical knowledge and modern AI competencies that Dallas employers increasingly expect—bridging the gap between traditional project management rigor and the emerging tools reshaping how PMs lead teams and deliver results in this competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:34.468719Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "cf68f1444ca8a8ff",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI training valuable for project managers working in Dallas telecom?",
+          "answer": "<p>Yes. Dallas's telecom sector—anchored by major employers managing complex infrastructure and digital transformation—increasingly expects project managers to understand AI-driven tools for resource optimization, risk forecasting, and team collaboration. AI literacy complements PMP® credentials and strengthens your positioning in a competitive market where employers like AT&T and others prioritize standardized, tech-forward practices.</p>"
+        },
+        {
+          "question": "Do Dallas banks and finance firms require PMP or AI certification?",
+          "answer": "<p>PMP® and CAPM® credentials are widely preferred in Dallas's banking and financial services sector—including firms like JPMorgan Chase, Capital One, and Bank of America—where regulated, repeatable project methodologies are standard. AI training adds a modern edge, especially for roles managing digital transformation or technology rollouts, though it typically complements rather than replaces foundational PMP certification in job requirements.</p>"
+        },
+        {
+          "question": "Can Dallas project managers attend live-virtual AI courses from their office?",
+          "answer": "<p>Yes. Our live-virtual format lets you join from your Dallas office, home, or anywhere with an internet connection, eliminating commute time across the DFW metroplex. This flexibility is ideal for working professionals at firms like AECOM, Jacobs Engineering, or Toyota Motor North America who need training that fits their existing schedule without disrupting on-site work commitments.</p>"
+        },
+        {
+          "question": "Should Dallas project managers pursue AI certification now or wait?",
+          "answer": "<p>The Dallas job market favors early adoption. With PMP® credentials already an edge in local finance, telecom, and engineering hiring, adding AI competency positions you ahead of peers during your next role transition. The region's strong corporate presence and steady demand for certified talent make this an ideal time to upskill before competition intensifies.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:39.841805Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "72a6abcf99f0642a",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Dallas's telecommunications and financial services sectors drive steady demand for skilled project managers, with industry leaders like AT&T and JPMorgan Chase anchoring a robust job market. Major initiatives—from the DFW Airport Terminal F expansion to downtown AT&T Discovery District redevelopment—create real opportunities for professionals who can manage complex, large-scale programs. Granite PM Academy delivers live-virtual AI Training for Project Managers to Dallas professionals seeking to advance their careers in this thriving market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:41.567089Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "11e93766f62a234a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-dallas-tx/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Dallas, TX, AI courses Dallas, CPMAI certification Dallas, AI project management training Dallas, TX, AI for project managers Dallas",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-dallas-tx/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-dallas-tx/\",\n      \"name\": \"AI Training for Project Managers in Dallas, TX — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Dallas, TX for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Dallas, TX\",\n            \"item\": \"https://granitepmacademy.com/ai-training-dallas-tx/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-dallas-tx/#course\",\n      \"name\": \"AI Training for Project Managers in Dallas, TX\",\n      \"description\": \"CPMAI certification training for project managers in Dallas, TX who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-dallas-tx/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-dallas-tx/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-dallas-tx/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-dallas-tx/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-dallas-tx/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

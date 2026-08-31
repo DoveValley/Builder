@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "chattanooga-tn",
+  "slug": "pmp-bootcamp-chattanooga-tn",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "chattanooga-tn",
+    "city": "Chattanooga",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "chattanooga-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's electric vehicle production and supported by insurance giants BlueCross BlueShield and Unum—fuels steady demand for skilled project managers across automotive, healthcare, logistics, and emerging tech roles. With EPB's fiber-optic expansion and Amazon's regional fulfillment operations driving additional opportunities, the PMP® credential strengthens your competitive position locally. Granite PM Academy delivers live-virtual PMP Certification training designed around Chattanooga professionals' schedules and career goals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Chattanooga's growing advanced manufacturing and logistics sectors increasingly demand certified project managers to lead complex operations and supply-chain initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI-required contact hours through instructor-led training, designed to fit working professionals' schedules while preparing you to earn the Project Management Professional credential. For project managers in Chattanooga's industrial and distribution markets, PMP certification strengthens your competitive position and qualifies you for leadership roles with higher earning potential.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:16.127119Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "99ffeb3499b62807",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Chattanooga for Manufacturing and Healthcare Leaders",
+      "text": "<p>Chattanooga's project management market is anchored by Volkswagen's advanced manufacturing operations and a cluster of major healthcare and insurance employers, all competing for skilled project and program managers who can lead complex, cross-functional initiatives. The PMP certification has become essential for professionals in these sectors—particularly those managing automotive production systems, healthcare infrastructure projects, or enterprise-wide digital transformations at organizations like BlueCross BlueShield of Tennessee, Unum, and Erlanger Health System. A PMP credential signals to Chattanooga employers that you can manage scope, schedule, budget, and risk at the level these organizations demand, positioning you for advancement into senior PM and program leadership roles.</p><p>Granite PM Academy delivers an intensive, live-virtual PMP Boot Camp taught by active certified practitioners who understand real-world project delivery. As a PMI Authorized Training Partner, we provide instructor-led instruction that satisfies the contact-hour requirement needed to sit for the PMP exam. Our program is built for working professionals in Chattanooga who need flexible scheduling without compromising depth or instructor access. Whether you're advancing in manufacturing, healthcare, logistics, or one of Chattanooga's growing technology roles, our boot camp accelerates your readiness for certification and equips you to manage high-stakes projects from day one.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:20.452726Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "830bd5b9fac25b71",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Paths for Chattanooga's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Recognition",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your boot camp contact hours count directly toward PMP eligibility. No second-guessing; your certification pathway is built on PMI's own standards."
+        },
+        {
+          "heading": "Live Instructors, Real-World Project Experience",
+          "text": "Your instructors hold active PMP certifications and manage projects today—not just teach theory. They bring current manufacturing, healthcare, and logistics expertise directly relevant to Chattanooga's dominant industries into every session."
+        },
+        {
+          "heading": "Structured Exam Prep Throughout the Program",
+          "text": "Boot camp includes exam-focused workshops, practice tests, and targeted review sessions designed to build confidence and readiness. You exit with both certification eligibility and a clear path to passing."
+        },
+        {
+          "heading": "High Demand Among Chattanooga's Major Employers",
+          "text": "Volkswagen Chattanooga, Unum, Amazon, and healthcare systems like Erlanger and CHI Memorial actively hire project and program managers with PMP credentials. Your certification directly aligns with Chattanooga's strongest job market sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:24.096312Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5830caefef7dd7dc",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Chattanooga's Growing Industries",
+      "text": "<p>Chattanooga's advanced manufacturing sector, anchored by Volkswagen's major retooling for electric vehicle production, creates sustained demand for skilled project managers across the city's largest employers. BlueCross BlueShield of Tennessee, Erlanger Health System, and CHI Memorial also actively hire PMs to oversee everything from infrastructure modernization to care-delivery initiatives. Beyond healthcare and automotive, Amazon's fulfillment center expansion and EPB's citywide fiber-optic smart grid rollout demonstrate how project management expertise cuts across industries—from logistics to utility innovation. These employers need professionals who can navigate complex timelines, coordinate cross-functional teams, and deliver results under pressure.</p><p>The PMP® credential carries real weight in Chattanooga's competitive job market. While compensation for project managers tracks slightly below larger metros, the combination of strong local demand and a talent pool where PMP certification remains a meaningful differentiator means certified professionals command the most competitive offers—particularly those with automotive or healthcare industry experience. Completing Granite PM Academy's PMP Boot Camp positions you to stand out among candidates competing for these roles, and it signals to employers like those listed above that you meet a recognized standard for professional rigor and capability. In a city where manufacturing and healthcare dominate hiring, that credential can be the edge that accelerates your career trajectory and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:28.186926Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2e72880c9e34f52e",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Chattanooga",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Chattanooga professionals in manufacturing, healthcare, and defense sectors often meet these standards. Verify your background meets PMI criteria before enrolling in Granite PM Academy's Boot Camp."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Chattanooga-focused cohorts deliver the required formal education in a structured, accelerated format. Experienced instructors guide you through the PMBOK® Guide and real-world project scenarios."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "File your PMP application directly with PMI and pay the associated exam fee. Our team provides guidance on application documentation and deadlines. Once PMI approves your eligibility, you'll receive authorization to schedule your exam."
+        },
+        {
+          "heading": "Prepare and Test",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions and study guides. Schedule your proctored exam through PMI's testing partner. Our instructors remain available to clarify complex topics before your test date."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "Earn Professional Development Units (PDUs) throughout the standard three-year renewal cycle to keep your PMP active. Granite PM Academy offers continuing education and resources to support your ongoing certification maintenance."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:32.877215Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "da661b7e91f23bf4",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Chattanooga manufacturing project managers?",
+          "answer": "<p>Yes. Chattanooga's advanced manufacturing sector—anchored by major automotive and industrial employers—increasingly uses PMP certification as a hiring and advancement criterion. While demand for skilled project managers remains strong across all sectors, those holding PMP credentials combined with industry-specific experience typically command more competitive offers. The certification signals credibility to employers managing complex supply chains, production timelines, and cross-functional teams.</p>"
+        },
+        {
+          "question": "Which Chattanooga employers most value the PMP credential for hiring?",
+          "answer": "<p>Healthcare systems (Erlanger, CHI Memorial), insurance firms (BlueCross BlueShield of Tennessee, Unum), logistics operators (Covenant Logistics), and advanced manufacturers value PMP certification as a professional differentiator. These sectors—core to Chattanooga's economy—manage large-scale, regulated projects where formal project management credentials strengthen candidate profiles. Certification demonstrates alignment with industry standards and best practices these employers prioritize.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Boot Camp live online while working in Chattanooga?",
+          "answer": "<p>Yes. The live-virtual format lets you attend sessions from your workplace, home, or another location with reliable internet. Many Chattanooga professionals balance boot camp instruction with their job schedules by attending live classes during designated hours and completing study materials around work commitments. This flexibility is especially valuable in fast-paced roles at local manufacturers, health systems, and insurance providers.</p>"
+        },
+        {
+          "question": "When should Chattanooga project managers pursue PMP certification?",
+          "answer": "<p>Timing depends on your career stage and employer's needs. If your organization—whether in healthcare, manufacturing, insurance, or logistics—is expanding project-intensive initiatives, PMP certification can accelerate promotion and salary growth. Chattanooga's strong demand for skilled project managers means certification often pays dividends quickly, particularly if you already have relevant industry experience in automotive, healthcare, or insurance sectors.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:38.261876Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "e71d626a484e8647",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Chattanooga's project management demand is driven by advanced manufacturing—especially Volkswagen's ongoing EV production retooling—paired with thriving insurance, healthcare, and logistics sectors. EPB's fiber-optic infrastructure expansion and Amazon's fulfillment center growth are creating additional skilled PM roles across the region. Granite PM Academy delivers live-virtual PMP Boot Camp classes tailored to Chattanooga professionals balancing work and certification prep.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:39.986204Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "baddad729f32a833",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Chattanooga, TN, PMP bootcamp Chattanooga, PMP certification boot camp Chattanooga, TN, PMP bootcamp near me, intensive PMP training Chattanooga",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/\",\n      \"name\": \"PMP Boot Camp in Chattanooga, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Chattanooga, TN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Chattanooga, TN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/#course\",\n      \"name\": \"PMP Boot Camp in Chattanooga, TN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Chattanooga, TN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-chattanooga-tn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

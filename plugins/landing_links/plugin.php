@@ -131,7 +131,7 @@ function _landing_links_render(array $cfg): string {
                 echo '<h4 class="ll-city-heading">' . h($cityLabel) . '</h4>';
                 echo '<ul class="ll-pages">';
                 foreach ($pages as $p) {
-                    echo '<li><a href="/' . h($p['slug']) . '">' . h($p['text']) . '</a></li>';
+                    echo '<li><a href="/' . h($p['slug']) . '/">' . h($p['text']) . '</a></li>';
                 }
                 echo '</ul></div>';
             }
@@ -148,7 +148,7 @@ function _landing_links_render(array $cfg): string {
             echo '<strong class="ll-city-heading">' . h($cityLabel) . '</strong>';
             echo '<ul class="ll-pages">';
             foreach ($pages as $p) {
-                echo '<li><a href="/' . h($p['slug']) . '">' . h($p['text']) . '</a></li>';
+                echo '<li><a href="/' . h($p['slug']) . '/">' . h($p['text']) . '</a></li>';
             }
             echo '</ul></div>';
         }
@@ -163,7 +163,7 @@ function _landing_links_render(array $cfg): string {
             echo '<li><strong>' . h($cityLabel) . '</strong>';
             echo '<ul class="ll-pages">';
             foreach ($pages as $p) {
-                echo '<li><a href="/' . h($p['slug']) . '">' . h($p['text']) . '</a></li>';
+                echo '<li><a href="/' . h($p['slug']) . '/">' . h($p['text']) . '</a></li>';
             }
             echo '</ul></li>';
         }

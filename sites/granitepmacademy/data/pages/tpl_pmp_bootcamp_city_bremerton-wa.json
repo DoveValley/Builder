@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "bremerton-wa",
+  "slug": "pmp-bootcamp-bremerton-wa",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "bremerton-wa",
+    "city": "Bremerton",
+    "state": "Washington",
+    "SS": "WA",
+    "city_slug": "bremerton-wa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Bremerton's project management demand flows from Naval Base Kitsap and the Puget Sound Naval Shipyard, where defense contractors and government agencies actively seek PMs with formal credentials to lead complex engineering and logistics initiatives. Concurrent healthcare expansion at St. Michael Medical Center and Washington State Ferries' modernization programs extend opportunities across sectors. Granite PM Academy delivers live-virtual PMP® Certification to Bremerton professionals, covering PMI® requirements and practical skills valued by local employers.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Bremerton's shipbuilding and defense contracting sector demands rigorous project governance, making the PMP credential essential for advancement. Granite PM Academy's live-virtual PMP Boot Camp delivers instructor-led training that fulfills PMI's contact-hour requirements, compressing preparation into an intensive format suited to working professionals. Earning your PMP opens doors to higher compensation and leadership roles across the region's largest employers and their supply chains.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:06.530151Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "47e5da5e0bbb9fb5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Bremerton: Navy Shipyard Demand",
+      "text": "<p>The Puget Sound Naval Shipyard & Intermediate Maintenance Facility and Naval Base Kitsap have established Bremerton as a regional center for defense and engineering project management. Professionals working within these operations—and the contractor organizations that support them—know that formal PMP® certification carries real credibility in military and federal procurement environments. Beyond the naval sector, healthcare expansion at St. Michael Medical Center, infrastructure work led by Kitsap County, and transit operations at Washington State Ferries add diverse PM opportunities across Bremerton's job market. Whether you're advancing within a defense contractor, moving into government project roles, or pursuing leadership in healthcare or public administration, a PMP Boot Camp gives you the structured credential that local employers recognize and value.</p><p>Granite PM Academy delivers intensive PMP Boot Camp training as a PMI Authorized Training Partner, combining live-virtual instruction with real-world expertise taught by active certified practitioners. Our accelerated format compresses preparation into a focused schedule, satisfies the contact-hour requirements set by PMI, and equips you with both exam-focused content and practical project leadership skills. Bremerton professionals benefit from flexible scheduling designed around full-time work, and every session is led by instructors with hands-on experience in the industries driving your local economy. Upon completion, you'll be ready to sit for the PMP® exam and pursue a credential that opens pathways across defense, government, healthcare, and maritime sectors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:10.822373Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "5d99b8151dba1f0f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Bremerton's Defense & Naval Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy holds PMI authorization, ensuring your boot camp meets all official requirements for PMP eligibility. Direct alignment with PMI standards means your training counts toward credential prerequisites without gaps or workarounds."
+        },
+        {
+          "heading": "Live Instructor-Led Contact Hours",
+          "text": "Our synchronous virtual format delivers required contact hours in real time with active certified practitioners. Interact directly with instructors, ask questions as concepts arise, and satisfy PMI's mandated instruction method without recorded-only alternatives."
+        },
+        {
+          "heading": "Real-World Exam Prep from Practitioners",
+          "text": "Instructors are actively certified and working in project management today—not just trainers. They share current exam strategies, field examples from naval, healthcare, and government sectors, and targeted practice tests aligned to PMP domains."
+        },
+        {
+          "heading": "Local Demand Across Naval & Healthcare",
+          "text": "Puget Sound Naval Shipyard, Naval Base Kitsap, and Virginia Mason Franciscan Health actively seek PMP-certified project managers. Bremerton's defense, shipyard, and healthcare employers prioritize this credential for advancement and program-leadership roles."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:15.379904Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "68c7dbc0e67023be",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Naval Shipyard Country",
+      "text": "<p>Bremerton's economy centers on the Puget Sound Naval Shipyard & Intermediate Maintenance Facility and Naval Base Kitsap, making defense and shipyard operations the dominant driver of project management hiring in the region. Beyond the Navy ecosystem, St. Michael Medical Center (Virginia Mason Franciscan Health) manages a major campus expansion, Washington State Ferries is modernizing its fleet and terminals with hybrid-electric vessel initiatives, and local government agencies including Kitsap County and the City of Bremerton oversee substantial infrastructure and redevelopment projects. All these organizations actively recruit certified project managers to lead complex, multi-year initiatives—and they increasingly expect the PMP® or CAPM® credential as a standard qualification or preferred benchmark.</p><p>The credential pays dividends in Bremerton's competitive labor market. Project managers holding PMP® certification command a premium aligned with regional Puget Sound rates, particularly in defense contracting, shipyard support, and healthcare environments where employers value demonstrated expertise and formal credential recognition. Even roles where certification is not strictly required often list it as a preferred qualification, giving certified candidates a decisive edge in hiring and advancement. Completing Granite PM Academy's PMP Boot Camp positions you to meet that credential demand directly—accelerating your entry or advancement into the stable, well-compensated project-management roles that define Bremerton's professional landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:19.358423Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "bb621d285e6a1203",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Bremerton",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Bremerton's naval and defense sector values this certification highly. Review PMI's eligibility criteria, then contact Granite PM Academy to confirm your qualifications before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Bremerton cohorts fit working schedules with flexible class sessions. You'll complete the required formal education hours, master the PMBOK Guide framework, and prepare for exam domains—all with expert instructors guiding your learning."
+        },
+        {
+          "heading": "Submit PMI Application",
+          "text": "Once your coursework is finished, submit your official PMP application directly to PMI and pay the associated examination fee. Granite PM Academy staff can guide you through the submission process. PMI will review your credentials before you're eligible to sit for the exam."
+        },
+        {
+          "heading": "Prepare and Test",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor support—to solidify your knowledge. Schedule your exam at an approved PMI testing center. On exam day, you'll demonstrate mastery of project-management competencies PMI expects of certified professionals."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to professional development over the standard three-year renewal cycle. Earn PDUs through training, volunteering, and work experience. Renew your credential with PMI to keep your competitive edge in Bremerton's growing project-management career landscape."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:24.554282Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "5f6eb4add492408a",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Bremerton defense and shipyard careers?",
+          "answer": "<p>Yes. Puget Sound Naval Shipyard, Naval Base Kitsap, and defense contractors operating in Bremerton increasingly list PMP or CAPM as preferred qualifications for project and program management roles. Certified professionals command stronger candidacy for positions tied to Navy shipyard support and maritime operations, where structured project discipline is critical. The credential also supports career advancement and salary growth in this sector.</p>"
+        },
+        {
+          "question": "Which Bremerton employers value PMP certification most?",
+          "answer": "<p>Defense and naval shipyard operations, healthcare systems like Virginia Mason Franciscan Health, Kitsap County Government, and local government agencies actively seek PMP-certified project managers. BAE Systems, Amentum, and other defense contractors operating Bremerton facilities frequently list certification as preferred for roles managing complex, regulated projects. Healthcare and public administration sectors also show steady demand for credentialed PMs.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP Boot Camp from my Bremerton workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual PMP Boot Camp format allows Bremerton professionals to participate from their workplace, home, or any location with reliable internet. This flexibility suits busy schedules common among project managers working in defense, healthcare, and government sectors. Confirm your employer's remote participation policy before enrolling if you plan to attend during work hours.</p>"
+        },
+        {
+          "question": "How does Bremerton's job market affect PMP certification timing?",
+          "answer": "<p>Bremerton's concentration of large defense contractors, the Naval Shipyard, and healthcare institutions creates sustained demand for certified PMs. Pursuing PMP certification positions you competitively during hiring cycles and promotions within these sectors. Early certification—before actively job-searching—can strengthen your candidacy for roles with higher responsibility and compensation, especially in regulated government and shipyard environments.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:30.588692Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "304fed3923ec46ff",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Bremerton's project management demand centers on Naval Base Kitsap and the Puget Sound Naval Shipyard, where defense and engineering expertise command premium roles—and formal PMP® certification strengthens candidacy across military, healthcare, and public-sector employers. St. Michael Medical Center's ongoing campus expansion and Washington State Ferries' modernization initiatives add sustained opportunity for certified project leaders. Granite PM Academy delivers live-virtual PMP Boot Camp to Bremerton professionals seeking to formalize credentials and advance in this defense-anchored, government-driven economy.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:32.817163Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "77227e4855b8f91a",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Bremerton, WA, PMP bootcamp Bremerton, PMP certification boot camp Bremerton, WA, PMP bootcamp near me, intensive PMP training Bremerton",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/\",\n      \"name\": \"PMP Boot Camp in Bremerton, WA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Bremerton, WA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Bremerton, WA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/#course\",\n      \"name\": \"PMP Boot Camp in Bremerton, WA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Bremerton, WA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-bremerton-wa/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

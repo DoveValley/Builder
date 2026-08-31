@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "wichita-ks",
+  "slug": "ai-training-wichita-ks",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "wichita-ks",
+    "city": "Wichita",
+    "state": "Kansas",
+    "SS": "KS",
+    "city_slug": "wichita-ks",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Wichita's aerospace sector—anchored by Spirit AeroSystems and Textron Aviation—creates robust demand for project managers who can lead complex manufacturing and engineering initiatives. Beyond aviation, Koch Industries, Cargill, and major healthcare systems expand opportunities across industrial operations, process improvement, and capital projects. Granite PM Academy delivers live-virtual PMP® Certification training to Wichita professionals seeking to advance their careers in this diversified, project-intensive market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Wichita's aerospace and advanced manufacturing sector demands project managers who can navigate rapid innovation cycles and complex supply chains. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI's contact-hour education requirements, equipping you to lead data-driven projects across these high-growth industries. Master AI tools and methodologies that aerospace and manufacturing employers actively seek, positioning yourself for advancement in Wichita's competitive project-management market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:04.781768Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "97b87cf6901c8de1",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Wichita",
+      "text": "<p>Wichita's aerospace manufacturing sector—anchored by Textron Aviation and Spirit AeroSystems—demands project managers who can lead complex, precision-driven initiatives in an industry where delays and inefficiencies carry measurable costs. As artificial intelligence reshapes how teams plan, forecast risk, and optimize resource allocation across manufacturing and engineering environments, aerospace professionals in Wichita face immediate pressure to integrate AI literacy into their project leadership toolkit. Beyond aerospace, Wichita's diversified industrial base—including Koch Industries, Cargill, and McConnell Air Force Base—reinforces consistent demand for PMs who understand both traditional project discipline and emerging AI capabilities that drive competitive advantage in process improvement, supply chain visibility, and stakeholder communication.</p><p>Granite PM Academy delivers AI Training for Project Managers as a PMI Authorized Training Partner, offering live-virtual, instructor-led instruction taught by active certified practitioners who bring real-world Wichita project environments into every session. Our curriculum satisfies the contact-hour requirements for PMP® and CAPM® credential pathways while embedding practical AI applications—from generative tools for planning and documentation to machine learning for predictive analytics—directly into project management workflows. Whether you are managing aerospace programs, healthcare operations, or industrial initiatives across Wichita, our structured approach bridges the gap between certification readiness and the AI-forward capabilities your employer expects, positioning you for advancement in a market that rewards both credentials and demonstrable technical fluency.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:09.560285Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4c87a3a3eb8c1449",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills for Wichita's Aerospace and Defense Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® or CAPM® training meets all PMI standards. You earn recognized contact hours that directly satisfy eligibility requirements for PMI certification exams—no guesswork about course validity."
+        },
+        {
+          "heading": "Live Instructors, Flexible Schedule",
+          "text": "Our live-virtual instructor-led format lets Wichita professionals complete required contact hours without leaving your office or home. Instructors teach in real time, answer questions immediately, and deliver the interactive experience employers in aerospace, defense, and healthcare expect from certified leaders."
+        },
+        {
+          "heading": "Practitioners Teaching Practitioners",
+          "text": "Granite instructors hold active PMP® or CAPM® credentials and work in project management today. They bring current examples from manufacturing, government contracts, and complex programs—not textbook theory—so you learn tools your local employers actually use."
+        },
+        {
+          "heading": "Credential Valued by Wichita Employers",
+          "text": "Spirit AeroSystems, Textron Aviation, McConnell Air Force Base, and Koch Industries seek certified project managers who can lead cross-functional teams and manage budgets at scale. PMP® and CAPM® credentials strengthen your candidacy for advancement in Wichita's high-demand aerospace, defense, and industrial sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:14.613607Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5949a573dc6fdaee",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Wichita's Manufacturing Hub",
+      "text": "<p>Wichita's aerospace manufacturing sector stands as the region's primary driver of certified project manager demand. Textron Aviation, Spirit AeroSystems, and Bombardier Learjet all employ project managers to oversee complex production timelines, facility expansions, and new manufacturing delivery center investments. Beyond aerospace, Ascension Via Christi and Wesley Medical Center seek certified professionals to manage capital projects and healthcare operations, while Koch Industries, Cargill, and McConnell Air Force Base create additional opportunities across industrial, agricultural, and defense sectors. The Downtown Wichita riverfront revitalization and Wichita State University Innovation Campus development exemplify the kinds of cross-sector infrastructure projects where structured project management credentials directly improve hiring prospects.</p><p>Project managers holding PMP and CAPM certifications are increasingly valued by Wichita employers seeking standardized methodologies for complex manufacturing and capital projects. Compensation remains competitive relative to the region's cost of living and reflects your certification level, industry focus, and experience—particularly strong in aerospace and healthcare roles where demand is steady. Completing Granite PM Academy's AI Training for Project Managers equips you with both foundational PM discipline and emerging AI tools now reshaping how Wichita's manufacturing and healthcare leaders plan and execute projects. That combination positions you to advance faster in a market where employers actively recruit trained professionals to manage their expanding operations.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:18.981494Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a8ed0bb09827330a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Wichita aerospace careers?",
+          "answer": "<p>Yes. Wichita's aerospace manufacturing sector—anchored by companies like Textron Aviation, Spirit AeroSystems, and Bombardier Learjet—increasingly adopts AI-driven tools for scheduling, resource allocation, and risk forecasting on complex programs. AI training complements PMP or CAPM certification by equipping you to manage projects using the emerging methodologies these employers are integrating, making you more competitive for senior and specialized roles.</p>"
+        },
+        {
+          "question": "Which Wichita employers value AI and project management credentials most?",
+          "answer": "<p>Aerospace manufacturers, Koch Industries divisions, healthcare systems like Ascension Via Christi and Wesley Medical Center, and McConnell Air Force Base all prioritize standardized project management credentials. AI training adds particular value in aerospace and healthcare, where companies manage large-scale capital and manufacturing projects and are adopting AI tools for predictive scheduling and compliance tracking.</p>"
+        },
+        {
+          "question": "Can I attend Wichita AI project management training remotely from my workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format lets you join from your office, home, or anywhere with reliable internet. This flexibility suits Wichita professionals balancing full-time roles at major employers—you can attend without travel time while staying accessible to your team during the workday.</p>"
+        },
+        {
+          "question": "When should Wichita project managers pursue AI certification given local job demand?",
+          "answer": "<p>Wichita's steady demand for certified project managers, particularly in aerospace and healthcare, means timing is flexible—but earlier is advantageous. Aerospace and defense projects are ongoing, and healthcare capital initiatives continue year-round. Earning your credential now positions you ahead of peers and aligns with employer investment cycles that often accelerate in Q1 and Q3.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:24.838334Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5670dec15b9dad4d",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Wichita's aerospace sector—anchored by Textron Aviation and Spirit AeroSystems—drives consistent demand for project managers who can lead complex manufacturing and engineering initiatives across the city's diversified industrial base. Koch Industries, Cargill, and major healthcare systems add depth to opportunities for professionals managing process improvement and operational scale. Granite PM Academy delivers live-virtual AI Training for Project Managers to Wichita professionals seeking to advance their credentials and career impact in this manufacturing-driven market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:26.677188Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "cff0e717939b7d22",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-wichita-ks/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Wichita, KS, AI courses Wichita, CPMAI certification Wichita, AI project management training Wichita, KS, AI for project managers Wichita",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-wichita-ks/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-wichita-ks/\",\n      \"name\": \"AI Training for Project Managers in Wichita, KS — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Wichita, KS for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Wichita, KS\",\n            \"item\": \"https://granitepmacademy.com/ai-training-wichita-ks/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-wichita-ks/#course\",\n      \"name\": \"AI Training for Project Managers in Wichita, KS\",\n      \"description\": \"CPMAI certification training for project managers in Wichita, KS who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-wichita-ks/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-wichita-ks/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-wichita-ks/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-wichita-ks/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-wichita-ks/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

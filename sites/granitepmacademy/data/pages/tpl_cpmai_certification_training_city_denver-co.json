@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "denver-co",
+  "slug": "ai-training-denver-co",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "denver-co",
+    "city": "Denver",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "denver-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>Denver's aerospace and defense sector—anchored by Lockheed Martin and supported by robust telecommunications, energy, and healthcare industries—drives consistent demand for credentialed project managers. Major initiatives like the RTD FasTracks Transit Expansion and Central 70 Project underscore the city's ongoing infrastructure investment, creating real opportunities for professionals holding the PMP® credential. Granite PM Academy delivers live-virtual PMP Certification training tailored to Denver's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Denver's energy, aerospace, and construction sectors rely on project managers who can integrate AI tools into traditional workflows. Granite PM Academy delivers instructor-led, live-virtual AI training that fulfills PMI contact-hour requirements, letting you learn on your schedule while staying current with industry demand. Master AI applications in scope, schedule, and risk management to strengthen your competitive edge in Colorado's fastest-growing project-management roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:21.393740Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b1bcfb51a858e150",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Denver's Aerospace Hub",
+      "text": "<p>Denver's aerospace and defense sector—anchored by major employers like Lockheed Martin—has become a command center for complex, innovation-driven programs where artificial intelligence is reshaping how project managers plan, execute, and monitor work. As organizations across Denver's diverse economy—from telecommunications and energy to healthcare and financial services—integrate AI into their operations, project managers who understand how to leverage these tools gain a decisive competitive advantage. AI training equips Denver-based professionals with the practical skills to automate routine tasks, enhance decision-making through predictive analytics, and lead teams through technology-driven transformation. For a city whose robust PM job market spans infrastructure development, urban growth initiatives, and mission-critical programs, this expertise is no longer optional.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led AI training designed specifically for project managers pursuing PMP®, CAPM®, and other PMI credentials. Our courses satisfy the professional development and contact-hour requirements recognized by the Project Management Institute, and are taught by active certified practitioners with real-world experience in Denver's key industries. Every session combines current AI methodologies with practical application so you can immediately implement what you learn in your projects. Whether you're advancing from CAPM® to PMP® or deepening your expertise as an established program leader, our Denver-focused academy partners with you to complete your certification journey with confidence and competence.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:25.997823Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "46b475c531aae692",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI-Ready PMP Certification Near Denver's Aerospace Hub",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Real Credential",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your contact hours count directly toward PMP or CAPM eligibility. No add-ons, no workarounds—your certification path is recognized by employers across Denver's defense and tech sectors from day one."
+        },
+        {
+          "heading": "Live Instructors, Real-Time Learning",
+          "text": "Our live-virtual, instructor-led format satisfies PMI contact-hour requirements while fitting Denver schedules. Active certified practitioners teach—not recorded videos—so you ask questions, get immediate feedback, and learn current AI applications project managers use at companies like Lockheed Martin and Charles Schwab."
+        },
+        {
+          "heading": "Exam Prep Built Into Training",
+          "text": "Granite includes targeted exam-preparation support within the curriculum, not as a separate upsell. Practice tests, question walkthroughs, and strategy sessions help you pass the PMP or CAPM on your first attempt, reducing certification time and cost."
+        },
+        {
+          "heading": "Meet Denver's Growing PM Demand",
+          "text": "Aerospace, telecommunications, energy, and healthcare employers across the Denver metro actively hire credentialed project managers. The PMP and CAPM signal competency that DaVita, Newmont, Arrow Electronics, and municipal agencies value—strengthening your candidacy in one of the region's fastest-hiring fields."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:30.740885Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "838c4bf0dd3f0832",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Denver's Aerospace and Defense Hub",
+      "text": "<p>Denver's aerospace and defense sector drives consistent demand for certified project managers. Lockheed Martin, one of the region's largest employers, manages complex engineering and defense programs that require skilled PMs to oversee timelines, budgets, and cross-functional teams. Beyond aerospace, healthcare organizations like Kaiser Permanente Colorado and Children's Hospital Colorado, telecommunications firms such as Lumen Technologies, and financial services leaders including Charles Schwab all actively recruit project managers. Major infrastructure initiatives like the RTD FasTracks Transit Expansion and the Denver International Airport Great Hall Renovation underscore the breadth of project-management opportunities across transportation, construction, and public-sector management in the metro area.</p><p>The PMP credential carries particular weight in Denver's aerospace, healthcare, and technology sectors, where employers frequently list it as preferred or required in job postings. Local project managers with certifications command competitive compensation that reflects the city's strong demand for standardized PM competency—particularly among organizations managing mission-critical programs. Completing AI Training for Project Managers through Granite PM Academy equips you with both technical project-management fundamentals and emerging AI literacy that sets you apart in Denver's rapidly evolving professional landscape. In a market where certified professionals consistently outpace their non-credentialed peers, the combination of formal credential and AI-focused training directly positions you for advancement in one of the Mountain West's most competitive PM markets.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:35.331873Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "43f5172aad55169a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI training worth it for project managers in Denver's aerospace sector?",
+          "answer": "<p>Denver's aerospace and defense industry—anchored by major employers like Lockheed Martin—is increasingly integrating AI into project workflows for scheduling, risk modeling, and resource optimization. PMP certification combined with AI competency positions you distinctly for roles managing complex, technology-driven programs where both standardized PM discipline and emerging-tool fluency are expected. The credential signals readiness to lead teams in an industry where certification is often a stated preference or requirement.</p>"
+        },
+        {
+          "question": "Which Denver employers actively seek PMP-certified project managers?",
+          "answer": "<p>Healthcare systems (Kaiser Permanente Colorado, Children's Hospital Colorado), aerospace contractors (Lockheed Martin), telecommunications (Lumen Technologies), energy firms (Newmont Corporation), and financial services (Charles Schwab) routinely list PMP or CAPM as preferred qualifications in Denver-area job postings. Local hiring managers view the credential as proof of standardized competency, especially in IT, healthcare transformation, and defense programs where regulatory and operational rigor are paramount.</p>"
+        },
+        {
+          "question": "Can I attend Denver's AI project management live-virtual course from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format is designed for working professionals and can be accessed from your office, home, or any stable internet location in the Denver area. Many participants in aerospace, healthcare, and tech sectors attend during flexible work arrangements or scheduled training time. Confirm your employer's remote-learning policy and network access beforehand to ensure an uninterrupted learning experience.</p>"
+        },
+        {
+          "question": "How does Denver's competitive PM job market affect certification timing?",
+          "answer": "<p>Denver's strong demand for certified project managers—driven by aerospace, healthcare, and tech sector growth—means credential-holders often progress to senior roles and higher compensation faster than non-certified peers. Pursuing AI training now positions you ahead of the curve in a competitive market where employers are actively recruiting certified professionals. Early certification can shorten your path to roles with above-average pay and advancement opportunities.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:41.954397Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8e841fc2dce8cf48",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Denver's aerospace and defense sector, anchored by employers like Lockheed Martin, drives consistent demand for skilled project managers across the region's diverse economy—from energy and healthcare to financial services and technology. Major infrastructure initiatives including the RTD FasTracks Transit Expansion and Central 70 Project underscore the city's need for capable program leadership. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Denver professionals seeking career advancement in this robust market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:18:43.591182Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "82181108dbed6ff4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-denver-co/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Denver, CO, AI courses Denver, CPMAI certification Denver, AI project management training Denver, CO, AI for project managers Denver",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-denver-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-denver-co/\",\n      \"name\": \"AI Training for Project Managers in Denver, CO — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Denver, CO for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Denver, CO\",\n            \"item\": \"https://granitepmacademy.com/ai-training-denver-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-denver-co/#course\",\n      \"name\": \"AI Training for Project Managers in Denver, CO\",\n      \"description\": \"CPMAI certification training for project managers in Denver, CO who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-denver-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-denver-co/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-denver-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-denver-co/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-denver-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

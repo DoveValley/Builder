@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "boise-id",
+  "slug": "pmp-certification-training-boise-id",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "boise-id",
+    "city": "Boise",
+    "state": "Idaho",
+    "SS": "ID",
+    "city_slug": "boise-id",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Boise's technology sector, anchored by Micron Technology's major semiconductor expansion, drives steady demand for skilled project managers across the city's tech, healthcare, and government roles. Infrastructure growth and consistent investment from employers like St. Luke's Health System and state agencies reinforce the market for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training tailored to Boise's working professionals, helping you earn the credential that advances your career in this thriving market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Boise's construction and infrastructure sectors rely heavily on credentialed project managers to lead complex, regulated initiatives. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, enabling you to earn your PMP credential while working. In Boise's competitive market, the PMP distinction positions you for advancement into senior management roles and higher compensation across construction, engineering, and public-sector project teams.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:15.085995Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "58cf9dc5f04b6549",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Boise for Growing Tech and Healthcare Leaders",
+      "text": "<p>Boise's technology sector, anchored by Micron Technology and complemented by innovation-driven companies like Clearwater Analytics and HP Inc., has fundamentally reshaped demand for certified project managers across the region. As these organizations expand operations and tackle increasingly complex product development, infrastructure, and digital transformation initiatives, the PMP® credential has become essential for professionals seeking advancement into leadership roles. Beyond tech, Boise's healthcare systems, financial services firms, and government agencies—from Saint Alphonsus to Idaho Central Credit Union and the State of Idaho—consistently recruit PMP-certified professionals to oversee mission-critical projects. The combination of steady population growth, infrastructure investment, and a talent pipeline supported by Boise State University creates a competitive job market where certification meaningfully differentiates your candidacy and earning potential.</p><p>Granite PM Academy delivers PMP Certification Training through live-virtual, instructor-led classes designed to fit the schedules of working professionals in Boise. As a PMI Authorized Training Partner, we provide the contact-hour requirements mandated for PMP eligibility and equip you with the practical knowledge active certified practitioners apply daily in real projects. Our instructors bring firsthand experience from the sectors driving Boise's economy, ensuring every concept connects to challenges you'll face in your career. Upon completion of our program and successful exam passage, you'll hold a credential recognized globally and valued by every major employer in your region—positioning you for the senior project and program management roles that define career growth in Boise.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:19.933196Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "453252d465e12e8a",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Boise's Growing Tech and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your contact hours count directly toward PMP® eligibility. No separate documentation or appeals—your completion satisfies PMI requirements from day one, accelerating your certification timeline."
+        },
+        {
+          "heading": "Live Instructors, Real Experience",
+          "text": "Our instructors are active PMP®-certified practitioners working in Boise's tech, healthcare, and construction sectors. They teach frameworks grounded in current project challenges, not textbook theory, preparing you for both the exam and your next role."
+        },
+        {
+          "heading": "Flexible Virtual Classroom Format",
+          "text": "Live-virtual instructor-led sessions fit Boise professionals' schedules without sacrificing interaction. Ask questions in real time, engage with peers across your industry, and complete the required contact hours without commuting downtown."
+        },
+        {
+          "heading": "Credential That Opens Doors Locally",
+          "text": "Employers across Boise—from Micron and Albertsons to St. Luke's and state agencies—actively hire PMP®-certified project managers. The credential signals readiness for leadership roles in the industries shaping the region's economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:24.283545Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3895f49a4306d448",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Across Boise's Growth Industries",
+      "text": "<p>Boise's robust technology sector—anchored by Micron Technology's multi-billion dollar semiconductor fabrication expansion—drives steady demand for skilled project managers across the region. Beyond tech, major employers including St. Luke's Health System, Albertsons Companies, and Idaho Power regularly seek certified professionals to lead complex initiatives, from healthcare facility expansions across the Treasure Valley to infrastructure modernization and large-scale operational programs. These organizations increasingly recognize that standardized project management credentials signal the discipline and rigor required to deliver ambitious, multi-stakeholder projects on time and within scope.</p><p>PMP certification carries measurable weight in Boise's competitive job market. While not universally mandated, the credential appears with growing frequency in local job postings—particularly in technology, healthcare, and construction—where employers value candidates who demonstrate mastery of formal PM methodologies. Project management professionals in Boise benefit from strong regional demand across multiple sectors, with compensation typically tracking favorably against national benchmarks when adjusted for the local cost of living. Completing your PMP Certification Training with Granite PM Academy positions you to differentiate yourself among qualified candidates and access roles where certified expertise commands a genuine premium, accelerating your advancement in a market where serious employers are actively building stronger project teams.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:28.380584Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "3f7b718a464e013b",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Boise",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience to sit for the PMP exam. Review PMI's eligibility criteria—which combine formal education with verifiable work hours leading projects or teams. Granite PM Academy's advisors can clarify whether your background meets the standard, so you know before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Our Boise-based instructors deliver the PMI-required contact hours over a flexible schedule, covering the PMBOK Guide framework, real-world case studies, and exam strategy. You'll interact directly with instructors and peers throughout the program—no self-paced recordings."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing your 35 contact hours, file your official PMP application with PMI. You'll provide proof of your education, project experience, and course completion. Pay the associated exam fee to PMI at this stage. Granite PM Academy staff will guide you through the online application process and document submission."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation support—practice questions, mock exams, and review sessions—to reinforce PMBOK concepts and build test confidence. You'll schedule your computer-based PMP exam through Pearson VUE at a testing center or at home. Sit for the exam knowing you've had hands-on instruction, not just e-learning materials."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After passing the PMP exam, you hold the credential for three years. During that cycle, earn Professional Development Units (PDUs) by attending training, conferences, volunteering in project-management roles, or publishing. Granite PM Academy offers ongoing PDU-eligible workshops to help Boise professionals stay current and maintain their certification status."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:34.608795Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "d91efe80f73f09c6",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Boise tech and healthcare careers?",
+          "answer": "<p>Yes, particularly if you work in Boise's dominant sectors. Major employers like Micron Technology, St. Luke's Health System, and Saint Alphonsus increasingly reference PMP or CAPM credentials in job postings as they scale large-scale initiatives and standardize project governance. PMP-certified professionals typically command measurable compensation premiums over non-certified peers, and the credential meaningfully strengthens your competitiveness in Boise's tight job market for senior project management roles.</p>"
+        },
+        {
+          "question": "Which Boise employers actively hire PMP-certified project managers?",
+          "answer": "<p>Technology firms (including semiconductor and fintech), healthcare systems, state and local government agencies, financial services, construction, and agribusiness all actively recruit PMP-certified talent in Boise. Micron, Clearwater Analytics, the major health systems, Idaho Power, and construction firms managing regional development projects are known to prioritize the credential. Government and public administration roles also increasingly favor candidates holding PMP or CAPM certification for federal and state grant-funded work.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working full-time in Boise?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to join from your Boise office, home, or any location with reliable internet. This flexibility suits professionals balancing full-time roles at Micron, healthcare systems, Albertsons, or other major employers. You'll interact with instructors and peers in real time without traveling, making it practical for Boise's working professionals to complete training around their existing schedule.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait, given Boise's job market?",
+          "answer": "<p>The credential's demand in Boise is rising, not declining. Employers across technology, healthcare, construction, and government are actively listing PMP or CAPM as preferred qualifications. If you're already managing projects or planning to transition into project management, earning the certification sooner strengthens your positioning in a competitive local market and can accelerate advancement and earning potential. Delayed certification typically only benefits employers, not candidates.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:41.404440Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "14a913ac7345e809",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Boise's semiconductor and technology corridor, anchored by Micron Technology's major fabrication expansion, drives consistent demand for skilled project managers across the region's tech, healthcare, and financial sectors. St. Luke's Health System and other major employers actively seek PMP-certified professionals to lead complex infrastructure and operational initiatives. Granite PM Academy delivers live-virtual PMP Certification Training tailored to Boise's working professionals, helping you earn the credential employers in your market value most.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:43.505591Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "ae22e850f3d983ed",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-boise-id/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Boise, ID, PMP exam prep Boise, PMP course Boise ID, project management certification Boise, ID, PMI PMP training Boise",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/\",\r\n      \"name\": \"PMP Certification Training in Boise, ID | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Boise, ID. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Boise, ID\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/#course\",\r\n      \"name\": \"PMP Certification Training in Boise, ID\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Boise, ID. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-boise-id/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

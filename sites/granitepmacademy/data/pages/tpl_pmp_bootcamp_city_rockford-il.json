@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "rockford-il",
+  "slug": "pmp-bootcamp-rockford-il",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "rockford-il",
+    "city": "Rockford",
+    "state": "Illinois",
+    "SS": "IL",
+    "city_slug": "rockford-il",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Rockford's advanced manufacturing and aerospace sectors—anchored by employers like Woodward Inc. and Collins Aerospace—drive consistent demand for skilled project managers overseeing complex modernization and production initiatives. The city's expanding logistics hub, including UPS air operations and Chicago Rockford International Airport infrastructure growth, further elevates opportunities for professionals managing large-scale, multi-phase projects. Granite PM Academy delivers live-virtual PMP® Certification training designed for Rockford's working professionals seeking to advance in these high-opportunity industries.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Rockford's manufacturing and industrial sector depends on skilled project managers to coordinate complex production timelines and cross-functional teams. Granite PM Academy delivers live-virtual PMP Boot Camp instruction that meets PMI's required contact hours, letting you earn your PMP credential while staying rooted in your community. For project managers in Rockford's competitive industrial market, PMP certification opens doors to leadership roles and salary advancement across the region's largest employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:16.787245Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "48c7696d0c259538",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Rockford: Advanced Manufacturing's Project Management Edge",
+      "text": "<p>Rockford's advanced manufacturing and aerospace sector—anchored by industry leaders like Woodward Inc. and Collins Aerospace—drives persistent demand for skilled project managers who can oversee plant modernization, equipment integration, and supply-chain coordination. Beyond manufacturing, Rockford's growing role as a logistics and air-cargo hub, combined with expansion across healthcare systems and public administration, has created a competitive job market where the Project Management Professional (PMP) credential distinguishes candidates. Employers across these sectors actively seek professionals certified to manage complex, multi-phase initiatives, from capital projects to organizational transformation. A PMP certification signals mastery of frameworks and real-world practices that Rockford's leading employers—including Mercyhealth, OSF HealthCare, UPS, and municipal agencies—depend on to keep projects on schedule and within scope.</p><p>Granite PM Academy's PMP Boot Camp is delivered by PMI-authorized instructors who are active certified practitioners, ensuring live-virtual, instructor-led training grounded in current industry practice. Our program satisfies the Project Management Institute's contact-hour requirements and prepares you to sit for the PMP exam with confidence. Whether you're advancing within Rockford's manufacturing base, transitioning into healthcare project leadership, or moving into the logistics sector, this intensive format compresses months of study into a structured, focused experience. Upon completion, you'll hold a globally recognized credential that opens doors within Rockford's strongest industries and positions you for roles with greater responsibility and compensation.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:20.926196Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "392c50f71b08b756",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Rockford's Advanced Manufacturing Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your boot camp attendance satisfies PMI contact-hour requirements for PMP eligibility, ensuring your training meets the Project Management Institute's rigorous standards without additional bureaucracy or uncertainty."
+        },
+        {
+          "heading": "Live Instructors, Real Practitioners",
+          "text": "Our instructors hold active PMP credentials and work in project management today. You learn from practitioners managing complex programs at companies like Woodward and Collins Aerospace, not from instructors reading slides. Real-world context accelerates exam readiness and job performance."
+        },
+        {
+          "heading": "Comprehensive Exam Preparation",
+          "text": "The boot camp includes structured exam-prep curriculum, practice questions aligned to current PMP test domains, and direct instructor feedback on your weak areas. You enter exam day confident, not hoping. Most participants pass on their first attempt."
+        },
+        {
+          "heading": "Match Rockford's Hiring Demand",
+          "text": "Mercyhealth, OSF HealthCare, Ingersoll Machine Tools, and Rockford's public agencies actively seek PMP-certified project managers to lead complex programs. The credential opens doors in healthcare delivery, advanced manufacturing, and municipal infrastructure—the sectors driving opportunity in this region."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:25.822613Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c1fc8e3669da5339",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Rockford's Industrial Hub",
+      "text": "<p>Rockford's advanced manufacturing and aerospace sector anchors demand for certified project managers. Woodward Inc. and Collins Aerospace—both major employers in the region—regularly seek PMP®-credentialed professionals to lead capital projects, production transitions, and supply-chain initiatives. Beyond manufacturing, Mercyhealth and OSF HealthCare drive substantial PM hiring as they expand their hospital campuses and modernize clinical operations. The Chicago Rockford International Airport's ongoing cargo and infrastructure expansion, along with UPS's growth in air hub operations, further illustrate how logistics and transportation projects create steady openings for professionals who can manage complex timelines and cross-functional teams.</p><p>PMP® certification carries real weight in Rockford's talent market. While project manager compensation here tracks slightly below Chicago-area averages, the region's concentration of aerospace, manufacturing, and healthcare employers actively competing for certified talent keeps salaries competitive—especially for candidates who can demonstrate process-improvement and capital-project expertise. Completing Granite PM Academy's PMP Boot Camp positions you to stand out among employers who value the credential as a marker of readiness to own mission-critical work. In a market where industrial base growth depends on skilled project leadership, the PMP® signals you're prepared to advance into roles with greater scope and responsibility across Rockford's strongest industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:31.241109Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "2423dd5de94633ce",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Rockford",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review your degree level and years of hands-on project leadership. Granite PM Academy's advisors can clarify whether your background qualifies before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. You'll cover the PMBOK® Guide framework, exam domains, and real-world case studies across scheduled sessions designed for working professionals in Rockford."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "File your PMP application with PMI and remit the exam fee after completing your coursework with us. Our team will guide you through the online submission process and answer questions about required documentation."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your exam when you're ready and take it at an approved Pearson VUE testing center."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) over the standard three-year renewal cycle to keep your certification active. Granite PM Academy offers ongoing learning opportunities and recertification support for credential holders."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:35.469422Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "4e2e94f654d9f89f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers working in Rockford manufacturing?",
+          "answer": "<p>Yes. Rockford's aerospace and advanced manufacturing base—including major employers like Woodward Inc. and Collins Aerospace—actively recruits certified project managers to lead capital projects and process-improvement initiatives. While Rockford PM compensation tracks slightly below Chicago-metro levels, the credential strengthens your competitive standing and signals readiness for complex, regulated environments where certification is increasingly expected.</p>"
+        },
+        {
+          "question": "Which Rockford employers value PMP certification most?",
+          "answer": "<p>Aerospace, manufacturing, healthcare systems, and logistics employers show the strongest demand. Companies managing complex operations—from Mercyhealth and OSF HealthCare to Woodward Inc. and UPS's regional logistics operations—prioritize PMP-certified leaders for enterprise projects. The credential also carries weight in public administration and education sectors, where Rockford Public Schools and City of Rockford increasingly rely on certified PMs for large initiatives.</p>"
+        },
+        {
+          "question": "Can I attend Rockford PMP boot camp live online from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format is designed for working professionals and runs on a schedule that accommodates full-time employment. Rockford-based participants often join from their office or home, making it practical to balance certification prep with ongoing project responsibilities at manufacturers, healthcare systems, and logistics hubs across the region.</p>"
+        },
+        {
+          "question": "Is now a good time to get PMP certified in Rockford?",
+          "answer": "<p>Yes. Rockford's manufacturing, aerospace, and healthcare sectors are actively seeking certified project management talent to manage capital and process-improvement projects. Steady regional demand and the credential's increasing expectation among mid-career and senior roles make certification a timely investment in your Rockford career trajectory.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:41.548223Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "2563103089f8ca1f",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Rockford's aerospace and advanced manufacturing sectors drive consistent demand for skilled project managers—from Collins Aerospace operations to Woodward Inc.'s complex engineering initiatives. Healthcare expansion projects at Mercyhealth and OSF HealthCare, plus logistics growth at Chicago Rockford International Airport, create additional certification-worthy opportunities across the region. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Rockford professionals balancing work and study.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:43.355699Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "5fdb0a0eac7fef90",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-rockford-il/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Rockford, IL, PMP bootcamp Rockford, PMP certification boot camp Rockford, IL, PMP bootcamp near me, intensive PMP training Rockford",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/\",\n      \"name\": \"PMP Boot Camp in Rockford, IL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Rockford, IL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Rockford, IL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/#course\",\n      \"name\": \"PMP Boot Camp in Rockford, IL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Rockford, IL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-rockford-il/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

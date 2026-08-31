@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "lancaster-pa",
+  "slug": "pmp-certification-training-lancaster-pa",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "lancaster-pa",
+    "city": "Lancaster",
+    "state": "Pennsylvania",
+    "SS": "PA",
+    "city_slug": "lancaster-pa",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Lancaster's healthcare sector—anchored by Penn Medicine Lancaster General Health and supported by strong manufacturing and agribusiness bases—creates sustained demand for certified project managers across campus expansions, facility upgrades, and regional development initiatives. Granite PM Academy delivers live-virtual PMP Certification training to Lancaster professionals seeking to advance their credentials and compete for these high-value roles.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Lancaster's manufacturing and logistics sectors depend on leaders who can coordinate complex, resource-constrained projects—precisely what the PMP credential demonstrates. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's contact-hour requirements, built around your schedule and the real workflows you'll manage. Earning your PMP positions you for advancement and higher compensation in Lancaster's competitive operations and project leadership roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:54.660772Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "295ca401b778d1ea",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Lancaster for Healthcare & Manufacturing Leaders",
+      "text": "<p>Lancaster's healthcare sector, anchored by Penn Medicine Lancaster General Health alongside a robust manufacturing base featuring Armstrong World Industries and other established producers, creates steady demand for skilled project managers who can navigate complex initiatives across clinical, operational, and production environments. Organizations managing patient care delivery, facility expansions, equipment implementations, and supply chain initiatives rely on professionals who hold the Project Management Professional (PMP)® credential to lead cross-functional teams and deliver results on time and within budget. Whether you work in healthcare administration, manufacturing operations, or the financial and agribusiness sectors that round out Lancaster's professional landscape, the PMP® certification signals to employers that you bring structured methodology, risk management discipline, and proven leadership capability to your role.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live instructor-led PMP® Certification Training designed for working professionals in Lancaster who cannot interrupt their careers for extended classroom commitments. Our courses satisfy the contact-hour requirements set by the Project Management Institute, are taught by active certified practitioners with real-world experience in industries similar to yours, and provide the foundation you need to pass the PMP® exam and advance your career. We combine rigorous curriculum, practical examples, and personalized support to prepare you for certification and equip you to manage projects with greater confidence and measurable impact in your organization.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:59.010898Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "2d98d4b422eabcd9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Lancaster's Project Managers Choose PMI Certification",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Matters",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® training meets all PMI standards. This credential is recognized by healthcare systems, manufacturers, and financial firms across Lancaster—the employers actively hiring certified project managers."
+        },
+        {
+          "heading": "Live Instruction, Real Flexibility",
+          "text": "Our live-virtual instructor-led format lets you complete the required contact hours without relocating or abandoning your job at Armstrong, Lancaster General, or other major local employers. Schedule classes around your current responsibilities while earning a credential that accelerates promotion."
+        },
+        {
+          "heading": "Learn from Active Practitioners",
+          "text": "Your instructors hold active PMP® certifications and work in manufacturing, healthcare, and financial services—the industries driving Lancaster's economy. Their real-world experience preparing you for both the exam and project leadership roles you'll step into immediately after certification."
+        },
+        {
+          "heading": "Lancaster Employers Value This Credential",
+          "text": "Healthcare systems, food processing, and insurance firms across Lancaster County actively seek PMP®-certified professionals for supervisory and leadership roles. The PMP® opens doors to higher compensation and advancement at institutions like Fulton Financial, Turkey Hill, and Willow Valley Communities."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:03.456612Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "68d2acdabc09aa4f",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Lancaster",
+      "text": "<p>Lancaster's healthcare sector anchors steady demand for certified project managers. Penn Medicine Lancaster General Health's ongoing campus and facility expansions require skilled professionals to oversee complex initiatives, and the organization increasingly seeks candidates with PMP® or CAPM® credentials for project leadership roles. Beyond healthcare, manufacturers like Armstrong World Industries and Woodstream Corporation, along with financial services employers such as Fulton Financial Corporation, regularly hire project managers to lead operational and strategic initiatives. High Companies' mixed-use and commercial real estate developments in downtown Lancaster further illustrate the local breadth of projects that depend on strong project governance and certified PM expertise.</p><p>While project manager compensation in Lancaster runs slightly below larger regional metros, the steady demand across healthcare, manufacturing, and financial services sectors makes PMP® or CAPM® certification a meaningful competitive advantage. Employers in these industries increasingly favor candidates who have formalized their project management methodology and earned recognized credentials—especially as organizations strengthen their project governance practices. Completing your PMP Certification Training through Granite PM Academy positions you to stand out in a market where credentials are becoming the standard expectation for mid- and senior-level PM roles, opening doors to advancement within Lancaster's largest employers and most visible growth initiatives.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:07.170846Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "698ce01946e93d24",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Lancaster",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and measurable project-management experience before you apply. Review PMI's education and hours requirements—Granite PM Academy's enrollment team can verify your qualifications and help you document your experience for a smooth application."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our Lancaster-based instructors deliver all required contact hours in real time, with recorded sessions available for review. Flexible scheduling accommodates working professionals across the region's manufacturing, healthcare, and distribution sectors."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing your coursework, submit your formal application directly to PMI and pay the associated exam fee. Granite PM Academy provides guidance on the application portal and helps you organize all required documentation so your submission meets PMI's standards."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and one-on-one coaching—to build confidence. Schedule your proctored PMP exam when you feel ready. Our instructors remain available to answer last-minute questions and clarify complex concepts."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to a standard three-year renewal cycle by earning professional development units (PDUs). Granite PM Academy offers ongoing training courses and webinars that count toward renewal, keeping your skills current and your credential active."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:12.271401Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6da2bb04550be1f7",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Lancaster healthcare project managers?",
+          "answer": "<p>Yes. Penn Medicine Lancaster General Health and other regional healthcare systems increasingly formalize project governance and seek PMP-credentialed leaders for clinical IT, facility expansion, and operational improvement initiatives. The credential strengthens your candidacy for mid- to senior-level roles where structured methodology directly supports patient outcomes and regulatory compliance.</p>"
+        },
+        {
+          "question": "Which Lancaster industries value PMP certification most in job postings?",
+          "answer": "<p>Healthcare, manufacturing, and financial services dominate Lancaster's employer base and increasingly favor PMP or CAPM credentials when filling project management positions. Armstrong World Industries, Woodstream Corporation, and Fulton Financial Corporation regularly hire project managers for strategic initiatives. These sectors view certification as evidence of governance maturity and risk management capability.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training from my Lancaster workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to attend classes from your office, home, or any location with stable internet—eliminating commute time to Philadelphia or Harrisburg training centers. This flexibility is especially valuable for Lancaster professionals balancing full-time roles at major employers while pursuing certification on your own schedule.</p>"
+        },
+        {
+          "question": "Should I get PMP certified now or wait for Lancaster job market demand?",
+          "answer": "<p>Pursue certification now. Demand for project management credentials in Lancaster's healthcare, manufacturing, and financial services sectors is steady and growing as organizations formalize governance practices. Earning your credential before a promotion opportunity arises positions you ahead of internal and external candidates, especially for mid- to senior-level roles that track slightly below larger metros in compensation but remain competitive within the region.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:17.091020Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "228d61865a079244",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Lancaster's healthcare sector—anchored by Penn Medicine Lancaster General Health and supported by robust manufacturing and agribusiness foundations—consistently generates demand for certified project managers. Major expansions at Lancaster General Health and downtown revitalization initiatives create real career momentum for PMP-credentialed professionals in the region. Granite PM Academy delivers live-virtual PMP Certification Training tailored to Lancaster's working professionals.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:08:18.621185Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9ae28a2fc323f825",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-lancaster-pa/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Lancaster, PA, PMP exam prep Lancaster, PMP course Lancaster PA, project management certification Lancaster, PA, PMI PMP training Lancaster",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/\",\r\n      \"name\": \"PMP Certification Training in Lancaster, PA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Lancaster, PA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Lancaster, PA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/#course\",\r\n      \"name\": \"PMP Certification Training in Lancaster, PA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Lancaster, PA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-lancaster-pa/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

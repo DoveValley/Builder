@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "trenton-nj",
+  "slug": "pmp-bootcamp-trenton-nj",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "trenton-nj",
+    "city": "Trenton",
+    "state": "New Jersey",
+    "SS": "NJ",
+    "city_slug": "trenton-nj",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Trenton's project management demand centers on state government agencies, healthcare systems, and infrastructure modernization—from NJ Transit's Trenton Transit Center capital improvements to Capital Health System's ongoing initiatives. Employers like the State of New Jersey and PSE&G actively recruit PMP-certified professionals to lead complex public and private projects. Granite PM Academy delivers live-virtual PMP Certification training to Trenton professionals seeking the credential that unlocks career advancement in this steady, government-anchored job market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Trenton's pharmaceutical and life-sciences sector relies on project managers to shepherd complex regulatory and product-development initiatives. Granite PM Academy's PMP Boot Camp delivers live-virtual, instructor-led training that satisfies PMI's required contact hours, preparing you to sit for the PMP certification exam. For project professionals in the region, the PMP credential strengthens your qualifications for leadership roles and positions you competitively across Trenton's growing healthcare and industrial sectors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:43.349725Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "2c422ac80c6f1b53",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Trenton: Accelerate Your Project Management Career",
+      "text": "<p>Trenton's economy runs on project management. As New Jersey's capital, the city anchors one of the nation's largest public-sector job markets—state government agencies manage complex infrastructure, regulatory, and modernization initiatives that demand certified project leaders. Beyond government, Capital Health System, NJM Insurance Group, and other major employers headquartered or operating in Trenton depend on PMP-certified professionals to deliver critical healthcare, financial services, and utility projects on time and within budget. If you work in state administration, healthcare delivery, or infrastructure modernization in Trenton, earning your PMP® credential positions you for advancement into leadership roles where project governance and stakeholder management directly influence career trajectory and compensation.</p><p>Granite PM Academy delivers PMP Boot Camp as an intensive, live-virtual, instructor-led program authorized by the Project Management Institute. Our curriculum covers the full scope of the PMBOK® Guide and satisfies the contact-hour requirements mandated for PMP eligibility, taught by active certified practitioners who bring real-world experience from industries that dominate Trenton's economy. You'll learn contemporary project delivery frameworks, risk management, and team leadership in an accelerated format designed for working professionals. Upon completion, you'll be prepared to sit for the PMP exam and join the ranks of certified professionals advancing project-driven organizations throughout the capital region.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:47.711037Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "8367cc5861ffb505",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Fast-Track for Trenton's Public Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your boot camp hours count directly toward PMP eligibility. No need to verify credentials separately—your enrollment satisfies PMI's contact-hour requirement immediately."
+        },
+        {
+          "heading": "Live Instruction, Real Schedules",
+          "text": "Attend instructor-led sessions synchronously from your location without sacrificing job responsibilities. Our live-virtual format delivers the same rigor as in-person training while letting you balance work and study."
+        },
+        {
+          "heading": "Instructors Still Doing the Work",
+          "text": "Your instructors hold active PMP certification and manage real projects today—not just teach frameworks. They bring current, field-tested examples and exam strategies grounded in working practice, not outdated theory."
+        },
+        {
+          "heading": "Unlock Demand in Trenton's Largest Sectors",
+          "text": "State agencies, hospitals, utilities, and manufacturers across the Trenton region actively hire certified project managers. The PMP credential opens doors at organizations like the State of New Jersey, Capital Health System, and PSE&G—employers building infrastructure and programs at scale."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:51.699246Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b01657167f0e08f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Growing in Trenton",
+      "text": "<p>State and local government agencies dominate the Trenton project-management landscape, with the State of New Jersey, Mercer County Government, and Trenton Public Schools all managing substantial operational and capital initiatives. Healthcare employers—including Capital Health System and Henry J. Austin Health Center—represent another significant hiring stream, as do insurance and financial services firms like NJM Insurance Group. Real infrastructure projects underway in the region, such as the New Jersey State House renovation and Trenton Water Works upgrades, illustrate the ongoing demand for skilled project managers who can coordinate complex, multi-stakeholder work. Manufacturing and utilities sectors, anchored by Church & Dwight and PSE&G, also employ certified PMs to oversee production and infrastructure changes.</p><p>PMP and CAPM credentials carry measurable weight in Trenton's job market, particularly in state government, healthcare administration, and insurance operations, where standardized project governance is increasingly expected. While not universally required, certification is frequently listed as a preferred qualification that meaningfully strengthens your candidacy. Project manager compensation in the Trenton area generally tracks New Jersey state and healthcare sector pay scales—competitive with the broader Mid-Atlantic region, though exact figures vary by industry and your experience level. Completing the PMP Boot Camp through Granite PM Academy positions you to meet this local credential demand and advance into roles where your certification directly influences hiring decisions and career progression in Trenton's largest employers.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:55.605573Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "150ecd0ba404fe54",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Trenton",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a specific combination of formal education and documented project-management experience. Review PMI's eligibility criteria to confirm you meet the hours and educational level required. Granite PM Academy's advisors can help you assess whether your background qualifies before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. This formal education meets PMI's mandatory contact-hour requirement and covers the full PMBOK Guide framework. Our Trenton cohorts are scheduled to fit working professionals' calendars without compromising depth or engagement."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, apply directly to PMI and pay the examination fee through PMI's official portal. Granite PM Academy provides guidance on application completion and documentation. PMI will review your eligibility and grant authorization to schedule your exam once approved."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice tests, and instructor office hours to reinforce key concepts. Schedule your PMP exam at a PMI-authorized testing center. Our instructors remain available to answer technical questions as you move toward test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "PMP renewal requires earning professional development units (PDUs) over a standard three-year cycle. Granite PM Academy offers ongoing PDU-eligible workshops and webinars to support your continuous learning. Track your PDUs through PMI's system and renew before your credential expires."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:00.835525Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "74a4722567c07309",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for state government jobs in Trenton?",
+          "answer": "<p>Yes. The State of New Jersey and Mercer County Government increasingly cite PMP and CAPM credentials as preferred qualifications in project management and administrative postings. Certification signals standardized governance competency valued in public-sector hiring, even when not strictly required. For careers in state or local government, the credential strengthens candidacy and supports advancement into senior roles managing multi-year, complex initiatives.</p>"
+        },
+        {
+          "question": "Which Trenton employers most value PMP certification credentials?",
+          "answer": "<p>Capital Health System, NJM Insurance Group, State of New Jersey, and Mercer County Government actively seek PMP- and CAPM-certified candidates. Healthcare administration, insurance operations, and government contracting roles increasingly reference these credentials as preferred qualifications. Manufacturing and utility sectors (Church & Dwight, PSE&G, NJ Transit) also value standardized project management expertise, particularly for infrastructure and process-improvement initiatives.</p>"
+        },
+        {
+          "question": "Can I attend a live-virtual PMP boot camp from my Trenton workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to participate from your office, home, or any location with reliable internet. Trenton professionals in state offices, healthcare systems, and corporate settings commonly attend from their workplaces during business hours or flex schedules. Check with your employer's IT policies on Zoom or video-conference access, but the course itself requires only a standard internet connection and a quiet workspace.</p>"
+        },
+        {
+          "question": "Does Trenton's job market favor getting PMP certified now or waiting?",
+          "answer": "<p>Trenton's strong public-sector and healthcare presence means demand for standardized project credentials is stable and growing. Waiting delays competitive advantage: postings from State of New Jersey, Capital Health, and similar employers increasingly list certification as preferred. If you're targeting government, healthcare, or insurance roles, completing the boot camp and exam sooner positions you ahead of candidates still in progress or uncertified.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:07.529329Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "99a1e35e0c98d292",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>As New Jersey's capital, Trenton anchors project management demand across state government agencies, healthcare systems, and financial services firms like NJM Insurance Group—alongside infrastructure modernization at NJ Transit and Trenton Water Works. The PMP® credential is highly valued in this public-sector–driven market, where government contracting and regulatory compliance shape career advancement. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Trenton professionals seeking certification without relocating.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:09.520706Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "017ca3550f04091d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-trenton-nj/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Trenton, NJ, PMP bootcamp Trenton, PMP certification boot camp Trenton, NJ, PMP bootcamp near me, intensive PMP training Trenton",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/\",\n      \"name\": \"PMP Boot Camp in Trenton, NJ | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Trenton, NJ. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Trenton, NJ\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/#course\",\n      \"name\": \"PMP Boot Camp in Trenton, NJ\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Trenton, NJ. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-trenton-nj/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

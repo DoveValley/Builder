@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "fort-collins-co",
+  "slug": "ai-training-fort-collins-co",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "fort-collins-co",
+    "city": "Fort Collins",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "fort-collins-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Fort Collins' project management demand spans technology, clean energy, higher education, and healthcare—anchored by Colorado State University, Woodward, Inc., and Advanced Energy Industries. Major initiatives like the Fort Collins Connexion broadband buildout and CSU's ongoing campus modernization create steady openings for skilled program and project managers. Granite PM Academy delivers live-virtual PMP Certification to Fort Collins professionals seeking structured credentials aligned with the region's robust private and public-sector project pipeline.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Fort Collins's engineering and technology sectors rely on project managers who can integrate AI tools into planning and execution workflows. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that fulfills PMI contact-hour requirements, taught by experienced practitioners who understand Colorado's innovation landscape. Master AI applications in scope, schedule, and risk management to strengthen your competitiveness in a market where technical fluency increasingly distinguishes high-performing PMs.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:43.438777Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3ccb2332d63b013d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Fort Collins",
+      "text": "<p>Fort Collins's technology and electronics manufacturing sector—anchored by companies like Woodward and Broadcom—is rapidly integrating artificial intelligence into project workflows, making AI competency essential for program managers seeking competitive advantage. Beyond manufacturing, Colorado State University, Advanced Energy Industries, and the city's expanding clean energy ecosystem all demand project leaders who can navigate AI-driven tools for scheduling, resource optimization, and risk forecasting. Whether you manage cross-functional teams in aerospace, healthcare, or renewable energy, understanding how to leverage AI within structured project methodologies is no longer optional in Fort Collins's job market. Organizations across the city are actively recruiting PMs who combine traditional delivery expertise with hands-on AI literacy.</p><p>Granite PM Academy delivers instructor-led, live-virtual AI training designed specifically for project managers pursuing PMP® or CAPM® certification. Our curriculum meets PMI's rigorous contact-hour requirements while keeping you engaged with real-world Fort Collins case studies—from manufacturing timelines to clean-energy program complexity. Every instructor is an active certified practitioner who brings current industry experience into each session, ensuring you learn AI applications that matter to employers in your region. Upon completion, you'll hold a recognized credential backed by PMI, the global standard in project management, positioning you for roles that command premium compensation in Fort Collins's talent-competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:47.812122Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4c4892fb758b329d",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI-Ready Project Managers Fort Collins Employers Need",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Guarantees Credential Recognition",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status means your PMP® or CAPM® certificate meets PMI standards and employer expectations across Fort Collins's technology, aerospace, and energy sectors. No guesswork about credential validity."
+        },
+        {
+          "heading": "Live Instruction Fits Your Work Schedule",
+          "text": "Instructor-led virtual classes deliver the contact hours required for PMI certification while letting you train from home or your Fort Collins office. Real instructors answer questions in real time; recorded sessions support flexible study around your job."
+        },
+        {
+          "heading": "Learn From Practicing Certified Project Managers",
+          "text": "Granite PM Academy instructors hold active PMP® and CAPM® credentials and work as practitioners in manufacturing, energy, and higher education—the industries driving Fort Collins hiring. You get field-tested knowledge, not textbook theory."
+        },
+        {
+          "heading": "Certification Opens Doors at Local Leaders",
+          "text": "Fort Collins employers like Woodward, Inc., Advanced Energy Industries, and Colorado State University actively recruit certified project managers. PMP® and CAPM® credentials improve your competitiveness for roles managing complex programs in aerospace, renewables, and operations."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:52.083054Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "e9c9f893257f7e7a",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Fort Collins",
+      "text": "<p>Fort Collins' advanced manufacturing and engineering sector—anchored by Woodward, Inc. and Broadcom—drives consistent demand for certified project managers who can coordinate complex facility expansions, product development cycles, and technology deployments. Beyond manufacturing, Colorado State University's ongoing capital construction and campus modernization projects, coupled with UCHealth Poudre Valley Hospital's facility growth initiatives, create significant PM roles across higher education and healthcare administration. The city's clean energy innovation ecosystem and the Fort Collins Connexion municipal broadband buildout further demonstrate how local employers in technology, renewable energy, and public infrastructure rely on structured project delivery and skilled management.</p><p>Earning your PMP® or CAPM® credential positions you competitively within Fort Collins' talent market, where employers increasingly cite certification as a differentiator in engineering, manufacturing, and healthcare roles. While project management credentials are not universally required, they typically correlate with stronger compensation offers and faster advancement opportunities—especially valuable given the Front Range's competitive PM salary landscape. Completing Granite PM Academy's AI Training for Project Managers equips you with both foundational PM principles and emerging AI competencies, making you a stronger candidate for the growing number of Fort Collins employers seeking managers who can navigate modern delivery challenges and lead teams in an increasingly data-driven environment.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:56.452340Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "9e4a25d0bde557f8",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth it for Fort Collins tech and manufacturing careers?",
+          "answer": "<p>Yes. Fort Collins' largest employers—Woodward, Inc., Broadcom, Advanced Energy Industries, and OtterBox—increasingly embed AI and automation into project workflows. PMP and CAPM credentials already differentiate candidates in local engineering and manufacturing roles; adding AI competency positions you for advancement and stronger offers in a competitive Front Range market where structured, data-driven project delivery is now standard.</p>"
+        },
+        {
+          "question": "Which Fort Collins employers value AI project management certification most?",
+          "answer": "<p>Engineering, manufacturing, and healthcare employers prize it most. Companies like Woodward (aerospace systems), Broadcom (electronics), and UCHealth Poudre Valley Hospital use AI-enabled project tools for resource optimization and risk management. Colorado State University and the City of Fort Collins also increasingly adopt AI-assisted planning. Certification signals you can lead modern, tech-forward delivery—a key differentiator in local job postings.</p>"
+        },
+        {
+          "question": "Can I attend Fort Collins AI project manager training from my workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format lets you join from your office, home, or any location with reliable internet—ideal if you work at a Front Range employer with flexible remote options. You can participate in real time without commuting, making it practical for Fort Collins professionals balancing full-time roles at major local employers while earning certification.</p>"
+        },
+        {
+          "question": "How does Fort Collins' job market timing affect when to pursue AI PM certification?",
+          "answer": "<p>Fort Collins' engineering, clean energy, and healthcare sectors have steady, year-round hiring. However, many manufacturers and tech firms ramp projects in spring and fall. Certifying before peak hiring seasons—or when your employer launches new initiatives—maximizes visibility. Because PMP and AI competency are increasingly cited as preferred qualifications, early certification can position you ahead of competing candidates in a growing local market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:02.907176Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "821494bb99ed511d",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Collins' project management landscape is anchored by Colorado State University, Woodward, and a thriving clean-energy sector, alongside healthcare and craft-beverage operations that consistently demand skilled coordinators and program managers. Major initiatives like the Fort Collins Connexion broadband buildout and CSU's campus modernization projects underscore steady demand for structured delivery expertise across public and private sectors. Granite PM Academy delivers live-virtual AI Training for Project Managers to Fort Collins professionals seeking to advance their credentials and career prospects.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:05.014091Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "6570d014e914208f",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-fort-collins-co/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Fort Collins, CO, AI courses Fort Collins, CPMAI certification Fort Collins, AI project management training Fort Collins, CO, AI for project managers Fort Collins",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fort-collins-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fort-collins-co/\",\n      \"name\": \"AI Training for Project Managers in Fort Collins, CO — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Fort Collins, CO for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Fort Collins, CO\",\n            \"item\": \"https://granitepmacademy.com/ai-training-fort-collins-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fort-collins-co/#course\",\n      \"name\": \"AI Training for Project Managers in Fort Collins, CO\",\n      \"description\": \"CPMAI certification training for project managers in Fort Collins, CO who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-fort-collins-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fort-collins-co/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-fort-collins-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-fort-collins-co/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-fort-collins-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

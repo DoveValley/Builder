@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "macon-ga",
+  "slug": "pmp-bootcamp-macon-ga",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "macon-ga",
+    "city": "Macon",
+    "state": "Georgia",
+    "SS": "GA",
+    "city_slug": "macon-ga",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier5"
+    ],
+    "city_spotlight": "<p>Macon's project management demand centers on aerospace and defense operations at Robins Air Force Base, alongside healthcare and advanced manufacturing sectors. Facility upgrades, manufacturing expansions, and downtown infrastructure initiatives create steady demand for skilled program managers who can navigate complex, multi-stakeholder coordination. Granite PM Academy delivers live-virtual PMP® Certification training tailored to Macon professionals seeking to advance in these growth industries.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Macon's healthcare and manufacturing sectors rely heavily on skilled project managers to coordinate complex operations and capital initiatives. Granite PM Academy's PMP Boot Camp delivers live-virtual, instructor-led training that fulfills PMI's contact-hour education requirement, allowing you to earn your PMP credential while maintaining your current role. Completing this certification positions you to advance into senior leadership and command higher compensation within Macon's competitive project-management market.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:45.796565Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "184f47e9b37b5cbf",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Macon: Advance Your Career in Aerospace & Defense",
+      "text": "<p>Robins Air Force Base and its constellation of defense contractors have made Macon a hub for complex, mission-critical project management. Professionals managing aerospace and defense programs—alongside those in healthcare systems like Atrium Health Navicent and advanced manufacturing environments at YKK Corporation and Kumho Tire—operate in environments where scope, schedule, and stakeholder coordination are non-negotiable. A Project Management Professional (PMP) credential signals mastery of these disciplines and directly strengthens your candidacy for leadership roles in Macon's most demanding sectors, where federal compliance, multi-phase timelines, and cross-functional teams are the norm.</p><p>Granite PM Academy delivers live, instructor-led PMP Boot Camp designed to meet PMI's rigorous contact-hour requirements and prepare you for certification in a compressed timeframe. Our instructors are active, certified practitioners who bring real-world experience from industries that anchor Macon's economy. The boot camp format condenses study into an intensive schedule, ideal for working professionals balancing employment with credential advancement. Upon completion, you'll have satisfied PMI prerequisites and gained the knowledge and confidence to sit for the PMP exam—positioning you for the project management roles that Macon's growth employers are actively seeking.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:50.299754Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b9044200832811fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Macon's Aerospace and Defense Workforce",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP Boot Camp delivers the rigor and recognition employers require. Your certificate of completion satisfies PMI's contact-hour mandate for eligibility, giving you a direct path to exam application."
+        },
+        {
+          "heading": "Live Instruction, Real-World Expertise",
+          "text": "Our instructors are active PMP-certified practitioners managing projects in defense, healthcare, and manufacturing—the industries hiring in Macon. Live-virtual instruction means you learn from practitioners solving today's challenges, not archived content, with interactive Q&A built into every session."
+        },
+        {
+          "heading": "Comprehensive Exam Readiness Support",
+          "text": "Beyond boot camp hours, you receive practice exams, study guides, and instructor office hours to close knowledge gaps before test day. This structured preparation approach increases confidence and alignment with the PMP exam blueprint and local employer expectations."
+        },
+        {
+          "heading": "Credential Valued by Macon Employers",
+          "text": "Robins Air Force Base, Kumho Tire, YKK Corporation, and Atrium Health Navicent actively recruit PMP-certified professionals for program and project leadership. The credential signals readiness for advancement in the aerospace, manufacturing, healthcare, and logistics sectors that define Macon's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:54.824322Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "fda5df89f812eac2",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Macon's Growing Sectors",
+      "text": "<p>Robins Air Force Base stands as a cornerstone employer in Macon's project-management landscape, overseeing facility upgrades and mission-critical operations that demand rigorous project oversight. Beyond defense, Atrium Health Navicent, YKK Corporation, and Kumho Tire all actively manage substantial facility expansions and manufacturing operations requiring structured project governance. The Downtown Macon revitalization and infrastructure initiatives further illustrate the region's investment in complex, coordinated projects—efforts that increasingly depend on formally credentialed project managers to keep timelines, budgets, and stakeholder alignment on track.</p><p>The PMP and CAPM® credentials carry real weight in Macon's manufacturing, healthcare, and government sectors, where employers are strengthening their demand for certified project managers as part of a regional shift toward professional project-management standards. While project-manager compensation in the Macon area tends to run slightly below national averages, the region's manufacturing, defense, and healthcare bases keep salaries competitive and advancement opportunities steady. Completing the PMP Boot Camp through Granite PM Academy positions you to meet this growing credential preference, directly enhancing your prospects for roles managing the facility expansions, infrastructure projects, and operational initiatives that define Macon's career landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:13:58.441344Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1f789d1654f13501",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Macon",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Macon professionals in manufacturing, logistics, and public sector roles typically meet these standards. Gather documentation of your background before applying to ensure a smooth submission process."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our experienced trainers deliver the required formal education on a schedule that fits working professionals. You'll gain practical knowledge and direct access to instructors throughout the program."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, file your official PMI application online and pay the associated exam fee. Our team provides guidance on the submission process. PMI will review your credentials and send exam authorization once approved."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources to reinforce course concepts and build confidence. Schedule your computer-based PMP exam at a local testing center. Our instructors remain available to answer questions before test day."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "Earn Professional Development Units (PDUs) throughout the standard three-year renewal cycle to keep your PMP active. Granite PM Academy offers continuing education options that help you stay current and maintain certification without interruption."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:14:03.086459Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "f84521c58c96372c",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Macon project managers in aerospace and defense?",
+          "answer": "<p>Robins Air Force Base and its contractor ecosystem make aerospace and defense a cornerstone of Macon's economy. Employers in this sector increasingly expect or require PMP or CAPM credentials for project management roles, especially on government-affiliated contracts. Earning the PMP demonstrates compliance readiness and strengthens your competitiveness for advancement and specialized assignments in this high-demand local industry.</p>"
+        },
+        {
+          "question": "Which Macon employers value PMP certification most in manufacturing and healthcare?",
+          "answer": "<p>Manufacturing employers like YKK Corporation, Kumho Tire, and Blue Bird Corporation, alongside healthcare systems such as Atrium Health Navicent, are adopting formal project management practices region-wide. These organizations increasingly prioritize PMP and CAPM credentials when hiring or promoting project managers, reflecting a shift toward standardized methodologies in operations, quality, and clinical projects.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP boot camp from my Macon workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet connectivity. This flexibility suits Macon professionals balancing full-time roles at Robins, Navicent, the school district, or other major employers, letting you complete boot camp training without travel disruption while maintaining your work schedule.</p>"
+        },
+        {
+          "question": "When should Macon project managers pursue PMP boot camp given local job market trends?",
+          "answer": "<p>Macon's growing emphasis on formalized project management in defense, healthcare, and manufacturing means the earlier you earn your PMP, the faster you can capitalize on credential-driven promotions and higher-level roles. If you're already managing projects in these industries, boot camp timing should align with your promotion timeline or when your employer signals certification demand—both signals are strengthening in the region now.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:14:09.112041Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7949ea8b2daad0fb",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Macon's project management demand centers on aerospace and defense, anchored by Robins Air Force Base alongside healthcare giants like Atrium Health Navicent and advanced manufacturers including YKK Corporation. As infrastructure upgrades and industrial expansion projects accelerate across the region, employers increasingly seek PMP®-certified professionals who can lead complex, multi-stakeholder initiatives. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Macon's working professionals.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:14:10.629677Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "378b788591d1c839",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-macon-ga/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Macon, GA, PMP bootcamp Macon, PMP certification boot camp Macon, GA, PMP bootcamp near me, intensive PMP training Macon",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/\",\n      \"name\": \"PMP Boot Camp in Macon, GA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Macon, GA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Macon, GA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/#course\",\n      \"name\": \"PMP Boot Camp in Macon, GA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Macon, GA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-macon-ga/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

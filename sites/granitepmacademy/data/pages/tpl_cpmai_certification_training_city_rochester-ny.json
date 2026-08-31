@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "rochester-ny",
+  "slug": "ai-training-rochester-ny",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "rochester-ny",
+    "city": "Rochester",
+    "state": "New York",
+    "SS": "NY",
+    "city_slug": "rochester-ny",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Rochester's healthcare and advanced manufacturing sectors—anchored by Rochester Regional Health, the University of Rochester Medical Center, and legacy optics and imaging firms—sustain steady demand for credentialed project managers overseeing capital expansions, IT initiatives, and process improvements. Downtown revitalization and healthcare facility projects continue to create PM career opportunities across the region. Granite PM Academy delivers live-virtual PMP® Certification training for Rochester professionals seeking to advance in this active market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Rochester's healthcare, imaging technology, and advanced manufacturing sectors increasingly rely on project managers who can integrate AI tools into planning, risk management, and team coordination. Granite PM Academy delivers live-virtual, instructor-led AI training for project managers that satisfies PMI's contact-hour requirements, fitting the schedules of working professionals across the region. Mastering AI-driven project management positions you to command higher responsibility and compensation in Rochester's knowledge-intensive industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:27.660185Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "bc60ec47c9b73cf5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Rochester, NY",
+      "text": "<p>Rochester's healthcare and biomedical research sector—anchored by major systems like Rochester Regional Health and the University of Rochester—demands project managers who can navigate complex clinical initiatives, capital expansions, and research programs with confidence. As AI reshapes how healthcare organizations prioritize work, allocate resources, and forecast outcomes, project managers in Rochester face immediate pressure to understand artificial intelligence's role in their discipline. Whether you're managing a hospital renovation, a research compliance project, or an IT modernization initiative, AI literacy has become essential to your credibility and effectiveness. Granite PM Academy's specialized AI training equips Rochester-based project professionals with frameworks to evaluate AI tools, integrate them into planning and risk management, and lead teams through technology-enabled transformation.</p><p>Granite PM Academy is a PMI Authorized Training Partner delivering live-virtual, instructor-led AI training designed for working project managers. Our courses satisfy the contact-hour requirements recognized by the Project Management Institute for both the PMP® and CAPM® credentials, taught by active certified practitioners who work in industries like yours. You'll gain practical competency in AI applications—from predictive analytics to stakeholder communication—without leaving Rochester or sacrificing your work schedule. Upon completion, you'll hold credentials that employers across Rochester's healthcare systems, manufacturing firms, and higher-education institutions actively seek, positioning you for advancement and competitive compensation as organizations accelerate their AI adoption strategies.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:32.316495Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "cb4ff42c83a2a316",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills That Rochester's Top Employers Actually Need",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Recognized Credential",
+          "text": "Granite PM Academy's PMI Authorized Training Partner status ensures your PMP® or CAPM® certification meets rigorous standards. Employers across Rochester's healthcare, biomedical, and technology sectors recognize PMI credentials as proof of competence, not just completion."
+        },
+        {
+          "heading": "Live Instructors Meet Real Requirements",
+          "text": "Our live-virtual format delivers instructor-led contact hours that satisfy PMI eligibility and renewal demands. Active certified practitioners teach current AI applications in project workflows, so you learn methods your peers at Xerox, L3Harris, or Paychex actually use today."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Session",
+          "text": "Rather than generic training, we embed PMP® and CAPM® exam strategy throughout the curriculum. You practice exam-style questions tied to AI-driven project scenarios, so you enter test day confident and prepared."
+        },
+        {
+          "heading": "Rochester's Healthcare and Tech Employers Hire Certified PM Talent",
+          "text": "University of Rochester, Rochester Regional Health, and IT firms like Paychex actively seek project managers with current certifications and AI fluency. A PMI credential positions you to lead digital transformation and operational efficiency initiatives they're funding now."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:36.659598Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "efc4efb6b8b64b70",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Rochester's Growth Sectors",
+      "text": "<p>Rochester's healthcare and advanced-manufacturing ecosystems create steady demand for certified project managers. Rochester Regional Health and University of Rochester Medical Center—both undertaking significant facility and research expansions—rely on skilled PMs to oversee complex initiatives. Similarly, the region's optics and photonics cluster, anchored by AIM Photonics research at the University of Rochester, and the ongoing redevelopment of the Eastman Business Park attract project professionals who can manage cross-functional teams and budgets in specialized technical environments. Wegmans Food Markets, Paychex, and L3Harris Technologies round out a diverse employer base where structured project oversight remains a competitive advantage.</p><p>PMP® and CAPM® credentials hold particular weight among Rochester's healthcare, manufacturing, and technology employers, where methodical project governance is highly valued. While not universally mandated, certification often distinguishes candidates in local job postings and can open pathways to roles with stronger compensation, particularly in healthcare and optics sectors. Completing AI Training for Project Managers through Granite PM Academy equips you with contemporary skills—especially artificial intelligence applications in planning and risk management—that align with how Rochester's major employers are evolving their operations. In a market where demand for capable project leaders remains steady and wages across core industries are competitive with Upstate New York standards, adding an AI-informed credential can meaningfully advance your standing and earning potential.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:41.207162Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "ae868975539223ac",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Will AI training help my project management career at Rochester healthcare employers?",
+          "answer": "<p>Rochester's healthcare sector—anchored by Rochester Regional Health, University of Rochester Medical Center, and Excellus BlueCross BlueShield—increasingly relies on data-driven project oversight and process automation. AI training equips PMs in clinical, administrative, and research settings to optimize workflows, manage complex schedules, and lead cross-functional teams through digital transformation. Healthcare employers in the region value PMs who combine traditional project discipline with AI literacy, especially in biomedical research and operational improvement initiatives.</p>"
+        },
+        {
+          "question": "Do Rochester manufacturing and optics employers require PMP or AI certification?",
+          "answer": "<p>Major Rochester employers in manufacturing, optics, and photonics—including L3Harris Technologies, Ortho Clinical Diagnostics, and Kodak—do not universally require PMP or AI credentials, but candidates holding them have a measurable competitive edge in local job postings. These sectors value structured project oversight and emerging technical competencies. Adding AI training to a PMP foundation signals readiness for leadership roles in product development, supply-chain optimization, and technology-enabled process improvement.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual AI training sessions while working in Rochester?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format is designed for working professionals and accommodates Rochester-based schedules. You can participate from your workplace, home office, or any location with reliable internet. This flexibility is especially valuable for PMs at major Rochester employers like Paychex, Wegmans, and Constellation Brands, where scheduling constraints are common. Sessions are recorded, allowing you to review material asynchronously if you miss live instruction.</p>"
+        },
+        {
+          "question": "Should Rochester PMs pursue AI certification now or wait for market demand?",
+          "answer": "<p>Demand for skilled project managers across Rochester's healthcare, IT, and advanced manufacturing sectors remains steady, and AI competency is becoming an expected differentiator rather than a future nice-to-have. Organizations at companies like University of Rochester and regional tech firms are already embedding AI into project workflows. Pursuing AI training now positions you ahead of the curve in Rochester's competitive job market and strengthens your candidacy for roles emphasizing digital transformation and process innovation.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:47.309316Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "fc4dd5dea2abc930",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Rochester's healthcare and higher education sectors anchor steady demand for skilled project managers overseeing capital expansions, IT initiatives, and process improvements. Major employers like Rochester Regional Health and the University of Rochester regularly seek experienced PMs to lead complex programs—from the University of Rochester Medical Center facility expansions to downtown revitalization efforts. Granite PM Academy delivers live-virtual AI Training for Project Managers designed for Rochester professionals ready to advance their credentials and impact.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:48.897158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4b0957cb194c0071",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-rochester-ny/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Rochester, NY, AI courses Rochester, CPMAI certification Rochester, AI project management training Rochester, NY, AI for project managers Rochester",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rochester-ny/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-rochester-ny/\",\n      \"name\": \"AI Training for Project Managers in Rochester, NY — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Rochester, NY for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Rochester, NY\",\n            \"item\": \"https://granitepmacademy.com/ai-training-rochester-ny/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rochester-ny/#course\",\n      \"name\": \"AI Training for Project Managers in Rochester, NY\",\n      \"description\": \"CPMAI certification training for project managers in Rochester, NY who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-rochester-ny/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-rochester-ny/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-rochester-ny/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-rochester-ny/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-rochester-ny/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

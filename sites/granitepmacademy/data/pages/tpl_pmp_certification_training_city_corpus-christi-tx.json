@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "corpus-christi-tx",
+  "slug": "pmp-certification-training-corpus-christi-tx",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "corpus-christi-tx",
+    "city": "Corpus Christi",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "corpus-christi-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>As a major energy and shipping hub, Corpus Christi's project management opportunities center on the Port of Corpus Christi, petrochemical refineries, and large-scale infrastructure projects like channel improvements and LNG facility expansions. Employers including Valero Energy, CHRISTUS Spohn Health System, and Naval Air Station Corpus Christi actively seek certified project managers to lead complex initiatives. Granite PM Academy delivers live-virtual PMP® Certification training tailored to Corpus Christi professionals seeking to advance in this growing market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Corpus Christi's energy, petrochemical, and maritime sectors demand project managers who can navigate complex, regulated environments—and the PMP credential is the industry standard. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's required contact hours, fitting around your work schedule while keeping you grounded in your local market. Earning your PMP opens doors to senior roles and salary progression across the Gulf Coast's largest employers and specialized contractors.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:41.021523Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "9a69739832857581",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Corpus Christi, Texas",
+      "text": "<p>Corpus Christi's role as a major energy and shipping hub creates distinct demand for credentialed project managers. The Port of Corpus Christi, alongside major petrochemical refineries like Valero Energy, Flint Hills Resources, and CITGO Petroleum, drives continuous infrastructure and operational projects that require skilled leadership. Beyond energy and logistics, healthcare systems such as CHRISTUS Spohn and military operations at Naval Air Station Corpus Christi generate steady project management opportunities across diverse sectors. As industrial expansion and infrastructure investment accelerate in the region, employers increasingly seek professionals with formal PMP® (Project Management Professional) certification—a credential that signals mastery of planning, execution, and risk management frameworks valued across Corpus Christi's dynamic industries.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers PMP Certification Training through live-virtual, instructor-led courses designed for working professionals in Corpus Christi. Our instructors are active certified practitioners who bring real-world project experience to every session, ensuring you learn practical techniques alongside PMI's Body of Knowledge. We structure our program to satisfy the contact-hour requirements necessary for PMP eligibility, preparing you not only to understand project management fundamentals but to pass your certification exam with confidence. Whether you work in petrochemicals, healthcare, port operations, or education, Granite PM Academy equips you with the knowledge and credentials to advance your career and lead complex projects in Corpus Christi's competitive market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:44.983940Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "b9a58630247a77c7",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Corpus Christi's Energy and Port Sectors",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP Certification Training meets PMI's rigorous standards. You receive official contact hours recognized directly by the Project Management Institute for credential eligibility."
+        },
+        {
+          "heading": "Live Instructor-Led Virtual Classes",
+          "text": "Attend live, instructor-led sessions online without sacrificing the interaction and accountability of classroom learning. This format delivers the contact hours required for PMP eligibility while fitting the schedules of working professionals in Corpus Christi."
+        },
+        {
+          "heading": "Active Practitioners as Instructors",
+          "text": "Our instructors are certified project managers actively working in Oil & Gas, Port operations, Healthcare, and Defense sectors. You learn from real-world examples and current best practices, not theoretical frameworks alone."
+        },
+        {
+          "heading": "Credential Demand in Local Industries",
+          "text": "Employers across Corpus Christi's petrochemical refineries, port logistics, and defense operations actively hire PMP-certified professionals. The credential strengthens your candidacy for mid- and senior-level roles managing complex projects in these growth sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:48.396402Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "9a7e13e2f46d0366",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Energy-Driven Corpus Christi",
+      "text": "<p>Corpus Christi's economy centers on energy production, port operations, and major infrastructure development—all sectors that depend on skilled project managers. Valero Energy, Flint Hills Resources, and Citgo Petroleum operate significant refining facilities in the area, each requiring experienced professionals to oversee complex operational and capital projects. The Port of Corpus Christi, one of the nation's busiest deepwater ports, actively recruits project coordinators for its Channel Improvement Project and ongoing maritime logistics initiatives. Beyond energy and port operations, employers including CHRISTUS Spohn Health System, Naval Air Station Corpus Christi, and the City of Corpus Christi also seek certified project management talent to lead healthcare facility upgrades, defense initiatives, and municipal infrastructure work.</p><p>Holding a PMP or CAPM credential strengthens your candidacy significantly in this industrially active region. Energy, construction, and port-related employers increasingly view PMP certification as a marker of project management proficiency—often a competitive advantage for advancement into senior coordination and management roles. Because demand for certified project managers remains strong across Corpus Christi's dominant sectors, particularly in roles supporting refining, port expansion, and large-scale construction projects, the investment in certification typically yields measurable career and compensation benefits. Granite PM Academy's PMP Certification Training equips you with the methodologies and credential these local employers recognize and value, positioning you to capitalize on the robust opportunities that define Corpus Christi's job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:52.400593Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "1ee7d1c581e41ca5",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Corpus Christi",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific requirements for your background—whether you hold a bachelor's degree, associate degree, or high school diploma will determine your required experience hours. Granite PM Academy's advisors can clarify your eligibility before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. This formal education satisfies PMI's mandatory contact-hour requirement and covers the full PMBOK Guide framework. Our Corpus Christi cohorts run on flexible schedules; attend from your office, home, or anywhere with internet access."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Once you complete training, submit your formal application to PMI, documenting your education and project-management experience. Pay the PMI exam fee at the time of application. Granite PM Academy guides you through the submission process and answers questions about eligibility documentation."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides exam-preparation resources, practice exams, and instructor support to reinforce PMBOK content. Schedule your proctored exam through PMI's testing partner. Our team remains available to clarify difficult concepts and build your confidence before test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, you'll maintain the PMP designation through PMI's standard three-year renewal cycle by earning Professional Development Units (PDUs). Granite PM Academy offers continuing-education courses and resources to help you accumulate PDUs and stay current in project-management practice."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:34:57.750973Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "0473693d798d5e2e",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Corpus Christi energy and refining careers?",
+          "answer": "<p>Yes. Valero Energy, Flint Hills Resources, CITGO Petroleum, and related contractors in the Corpus Christi refining sector increasingly prioritize PMP certification as evidence of structured project management capability. While not universally mandatory, the credential strengthens candidacy for capital projects, turnarounds, and infrastructure roles—positions where employers often offer competitive compensation to attract certified talent in this industrially active region.</p>"
+        },
+        {
+          "question": "Which Corpus Christi employers most value PMP or CAPM certification?",
+          "answer": "<p>Energy and petrochemical refiners, the Port of Corpus Christi, construction and engineering firms, Naval Air Station Corpus Christi, CHRISTUS Spohn Health System, and municipal agencies favor PMP and CAPM credentials for project coordinator and management positions. Port and maritime logistics operations, in particular, view certification as a competitive differentiator for professionals overseeing complex logistics and infrastructure initiatives.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working in Corpus Christi?",
+          "answer": "<p>Yes. Our live-virtual PMP training format allows Corpus Christi professionals to complete instruction from their workplace or home, accommodating the schedules of those employed by major local employers. This flexibility is especially valuable for shift-based roles in energy, healthcare, and port operations, where scheduling fixed classroom time is often challenging.</p>"
+        },
+        {
+          "question": "Does Corpus Christi job market demand affect PMP certification timing?",
+          "answer": "<p>Absolutely. Corpus Christi's cyclical energy and construction sectors, along with steady Port activity, mean project management hiring fluctuates seasonally. Earning your PMP during periods of active hiring—particularly spring and fall—can position you competitively for roles supporting refining maintenance, port expansions, and infrastructure projects when demand and compensation peaks locally.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:03.430462Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "bf0dbd452c3679a2",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Corpus Christi's project management demand centers on its role as a major energy and shipping hub, where the Port of Corpus Christi, petrochemical refineries, and ongoing infrastructure projects—including the Harbor Bridge Replacement and port channel improvements—create steady demand for certified professionals. Healthcare systems, military operations at NAS Corpus Christi, and regional construction efforts add further opportunities for skilled project managers. Granite PM Academy delivers live-virtual PMP Certification Training to help Corpus Christi professionals meet the credential requirements employers across these sectors increasingly value.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:05.469909Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "39cb46e2008f4f30",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Corpus Christi, TX, PMP exam prep Corpus Christi, PMP course Corpus Christi TX, project management certification Corpus Christi, TX, PMI PMP training Corpus Christi",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/\",\r\n      \"name\": \"PMP Certification Training in Corpus Christi, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Corpus Christi, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Corpus Christi, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/#course\",\r\n      \"name\": \"PMP Certification Training in Corpus Christi, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Corpus Christi, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-corpus-christi-tx/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

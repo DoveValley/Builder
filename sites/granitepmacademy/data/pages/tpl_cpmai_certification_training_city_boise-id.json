@@ -1,0 +1,336 @@
+{
+  "template_id": "tpl_cpmai_certification_training_city",
+  "city_id": "boise-id",
+  "slug": "ai-training-boise-id",
+  "title": "AI Training {city}",
+  "city_vars": {
+    "id": "boise-id",
+    "city": "Boise",
+    "state": "Idaho",
+    "SS": "ID",
+    "city_slug": "boise-id",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Boise's technology sector, anchored by Micron Technology's major semiconductor expansion, drives steady demand for skilled project managers across the city's tech, healthcare, and government roles. Infrastructure growth and consistent investment from employers like St. Luke's Health System and state agencies reinforce the market for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training tailored to Boise's working professionals, helping you earn the credential that advances your career in this thriving market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "AI Training in {city}, {SS} for Project Managers",
+      "hs_subtext": "<p>Boise's construction, infrastructure, and technology sectors increasingly demand project managers who understand AI's role in scheduling, resource optimization, and risk forecasting. Granite PM Academy delivers live-virtual, instructor-led AI Training for Project Managers that satisfies PMI's contact-hour requirements, letting you earn recognized credentials without relocating. Mastering AI tools positions you for higher-responsibility roles and competitive compensation across Boise's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#cpmai_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "AI training for project managers {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:40.219505Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6d5d5198b19513e9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "AI Training for Project Managers in Boise",
+      "text": "<p>Boise's technology sector, anchored by Micron Technology and a growing ecosystem of semiconductor and software firms, is reshaping how project managers lead teams and deliver results. AI competencies are no longer optional—they're essential for professionals managing complex initiatives in hardware development, process automation, and digital transformation across Boise's tech landscape. Whether you're advancing from team lead to program manager or preparing for the PMP® or CAPM® credential, integrating AI tools and frameworks into your project management practice directly addresses the skill gaps employers in Boise are actively seeking.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers instructor-led, live-virtual AI training designed for working professionals in Boise who need flexibility without compromising quality. Our courses combine contact hours that satisfy PMI certification requirements with real-world applications taught by active, certified practitioners who understand the demands of Boise's healthcare systems, financial services firms, and government agencies. You'll gain practical competency in AI-driven decision-making, resource optimization, and risk management—skills that translate immediately into your current role while positioning you for certification eligibility and career advancement.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:43.374488Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "4d591dc358d93d71",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "AI Skills That Advance Boise's Tech and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training, Locally Delivered",
+          "text": "Granite PM Academy holds PMI partnership status, ensuring your PMP® or CAPM® training meets all PMI standards. Study locally in Boise without sacrificing credential rigor or recognition by employers like Micron Technology and St. Luke's Health System."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Your instructors are active, certified project managers working in Boise's technology, healthcare, and government sectors. Learn frameworks tested daily in the field—not theory alone—while meeting live contact-hour requirements for PMI certification eligibility."
+        },
+        {
+          "heading": "Exam Readiness, Structured Support",
+          "text": "Granite PM Academy bundles exam-preparation materials, practice assessments, and instructor feedback into every certification course. Progress through content designed to build confidence before sitting for the PMP® or CAPM® exam."
+        },
+        {
+          "heading": "Match Boise's Hiring Demand",
+          "text": "Boise's largest employers—Micron, Albertsons, Idaho Power, and state agencies—actively seek PMP®- and CAPM®-certified project managers. Certification opens doors across technology, construction, healthcare, and public administration, the region's fastest-growing sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:47.400303Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c6c29f20b49fefb7",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Boise's Growing Tech Sector",
+      "text": "<p>Boise's project management job market is anchored by large-scale initiatives across technology, healthcare, and infrastructure. Micron Technology's multi-billion dollar semiconductor fabrication expansion represents the kind of capital-intensive, complex initiative that demands seasoned certified project managers. Similarly, St. Luke's Health System's facility expansions across the Treasure Valley, Boise Airport's terminal and infrastructure modernization, and ongoing construction projects throughout the region all require professionals who can coordinate budgets, timelines, and cross-functional teams. Albertsons Companies, Idaho Power, and the City of Boise also actively recruit project managers to lead strategic and operational efforts. Employers in these sectors increasingly seek candidates with formal credentials to ensure consistency and rigor in how large initiatives are managed.</p><p>The credential premium is real in Boise's competitive labor market. PMP and CAPM certification are now commonly cited in local job postings—particularly in technology, healthcare, and construction—and holding one typically distinguishes you from non-certified peers when competing for roles. Compensation for certified project managers tracks favorably against national averages when adjusted for the region's cost of living, making the investment in certification economically sensible. Completing AI Training for Project Managers through Granite PM Academy positions you to lead in a market where tech-forward companies and expanding healthcare systems are actively scaling operations. A certification that combines project management fundamentals with AI literacy directly mirrors Boise's emerging skill demand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:52.204224Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "de5b4210aa87459a",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "AI Training for Project Managers — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual AI Training for PMs",
+          "badge": "AI-FOCUSED",
+          "desc": "Live-virtual CPMAI training covering the Cognilytica AI project management methodology. For PMs leading AI and ML initiatives.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,495",
+          "period": "per person",
+          "features": "Cognilytica CPMAI methodology\nAI & ML project frameworks\nLive-virtual instruction\nCertificate of completion\nNo PM certification required",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#cpmai_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"cpmai_schedule\"></div>[course_schedule type=\"CPMAI Certification\"]"
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "CPMAI Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What is the CPMAI certification?",
+          "answer": "<p>The CPMAI (Certified Professional in AI and Machine Learning) is Cognilytica’s credential for project managers who lead AI and ML initiatives. It covers the seven-phase CPMAI methodology for managing AI projects from concept through deployment.</p>"
+        },
+        {
+          "question": "Who should pursue the CPMAI in {city}?",
+          "answer": "<p>The CPMAI is ideal for project managers, program managers, and IT professionals in {city_state} who are working with — or moving into — AI and machine learning projects. You don’t need a data science background; this credential is about managing the projects, not building the models.</p>"
+        },
+        {
+          "question": "Is there a prerequisite for the CPMAI course?",
+          "answer": "<p>No formal prerequisites. Familiarity with project management basics is helpful, but you do not need a PMP or CAPM certification to enroll.</p>"
+        },
+        {
+          "question": "How is the CPMAI different from the PMP?",
+          "answer": "<p>The PMP covers general project management across all domains. The CPMAI is specifically focused on AI and machine learning projects &mdash; unique challenges like data pipelines, model iterations, and stakeholder communication in AI initiatives. Many professionals hold both.</p>"
+        },
+        {
+          "question": "Is this course delivered online?",
+          "answer": "<p>Yes. Our CPMAI training is 100% live-virtual. {city} professionals attend via video conference &mdash; no travel required.</p>"
+        },
+        {
+          "question": "Is AI project management training worth pursuing in Boise's tech sector?",
+          "answer": "<p>Yes. Boise's semiconductor and technology employers—including Micron Technology and HP Inc.—are actively adopting AI-driven project management tools to optimize large-scale initiatives. Adding AI competency to your project management foundation makes you a stronger candidate in a market where PMP certification already commands a premium. The combination of traditional PM rigor and AI literacy positions you ahead of peers competing for roles at Boise's leading tech firms.</p>"
+        },
+        {
+          "question": "Which Boise employers value AI certification for project managers?",
+          "answer": "<p>Employers across Boise's dominant sectors—technology (Micron, Clearwater Analytics), healthcare (St. Luke's, Saint Alphonsus), and financial services (Idaho Central Credit Union, Albertsons)—increasingly reference PMP and advanced credentials in job postings for large-scale initiatives. AI project management training aligns with standardized practices these organizations demand, especially as they scale operations and digital transformation projects. Government and construction employers in the region also seek certified PMs equipped to manage complex, data-driven workflows.</p>"
+        },
+        {
+          "question": "Do Boise project managers earn more with AI and PM credentials?",
+          "answer": "<p>Boise's competitive job market for project management—driven by demand from tech, healthcare, and financial services sectors—favors certified professionals. PMP-certified project managers typically command a premium over non-certified peers, and adding AI competency to that foundation further strengthens your negotiating position. While exact figures vary by industry and experience level, Boise's cost of living and strong employer demand mean certification-backed salaries track favorably against national benchmarks.</p>"
+        },
+        {
+          "question": "Can Boise professionals take live-virtual AI PM training from their workplace?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format accommodates Boise professionals working onsite at Boise State University, Micron, healthcare systems, or government offices. You can join sessions from your workplace, home, or anywhere with reliable internet. This flexibility is especially valuable for Boise professionals balancing ongoing projects with certification training while maintaining their current workload and local employment.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:03:58.730800Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "910adf3c12ac0c66",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Boise's semiconductor and technology sector, led by Micron Technology's major fabrication expansion, drives consistent demand for skilled project managers across the region. Healthcare systems, government agencies, and financial services add depth to the job market, while infrastructure projects at the airport and Boise State University signal sustained growth. Granite PM Academy delivers live-virtual AI Training for Project Managers tailored to Boise professionals seeking to advance their careers in these high-opportunity sectors.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:04:00.499628Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "dc6c3334d99e7010",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Lead AI Projects from {city}",
+      "cb_subtext": "The CPMAI is the credential for project managers in the AI era. Earn it live-virtual from anywhere in {city_state}.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#cpmai_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/ai-training-boise-id/",
+    "meta_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "meta_keywords": "AI training Boise, ID, AI courses Boise, CPMAI certification Boise, AI project management training Boise, ID, AI for project managers Boise",
+    "og_title": "AI Training in {city}, {SS} for Project Managers | Granite PM Academy",
+    "og_description": "AI training for project managers in {city}, {SS} — live-virtual, instructor-led courses covering AI in project management and the PMI-CPMAI credential, from a PMI Authorized Training Partner.",
+    "og_image": "",
+    "service_name": "AI Training for Project Managers",
+    "service_type": "Professional Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual AI training for project managers in {city}, {SS}, covering practical AI in project management and the PMI-CPMAI credential.",
+    "bc_label": "AI Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-boise-id/#webpage\",\n      \"url\": \"https://granitepmacademy.com/ai-training-boise-id/\",\n      \"name\": \"AI Training for Project Managers in Boise, ID — AI for PMs | Granite PM Academy\",\n      \"description\": \"CPMAI certification training in Boise, ID for project managers leading AI-driven projects. 3-day live-virtual or on-demand. PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"AI Training for Project Managers in Boise, ID\",\n            \"item\": \"https://granitepmacademy.com/ai-training-boise-id/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-boise-id/#course\",\n      \"name\": \"AI Training for Project Managers in Boise, ID\",\n      \"description\": \"CPMAI certification training for project managers in Boise, ID who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, and regulatory compliance. 3-day live-virtual ($1,495) or on-demand ($795). No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/ai-training-boise-id/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-boise-id/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/ai-training-boise-id/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/ai-training-boise-id/#credential\",\n      \"name\": \"Certified Professional in AI for Project Management (CPMAI)\",\n      \"description\": \"The CPMAI credential prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/ai-training-boise-id/\"\n    }\n  ]\n}",
+    "secondary_keywords": "AI courses {city}, AI courses near me, CPMAI certification {city}, AI project management training {city}, PMI-CPMAI {city}, AI for project managers {city}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "0de1e214bdd389cff6ebef58bb167891"
+}

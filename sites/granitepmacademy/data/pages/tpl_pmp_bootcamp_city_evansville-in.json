@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "evansville-in",
+  "slug": "pmp-bootcamp-evansville-in",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "evansville-in",
+    "city": "Evansville",
+    "state": "Indiana",
+    "SS": "IN",
+    "city_slug": "evansville-in",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Evansville's manufacturing sector—anchored by major employers like Berry Global and Toyota Motor Manufacturing Indiana—drives consistent demand for skilled project managers overseeing facility expansions and process improvements. Healthcare systems, financial institutions, and the region's ongoing infrastructure projects create a steady market for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification training designed for Evansville's working professionals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Evansville's logistics and manufacturing sector relies on skilled project managers to coordinate complex operations across supply chains and production lines. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI contact-hour education requirement in an intensive, instructor-led format that fits working professionals' schedules. Earning your PMP credential positions you to advance into leadership roles where regional employers actively seek certified practitioners.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:23.150824Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "fbf050daee286f79",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Evansville: Accelerate Your Manufacturing Career",
+      "text": "<p>Evansville's manufacturing sector—anchored by leaders like Berry Global, Alcoa Warrick Operations, and Toyota Motor Manufacturing Indiana—depends on skilled project managers to orchestrate facility expansions, supply chain initiatives, and continuous improvement programs. Across plastics, packaging, industrial products, and automotive operations, the demand for credentialed PMs who can deliver complex projects on time and within budget is steady and direct. A PMP certification signals to these employers that you understand both the methodology and the discipline required to lead mission-critical initiatives. In Evansville, where regional healthcare systems and financial institutions also invest heavily in IT and operational projects, your PMP credential opens doors across multiple high-value sectors.</p><p>Granite PM Academy delivers intensive, instructor-led PMP Boot Camp training as a PMI Authorized Training Partner, meeting all contact-hour requirements for PMP eligibility through live-virtual sessions taught by active, practicing certified project managers. Our curriculum bridges the gap between PMI's Project Management Body of Knowledge and real-world application in manufacturing, healthcare, and finance—the industries that drive Evansville's economy. You'll complete the rigorous preparation needed to sit for the PMP exam while maintaining your work schedule, with expert instructors who have managed projects in your local market. Upon completion, you'll be positioned to pursue your PMP credential and advance into senior project leadership roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:27.673680Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "3a9373481f3fc0aa",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP certification accelerates careers across Evansville's industrial sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-authorized training, locally delivered",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, meaning your boot camp hours count directly toward PMP eligibility. No separate documentation or appeals—your completion certificate satisfies PMI's contact-hour requirement from day one."
+        },
+        {
+          "heading": "Live instructors, real project experience",
+          "text": "Your instructors are active PMP-certified practitioners managing live projects, not trainers reading slides. That means frameworks you learn are tested daily in manufacturing, healthcare, and energy environments—the same industries shaping Evansville's job market."
+        },
+        {
+          "heading": "Flexible schedule, full exam prep included",
+          "text": "Live-virtual format fits working professionals' schedules without sacrificing rigor. Boot camp includes structured exam-preparation support: practice tests, question walkthroughs, and strategic guidance—not upsold separately after training ends."
+        },
+        {
+          "heading": "Local demand from major manufacturers and healthcare systems",
+          "text": "Berry Global, Toyota Motor Manufacturing Indiana, Alcoa Warrick, and Evansville's hospital networks actively hire PMP-certified professionals for operations, supply-chain, and capital projects. The credential opens doors at employers building your regional economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:31.788294Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "f43244784380298c",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Evansville",
+      "text": "<p>Evansville's healthcare sector—anchored by Deaconess Health System and Ascension St. Vincent Evansville—consistently seeks certified project managers to oversee facility expansions, system implementations, and operational improvements. Manufacturing employers including Berry Global, Alcoa Warrick Operations, and Toyota Motor Manufacturing Indiana also depend on skilled PMs to manage capital projects, process optimization, and supply-chain initiatives. Beyond these anchors, Old National Bank's downtown headquarters development and the I-69 Ohio River Crossing project demonstrate how finance, infrastructure, and regional growth create steady demand for professionals who can manage complex, multi-stakeholder initiatives.</p><p>While project management salaries in Evansville reflect the region's lower cost of living, PMP and CAPM certification measurably improves your competitive standing for mid-to-senior roles and cross-functional opportunities. Employers in healthcare, banking, and manufacturing increasingly favor candidates with formal credentials when advancing professionals into leadership positions. Completing Granite PM Academy's PMP Boot Camp equips you with the knowledge and credentials that local hiring managers recognize, positioning you to capture senior roles and command greater consideration in a steady, growing regional market where certified expertise genuinely sets candidates apart.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:35.158989Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f7653cfa2fe48014",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Evansville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Evansville professionals in manufacturing, logistics, and healthcare typically meet these benchmarks. Gather your transcripts and project documentation to verify you qualify before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Evansville cohorts run on flexible schedules to fit working professionals. You'll earn the formal education hours PMI requires, taught by certified instructors who understand local industry contexts."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After course completion, submit your PMP application directly to PMI and pay the exam fee. Granite PM Academy guides you through the documentation process. PMI will review your eligibility and grant authorization to sit for the exam."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests and study materials. Schedule your computer-based PMP exam at a Pearson VUE center in or near Evansville. Our instructors remain available to answer questions during your final review week."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After passing, earn Professional Development Units (PDUs) throughout a three-year renewal cycle to keep your PMP active. Granite PM Academy offers PDU-eligible courses and workshops. Plan your ongoing learning strategy early to ensure continuous compliance with PMI requirements."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:40.178368Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "a8e320f890e536d4",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Evansville manufacturing and healthcare careers?",
+          "answer": "<p>Yes. Evansville's largest employment sectors—manufacturing, healthcare systems, and banking—increasingly expect formal project management credentials for mid-to-senior roles. While not every job posting explicitly requires PMP or CAPM certification, having one signals serious capability to employers like Toyota, Deaconess, Ascension St. Vincent, and Berry Global, giving you competitive advantage in a steady but selective regional market.</p>"
+        },
+        {
+          "question": "Do Evansville project managers earn more with PMP certification?",
+          "answer": "<p>Evansville salaries for project managers track slightly below national averages due to the region's lower cost of living, but PMP-certified professionals command more competitive offers and stronger consideration for senior or cross-functional roles. The credential particularly improves advancement prospects in healthcare, manufacturing, and financial services—sectors where local demand is consistent and career growth is real.</p>"
+        },
+        {
+          "question": "Can I attend the live-virtual PMP Boot Camp while working in Evansville?",
+          "answer": "<p>Yes. The Boot Camp's live-virtual format lets you join from your workplace, home, or anywhere with internet access. This is ideal for working professionals at CenterPoint Energy, Old National Bank, University of Evansville, or manufacturing sites who need flexibility around existing schedules. Check with your employer about tuition support; many Evansville-area companies reimburse certification training.</p>"
+        },
+        {
+          "question": "When should Evansville professionals take the PMP Boot Camp to improve job prospects?",
+          "answer": "<p>Timing matters in Evansville's steady but competitive hiring market. If you're targeting mid-to-senior roles at healthcare systems, automotive suppliers, or packaged-goods firms, earning your PMP before applying strengthens your candidacy significantly. Starting the Boot Camp 2–3 months before your planned job search or promotion window maximizes impact without unnecessary delays in your career momentum.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:46.058148Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9d2b3bdf09108399",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Evansville's manufacturing sector—anchored by employers like Berry Global and Toyota Motor Manufacturing Indiana—consistently demands skilled project managers for facility expansions and process improvements. Healthcare systems and financial institutions including Deaconess Health System and Old National Bank add further demand across IT initiatives and capital projects. Granite PM Academy serves Evansville professionals with live-virtual PMP Boot Camp scheduling built for working adults pursuing their certification credential.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:47.669326Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "93a2081cbe3c9e93",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-evansville-in/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Evansville, IN, PMP bootcamp Evansville, PMP certification boot camp Evansville, IN, PMP bootcamp near me, intensive PMP training Evansville",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/\",\n      \"name\": \"PMP Boot Camp in Evansville, IN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Evansville, IN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Evansville, IN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/#course\",\n      \"name\": \"PMP Boot Camp in Evansville, IN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Evansville, IN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-evansville-in/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

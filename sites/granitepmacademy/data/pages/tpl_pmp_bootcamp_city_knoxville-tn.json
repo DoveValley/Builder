@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "knoxville-tn",
+  "slug": "pmp-bootcamp-knoxville-tn",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "knoxville-tn",
+    "city": "Knoxville",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "knoxville-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Knoxville's project management landscape is shaped by energy and nuclear research leadership through TVA and Oak Ridge National Laboratory, alongside growth in healthcare, manufacturing, and infrastructure development. Major initiatives like TVA's Clinch River small modular reactor project and the University of Tennessee's Neyland Stadium renovation drive sustained demand for credentialed program managers. Granite PM Academy delivers live-virtual PMP Certification to Knoxville professionals seeking to advance in this dynamic market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Knoxville's growing healthcare and advanced manufacturing sectors rely on certified project managers to lead complex initiatives across clinical systems and production environments. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led training and PMI contact hours required to sit for the PMP credential without disrupting your work schedule. Earning your PMP positions you to command higher responsibility and compensation in Knoxville's competitive project-management roles.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:27.654792Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "82b86f00a2d5f95e",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Knoxville for Energy and Research Professionals",
+      "text": "<p>Knoxville's project management landscape is defined by its concentration in energy, nuclear research, and advanced engineering—sectors where the Tennessee Valley Authority and Oak Ridge National Laboratory drive complex, high-stakes initiatives that demand rigorous credential standards. Professionals managing programs across TVA's energy infrastructure, ORNL's research portfolios, and the region's expanding healthcare and manufacturing operations face increasing pressure to demonstrate formal PM competency. The Project Management Professional (PMP)® credential has become the recognized standard in these industries, signaling to employers that you can lead large-scale, multi-disciplinary teams with proven methodologies. In Knoxville's competitive market, earning your PMP opens doors across energy, healthcare systems, university research administration, and logistics—sectors where growth continues to create steady demand for certified managers.</p><p>Granite PM Academy delivers PMP Boot Camp as a PMI Authorized Training Partner, offering intensive, instructor-led instruction in live-virtual format that fits working professionals' schedules. Our curriculum satisfies the contact-hour requirements mandated by the Project Management Institute and is taught by active, certified practitioners who bring real-world experience from construction, infrastructure, and operations environments. Every session is structured to prepare you for exam success while building the practical leadership skills Knoxville employers expect. Upon completion, you'll have met a critical step toward PMP certification—positioning yourself for advancement and competitive compensation in a market where certified project managers remain in demand across public agencies, private industry, and research institutions.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:32.033170Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a27cdb2d81db647f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Path Built for Knoxville's Energy and Research Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Recognized Credential",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP Boot Camp hours meet PMI's strict standards. This authorization guarantees your certification is valued by TVA, ORNL, and employers across Knoxville's competitive project-management landscape."
+        },
+        {
+          "heading": "Live Instruction Fits Working Schedules",
+          "text": "Our live-virtual instructor-led format delivers all required contact hours without demanding full-time classroom presence. Knoxville professionals balancing current roles can complete the boot camp while maintaining work commitments and family obligations."
+        },
+        {
+          "heading": "Practitioners Teaching Real-World PM",
+          "text": "Granite instructors are active certified project managers, not academics. They bring current experience from energy, healthcare, and construction sectors—the industries driving Knoxville's economy—into every session and exam-prep discussion."
+        },
+        {
+          "heading": "Meet Local Employer Demand Directly",
+          "text": "TVA, Covenant Health, UT Knoxville, and KUB actively hire PMP-certified professionals for program leadership roles. This credential positions you competitively for advancement within Knoxville's largest organizations and the growing infrastructure and research sectors."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:36.783661Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "48a023cdf1e60dcc",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Knoxville's Energy Sector",
+      "text": "<p>Knoxville's project management job market is shaped by its concentration of major employers in energy, research, and healthcare. The Tennessee Valley Authority and Oak Ridge National Laboratory—two of the region's largest employers—consistently hire certified project managers to oversee complex initiatives, from TVA's Clinch River Nuclear Site small modular reactor development to ORNL's exascale computing and research facility expansions. University of Tennessee, Covenant Health, and Knoxville Utilities Board also maintain active project portfolios requiring skilled PMs. Even construction-focused organizations managing initiatives like the City of Knoxville's East Riverfront redevelopment and UT's Neyland Stadium renovation seek professionals who can demonstrate structured project delivery expertise.</p><p>Within Knoxville's energy, engineering, and healthcare sectors, employers increasingly favor candidates with formal PM credentials when determining compensation and advancement opportunity. While PMP and CAPM certifications are not always mandatory, they appear regularly as preferred qualifications in local job postings—a competitive edge that typically translates to stronger salary positioning and faster career progression. Completing Granite PM Academy's PMP Boot Camp positions you to meet that demand directly. You'll gain the credential recognition Knoxville's largest employers value, the practical framework their complex projects require, and the professional standing that distinguishes you in a market where formal certification measurably strengthens your market competitiveness.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:41.149413Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "e5a4047bb4c63c24",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Knoxville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Knoxville professionals in manufacturing, healthcare, and energy sectors typically qualify. Review PMI's official criteria before enrolling to ensure your background aligns."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our course delivers the formal education PMI requires, taught by experienced practitioners familiar with Knoxville's project environments. Complete all sessions within your chosen schedule window."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the boot camp, formally apply to PMI for PMP eligibility. Submit your education and experience documentation, then pay the designated exam fee directly to PMI. Our admissions team guides you through each submission step."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your proctored PMP exam when ready. Test centers operate throughout the Knoxville area for your convenience."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, commit to earning PDUs during the standard three-year renewal cycle. Granite PM Academy offers continuing-education courses, webinars, and workshops to help you accumulate PDUs and stay current with evolving project-management practices."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:45.806845Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "a0d6feb8e645d147",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Do Knoxville employers like TVA and Oak Ridge value PMP certification?",
+          "answer": "<p>Yes. Energy, nuclear research, and engineering organizations in Knoxville—including TVA and Oak Ridge National Laboratory—actively seek PMP-certified project managers for large, regulated, and technically complex initiatives. PMP credentials frequently appear as preferred qualifications in their job postings and often influence compensation and advancement eligibility in these high-stakes sectors.</p>"
+        },
+        {
+          "question": "Is PMP Boot Camp worth it for Knoxville healthcare and hospital careers?",
+          "answer": "<p>Absolutely. Healthcare systems like Covenant Health and UT Medical Center manage multimillion-dollar capital projects, system integrations, and facility expansions where formal project management credentials are increasingly expected. PMP certification strengthens your candidacy and negotiating position in Knoxville's competitive healthcare and hospital administration job market.</p>"
+        },
+        {
+          "question": "Can I attend Knoxville PMP boot camp live-virtual from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows Knoxville professionals to participate from their office, home, or any stable internet location. Many local participants attend from their workplace during business hours or arrange flexible scheduling with employers who recognize the professional development value of PMP training.</p>"
+        },
+        {
+          "question": "When should Knoxville professionals pursue PMP certification for job market timing?",
+          "answer": "<p>Knoxville's energy, healthcare, and manufacturing sectors have steady, year-round demand for certified project managers. However, pursuing certification before a planned job transition or promotion cycle—especially if targeting roles at TVA, ORNL, or major hospital systems—positions you competitively ahead of other candidates and can support salary negotiation.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:50.539257Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b148dcf55c1de2ee",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Knoxville's project management landscape is shaped by energy and nuclear research through TVA and Oak Ridge National Laboratory, alongside growing healthcare systems and university infrastructure projects. From the Clinch River small modular reactor development to downtown revitalization initiatives, skilled PMs command steady demand across public and private sectors. Granite PM Academy serves Knoxville professionals with live-virtual PMP Boot Camp training designed for working adults pursuing PMI certification.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:52.172675Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "a7f5d6357cfd80ce",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Knoxville, TN, PMP bootcamp Knoxville, PMP certification boot camp Knoxville, TN, PMP bootcamp near me, intensive PMP training Knoxville",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/\",\n      \"name\": \"PMP Boot Camp in Knoxville, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Knoxville, TN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Knoxville, TN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/#course\",\n      \"name\": \"PMP Boot Camp in Knoxville, TN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Knoxville, TN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-knoxville-tn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

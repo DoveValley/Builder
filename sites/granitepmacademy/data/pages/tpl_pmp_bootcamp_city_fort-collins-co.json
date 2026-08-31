@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "fort-collins-co",
+  "slug": "pmp-bootcamp-fort-collins-co",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "fort-collins-co",
+    "city": "Fort Collins",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "fort-collins-co",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Fort Collins' project management demand spans technology, clean energy, higher education, and healthcare—anchored by Colorado State University, Woodward, Inc., and Advanced Energy Industries. Major initiatives like the Fort Collins Connexion broadband buildout and CSU's ongoing campus modernization create steady openings for skilled program and project managers. Granite PM Academy delivers live-virtual PMP Certification to Fort Collins professionals seeking structured credentials aligned with the region's robust private and public-sector project pipeline.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Fort Collins's engineering and technology sector relies heavily on PMP-certified project managers to lead cross-functional teams through complex product development and infrastructure initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI contact-hour education requirement in an intensive, instructor-led format that fits working professionals' schedules while preparing you for the PMP exam. Certification positions you for leadership roles and competitive compensation in a region where structured project management expertise commands measurable career advancement.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:41.013206Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "19b11deb2bf618ff",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Fort Collins: Accelerate Your Project Management Career",
+      "text": "<p>Fort Collins's technology and electronics manufacturing sector, anchored by industry leaders like Woodward and Broadcom, has created sustained demand for credentialed project managers who can lead complex product development and operational initiatives. Beyond manufacturing, Colorado State University, Advanced Energy Industries, and the region's expanding clean-energy ecosystem require skilled program and project managers to coordinate cross-functional teams and deliver measurable results. Whether you work in aerospace, healthcare, or the growing craft-beverage and outdoor-recreation industries, the Project Management Professional (PMP)® credential signals to employers across Fort Collins that you've mastered structured, repeatable delivery methods—a differentiator that accelerates career progression and opens doors to roles with greater scope and responsibility.</p><p>Granite PM Academy delivers PMP Boot Camp as a PMI Authorized Training Partner, offering live-virtual instructor-led sessions taught by active certified practitioners who understand real-world project challenges. Our intensive format compresses the material into a focused schedule while meeting all contact-hour requirements set by the Project Management Institute®. You'll gain the frameworks, tools, and exam-readiness support necessary to pass the PMP certification exam on your first attempt, positioning yourself to compete confidently for high-demand roles throughout Fort Collins and beyond. Start your transformation today and join professionals who've already accelerated their careers through structured, expert-guided preparation.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:45.561438Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "07a8b6693a29ae61",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Fort Collins' Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Partner",
+          "text": "Granite PM Academy holds PMI authorization to deliver PMP Boot Camp instruction, ensuring your contact hours meet PMI's official requirements without detour. This credential carries weight across Colorado State, Woodward, and Advanced Energy Industries—employers actively hiring certified project managers in Fort Collins."
+        },
+        {
+          "heading": "Live Instructor-Led, Flexible Schedule",
+          "text": "Our live-virtual format keeps you working while earning. Attend real-time sessions with active, certified practitioners who bring field experience from aerospace, manufacturing, and clean energy—the industries anchoring Fort Collins' economy. No recorded videos; direct instructor access throughout."
+        },
+        {
+          "heading": "Exam Prep Built Into Boot Camp",
+          "text": "Every session reinforces PMP exam domains through practice questions and scenario work. Your instructor debugs knowledge gaps on the spot, reducing study time after class. Candidates finish the boot camp ready to schedule their exam with confidence."
+        },
+        {
+          "heading": "Local Hiring Demand Across Six Key Industries",
+          "text": "Fort Collins employers—from Colorado State and UCHealth to Broadcom and Woodward—routinely seek PMP-certified project and program managers. Clean energy, aerospace, and healthcare sectors especially value the credential. Certification positions you ahead in a competitive regional market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:50.363818Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c010e0490f931457",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Fort Collins",
+      "text": "<p>Fort Collins' advanced manufacturing and technology sector—anchored by companies like Woodward, Inc. and Broadcom—consistently seeks certified project managers to lead complex product development and facility initiatives. Woodward's ongoing campus expansion and facility development projects exemplify the scale of PM responsibility in the region. Meanwhile, Colorado State University's capital construction and campus modernization efforts, along with UCHealth Poudre Valley Hospital's facility expansions, demonstrate sustained demand for structured project delivery across higher education and healthcare administration. These employers value PMP and CAPM credentials as markers of professional rigor and operational discipline.</p><p>The Fort Collins job market rewards certification in ways both direct and compounding. While PMP and CAPM credentials are not universally required, they consistently appear as differentiators in local job postings—particularly in engineering, manufacturing, and healthcare roles where methodical project delivery drives competitive advantage. Completing Granite PM Academy's PMP Boot Camp positions you to command stronger offers and accelerate advancement in a market where certified candidates stand out. Project manager compensation in Fort Collins tracks Colorado Front Range norms, with the most competitive offers flowing to certified professionals in technology, clean energy, and healthcare sectors. The credential is your lever for breaking into—and moving up within—the region's most demanding and rewarding roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:55.109935Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "19c74961058d7ab7",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fort Collins",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Granite PM Academy will review your background to ensure you meet PMI's prerequisites before enrollment, so you can proceed with confidence toward certification."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Fort Collins cohorts are designed for working professionals; you'll master PMBOK® fundamentals, real-world applications, and exam strategies in a structured, interactive environment."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, submit your formal application to PMI and pay the associated exam fee. Granite PM Academy guides you through the application process to ensure accuracy and timely submission to PMI."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy provides targeted exam-preparation resources, practice tests, and one-on-one coaching to strengthen your readiness. You'll schedule your PMP exam through PMI's testing partner and take it at a proctored testing center or online."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "The PMP is valid for three years. During each renewal cycle, you'll earn professional development units (PDUs) through continuing education, project work, and community involvement. Granite PM Academy offers PDU-eligible courses to support your ongoing credential maintenance."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:59.884867Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "a1334b2a06ee986e",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Fort Collins engineering and manufacturing careers?",
+          "answer": "<p>Yes. Fort Collins employers in technology manufacturing, aerospace, and industrial sectors—including major regional players—increasingly cite PMP and CAPM credentials as differentiators in job postings and promotion decisions. While certification is not universally required, it signals structured project delivery capability, which these industries depend on. For career advancement and competitive positioning in Fort Collins's strong manufacturing and engineering ecosystem, the credential typically justifies the investment.</p>"
+        },
+        {
+          "question": "Which Fort Collins employers value PMP certification most?",
+          "answer": "<p>Healthcare administration, engineering firms, and clean energy organizations across Fort Collins actively seek or prefer PMP-certified project managers. UCHealth Poudre Valley, Advanced Energy Industries, Woodward, and similar regional employers in these sectors regularly list certification as a valued qualification. Certification is also increasingly relevant in higher education and public-sector project roles locally, including City and County government positions.</p>"
+        },
+        {
+          "question": "Can I attend Fort Collins PMP Boot Camp live-virtual from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to join from any location with reliable internet, including your workplace or home office. Many Fort Collins professionals attend from their employer's site, making it convenient to balance work and accelerated certification training. Check with your organization about workspace availability and any internal policies on professional development during business hours.</p>"
+        },
+        {
+          "question": "Should Fort Collins project managers pursue PMP certification now or wait?",
+          "answer": "<p>Timing depends on your current role and market position. Fort Collins's demand for certified project managers in healthcare, manufacturing, and clean energy is steady and growing. If you're targeting advancement, changing roles, or working toward a more competitive offer in these sectors, pursuing certification sooner rather than later strengthens your candidacy. Local hiring trends suggest the credential's value is unlikely to decrease.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:06.198963Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7d8cfb15ec3f3e83",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fort Collins' project management demand centers on its robust technology and clean-energy sectors, anchored by Colorado State University, Woodward, Inc., and Advanced Energy Industries—alongside growth in healthcare and craft beverages that require skilled program coordinators. Major initiatives like the Fort Collins Connexion broadband buildout and ongoing campus modernization at CSU create steady opportunities for PMP-certified professionals across private industry and public agencies. Granite PM Academy delivers live-virtual PMP Boot Camp scheduling to fit Fort Collins professionals' calendars.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:08.345196Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "19bc845c0595150e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Fort Collins, CO, PMP bootcamp Fort Collins, PMP certification boot camp Fort Collins, CO, PMP bootcamp near me, intensive PMP training Fort Collins",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/\",\n      \"name\": \"PMP Boot Camp in Fort Collins, CO | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Fort Collins, CO. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Fort Collins, CO\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/#course\",\n      \"name\": \"PMP Boot Camp in Fort Collins, CO\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Fort Collins, CO. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fort-collins-co/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

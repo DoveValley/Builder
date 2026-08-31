@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "little-rock-ar",
+  "slug": "pmp-bootcamp-little-rock-ar",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "little-rock-ar",
+    "city": "Little Rock",
+    "state": "Arkansas",
+    "SS": "AR",
+    "city_slug": "little-rock-ar",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Healthcare systems like UAMS and Baptist Health anchor Little Rock's robust project management demand, where professionals increasingly lead complex, multi-department initiatives across state government, financial services, and logistics. Major infrastructure efforts—including the I-30/I-40 interchange reconstruction and UAMS campus modernization—underscore the value of structured PM credentials in this market. Granite PM Academy delivers live-virtual PMP® Certification designed for Little Rock professionals seeking to advance their careers and meet employer expectations.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Little Rock's growing healthcare and government sectors increasingly demand certified project managers to oversee complex initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led instruction and PMI contact hours required to sit for the PMP exam, with flexible scheduling built for working professionals. Earning your PMP credential opens doors to leadership roles and competitive compensation across Arkansas's expanding public and healthcare organizations.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:07.820383Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "e5ca9c1bc8395566",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Little Rock: Intensive Certification for Healthcare & Government Leaders",
+      "text": "<p>Little Rock's healthcare sector—anchored by major systems like UAMS, Baptist Health, and CHI St. Vincent—drives sustained demand for project managers who can coordinate complex, multi-department initiatives across clinical, operational, and strategic functions. Government agencies, financial institutions, and logistics operations in Arkansas's capital similarly depend on certified professionals to manage budget-sensitive, time-critical projects. The PMP® (Project Management Professional) credential signals to employers in Little Rock that you master the frameworks and disciplines these sectors require, positioning you as a competitive candidate for advancement in one of the region's strongest job markets.</p><p>Granite PM Academy delivers the intensive PMP Boot Camp as a PMI® Authorized Training Partner, offering live-virtual, instructor-led classes taught by active certified practitioners who understand real-world project challenges. Our program satisfies the contact-hour requirement mandated by the Project Management Institute and prepares you to sit for the PMP exam with confidence. Whether you're advancing within a healthcare system, government agency, or financial services firm in Little Rock, this accelerated format fits working professionals who need certification without lengthy part-time commitments. Earn your PMP and demonstrate the competency employers in this market actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:11.376245Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "7bf8c7a228451d08",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification: Little Rock's Path to Project Leadership",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Ensures Credential Validity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your boot camp hours satisfy PMI's official requirements for PMP eligibility. This authorization protects your investment and guarantees your training meets the standards employers and government agencies in Little Rock recognize."
+        },
+        {
+          "heading": "Live Instructors Who Still Practice",
+          "text": "Our instructors are active PMP-certified practitioners managing real projects today—not retired trainers. They bring current methodologies from healthcare systems, federal agencies, and logistics operations, giving you frameworks you'll apply immediately in Little Rock's largest employers."
+        },
+        {
+          "heading": "Exam Prep Built Into Every Class",
+          "text": "Beyond contact-hour delivery, Granite integrates PMP exam strategy, practice scenarios, and adaptive review into the boot camp curriculum. You'll leave with tested techniques for the certification exam, not just course completion."
+        },
+        {
+          "heading": "Credential Demanded Across Little Rock Industries",
+          "text": "Healthcare networks like UAMS and Baptist Health, government agencies, financial services firms, and Little Rock Air Force Base prioritize PMP-certified project leads for mission-critical initiatives. The credential opens advancement paths in the sectors that anchor the local economy."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:16.031140Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d15d7d72d4cfb255",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Little Rock",
+      "text": "<p>Healthcare and government sectors anchor project management demand across Little Rock, with major employers like UAMS, Baptist Health, and CHI St. Vincent regularly seeking certified professionals to lead clinical expansions, facility modernizations, and IT infrastructure initiatives. The ongoing UAMS campus expansion exemplifies the scale of projects driving local hiring—modernization efforts of that magnitude require skilled PMs to coordinate budgets, timelines, and cross-functional teams. Beyond healthcare, the State of Arkansas, Little Rock Air Force Base, and financial services firms such as Simmons Bank and Arkansas Blue Cross and Blue Shield maintain steady project pipelines in government administration, infrastructure upgrades, and business operations, each valuing certified leadership.</p><p>While project manager compensation in Little Rock tracks modestly below national averages, the lower cost of living offsets that difference, and certified professionals in healthcare, finance, and government sectors command competitive local salaries—especially as demand for credentialed PMs remains strong. PMP® certification is frequently listed as preferred or advantageous in local job postings, signaling that employers recognize its value as a screen for capability and commitment. Completing Granite PM Academy's PMP Boot Camp positions you to differentiate yourself in a market where credentials matter, opening pathways to roles managing high-stakes projects across Little Rock's core industries and strengthening your negotiating position as you advance.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:20.450057Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c9854f49c18f0f7d",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP® Certification in Little Rock",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and project-management experience. Review PMI's specific requirements for your background—secondary degree holders and bachelor's degree holders face different thresholds. Granite PM Academy's advisors can verify your qualifications before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our instructors cover the PMBOK® Guide framework, exam domains, and real-world scenarios relevant to Little Rock's construction, healthcare, and government sectors. Completion earns your required contact hours and positions you for exam success."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Register with PMI and submit your PMP application, documenting your education and project experience. Pay the associated exam fee directly to PMI. Our team provides guidance on application requirements and deadlines to keep your certification timeline on track."
+        },
+        {
+          "heading": "Prepare and Take the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your exam at an authorized Pearson VUE testing center in Arkansas. Our support continues through your exam day to maximize your readiness."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP®, commit to the three-year renewal cycle by earning Professional Development Units (PDUs) through approved training, certifications, and project-management activities. Granite PM Academy offers ongoing PDU-eligible programs to keep your credential active and your skills current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:25.645379Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "4023784bb0d9e598",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for healthcare project managers in Little Rock?",
+          "answer": "<p>Yes. UAMS, Baptist Health, and CHI St. Vincent are major employers in Little Rock's healthcare sector, and PMP is frequently listed as preferred or advantageous in their project management postings. While Little Rock salaries track slightly below national averages due to lower cost of living, certified project managers in healthcare can command competitive local compensation. The credential strengthens your candidacy significantly in this dominant local industry.</p>"
+        },
+        {
+          "question": "Which Little Rock employers value PMP certification most?",
+          "answer": "<p>Government, healthcare, and financial services sectors in Little Rock show the strongest demand for credentialed PMs. Key employers include the State of Arkansas, Little Rock Air Force Base, UAMS, Baptist Health, Arkansas Blue Cross and Blue Shield, and Simmons Bank. While not every posting requires PMP explicitly, it is frequently listed as advantageous—especially in these three sectors—and signals professionalism to hiring managers across all major local industries.</p>"
+        },
+        {
+          "question": "Can I attend a live online PMP boot camp from my Little Rock workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join sessions from your office, home, or anywhere with reliable internet access. Many Little Rock professionals in healthcare, government, and finance use this flexibility to balance training with work responsibilities. Confirm your workplace policies on professional development during business hours, and ensure your connection is stable for the duration of the program.</p>"
+        },
+        {
+          "question": "When should Little Rock PMs get PMP certified given local job market timing?",
+          "answer": "<p>Demand for certified project managers in Little Rock is steady across healthcare, finance, and government sectors, making any time a strong choice—but gaining certification before your next role transition maximizes impact. If you're already employed and stable, pursuing PMP now builds competitive advantage for promotion or lateral moves. Little Rock's strong hiring activity in these sectors means certification paired with your experience positions you well year-round.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:30.891766Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9c61cf0507809179",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Little Rock's healthcare sector—anchored by UAMS, Baptist Health, and CHI St. Vincent—drives demand for project managers who can coordinate complex, multi-department initiatives across clinical and administrative operations. Government agencies, financial institutions, and logistics employers throughout the capital city increasingly prioritize PMP certification as a competitive differentiator. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Little Rock professionals seeking structured, PMI-aligned training on a schedule that fits working careers.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:32.946706Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4a3592c810699b8b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Little Rock, AR, PMP bootcamp Little Rock, PMP certification boot camp Little Rock, AR, PMP bootcamp near me, intensive PMP training Little Rock",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/\",\n      \"name\": \"PMP Boot Camp in Little Rock, AR | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Little Rock, AR. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Little Rock, AR\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/#course\",\n      \"name\": \"PMP Boot Camp in Little Rock, AR\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Little Rock, AR. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-little-rock-ar/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

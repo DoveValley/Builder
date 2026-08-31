@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "palmdale-ca",
+  "slug": "pmp-bootcamp-palmdale-ca",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "palmdale-ca",
+    "city": "Palmdale",
+    "state": "California",
+    "SS": "CA",
+    "city_slug": "palmdale-ca",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Palmdale's project management demand is driven by aerospace and defense manufacturing—particularly Air Force Plant 42 and programs at Lockheed Martin and Northrop Grumman—alongside expanding public sector roles in city government, education, and healthcare. Regional infrastructure projects, including the California High-Speed Rail corridor development, are accelerating demand for certified project managers who can lead complex, multi-phase initiatives. Granite PM Academy serves Palmdale professionals with live-virtual PMP® Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Palmdale's aerospace and defense sector relies heavily on certified project managers to coordinate complex, regulated programs. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led training and PMI contact hours required to sit for the PMP credential, with flexible scheduling that fits working professionals in the Antelope Valley. Earning your PMP opens advancement into senior leadership roles across local defense contractors and engineering firms.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:35.214652Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "85badf5491ebc5b9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Palmdale: Aerospace & Defense Project Management",
+      "text": "<p>Palmdale's project management landscape is defined by its commanding position in aerospace and defense manufacturing. Air Force Plant 42 and major contractors including Lockheed Martin and Northrop Grumman drive sustained demand for certified project managers who can lead complex, mission-critical programs. Beyond the defense sector, growth in Palmdale's public administration, healthcare, and infrastructure initiatives creates additional momentum for professionals seeking the Project Management Professional (PMP) credential. In a market where multi-phase projects and regulatory compliance are non-negotiable, the PMP credential signals your readiness to manage scope, schedule, and resources at the level these employers demand.</p><p>Granite PM Academy delivers intensive PMP Boot Camp training as a PMI Authorized Training Partner, combining live-virtual instruction with experienced, actively certified practitioners who work in Palmdale's key industries. Our instructor-led format compresses the learning cycle without sacrificing depth, satisfying the contact-hour requirements mandated by PMI while keeping your schedule intact. Whether you're advancing within a defense contractor, moving into project leadership in healthcare or education, or preparing for government sector roles, our boot camp equips you with the frameworks, vocabulary, and exam readiness to earn your PMP and accelerate your career in Palmdale's competitive project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:39.043475Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6bdea6803ac60574",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Near Palmdale for Aerospace & Defense Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your contact hours meet PMP® eligibility requirements without ambiguity. Your coursework counts directly toward application prerequisites, eliminating guesswork about credential recognition."
+        },
+        {
+          "heading": "Live Instruction, Real-World Experts",
+          "text": "Learn from active PMP®-certified practitioners who work in Palmdale's aerospace and defense sectors. Instructors bring current project-delivery insights and industry scenarios directly into the classroom, bridging training to your workplace."
+        },
+        {
+          "heading": "Flexible Live-Virtual Boot Camp Format",
+          "text": "Attend instructor-led sessions via live virtual delivery, satisfying PMI contact-hour requirements without commuting delays. Structured boot-camp pacing compresses certification prep into weeks, not months, while maintaining rigorous exam readiness support."
+        },
+        {
+          "heading": "Match Palmdale's High-Demand Project Roles",
+          "text": "Lockheed Martin, Northrop Grumman, Boeing, and the City of Palmdale actively hire PMP®-certified program and project managers. This credential directly signals readiness for leadership positions in the aerospace, defense, government, and infrastructure sectors driving regional employment."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:43.262822Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "db95b7ad1841640e",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Palmdale's Aerospace Corridor",
+      "text": "<p>Palmdale's economy centers on aerospace and defense manufacturing, where certified project managers are in steady demand. Lockheed Martin's Skunk Works advanced programs, Northrop Grumman's B-21 Raider program at Air Force Plant 42, and Boeing all maintain significant operations here, alongside government agencies like the City of Palmdale and Los Angeles County. These employers—along with regional healthcare, education, and infrastructure sectors—consistently seek project managers who can demonstrate formal methodology and compliance expertise. The planned California High-Speed Rail station and ongoing Palmdale Regional Medical Center expansions underscore the region's continued investment in major capital projects that require skilled PM leadership.</p><p>A PMP or CAPM certification carries particular weight in Palmdale's job market, where defense and government contracting often mandate formal project management credentials for mid-career and senior roles. Employers here recognize that certified professionals command a premium—salaries for PMP-certified candidates tend to outpace uncertified peers, and the Antelope Valley's aerospace concentration keeps compensation competitive across the broader Southern California inland market. Completing Granite PM Academy's PMP Boot Camp positions you to qualify for these higher-demand roles and to advance into program leadership as the region's major initiatives expand. In a market where methodology and credentials matter, certification is a direct pathway to career acceleration.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:47.769133Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "f763f8b9b76e50ad",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Palmdale",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific hour thresholds based on your academic background. Granite PM Academy's advisors can clarify your standing before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Palmdale-focused cohorts deliver the PMI-required contact hours in an intensive, interactive format designed for working professionals managing aerospace, defense, and local government projects."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "File your formal PMP application with PMI and pay the associated exam fee. Our team provides application-support guidance to ensure your submission is accurate and complete, reducing delays in exam eligibility approval."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to build confidence. Schedule your computer-based PMP exam through PMI's testing partner and demonstrate your project-management mastery."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn professional development units (PDUs) over a three-year renewal cycle to keep your PMP active. Granite PM Academy's ongoing workshops, webinars, and advanced courses make it simple to accumulate PDUs while advancing your expertise."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:52.598461Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "b2dbac20a1d2cfd9",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for aerospace and defense careers in Palmdale?",
+          "answer": "<p>Yes. Palmdale's dominant employers—Lockheed Martin, Northrop Grumman, and Boeing—operate under strict government contracting frameworks that prioritize formal project management methodology. PMP certification is increasingly listed as preferred or required for project manager and program manager roles in these organizations. The credential directly aligns with aerospace and defense industry standards, making it a tangible asset for career advancement and salary competitiveness in the local market.</p>"
+        },
+        {
+          "question": "Which Palmdale employers actively hire PMP-certified project managers?",
+          "answer": "<p>Aerospace and defense manufacturers (Lockheed Martin, Northrop Grumman, Boeing, AeroVironment) consistently seek PMP-certified professionals for program and project roles. City and County government agencies, school districts, hospitals, and construction firms in the Antelope Valley also list PMP certification as preferred. Public-sector and infrastructure projects particularly value the credential for compliance and governance requirements tied to federal or state funding.</p>"
+        },
+        {
+          "question": "Do project managers in Palmdale earn more with PMP certification?",
+          "answer": "<p>PMP-certified candidates in Palmdale generally command a salary premium over uncertified applicants, though exact figures vary by industry, years of experience, and role level. Aerospace and defense sectors, where demand is strongest, tend to offer competitive compensation. Public administration and healthcare roles also reward certification. The credential signals expertise and eligibility for higher-responsibility positions, directly affecting earning potential across the local market.</p>"
+        },
+        {
+          "question": "Can I attend Palmdale boot camp live-virtual from my workplace or home?",
+          "answer": "<p>Yes. The live-virtual PMP Boot Camp format allows Palmdale professionals to participate from their office, home, or any location with reliable internet. This flexibility is particularly valuable for Lockheed Martin, Northrop Grumman, and other large Palmdale employers where employees may be on-site or hybrid schedules. You maintain your work schedule while completing intensive certification training online.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:58.600779Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7d7b59229e06d404",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Palmdale's project management demand is anchored in aerospace and defense manufacturing, with Air Force Plant 42 and contractors like Lockheed Martin and Northrop Grumman driving sustained hiring for skilled PMs. Public sector growth across city government, education, and healthcare, coupled with major infrastructure projects like the California High-Speed Rail corridor, creates steady roles for professionals who can lead complex, multi-phase initiatives. Granite PM Academy serves Palmdale professionals with live-virtual PMP Boot Camp scheduling that fits working schedules.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:00.418745Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9458055097225bb8",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Palmdale, CA, PMP bootcamp Palmdale, PMP certification boot camp Palmdale, CA, PMP bootcamp near me, intensive PMP training Palmdale",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/\",\n      \"name\": \"PMP Boot Camp in Palmdale, CA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Palmdale, CA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Palmdale, CA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/#course\",\n      \"name\": \"PMP Boot Camp in Palmdale, CA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Palmdale, CA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-palmdale-ca/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

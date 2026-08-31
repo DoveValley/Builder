@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "clarksville-tn",
+  "slug": "pmp-bootcamp-clarksville-tn",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "clarksville-tn",
+    "city": "Clarksville",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "clarksville-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Clarksville's advanced manufacturing sector—led by companies like Hankook Tire America and LG Electronics alongside Fort Campbell's infrastructure needs—creates steady demand for skilled project managers overseeing facility expansions and modernization initiatives. Google's data center campus development and ongoing industrial investment further reinforce the local job market for credentialed PMs. Granite PM Academy serves Clarksville professionals with live-virtual PMP® Certification training designed to fit working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Clarksville's growing defense and manufacturing sector demands skilled project managers who can navigate complex, regulated environments. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led training and PMI contact hours required to sit for the PMP credential, fitting around your work schedule while you build the expertise your local employers actively seek. Earning your PMP positions you for leadership roles and competitive compensation in roles managing critical programs across the region's key industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:16.704065Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "cbad0dbfcf49fd2f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Clarksville: Advance Your Manufacturing Career",
+      "text": "<p>Clarksville's advanced manufacturing sector—led by major employers like Hankook Tire America and LG Electronics—depends on skilled project managers to lead production expansions, supply chain initiatives, and operational improvements. The presence of Fort Campbell and ongoing infrastructure investment further drive demand for certified professionals who can manage complex, cross-functional programs in high-stakes environments. For engineers, operations specialists, and coordinators working in Clarksville's manufacturing and defense-adjacent industries, PMP® certification signals the technical and leadership competency that employers actively seek when promoting talent into management roles or awarding larger project responsibilities.</p><p>Granite PM Academy delivers PMP Boot Camp through live-virtual, instructor-led instruction as a PMI Authorized Training Partner, ensuring every session meets PMI contact-hour requirements for PMP eligibility. Our instructors are active, certified practitioners who bring real-world experience from industries that match your local market—manufacturing, logistics, government, and healthcare. The intensive format compresses preparation into a focused schedule, allowing Clarksville professionals to balance work and study without extended commitment. Upon completion, you'll have satisfied the training requirement and gained the knowledge to pass the PMP exam, positioning yourself for advancement in Clarksville's growing project management career landscape.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:21.091483Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "6605aac4973c2b09",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Aligned with Clarksville's Advanced Manufacturing Growth",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training, Local Delivery",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, meaning your boot camp hours count directly toward PMP® eligibility. No gaps, no paperwork surprises—just transparent, standards-based instruction that meets PMI requirements for Clarksville professionals."
+        },
+        {
+          "heading": "Live Instructors, Real-World Experience",
+          "text": "Our instructors are active certified practitioners managing projects today, not curriculum readers. They bring current field knowledge—supply-chain decisions, defense-sector timelines, healthcare workflows—directly into the classroom, grounding theory in problems you'll solve."
+        },
+        {
+          "heading": "Exam Readiness Built Into Boot Camp",
+          "text": "Preparation for the PMP® exam is embedded throughout the program: practice questions, strategy reviews, and targeted feedback on weak domains. You finish with confidence, not guesswork, before sitting for certification."
+        },
+        {
+          "heading": "Meet Clarksville Employers' Project Leadership Demand",
+          "text": "Fort Campbell, Hankook Tire, LG Electronics, and Trane Technologies all employ project and program managers. PMP® certification signals capability to these major local employers and opens advancement pathways in advanced manufacturing, logistics, and defense contracting."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:25.773377Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7a4694f0a6100b84",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Clarksville's Growth Industries",
+      "text": "<p>Fort Campbell's ongoing infrastructure and facility modernization projects represent a major source of project management demand in Clarksville, alongside the region's expanding manufacturing sector. Hankook Tire America and LG Electronics have both invested significantly in plant expansions and operations that require skilled project managers to oversee complex timelines and cross-functional teams. Austin Peay State University, the Clarksville-Montgomery County School System, and Montgomery County Government also employ project managers across capital projects, facilities, and administrative initiatives. Google's data center campus development in Montgomery County further illustrates the scale of infrastructure investment reshaping the local economy—opportunities that increasingly favor candidates with formal PM credentials.</p><p>While project manager compensation in Clarksville tracks slightly below larger metros like Nashville, the combination of military-related contracting, automotive manufacturing growth, and government expansion has created strong, competitive demand for certified professionals. Employers across defense, manufacturing, healthcare, and education sectors increasingly prioritize the PMP® and CAPM® credentials when hiring and promoting project managers. Completing Granite PM Academy's PMP Boot Camp positions you to meet this credential expectation directly, giving you a measurable edge in a market where formal certification is becoming the norm rather than the exception. The timing aligns with Clarksville's growth—your certification can launch or accelerate a career in a region actively building.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:30.199699Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "18ed5ede078ce356",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Clarksville",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Clarksville professionals in government contracting, healthcare, and manufacturing roles typically meet these prerequisites. Gather documentation of your background before applying to PMI."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our courses fit working schedules and deliver PMI-mandated contact hours in real time, with expert instructors and peer interaction. Register for an upcoming session that aligns with your timeline."
+        },
+        {
+          "heading": "Submit PMI Application",
+          "text": "File your PMP application directly with PMI and remit the examination fee. Granite PM Academy staff can guide you through the submission process. Allow sufficient time for PMI to review your credentials before your exam date."
+        },
+        {
+          "heading": "Prepare and Test",
+          "text": "Use Granite PM Academy's exam-preparation resources, practice questions, and study guides to reinforce your learning. Schedule your PMP exam through PMI's testing partner. Our instructors remain available to answer questions as you finalize your readiness."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "Renew your PMP every three years by earning professional development units (PDUs) through continuing education, volunteer work, and project experience. Granite PM Academy offers PDU-eligible courses to support your ongoing professional development in Clarksville's growing project-management community."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:35.081512Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "46fa92a2f8d433ca",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for project managers in Clarksville manufacturing?",
+          "answer": "<p>Yes. Clarksville's advanced manufacturing sector—anchored by automotive and tire production—increasingly favors certified project managers as companies expand operations and manage complex supply chains. While not every posting explicitly requires PMP or CAPM certification, employers in this space recognize credentials as a competitive advantage, especially for candidates managing cross-functional teams or leading process improvement initiatives.</p>"
+        },
+        {
+          "question": "Which Clarksville employers actively seek PMP-certified project managers?",
+          "answer": "<p>Fort Campbell's defense contracting ecosystem, local manufacturing plants, and government agencies including Clarksville-Montgomery County School System and Montgomery County Government value formal PM credentials. Additionally, logistics, healthcare, and education sectors in the region are increasingly requiring or preferring certified professionals as they modernize project governance and reporting standards.</p>"
+        },
+        {
+          "question": "Can I attend Clarksville's live-virtual PMP boot camp from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format lets you join from any location with stable internet—your office, home, or even during a break at Fort Campbell or a manufacturing facility. Many Clarksville professionals attend from their workplace, though you'll want a quiet space and reliable connection to participate fully in interactive exercises and Q&A sessions.</p>"
+        },
+        {
+          "question": "Is now a good time to get PMP certified in Clarksville's job market?",
+          "answer": "<p>Strong manufacturing expansions and military-related contracting in the Clarksville area are driving demand for certified project managers. While PM compensation in Clarksville tends to track slightly below larger metros like Nashville, the credential improves competitiveness for roles in these growth sectors—making certification a smart investment if you're seeking advancement or a career transition.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:39.743679Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "3754a1106cb4cca3",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Clarksville's advanced manufacturing sector—led by Hankook Tire America and LG Electronics—is driving sustained demand for skilled project managers overseeing facility expansions and operational growth. Fort Campbell's ongoing infrastructure modernization and Google's data center campus development further amplify opportunities across the region. Granite PM Academy delivers live-virtual PMP Boot Camp sessions tailored to Clarksville professionals seeking certification without relocating.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:33:41.616976Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "9282af89121da18e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Clarksville, TN, PMP bootcamp Clarksville, PMP certification boot camp Clarksville, TN, PMP bootcamp near me, intensive PMP training Clarksville",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/\",\n      \"name\": \"PMP Boot Camp in Clarksville, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Clarksville, TN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Clarksville, TN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/#course\",\n      \"name\": \"PMP Boot Camp in Clarksville, TN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Clarksville, TN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-clarksville-tn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

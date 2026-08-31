@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "houston-tx",
+  "slug": "pmp-certification-training-houston-tx",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "houston-tx",
+    "city": "Houston",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "houston-tx",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier6"
+    ],
+    "city_spotlight": "<p>As a global energy hub anchored by ExxonMobil, Chevron, Shell, and other major operators, Houston's project management market thrives across oil & gas, petrochemicals, healthcare, aerospace, and construction. Major initiatives like the Port of Houston expansion and Texas Medical Center projects sustain consistent demand for skilled PMs and program managers. Granite PM Academy serves Houston professionals with live-virtual PMP® Certification training designed to fit working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Houston's energy sector drives demand for project managers who can lead complex, regulated initiatives across oil, gas, and renewables. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that fulfills PMI's contact-hour education requirement, letting you earn your credential while managing your Houston-based schedule. PMP certification positions you for leadership roles and salary growth in a market where technical project expertise commands premium compensation.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:35.102534Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "8fd63fe798b3ce69",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Houston for Energy and Beyond",
+      "text": "<p>Houston's dominance as a global energy hub—home to ExxonMobil, Chevron, Shell, and dozens of major oil, gas, and petrochemical firms—has created one of North America's most robust project management job markets. Yet the demand for certified project managers extends well beyond the energy sector. Healthcare systems like Memorial Hermann and Houston Methodist, construction and engineering firms supporting the Texas Medical Center and NASA Johnson Space Center, and the city's thriving aerospace, manufacturing, and logistics industries all compete for skilled professionals who can lead complex, high-stakes initiatives. The PMP® credential has become the standard credential employers in Houston expect, signaling both technical competency and professional commitment. For professionals across Houston's diverse economic landscape, PMP Certification Training isn't optional—it's the credential that unlocks advancement, higher compensation, and leadership roles in the city's most dynamic sectors.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP Certification Training designed for working professionals in Houston and beyond. Our courses satisfy the Project Management Institute's contact-hour requirements and are taught by active, certified practitioners who bring real-world experience from energy, construction, healthcare, and other industries where Houston excels. We guide you through the exam domains, help you complete your application with confidence, and prepare you to earn the PMP® credential—the qualification that positions you for the next chapter of your career. Whether you're seeking promotion within your current organization or preparing to move into a project leadership role, our training equips you with both the knowledge and the credential Houston's employers demand.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:39.968873Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "2ec62ec565c3d451",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Houston's Energy and Aerospace Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorization Means Credibility",
+          "text": "Our PMP Certification Training is delivered by a PMI Authorized Training Partner, ensuring your contact hours meet PMI eligibility standards without question. That credential carries weight with ExxonMobil, Shell, NASA Johnson Space Center, and other major Houston employers."
+        },
+        {
+          "heading": "Live Instruction Fits Your Schedule",
+          "text": "Attend live, instructor-led sessions online or in-person without sacrificing work hours. Our flexible format lets you complete required contact hours while staying current on active projects—critical for professionals managing petrochemical plants, construction sites, or aerospace programs."
+        },
+        {
+          "heading": "Learn from Working Practitioners",
+          "text": "Your instructors hold active PMP credentials and manage real projects across Houston's dominant sectors: oil and gas, construction, healthcare, and industrial manufacturing. Practical examples replace theory-only lectures, so you grasp what exam questions really ask."
+        },
+        {
+          "heading": "Credential Built for Houston Jobs",
+          "text": "Energy majors, contractors, and aerospace firms in Houston actively recruit PMP-certified project managers for leadership roles and advancement. The credential opens doors at firms driving the region's economy and offers tangible career momentum in a competitive market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:44.806634Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "b62093a7505a1fc9",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Demand Across Houston's Energy and Healthcare Sectors",
+      "text": "<p>Houston's energy sector—anchored by ExxonMobil, Chevron, Shell, ConocoPhillips, and Phillips 66—drives consistent hiring for certified project managers overseeing complex capital projects, regulatory compliance, and operational initiatives. Beyond oil and gas, major employers including Baker Hughes, Halliburton, Memorial Hermann Health System, and Houston Methodist actively recruit PMP-credentialed professionals to lead construction, infrastructure, and clinical expansion efforts. The Port of Houston's ongoing modernization initiatives and the Texas Medical Center's expansion projects further exemplify the breadth of demand: these landmark undertakings require disciplined, standardized project management expertise that the PMP credential directly validates.</p><p>PMP certification carries measurable weight in Houston's competitive job market. Major local employers—particularly in energy, engineering, and healthcare—frequently list PMP or equivalent certification as a requirement or strong differentiator for mid- to senior-level roles, directly influencing compensation tiers and advancement speed. Because project management salaries in Houston scale significantly with certification status, years of experience, and industry sector, holding the PMP credential positions you to negotiate more effectively and qualify for higher-responsibility assignments. Completing PMP Certification Training through Granite PM Academy equips you with both the knowledge and the credential that Houston's largest employers expect, giving you a concrete competitive edge in a market where demand for standardized project management expertise remains consistently strong.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:49.445260Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c7372df55b851491",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Houston",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Review PMI's education and project-management experience requirements for the PMP credential. Houston's energy, petrochemical, and construction sectors prioritize candidates who meet these prerequisites. Verify your qualifications before enrolling to ensure you're ready to apply."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course designed for working professionals in Houston. Attend interactive sessions at your own pace, ask instructors real-time questions, and earn the formal contact hours PMI requires. All coursework is completed before you submit your PMI application."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing Granite PM Academy's training, submit your PMP application directly to PMI, including proof of your contact hours and professional experience. Pay the exam fee to secure your testing eligibility. PMI will audit your application and confirm your readiness within a set timeframe."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests, study guides, and instructor office hours, to build confidence. Schedule your PMP exam at a PMI-approved testing center in the Houston area or online. Our instructors support you through final review before test day."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, commit to earning Professional Development Units (PDUs) across a three-year renewal cycle to keep your credential active. Granite PM Academy offers ongoing PDU-eligible courses and webinars. Renew with PMI before your cycle closes to stay current in Houston's competitive project-management market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:19:54.790962Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "f76a50f9ec8cf439",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth it for Houston energy sector careers?",
+          "answer": "<p>Yes. Houston's oil, gas, and petrochemical employers—including ExxonMobil, Chevron, Shell, and ConocoPhillips—actively recruit PMP-certified project managers and frequently list the credential as preferred or required for mid- to senior-level roles. The PMP demonstrates standardized competency in the complex, high-stakes project environments these companies operate in, and certification often unlocks access to higher compensation tiers and advancement opportunities within the region's competitive energy market.</p>"
+        },
+        {
+          "question": "Which Houston employers value PMP certification most?",
+          "answer": "<p>Energy and engineering firms dominate: ExxonMobil, Chevron, Shell, Baker Hughes, Halliburton, Bechtel, and NRG Energy all have strong local presences and favor PMP credentials. Healthcare systems (Memorial Hermann, Houston Methodist) and NASA Johnson Space Center also recognize the certification. Construction and manufacturing sectors across the region list PMP or equivalent credentials as differentiators in job postings, reflecting Houston's diverse, project-intensive economy.</p>"
+        },
+        {
+          "question": "Can I attend Houston PMP training live-virtual from my workplace?",
+          "answer": "<p>Yes. Our live-virtual training format allows Houston professionals to join from their office, home, or any location with reliable internet. This flexibility suits the schedules of employees at major Houston employers in energy, healthcare, and aerospace who manage demanding on-site and remote commitments. You'll participate in real-time instruction without travel, though you'll need a quiet, professional setting for group exercises and assessments.</p>"
+        },
+        {
+          "question": "How does Houston's job market affect PMP certification timing?",
+          "answer": "<p>Houston's strong demand for certified project managers across energy, construction, healthcare, and aerospace means the job market rewards early certification. Professionals pursuing advancement or job transitions in these sectors often find that holding PMP credentials before applying accelerates placement and salary negotiation. If you're in or targeting one of these industries, earning certification sooner positions you ahead of competing candidates in a competitive local market.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:20:01.168949Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "3fcdb3a2ad908d2a",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Houston's energy sector—anchored by ExxonMobil, Chevron, Shell, and other global operators—drives consistent demand for skilled project managers, while expansion at the Texas Medical Center, NASA Johnson Space Center, and the Port of Houston creates opportunities across healthcare, aerospace, and logistics. The city's diverse industrial base sustains robust hiring for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training to Houston professionals ready to advance.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:20:03.044747Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "27b5255e64e6e57c",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-houston-tx/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Houston, TX, PMP exam prep Houston, PMP course Houston TX, project management certification Houston, TX, PMI PMP training Houston",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/\",\r\n      \"name\": \"PMP Certification Training in Houston, TX | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Houston, TX. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Houston, TX\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/#course\",\r\n      \"name\": \"PMP Certification Training in Houston, TX\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Houston, TX. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-houston-tx/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

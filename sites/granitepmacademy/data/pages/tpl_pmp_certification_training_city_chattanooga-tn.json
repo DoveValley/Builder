@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "chattanooga-tn",
+  "slug": "pmp-certification-training-chattanooga-tn",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "chattanooga-tn",
+    "city": "Chattanooga",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "chattanooga-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's electric vehicle production and supported by insurance giants BlueCross BlueShield and Unum—fuels steady demand for skilled project managers across automotive, healthcare, logistics, and emerging tech roles. With EPB's fiber-optic expansion and Amazon's regional fulfillment operations driving additional opportunities, the PMP® credential strengthens your competitive position locally. Granite PM Academy delivers live-virtual PMP Certification training designed around Chattanooga professionals' schedules and career goals.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Chattanooga's growing manufacturing and logistics sectors increasingly rely on certified project managers to coordinate complex operations and supply-chain initiatives. Granite PM Academy delivers PMI-authorized, instructor-led PMP Certification Training in a live-virtual format that satisfies PMI's required contact hours, fitting seamlessly into working schedules. Earning your PMP credential positions you to advance into senior project leadership roles where demand—and compensation—continues to rise across the region's industrial and distribution employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:28.886610Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "aa4cf53b33bac365",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Chattanooga for Manufacturing & Beyond",
+      "text": "<p>Chattanooga's project management market is anchored by Volkswagen's manufacturing operations and a robust ecosystem of insurance, healthcare, and logistics employers—all sectors where PMP® certification directly correlates with career advancement and leadership opportunity. Volkswagen Chattanooga and peers like Covenant Logistics, BlueCross BlueShield of Tennessee, and Erlanger Health System regularly seek project managers who hold PMI credentials to lead complex initiatives across supply chain, digital transformation, and operational improvement. Whether you're advancing within Chattanooga's automotive and manufacturing base or moving into the city's growing technology and healthcare sectors, the PMP® demonstrates mastery of the frameworks and discipline these employers expect from senior-level PM talent.</p><p>Granite PM Academy is a PMI Authorized Training Partner that delivers live-virtual, instructor-led PMP® Certification Training designed to fit working professionals in Chattanooga. Our curriculum meets all contact-hour requirements mandated by the Project Management Institute and is taught by active certified practitioners who bring real-world experience from industries you recognize locally. We guide you through exam readiness while you maintain your job and schedule—clear pathways to certification without compromise. When you complete your training with Granite PM Academy, you'll be positioned to sit for the PMP® exam with the knowledge and confidence that Chattanooga employers actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:32.666834Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "dc5c1812bf7188a6",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP® Certification for Chattanooga's Growing Project Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, ensuring your PMP® training meets all PMI standards and eligibility requirements. This designation guarantees instructional quality and direct alignment with PMI's evolving credential framework."
+        },
+        {
+          "heading": "Live Instructor-Led, Flexible Format",
+          "text": "Attend live-virtual classes led by active certified practitioners who satisfy PMI's required contact hours. Classes fit working schedules across Chattanooga's shift-based manufacturing and logistics sectors without sacrificing real-time instructor interaction and peer collaboration."
+        },
+        {
+          "heading": "Exam Prep from Practicing PMs",
+          "text": "Your instructors are current PMP® holders actively managing projects in Chattanooga industries. They embed exam-preparation strategies and real-world scenarios into every session, bridging classroom content and actual certification exam rigor."
+        },
+        {
+          "heading": "Credential Valued by Local Employers",
+          "text": "Chattanooga's advanced manufacturing, logistics, healthcare, and insurance sectors actively hire PMP®-certified professionals. Volkswagen, Amazon, Covenant Logistics, and regional healthcare systems recognize the credential as a competitive differentiator for program and project leadership roles."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:36.558973Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "d71f58b19fa7b104",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers Across Chattanooga's Growing Industries",
+      "text": "<p>Chattanooga's advanced manufacturing sector—anchored by Volkswagen's ongoing expansion and retooling for electric vehicle production—has created sustained demand for skilled project managers who can navigate complex, multi-phase operations. Beyond automotive, BlueCross BlueShield of Tennessee, Unum, and Erlanger Health System routinely seek certified project managers to oversee infrastructure upgrades, system implementations, and organizational change initiatives. Amazon's fulfillment center development in the Chattanooga area and EPB's citywide fiber-optic smart grid expansion represent additional high-visibility projects where certified project managers are essential to timeline, budget, and stakeholder management.</p><p>The PMP® credential carries particular weight in Chattanooga's manufacturing, insurance, and healthcare sectors, where employers increasingly view certification as a competitive differentiator for promotion and hiring decisions. While project management compensation in Chattanooga remains strong relative to local cost of living and tracks competitively despite being slightly below larger metros like Atlanta, candidates who combine PMP certification with industry-specific experience—especially in automotive or healthcare—typically command the most attractive offers. Completing PMP Certification Training through Granite PM Academy positions you to meet that employer expectation and accelerate advancement within Chattanooga's dynamic professional market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:40.459800Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "18ae0ccdcf0749ce",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Chattanooga",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and professional project-management experience requirements for the PMP credential. Review the specific hour thresholds based on your bachelor's degree status. Granite PM Academy's advisors can clarify your qualifications before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Attend all sessions synchronously to earn your required contact hours. Our Chattanooga-based instructors deliver real-world scenarios and hands-on workshops tailored to project leaders across healthcare, manufacturing, and logistics sectors."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing training, submit your formal PMP application directly to PMI and pay the associated exam fee. Granite PM Academy provides step-by-step application guidance to ensure all documentation meets PMI standards and avoid processing delays."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice questions, study guides, and instructor office hours. Schedule your computer-based exam through PMI's testing vendor at a Chattanooga-area testing center or remote proctoring option."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) across PMI's standard three-year renewal cycle to keep your credential active. Granite PM Academy offers ongoing training and PDU-eligible workshops to support your continuous professional development in Chattanooga."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:44.446003Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "d3c014dc1b797853",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Chattanooga project managers?",
+          "answer": "<p>Yes. Chattanooga's dominant employers—Volkswagen, BlueCross BlueShield of Tennessee, Unum, healthcare systems, and logistics firms—increasingly use PMP certification as a differentiator when filling project management roles. While skilled project managers remain in demand across sectors regardless of formal credentials, those holding PMP certification combined with industry-specific experience (especially in automotive or healthcare) typically secure more competitive offers locally. The credential signals rigor and standardized methodology to employers who value process maturity.</p>"
+        },
+        {
+          "question": "Which Chattanooga industries most value the PMP certification credential?",
+          "answer": "<p>Advanced manufacturing (particularly automotive, via Volkswagen Chattanooga), insurance and financial services (BlueCross BlueShield, Unum), and healthcare systems (Erlanger, CHI Memorial) show the strongest credential demand. These sectors rely on complex, regulated projects where certified project managers reduce risk and improve delivery predictability. Logistics, technology, and tourism employers also hire certified PMs, but manufacturing and healthcare lead in actively seeking the credential as a hiring preference.</p>"
+        },
+        {
+          "question": "Can I attend PMP training from my Chattanooga workplace during work hours?",
+          "answer": "<p>Many Chattanooga professionals do attend live-virtual PMP training from their workplace or home office, provided your employer permits it and your internet connection is stable. Confirm with your company's learning and development policy first. Live-virtual format offers flexibility to stay in your local environment while earning your certification—no travel required to Atlanta or Nashville. Check with your course provider about scheduling options that align with your work calendar.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait in Chattanooga's job market?",
+          "answer": "<p>Start now. Chattanooga's project management demand remains strong across manufacturing, insurance, healthcare, and logistics, but the local market does trend slightly below larger metros like Atlanta in baseline compensation. Earning your PMP certification positions you to close that gap and qualify for the most competitive roles faster. Employers actively hiring in these sectors value certified candidates, so timing your certification with your career growth—rather than delaying—typically pays off sooner.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:50.611259Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1fca3547e181e0ab",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Chattanooga's manufacturing sector—anchored by Volkswagen's vehicle production and retooling for electric vehicles—drives steady demand for skilled project managers across automotive, logistics, insurance, and healthcare. Major employers including BlueCross BlueShield of Tennessee, Unum, and Amazon, coupled with infrastructure projects like EPB's fiber-optic expansion, create career opportunities for PMP-certified professionals. Granite PM Academy delivers live-virtual PMP Certification Training tailored to Chattanooga's working professionals.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:07:52.544828Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "d47efb8ad6e7013b",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Chattanooga, TN, PMP exam prep Chattanooga, PMP course Chattanooga TN, project management certification Chattanooga, TN, PMI PMP training Chattanooga",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/\",\r\n      \"name\": \"PMP Certification Training in Chattanooga, TN | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Chattanooga, TN. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Chattanooga, TN\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/#course\",\r\n      \"name\": \"PMP Certification Training in Chattanooga, TN\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Chattanooga, TN. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-chattanooga-tn/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

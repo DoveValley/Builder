@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "newport-news-va",
+  "slug": "pmp-certification-training-newport-news-va",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "newport-news-va",
+    "city": "Newport News",
+    "state": "Virginia",
+    "SS": "VA",
+    "city_slug": "newport-news-va",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier1"
+    ],
+    "city_spotlight": "<p>Newport News's project management market centers on Huntington Ingalls Industries' shipbuilding operations, where Ford-class aircraft carrier and Virginia-class submarine programs demand skilled program managers navigating complex, regulated contracts. Healthcare systems, aerospace research, and government agencies further expand PM opportunities across the region. Granite PM Academy delivers live-virtual PMP® Certification to Newport News professionals ready to advance in these high-demand sectors.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Newport News's shipbuilding and defense contractor ecosystem demands rigorous project coordination across complex, regulated environments—making the PMP® certification a recognized credential in the region's largest employment sector. Granite PM Academy delivers instructor-led PMP® training in a live-virtual format that satisfies PMI's contact-hour requirements, letting you earn the certification without leaving your schedule inflexible. Holding PMP® credentials positions you competitively for advancement in local government contracting, maritime projects, and defense-related roles where formal PM rigor directly impacts career trajectory and compensation.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:11.730021Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "3e2bf55af94674dd",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Newport News for Defense & Shipbuilding Professionals",
+      "text": "<p>Newport News's project management landscape is defined by Huntington Ingalls Industries and its massive naval shipbuilding operations, where complex, multi-year defense contracts demand rigorously trained program and project managers. In this environment, the Project Management Professional (PMP) credential has become essential—it signals to employers that you can manage the scope, schedule, budget, and regulatory compliance that characterize large-scale defense and manufacturing initiatives. Beyond shipbuilding, Newport News's healthcare systems, aerospace research facilities, and government agencies all compete for certified project managers. A PMP certification positions you to advance into leadership roles across these high-demand sectors and command competitive compensation in a market where project management expertise directly impacts mission success and organizational growth.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers live-virtual, instructor-led PMP Certification Training designed to fit the schedules of working professionals in Newport News. Our courses are taught by active certified practitioners who bring real-world experience from regulated industries and complex projects—the same environments you'll navigate in your career. We structure our training to meet the PMI contact-hour requirements for PMP eligibility, ensuring every session moves you closer to sitting for the exam with confidence. Upon completing the program and passing the PMP exam, you'll join thousands of certified professionals recognized globally for their ability to lead projects with discipline and excellence. Start your journey toward certification today and unlock the leadership opportunities waiting in Newport News's thriving project management market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:16.516344Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "3a83171323bf27bd",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification Training for Newport News Professionals",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Credential Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your PMP training meets all official requirements. This recognition guarantees your contact hours count toward PMI eligibility, eliminating guesswork about credential requirements."
+        },
+        {
+          "heading": "Live Instructor-Led Learning Schedule",
+          "text": "Attend instructor-led PMP classes in a live-virtual format that fits working schedules. Real-time instruction from active practitioners means you learn directly from professionals managing complex projects in shipbuilding, defense, and aerospace sectors right now."
+        },
+        {
+          "heading": "Exam-Ready Preparation Support",
+          "text": "Beyond classroom instruction, receive targeted exam-preparation resources and guidance designed to strengthen your readiness for the PMP assessment. Granite instructors identify common knowledge gaps and reinforce the domains where certification candidates typically need focused review."
+        },
+        {
+          "heading": "Huntington Ingalls & Defense Sector Demand",
+          "text": "Newport News shipbuilding and defense manufacturers actively hire PMP-certified program and project managers. Earning the credential strengthens your candidacy at major local employers managing large-scale, regulated projects where formal PM certification is increasingly expected."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:20.634888Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "71a56a05313d5c66",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Newport News",
+      "text": "<p>Newport News's economy is anchored by Huntington Ingalls Industries, whose Newport News Shipbuilding division remains one of the region's largest employers and a major driver of project management demand. The construction of Ford-class aircraft carriers—including CVN-79 John F. Kennedy and CVN-80 Enterprise—represents the kind of complex, multi-year government contract that demands rigorous project oversight and certified leadership. Beyond shipbuilding, Riverside Health System, Sentara Healthcare, NASA Langley Research Center, and Jefferson Lab all maintain active project portfolios in healthcare delivery, aerospace research, and scientific infrastructure. These organizations consistently seek project managers with formal credentials to coordinate initiatives ranging from facility expansions at Christopher Newport University to Virginia-class submarine programs and accelerator facility upgrades.</p><p>PMP and CAPM credentials are highly regarded among Newport News employers, particularly in defense and shipbuilding where federal contracts mandate disciplined project controls. The combination of large-scale defense work, healthcare growth, and aerospace research creates sustained demand for certified project managers—and that demand translates to competitive compensation packages. Project manager pay in Newport News tends to track with the region's defense and engineering sector activity, often positioning certified professionals above average local rates. Completing your PMP Certification Training with Granite PM Academy equips you to meet the specific rigor these employers expect, positioning you to advance in a market where the credential is not just preferred but frequently required for senior project coordination roles.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:25.061711Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "24e5729414f09d70",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Newport News",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires a combination of formal education and documented project-management experience. Review PMI's eligibility criteria—which account for your bachelor's degree status and years leading projects—to confirm you meet the baseline. Granite PM Academy staff can answer eligibility questions before you enroll."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP course. Our Newport News cohorts deliver the PMI-required contact hours in an interactive format, combining real-world case studies with exam-domain coverage. Attend all sessions and retain your completion certificate—you'll need it for your PMI application."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After finishing the course, register with PMI and submit your formal application, including your training certificate, work history, and required fee. PMI will review your credentials. Once approved, you'll receive authorization to schedule your exam at a Pearson VUE testing center."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and instructor office hours—to reinforce PMBOK® knowledge and test-taking strategy. Schedule your exam when ready. The computer-based PMP exam is offered year-round at testing centers near Newport News."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "After passing, your PMP is valid for three years. During each three-year cycle, earn and report Professional Development Units (PDUs) through project work, coursework, volunteer service, or PMI membership. Renew on schedule to keep your credential active and your professional standing current."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:30.927292Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "6b593f9e468be76a",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        },
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Newport News shipbuilding careers?",
+          "answer": "<p>Yes. Huntington Ingalls Industries and other defense contractors in Newport News regularly require or strongly prefer PMP certification for project coordination and management roles on large, multi-year government contracts. The credential demonstrates the rigorous oversight capability these complex shipbuilding and defense projects demand, often leading to faster advancement and access to higher-paying roles within the local defense sector.</p>"
+        },
+        {
+          "question": "Which Newport News employers most value PMP certification credentials?",
+          "answer": "<p>Defense and shipbuilding firms like Huntington Ingalls Industries top the list, followed by aerospace and scientific research organizations such as NASA Langley and Jefferson Lab. Healthcare systems including Riverside and Sentara also actively seek PMP-certified project managers. Government agencies and the City of Newport News increasingly list the credential as preferred for capital projects and operational initiatives.</p>"
+        },
+        {
+          "question": "Can I attend live-virtual PMP training while working in Newport News?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual format allows you to participate from your workplace, home, or any location with internet access—ideal for Newport News professionals balancing full-time roles at Huntington Ingalls, healthcare systems, or other major local employers. You engage in real time with instructors and peers without relocating or commuting to a physical classroom.</p>"
+        },
+        {
+          "question": "How does Newport News job demand affect PMP certification timing?",
+          "answer": "<p>Newport News's strong, ongoing demand for certified project managers—particularly from defense, healthcare, and engineering sectors—makes certification a strategic career move at any point. However, professionals nearing promotion or transition into new roles benefit from obtaining PMP credentials before applications open, as local employers often treat the certification as a competitive differentiator for above-market compensation packages.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:36.696454Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "052bfe351dc208b2",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Newport News's project management market centers on Huntington Ingalls Industries' shipbuilding operations, where complex, multi-year Navy contracts demand skilled program managers to coordinate regulated, large-scale initiatives—creating steady demand across defense, healthcare, and research sectors. Riverside Health System, Sentara Healthcare, and Jefferson Lab further expand opportunities for certified professionals managing infrastructure and mission-critical programs. Granite PM Academy delivers live-virtual PMP® Certification Training to Newport News professionals ready to advance in this robust local market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:35:38.700409Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "4885e4a7cb112a90",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-newport-news-va/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Newport News, VA, PMP exam prep Newport News, PMP course Newport News VA, project management certification Newport News, VA, PMI PMP training Newport News",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/\",\r\n      \"name\": \"PMP Certification Training in Newport News, VA | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Newport News, VA. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Newport News, VA\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/#course\",\r\n      \"name\": \"PMP Certification Training in Newport News, VA\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Newport News, VA. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-newport-news-va/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:26+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

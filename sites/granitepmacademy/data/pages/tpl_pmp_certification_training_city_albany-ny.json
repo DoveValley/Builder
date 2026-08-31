@@ -1,0 +1,381 @@
+{
+  "template_id": "tpl_pmp_certification_training_city",
+  "city_id": "albany-ny",
+  "slug": "pmp-certification-training-albany-ny",
+  "title": "PMP Certification Training {city}",
+  "city_vars": {
+    "id": "albany-ny",
+    "city": "Albany",
+    "state": "New York",
+    "SS": "NY",
+    "city_slug": "albany-ny",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Albany's project management demand flows from its dual identity as New York's state capital and an emerging life-sciences hub. Government agencies, SUNY system offices, and institutions like Albany Medical Center anchor stable employment, while the Albany Nanotech Complex and GlobalFoundries expansion create growth opportunities in semiconductor and advanced manufacturing. Granite PM Academy delivers live-virtual PMP® Certification to Albany professionals seeking to advance in these sectors.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Certification Training in {city}, {SS}",
+      "hs_subtext": "<p>Albany's public sector and healthcare organizations rely heavily on skilled project managers to deliver complex initiatives on schedule and budget. Granite PM Academy delivers live-virtual, instructor-led PMP Certification Training that satisfies PMI's required contact hours, preparing you to pass the PMP exam and qualify for roles managing critical state and regional programs. The PMP credential opens doors to senior project leadership positions and stronger compensation across Albany's government and health-system employers.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP certification training {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:56.915241Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1c6460f27760aa66",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Certification Training in Albany for Government and Healthcare Leaders",
+      "text": "<p>As New York's state capital, Albany anchors a robust project management market rooted in government administration, public-sector program delivery, and the expanding healthcare and life-sciences ecosystem. New York State Government, the SUNY System Administration, and major health systems like Albany Medical Center and St. Peter's Health Partners rely on skilled project managers to lead complex initiatives—from policy implementation to clinical transformation to research programs. A PMP® certification signals to these employers that you master the discipline, frameworks, and leadership competencies they need. Whether you work in state government, higher education, or one of Albany's growing semiconductor and biotech clusters, the PMP® credential strengthens your eligibility for senior roles and competitive compensation in this stable, opportunity-rich market.</p><p>Granite PM Academy delivers PMP® Certification Training as a PMI Authorized Training Partner, offering live-virtual, instructor-led courses taught by active certified practitioners who understand real-world project challenges. Our program satisfies the contact-hour requirements mandated by the Project Management Institute and prepares you thoroughly for the PMP® exam. You'll learn proven methodologies, risk management, stakeholder leadership, and the professional standards that distinguish certified practitioners in Albany's public and private sectors. Flexible scheduling accommodates working professionals, and our instructors bring hands-on experience from government, healthcare, and technology environments. Start your journey toward PMP® certification and position yourself for advancement in Albany's dynamic job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:00.912435Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "fb4eefd448d1e155",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Albany's Government and Healthcare Leaders",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy holds PMI Authorized Training Partner status, ensuring your classroom hours meet PMI's rigorous contact-hour requirement for PMP® eligibility. Direct alignment with PMI standards removes administrative uncertainty from your certification journey."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Our live-virtual instructor-led sessions let you complete required contact hours without commuting across Albany or sacrificing work commitments. Real-time interaction with certified practitioners replaces recorded videos, deepening retention and exam readiness."
+        },
+        {
+          "heading": "Instructors Who Practice Daily",
+          "text": "Your instructors hold active PMP® credentials and work as practicing project managers—not trainers acting out case studies. You learn frameworks tested in real government, healthcare, and enterprise environments, not textbook theory alone."
+        },
+        {
+          "heading": "Credential Demanded Locally",
+          "text": "New York State Government, Albany Medical Center, SUNY Administration, and CDPHP actively hire project and program managers with PMP® credentials. The credential differentiates you in Albany's competitive state and healthcare job markets, where structured methodology experience is valued."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:05.097517Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ed2c1ebafea34186",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Albany's Growing Sectors",
+      "text": "<p>Albany's project management landscape is anchored by New York State Government and the region's robust healthcare ecosystem—two sectors where certified project managers are in steady demand. State agencies managing capital projects, policy implementation, and infrastructure initiatives regularly seek PMs with formal credentials to lead cross-functional teams. Similarly, Albany Medical Center, St. Peter's Health Partners, and CDPHP employ project managers across clinical operations, facility expansion, and digital transformation initiatives. Beyond government and healthcare, the Albany Nanotech Complex expansion and nearby semiconductor manufacturing growth have created demand for PMs who can manage complex technical and capital-intensive projects in life sciences and advanced manufacturing.</p><p>The PMP® credential carries particular weight in Albany's job market because employers across state government, healthcare, and technology sectors increasingly list it as a preferred or required qualification. While project manager compensation in the Albany area tends to track below major metros like New York City, the combination of steady regional demand and the premium that certified professionals command makes the credential a smart investment in your earning potential and career trajectory. Completing PMP Certification Training through Granite PM Academy positions you to compete effectively for the growing pool of project management roles in Albany's largest employers and highest-growth sectors.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:08.564546Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "9a2ee40858072143",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Certification Training — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "Live-Virtual PMP Training",
+          "badge": "MOST POPULAR",
+          "desc": "Four-day live-virtual cohort taught by a certified PMP instructor. All 35 contact hours included. 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$1,995",
+          "period": "per person",
+          "features": "35 PMI contact hours included\nLive Q&A with certified instructor\n500+ practice questions\n90-day pass guarantee\nPMI Premier ATP",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_schedule\"></div>[course_schedule type=\"PMP Certification\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Albany",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "Verify you meet PMI's education and project-management experience requirements for the PMP credential. Review the specific hour thresholds based on your degree level. Granite PM Academy's admissions team can help you assess your qualifications before enrollment."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP training course. Attend all scheduled sessions to earn the required formal education hours. Our Albany-based instructors cover the PMBOK Guide, exam domains, and real-world project scenarios relevant to Capital Region organizations."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Apply directly to PMI through their online portal and pay the associated exam fee once your 35 contact hours are complete. Granite PM Academy provides guidance on the application process. PMI will verify your education and experience credentials before approving your exam eligibility."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources, including practice tests, study guides, and instructor office hours. Schedule your computer-based PMP exam through Pearson VUE at a testing center or at home. Our team supports you through final review so you enter the exam with confidence."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "Earn Professional Development Units (PDUs) throughout the standard three-year renewal cycle to keep your PMP active. Granite PM Academy offers ongoing continuing-education courses and webinars that count toward renewal requirements. Plan ahead to meet PMI's PDU targets before your certification expires."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:13.682132Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "0fb35e9c773a458c",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Certification FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "Do I need to travel to {city} for this training?",
+          "answer": "<p>No. All of our PMP training is delivered live-virtual via video conference, so {city} professionals attend from wherever they work. No commuting or hotel required.</p>"
+        },
+        {
+          "question": "What are the PMP eligibility requirements?",
+          "answer": "<p>PMI requires either a four-year degree with 36 months of project leadership experience, or a high school diploma with 60 months of experience. All applicants need 35 contact hours of PM education &mdash; our course satisfies this requirement.</p>"
+        },
+        {
+          "question": "How long does it take to get PMP certified in {city}?",
+          "answer": "<p>After completing training, PMI typically approves applications within 5&ndash;10 business days. Once approved, you have one year to sit for the exam. Most students study 4&ndash;8 weeks after the course before scheduling their exam.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our course and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is this training PMI-approved?",
+          "answer": "<p>Yes. Granite PM Academy is a PMI Premier Authorized Training Partner (ATP). Our curriculum is aligned to PMI’s current Examination Content Outline and our contact hours are fully accepted by PMI.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Albany government and healthcare project managers?",
+          "answer": "<p>Yes. Albany's largest employers—New York State Government, SUNY System Administration, Albany Medical Center, and St. Peter's Health Partners—increasingly list PMP as a preferred or required qualification in project management roles. The credential signals standardized capability in complex, multi-stakeholder environments common in public-sector and healthcare settings, positioning you competitively for advancement and leadership positions in these dominant local sectors.</p>"
+        },
+        {
+          "question": "Which Albany employers value PMP certification most in their hiring?",
+          "answer": "<p>State government agencies, healthcare systems, SUNY institutions, and technology employers like GlobalFoundries and Regeneron actively seek PMP-certified professionals. The credential is particularly valued in government and healthcare project management postings across Albany, where regulatory compliance, budget accountability, and cross-functional collaboration demand proven methodologies. Insurance and utilities sectors (CDPHP, MVP Health Care, National Grid) also recognize PMP as a competitive differentiator.</p>"
+        },
+        {
+          "question": "Can I attend PMP certification training from my Albany workplace or home office?",
+          "answer": "<p>Yes. Granite PM Academy's live-virtual course format allows you to participate from your office, home, or any location with reliable internet—ideal for Albany professionals balancing full-time roles in government agencies, hospitals, or corporate settings. This flexibility lets you earn your credential without commuting or taking extended time away from your employer.</p>"
+        },
+        {
+          "question": "Should I pursue PMP certification now or wait for the Albany job market?",
+          "answer": "<p>Pursue it now. PMP-certified project managers in Albany command measurable premiums over non-certified peers, and demand remains steady across government, healthcare, and technology employers. Certification positions you ahead of competition whenever you're ready to advance, and the skills apply immediately to your current role—making early pursuit a low-risk investment in your career trajectory.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:19.055888Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "6bb3c4e735ec2f26",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Albany's project management demand is rooted in its status as New York's state capital, anchoring a robust public-sector workforce alongside expanding opportunities in healthcare, higher education, and semiconductor manufacturing centered on the Albany Nanotech Complex. Major employers—including New York State Government, SUNY System Administration, Albany Medical Center, and GlobalFoundries—consistently seek skilled project managers for infrastructure, tech, and life-science initiatives. Granite PM Academy delivers live-virtual PMP Certification Training tailored to Albany professionals seeking to advance their careers in this dynamic, opportunity-rich market.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:44:20.940064Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "df61527fdc5700f8",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Start Your PMP Journey in {city} Today",
+      "cb_subtext": "Join a scheduled live-virtual cohort or enroll in on-demand access. Our team is ready to help {city} professionals advance their careers.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-certification-training-albany-ny/",
+    "meta_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "meta_keywords": "PMP certification training Albany, NY, PMP exam prep Albany, PMP course Albany NY, project management certification Albany, NY, PMI PMP training Albany",
+    "og_title": "PMP Certification Training in {city}, {SS} | Granite PM Academy",
+    "og_description": "PMI-authorized PMP certification training for {city}, {SS} professionals. Live-virtual, instructor-led, 35 contact hours and exam-prep support. See upcoming dates.",
+    "og_image": "",
+    "service_name": "PMP Certification Training",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Live-virtual, PMI-authorized PMP certification training for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Certification Training {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\r\n  \"@context\": \"https://schema.org\",\r\n  \"@graph\": [\r\n    {\r\n      \"@type\": \"WebPage\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/#webpage\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/\",\r\n      \"name\": \"PMP Certification Training in Albany, NY | Granite PM Academy\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training in Albany, NY. Live-virtual and on-demand formats. 35 contact hours, money-back pass guarantee.\",\r\n      \"isPartOf\": {\r\n        \"@id\": \"https://granitepmacademy.com/#website\"\r\n      },\r\n      \"about\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"breadcrumb\": {\r\n        \"@type\": \"BreadcrumbList\",\r\n        \"itemListElement\": [\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 1,\r\n            \"name\": \"Home\",\r\n            \"item\": \"https://granitepmacademy.com/\"\r\n          },\r\n          {\r\n            \"@type\": \"ListItem\",\r\n            \"position\": 2,\r\n            \"name\": \"PMP Certification Training in Albany, NY\",\r\n            \"item\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/\"\r\n          }\r\n        ]\r\n      }\r\n    },\r\n    {\r\n      \"@type\": \"Course\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/#course\",\r\n      \"name\": \"PMP Certification Training in Albany, NY\",\r\n      \"description\": \"PMI Premier Authorized PMP certification training for project managers in Albany, NY. Live-virtual 4-day instructor-led course ($1,995) or self-paced on-demand ($995). Includes 35 PMI contact hours, practice questions, mock exams, and money-back Pass Guarantee.\",\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/\",\r\n      \"provider\": {\r\n        \"@id\": \"https://granitepmacademy.com/#organization\"\r\n      },\r\n      \"offers\": [\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"Live Virtual (4-Day)\",\r\n          \"price\": \"1995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/\"\r\n        },\r\n        {\r\n          \"@type\": \"Offer\",\r\n          \"name\": \"On-Demand (Self-Paced)\",\r\n          \"price\": \"995\",\r\n          \"priceCurrency\": \"USD\",\r\n          \"availability\": \"https://schema.org/InStock\",\r\n          \"url\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"@type\": \"EducationalOccupationalCredential\",\r\n      \"@id\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/#credential\",\r\n      \"name\": \"Project Management Professional (PMP)\",\r\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\r\n      \"credentialCategory\": \"Professional Certification\",\r\n      \"recognizedBy\": {\r\n        \"@type\": \"Organization\",\r\n        \"name\": \"Project Management Institute (PMI)\",\r\n        \"url\": \"https://www.pmi.org\"\r\n      },\r\n      \"url\": \"https://granitepmacademy.com/pmp-certification-training-albany-ny/\"\r\n    }\r\n  ]\r\n}",
+    "secondary_keywords": "PMP certification {city}, PMP training {city}, PMP classes {city} {SS}, PMP certification cost {city}, best PMP training {city}, PMP certification near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "698847d3e800559828b468f3aa013c57"
+}

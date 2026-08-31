@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "fairfield-ca",
+  "slug": "pmp-bootcamp-fairfield-ca",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "fairfield-ca",
+    "city": "Fairfield",
+    "state": "California",
+    "SS": "CA",
+    "city_slug": "fairfield-ca",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier2"
+    ],
+    "city_spotlight": "<p>Fairfield's project management demand centers on military logistics at Travis Air Force Base alongside thriving healthcare systems, manufacturing, and public-sector infrastructure work. Major employers like NorthBay Healthcare and Solano County consistently seek certified project managers for facility expansions, transportation improvements, and community development initiatives. Granite PM Academy delivers live-virtual PMP® Certification training to Fairfield professionals seeking to advance in this diverse, steady job market.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Fairfield's refinery and chemical-manufacturing sector depends on rigorously coordinated projects, where PMP certification distinguishes candidates for supervisory and technical-leadership roles. Granite PM Academy's live-virtual PMP Boot Camp delivers the instructor-led contact hours PMI requires for eligibility, condensed into an intensive format that fits working schedules. Earn your PMP credential and position yourself for the higher-responsibility, better-compensated roles that Fairfield's industrial employers actively seek.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:26.202497Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "778e9dab41841cab",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Fairfield: Military and Healthcare Demand",
+      "text": "<p>Travis Air Force Base and Fairfield's regional healthcare systems—NorthBay Healthcare and Kaiser Permanente—anchor a robust project management market that rewards certified professionals. Military logistics operations and complex healthcare delivery demand disciplined, measurable project oversight. Whether you work in defense contracting, hospital operations, county government, or the manufacturing and distribution networks that support Fairfield's economy, the Project Management Professional (PMP)® credential signals competency in planning, execution, and stakeholder management that employers in these sectors actively seek. Certification accelerates career progression in roles where complex timelines, budgets, and cross-functional teams are the norm.</p><p>Granite PM Academy, a PMI Authorized Training Partner, delivers intensive PMP Boot Camp as live-virtual, instructor-led training designed for working professionals in Fairfield who need flexibility without sacrificing rigor. Our curriculum meets the Project Management Institute's contact-hour requirements and is taught by active certified practitioners who bring real-world experience from the sectors you work in. You'll study exam-aligned content, practice scenario-based questions, and gain the foundation needed to pass the PMP exam and earn a credential that opens doors across Fairfield's diverse industries. Start your certification journey with an academy built to keep working professionals on track.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:30.389428Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "212b61ef34241451",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP certification aligned with Fairfield's defense and healthcare growth",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI authorization ensures credential validity",
+          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your PMP Boot Camp completion satisfies PMI's contact-hour requirement and positions you for exam eligibility without question—essential for employers like Travis Air Force Base and NorthBay Healthcare who verify trainer credentials."
+        },
+        {
+          "heading": "Live instruction matches your schedule",
+          "text": "Our live-virtual instructor-led format delivers the structured, real-time interaction required by PMI while fitting Fairfield professionals' work commitments. Instructors actively hold PMP certification and practice project management daily, bringing current case examples from manufacturing, logistics, and government sectors."
+        },
+        {
+          "heading": "Targeted exam prep boosts first-attempt success",
+          "text": "Granite PM Academy provides dedicated exam-preparation support throughout the boot camp, including practice questions aligned to PMI's test domains. This focused preparation helps working professionals in Fairfield move from training completion to certification without extended study delays."
+        },
+        {
+          "heading": "Local employers actively hire PMP professionals",
+          "text": "Solano County government, Kaiser Permanente Fairfield Medical Center, Anheuser-Busch, and the Walmart Distribution Center regularly seek certified project managers. PMP credential strengthens your candidacy for program-management roles across healthcare, defense, and logistics—industries that anchor Fairfield's job market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:35.201952Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "6be732f3c24021f9",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Fairfield's Growing Sectors",
+      "text": "<p>Fairfield's position as a regional hub for healthcare, defense, government, and manufacturing creates steady demand for certified project managers. NorthBay Healthcare and Kaiser Permanente Fairfield Medical Center regularly manage facility expansions and service-line launches that require structured project oversight. Travis Air Force Base drives defense-adjacent contracting and facility modernization work, while the Solano Transportation Authority's I-80/I-680/SR-12 Interchange Improvement Project exemplifies the kind of large-scale infrastructure initiative that depends on formal project management expertise. City and County departments, alongside employers like Anheuser-Busch and the Walmart Distribution Center, similarly rely on PMP- and CAPM-certified professionals to keep operations aligned and budgets on track.</p><p>Holding a PMP credential strengthens your negotiating position considerably in Fairfield's job market, particularly in healthcare, government contracting, and manufacturing roles where formal processes are non-negotiable. Compensation for certified project managers in this region tracks the broader Bay Area and Sacramento corridor, with PMP holders typically commanding stronger offers than uncertified peers—especially at mid and senior levels. Completing the PMP Boot Camp through Granite PM Academy equips you with both the knowledge to pass the certification exam and the practical framework to lead projects in Fairfield's most competitive sectors, positioning you to advance faster and earn more as employers increasingly value documented PM credentials.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:39.741382Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a4f8c562be808290",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fairfield",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience to sit for the PMP exam. Review PMI's eligibility criteria—your background in formal education and documented hours leading projects determines whether you qualify. Contact Granite PM Academy to verify your credentials before enrolling."
+        },
+        {
+          "heading": "Complete 35 Contact Hours",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Fairfield-focused program delivers the PMI-required contact hours through interactive, real-world scenarios. Attend sessions on your schedule and earn your certificate of completion upon finishing the course."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, submit your formal application to PMI and pay the examination fee. You'll provide your education, experience, and course-completion documentation. PMI reviews and approves your application, confirming you're eligible to test."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Granite PM Academy's exam-preparation support helps you review key domains and practice test-style questions. Schedule your proctored exam through PMI's testing partner. You'll sit for a computer-based exam that assesses your mastery of project-management knowledge and practice."
+        },
+        {
+          "heading": "Maintain Your Credential",
+          "text": "After earning your PMP, commit to earning Professional Development Units (PDUs) throughout a three-year renewal cycle. Pursue learning, volunteer work, and certifications that keep your skills current. Renew on schedule to maintain active PMP status and demonstrate ongoing expertise."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:44.306663Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "b22df3a1c254975a",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for project managers in Fairfield?",
+          "answer": "<p>Yes—Fairfield's dominant employers in healthcare, defense contracting, and government increasingly expect or strongly prefer PMP credentials for mid- to senior-level roles. While not every posting mandates certification, holding a PMP significantly strengthens your negotiating position and eligibility for advancement, particularly at NorthBay Healthcare, Kaiser Permanente, and Solano County agencies where formal project governance is standard.</p>"
+        },
+        {
+          "question": "Which Fairfield employers value PMP and CAPM certifications most?",
+          "answer": "<p>Healthcare systems (Kaiser Permanente Fairfield Medical Center, NorthBay Healthcare), government and public administration (City of Fairfield, Solano County), and defense-adjacent sectors actively seek certified project managers. Manufacturing and logistics roles at facilities like the Walmart Distribution Center and Anheuser-Busch also increasingly recognize PMP as a competitive advantage for supervisory and planning positions.</p>"
+        },
+        {
+          "question": "Can I attend Fairfield's live-virtual PMP boot camp from my workplace?",
+          "answer": "<p>Yes. Our live-virtual format allows you to join from your employer's site, home office, or any location with reliable internet. This flexibility suits Fairfield professionals managing multiple campuses or distributed teams across the Bay Area and Sacramento corridor—you can maintain your work schedule while earning your credential.</p>"
+        },
+        {
+          "question": "How does Fairfield's job market timing affect PMP certification readiness?",
+          "answer": "<p>Fairfield's position between the Bay Area and Sacramento creates steady, year-round demand for certified project managers. Healthcare system expansion and ongoing government infrastructure projects mean certification often pays dividends within months of completion. Starting a boot camp now positions you ahead of competitors in a competitive regional market where certification frequently translates to faster promotion or higher compensation leverage.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:49.887124Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "a6eb020bc4a575af",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fairfield's project management demand stems from Travis Air Force Base infrastructure modernization alongside regional healthcare expansion, manufacturing logistics, and county-level infrastructure work. The I-80/I-680/SR-12 Interchange Improvement Project and NorthBay Healthcare facility initiatives exemplify the steady certification-worthy opportunities across defense, healthcare, and public administration. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for working professionals in the Fairfield area.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:43:51.656753Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "28d12ee10a4c1582",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Fairfield, CA, PMP bootcamp Fairfield, PMP certification boot camp Fairfield, CA, PMP bootcamp near me, intensive PMP training Fairfield",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/\",\n      \"name\": \"PMP Boot Camp in Fairfield, CA | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Fairfield, CA. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Fairfield, CA\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/#course\",\n      \"name\": \"PMP Boot Camp in Fairfield, CA\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Fairfield, CA. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fairfield-ca/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:31+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "oak-ridge-tn",
+  "slug": "pmp-bootcamp-oak-ridge-tn",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "oak-ridge-tn",
+    "city": "Oak Ridge",
+    "state": "Tennessee",
+    "SS": "TN",
+    "city_slug": "oak-ridge-tn",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier3"
+    ],
+    "city_spotlight": "<p>Oak Ridge's project management market centers on nuclear research, national security, and federal contracting—with major employers like Oak Ridge National Laboratory and Y-12 National Security Complex driving steady demand for credentialed professionals. Large-scale initiatives such as the Uranium Processing Facility construction and the Frontier supercomputer project create real opportunities for skilled program managers. Granite PM Academy delivers live-virtual PMP® Certification training tailored to Oak Ridge professionals pursuing this industry-valued credential.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Oak Ridge's concentration of national laboratories and federal contractors demands project managers who can navigate complex compliance and technical delivery environments. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI contact-hour education requirement through instructor-led instruction, preparing you to sit for the PMP certification exam. Earning your PMP credential positions you for advancement within the region's mission-critical infrastructure and engineering sectors, where the certification directly strengthens your credibility with government clients and security-cleared teams.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:33.827001Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "90384270597e06fa",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Oak Ridge: Project Management Training for Nuclear and Defense Professionals",
+      "text": "<p>Oak Ridge's economy is anchored by nuclear research, national security operations, and large-scale federal contracting—sectors where project management expertise directly influences mission success and organizational advancement. Institutions like Oak Ridge National Laboratory and the Y-12 National Security Complex manage complex, long-duration programs that demand rigorous scope, schedule, and cost control. For professionals working within these organizations or their supporting contractors, the Project Management Professional (PMP) credential signals mastery of standardized methodologies and earned recognition from the Project Management Institute. In Oak Ridge's competitive market, PMP certification distinguishes you as qualified to lead high-stakes initiatives and positions you for roles with greater responsibility and compensation across the region's research, engineering, and federal contracting sectors.</p><p>Granite PM Academy delivers PMP Boot Camp as an intensive, instructor-led program designed for working professionals who need accelerated preparation without sacrificing rigor. As a PMI Authorized Training Partner, we deliver live-virtual instruction that fulfills the contact-hour requirements mandated by the Project Management Institute for PMP eligibility. Our instructors are active certified practitioners with direct experience managing projects in demanding environments, ensuring every concept connects to real-world application. We structure our boot camp to balance comprehensive exam readiness with practical project leadership skills, so you complete the program confident in both test performance and your ability to apply PMP principles from day one on the job. When you're ready to pursue your certification, Granite PM Academy equips you with the foundation and momentum to succeed.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:38.857275Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "a436e9d9f47b13a5",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP Certification for Oak Ridge's Energy and Defense Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI-Authorized Training Path",
+          "text": "Granite PM Academy's PMP Boot Camp is delivered by a PMI Authorized Training Partner, ensuring your instruction meets PMI standards and your contact hours count directly toward PMP eligibility—no workarounds or supplemental requirements."
+        },
+        {
+          "heading": "Live Instruction, Flexible Schedule",
+          "text": "Instructor-led live-virtual delivery lets you attend from Oak Ridge while earning required contact hours in real time. Interact with a certified instructor, ask questions as they arise, and complete the eligibility clock without self-paced gaps."
+        },
+        {
+          "heading": "Active Practitioners as Instructors",
+          "text": "Your instructors are working PMP-certified project managers applying the PMBOK® framework daily in complex environments. Learn from practitioners who navigate real-world scope, budget, and timeline challenges—not case-study theory alone."
+        },
+        {
+          "heading": "Credential Valued by Local Employers",
+          "text": "Oak Ridge's dominant employers—ORNL, Y-12, Bechtel, Jacobs Engineering, and DOE contractors—actively hire and promote PMP-certified program and project managers. Certification strengthens your candidacy in the region's high-security, mission-critical infrastructure market."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:42.917633Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "1e6a489c3cc08645",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Careers in Oak Ridge's Federal Sector",
+      "text": "<p>Oak Ridge's economy centers on nuclear research, national security, and advanced scientific projects—all of which depend on skilled project managers. Oak Ridge National Laboratory, Y-12 National Security Complex, and the U.S. Department of Energy employ certified project managers across construction, operations, and research initiatives. Current local work includes the Uranium Processing Facility construction at Y-12, the Frontier exascale supercomputer project at ORNL, and the Spallation Neutron Source Proton Power Upgrade, each requiring rigorous project governance and technical oversight. Engineering firms like Bechtel National and Jacobs Engineering Group, as well as environmental contractors such as UCOR managing the DOE Oak Ridge Environmental Management cleanup program, actively hire project managers with formal credentials and clearance eligibility.</p><p>The PMP® credential carries particular weight in Oak Ridge because federal and national-laboratory contracts typically mandate or strongly prefer formal project management methodologies. Project managers supporting DOE, national lab, and defense-related work often command competitive compensation reflecting the technical complexity and security demands of the role—though actual pay varies significantly by employer, clearance level, and experience. Completing Granite PM Academy's PMP Boot Camp positions you to meet these employer expectations and qualify for roles in a market where the credential is not just an advantage but often a requirement. In a region where major projects run into the billions and timelines span years, your PMP certification becomes a concrete asset that accelerates advancement and opens doors across Oak Ridge's dominant industries.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:47.090033Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "13e62ffab72551bf",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Oak Ridge",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific combinations of education and project-management experience before you apply. Review PMI's formal eligibility criteria—typically a bachelor's degree plus documented hours leading projects, or an associate degree with additional experience. Granite PM Academy's advisors can verify your qualifications at no cost and clarify any gaps."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Training",
+          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our curriculum covers the full PMBOK® Guide framework and exam domains in real time with experienced instructors. You'll earn the 35 required contact hours, receive course materials, and build the foundation you need to pass the exam confidently."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "Once you finish the boot camp, submit your PMP application directly to PMI with proof of your education, experience, and training completion. Pay PMI's examination fee at that time. Granite PM Academy provides guidance on the application process and documentation to ensure your submission meets PMI standards."
+        },
+        {
+          "heading": "Prepare and Test for PMP Certification",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice exams, study guides, and instructor Q&A sessions—to reinforce your learning. Schedule your computer-based exam through Pearson VUE at a testing center or proctored online. Our team remains available to address last-minute questions and boost your readiness."
+        },
+        {
+          "heading": "Maintain Your Credential Long-Term",
+          "text": "After earning your PMP, renew it every three years by earning professional development units (PDUs) through approved training, volunteer work, and professional activities. Granite PM Academy offers continuing-education courses and PDU-eligible webinars to help you stay current and meet PMI's renewal requirements cost-effectively."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:52.958605Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "63fa400e25f02ffa",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+          "name": "Marcus R.",
+          "location": "Senior PM, Deloitte",
+          "initials": "MR",
+          "avatar_color": "accent",
+          "result_badge": "✓ PMP® — Passed first attempt"
+        },
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for Oak Ridge National Laboratory careers?",
+          "answer": "<p>Yes. Oak Ridge's dominant employers—ORNL, Y-12, DOE offices, and major contractors like Bechtel and Jacobs—regularly list PMP certification as preferred or advantageous for project and program management roles on federal and national security contracts. Formal project management methodologies are often required in these environments, making the credential a competitive advantage for advancement and internal mobility.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Boot Camp live-virtual course from my Oak Ridge workplace?",
+          "answer": "<p>Our live-virtual format allows you to attend from your location, including on-site at many Oak Ridge employers. However, confirm with your security office or facility management that remote training access aligns with your workplace policies and clearance requirements—some federal and national lab sites have specific protocols for online coursework during work hours.</p>"
+        },
+        {
+          "question": "What do project managers earn in Oak Ridge, Tennessee currently?",
+          "answer": "<p>Oak Ridge project managers, especially those supporting DOE, national lab, or defense-related contracts, command competitive compensation due to technical complexity and security requirements. Pay varies significantly by employer (national labs, contractors, government), clearance level, and experience. Research specific job postings from ORNL, Y-12, Bechtel, Jacobs, and other major local employers for current salary ranges rather than relying on generic figures.</p>"
+        },
+        {
+          "question": "When should Oak Ridge professionals certify as PMP before applying locally?",
+          "answer": "<p>Given Oak Ridge's concentration of federal contracts and national security work, obtaining your PMP before or early in your job search strengthens your candidacy—many postings list it as preferred. If you're already employed at ORNL, Y-12, or a major contractor, pursuing certification while employed can support internal promotion and project leadership opportunities without delaying your career progress.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:49:58.743490Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "750eeb7400bf6e2e",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Oak Ridge's project management demand centers on nuclear research, national security, and federal contracting—institutions like Oak Ridge National Laboratory and Y-12 National Security Complex drive steady work in large-scale scientific and engineering programs. Major initiatives such as the Uranium Processing Facility construction and the Frontier exascale supercomputer project create immediate need for credentialed professionals. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for Oak Ridge's working professionals seeking relevant, flexible certification pathways.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T04:50:00.339697Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "53f2068f8b214a00",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Oak Ridge, TN, PMP bootcamp Oak Ridge, PMP certification boot camp Oak Ridge, TN, PMP bootcamp near me, intensive PMP training Oak Ridge",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/\",\n      \"name\": \"PMP Boot Camp in Oak Ridge, TN | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Oak Ridge, TN. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Oak Ridge, TN\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/#course\",\n      \"name\": \"PMP Boot Camp in Oak Ridge, TN\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Oak Ridge, TN. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-oak-ridge-tn/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}

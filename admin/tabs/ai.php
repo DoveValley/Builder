@@ -197,6 +197,23 @@ function fmt_dur(int $ms): string {
                     <?php endforeach; ?>
                 </select>
             </div>
+            <?php
+            $_aiTags = [];
+            foreach ($cities as $c) { foreach ($c['tags'] ?? [] as $t) { $_aiTags[$t] = true; } }
+            ksort($_aiTags);
+            ?>
+            <?php if (!empty($_aiTags)): ?>
+            <div class="form-group" id="ai-tag-wrap">
+                <label for="ai-tag">Tag</label>
+                <select name="tag" id="ai-tag">
+                    <option value="">(no tag filter)</option>
+                    <?php foreach ($_aiTags as $tag => $_): ?>
+                    <option value="<?= h($tag) ?>"><?= h($tag) ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <span class="hint">Combines with City above — e.g. pick a tag to scope research/generation to one batch (a tier, a client, …).</span>
+            </div>
+            <?php endif; ?>
             <div class="form-group" id="ai-scope-wrap">
                 <label for="ai-scope">Scope</label>
                 <select name="scope" id="ai-scope">
@@ -401,6 +418,7 @@ function fmt_dur(int $ms): string {
     var statusText   = document.getElementById('ai-status-text');
     var actionSel    = document.getElementById('ai-action');
     var cityWrap     = document.getElementById('ai-city-wrap');
+    var tagWrap      = document.getElementById('ai-tag-wrap');
     var progressWrap = document.getElementById('ai-progress-wrap');
     var progressBar  = document.getElementById('ai-progress-bar');
     var progressLbl  = document.getElementById('ai-progress-label');
@@ -442,6 +460,7 @@ function fmt_dur(int $ms): string {
         var scope  = scopeSelEl ? scopeSelEl.value : 'landing';
         var cityApplies = action !== 'sync' && !(action === 'generate' && (scope === 'homepage' || scope === 'core'));
         cityWrap.style.display     = cityApplies ? '' : 'none';
+        if (tagWrap) tagWrap.style.display = cityApplies ? '' : 'none';
         scopeWrap.style.display    = action === 'generate' ? '' : 'none';
         researchWrap.style.display = action === 'generate' ? '' : 'none';
     }
@@ -554,6 +573,7 @@ function fmt_dur(int $ms): string {
         // Build confirmation summary
         var action   = actionSel.value;
         var cityEl   = document.getElementById('ai-city');
+        var tagEl    = document.getElementById('ai-tag');
         var scopeEl  = document.getElementById('ai-scope');
         var research = document.getElementById('ai-research');
         var refresh  = document.querySelector('[name="refresh"]');
@@ -564,6 +584,7 @@ function fmt_dur(int $ms): string {
         lines.push('Action:  ' + (actionLabels[action] || action));
         if (action !== 'sync') {
             lines.push('City:    ' + (cityEl && cityEl.value ? cityEl.options[cityEl.selectedIndex].text : 'All cities'));
+            if (tagEl && tagEl.value) lines.push('Tag:     ' + tagEl.value);
         }
         if (action === 'generate') {
             lines.push('Scope:   ' + (scopeEl ? scopeEl.options[scopeEl.selectedIndex].text : ''));

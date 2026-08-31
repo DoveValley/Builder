@@ -1,0 +1,377 @@
+{
+  "template_id": "tpl_pmp_bootcamp_city",
+  "city_id": "fargo-nd",
+  "slug": "pmp-bootcamp-fargo-nd",
+  "title": "PMP Bootcamp {city}",
+  "city_vars": {
+    "id": "fargo-nd",
+    "city": "Fargo",
+    "state": "North Dakota",
+    "SS": "ND",
+    "city_slug": "fargo-nd",
+    "phone": "",
+    "tel": "",
+    "zip": "",
+    "address": "",
+    "lat": "",
+    "lng": "",
+    "website": "",
+    "tags": [
+      "tier4"
+    ],
+    "city_spotlight": "<p>Fargo's healthcare sector—anchored by Sanford Health and complemented by growing tech and manufacturing employers like Microsoft and CNH Industrial—regularly seeks skilled project managers for facility expansions, system implementations, and product development. The city's diversified, stable economy creates consistent demand for PMP-certified professionals across multiple industries. Granite PM Academy serves Fargo professionals with live-virtual PMP Certification training designed around working schedules.</p>"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "PMP Boot Camp in {city}, {SS}",
+      "hs_subtext": "<p>Fargo's healthcare and technology sectors increasingly demand formally certified project managers to lead cross-functional initiatives. Granite PM Academy delivers the PMP Boot Camp as a live-virtual, instructor-led program that fulfills PMI's required contact hours, preparing you to sit for the PMP examination. Earning your PMP credential positions you competitively for leadership roles and higher compensation across Fargo's fastest-growing industries.</p>",
+      "hs_btn_text": "See Upcoming Dates",
+      "hs_btn_url": "#pmp_boot_schedule",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "PMP boot camp {city} {SS}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f0f4f8",
+      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:39.107366Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4a09c782abd6c8f0",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_market_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "PMP Boot Camp in Fargo: Accelerate Your Healthcare PM Career",
+      "text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—drives consistent demand for project managers who can lead complex initiatives from clinical system implementations to facility expansions. These organizations rely on certified professionals to shepherd large-scale projects that directly impact patient care and operational efficiency. Across Fargo's diversified economy, from Microsoft's software operations to CNH Industrial's manufacturing base, employers recognize the PMP credential as proof of systematic methodology, risk management, and stakeholder communication. Whether you're managing IT implementations in healthcare, coordinating product development in tech, or overseeing supply-chain projects in agribusiness, the Project Management Professional certification elevates your credibility and earning potential in a market where growth is steady and employers are actively hiring skilled managers.</p><p>Granite PM Academy delivers an intensive, PMI-authorized PMP Boot Camp designed for working professionals in Fargo who need certification without sacrificing their current roles. Our live-virtual, instructor-led format condenses comprehensive PMP preparation into an accelerated schedule while meeting all PMI contact-hour requirements for exam eligibility. Every instructor is an active certified practitioner, bringing real-world project experience into the classroom so you learn frameworks through the lens of actual healthcare systems, technology rollouts, and manufacturing environments where Fargo professionals work. Upon completion, you'll have the structured knowledge, exam readiness, and instructor support to pass your PMP exam and begin immediately leveraging the credential in your local job market.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:43.956937Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_market_intro",
+      "_ai_input_hash": "d96a614d81989a8b",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "PMP® Certification for Fargo's Growing Healthcare & Tech Sector",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "PMI Authorized Training Partner",
+          "text": "Granite PM Academy is an official PMI Authorized Training Partner, meaning your boot camp hours count directly toward PMP® eligibility. No extra documentation or appeals needed—your completion certificate satisfies PMI's contact-hour requirement."
+        },
+        {
+          "heading": "Live Instructors, Flexible Schedule",
+          "text": "Our live-virtual instructor-led format connects you with active certified practitioners teaching in real time. Attend from Fargo or anywhere; interact with instructors and peers during sessions designed around working professionals' calendars."
+        },
+        {
+          "heading": "Expert Instructors, Exam Ready",
+          "text": "Your instructors are working PMP®-certified project managers, not trainers reading slides. They share real-world examples and exam strategies. Dedicated exam-prep support and practice tests help you pass on your first attempt."
+        },
+        {
+          "heading": "Local Employers Hiring PMP® Professionals",
+          "text": "Sanford Health, CNH Industrial, Microsoft, and Noridian Mutual actively hire project and program managers with PMP® certification. Fargo's healthcare, manufacturing, and technology sectors increasingly require this credential for advancement and competitive salary positioning."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:47.775751Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "54b7ca773509b0af",
+      "_ai_locked": true
+    },
+    {
+      "type": "stats",
+      "stats_heading": "",
+      "stats_bg_color": "accent",
+      "stats_text_color": "#ffffff",
+      "stats_bg_custom": "#2563eb",
+      "skin": "accent",
+      "stats_items": [
+        {
+          "number": "6",
+          "label": "PMI certifications offered"
+        },
+        {
+          "number": "<1%",
+          "label": "Of organizations hold PMI Premier ATP status — we do"
+        },
+        {
+          "number": "35",
+          "label": "PMI contact hours included with every PMP course"
+        },
+        {
+          "number": "90",
+          "label": "Day pass guarantee — or your next course is free"
+        }
+      ]
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "text",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Project Management Demand Across Fargo's Healthcare and Tech Hub",
+      "text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—drives significant project management demand, from facility expansions to IT system implementations. Beyond healthcare, Microsoft's Fargo campus and growing technology infrastructure projects create steady roles for certified project managers. Manufacturing employers like CNH Industrial, alongside financial services firms such as Noridian Mutual Insurance and Blue Cross Blue Shield of North Dakota, similarly depend on skilled PMs to coordinate operations, product launches, and organizational initiatives. Local infrastructure efforts, including the Fargo-Moorhead Metro Flood Diversion Project, further demonstrate how project management expertise remains critical to the region's growth and resilience.</p><p>The PMP and CAPM credentials carry real weight in Fargo's job market. Employers across healthcare, technology, and manufacturing increasingly prefer certified candidates for mid- to senior-level roles, viewing standardized project management practices as essential to competitive delivery. While not universally mandatory, the certification distinguishes applicants and opens doors to positions with stronger compensation packages—particularly in sectors where demand for certified PMs has kept salaries attractive relative to the region's cost of living. Completing Granite PM Academy's PMP Boot Camp positions you to meet that local demand directly, equipping you with both the credential and the frameworks employers here actively seek.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:52.085160Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "dd60286775b8431d",
+      "_ai_locked": true
+    },
+    {
+      "type": "pricing_cards",
+      "pc_heading": "PMP Boot Camp — Enrollment Options",
+      "pc_cols": "2",
+      "pc_bg": "#f0f4f8",
+      "pc_items": [
+        {
+          "name": "PMP Boot Camp",
+          "badge": "INTENSIVE",
+          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+          "sublabel": "",
+          "meta": "Next cohort: see schedule below",
+          "price": "$2,495",
+          "period": "per person",
+          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+          "btn_text": "See Upcoming Dates",
+          "btn_url": "#pmp_boot_schedule"
+        },
+        {
+          "name": "Group / Corporate Training",
+          "badge": "5+ SEATS",
+          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+          "sublabel": "",
+          "meta": "Contact us for a quote",
+          "price": "Custom",
+          "period": "per engagement",
+          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+          "btn_text": "Request a Quote",
+          "btn_url": "/contact-us"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "pmp_pathway",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Your Path to PMP Certification in Fargo",
+      "steps_items": [
+        {
+          "heading": "Confirm Your Eligibility",
+          "text": "PMI requires specific education and project-management experience before you apply. Review PMI's documented eligibility criteria—typically a combination of formal education and verifiable work hours leading projects or supporting project teams. Granite PM Academy advisors can clarify whether your background qualifies."
+        },
+        {
+          "heading": "Complete 35 Contact Hours of Instruction",
+          "text": "Enroll in Granite PM Academy's live-virtual PMP Boot Camp. Our instructor-led course covers the PMBOK® Guide and exam domains over an intensive format designed for working professionals. You'll earn the required formal-education contact hours PMI mandates, delivered by experienced practitioners familiar with Fargo's project environments."
+        },
+        {
+          "heading": "Submit Your PMI Application",
+          "text": "After completing the boot camp, submit your official PMI application with proof of education and experience. Pay the associated PMI examination fee through PMI's portal. Our team provides guidance on documentation requirements so your application moves through review without delays."
+        },
+        {
+          "heading": "Prepare and Sit for the Exam",
+          "text": "Use Granite PM Academy's exam-preparation resources—practice tests, study guides, and review sessions—to reinforce critical concepts. Schedule your computer-based PMP exam through Pearson VUE. Our instructors remain available to address final questions before test day, maximizing your confidence and readiness."
+        },
+        {
+          "heading": "Maintain Your PMP Credential",
+          "text": "The PMP credential requires renewal every three years by earning Professional Development Units (PDUs) across specified domains. Granite PM Academy offers ongoing training and PDU-eligible workshops to keep your certification current and your project-management skills sharp throughout your career."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:05:57.913555Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "pmp_pathway",
+      "_ai_input_hash": "f7352a5046d6692f",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "tm_label": "STUDENT RESULTS",
+      "tm_main_heading": "They passed. You can too.",
+      "tm_heading": "",
+      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+      "tm_bg_color": "#ffffff",
+      "tm_text_color": "#1a2e5a",
+      "tm_accent": "highlight",
+      "tm_accent_custom": "#ffc000",
+      "tm_badge_accent": "custom",
+      "tm_badge_accent_custom": "#10b981",
+      "tm_cols": 3,
+      "skin": "subtle",
+      "tm_items": [
+        {
+          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+          "name": "Sarah L.",
+          "location": "IT Project Lead, Microsoft",
+          "initials": "SL",
+          "avatar_color": "#0d9488",
+          "result_badge": "✓ PMP® + PMI-ACP® Certified"
+        },
+        {
+          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+          "name": "David K.",
+          "location": "Construction PM, Turner Corp",
+          "initials": "DK",
+          "avatar_color": "highlight",
+          "result_badge": "✓ Entire team PMP® certified"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+      "fq_bg_color": "#f0f4f8",
+      "fq_item_bg": "#ffffff",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#1a2e5a",
+      "fq_icon_bg_custom": "#c8960a",
+      "fq_items": [
+        {
+          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+        },
+        {
+          "question": "Can I complete the PMP Bootcamp online from {city}?",
+          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+        },
+        {
+          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+        },
+        {
+          "question": "What is your pass guarantee?",
+          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+        },
+        {
+          "question": "Is PMP certification worth pursuing for project managers in Fargo?",
+          "answer": "<p>Yes. Fargo's dominant employers—Sanford Health, Essentia Health, Microsoft, CNH Industrial, and others—increasingly prefer or require PMP certification for mid- to senior-level project management roles. While not universally mandatory, certified candidates stand out in local job postings across healthcare, technology, and manufacturing. The credential also supports competitive compensation, as Fargo's PM salaries remain strong relative to regional cost of living, and employers actively seek standardized project delivery practices.</p>"
+        },
+        {
+          "question": "Which Fargo employers value PMP and CAPM certifications most?",
+          "answer": "<p>Healthcare systems like Sanford Health and Essentia Health, technology firms including Microsoft and Aldevron, and manufacturers such as CNH Industrial (Case IH) actively seek PMP-certified professionals. Financial services employers—Noridian, Blue Cross Blue Shield of North Dakota, and Bell Bank—also value the credential for structured project governance. NDSU and other higher-education institutions increasingly recognize it as well. Certified candidates are frequently preferred in these sectors for demonstrating commitment to industry-standard practices.</p>"
+        },
+        {
+          "question": "Can I attend the PMP Boot Camp online from my Fargo workplace?",
+          "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with internet access—ideal if your employer supports professional development during work hours. Many Fargo professionals take advantage of this flexibility while balancing ongoing projects. Confirm with your organization about scheduling and any policies on in-office versus remote training participation before enrolling.</p>"
+        },
+        {
+          "question": "Should I get PMP-certified before or after landing a Fargo PM role?",
+          "answer": "<p>Timing depends on your current role and job-search strategy. Many Fargo employers—particularly in healthcare and technology—prefer or seek certified candidates, so obtaining the credential before applying can strengthen your competitiveness for mid- to senior-level positions. Conversely, if you're already employed, some organizations fund certification as professional development. Given steady demand for certified PMs locally, pursuing it sooner rather than later aligns with Fargo's growing emphasis on standardized project delivery practices.</p>"
+        }
+      ],
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "append",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "fq_open": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:04.539122Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5ec3581dfe40efd3",
+      "_ai_locked": true
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "{city}, {state} Map",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "<p>Fargo's healthcare sector—anchored by Sanford Health and Essentia Health—drives steady demand for skilled project managers overseeing facility expansions and system implementations. Beyond healthcare, the city's growing technology footprint, agribusiness operations, and manufacturing base create diverse PM career paths across multiple industries. Granite PM Academy delivers live-virtual PMP Boot Camp sessions designed for working professionals in the Fargo area seeking certification and career advancement.</p>",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#1f2937",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "left",
+      "ai_type_id": "city_spotlight",
+      "ai_inject_field": "mi_info_text",
+      "ai_inject_mode": "replace",
+      "ai_model": "claude-haiku-4-5-20251001",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-31T05:06:06.112903Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_spotlight",
+      "_ai_input_hash": "0975141e9a0cc358",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Intensive PMP Prep — Right from {city}",
+      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+      "cb_btn_text": "See Upcoming Dates",
+      "cb_btn_url": "#pmp_boot_schedule",
+      "cb_bg": "custom",
+      "cb_bg_custom": "#1a2e5a",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "normal"
+    }
+  ],
+  "seo": {
+    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-fargo-nd/",
+    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "meta_keywords": "PMP boot camp Fargo, ND, PMP bootcamp Fargo, PMP certification boot camp Fargo, ND, PMP bootcamp near me, intensive PMP training Fargo",
+    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+    "og_image": "",
+    "service_name": "PMP Boot Camp",
+    "service_type": "Professional Certification Training",
+    "service_area": "{city}, {SS}",
+    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+    "bc_label": "PMP Boot Camp {city}",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/\",\n      \"name\": \"PMP Boot Camp in Fargo, ND | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Fargo, ND. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Fargo, ND\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/#course\",\n      \"name\": \"PMP Boot Camp in Fargo, ND\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Fargo, ND. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-fargo-nd/\"\n    }\n  ]\n}",
+    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-08-31T04:24:32+00:00",
+  "template_version": "3c1e7518811ff8fa6cb96dcf21b4b1a1"
+}
