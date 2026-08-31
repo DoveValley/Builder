@@ -67,10 +67,10 @@ function schema_prompt_defaults(): array {
     return [
         'homepage' =>
             "Generate the foundational JSON-LD @graph for this business's HOMEPAGE — the entity definitions every other page will reference. Output three nodes:\n"
-          . "1. The business — @type \"LocalBusiness\" (or the most specific subtype that fits the niche; use \"Organization\" only if it is not a local/physical business). @id \"{website}/#localbusiness\". Include name {business}, url {website}, telephone {tel}. Include a postalAddress using {address} ONLY if the context says the site has a real address.\n"
+          . "1. The business — @type \"LocalBusiness\" (or the most specific subtype that fits the niche; use \"Organization\" only if it is not a local/physical business). @id \"{website}/#localbusiness\". Include name {business}, url {website}, telephone {tel}, image {lb_logo}. Include a postalAddress using {address} ONLY if the context says the site has a real address. Include areaServed: {\"@type\": \"City\", \"name\": \"{city}\"} — this is the site's own base city, it always resolves on the homepage too. Do NOT include sameAs — it is injected automatically from the site's real social links at render time.\n"
           . "2. A WebSite — @id \"{website}/#website\", name {business}, url {website}, publisher referencing {website}/#localbusiness.\n"
           . "3. A WebPage — @id \"{website}/#webpage\", url {website}, isPartOf {website}/#website, about {website}/#localbusiness.\n"
-          . "Do NOT use city shortcodes ({city}, {SS}) — they do not resolve on the homepage.",
+          . "{city}/{SS} are the only city shortcodes safe to use on the homepage (the site's single base city) — do not use {city_slug} or {city_state} here.",
 
         'core_contact' =>
             "Generate JSON-LD for a CONTACT page. Output one ContactPage node (url, name, description) plus a contactPoint (telephone {tel}, contactType \"customer service\"). Reference the business by @id \"{website}/#localbusiness\" rather than redefining it. Use literal (non-city) values.",

@@ -1,7 +1,7 @@
 <?php
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit} {built_at}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {lb_logo} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit} {built_at}
    Values stored in $data['site_vars']. Applied at render time.
    {city_image}* tokens are populated by the City Image plugin (plugins/city-image).
    {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
@@ -53,6 +53,12 @@ function resolve_shortcodes(string $text): string {
     $business_domain = parse_url($website, PHP_URL_HOST) ?: $website;
     $rating       = $lb['lb_rating']       ?? '';
     $review_count = $lb['lb_review_count'] ?? '';
+    // lb_logo is stored as "{website}/uploads/...", already resolved-website-relative
+    // at generation time (see admin/save/apply_logo.php etc.) — pre-resolve the
+    // nested {website} here since resolve_shortcodes() does one flat str_replace
+    // pass and would otherwise leave it as literal, unresolved text.
+    $lb_logo      = trim($lb['lb_logo'] ?? '');
+    if ($lb_logo !== '') $lb_logo = str_replace('{website}', $website, $lb_logo);
     $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
     $primary_keyword = $GLOBALS['_page_primary_keyword'] ?? '';   // per-page, set by site-template.php
     // City Spotlight — AI-written city profile, generated ONCE per site and stored in
@@ -70,6 +76,7 @@ function resolve_shortcodes(string $text): string {
         '{city_slug}' => $city_slug, '{business}' => $business, '{phone}' => $phone, '{tel}' => $tel,
         '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain, '{email}' => $email,
         '{rating}' => $rating, '{review_count}' => $review_count, '{address}' => $address,
+        '{lb_logo}' => $lb_logo,
         '{lat}' => $lat, '{lng}' => $lng, '{primary_keyword}' => $primary_keyword, '{service}' => $primary_keyword,
         '{city_spotlight}' => $city_spotlight, '{built_at}' => $built_at,
     ];

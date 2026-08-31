@@ -72,3 +72,42 @@ function schema_apply_faqpage(string $schemaJson, array $blocks): string {
 
     return json_encode($wrapper, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
+
+/**
+ * Return $schemaJson with the LocalBusiness node's sameAs set from $socials —
+ * same "projection of content" approach as schema_apply_faqpage: sameAs is
+ * never authored by hand, it is always derived from the site's real social
+ * links (Footer tab) at render time, so it can never go stale and never gets
+ * fabricated when no profiles are set. Only the node whose @id ends in
+ * "#localbusiness" (the convention every schema prompt in this codebase
+ * follows) is touched; everything else in $schemaJson is untouched.
+ */
+function schema_apply_sameas(string $schemaJson, array $socials): string {
+    $schemaJson = trim($schemaJson);
+    if ($schemaJson === '') return $schemaJson;
+    $decoded = json_decode($schemaJson, true);
+    if (!is_array($decoded)) return $schemaJson;
+
+    $urls = [];
+    foreach ($socials as $url) {
+        $url = trim((string) $url);
+        if ($url !== '' && preg_match('#^https?://#i', $url)) $urls[] = $url;
+    }
+
+    $hasGraph = isset($decoded['@graph']) && is_array($decoded['@graph']);
+    $nodes    = $hasGraph ? $decoded['@graph'] : [$decoded];
+    $touched  = false;
+
+    foreach ($nodes as &$node) {
+        if (!is_array($node)) continue;
+        if (!str_ends_with((string) ($node['@id'] ?? ''), '#localbusiness')) continue;
+        if ($urls) { $node['sameAs'] = $urls; } else { unset($node['sameAs']); }
+        $touched = true;
+    }
+    unset($node);
+
+    if (!$touched) return $schemaJson; // no business node in this schema — leave untouched
+
+    if ($hasGraph) { $decoded['@graph'] = $nodes; } else { $decoded = $nodes[0]; }
+    return json_encode($decoded, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
