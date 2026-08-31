@@ -130,24 +130,51 @@ $services = $cfg['services'] ?? [];
         <div class="card" style="margin-bottom:16px;">
             <h2>Dark Style Settings</h2>
 
+            <div id="sl-preview" style="position:relative;height:180px;border-radius:8px;overflow:hidden;margin-bottom:16px;background-color:#1a1a2e;background-size:cover;background-position:center;<?= !empty($cfg['bg_photo']) ? "background-image:url('../" . h($cfg['bg_photo']) . "');" : '' ?>">
+                <div id="sl-preview-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,<?= h($cfg['overlay'] ?? '0.20') ?>);"></div>
+                <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 24px;">
+                    <div style="color:#fff;font-size:1.15rem;font-weight:700;margin-bottom:6px;text-shadow:0 1px 3px rgba(0,0,0,.4);">Live preview &mdash; how the block will actually look</div>
+                    <div style="color:#f1f5f9;font-size:.85rem;max-width:480px;text-shadow:0 1px 3px rgba(0,0,0,.4);">This box updates as you change the photo or overlay below. Nothing here is saved until you click Save.</div>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label>Background photo</label>
                 <?php if (!empty($cfg['bg_photo'])): ?>
-                    <img src="../<?= h($cfg['bg_photo']) ?>" style="max-height:80px;border-radius:6px;margin-bottom:8px;display:block;" onerror="this.style.display='none'">
                     <label style="font-weight:400;margin-bottom:8px;display:block;">
-                        <input type="checkbox" name="bg_photo_remove" value="1"> Remove photo
+                        <input type="checkbox" name="bg_photo_remove" value="1" onchange="slPreviewRemoveToggle(this)"> Remove photo
                     </label>
                 <?php endif; ?>
-                <input type="file" name="bg_photo_upload" accept="image/png,image/jpeg,image/gif,image/webp">
+                <input type="file" name="bg_photo_upload" accept="image/png,image/jpeg,image/gif,image/webp" onchange="slPreviewFile(this)">
                 <input type="hidden" name="bg_photo_existing" value="<?= h($cfg['bg_photo'] ?? '') ?>">
                 <?php photo_picker_btn('bg_photo_existing'); ?>
             </div>
 
             <div class="form-group">
                 <label>Overlay opacity <span class="hint" style="font-weight:normal;">(0 = none, 0.6 = standard, 0.8 = heavy)</span></label>
-                <input type="number" name="overlay" value="<?= h($cfg['overlay'] ?? '0.20') ?>" min="0" max="1" step="0.05" style="width:120px;">
+                <input type="number" name="overlay" value="<?= h($cfg['overlay'] ?? '0.20') ?>" min="0" max="1" step="0.05" style="width:120px;" oninput="slPreviewOverlay(this)">
             </div>
         </div>
+        <script>
+        function slPreviewOverlay(el) {
+            var v = Math.max(0, Math.min(1, parseFloat(el.value) || 0));
+            document.getElementById('sl-preview-overlay').style.background = 'rgba(0,0,0,' + v + ')';
+        }
+        function slPreviewFile(el) {
+            var file = (el.files || [])[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('sl-preview').style.backgroundImage = 'url(' + e.target.result + ')';
+            };
+            reader.readAsDataURL(file);
+            var removeCb = el.closest('.form-group').querySelector('input[name="bg_photo_remove"]');
+            if (removeCb) removeCb.checked = false;
+        }
+        function slPreviewRemoveToggle(el) {
+            if (el.checked) document.getElementById('sl-preview').style.backgroundImage = 'none';
+        }
+        </script>
 
         <!-- Light Style Settings -->
         <div class="card" style="margin-bottom:16px;">
