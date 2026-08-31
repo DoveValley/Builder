@@ -55,14 +55,25 @@ if (!function_exists('gen_reset_shortcode_globals')) {
 }
 
 if (!function_exists('gen_copy_dir')) {
-    function gen_copy_dir(string $src, string $dst): array {
+    /**
+     * @param string[] $skipDirNames Directory basenames to exclude anywhere in the
+     *   tree (and everything under them) — e.g. ['admin', 'src'] for the assets/
+     *   copy, so admin-only tool bundles and their pre-build source never ship to
+     *   a client site. Not a per-file list: any current or future admin-only
+     *   bundle just needs to live under one of these folder names to be excluded,
+     *   with no code change required here.
+     */
+    function gen_copy_dir(string $src, string $dst, array $skipDirNames = []): array {
         $copied = 0; $failed = 0;
         if (!is_dir($src)) return [$copied, $failed];
         if (!is_dir($dst)) mkdir($dst, 0755, true);
-        $items = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($src, FilesystemIterator::SKIP_DOTS),
-            RecursiveIteratorIterator::SELF_FIRST
-        );
+        $dirIterator = new RecursiveDirectoryIterator($src, FilesystemIterator::SKIP_DOTS);
+        if ($skipDirNames) {
+            $dirIterator = new RecursiveCallbackFilterIterator($dirIterator, function ($current) use ($skipDirNames) {
+                return !($current->isDir() && in_array($current->getFilename(), $skipDirNames, true));
+            });
+        }
+        $items = new RecursiveIteratorIterator($dirIterator, RecursiveIteratorIterator::SELF_FIRST);
         foreach ($items as $item) {
             $rel  = substr($item->getPathname(), strlen($src));
             $dest = $dst . $rel;
@@ -387,7 +398,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 
     // ── 6. Copy assets ────────────────────────────────────────────────────────────
     progress_log('Copying assets…');
-    [$assetCount, $assetFailed] = gen_copy_dir(BASE_DIR . '/assets', $outputBase . 'assets');
+    [$assetCount, $assetFailed] = gen_copy_dir(BASE_DIR . '/assets', $outputBase . 'assets', ['admin', 'src']);
     progress_log("Assets: {$assetCount} files copied." . ($assetFailed ? " ({$assetFailed} failed)" : ''), $assetFailed ? 'warn' : 'log');
 
     // ── 7. Copy uploads ───────────────────────────────────────────────────────────

@@ -3,9 +3,9 @@
  *
  * SOURCE FILE. Edit this, then rebuild:
  *
- *     npx --yes esbuild@0.24.0 assets/js/src/domain-workbench.jsx \
+ *     npx --yes esbuild@0.24.0 assets/admin/src/domain-workbench.jsx \
  *       --loader:.jsx=jsx --jsx=transform --bundle=false \
- *       --outfile=assets/js/domain-workbench.js
+ *       --outfile=assets/admin/domain-workbench.js
  *
  * The built file is committed; nothing transpiles at request time. Editing the
  * built .js directly will be overwritten by the next build — this is the file.

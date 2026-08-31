@@ -7,8 +7,13 @@
  * every name already spent so the same one is never proposed twice.
  *
  * The app itself is React, ported from a Claude.ai artifact — the source is
- * assets/js/src/domain-workbench.jsx and the built file beside it is what loads.
+ * assets/admin/src/domain-workbench.jsx and the built file beside it is what loads.
  * Nothing transpiles at request time; see the source header for the build command.
+ *
+ * Deliberately under assets/admin/, not assets/js/ — anything under assets/admin/
+ * is admin-only and build_static_site() never copies it into a client site's
+ * static output (see includes/static_build.php). Any future admin-only JS
+ * bundle belongs there for the same reason.
  *
  * This file is only the frame: console chrome, the mount point, and the two
  * endpoints plus a CSRF token handed over in one config object. All the app's own
@@ -52,9 +57,9 @@ infra_header('dfinder');
     csrf:     <?= json_encode(infra_csrf()) ?>
   };
 </script>
-<script src="<?= ih($dwV('vendor/react.production.min.js')) ?>" defer></script>
-<script src="<?= ih($dwV('vendor/react-dom.production.min.js')) ?>" defer></script>
-<script src="<?= ih($dwV('js/domain-workbench.js')) ?>" defer></script>
+<script src="<?= ih($dwV('admin/vendor/react.production.min.js')) ?>" defer></script>
+<script src="<?= ih($dwV('admin/vendor/react-dom.production.min.js')) ?>" defer></script>
+<script src="<?= ih($dwV('admin/domain-workbench.js')) ?>" defer></script>
 
 <!-- Full width: the workbench is a three-column layout of its own and the
      console's 1200px main column would squeeze it. Negative margins undo
