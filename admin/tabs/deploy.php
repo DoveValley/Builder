@@ -21,8 +21,8 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 
         <div class="form-group">
             <label>Canonical Domain</label>
-            <input type="url" name="canonical_domain" value="<?= h($deploy['canonical_domain'] ?? '') ?>" placeholder="https://example.com">
-            <div class="hint">Used in <code>sitemap.xml</code> and <code>robots.txt</code>. No trailing slash.</div>
+            <input type="text" value="<?= h($siteVars['website'] ?? '') ?>" disabled style="background:#f3f4f6;color:#6b7280;">
+            <div class="hint">Used in <code>sitemap.xml</code> and <code>robots.txt</code>. Always the site's <strong>Website</strong> field (Header tab) — change it there, not here, so the two can never drift apart.</div>
         </div>
 
         <div class="form-group">
@@ -37,6 +37,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
     <hr style="margin:20px 0;border:none;border-top:1px solid #e5e7eb;">
 
     <button id="gen-btn" class="btn" onclick="startGenerate()">Generate Static Site</button>
+    <button id="gen-download-btn" class="btn btn-secondary" onclick="startGenerateAndDownload()">Download Static Site</button>
     <div id="gen-progress-wrap" style="display:none;margin-top:10px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
             <span style="font-size:.8rem;font-weight:600;color:#374151;" id="gen-progress-label">Step 0 of 0</span>
@@ -225,7 +226,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
         banner.style.display = 'block';
     }
 
-    function runSSE(url, btn, logEl, progressIds) {
+    function runSSE(url, btn, logEl, progressIds, onDone) {
         btn.disabled = true;
         const origText = btn.textContent;
         btn.textContent = 'Working…';
@@ -298,6 +299,7 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
                 if (d.type === 'fatal') kind = 'error';
                 else if (failures.length || /failed/i.test(d.msg || '')) kind = 'warn';
                 showBanner(banner, kind, (d.msg || 'Done') + '  ·  ' + elapsedStr(startedAt), failures);
+                if (onDone) onDone(kind);
             }
         };
 
@@ -320,10 +322,24 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
     const csrfToken = <?= json_encode($csrfToken) ?>;
 
     window.startGenerate = function() {
+        document.getElementById('gen-download-btn').disabled = true;
         runSSE('generate_static.php?token=' + encodeURIComponent(csrfToken),
             document.getElementById('gen-btn'),
             document.getElementById('gen-log'),
-            { wrap: 'gen-progress-wrap', bar: 'gen-progress-bar', label: 'gen-progress-label', remain: 'gen-progress-remain', unit: 'Step' });
+            { wrap: 'gen-progress-wrap', bar: 'gen-progress-bar', label: 'gen-progress-label', remain: 'gen-progress-remain', unit: 'Step' },
+            function() { document.getElementById('gen-download-btn').disabled = false; });
+    };
+
+    window.startGenerateAndDownload = function() {
+        document.getElementById('gen-btn').disabled = true;
+        runSSE('generate_static.php?token=' + encodeURIComponent(csrfToken),
+            document.getElementById('gen-download-btn'),
+            document.getElementById('gen-log'),
+            { wrap: 'gen-progress-wrap', bar: 'gen-progress-bar', label: 'gen-progress-label', remain: 'gen-progress-remain', unit: 'Step' },
+            function(kind) {
+                document.getElementById('gen-btn').disabled = false;
+                if (kind !== 'error') window.location = 'download_static.php';
+            });
     };
 
     window.startPush = function() {

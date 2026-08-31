@@ -17,15 +17,8 @@ $cfg = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile), t
 $section = $_POST['section'] ?? 'build';
 
 if ($section === 'build') {
-    // Canonical must be an absolute http(s) URL — it feeds sitemap.xml / robots.txt.
-    // sanitize_url() also permits tel:/mailto:/relative, so validate the scheme here.
-    $canon = rtrim(sanitize_url(trim($_POST['canonical_domain'] ?? '')), '/');
-    if ($canon !== '' && !preg_match('#^https?://#i', $canon)) {
-        header('Location: index.php?tab=deploy&msg=error:Canonical+domain+must+start+with+http://+or+https://');
-        exit;
-    }
-    $cfg['canonical_domain'] = $canon;
-    $cfg['web3forms_key']    = trim($_POST['web3forms_key'] ?? '');
+    $cfg['web3forms_key'] = trim($_POST['web3forms_key'] ?? '');
+    unset($cfg['canonical_domain']); // retired — always derived from site_vars.website now
 } elseif ($section === 'ftp') {
     $cfg['ftp_protocol'] = (($_POST['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp';
     $cfg['ftp_host']    = preg_replace('#^s?ftps?://#i', '', trim($_POST['ftp_host'] ?? ''));

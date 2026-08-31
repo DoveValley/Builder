@@ -4358,6 +4358,7 @@ require __DIR__ . '/index.php';</code></pre>
         <li>Requires an active site (<code>ACTIVE_SITE_ID</code>)</li>
         <li>Output goes to <code>output/{site_id}/</code> — this is the deploy source, never served live from this box</li>
     </ul>
+    <p>The canonical domain used for <code>sitemap.xml</code>/<code>robots.txt</code> is always <code>site_vars.website</code> (Header tab) — there is no separate <code>canonical_domain</code> field to set or drift out of sync. This mirrors how the multisite worker already derives its per-row canonical from the row's own <code>domain</code> (see <a href="#spec-canonical">3d</a>) rather than a stored column.</p>
     <p>Driven from the admin <em>Deploy</em> tab; progress streams live to the browser.</p>
 </section>
 
@@ -4384,9 +4385,10 @@ session_write_close();
 require_once __DIR__.'/config.php';
 require_once __DIR__.'/includes/functions.php';
 require_once __DIR__.'/includes/multisite/deploy.php';
-$cfg = json_decode(file_get_contents(ACTIVE_SITE_DIR.'/deploy.json'), true);
-$out = BASE_DIR.'/output/'.ACTIVE_SITE_ID.'/';
-build_static_site($out, rtrim($cfg['canonical_domain'],'/'), $cfg['web3forms_key'] ?? '');
+$cfg  = json_decode(file_get_contents(ACTIVE_SITE_DIR.'/deploy.json'), true);
+$site = load_data();
+$out  = BASE_DIR.'/output/'.ACTIVE_SITE_ID.'/';
+build_static_site($out, rtrim($site['site_vars']['website'] ?? '', '/'), $cfg['web3forms_key'] ?? '');
 deploy_site($cfg, $out, ACTIVE_SITE_DIR.'/deploy_manifest.json', true); // true = force</code></pre>
     <p>Run it as the admin user so output stays writable by the panel: <code>sudo -u www-data php _deploy_cli.php</code>, then delete the shim. Pass <code>true</code> as the last arg to <code>deploy_site</code> for a <strong>forced</strong> re-upload (incremental sync can skip assets the old manifest already lists → stale/unstyled pages). After a content change touching every page (footer/nav/schema), always force.</p>
 </section>

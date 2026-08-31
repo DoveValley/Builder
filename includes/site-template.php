@@ -226,9 +226,12 @@ if (empty($seo['og_image'])) {
     </style>
     <?php
     // Schema markup — stored JSON-LD, with the FAQPage node derived from THIS page's
-    // current FAQ blocks at render time (never stale; see schema_apply_faqpage in
-    // includes/schema.php). Shortcodes resolve after the merge so Q&A tokens fill too.
+    // current FAQ blocks and the LocalBusiness node's sameAs derived from the site's
+    // real social links, both at render time (never stale; see schema_apply_faqpage
+    // and schema_apply_sameas in includes/schema.php). Shortcodes resolve after the
+    // merge so Q&A tokens fill too.
     $schemaJson = schema_apply_faqpage($seo['schema'] ?? '', $contentBlocks ?? []);
+    $schemaJson = schema_apply_sameas($schemaJson, $data['footer']['socials'] ?? []);
     if ($schemaJson !== '') {
         $schemaData = json_decode(resolve_shortcodes($schemaJson));
         if ($schemaData !== null) {

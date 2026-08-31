@@ -39,8 +39,13 @@ progress_sse_begin();
 // ── Load deploy config ────────────────────────────────────────────────────────
 $deployFile = ACTIVE_SITE_DIR . '/deploy.json';
 $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile), true) ?: []) : [];
-$canonicalDomain = rtrim($deploy['canonical_domain'] ?? '', '/');
 $web3formsKey    = $deploy['web3forms_key'] ?? '';
+
+// Canonical domain always comes from the site's own Website field (Header tab),
+// not a separately-typed value — every page's own canonical/OG/schema tags
+// already resolve {website} from the same place, so this can never drift.
+$siteData        = load_data();
+$canonicalDomain = rtrim($siteData['site_vars']['website'] ?? '', '/');
 
 // ── Output directory + build ────────────────────────────────────────────────────
 $outputBase = BASE_DIR . '/output/' . ACTIVE_SITE_ID . '/';
