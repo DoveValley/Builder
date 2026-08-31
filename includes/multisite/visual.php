@@ -144,12 +144,17 @@ function ms_resolve_logo_lines(?array $config, array $siteVars, string $masterId
     $icon = trim((string)($config['icon'] ?? ''));
     $iconPath = $icon !== '' ? BASE_DIR . '/sites/' . $masterId . '/multisite/icons/' . basename($icon) : null;
     if ($iconPath && !is_file($iconPath)) $iconPath = null;
+    // Per-icon render style (fill %, box vs traced background, corner/trace %)
+    // — edited on the Brand Icons card, independent of which Logo Config uses
+    // the icon. Falls back to the historical fixed box/64%/22% when unset.
+    $iconStyle = $icon !== '' ? ms_resolve_icon_style(ms_load_icon_styles($masterId), $icon) : ms_default_icon_style();
     return [
         'line1'      => ms_resolve_logo_text($line1Source, $line1Custom, $siteVars),
         'line2'      => ms_resolve_logo_text($line2Source, $line2Custom, $siteVars),
         'line1Color' => $line1Color,
         'line2Color' => $line2Color,
         'iconBg'     => $iconBg,
+        'iconStyle'  => $iconStyle,
         'iconPath'   => $iconPath,
     ];
 }
@@ -171,32 +176,110 @@ function ms_convert_run(array $cmd, string $out): bool {
 }
 
 /**
- * Render a bug icon as a silhouette centered on a rounded tile (both preset
- * colors). $bgMode picks which color is the TILE and which is the silhouette:
- * 'dark' (default, historical behavior) = dark tile + accent silhouette;
- * 'accent' = accent tile + dark silhouette — always the opposite pair, never
+ * Per-icon render style defaults — matches the historical fixed behavior
+ * exactly, so an icon with no saved style (or a style doc missing a field)
+ * renders identically to before this existed.
+ */
+function ms_default_icon_style(): array {
+    return ['fill_pct' => 64, 'bg_style' => 'box', 'corner_pct' => 22, 'trace_pct' => 5];
+}
+
+/** Clamp + coerce a raw (possibly user-submitted) style array to safe ranges. */
+function ms_sanitize_icon_style(array $style): array {
+    $d = ms_default_icon_style();
+    return [
+        'fill_pct'   => max(20, min(100, (int)($style['fill_pct']   ?? $d['fill_pct']))),
+        'bg_style'   => ($style['bg_style'] ?? $d['bg_style']) === 'trace' ? 'trace' : 'box',
+        'corner_pct' => max(0, min(50, (int)($style['corner_pct'] ?? $d['corner_pct']))),
+        'trace_pct'  => max(1, min(20, (int)($style['trace_pct']  ?? $d['trace_pct']))),
+    ];
+}
+
+/** Load a master's per-icon style overrides (Brand Icons library). */
+function ms_load_icon_styles(string $masterId): array {
+    $file = BASE_DIR . '/sites/' . $masterId . '/multisite/icon_styles.json';
+    $sd = @json_decode((string)@file_get_contents($file), true);
+    return is_array($sd['styles'] ?? null) ? $sd['styles'] : [];
+}
+
+/** Resolve one icon's style from a loaded styles map (see ms_load_icon_styles()). */
+function ms_resolve_icon_style(array $stylesMap, string $iconBasename): array {
+    $raw = is_array($stylesMap[$iconBasename] ?? null) ? $stylesMap[$iconBasename] : [];
+    return ms_sanitize_icon_style($raw);
+}
+
+/**
+ * Render a bug icon as a silhouette, colored to one of the two preset colors,
+ * against a background in the OTHER color. $bgMode picks which is which:
+ * 'dark' (default, historical) = dark background + accent silhouette; 'accent'
+ * = accent background + dark silhouette — always the opposite pair, never
  * independently chosen, so the two colors can't collide into no contrast.
+ *
+ * $style (see ms_default_icon_style()) picks the background SHAPE, independent
+ * of $bgMode's colors:
+ *   'box'   — the historical rounded-square tile. fill_pct = how much of the
+ *             tile the icon occupies; corner_pct = corner roundness.
+ *   'trace' — no square tile at all; the background is the icon's OWN
+ *             silhouette, dilated outward by trace_pct so it reads as a
+ *             colored outline hugging the icon's exact shape. Small internal
+ *             breaks/gaps (e.g. a stroke that doesn't quite close, or a
+ *             separate small detail like a dot) are first bridged with a
+ *             morphological Close pass, so the trace reads as one continuous
+ *             outer contour instead of dilating every disconnected fragment
+ *             on its own and blobbing them together.
+ *
  * $iconPath = an SVG in the master's multisite/icons/. Used for the logo mark
  * + the favicon. Returns true on success.
  */
-function ms_render_bug_tile(string $iconPath, string $accent, string $dark, int $size, string $out, string $bgMode = 'dark'): bool {
+function ms_render_bug_tile(string $iconPath, string $accent, string $dark, int $size, string $out, string $bgMode = 'dark', array $style = []): bool {
     if (ms_convert_bin() === null || !is_file($iconPath)) return false;
     $bin = ms_convert_bin();
     $bg  = $bgMode === 'accent' ? $accent : $dark;
     $fg  = $bgMode === 'accent' ? $dark   : $accent;
-    $r   = max(6, (int)round($size * 0.22));   // corner radius
-    $bug = (int)round($size * 0.64);           // bug fills ~64% of the tile
-    $tmpBug = $out . '.bug.png';
-    // 1. bug SVG → solid $fg silhouette (alpha preserved)
-    if (!ms_convert_run([$bin, '-background', 'none', $iconPath, '-resize', $bug . 'x' . $bug,
-                         '-channel', 'RGB', '-fill', $fg, '-colorize', '100', '+channel', $tmpBug], $tmpBug)) {
+    $s   = ms_sanitize_icon_style($style);
+    $fill = (int)round($size * $s['fill_pct'] / 100);
+    $tmpFg = $out . '.fg.png';
+
+    if ($s['bg_style'] === 'trace') {
+        // 1. icon silhouette in $fg, sized+centered on the full canvas (so its
+        //    alpha channel below has room to dilate outward without clipping).
+        if (!ms_convert_run([$bin, '-background', 'none', $iconPath, '-resize', $fill . 'x' . $fill,
+                             '-channel', 'RGB', '-fill', $fg, '-colorize', '100', '+channel',
+                             '-gravity', 'center', '-extent', $size . 'x' . $size, $tmpFg], $tmpFg)) {
+            return false;
+        }
+        // 2. traced background — first Close (bridge small internal gaps/breaks
+        //    up to ~2x the close radius, keeping detached small details like a
+        //    dot or circle as their own distinct traced shape rather than
+        //    merging them into the main outline), then Dilate outward by
+        //    trace_pct for the actual visible outline width, then recolor solid
+        //    $bg (colorize ignores the dilated RGB entirely, so whatever it
+        //    inherited from the morphology steps doesn't matter).
+        $trace = max(1, (int)round($size * $s['trace_pct'] / 100));
+        $close = max(2, (int)round($trace * 1.5));
+        $tmpBg = $out . '.bg.png';
+        if (!ms_convert_run([$bin, $tmpFg, '-channel', 'A',
+                             '-morphology', 'Close',  'Disk:' . $close,
+                             '-morphology', 'Dilate', 'Disk:' . $trace, '+channel',
+                             '-channel', 'RGB', '-fill', $bg, '-colorize', '100', '+channel', $tmpBg], $tmpBg)) {
+            @unlink($tmpFg); return false;
+        }
+        // 3. composite: traced background behind, icon shape in front
+        $ok = ms_convert_run([$bin, $tmpBg, $tmpFg, '-background', 'none', '-compose', 'over', '-composite', '-strip', $out], $out);
+        @unlink($tmpFg); @unlink($tmpBg);
+        return $ok;
+    }
+
+    // 'box' — the historical rounded-square tile.
+    $r = max(0, (int)round($size * $s['corner_pct'] / 100));
+    if (!ms_convert_run([$bin, '-background', 'none', $iconPath, '-resize', $fill . 'x' . $fill,
+                         '-channel', 'RGB', '-fill', $fg, '-colorize', '100', '+channel', $tmpFg], $tmpFg)) {
         return false;
     }
-    // 2. $bg rounded tile + composite the bug centered
     $ok = ms_convert_run([$bin, '-size', $size . 'x' . $size, 'xc:none',
                           '-fill', $bg, '-draw', 'roundrectangle 0,0,' . ($size - 1) . ',' . ($size - 1) . ',' . $r . ',' . $r,
-                          $tmpBug, '-gravity', 'center', '-composite', '-strip', $out], $out);
-    @unlink($tmpBug);
+                          $tmpFg, '-gravity', 'center', '-composite', '-strip', $out], $out);
+    @unlink($tmpFg);
     return $ok;
 }
 
@@ -230,7 +313,7 @@ function ms_resolve_line_color(string $mode, string $accent, string $dark, strin
  * Each file is inherently unique per site (text + colors + bug); a seeded
  * pointsize jitter adds byte/dimension variance. $iconPath null → wordmark only.
  */
-function ms_generate_logo(array &$data, string $workingDir, string $line1, string $line2, string $seed, ?string $iconPath = null, string $line1ColorMode = 'accent', string $line2ColorMode = 'dark', string $iconBgMode = 'dark'): ?string {
+function ms_generate_logo(array &$data, string $workingDir, string $line1, string $line2, string $seed, ?string $iconPath = null, string $line1ColorMode = 'accent', string $line2ColorMode = 'dark', string $iconBgMode = 'dark', array $iconStyle = []): ?string {
     $line1 = trim($line1); $line2 = trim($line2);
     if ($line1 === '' && $line2 === '') return null;
     if (ms_convert_bin() === null) return null;
@@ -285,14 +368,14 @@ function ms_generate_logo(array &$data, string $workingDir, string $line1, strin
     $composited = false;
     if ($iconPath && is_file($iconPath)) {
         $tile = $tmp . '_tile.png';
-        if (ms_render_bug_tile($iconPath, $accent, $dark, $wmH, $tile, $iconBgMode)) {
+        if (ms_render_bug_tile($iconPath, $accent, $dark, $wmH, $tile, $iconBgMode, $iconStyle)) {
             $gap = (int)round($wmH * 0.16);
             // tile (padded on the right by the gap) + wordmark, appended left→right
             $composited = ms_convert_run([$bin, $tile, '-background', 'none', '-gravity', 'west', '-extent', ($wmH + $gap) . 'x' . $wmH,
                                           $wm, '-background', 'none', '-gravity', 'west', '+append', '-strip', $out], $out);
             @unlink($tile);
             $favRel = 'uploads/favicon_' . $slug . '.png';
-            if (ms_render_bug_tile($iconPath, $accent, $dark, 128, $workingDir . '/' . $favRel, $iconBgMode)) {
+            if (ms_render_bug_tile($iconPath, $accent, $dark, 128, $workingDir . '/' . $favRel, $iconBgMode, $iconStyle)) {
                 $data['header']['favicon'] = $favRel;
             }
         }
@@ -352,7 +435,7 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     ];
     $logoConfig = ms_pick_logo_config($masterId, $params);
     $lines      = ms_resolve_logo_lines($logoConfig, $siteVars, $masterId);
-    $logoRel    = ms_generate_logo($data, $workingDir, $lines['line1'], $lines['line2'], $domain, $lines['iconPath'], $lines['line1Color'], $lines['line2Color'], $lines['iconBg']);
+    $logoRel    = ms_generate_logo($data, $workingDir, $lines['line1'], $lines['line2'], $domain, $lines['iconPath'], $lines['line1Color'], $lines['line2Color'], $lines['iconBg'], $lines['iconStyle']);
 
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));

@@ -281,6 +281,17 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         <p class="note" style="margin-top:8px;">✅ Wired into the build — see the finished logos in the <a href="#logo-gen">Logo generator</a> panel above.</p>
     </section>
 
+    <section id="icon-trace-prototype" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Icon fill + traced background <span class="pill">✅ built — per-icon on the Brand Icons card</span></h1>
+        <p class="sub">Each icon in the <a href="index.php?tab=genvisual#brand-icons">Brand Icons</a> library now has its own Fill %, Background (Box / Traced outline), Corner %, and Trace % — see <code>ms_render_bug_tile()</code> in <code>includes/multisite/visual.php</code>, saved per-icon to <code>multisite/icon_styles.json</code> via <code>admin/icon_styles_save.php</code>.</p>
+        <h3 style="margin:16px 0 8px;">First pass — plain dilate (superseded)</h3>
+        <a href="_labshots/icon_trace_prototype.png" target="_blank"><img src="_labshots/icon_trace_prototype.png" alt="old square-tile vs new traced-outline comparison" style="max-width:480px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:8px;">Worked on solid-silhouette icons (pest's ant, top row) but broke down on thin line-art icons (water's dehumidifier, bottom row) — small internal details (the circle, the diamond) got swallowed by the dilation into one blob instead of a crisp trace.</p>
+        <h3 style="margin:20px 0 8px;">Fixed — Close (bridge small breaks) before Dilate (trace width)</h3>
+        <a href="_labshots/icon_trace_fixed.png" target="_blank"><img src="_labshots/icon_trace_fixed.png" alt="fixed traced outline, both icon styles" style="max-width:480px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:8px;">A morphological <strong>Close</strong> pass first bridges small internal gaps/breaks (a stroke that doesn't quite close, a separate small detail) so they read as their own clean traced shape — the ant is unaffected, the dehumidifier's circle and diamond now trace cleanly instead of blobbing into the main outline.</p>
+    </section>
+
 </main>
 
 <script>

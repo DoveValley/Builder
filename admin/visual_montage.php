@@ -58,7 +58,7 @@ foreach ($presets as $idx => $p) {
 
     $wd = $base . '/p' . $idx; @mkdir($wd . '/uploads', 0775, true);
     $d  = ['theme' => ['accent_color' => $accent, 'heading_color' => $dark, 'header_top_bg' => '#ffffff'], 'header' => []];
-    $logoRel = ms_generate_logo($d, $wd, $mLine1, $mLine2, 'montage' . $idx, $mLines['iconPath'], $mLines['line1Color'], $mLines['line2Color'], $mLines['iconBg']);
+    $logoRel = ms_generate_logo($d, $wd, $mLine1, $mLine2, 'montage' . $idx, $mLines['iconPath'], $mLines['line1Color'], $mLines['line2Color'], $mLines['iconBg'], $mLines['iconStyle']);
     if (!$logoRel || !is_file($wd . '/' . $logoRel)) continue;
     $logo = $wd . '/' . $logoRel;
 

@@ -69,9 +69,13 @@
 
         <?php
         // Icon library (feeds the presets) + the numbers behind the summary card.
+        require_once BASE_DIR . '/includes/multisite/visual.php';   // ms_load_icon_styles(), ms_resolve_icon_style()
         $iconDir  = ACTIVE_SITE_DIR . '/multisite/icons/';
         $iconList = array_map('basename', glob($iconDir . '*.svg') ?: []);
         sort($iconList);
+        $iconStylesMap = ms_load_icon_styles(ACTIVE_SITE_ID);
+        $iconStyles = [];
+        foreach ($iconList as $ic) { $iconStyles[$ic] = ms_resolve_icon_style($iconStylesMap, $ic); }
 
         $gvDoc     = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/theme_presets.json'), true) ?: [];
         $gvPresets = is_array($gvDoc['presets'] ?? null) ? $gvDoc['presets'] : [];
@@ -245,23 +249,42 @@
             <h2 style="margin-top:0;">Brand icons <span class="hint" style="font-weight:400;">— SVG marks for logos &amp; favicons</span></h2>
             <p class="hint" style="margin-bottom:12px;">Upload simple <strong>single-color silhouette SVGs</strong> (a wrench, house, leaf, tool…). Each config in the <strong>Logo Library</strong> below picks one — it becomes the colored mark in your site's generated <strong>logo + favicon</strong>.</p>
 
-            <div id="icon-grid" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
+            <div id="icon-grid" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:6px;">
                 <?php if (!$iconList): ?>
-                    <span class="hint">No icons yet — upload SVGs below. (Presets render a wordmark + monogram favicon until you add some.)</span>
+                    <span class="hint">No icons yet — upload SVGs below. (Logo Configs render a wordmark only, no icon, until you add some.)</span>
                 <?php else: foreach ($iconList as $ic):
+                    $st = $iconStyles[$ic];
                     // White silhouette on a dark tile — a fixed, deliberately high-contrast
                     // preview color pair (not any real site's theme) so the icon shape is
                     // always clearly visible here regardless of which icon it is. The
                     // previous #334155-on-#1e293b pairing was two near-identical dark
                     // slate tones, so every icon was almost invisible against its own tile.
-                    $prev = 'visual_preview.php?type=favicon&icon=' . urlencode($ic) . '&accent=%23ffffff&dark=%231e293b&name=x'; ?>
-                    <div style="text-align:center;width:88px;">
-                        <img src="<?= h($prev) ?>" alt="<?= h($ic) ?>" width="60" height="60" loading="lazy" style="border:1px solid #e5e7eb;border-radius:12px;background:#fff;">
-                        <div class="hint" style="font-size:.72rem;word-break:break-all;margin:3px 0 1px;"><?= h(preg_replace('/\.svg$/', '', $ic)) ?></div>
-                        <button type="button" onclick="iconDelete('<?= h(addslashes($ic)) ?>')" style="background:none;border:0;color:#dc2626;cursor:pointer;font-size:.74rem;padding:0;">✕ remove</button>
+                    $prev = 'visual_preview.php?type=favicon&icon=' . urlencode($ic) . '&accent=%23ffffff&dark=%231e293b&name=x'
+                          . '&fill_pct=' . $st['fill_pct'] . '&bg_style=' . $st['bg_style']
+                          . '&corner_pct=' . $st['corner_pct'] . '&trace_pct=' . $st['trace_pct']; ?>
+                    <div class="ic-card" data-icon="<?= h($ic) ?>" style="text-align:center;width:128px;border:1px solid #e2e8f0;border-radius:8px;padding:8px;">
+                        <img class="ic-prev" src="<?= h($prev) ?>" alt="<?= h($ic) ?>" width="72" height="72" style="border:1px solid #e5e7eb;border-radius:8px;background:#fff;">
+                        <div class="hint" style="font-size:.7rem;word-break:break-all;margin:4px 0 2px;"><?= h(preg_replace('/\.svg$/', '', $ic)) ?></div>
+                        <label style="display:block;font-size:.68rem;text-align:left;margin-top:4px;">Fill %
+                            <input type="number" class="ic-f" data-icon="<?= h($ic) ?>" data-k="fill_pct" min="20" max="100" value="<?= (int)$st['fill_pct'] ?>" style="width:100%;">
+                        </label>
+                        <label style="display:block;font-size:.68rem;text-align:left;margin-top:4px;">Background
+                            <select class="ic-f" data-icon="<?= h($ic) ?>" data-k="bg_style" style="width:100%;">
+                                <option value="box"<?= $st['bg_style'] === 'box' ? ' selected' : '' ?>>Box</option>
+                                <option value="trace"<?= $st['bg_style'] === 'trace' ? ' selected' : '' ?>>Traced outline</option>
+                            </select>
+                        </label>
+                        <label class="ic-corner-wrap" style="display:<?= $st['bg_style'] === 'box' ? 'block' : 'none' ?>;font-size:.68rem;text-align:left;margin-top:4px;">Corner %
+                            <input type="number" class="ic-f" data-icon="<?= h($ic) ?>" data-k="corner_pct" min="0" max="50" value="<?= (int)$st['corner_pct'] ?>" style="width:100%;">
+                        </label>
+                        <label class="ic-trace-wrap" style="display:<?= $st['bg_style'] === 'trace' ? 'block' : 'none' ?>;font-size:.68rem;text-align:left;margin-top:4px;">Trace %
+                            <input type="number" class="ic-f" data-icon="<?= h($ic) ?>" data-k="trace_pct" min="1" max="20" value="<?= (int)$st['trace_pct'] ?>" style="width:100%;">
+                        </label>
+                        <button type="button" onclick="iconDelete('<?= h(addslashes($ic)) ?>')" style="background:none;border:0;color:#dc2626;cursor:pointer;font-size:.72rem;padding:0;margin-top:6px;">✕ remove</button>
                     </div>
                 <?php endforeach; endif; ?>
             </div>
+            <p class="hint" style="margin:0 0 14px;">Fill/Background/Corner/Trace <strong>save automatically</strong> as you edit — the preview updates live. <strong>Box</strong> = the classic rounded-square tile; <strong>Traced outline</strong> = no tile, the background hugs the icon's own silhouette instead — small internal details bridge into their own clean trace rather than blobbing together (see the <a href="playground.php#icon-trace-prototype" target="_blank">Test Lab</a> for a before/after).</p>
 
             <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                 <input type="file" id="icon-files" accept=".svg,image/svg+xml" multiple>
@@ -275,6 +298,59 @@
             <p class="hint" style="margin:8px 0 0;">SVG only, ≤512&nbsp;KB each. The same icons drive the multisite build's per-site logos.</p>
         </div>
         <script>
+        var IC_STYLES = <?= json_encode($iconStyles, JSON_UNESCAPED_SLASHES) ?>;
+        var IC_CSRF   = <?= json_encode($csrfToken ?? '') ?>;
+        var icBust    = 0;
+
+        function icPreviewSrc(icon){
+            var s = IC_STYLES[icon] || {};
+            return 'visual_preview.php?type=favicon&icon=' + encodeURIComponent(icon)
+                + '&accent=%23ffffff&dark=%231e293b&name=x'
+                + '&fill_pct=' + encodeURIComponent(s.fill_pct || 64)
+                + '&bg_style=' + encodeURIComponent(s.bg_style || 'box')
+                + '&corner_pct=' + encodeURIComponent(s.corner_pct || 22)
+                + '&trace_pct=' + encodeURIComponent(s.trace_pct || 5)
+                + '&_=' + (icBust++);
+        }
+        function icUpdatePreview(icon){
+            var card = document.querySelector('.ic-card[data-icon="' + CSS.escape(icon) + '"]'); if (!card) return;
+            card.querySelector('.ic-prev').src = icPreviewSrc(icon);
+        }
+        function icPayload(){
+            var fd = new FormData();
+            fd.append('csrf_token', IC_CSRF);
+            fd.append('styles', JSON.stringify(IC_STYLES));
+            return fd;
+        }
+        var icSaveTimer = null;
+        function icAutoSave(){ clearTimeout(icSaveTimer); icSaveTimer = setTimeout(icSave, 600); }
+        function icSave(){
+            var msg = document.getElementById('icon-msg');
+            msg.style.color = '#64748b'; msg.textContent = 'Saving styles…';
+            fetch('icon_styles_save.php', {method: 'POST', body: icPayload()})
+              .then(function(r){ return r.json(); })
+              .then(function(d){
+                  if (d.ok) { msg.style.color = '#059669'; msg.textContent = 'Saved ' + d.count + ' icon style' + (d.count === 1 ? '' : 's') + '.'; }
+                  else { msg.style.color = '#dc2626'; msg.textContent = 'Error: ' + (d.error || 'save failed'); }
+              })
+              .catch(function(){ msg.style.color = '#dc2626'; msg.textContent = 'Network error.'; });
+        }
+        document.querySelectorAll('#icon-grid .ic-f').forEach(function(el){
+            var icon = el.getAttribute('data-icon'); var k = el.getAttribute('data-k');
+            var ev = (el.tagName === 'SELECT') ? 'change' : 'input';
+            el.addEventListener(ev, function(){
+                IC_STYLES[icon] = IC_STYLES[icon] || {};
+                IC_STYLES[icon][k] = el.value;
+                if (k === 'bg_style') {
+                    var card = el.closest('.ic-card');
+                    card.querySelector('.ic-corner-wrap').style.display = (el.value === 'box')   ? '' : 'none';
+                    card.querySelector('.ic-trace-wrap').style.display  = (el.value === 'trace') ? '' : 'none';
+                }
+                icUpdatePreview(icon);
+            });
+            el.addEventListener('change', icAutoSave);
+        });
+
         function iconUpload(){
             var inp = document.getElementById('icon-files'), msg = document.getElementById('icon-msg');
             if(!inp.files.length){ msg.style.color='#dc2626'; msg.textContent='Choose SVG file(s) first.'; return; }
@@ -287,7 +363,7 @@
             }).catch(function(){ msg.style.color='#dc2626'; msg.textContent='Network error.'; });
         }
         function iconDelete(name){
-            if(!confirm('Remove icon "'+name+'"? Presets using it fall back to a wordmark/monogram.')) return;
+            if(!confirm('Remove icon "'+name+'"? Any Logo Config using it falls back to a wordmark, no icon.')) return;
             var fd = new FormData(); fd.append('csrf_token', <?= json_encode($csrfToken) ?>); fd.append('action','delete'); fd.append('icon', name);
             fetch('visual_icon_upload.php',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(d){
                 if(d.ok) location.reload(); else alert('Delete failed: '+(d.error||''));

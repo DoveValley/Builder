@@ -11,6 +11,9 @@
  * GET: accent=#hex dark=#hex icon=name.svg type=logo|favicon
  *      + either line1=...&line2=... (explicit) or name=Business (legacy split)
  *      + optional line1_color=accent|dark, line2_color=accent|dark, icon_bg=dark|accent (Logo Library only)
+ *      + optional fill_pct/bg_style/corner_pct/trace_pct (Brand Icons live-editing only —
+ *        when absent, the icon's own SAVED style is used, so every other preview on the
+ *        page reflects reality instead of a hardcoded default)
  */
 require_once __DIR__ . '/../config.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
@@ -43,13 +46,24 @@ $icon     = basename((string)($_GET['icon'] ?? ''));
 $iconPath = ($icon !== '' && preg_match('/\.svg$/i', $icon)) ? ACTIVE_SITE_DIR . '/multisite/icons/' . $icon : null;
 if ($iconPath && !is_file($iconPath)) $iconPath = null;
 
+// Icon render style: start from the icon's own SAVED style (so a preview on
+// ANY card — Presets, Logo Library — matches what the real build would do),
+// then let explicit overrides win (the Brand Icons card's own live-editing
+// controls, previewing a change before it's auto-saved).
+$iconStyle = $icon !== '' ? ms_resolve_icon_style(ms_load_icon_styles(ACTIVE_SITE_ID), $icon) : ms_default_icon_style();
+if (isset($_GET['fill_pct']))   $iconStyle['fill_pct']   = $_GET['fill_pct'];
+if (isset($_GET['bg_style']))   $iconStyle['bg_style']   = $_GET['bg_style'];
+if (isset($_GET['corner_pct'])) $iconStyle['corner_pct'] = $_GET['corner_pct'];
+if (isset($_GET['trace_pct']))  $iconStyle['trace_pct']  = $_GET['trace_pct'];
+$iconStyle = ms_sanitize_icon_style($iconStyle);
+
 if (ms_convert_bin() === null) { http_response_code(500); header('Content-Type: text/plain'); exit('ImageMagick not available.'); }
 
 // Throwaway working dir + minimal data → reuse the real generator, then stream.
 $wd = sys_get_temp_dir() . '/ms_vp_' . getmypid() . '_' . mt_rand(1000, 9999999);
 @mkdir($wd . '/uploads', 0775, true);
 $data = ['theme' => ['accent_color' => $accent, 'heading_color' => $dark, 'header_top_bg' => '#ffffff'], 'header' => []];
-$logoRel = ms_generate_logo($data, $wd, $line1, $line2, 'preview', $iconPath, $line1Color, $line2Color, $iconBg);
+$logoRel = ms_generate_logo($data, $wd, $line1, $line2, 'preview', $iconPath, $line1Color, $line2Color, $iconBg, $iconStyle);
 
 $rel  = $type === 'favicon' ? ($data['header']['favicon'] ?? '') : ($logoRel ?? '');
 $file = $rel !== '' ? $wd . '/' . $rel : '';
