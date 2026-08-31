@@ -47,6 +47,11 @@ $tab = $_GET['tab'] ?? 'header';
 if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'genmod', 'picdrop', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
+// Blog tab is unavailable on sites where blog_settings.enabled is off — same gate
+// blog.php uses to 404 the public route, so there's nothing to manage here either.
+if ($tab === 'blog' && empty($blogSettings['enabled'])) {
+    $tab = 'header';
+}
 // The Theme / Colors tab was renamed Gen-Visual — keep old links and bookmarks working.
 if ($tab === 'theme') {
     $params = $_GET;
@@ -275,7 +280,9 @@ foreach ($footer['columns'] as $ci => $column) {
     <div class="tabs">
         <a class="tab-link <?= $tab === 'header' ? 'active' : '' ?>" href="?tab=header">Header</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
+        <?php if (!empty($blogSettings['enabled'])): ?>
         <a class="tab-link <?= $tab === 'blog' ? 'active' : '' ?>" href="?tab=blog">Blog</a>
+        <?php endif; ?>
         <a class="tab-link <?= $tab === 'media' ? 'active' : '' ?>" href="?tab=media">Media Library</a>
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO</a>
         <a class="tab-link <?= $tab === 'plugins' ? 'active' : '' ?>" href="?tab=plugins">Plugins</a>

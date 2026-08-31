@@ -141,6 +141,7 @@ function default_data() {
         'pages'  => [],
         'posts'  => [],
         'blog_settings' => [
+            'enabled'         => true,
             'blog_heading'    => 'Pest Control Tips & News for {city}',
             'blog_intro'      => '',
             'posts_per_page'  => 9,

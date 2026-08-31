@@ -8,6 +8,25 @@ $slug = (isset($_GET['slug']) && is_string($_GET['slug'])) ? slugify($_GET['slug
 $assetPathPrefix = '/';
 $homeUrl         = '/';
 
+if (empty($data['blog_settings']['enabled'])) {
+    http_response_code(404);
+    $contentBlocks = [
+        [
+            'type'           => 'text',
+            'heading_level'  => 'h1',
+            'text'           => "Page not found.\n\nSorry, that page doesn't exist.",
+            'photo'          => '',
+            'photo_ratio'    => 'landscape',
+            'photo_position' => 'center',
+            'photo_alt'      => '',
+        ],
+    ];
+    $seo       = [];
+    $pageTitle = 'Page Not Found';
+    require __DIR__ . '/includes/site-template.php';
+    exit;
+}
+
 /* ---------------- SINGLE POST ---------------- */
 if ($slug !== '') {
     [$postId, $post] = find_post_by_slug($data['posts'], $slug);
