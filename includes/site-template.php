@@ -442,7 +442,7 @@ if ($firstBlockHero) {
                     </ul>
                     <?php if (!empty($footer['logo']) && !empty($footer['logo_in_contact_column'])): ?>
                         <div class="footer-col-logo-box">
-                            <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>">
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], 40) ?>>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>
@@ -465,7 +465,7 @@ if ($firstBlockHero) {
     <div class="footer-bottom">
         <div class="container footer-bottom-inner">
             <?php if (!empty($footer['logo']) && !empty($footer['logo_in_copyright_bar'])): ?>
-                <img class="footer-bottom-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footLogoAlt : SITE_TITLE) ?>">
+                <img class="footer-bottom-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], 48) ?>>
             <?php endif; ?>
             <div class="footer-copyright"><?= h(str_replace('{year}', date('Y'), resolve_shortcodes($footer['copyright'] ?? ''))) ?></div>
             <?php $footerSocials = array_filter($footer['socials'] ?? []); ?>

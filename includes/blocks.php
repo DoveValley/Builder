@@ -28,7 +28,7 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     }
     $altAttr = h($alt ?: '');
     $html  = '<div class="' . $class . '"' . ($style !== '' ? ' style="' . h($style) . '"' : '') . '>';
-    $html .= '<img src="' . h($pathPrefix . $photo) . '" alt="' . $altAttr . '" loading="lazy" style="object-position:' . h($position) . ';">';
+    $html .= '<img src="' . h($pathPrefix . $photo) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . 'loading="lazy" style="object-position:' . h($position) . ';">';
     $html .= '</div>';
     return $html;
 }
@@ -271,15 +271,21 @@ function render_content_block($block, $pathPrefix = '') {
         case 'text':
             echo '<div class="content-block text-only"' . $anchorAttr . '>';
             echo '<div class="content-text">';
-            // New data has explicit heading_text; old data extracts first line of plain text
+            // New data has explicit heading_text; old data extracts first line of plain text.
+            // Only the FIRST LINE needs to be HTML-free for this — a heading line followed
+            // by fully-HTML body paragraphs (e.g. AI-authored legal pages: "Privacy Policy\n
+            // <p>...</p>") used to fail this check against the WHOLE text, silently losing
+            // the heading (no <h1> at all, just the title floating as unstyled plain text).
+            $headingText = '';
             if (array_key_exists('heading_text', $block)) {
                 $headingText = $block['heading_text'];
-            } elseif ($headingLevel !== 'p' && $text !== '' && !preg_match('/<[a-z]/i', $text)) {
+            } elseif ($headingLevel !== 'p' && $text !== '') {
                 $lines = explode("\n", trim($text));
-                $headingText = array_shift($lines);
-                $text = implode("\n", $lines);
-            } else {
-                $headingText = '';
+                $firstLine = $lines[0] ?? '';
+                if ($firstLine !== '' && !preg_match('/<[a-z]/i', $firstLine)) {
+                    $headingText = array_shift($lines);
+                    $text = implode("\n", $lines);
+                }
             }
             if ($headingText !== '' && $headingLevel !== 'p') {
                 echo '<' . h($headingLevel) . ' class="block-heading">' . h($headingText) . '</' . h($headingLevel) . '>';
@@ -359,7 +365,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
                     ? $photo : $pathPrefix . $photo;
                 $hsImgCol .= '<div class="hs-image-wrap">';
-                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" style="object-position:'.h(get_focal_point($photo)).';">';
+                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_intrinsic_attrs($photo).'style="object-position:'.h(get_focal_point($photo)).';">';
                 if ($caption1 || $caption2) {
                     $hsImgCol .= '<div class="hs-caption">';
                     if ($caption1) $hsImgCol .= '<div class="hs-caption-title">'.h($caption1).'</div>';
@@ -410,7 +416,7 @@ function render_content_block($block, $pathPrefix = '') {
             $hasIcons = !empty(array_filter($items, fn($i) => !empty($i['icon'])));
 
             $imgCol = '<div class="fs-right">';
-            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" loading="lazy" style="object-position:'.h(get_focal_point($photo)).';"></div>';
+            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" '.img_intrinsic_attrs($photo).'loading="lazy" style="object-position:'.h(get_focal_point($photo)).';"></div>';
             if ($starText) $imgCol .= '<div class="fs-star-badge"><span class="fs-stars">★★★★★</span><span class="fs-star-text">'.h($starText).'</span></div>';
             $imgCol .= '</div>';
 
@@ -434,7 +440,7 @@ function render_content_block($block, $pathPrefix = '') {
                     $iText = $item['text'] ?? ''; $iAlt  = $item['alt'] ?? '';
                     $iIconSrc = $iIcon ? ((str_starts_with($iIcon,'http')||str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon) : '';
                     echo '<div class="fs-item">';
-                    if ($iIconSrc) echo '<img class="fs-item-icon" src="'.h($iIconSrc).'" alt="'.h($iAlt).'" loading="lazy">';
+                    if ($iIconSrc) echo '<img class="fs-item-icon" src="'.h($iIconSrc).'" alt="'.h($iAlt).'" '.img_intrinsic_attrs($iIcon).'loading="lazy">';
                     echo '<div class="fs-item-body">';
                     if ($iHead) echo '<h3 class="fs-item-heading" style="color:'.h($accentColor).';">'.h($iHead).'</h3>';
                     if ($iText) echo '<p class="fs-item-text">'.h($iText).'</p>';
@@ -482,7 +488,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $colAlt  = $col['alt']     ?? '';
                 echo '<div class="feature-col">';
                 if ($colIcon) { $svg = sanitize_svg($colIcon); echo '<div class="feature-col-icon">' . ($svg !== false ? $svg : '') . '</div>'; }
-                elseif ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" loading="lazy">';
+                elseif ($colImg) echo '<img class="feature-icon" src="' . h($pathPrefix . $colImg) . '" alt="' . h($colAlt) . '" ' . img_intrinsic_attrs($colImg) . 'loading="lazy">';
                 if ($colHead) echo '<h3 class="feature-col-heading">' . h($colHead) . '</h3>';
                 if ($colText) echo '<div class="feature-col-text">' . text_to_html($colText) . '</div>';
                 echo '</div>';
@@ -721,7 +727,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($infoHeading) $infoPanel .= '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
             // text_to_html renders multi-paragraph plain text (and passes through AI <p> HTML)
             if ($infoText)    $infoPanel .= '<div class="mi-text">'.text_to_html($infoText).'</div>';
-            if ($infoPhotoSrc) $infoPanel .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" loading="lazy">';
+            if ($infoPhotoSrc) $infoPanel .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" '.img_intrinsic_attrs($infoPhoto).'loading="lazy">';
             if ($infoPhotoSrc && $infoCredit) $infoPanel .= '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
             $infoPanel .= '</div>';
 
@@ -824,7 +830,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '</form>';
             if ($ebBadgeImg || $ebBadgeText) {
                 echo '<div class="eb-trust">';
-                if ($ebBadgeImg) echo '<img class="eb-badge-img" src="'.h($pathPrefix.$ebBadgeImg).'" alt="PMI badge" loading="lazy">';
+                if ($ebBadgeImg) echo '<img class="eb-badge-img" src="'.h($pathPrefix.$ebBadgeImg).'" alt="PMI badge" '.img_intrinsic_attrs($ebBadgeImg).'loading="lazy">';
                 if ($ebBadgeText) echo '<span class="eb-badge-text">'.h($ebBadgeText).'</span>';
                 echo '</div>';
             }
@@ -939,7 +945,7 @@ function render_content_block($block, $pathPrefix = '') {
             // LEFT: photo
             if ($photoSrc) {
                 echo '<div class="if-photo-wrap">';
-                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" loading="lazy" style="object-position:'.h(get_focal_point($photo)).';">';
+                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" '.img_intrinsic_attrs($photo).'loading="lazy" style="object-position:'.h(get_focal_point($photo)).';">';
                 echo '</div>';
             }
 
@@ -1078,7 +1084,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $tagAttr = $iUrl ? ' href="'.h($iUrl).'"' : '';
                 echo '<'.$tag.' class="svc-card"'.$tagAttr.'>';
                 if ($iIconSrc) {
-                    echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';"><img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="svc-icon" loading="lazy"></div>';
+                    echo '<div class="svc-icon-wrap" style="background:'.h($iconBg).';"><img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="svc-icon" '.img_intrinsic_attrs($iIcon).'loading="lazy"></div>';
                 }
                 if ($iHead) echo '<h3 class="svc-card-heading">'.h($iHead).'</h3>';
                 if ($iText) echo '<p class="svc-card-text">'.h($iText).'</p>';
@@ -1157,7 +1163,7 @@ function render_content_block($block, $pathPrefix = '') {
                             $svg = preg_replace('/fill\s*=\s*"#[0-9a-fA-F]{3,6}"/i', 'fill="#ffffff"', $svg);
                             $iconOut = preg_replace('/<svg /', '<svg class="flip-icon" ', $svg, 1);
                         } elseif ($iIconSrc) {
-                            $iconOut = '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="flip-icon-img" loading="lazy">';
+                            $iconOut = '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="flip-icon-img" '.img_intrinsic_attrs($iIcon).'loading="lazy">';
                         }
                     }
                     // Checkerboard: even tiles orange->blue, odd tiles blue->orange (flips to the other color)
@@ -1174,7 +1180,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $tileBg = ($gi % 2 === 0) ? $c1 : $c2;
                 echo '<div class="hg-tile" style="background:'.$tileBg.';">';
                 if ($iIconSrc) {
-                    echo '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="hg-tile-icon" loading="lazy">';
+                    echo '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="hg-tile-icon" '.img_intrinsic_attrs($iIcon).'loading="lazy">';
                 }
                 if ($iLabel) echo '<span class="hg-tile-label">'.h($iLabel).'</span>';
                 echo '</div>';
@@ -1223,7 +1229,7 @@ function render_content_block($block, $pathPrefix = '') {
                      .' onclick="switchTab(this)"'
                      .($activeInlineStyle ? ' style="'.$activeInlineStyle.'"' : '')
                      .' data-active-bg="'.$activeBgStyle.'">';
-                if ($iconSrc) echo '<img src="'.h($iconSrc).'" class="ts-tab-icon" alt="'.h($label).'" loading="lazy">';
+                if ($iconSrc) echo '<img src="'.h($iconSrc).'" class="ts-tab-icon" alt="'.h($label).'" '.img_intrinsic_attrs($icon).'loading="lazy">';
                 echo '<span>'.h($label).'</span>';
                 echo '</button>';
             }
@@ -1240,7 +1246,7 @@ function render_content_block($block, $pathPrefix = '') {
                 }
                 $hidden = $ti === 0 ? '' : ' hidden';
                 echo '<div class="ts-panel" data-panel="'.$ti.'"'.$hidden.'>';
-                if ($photoSrc) echo '<img src="'.h($photoSrc).'" alt="'.h($alt).'" class="ts-photo" loading="lazy">';
+                if ($photoSrc) echo '<img src="'.h($photoSrc).'" alt="'.h($alt).'" class="ts-photo" '.img_intrinsic_attrs($photo).'loading="lazy">';
                 if ($desc)     echo '<div class="ts-desc">'.h($desc).'</div>';
                 echo '</div>';
             }
@@ -1261,7 +1267,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $alt = $img['alt']   ?? '';
                 if (!$src) continue;
                 echo '<div class="gallery-item">';
-                echo '<img src="' . h($pathPrefix . $src) . '" alt="' . h($alt) . '" loading="lazy">';
+                echo '<img src="' . h($pathPrefix . $src) . '" alt="' . h($alt) . '" ' . img_intrinsic_attrs($src) . 'loading="lazy">';
                 echo '</div>';
             }
             echo '</div></div>';
@@ -1285,7 +1291,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $stepAlt  = $step['alt']     ?? '';
                 echo '<div class="step-item">';
                 if ($stepImg) {
-                    echo '<img class="step-icon" src="' . h($pathPrefix . $stepImg) . '" alt="' . h($stepAlt) . '" loading="lazy">';
+                    echo '<img class="step-icon" src="' . h($pathPrefix . $stepImg) . '" alt="' . h($stepAlt) . '" ' . img_intrinsic_attrs($stepImg) . 'loading="lazy">';
                 } else {
                     echo '<div class="step-number">' . ($n + 1) . '</div>';
                 }
@@ -1393,7 +1399,7 @@ function render_content_block($block, $pathPrefix = '') {
                         echo '<div class="card-icon-plain">' . h($cardIcon) . '</div>';
                     }
                 } elseif ($cardImg) {
-                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" loading="lazy">';
+                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" ' . img_intrinsic_attrs($cardImg) . 'loading="lazy">';
                 }
                 echo '<div class="card-body">';
                 if ($cardHead)  echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
@@ -1489,7 +1495,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '</div>';
             if ($featImg) {
                 $featSrc = (str_starts_with($featImg,'http') || str_starts_with($featImg,'//')) ? $featImg : $pathPrefix . $featImg;
-                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" loading="lazy">';
+                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" ' . img_intrinsic_attrs($featImg) . 'loading="lazy">';
             }
             echo '</div>';
             break;
@@ -1525,7 +1531,7 @@ function render_content_block($block, $pathPrefix = '') {
                     echo '<a class="blog-card" href="/blog/' . h($bp['slug'] ?? '') . '">';
                     if ($bpImg) {
                         $bpSrc = (str_starts_with($bpImg,'http') || str_starts_with($bpImg,'//')) ? $bpImg : $pathPrefix . $bpImg;
-                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" loading="lazy">';
+                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" ' . img_intrinsic_attrs($bpImg) . 'loading="lazy">';
                     }
                     echo '<div class="blog-card-body">';
                     if (!empty($bp['published_at']) || !empty($bp['tag'])) {
@@ -1709,7 +1715,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $alt = $item['alt']   ?? '';
                 $url = $item['url']   ?? '';
                 if (!$img) continue;
-                $imgTag = '<img src="'.h($pathPrefix.$img).'" alt="'.h($alt).'" class="lb-logo" style="'.h($imgStyle).'" loading="lazy">';
+                $imgTag = '<img src="'.h($pathPrefix.$img).'" alt="'.h($alt).'" class="lb-logo" '.img_dim_attrs($img, $lbHeight).'style="'.h($imgStyle).'" loading="lazy">';
                 if ($url) {
                     echo '<a href="'.h($url).'" class="lb-item" target="_blank" rel="noopener noreferrer">'.$imgTag.'</a>';
                 } else {
@@ -1906,7 +1912,7 @@ function render_content_block($block, $pathPrefix = '') {
                 if (!$mName && !$mPhoto) continue;
                 echo '<div class="team-member">';
                 echo '<div class="team-member-photo">';
-                if ($mPhoto) echo '<img src="' . h($pathPrefix . $mPhoto) . '" alt="' . h($mAlt ?: $mName) . '" loading="lazy">';
+                if ($mPhoto) echo '<img src="' . h($pathPrefix . $mPhoto) . '" alt="' . h($mAlt ?: $mName) . '" ' . img_intrinsic_attrs($mPhoto) . 'loading="lazy">';
                 echo '</div>';
                 if ($mName)  echo '<h3 class="team-member-name">'  . h($mName)  . '</h3>';
                 if ($mTitle) echo '<p class="team-member-title">'   . h($mTitle) . '</p>';

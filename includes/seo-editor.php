@@ -125,11 +125,20 @@ function render_seo_editor($seo, string $context = 'page', string $websiteUrl = 
             <input type="text" id="canonical_url" name="canonical_url" value="<?= h($seo['canonical_url'] ?? '') ?>" placeholder="e.g. https://katypestpros.com/cockroach-exterminator-katy-tx/">
             <span class="hint">Tells search engines the preferred URL for this page. Use the live site URL.</span>
         </div>
+        <?php $mdLen = mb_strlen($seo['meta_description'] ?? ''); ?>
         <div class="form-group">
             <label for="meta_description">Meta description</label>
-            <textarea id="meta_description" name="meta_description" rows="3"><?= h($seo['meta_description'] ?? '') ?></textarea>
-            <span class="hint">1–2 sentences shown in search results. Aim for 120–160 characters.</span>
+            <textarea id="meta_description" name="meta_description" rows="3" oninput="seoUpdateCharCount(this, 'meta_description_count', 160)"><?= h($seo['meta_description'] ?? '') ?></textarea>
+            <span class="hint">1–2 sentences shown in search results. Aim for 120–160 characters — over that, Google truncates it. <span id="meta_description_count" style="font-weight:600;color:<?= $mdLen > 160 ? '#dc2626' : '#6b7280' ?>;"><?= $mdLen ?></span>/160 characters</span>
         </div>
+        <script>
+        window.seoUpdateCharCount = window.seoUpdateCharCount || function (el, countId, max) {
+            var span = document.getElementById(countId);
+            if (!span) return;
+            span.textContent = el.value.length;
+            span.style.color = el.value.length > max ? '#dc2626' : '#6b7280';
+        };
+        </script>
         <div class="form-group">
             <label for="meta_keywords">Meta keywords</label>
             <input type="text" id="meta_keywords" name="meta_keywords" value="<?= h($seo['meta_keywords'] ?? '') ?>" placeholder="e.g. pest control, Katy TX, exterminator">

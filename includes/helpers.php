@@ -307,3 +307,18 @@ function img_dim_attrs(string $storedPath, int $displayHeight): string {
     if ($w <= 0) return '';
     return 'width="' . $w . '" height="' . $h . '" ';
 }
+
+/* Same CLS-prevention purpose as img_dim_attrs(), for content images that scale via
+   CSS (width:100%, object-fit, etc.) rather than a fixed display height — the browser
+   only needs the real aspect ratio, not a specific pixel size, to reserve the right box
+   before the bytes arrive. Returns the file's own intrinsic width/height unscaled, or ''
+   if it can't be measured (SVG, missing file) — callers keep their existing CSS sizing
+   either way. */
+function img_intrinsic_attrs(string $storedPath): string {
+    if ($storedPath === '') return '';
+    $fs = upload_fs_path($storedPath);
+    if ($fs === '' || !is_file($fs)) return '';
+    $sz = @getimagesize($fs);
+    if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
+    return 'width="' . (int) $sz[0] . '" height="' . (int) $sz[1] . '" ';
+}
