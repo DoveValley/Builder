@@ -36,8 +36,10 @@ $deploy = file_exists($deployFile) ? (json_decode(file_get_contents($deployFile)
 
     <hr style="margin:20px 0;border:none;border-top:1px solid #e5e7eb;">
 
-    <button id="gen-btn" class="btn" onclick="startGenerate()">Generate Static Site</button>
-    <button id="gen-download-btn" class="btn btn-secondary" onclick="startGenerateAndDownload()">Download Static Site</button>
+    <div style="display:flex;gap:10px;flex-wrap:nowrap;">
+        <button id="gen-btn" class="btn" onclick="startGenerate()">Generate Static Site</button>
+        <button id="gen-download-btn" class="btn btn-secondary" onclick="startGenerateAndDownload()">Download Static Site</button>
+    </div>
     <div id="gen-progress-wrap" style="display:none;margin-top:10px;">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
             <span style="font-size:.8rem;font-weight:600;color:#374151;" id="gen-progress-label">Step 0 of 0</span>
