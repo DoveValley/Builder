@@ -87,5 +87,19 @@
     "default_fields": { "skin": "light", "heading_level": "h2" },
     "requires_research": false,
     "prompt_skeleton": "You are writing a local-relevance section for {business}, [[brief.business_descriptor]], for {city}, {state}.\n\nheading_text (H2): 5-9 words referencing serving {city} and the surrounding area.\n\ntext: 1-2 paragraphs (110-150 words) on how property characteristics across {city} affect {service} - e.g. differences between older, established neighborhoods (mature trees, aging construction) and newer subdivisions - grounded in [[brief.local_angle]]. Whether to name specific neighborhoods is governed by the LOCAL AREAS line below.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about not naming neighborhoods. If that line lists actual names, you MUST choose ONLY 2 OR 3 of them - never 4 or more, even though more are listed - and name those BY NAME as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add any name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general terms about area types. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p>\"}"
+  },
+  "about_story": {
+    "label": "About Us - Company Story (Standalone)",
+    "description": "About Us page content: company background and mission, using ONLY operator-entered trust facts (site_vars.years_in_business / mission_statement) - never invents history, credentials, or awards. Each site gets independently AI-written wording so an operator running many sites never ends up with the same About page text twice.",
+    "ai_mode": "standalone",
+    "ai_render_as": "text",
+    "ai_model": "claude-haiku-4-5-20251001",
+    "ai_inject_target": null,
+    "ai_inject_field": null,
+    "ai_inject_mode": null,
+    "ai_output_schema": { "heading_text": "string", "text": "html_string" },
+    "default_fields": { "skin": "light", "heading_level": "h2" },
+    "requires_research": false,
+    "prompt_skeleton": "You are writing the About Us page for {business}, [[brief.business_descriptor]], based in {city}, {state}.\n\nOperator-provided facts you may draw on (this is the ONLY source of history/credibility claims - do not use any fact not listed here):\n- Years in business: {years_in_business}\n- Mission / positioning, in the operator's own words: {mission_statement}\n\nWrite the About Us page content:\n1. heading_text (H2): 5-9 words about the company's story or mission - not a generic label like \"About Us\".\n2. text: 2-3 paragraphs (180-260 words total), original wording:\n   - Open with who {business} is; if a years-in-business fact is given, work it into a natural sentence (do not just restate the raw fact string).\n   - Explain the mission by paraphrasing and expanding the mission fact above in your own words - do not quote it verbatim.\n   - Close on what [[brief.customer_noun]] in {city} and the surrounding area can expect when they work with {business}.\n   - If years_in_business or mission_statement is blank, write naturally around the gap - never mention that a fact is missing, and never invent a number or story to fill it.\n\nDo not invent any additional years, dates, employee counts, awards, certifications, or credentials beyond what is explicitly given above. Do not fabricate review counts or ratings.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
   }
 }

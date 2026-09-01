@@ -72,3 +72,7 @@
         $data['site_vars']['tel']       = trim($_POST['site_vars_tel']       ?? '');
         $data['site_vars']['zip']       = trim($_POST['site_vars_zip']       ?? '');
         $data['site_vars']['website']   = sanitize_url(trim($_POST['site_vars_website']   ?? ''));
+        // Real trust facts — used by the About Us AI generator (multisite/ai/archetypes.json
+        // "about_story"). Never invented by AI; only ever what's entered here.
+        $data['site_vars']['years_in_business']  = trim($_POST['site_vars_years_in_business']  ?? '');
+        $data['site_vars']['mission_statement']  = trim($_POST['site_vars_mission_statement']  ?? '');

@@ -107,6 +107,23 @@
             </div>
 
             <div class="card">
+                <h2>Trust facts (About Us page)</h2>
+                <p class="hint" style="margin-top:0;">
+                    Real facts about the business, used only by the <strong>About Us</strong> AI generator (Pages
+                    tab). Leave a field blank if it doesn't apply — the generator writes around missing facts
+                    rather than inventing one. Never enter a claim that isn't true; it will be published as-is.
+                </p>
+                <div class="form-group">
+                    <label>Years in business</label>
+                    <input type="text" name="site_vars_years_in_business" value="<?= h($siteVars['years_in_business'] ?? '') ?>" placeholder="e.g. 20+" style="max-width:160px;">
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>Mission / positioning, in your own words</label>
+                    <textarea name="site_vars_mission_statement" rows="3" placeholder="e.g. We connect homeowners with vetted, quality local service providers."><?= h($siteVars['mission_statement'] ?? '') ?></textarea>
+                </div>
+            </div>
+
+            <div class="card">
                 <h2>Favicon</h2>
 
                 <div class="form-group">

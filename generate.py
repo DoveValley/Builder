@@ -292,6 +292,10 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         'secondary_keywords': '',
         'brand':          '',
         'appliance_type': '',
+        # Real, operator-entered trust facts (never AI-invented) — see admin/tabs/header.php
+        # "Trust facts" card. Archetypes must write around a blank value, not fill it in.
+        'years_in_business':  site_vars.get('years_in_business', ''),
+        'mission_statement':  site_vars.get('mission_statement', ''),
     }
 
     if page_data:
@@ -440,8 +444,21 @@ def extract_ai_value(ai_output, target_field):
     vals = [v for v in ai_output.values() if v is not None]
     return vals[0] if vals else ''
 
-def apply_inject(target_block, field, mode, ai_output):
-    """Write AI output into target_block[field] using replace/append/prepend mode."""
+def apply_inject(target_block, field, mode, ai_output, prev_count=0):
+    """Write AI output into target_block[field] using replace/append/prepend mode.
+
+    For list fields, prev_count is how many items THIS SAME block injected on its
+    last run — passed in so a --refresh re-append/prepend replaces its own prior
+    contribution instead of piling another copy on top of it forever (append is
+    otherwise not idempotent: every regeneration run would permanently grow the
+    field, which is exactly what produced 24 near-duplicate FAQ items on
+    water-site's homepage after a few --refresh runs). For string fields the same
+    idempotency is tracked via the block's own _ai_injected_text marker instead,
+    since a length count can't identify which substring to strip.
+
+    Returns the size of what was just injected (list length, or 1 for a string),
+    for the caller to store as the block's new _ai_injected_count.
+    """
     ai_value = extract_ai_value(ai_output, field)
     existing = target_block.get(field)
 
@@ -449,18 +466,29 @@ def apply_inject(target_block, field, mode, ai_output):
         target_block[field] = ai_value
     elif mode == 'append':
         if isinstance(existing, list) and isinstance(ai_value, list):
-            target_block[field] = existing + ai_value
+            base = existing[:-prev_count] if prev_count else existing
+            target_block[field] = base + ai_value
         elif isinstance(existing, str) and isinstance(ai_value, str):
-            target_block[field] = (existing.rstrip() + '\n' + ai_value).strip()
+            prev_text = target_block.get('_ai_injected_text', '')
+            base = existing[:-len(prev_text)].rstrip() if prev_text and existing.endswith(prev_text) else existing
+            target_block['_ai_injected_text'] = ai_value
+            target_block[field] = (base.rstrip() + '\n' + ai_value).strip()
         else:
             target_block[field] = ai_value
     elif mode == 'prepend':
         if isinstance(existing, list) and isinstance(ai_value, list):
-            target_block[field] = ai_value + existing
+            base = existing[prev_count:] if prev_count else existing
+            target_block[field] = ai_value + base
         elif isinstance(existing, str) and isinstance(ai_value, str):
-            target_block[field] = (ai_value.rstrip() + '\n' + existing.lstrip()).strip()
+            base = existing
+            if target_block.get('_ai_injected_text') and existing.startswith(target_block['_ai_injected_text']):
+                base = existing[len(target_block['_ai_injected_text']):].lstrip()
+            target_block['_ai_injected_text'] = ai_value
+            target_block[field] = (ai_value.rstrip() + '\n' + base.lstrip()).strip()
         else:
             target_block[field] = ai_value
+
+    return len(ai_value) if isinstance(ai_value, list) else (1 if isinstance(ai_value, str) else 0)
 
 
 # ── Block processor ───────────────────────────────────────────────────────────
@@ -579,7 +607,9 @@ def process_blocks(blocks, registry, ctx, api_key, refresh=False, dry_run=False,
                 _tick()
                 continue
 
-            apply_inject(result[idx], field, inj_mode, ai_out)
+            prev_count = result[idx].get('_ai_injected_count', 0)
+            injected_n = apply_inject(result[idx], field, inj_mode, ai_out, prev_count)
+            result[idx]['_ai_injected_count'] = injected_n
             result[idx]['_ai_generated']    = True
             result[idx]['_ai_generated_at'] = now
             result[idx]['_ai_model']        = model
