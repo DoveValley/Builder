@@ -291,12 +291,19 @@ function fmt_date(string $iso): string {
             No batches yet. A batch is one master site plus a list of places to build it &mdash; make one when you're ready to build many sites at once.
         </div>
         <?php else: ?>
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+            <input type="search" id="batch-search" placeholder="Search batches&hellip;" oninput="filterBatches()"
+                   style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px;font-size:.85rem;min-width:220px">
+            <button type="button" class="btn-sm-outline" id="batch-sort-btn" onclick="toggleBatchSort()">Sort A&ndash;Z &#8645;</button>
+            <span id="batch-search-count" style="font-size:.82rem;color:#6b7280"></span>
+        </div>
+        <div id="batch-list">
         <?php foreach ($batches as $b):
             $st  = ms_batch_status($b['master_id'], $b['id']);
             $col = ['running' => ['#1d4ed8', '#dbeafe'], 'done' => ['#166534', '#dcfce7'],
                     'failed'  => ['#991b1b', '#fee2e2'], 'stale' => ['#92400e', '#fef3c7']][$st['state']] ?? ['#475569', '#f1f5f9'];
         ?>
-        <div class="batch-row" id="batch-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>">
+        <div class="batch-row" id="batch-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>" data-name="<?= h(strtolower((string) ($b['name'] ?? $b['id']))) ?>">
             <div class="batch-main">
                 <p class="batch-name" id="bname-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>"><?= isset($b['seq']) ? '<span style="color:#94a3b8;font-weight:400">#' . (int) $b['seq'] . '</span> ' : '' ?><?= h($b['name'] ?? $b['id']) ?></p>
                 <p class="batch-master">copies from <strong><?= h($siteNames[$b['master_id']] ?? $b['master_id']) ?></strong></p>
@@ -320,8 +327,39 @@ function fmt_date(string $iso): string {
             </div>
         </div>
         <?php endforeach; ?>
+        </div>
+        <div id="batch-empty-search" class="sm-empty-sm" style="display:none">No batches match that search.</div>
         <?php endif; ?>
     </div>
+    <script>
+    (function () {
+        var sortAsc = null;   // null = untouched (server/creation order), true/false once toggled
+        window.filterBatches = function () {
+            var q = document.getElementById('batch-search').value.trim().toLowerCase();
+            var rows = document.querySelectorAll('#batch-list .batch-row');
+            var shown = 0;
+            rows.forEach(function (r) {
+                var hit = q === '' || (r.dataset.name || '').indexOf(q) !== -1;
+                r.style.display = hit ? '' : 'none';
+                if (hit) shown++;
+            });
+            document.getElementById('batch-search-count').textContent =
+                q === '' ? '' : (shown + ' of ' + rows.length);
+            document.getElementById('batch-empty-search').style.display = (shown === 0 && q !== '') ? '' : 'none';
+        };
+        window.toggleBatchSort = function () {
+            sortAsc = sortAsc === true ? false : true;
+            var list = document.getElementById('batch-list');
+            var rows = Array.prototype.slice.call(list.querySelectorAll('.batch-row'));
+            rows.sort(function (a, b) {
+                var c = (a.dataset.name || '').localeCompare(b.dataset.name || '');
+                return sortAsc ? c : -c;
+            });
+            rows.forEach(function (r) { list.appendChild(r); });
+            document.getElementById('batch-sort-btn').textContent = 'Sort ' + (sortAsc ? 'A–Z ↑' : 'Z–A ↓');
+        };
+    })();
+    </script>
 
     <!-- ===================== INFRASTRUCTURE ===================== -->
     <!-- Its own console (admin/infra/) — it was only ever reachable through the site
