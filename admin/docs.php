@@ -1010,6 +1010,18 @@ tr.ms-rec td { background: #fff3cd !important; }
     <div class="callout tip">
         <p><strong>Tip:</strong> Use the <strong>Library</strong> button inside any image upload field in the block editor to open a picker directly from the media library. This is faster than uploading the same image a second time.</p>
     </div>
+
+    <h3>Image Name Cleanup</h3>
+    <p>Reviews every image actually in use on the site and checks two things: is the filename honest, descriptive, and good for SEO — not a raw stock-photo ID or a computer-generated mess with a hash tail — and does the photo genuinely show what the page it's on is about. It also finds images referenced nowhere at all.</p>
+    <ul>
+        <li><strong>Scan</strong> is two parts. Finding unreferenced images is free — a plain reference count against every page's content, no AI involved. Checking each in-use photo is real AI vision work and costs a small real amount per image (roughly a cent or two each — a 150-image site is on the order of $1-2 to fully review). Logos, icons, favicons, badges, and sprites are skipped automatically; there's nothing for "does this match the topic" to mean for a logo.</li>
+        <li><strong>Nothing changes from a scan alone.</strong> Results land in a review table — proposed filename, which page(s) it's used on, and what Claude actually saw in the photo. A row flagged <strong>mismatch</strong> means the photo doesn't show what the page is about (a house exterior sitting on a "Sewage Cleanup" page, for example) — those rows are unchecked by default, so a wrong photo never quietly gets renamed to match a topic it doesn't actually show.</li>
+        <li><strong>Apply</strong> only touches what you explicitly ticked. For each approved rename: the file is renamed on disk, the matching Media Library entry is updated, and every reference to the old filename across <code>site.json</code> and every generated page is rewritten in the same pass. Each edited file is re-validated as JSON immediately after — a change that would produce invalid JSON is refused and reported, never half-written. Orphan deletion re-confirms a file is still unreferenced at the moment you click Apply, not just at scan time.</li>
+        <li>Naming follows one rule: one real topic keyword, an honest description of what's actually in the photo, and the city — never several keywords stacked into one filename. A generic supporting photo that doesn't match its page gets named for what it actually is, not forced to match a topic it doesn't show — a false keyword match is worse than an honest generic name.</li>
+    </ul>
+    <div class="callout tip">
+        <p><strong>Tip:</strong> Run this once after a site's landing pages are fully built (so every image already has real usage context to be judged against), and again any time you notice filenames that look like raw upload IDs or template-generated hashes.</p>
+    </div>
 </section>
 
 <section id="tab-seo">
@@ -2514,6 +2526,7 @@ Output valid JSON only — no explanation.</code></pre>
         <li>Test on mobile at key breakpoints</li>
         <li>Confirm all city pages render correctly (check a few manually)</li>
         <li>Remove any placeholder images or text</li>
+        <li>Run <strong>Image Name Cleanup</strong> (Media tab) — catches raw stock-photo IDs, computer-generated filenames, and photos that don't actually match the page they're on, before any of that ships live. See <a href="#tab-media">Tab: Media</a>.</li>
         <li>Do not upload the <code>.git/</code> folder to the live host</li>
     </ul>
 </section>

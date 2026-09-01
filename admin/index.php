@@ -755,6 +755,174 @@ function addLink(button) {
     }
 
     /* ── image variation ── */
+    /* ── Image Name Cleanup ── */
+    let imgcleanResults = [];   // {filename, pages, description, matches_topic, suggested_filename, no_change_needed}
+    let imgcleanOrphans = [];   // [filename, ...]
+
+    window.imgcleanScan = function() {
+        const btn      = document.getElementById('imgclean-scan-btn');
+        const status   = document.getElementById('imgclean-status');
+        const progWrap = document.getElementById('imgclean-progress-wrap');
+        const progBar  = document.getElementById('imgclean-progress-bar');
+        const progLbl  = document.getElementById('imgclean-progress-label');
+        const results  = document.getElementById('imgclean-results');
+
+        if (!confirm('Scan every image on this site with AI? This costs a small real amount per image (roughly a cent or two each) and nothing will be renamed or deleted without your approval afterward.')) return;
+
+        btn.disabled = true;
+        btn.textContent = 'Scanning…';
+        status.textContent = '';
+        progWrap.style.display = '';
+        progBar.style.width = '0%';
+        progLbl.textContent = 'Starting…';
+        results.style.display = 'none';
+        results.innerHTML = '';
+        imgcleanResults = [];
+        imgcleanOrphans = [];
+
+        const url = 'image_cleanup_scan.php?token=' + encodeURIComponent(CSRF_TOKEN);
+
+        function handleLine(raw) {
+            let d;
+            try { d = JSON.parse(raw); } catch (e) { return; }
+
+            if (d.type === 'progress' && d.total > 0) {
+                const pct = Math.round((d.done / d.total) * 100);
+                progBar.style.width = pct + '%';
+                progLbl.textContent = 'Reviewed ' + d.done + ' of ' + d.total + ' images…';
+            } else if (d.type === 'orphan') {
+                imgcleanOrphans.push(d.filename);
+            } else if (d.type === 'result') {
+                imgcleanResults.push(d);
+            } else if (d.type === 'fatal') {
+                status.innerHTML = '<span style="color:#dc2626;">' + escHtml(d.msg) + '</span>';
+            } else if (d.type === 'done') {
+                btn.disabled = false;
+                btn.textContent = 'Scan for Cleanup Opportunities';
+                progWrap.style.display = 'none';
+                status.textContent = 'Done — ' + d.analyzed + ' images reviewed, ' + d.orphaned + ' orphaned file(s) found.';
+                imgcleanRenderResults();
+            }
+        }
+
+        fetch(url, { credentials: 'same-origin' })
+            .then(function (r) {
+                const reader  = r.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+                function pump() {
+                    return reader.read().then(function (chunk) {
+                        if (chunk.done) { if (buffer.trim()) handleLine(buffer.trim()); return; }
+                        buffer += decoder.decode(chunk.value, { stream: true });
+                        const parts = buffer.split('\n');
+                        buffer = parts.pop();
+                        parts.forEach(function (ln) { if (ln.trim()) handleLine(ln.trim()); });
+                        return pump();
+                    });
+                }
+                return pump();
+            })
+            .catch(function (err) {
+                btn.disabled = false;
+                btn.textContent = 'Scan for Cleanup Opportunities';
+                progWrap.style.display = 'none';
+                status.innerHTML = '<span style="color:#dc2626;">Request failed: ' + escHtml(err.message) + '</span>';
+            });
+    };
+
+    function imgcleanRenderResults() {
+        const el = document.getElementById('imgclean-results');
+        el.style.display = '';
+
+        const renameable = imgcleanResults.filter(r => !r.no_change_needed);
+        let html = '';
+
+        if (imgcleanOrphans.length) {
+            html += '<h3 style="font-size:.95rem;">Unreferenced images (' + imgcleanOrphans.length + ')</h3>';
+            html += '<p class="hint">Not used anywhere on this site. Free to detect — no AI involved in this list.</p>';
+            html += '<div style="max-height:200px;overflow:auto;border:1px solid #e5e7eb;border-radius:6px;padding:8px 12px;margin-bottom:20px;">';
+            imgcleanOrphans.forEach(function (f, i) {
+                html += '<label style="display:flex;align-items:center;gap:8px;padding:4px 0;font-weight:400;">'
+                    + '<input type="checkbox" class="imgclean-del" data-file="' + escHtml(f) + '" checked> '
+                    + '<span style="font-family:monospace;font-size:.82rem;">' + escHtml(f) + '</span></label>';
+            });
+            html += '</div>';
+        }
+
+        if (renameable.length) {
+            html += '<h3 style="font-size:.95rem;">Proposed renames (' + renameable.length + ')</h3>';
+            html += '<p class="hint">Rows flagged <strong style="color:#b45309;">mismatch</strong> mean the photo doesn\'t actually show what the page is about — unchecked by default so a wrong photo never quietly gets a false keyword name. Review each before applying.</p>';
+            html += '<table style="width:100%;border-collapse:collapse;font-size:.85rem;">';
+            html += '<thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">'
+                + '<th style="padding:6px 8px;width:26px;"></th>'
+                + '<th style="padding:6px 8px;">Current name</th>'
+                + '<th style="padding:6px 8px;">Proposed name</th>'
+                + '<th style="padding:6px 8px;">Used on</th>'
+                + '<th style="padding:6px 8px;">What Claude saw</th>'
+                + '</tr></thead><tbody>';
+            renameable.forEach(function (r, i) {
+                const mismatch = !r.matches_topic;
+                html += '<tr style="border-bottom:1px solid #eef2f6;' + (mismatch ? 'background:#fffbeb;' : '') + '">'
+                    + '<td style="padding:6px 8px;"><input type="checkbox" class="imgclean-ren" data-idx="' + i + '"' + (mismatch ? '' : ' checked') + '></td>'
+                    + '<td style="padding:6px 8px;font-family:monospace;font-size:.78rem;">' + escHtml(r.filename) + '</td>'
+                    + '<td style="padding:6px 8px;font-family:monospace;font-size:.78rem;">' + escHtml(r.suggested_filename) + '</td>'
+                    + '<td style="padding:6px 8px;font-size:.78rem;color:#6b7280;">' + escHtml((r.pages || []).join(', ')) + '</td>'
+                    + '<td style="padding:6px 8px;font-size:.78rem;">' + escHtml(r.description)
+                    + (mismatch ? ' <strong style="color:#b45309;">— mismatch</strong>' : '') + '</td>'
+                    + '</tr>';
+            });
+            html += '</tbody></table>';
+        }
+
+        if (!imgcleanOrphans.length && !renameable.length) {
+            html = '<p class="hint">Nothing to clean up — every image is referenced and already well-named.</p>';
+        } else {
+            html += '<button class="btn" style="margin-top:16px;" onclick="imgcleanApply()">Apply Selected Changes</button>'
+                 + ' <span id="imgclean-apply-status" style="font-size:.85rem;color:#6b7280;margin-left:10px;"></span>';
+        }
+
+        el.innerHTML = html;
+        window._imgcleanRenameable = renameable; // stash for imgcleanApply to read checkbox indices against
+    }
+
+    window.imgcleanApply = async function() {
+        const renameable = window._imgcleanRenameable || [];
+        const renames = Array.from(document.querySelectorAll('.imgclean-ren:checked')).map(function (cb) {
+            const r = renameable[parseInt(cb.dataset.idx, 10)];
+            return { old: r.filename, new: r.suggested_filename };
+        });
+        const deletes = Array.from(document.querySelectorAll('.imgclean-del:checked')).map(function (cb) {
+            return cb.dataset.file;
+        });
+        if (!renames.length && !deletes.length) { alert('Nothing selected.'); return; }
+        if (!confirm('Apply ' + renames.length + ' rename(s) and ' + deletes.length + ' deletion(s)? This changes real files and page data.')) return;
+
+        const status = document.getElementById('imgclean-apply-status');
+        status.textContent = 'Applying…';
+
+        const fd = new FormData();
+        fd.append('csrf_token', CSRF_TOKEN);
+        fd.append('renames', JSON.stringify(renames));
+        fd.append('deletes', JSON.stringify(deletes));
+        const res  = await fetch('image_cleanup_apply.php', { method: 'POST', body: fd });
+        const data = await res.json();
+
+        const renOk  = (data.renames || []).filter(r => r.ok).length;
+        const renBad = (data.renames || []).filter(r => !r.ok);
+        const delOk  = (data.deletes || []).filter(r => r.ok).length;
+        const delBad = (data.deletes || []).filter(r => !r.ok);
+
+        let msg = renOk + ' renamed, ' + delOk + ' deleted.';
+        if (renBad.length || delBad.length) {
+            msg += ' Problems: ' + renBad.concat(delBad).map(r => escHtml(r.error)).join(' | ');
+        }
+        status.innerHTML = (renBad.length || delBad.length)
+            ? '<span style="color:#b45309;">' + msg + '</span>'
+            : '<span style="color:#166534;">' + msg + '</span>';
+
+        await loadMedia();
+    };
+
     window.applyVariation = async function() {
         const seed = parseInt(document.getElementById('var-seed').value, 10);
         if (!seed || seed < 1 || seed > 9999) {

@@ -64,10 +64,25 @@ function anthropic_is_rate_limit(int $code): bool { return $code === 429 || $cod
 /** The request body every call shares. */
 function anthropic_payload(string $prompt, array $opts): string
 {
+    // Plain string content, unless the caller passes an image — vision calls need
+    // the multi-block content form. Opt-in per call: every existing caller keeps
+    // sending a plain string and gets byte-identical behavior to before this existed.
+    $content = $prompt;
+    if (!empty($opts['image_base64'])) {
+        $content = [
+            ['type' => 'image', 'source' => [
+                'type'       => 'base64',
+                'media_type' => (string) ($opts['image_media_type'] ?? 'image/webp'),
+                'data'       => (string) $opts['image_base64'],
+            ]],
+            ['type' => 'text', 'text' => $prompt],
+        ];
+    }
+
     $body = [
         'model'      => (string) ($opts['model'] ?? ANTHROPIC_FAST),
         'max_tokens' => max(1, (int) ($opts['max_tokens'] ?? 1024)),
-        'messages'   => [['role' => 'user', 'content' => $prompt]],
+        'messages'   => [['role' => 'user', 'content' => $content]],
     ];
     if (trim((string) ($opts['system'] ?? '')) !== '') $body['system'] = (string) $opts['system'];
 

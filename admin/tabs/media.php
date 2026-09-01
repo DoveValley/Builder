@@ -44,4 +44,25 @@
 
             <div id="media-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;"></div>
         </div>
+
+        <div class="card">
+            <h2 style="margin-top:0;">Image Name Cleanup</h2>
+            <div class="hint" style="margin-bottom:14px;background:#f0f9ff;border-left:3px solid #2563eb;padding:10px 14px;line-height:1.55;">
+                <strong>What this does:</strong> looks at every image actually used on this site and checks two things — is the filename honest, descriptive, and good for SEO (not a raw stock-photo ID or a computer-generated mess), and does the photo genuinely match the page it's on. It also finds images referenced nowhere at all, so they can be removed.<br><br>
+                <strong>Costs real money to run</strong> — each image is sent to Claude for a real look, roughly a cent or two per image (a site with 150 images is on the order of $1-2, not free). Orphan detection itself is free; only the per-photo review costs anything.<br><br>
+                <strong>Nothing changes automatically.</strong> A scan only proposes — every rename and every deletion is a checkbox you tick yourself, then click Apply. Nothing on the live site is touched until you approve it.
+            </div>
+
+            <button id="imgclean-scan-btn" class="btn" onclick="imgcleanScan()">Scan for Cleanup Opportunities</button>
+            <span id="imgclean-status" style="font-size:.85rem;color:#6b7280;margin-left:10px;"></span>
+
+            <div id="imgclean-progress-wrap" style="display:none;margin-top:10px;max-width:420px;">
+                <div style="height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;">
+                    <div id="imgclean-progress-bar" style="height:100%;width:0%;background:var(--color-accent,#fd783b);border-radius:4px;transition:width .3s ease;"></div>
+                </div>
+                <div id="imgclean-progress-label" style="font-size:.78rem;color:#6b7280;margin-top:4px;"></div>
+            </div>
+
+            <div id="imgclean-results" style="display:none;margin-top:18px;"></div>
+        </div>
     </div>
