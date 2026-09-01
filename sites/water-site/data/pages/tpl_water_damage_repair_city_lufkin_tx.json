@@ -396,7 +396,7 @@
         "bc_label": "Water Damage Repair",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Repair\",\n    \"name\": \"Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage repair in Lufkin, TX — repair water damage, home water damage repair and water damage repair services.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Repair\",\n    \"name\": \"Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 water damage repair in Lufkin, TX — repair water damage, home water damage repair and water damage repair services.\"\n}",
         "primary_keyword": "Water Damage Repair",
         "secondary_keywords": "repair water damage, home water damage repair, water damage repair services"
     },

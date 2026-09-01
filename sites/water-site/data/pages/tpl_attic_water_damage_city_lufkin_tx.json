@@ -396,7 +396,7 @@
         "bc_label": "Attic Water Damage",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 attic water damage in Lufkin, TX — attic water damage repair and wet attic insulation.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 attic water damage in Lufkin, TX — attic water damage repair and wet attic insulation.\"\n}",
         "primary_keyword": "Attic Water Damage",
         "secondary_keywords": "attic water damage repair, wet attic insulation"
     },

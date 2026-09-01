@@ -396,7 +396,7 @@
         "bc_label": "Hurricane Damage Restoration",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hurricane Damage Restoration\",\n    \"name\": \"Hurricane Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hurricane damage restoration in Lufkin, TX — hurricane damage cleanup and hurricane damage repair.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hurricane Damage Restoration\",\n    \"name\": \"Hurricane Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 hurricane damage restoration in Lufkin, TX — hurricane damage cleanup and hurricane damage repair.\"\n}",
         "primary_keyword": "Hurricane Damage Restoration",
         "secondary_keywords": "hurricane damage cleanup, hurricane damage repair"
     },

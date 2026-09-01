@@ -396,7 +396,7 @@
         "bc_label": "Burst Pipe Water Damage",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe water damage in Lufkin, TX — burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 burst pipe water damage in Lufkin, TX — burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
         "primary_keyword": "Burst Pipe Water Damage",
         "secondary_keywords": "burst pipe cleanup, water line break, frozen pipe water damage, broken pipe water damage"
     },
