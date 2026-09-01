@@ -146,6 +146,12 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
                          // tab, not assumed. Every registrar reports it and nothing
                          // recorded it, so "which of these lapses first" had no answer.
     // ── deployment stage ──
+    'bulk_sent_at',      // 'YYYY-MM-DD HH:MM:SS' — last time D.Buy's "Send to Bulk"
+                         // button handed this domain to Bulk's textarea. Advisory
+                         // only: says a handoff happened, not that Bulk was ever run.
+                         // Cleared by infra_provision_one() the moment provisioning
+                         // actually executes (see provision.php) — stale past that
+                         // point, since the domain has left the acquisition stage.
     'batch',             // free-text tag grouping domains for the go-live grid.
                          // A TAG, not an object: fifty domains carry the same string,
                          // and re-tagging them tomorrow breaks nothing because there is

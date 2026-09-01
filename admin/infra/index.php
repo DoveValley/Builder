@@ -100,7 +100,16 @@ function infra_own_cell(array $r): string
         // Registrars tab rather than shouting from every line of the table.
         $ar    = (string) ($r['auto_renew'] ?? '');
         $title = $ar !== '' ? ' title="auto-renew: ' . ih($ar) . '"' : '';
-        return '<span class="badge b-ok"' . $title . '>Yes</span>';
+        $out   = '<span class="badge b-ok"' . $title . '>Yes</span>';
+        // Advisory only — set by D.Buy's "Send to Bulk" button, cleared the moment
+        // provisioning actually runs (success or failure). A domain can sit sent-
+        // but-unprovisioned indefinitely if Bulk's Run button is never pressed.
+        $sentAt = (string) ($r['bulk_sent_at'] ?? '');
+        if ($sentAt !== '') {
+            $out .= '<br><span class="badge b-mut" title="Sent to Bulk\'s textarea ' . ih($sentAt)
+                  . ' — not yet provisioned. Stays like this until Run is pressed on the Bulk tab.">&rarr; Bulk</span>';
+        }
+        return $out;
     }
     if (($r['state'] ?? '') === 'buy-failed') {
         return '<span class="badge b-err">failed</span>'

@@ -361,6 +361,10 @@ switch ($action) {
         // read — a later plain visit to Bulk starts with an empty textarea again.
         infra_session_resume();
         $_SESSION['infra_bulk_prefill'] = implode("\n", $ready);
+        // A durable record on the row itself, separate from the session stash above —
+        // the session clears the instant Bulk is opened, but "was this sent already"
+        // needs to survive far longer than that (until it is actually provisioned).
+        infra_state_bulk_set($ready, ['bulk_sent_at' => infra_now()]);
         $msg = 'Sent ' . count($ready) . ' domain(s) to Bulk — check the textarea there.';
         if ($notOwned) {
             $msg .= "\nLeft " . count($notOwned) . ' not yet owned: '
