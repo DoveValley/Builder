@@ -58,7 +58,8 @@ function schema_prompt_shared_rules(): string {
     return "\n\nHARD RULES (always follow, even if the instructions above are edited):\n"
         . "- Use the shortcodes {website}, {business}, {tel}, {phone}, {address} LITERALLY for all business-identity values — never hardcode them. This schema is reused across many generated sites, so the shortcodes must survive.\n"
         . "- The business node is always referenced by @id \"{website}/#localbusiness\" (defined on the homepage). Other pages reference that @id; they do not redefine the business.\n"
-        . "- Never invent addresses, geo coordinates, ratings, review counts, prices, dates, or authors. Omit a property rather than fabricate it.\n"
+        . "- Never invent a street address, geo coordinates, ratings, review counts, prices, dates, or authors. Omit a property rather than fabricate it.\n"
+        . "- ALWAYS include a locality-level \"address\" (PostalAddress: addressLocality {city}, addressRegion {SS}, postalCode {zip}, addressCountry \"US\") on every node that represents the business itself — the homepage's business node and every Service's \"provider\" node. These are real, already-known site facts (not an invented street address), so this is never optional. Only add a \"streetAddress\" field, using {address}, if the context says the site has a real one.\n"
         . "- Output ONLY a single JSON object with \"@context\": \"https://schema.org\" and a \"@graph\" array. No markdown, no ``` code fences, no commentary before or after.";
 }
 
@@ -67,7 +68,7 @@ function schema_prompt_defaults(): array {
     return [
         'homepage' =>
             "Generate the foundational JSON-LD @graph for this business's HOMEPAGE — the entity definitions every other page will reference. Output three nodes:\n"
-          . "1. The business — @type \"LocalBusiness\" (or the most specific subtype that fits the niche; use \"Organization\" only if it is not a local/physical business). @id \"{website}/#localbusiness\". Include name {business}, url {website}, telephone {tel}, image {lb_logo}. Include a postalAddress using {address} ONLY if the context says the site has a real address. Include areaServed: {\"@type\": \"City\", \"name\": \"{city}\"} — this is the site's own base city, it always resolves on the homepage too. Do NOT include sameAs — it is injected automatically from the site's real social links at render time.\n"
+          . "1. The business — @type \"LocalBusiness\" (or the most specific subtype that fits the niche; use \"Organization\" only if it is not a local/physical business). @id \"{website}/#localbusiness\". Include name {business}, url {website}, telephone {tel}, image {lb_logo}, and address (see the locality-level address hard rule below). Include areaServed: {\"@type\": \"City\", \"name\": \"{city}\"} — this is the site's own base city, it always resolves on the homepage too. Do NOT include sameAs — it is injected automatically from the site's real social links at render time.\n"
           . "2. A WebSite — @id \"{website}/#website\", name {business}, url {website}, publisher referencing {website}/#localbusiness.\n"
           . "3. A WebPage — @id \"{website}/#webpage\", url {website}, isPartOf {website}/#website, about {website}/#localbusiness.\n"
           . "{city}/{SS} are the only city shortcodes safe to use on the homepage (the site's single base city) — do not use {city_slug} or {city_state} here.",
@@ -91,7 +92,7 @@ function schema_prompt_defaults(): array {
             "Generate JSON-LD for a CITY LANDING PAGE targeting the service given in the context. Output ONE Service node:\n"
           . "- @type \"Service\"; serviceType = the service; name includes the service and \"{city_state}\"; a 1-2 sentence description.\n"
           . "- areaServed: {\"@type\": \"City\", \"name\": \"{city}\"}.\n"
-          . "- provider: {\"@type\": \"LocalBusiness\", \"@id\": \"{website}/#localbusiness\", \"name\": \"{business}\", \"telephone\": \"{tel}\", \"url\": \"{website}\"}.\n"
+          . "- provider: {\"@type\": \"LocalBusiness\", \"@id\": \"{website}/#localbusiness\", \"name\": \"{business}\", \"telephone\": \"{tel}\", \"url\": \"{website}\", \"address\": (see the locality-level address hard rule below)}.\n"
           . "- url built from {website} and the slug in the context (use {city_slug}), with a trailing slash.\n"
           . "Use {city}, {SS}, {city_state}, {city_slug} LITERALLY — they resolve per generated city. Do NOT include a FAQPage node — it is injected automatically from the page's FAQ block.",
 
