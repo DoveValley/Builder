@@ -136,23 +136,36 @@ function infra_header(string $active = 'dashboard'): void
 {
     /*
      * THE ORDER READS AS THE WORK, left to right: where you can buy (Registers),
-     * decide on a name (D.Finder), the domain list itself (D.Buy), what has been
-     * bought (D.Own), then where it all goes — cities, sites, servers, live.
+     * decide on a name (D.Finder), the domain list itself (D.Buy), then where it
+     * all goes — cities, sites, servers, live.
      *
      * The KEYS are view names and must not be renamed: every view calls
      * infra_header('<key>') to mark itself active, and the labels are only what
      * they are called on screen. Renaming a label is free; renaming a key is not.
+     *
+     * D.Own, +New Site and Deploy are DELIBERATELY not in this array any more
+     * (simplification pass, 2026-09-01) — none of the three had become dead, but
+     * each had become a lens on a job another tab already does:
+     *   - D.Own (buyqueue.php) is a read-only re-slice of the same fleet.db rows
+     *     D.Buy already lists — linked from D.Buy's page instead of a full tab.
+     *   - +New Site (new.php) is a strict subset of Bulk (paste one line = one
+     *     domain) — linked from Bulk's page for its explicit single-domain layout.
+     *   - Deploy (deploy.php) — its manual CSV-export/merge is superseded for
+     *     anything run through a Batch, since a batch's own "Create host" step
+     *     (multisite/create_hosts.php, phase 3) now writes FTP creds straight
+     *     into that batch's params.csv itself. Kept for domains provisioned here
+     *     but never added to a batch — linked from Bulk's page.
+     * All three views/routes/action endpoints are untouched and still reachable
+     * directly (index.php?view=new / ?view=buyqueue / ?view=deploy) — this only
+     * removes them from the top nav, it deletes no code and no data.
      */
     $nav = [
         'dashboard'  => ['label' => 'Dashboard',   'href' => 'index.php'],
         'registrars' => ['label' => 'Registers',   'href' => 'index.php?view=registrars'],
         'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
         'domains'    => ['label' => 'D.Buy',       'href' => 'index.php?view=domains'],
-        'buyqueue'   => ['label' => 'D.Own',       'href' => 'index.php?view=buyqueue'],
         'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
-        'new'        => ['label' => '+ New Site',  'href' => 'index.php?view=new'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
-        'deploy'     => ['label' => 'Deploy',      'href' => 'index.php?view=deploy'],
         'servers'    => ['label' => 'Servers',     'href' => 'index.php?view=servers'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],
         // Steady state, not pipeline: renewal, nameserver delegation and zone

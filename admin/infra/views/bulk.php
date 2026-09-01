@@ -12,7 +12,7 @@
     <div class="ic-card">
       <h2>Bulk Provision — Phase 1 at scale</h2>
       <div class="body">
-        <div class="ic-note">Paste one domain per line. Each gets a host created on its Hestia server + is fully staged in Cloudflare (DNS→VPS IP proxied, SSL, HSTS) and saved to fleet state. Idempotent (existing sites/zones are skipped/updated), staged only — no nameservers switched. Progress streams live below.</div>
+        <div class="ic-note">Paste one domain per line — a single domain works fine here too, so this also covers what the old standalone "+ New Site" form did (still reachable at <a href="index.php?view=new">index.php?view=new</a> if you want its explicit single-domain layout instead of round-robin). Each gets a host created on its Hestia server + is fully staged in Cloudflare (DNS→VPS IP proxied, SSL, HSTS) and saved to fleet state. Idempotent (existing sites/zones are skipped/updated), staged only — no nameservers switched. Progress streams live below. Provisioning here outside of a Batch? The FTP creds this creates can still be exported as a params CSV on the <a href="index.php?view=deploy">Deploy</a> page.</div>
         <form id="bulkForm">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
           <textarea name="domains" rows="8" placeholder="dallaspestpros.com&#10;katypestpros.com&#10;austinpestpros.com" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-family:monospace;font-size:13px"></textarea>

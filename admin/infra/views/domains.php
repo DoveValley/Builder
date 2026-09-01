@@ -132,6 +132,9 @@
         return '<a href="' . ih($url) . '" style="color:inherit;text-decoration:none">' . $label . $ar . '</a>';
     };
     ?>
+    <div style="text-align:right;margin-bottom:8px;">
+      <a class="btn sec" href="index.php?view=buyqueue">&#128197; Schedule view (D.Own) &rarr;</a>
+    </div>
     <div class="ic-tiles">
       <div class="ic-tile">
         <div class="n"><?= $tally['all'] ?></div><div class="l">Domains</div>
