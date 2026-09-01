@@ -97,7 +97,13 @@ function infra_state_db(): PDO
     // dfinder_state.php merges the queue into every read, so an overwrite costs
     // nothing and the merge is idempotent.
     $db->exec('CREATE TABLE IF NOT EXISTS dfinder_taken (
-        domain TEXT PRIMARY KEY, niche TEXT DEFAULT "", person TEXT DEFAULT "", at INTEGER)');
+        domain TEXT PRIMARY KEY, niche TEXT DEFAULT "", person TEXT DEFAULT "", at INTEGER,
+        status TEXT DEFAULT "taken")');
+    // Additive migration for the "I don't like it" feature (2026-09-02) — this table
+    // predates it and only ever meant "taken" until now.
+    if (!in_array('status', $db->query('PRAGMA table_info(dfinder_taken)')->fetchAll(PDO::FETCH_COLUMN, 1), true)) {
+        $db->exec('ALTER TABLE dfinder_taken ADD COLUMN status TEXT DEFAULT "taken"');
+    }
     // One row per (domain, step): the go-live grid's checkpoint — see lib/pipeline.php.
     // NARROW on purpose. One column per step would need an ALTER TABLE every time the
     // pipeline gains one, and nine more columns to give each step its own note and
@@ -356,20 +362,25 @@ function infra_dfinder_save(array $state): string
     return '';
 }
 
-/** Queue a name D.Buy has found taken, for D.Finder to pick up on its next read. */
-function infra_dfinder_taken_add(string $domain, string $nicheName, string $person): void
+/**
+ * Queue a domain for D.Finder to pick up on its next read — D.Buy/Bulk found it
+ * taken, or an operator just rejected it ("I don't like it"). Same queue either
+ * way; $status is whichever D.Finder candidate status it should land as.
+ */
+function infra_dfinder_taken_add(string $domain, string $nicheName, string $person, string $status = 'taken'): void
 {
     infra_state_db()
-        ->prepare('REPLACE INTO dfinder_taken (domain, niche, person, at) VALUES (?, ?, ?, ?)')
-        ->execute([strtolower(trim($domain)), $nicheName, $person, time()]);
+        ->prepare('REPLACE INTO dfinder_taken (domain, niche, person, at, status) VALUES (?, ?, ?, ?, ?)')
+        ->execute([strtolower(trim($domain)), $nicheName, $person, time(), $status]);
 }
 
-/** @return array domain => ['niche'=>string,'person'=>string,'at'=>int] */
+/** @return array domain => ['niche'=>string,'person'=>string,'at'=>int,'status'=>string] */
 function infra_dfinder_taken_all(): array
 {
     $out = [];
     foreach (infra_state_db()->query('SELECT * FROM dfinder_taken')->fetchAll(PDO::FETCH_ASSOC) as $r) {
-        $out[$r['domain']] = ['niche' => $r['niche'], 'person' => $r['person'], 'at' => (int) $r['at']];
+        $out[$r['domain']] = ['niche' => $r['niche'], 'person' => $r['person'], 'at' => (int) $r['at'],
+                               'status' => (string) ($r['status'] ?: 'taken')];
     }
     return $out;
 }
@@ -405,10 +416,15 @@ function infra_dfinder_merge_taken(array $state, array $pending): array
         $ni = $byName[$p['niche']] ?? null;
         if ($ni === null) continue;                      // niche renamed or gone — leave queued
 
+        $status = (string) ($p['status'] ?: 'taken');
+        $note   = $status === 'rejected'
+            ? 'from D.Buy/Bulk — marked "I don\'t like it"'
+            : 'from D.Buy — availability check said taken';
+
         $found = false;
         foreach (($state['niches'][$ni]['candidates'] ?? []) as $ci => $c) {
             if (strtolower((string) ($c['domain'] ?? '')) !== $domain) continue;
-            if (($c['status'] ?? '') !== 'taken') $state['niches'][$ni]['candidates'][$ci]['status'] = 'taken';
+            if (($c['status'] ?? '') !== $status) $state['niches'][$ni]['candidates'][$ci]['status'] = $status;
             $found = true;
             break;
         }
@@ -419,10 +435,91 @@ function infra_dfinder_merge_taken(array $state, array $pending): array
             'person' => $p['person'],
             'domain' => $domain,
             'tier'   => 1,
-            'status' => 'taken',
-            'note'   => 'from D.Buy — availability check said taken',
+            'status' => $status,
+            'note'   => $note,
             'at'     => $p['at'] * 1000,
         ]);
     }
     return [$state, $settled];
+}
+
+/**
+ * Send domains back to D.Finder — the shared engine behind both "→ D.Finder (not
+ * available)" (status 'taken', D.Buy only) and "→ D.Finder (I don't like it)"
+ * (status 'rejected', D.Buy AND Bulk). Same queue-then-untrack mechanics either
+ * way; only which domains are eligible and what status they land as differ,
+ * both supplied by the caller.
+ *
+ * @param callable $eligible fn(array $rec): bool — decides whether a tracked
+ *        domain may be sent, given its own fleet.db record
+ * @return array{moved:int,skipped:string[],noNiche:string[],alreadyThere:int}
+ */
+function infra_dfinder_reject(array $domains, string $status, callable $eligible): array
+{
+    $result = ['moved' => 0, 'skipped' => [], 'noNiche' => [], 'alreadyThere' => 0];
+    $state  = infra_dfinder_load();
+    if ($state === null) return $result;
+
+    /* Match D.Buy's niche to a workbench niche by keyword, not by an exact name.
+       The workbench's niches are user-named ("Water restoration" for what D.Buy
+       calls "restoration") and renameable, so an exact-name map would quietly
+       stop matching the first time one is edited. */
+    $nicheKey = function (string $name): string {
+        $n = strtolower($name);
+        foreach (['pest' => 'pest', 'mold' => 'mold', 'appliance' => 'appliance',
+                  'restoration' => 'restoration', 'water' => 'restoration'] as $needle => $key) {
+            if (str_contains($n, $needle)) return $key;
+        }
+        return '';
+    };
+    $nicheIdx = [];
+    foreach ($state['niches'] as $i => $n) {
+        $k = $nicheKey((string) ($n['name'] ?? ''));
+        if ($k !== '' && !isset($nicheIdx[$k])) $nicheIdx[$k] = $i;
+    }
+
+    foreach ($domains as $d) {
+        $d   = strtolower(trim($d));
+        $rec = infra_state_get_domain($d);
+        if (!$rec) continue;
+
+        // Subdomains are infrastructure, never candidates.
+        if (substr_count($d, '.') >= 2) { $result['skipped'][] = $d; continue; }
+        if (!$eligible($rec)) { $result['skipped'][] = $d; continue; }
+
+        $k = $nicheKey((string) ($rec['niche'] ?? ''));
+        if ($k === '' || !isset($nicheIdx[$k])) { $result['noNiche'][] = $d; continue; }
+        $ni = $nicheIdx[$k];
+
+        foreach (($state['niches'][$ni]['candidates'] ?? []) as $c) {
+            if (strtolower((string) ($c['domain'] ?? '')) === $d) { $result['alreadyThere']++; break; }
+        }
+
+        /* 'person' is the name without the service keyword — the workbench groups
+           by it. Strip the LONGEST matching pattern so "adamspest" and
+           "adamspestcontrol" both reduce to "adams". */
+        $label  = preg_replace('/\.[a-z]+$/i', '', $d);
+        $person = $label;
+        $best   = '';
+        foreach (($state['niches'][$ni]['patterns'] ?? []) as $p) {
+            $kw = strtolower((string) ($p['kw'] ?? ''));
+            if ($kw !== '' && str_ends_with($label, $kw) && strlen($kw) > strlen($best)) $best = $kw;
+        }
+        if ($best !== '') $person = substr($label, 0, -strlen($best));
+
+        /* QUEUE it rather than writing the blob — see infra_dfinder_merge_taken()'s
+           own docblock for why a direct write loses the hand-off to whichever tab's
+           autosave lands last. Queue FIRST, untrack second: the reverse order left
+           the domain deleted and nowhere to be found on a failed write. */
+        infra_dfinder_taken_add($d, (string) $state['niches'][$ni]['name'], $person, $status);
+        infra_state_delete_domain($d);
+        $result['moved']++;
+    }
+
+    /* Deliberately NOT touching state['registry']. The workbench treats 'taken'
+       (and, the same way, 'rejected') as NOT_SPENT — "if every domain built on it
+       came back rejected, the name was never really used, reuse it" — so retiring
+       the name here would fight its own design and cost every other keyword on it. */
+
+    return $result;
 }

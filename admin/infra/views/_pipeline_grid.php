@@ -326,6 +326,12 @@ function pg_cell(array $c): string
           <input type="date" name="start_date" value="<?= ih($pgToday) ?>">
           <button class="btn sec" type="submit" name="action" value="schedule">Schedule</button>
         </div>
+        <div>
+          <label>Ticked rows you don't like — only if nothing has started yet</label>
+          <button class="btn sec" type="submit" name="action" value="reject"
+                  title="Sends the ticked rows back to D.Finder marked Didn't like. Refuses any row that already has a box or a Cloudflare zone."
+                  onclick="return confirm('Move the ticked domains to D.Finder as “Didn’t like” and remove them from this grid?\n\nOnly rows with no box and no Cloudflare zone yet are moved — anything already started is skipped and reported. This is permanent unless changed by hand in D.Finder.')">&rarr; D.Finder (I don&rsquo;t like it)</button>
+        </div>
       </div>
       </form>
 

@@ -127,6 +127,33 @@ switch ($action) {
         if ($r['ok']) { infra_pipeline_refresh('golive', $batch); infra_pipeline_refresh('dns', $batch); }
         break;
 
+    case 'reject':
+        // "I don't like it" — only allowed while nothing has actually started: no
+        // box, no zone. A domain already staged/live has real infrastructure behind
+        // it that this must not silently orphan; rejecting one like that has to go
+        // through the domain's own Danger Zone instead, deliberately, not a tick
+        // in a list of sixty-five.
+        if (!$selected) { infra_set_flash('err', 'No rows ticked.'); break; }
+        $r = infra_dfinder_reject($selected, 'rejected', function (array $rec) {
+            return trim((string) ($rec['server_id'] ?? '')) === ''
+                && trim((string) ($rec['cf_zone_id'] ?? '')) === '';
+        });
+        $msg = $r['moved']
+            ? "Rejected {$r['moved']} domain(s) to D.Finder as \u{201C}Didn't like\u{201D} and removed them here."
+                . "\nReload D.Finder to see them — it only reads its state when the page loads."
+            : 'Nothing rejected.';
+        if ($r['alreadyThere']) $msg .= "\n{$r['alreadyThere']} were already candidates there — their status will be set to Didn't like.";
+        if ($r['noNiche']) {
+            $msg .= "\nLeft " . count($r['noNiche']) . ' with no matching D.Finder niche: '
+                  . implode(', ', array_slice($r['noNiche'], 0, 6)) . (count($r['noNiche']) > 6 ? ' …' : '');
+        }
+        if ($r['skipped']) {
+            $msg .= "\nSkipped " . count($r['skipped']) . ' already provisioned (has a box or a zone) — tear it down from its own page first: '
+                  . implode(', ', array_slice($r['skipped'], 0, 6)) . (count($r['skipped']) > 6 ? ' …' : '');
+        }
+        infra_set_flash(($r['noNiche'] || $r['skipped']) ? 'warn' : 'ok', $msg);
+        break;
+
     case 'offline':
         // Removes only the Cloudflare A record — the zone and nameservers stay in
         // place, so pressing Create zone brings it straight back within seconds.

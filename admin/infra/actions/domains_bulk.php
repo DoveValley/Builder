@@ -9,6 +9,7 @@
  *        | check_avail    availability check for the ticked rows (read-only)
  *        | remove         untrack the ticked rows (no infrastructure touched)
  *        | to_dfinder     hand ticked TAKEN rows back to D.Finder as "Not available"
+ *        | reject_dfinder hand ticked rows back to D.Finder as "Didn't like" ("I don't like it")
  *        | claim_batch    claim ticked OWNED rows into a batch's own target list
  *        | mark_owned     record a hand-bought domain as owned, no purchase made here
  *
@@ -39,7 +40,7 @@ $sel    = array_values(array_unique(array_filter(array_map(
     fn($d) => strtolower(trim((string) $d)), (array) ($_POST['sel'] ?? [])))));
 
 /** Actions that operate on ticked rows all need at least one tick. */
-$needsSelection = ['set_registrar', 'set_buy_at', 'schedule_buys', 'check_avail', 'remove', 'to_dfinder', 'claim_batch', 'mark_owned'];
+$needsSelection = ['set_registrar', 'set_buy_at', 'schedule_buys', 'check_avail', 'remove', 'to_dfinder', 'reject_dfinder', 'claim_batch', 'mark_owned'];
 if (in_array($action, $needsSelection, true) && !$sel) {
     infra_set_flash('warn', 'No rows ticked — nothing to do.');
     header('Location: ' . $back); exit;
@@ -249,96 +250,50 @@ switch ($action) {
 
     /* ---- bulk: hand taken names back to D.Finder ------------------------- */
     case 'to_dfinder':
-        $state = infra_dfinder_load();
-        if ($state === null) {
-            infra_set_flash('err', 'D.Finder has no saved state yet — open it once first.');
-            break;
-        }
-
-        /* Match D.Buy's niche to a workbench niche by keyword, not by an exact name.
-           The workbench's niches are user-named ("Water restoration" for what D.Buy
-           calls "restoration") and renameable, so an exact-name map would quietly
-           stop matching the first time one is edited. */
-        $nicheKey = function (string $name): string {
-            $n = strtolower($name);
-            foreach (['pest' => 'pest', 'mold' => 'mold', 'appliance' => 'appliance',
-                      'restoration' => 'restoration', 'water' => 'restoration'] as $needle => $key) {
-                if (str_contains($n, $needle)) return $key;
-            }
-            return '';
-        };
-        $nicheIdx = [];
-        foreach ($state['niches'] as $i => $n) {
-            $k = $nicheKey((string) ($n['name'] ?? ''));
-            if ($k !== '' && !isset($nicheIdx[$k])) $nicheIdx[$k] = $i;
-        }
-
-        $moved = 0; $skipped = []; $noNiche = []; $alreadyThere = 0;
-        foreach ($sel as $d) {
-            $rec = infra_state_get_domain($d);
-            if (!$rec) continue;
-
-            // Only names that were checked and came back taken, and that this console
-            // never bought. Anything owned or provisioned is not a D.Finder candidate.
-            if (($rec['avail_note'] ?? '') !== 'taken'
-                || ($rec['status'] ?: 'begin') !== 'begin'
-                || ($rec['owned'] ?? '') === 'yes') { $skipped[] = $d; continue; }
-            // Subdomains are infrastructure, never candidates.
-            if (substr_count($d, '.') >= 2) { $skipped[] = $d; continue; }
-
-            $k = $nicheKey((string) ($rec['niche'] ?? ''));
-            if ($k === '' || !isset($nicheIdx[$k])) { $noNiche[] = $d; continue; }
-            $ni = $nicheIdx[$k];
-
-            foreach (($state['niches'][$ni]['candidates'] ?? []) as $c) {
-                if (strtolower((string) ($c['domain'] ?? '')) === $d) { $alreadyThere++; break; }
-            }
-
-            /* 'person' is the name without the service keyword — the workbench groups
-               by it. Strip the LONGEST matching pattern so "adamspest" and
-               "adamspestcontrol" both reduce to "adams". */
-            $label  = preg_replace('/\.[a-z]+$/i', '', $d);
-            $person = $label;
-            $best   = '';
-            foreach (($state['niches'][$ni]['patterns'] ?? []) as $p) {
-                $kw = strtolower((string) ($p['kw'] ?? ''));
-                if ($kw !== '' && str_ends_with($label, $kw) && strlen($kw) > strlen($best)) $best = $kw;
-            }
-            if ($best !== '') $person = substr($label, 0, -strlen($best));
-
-            /* QUEUE it rather than writing the blob. The workbench autosaves its whole
-               in-memory state 500ms after any change, so a tab that was already open
-               posts its older copy over the top and the addition disappears with
-               nothing said — which is exactly what happened the first time this ran.
-               dfinder_state.php folds the queue into every read instead, so the
-               hand-off survives an overwrite and reloading D.Finder is enough.
-
-               Queue FIRST, untrack second: the reverse order meant a failed write left
-               the domain deleted and nowhere to be found. */
-            infra_dfinder_taken_add($d, (string) $state['niches'][$ni]['name'], $person);
-            infra_state_delete_domain($d);
-            $moved++;
-        }
-
-        /* Deliberately NOT touching state['registry']. The workbench treats 'taken'
-           as NOT_SPENT — "if every domain built on it came back taken, the name was
-           never really used, reuse it" — so retiring the name here would fight its
-           own design and cost you every other keyword on that name. */
-
-        $msg = $moved
-            ? "Moved {$moved} taken domain(s) to D.Finder as \u{201C}Not available\u{201D} and removed them here."
+        // Only names that were checked and came back taken, and that this console
+        // never bought. Anything owned or provisioned is not a D.Finder candidate.
+        $r = infra_dfinder_reject($sel, 'taken', fn(array $rec) =>
+            ($rec['avail_note'] ?? '') === 'taken'
+            && ($rec['status'] ?: 'begin') === 'begin'
+            && ($rec['owned'] ?? '') !== 'yes'
+        );
+        $msg = $r['moved']
+            ? "Moved {$r['moved']} taken domain(s) to D.Finder as \u{201C}Not available\u{201D} and removed them here."
                 . "\nReload D.Finder to see them — it only reads its state when the page loads."
             : 'Nothing moved.';
-        if ($alreadyThere) $msg .= "\n{$alreadyThere} were already candidates there — their status will be set to Not available.";
-        if ($noNiche) {
-            $msg .= "\nLeft " . count($noNiche) . ' with no matching D.Finder niche: '
-                  . implode(', ', array_slice($noNiche, 0, 6)) . (count($noNiche) > 6 ? ' …' : '');
+        if ($r['alreadyThere']) $msg .= "\n{$r['alreadyThere']} were already candidates there — their status will be set to Not available.";
+        if ($r['noNiche']) {
+            $msg .= "\nLeft " . count($r['noNiche']) . ' with no matching D.Finder niche: '
+                  . implode(', ', array_slice($r['noNiche'], 0, 6)) . (count($r['noNiche']) > 6 ? ' …' : '');
         }
-        if ($skipped) {
-            $msg .= "\nSkipped " . count($skipped) . ' that are not an unbought taken name: '
-                  . implode(', ', array_slice($skipped, 0, 6)) . (count($skipped) > 6 ? ' …' : '');
+        if ($r['skipped']) {
+            $msg .= "\nSkipped " . count($r['skipped']) . ' that are not an unbought taken name: '
+                  . implode(', ', array_slice($r['skipped'], 0, 6)) . (count($r['skipped']) > 6 ? ' …' : '');
         }
-        infra_set_flash(($noNiche || $skipped) ? 'warn' : 'ok', $msg);
+        infra_set_flash(($r['noNiche'] || $r['skipped']) ? 'warn' : 'ok', $msg);
+        break;
+
+    /* ---- bulk: reject ticked rows — "I don't like it" --------------------
+       D.Buy only ever shows begin/ready/owned/buy-failed rows to begin with
+       (the acquisition-only filter), so every tracked row here is eligible —
+       no provisioning state to guard against, unlike the same action on Bulk's
+       own grid. */
+    case 'reject_dfinder':
+        $r = infra_dfinder_reject($sel, 'rejected', fn(array $rec) => true);
+        $msg = $r['moved']
+            ? "Rejected {$r['moved']} domain(s) to D.Finder as \u{201C}Didn't like\u{201D} and removed them here."
+                . "\nReload D.Finder to see them — it only reads its state when the page loads."
+            : 'Nothing rejected.';
+        if ($r['alreadyThere']) $msg .= "\n{$r['alreadyThere']} were already candidates there — their status will be set to Didn't like.";
+        if ($r['noNiche']) {
+            $msg .= "\nLeft " . count($r['noNiche']) . ' with no matching D.Finder niche: '
+                  . implode(', ', array_slice($r['noNiche'], 0, 6)) . (count($r['noNiche']) > 6 ? ' …' : '');
+        }
+        if ($r['skipped']) {
+            $msg .= "\nSkipped " . count($r['skipped']) . ': '
+                  . implode(', ', array_slice($r['skipped'], 0, 6)) . (count($r['skipped']) > 6 ? ' …' : '');
+        }
+        infra_set_flash(($r['noNiche'] || $r['skipped']) ? 'warn' : 'ok', $msg);
         break;
 
     /* ---- bulk: send ticked rows to Bulk Provision's target list -----------

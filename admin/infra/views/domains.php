@@ -83,6 +83,34 @@
         $rows = $allRows;
     }
 
+    /* per-column filters — combine with search AND with each other, and with
+       every OTHER filter (Scott's own spec: niche=mold AND own=yes AND
+       registrar=porkbun narrows to the intersection, not any one of them).
+       Server-side and applied to the FULL set, not just the visible page —
+       D.Buy can run to hundreds of rows across many pages. */
+    $fNiche = trim((string) ($_GET['fniche'] ?? ''));
+    $fReady = trim((string) ($_GET['fready'] ?? ''));
+    $fReg   = trim((string) ($_GET['fregistrar'] ?? ''));
+    $fOwned = trim((string) ($_GET['fowned'] ?? ''));
+    if ($fNiche !== '' || $fReady !== '' || $fReg !== '' || $fOwned !== '') {
+        $rows = array_values(array_filter($rows, function ($r) use ($fNiche, $fReady, $fReg, $fOwned) {
+            if ($fNiche !== '' && $r['niche'] !== $fNiche) return false;
+            if ($fReady !== '' && ($r['ready_to_buy'] ?: '') !== $fReady) return false;
+            if ($fOwned !== '' && (($r['owned'] === 'yes') ? 'yes' : 'no') !== $fOwned) return false;
+            if ($fReg !== '') {
+                $rowReg = $r['owned'] === 'yes' ? $r['registrar'] : $r['buy_registrar'];
+                if (strtolower((string) $rowReg) !== strtolower($fReg)) return false;
+            }
+            return true;
+        }));
+    }
+    $hasFilter = $q !== '' || $fNiche !== '' || $fReady !== '' || $fReg !== '' || $fOwned !== '';
+    // Carried through every sort link / pagination link, same as $q already was.
+    $filterQs = ($fNiche !== '' ? '&fniche=' . urlencode($fNiche) : '')
+              . ($fReady !== '' ? '&fready=' . urlencode($fReady) : '')
+              . ($fReg   !== '' ? '&fregistrar=' . urlencode($fReg) : '')
+              . ($fOwned !== '' ? '&fowned=' . urlencode($fOwned) : '');
+
     /* Tally the SEARCHED set, not the whole fleet. Tiles that ignored the search
        described a different population from the table underneath them, so filtering
        to one niche or registrar left the numbers above saying something else entirely.
@@ -131,12 +159,13 @@
 
     $baseQs = 'view=domains'
         . ($q !== '' ? '&q=' . urlencode($q) : '')
+        . $filterQs
         . '&sort=' . urlencode($sort) . '&dir=' . $dir;
     // column header link that toggles direction on the active column
-    $sortLink = function (string $k, string $label) use ($sort, $dir, $q, $page) {
+    $sortLink = function (string $k, string $label) use ($sort, $dir, $q, $page, $filterQs) {
         $nd  = ($sort === $k && $dir === 'asc') ? 'desc' : 'asc';
         $ar  = $sort === $k ? ($dir === 'asc' ? ' &uarr;' : ' &darr;') : '';
-        $url = 'index.php?view=domains' . ($q !== '' ? '&q=' . urlencode($q) : '')
+        $url = 'index.php?view=domains' . ($q !== '' ? '&q=' . urlencode($q) : '') . $filterQs
              . '&sort=' . urlencode($k) . '&dir=' . $nd . '&page=' . $page;
         return '<a href="' . ih($url) . '" style="color:inherit;text-decoration:none">' . $label . $ar . '</a>';
     };
@@ -251,12 +280,33 @@
          boxes and printed nothing for a measured 61 seconds. Two buttons for one
          job, and the worse one was the prominent one. -->
     <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <form method="get" style="display:inline-flex;gap:6px;margin:0">
+      <form method="get" style="display:inline-flex;gap:6px;align-items:center;margin:0;flex-wrap:wrap">
         <input type="hidden" name="view" value="domains">
         <input type="hidden" name="sort" value="<?= ih($sort) ?>"><input type="hidden" name="dir" value="<?= ih($dir) ?>">
         <input class="ic-search" type="search" name="q" value="<?= ih($q) ?>" placeholder="Search domain / registrar / state / note…" style="margin:0">
+        <?php // Per-column filters — combine with each other AND the search box above.
+              // Each auto-submits on change, so picking one narrows immediately; the
+              // others stay exactly as they were, since they're all one form. ?>
+        <select name="fniche" onchange="this.form.submit()" style="padding:7px 8px;border:1px solid #d1d5db;border-radius:8px;font-size:13px">
+          <option value="">Niche: all</option>
+          <?php foreach (INFRA_NICHES as $nz): ?><option value="<?= ih($nz) ?>" <?= $fNiche === $nz ? 'selected' : '' ?>><?= ih($nz) ?></option><?php endforeach; ?>
+        </select>
+        <select name="fready" onchange="this.form.submit()" style="padding:7px 8px;border:1px solid #d1d5db;border-radius:8px;font-size:13px">
+          <option value="">Ready to buy: all</option>
+          <option value="yes" <?= $fReady === 'yes' ? 'selected' : '' ?>>Yes</option>
+          <option value="no" <?= $fReady === 'no' ? 'selected' : '' ?>>No</option>
+        </select>
+        <select name="fregistrar" onchange="this.form.submit()" style="padding:7px 8px;border:1px solid #d1d5db;border-radius:8px;font-size:13px">
+          <option value="">Register: all</option>
+          <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>" <?= strtolower($fReg) === strtolower($rn) ? 'selected' : '' ?>><?= ih($rn) ?></option><?php endforeach; ?>
+        </select>
+        <select name="fowned" onchange="this.form.submit()" style="padding:7px 8px;border:1px solid #d1d5db;border-radius:8px;font-size:13px">
+          <option value="">Own: all</option>
+          <option value="yes" <?= $fOwned === 'yes' ? 'selected' : '' ?>>Yes</option>
+          <option value="no" <?= $fOwned === 'no' ? 'selected' : '' ?>>No</option>
+        </select>
         <button class="btn sec" type="submit">Search</button>
-        <?php if ($q !== ''): ?><a class="btn sec" href="index.php?view=domains">Clear</a><?php endif; ?>
+        <?php if ($hasFilter): ?><a class="btn sec" href="index.php?view=domains">Clear all</a><?php endif; ?>
       </form>
     </div>
 
@@ -265,7 +315,7 @@
         <button type="button" onclick="document.getElementById('dbBtnHelp').showModal()"
                 title="What do the buttons above the table do?"
                 style="border:none;background:none;cursor:pointer;font-size:15px;line-height:1;vertical-align:middle;padding:0 2px;opacity:.6">&#128065;</button>
-        <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $q !== '' ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?>, sorted by <?= ih($sort) ?> <?= $dir ?></span>
+        <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $hasFilter ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?>, sorted by <?= ih($sort) ?> <?= $dir ?></span>
       </h2>
       <?php /* Plain <dialog>, not a hand-built overlay — native show/close/backdrop/ESC
                for free, and this content is static text, never dynamic. Kept as one
@@ -295,6 +345,8 @@
             <dd style="margin:2px 0 0;color:#374151">Same idea, spread across multiple days instead of one date — buying hundreds of domains in one minute is its own footprint signal.</dd>
             <dt style="font-weight:600;margin-top:10px">&rarr; D.Finder (not available)</dt>
             <dd style="margin:2px 0 0;color:#374151">Moves ticked TAKEN domains back to D.Finder marked "Not available" and removes them here, so D.Finder can propose the name again later.</dd>
+            <dt style="font-weight:600;margin-top:10px">&rarr; D.Finder (I don't like it)</dt>
+            <dd style="margin:2px 0 0;color:#374151">Moves any ticked domain back to D.Finder marked "Didn't like" and removes it here — permanent, it will not be proposed again unless changed by hand. Works on any tracked domain, not just taken ones.</dd>
             <dt style="font-weight:600;margin-top:10px">Claim for → Claim for Batch</dt>
             <dd style="margin:2px 0 0;color:#374151">Claims the ticked OWNED domains into the chosen batch's own target list (params.csv) and tags them with it. Refuses anything not owned yet, or already claimed by a different batch — see the Batch column.</dd>
             <dt style="font-weight:600;margin-top:10px">Remove</dt>
@@ -304,7 +356,7 @@
       </dialog>
       <div class="body">
         <?php if (empty($slice)): ?>
-          <div class="ic-empty"><?= $q !== '' ? 'No domains match “' . ih($q) . '”.' : 'No domains yet — load some above.' ?></div>
+          <div class="ic-empty"><?= $hasFilter ? 'No domains match the current search/filters.' : 'No domains yet — load some above.' ?></div>
         <?php else: ?>
         <form method="post" action="actions/domains_bulk.php" id="domForm">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
@@ -368,6 +420,9 @@
             <button class="btn sec" type="submit" name="action" value="to_dfinder"
                     title="Adds each as a D.Finder candidate marked Not available, then removes it here"
                     onclick="return confirm('Move the ticked TAKEN domains to D.Finder as “Not available” and remove them from this table?\n\nOnly rows that were checked, came back taken and were never bought are moved — anything else is skipped and reported.')">&rarr; D.Finder (not available)</button>
+            <button class="btn sec" type="submit" name="action" value="reject_dfinder"
+                    title="Adds each as a D.Finder candidate marked Didn't like, then removes it here"
+                    onclick="return confirm('Move the ticked domains to D.Finder as “Didn’t like” and remove them from this table?\n\nThis is permanent — they will not be proposed again unless you change their status by hand in D.Finder.')">&rarr; D.Finder (I don&rsquo;t like it)</button>
             <span style="color:#d1d5db">|</span>
             <span>Claim for</span>
             <select name="claim_batch" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px;max-width:220px">
@@ -386,12 +441,12 @@
             <thead><tr>
               <th style="width:26px"><input type="checkbox" id="selAll" title="Select all on this page"></th>
               <th><?= $sortLink('domain', '1. Domain') ?></th>
-              <th><?= $sortLink('niche',  '2. Niche') ?></th>
-              <th><?= $sortLink('ready',  '3. Ready to buy') ?></th>
-              <th><?= $sortLink('buyreg', '4. Register') ?></th>
+              <th><?= $sortLink('niche',  '2. Niche') ?><?php if ($fNiche !== ''): ?><br><span style="font-weight:400;color:#2563eb;font-size:11px"><?= ih($fNiche) ?></span><?php endif; ?></th>
+              <th><?= $sortLink('ready',  '3. Ready to buy') ?><?php if ($fReady !== ''): ?><br><span style="font-weight:400;color:#2563eb;font-size:11px"><?= ih($fReady) ?></span><?php endif; ?></th>
+              <th><?= $sortLink('buyreg', '4. Register') ?><?php if ($fReg !== ''): ?><br><span style="font-weight:400;color:#2563eb;font-size:11px"><?= ih($fReg) ?></span><?php endif; ?></th>
               <th>5. Buy</th>
               <th><?= $sortLink('buy_at', '6. Buy date') ?></th>
-              <th><?= $sortLink('owned',  '7. Own') ?></th>
+              <th><?= $sortLink('owned',  '7. Own') ?><?php if ($fOwned !== ''): ?><br><span style="font-weight:400;color:#2563eb;font-size:11px"><?= ih($fOwned) ?></span><?php endif; ?></th>
               <th style="width:110px"><?= $sortLink('batch', '8. Batch') ?></th>
             </tr></thead>
             <tbody>
