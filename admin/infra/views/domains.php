@@ -1,8 +1,27 @@
 <?php
 /* ============================= DOMAINS ============================= */
     infra_header('domains');
-    $allRows = infra_fleet_domains();
-    $hasCf   = count(infra_cf_accounts()) > 0;
+
+    /* Infrastructure hostnames are NOT domains, and counting them as such made the
+       headline wrong. box1…box20.q111.xyz, t01…t28.q111.xyz and p.q111.xyz are server
+       and test subdomains of ONE domain — 49 rows that inflated "904 DOMAINS" by 49.
+       The test is the label count, not a hardcoded q111.xyz: every real fleet name is
+       a root domain by standing rule, so anything with a third label is a subdomain. */
+    $isInfra = fn(string $d): bool => substr_count($d, '.') >= 2;
+
+    // D.Buy is acquisition-only: begin → ready → owned (plus a failed buy attempt,
+    // which still needs a registrar/retry decision made here). Once Bulk provisions a
+    // domain — staged/queued/releasing/live/partial/register-failed — it belongs to
+    // that pipeline instead, so it drops off this list rather than showing the same
+    // row in both tabs with half its columns blank. A domain seen only via a
+    // registrar's own list (never loaded here) is kept too — 'unknown' is the
+    // earliest stage there is, not a later one. Infra hostnames always pass through.
+    $allRows = array_values(array_filter(infra_fleet_domains(), function ($r) use ($isInfra) {
+        return $isInfra($r['domain'])
+            || in_array($r['state'], INFRA_ACQUISITION_STATUSES, true)
+            || $r['state'] === 'unknown';
+    }));
+
     $regs           = infra_registrar_names();
     $buyable        = infra_registrar_buyable();
     $checkers       = infra_registrar_checkers();      // who can answer "is it available?"
@@ -37,13 +56,6 @@
         if ($r['drift']) $t['drift']++;
         $t['all']++;
     };
-    /* Infrastructure hostnames are NOT domains, and counting them as such made the
-       headline wrong. box1…box20.q111.xyz, t01…t28.q111.xyz and p.q111.xyz are server
-       and test subdomains of ONE domain — 49 rows that inflated "904 DOMAINS" by 49.
-       The test is the label count, not a hardcoded q111.xyz: every real fleet name is
-       a root domain by standing rule, so anything with a third label is a subdomain. */
-    $isInfra = fn(string $d): bool => substr_count($d, '.') >= 2;
-
     /* Every registrar behind an Owned figure, biggest first. Not a top-3 with a
        "+N more": the whole point is seeing where the renewal bills land, and the four
        it hid were four whole accounts. */
@@ -100,11 +112,6 @@
         'buyreg' => fn($r) => strtolower((string) $r['buy_registrar']),
         'buy_at' => fn($r) => $r['buy_at'] !== '' ? $r['buy_at'] : '9999-99-99',   // unscheduled last
         'owned'  => fn($r) => $r['owned'] === 'yes' ? '0' : '1',
-        'cf'     => fn($r) => $r['cf'] ? ($r['cf']['status'] ?? '') : 'zzz',
-        'vps'    => fn($r) => $r['host'] ? ($r['host']['server_label'] ?? '') : 'zzz',
-        'state'  => fn($r) => array_search($r['state'], INFRA_STATUSES, true) === false
-                                ? '99' : sprintf('%02d', array_search($r['state'], INFRA_STATUSES, true)),
-        'drift'  => fn($r) => $r['drift'] ?: 'zzz',
     ];
     if (!isset($sortable[$sort])) $sort = 'domain';
     $key = $sortable[$sort];
@@ -153,12 +160,10 @@
           <div style="font-size:.66rem;color:#6b7280;line-height:1.35;margin-top:3px;"><?= $rAll ?></div>
         <?php endif; ?>
       </div>
-      <div class="ic-tile"><div class="n"><?= $tally['staged'] ?></div><div class="l">Staged</div></div>
-      <div class="ic-tile"><div class="n"><?= $tally['live'] ?></div><div class="l">Live</div></div>
-      <div class="ic-tile"><div class="n"><?= $tally['drift'] + $tally['failed'] ?></div><div class="l">Needs attention</div></div>
+      <div class="ic-tile"><div class="n"><?= $tally['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
 
-    <?php /* One row per niche, same seven columns as the fleet row above it. */ ?>
+    <?php /* One row per niche, same five columns as the fleet row above it. */ ?>
     <?php foreach ($nicheTally as $nName => $t): ?>
     <div class="ic-tiles" style="margin-top:6px;">
       <div class="ic-tile" style="background:#f8fafc;">
@@ -173,9 +178,7 @@
           <div style="font-size:.66rem;color:#6b7280;line-height:1.35;margin-top:3px;"><?= $rN ?></div>
         <?php endif; ?>
       </div>
-      <div class="ic-tile"><div class="n"><?= $t['staged'] ?></div><div class="l">Staged</div></div>
-      <div class="ic-tile"><div class="n"><?= $t['live'] ?></div><div class="l">Live</div></div>
-      <div class="ic-tile"><div class="n"><?= $t['drift'] + $t['failed'] ?></div><div class="l">Needs attention</div></div>
+      <div class="ic-tile"><div class="n"><?= $t['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
     <?php endforeach; ?>
 
@@ -195,18 +198,6 @@
       <div class="ic-tile"><div class="n"><?= $t['drift'] + $t['failed'] ?></div><div class="l">Needs attention</div></div>
     </div>
     <?php endif; ?>
-
-    <?php
-    // Columns 8 and 9 (Cloudflare, VPS/host) and the drift flag come from the last
-    // fleet sweep, not from a live look. Say how old that is rather than presenting
-    // it as the present — and let the button be the only thing that goes and asks.
-    // The PROGRESSIVE sweep, not a plain ?refresh=1 link: refreshing this page's
-    // discovered columns inline takes 61 measured seconds on twenty boxes, with
-    // nothing on screen while it runs. The same work fired six-at-a-time behind a
-    // progress bar is about ten, and you can watch it. Zones ride along, so one
-    // press leaves the whole picture current.
-    infra_refresh_bar(infra_hestia_fleet_cached(), true);
-    ?>
 
     <?php if (!$regs): ?>
       <div class="ic-note">No registrar configured yet — add one on the <a href="index.php?view=registrars"><strong>Registers</strong></a> tab before you can check availability or schedule buys.</div>
@@ -341,17 +332,10 @@
               <th>5. Buy</th>
               <th><?= $sortLink('buy_at', '6. Buy date') ?></th>
               <th><?= $sortLink('owned',  '7. Own') ?></th>
-              <th><?= $sortLink('cf',     '8. Cloudflare') ?></th>
-              <th><?= $sortLink('vps',    '9. VPS / host') ?></th>
-              <th><?= $sortLink('state',  '10. State') ?></th>
-              <th><?= $sortLink('drift',  '11. Drift') ?></th>
             </tr></thead>
             <tbody>
             <?php foreach ($slice as $r):
-              $d   = $r['domain'];
-              $vps = $r['host']
-                  ? '<a href="index.php?view=server&id=' . ih($r['host']['server_id']) . '">' . ih($r['host']['server_label']) . '</a>'
-                  : '<span style="color:#9ca3af">—</span>';
+              $d = $r['domain'];
             ?>
               <tr>
                 <td><input type="checkbox" class="selBox" name="sel[]" value="<?= ih($d) ?>"></td>
@@ -415,10 +399,6 @@
                   <td><input type="date" name="buy[<?= ih($d) ?>]" value="<?= ih($r['buy_at']) ?>" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px"></td>
                 <?php endif; ?>
                 <td><?= infra_own_cell($r) ?></td>
-                <td><?= infra_cf_cell($r['cf'], $hasCf) ?></td>
-                <td><?= $vps ?></td>
-                <td><?= infra_state_cell($r['state']) ?></td>
-                <td><?= infra_drift_cell($r['drift']) ?></td>
               </tr>
             <?php endforeach; ?>
             </tbody>
