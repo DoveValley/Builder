@@ -1000,8 +1000,18 @@ function infra_pipeline_rows(string $batch = ''): array
     // two sets turned out to be DISJOINT — 34 domains had a box and no zone, 31 had a
     // zone and no box, and not one had both. Filtering on server_id alone would have
     // drawn a grid that silently omitted half the work in progress.
+    //
+    // But a zone alone is not always evidence of that either: buying a domain AT
+    // Cloudflare auto-creates its zone as part of the registration receipt, before
+    // anything has been staged — the exact same "no infrastructure exists yet, BY
+    // DESIGN" fact infra_is_acquiring() already exists to name (fleet.php's drift
+    // check and the acquisition-only D.Buy filter both defer to it for the same
+    // reason). Without this, every Cloudflare-registrar domain shows up here as
+    // "in flight" forever, since its zone can never be deleted independently of the
+    // registration itself — Cloudflare's own API refuses that call outright.
     $picked = array_filter($all, function ($r) use ($batch) {
         if ($batch !== '') return (string) ($r['batch'] ?? '') === $batch;
+        if (infra_is_acquiring($r)) return false;
         return trim((string) ($r['server_id'] ?? '')) !== ''
             || trim((string) ($r['cf_zone_id'] ?? '')) !== '';
     });

@@ -100,7 +100,23 @@ switch ($action) {
     case 'delete_site':
         if (!$server) { infra_set_flash('warn', 'No server on record.'); header('Location: ' . $back); exit; }
         $r = hestia_delete_site($server, $domain);
-        if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'ftp_user' => '', 'ftp_pass' => '']);
+        if ($r['ok']) {
+            $write = ['domain' => $domain, 'ftp_user' => '', 'ftp_pass' => '', 'server_id' => ''];
+            // The site is CONFIRMED gone (hestia_delete_site verifies actual removal,
+            // never the exit code) — an owned domain with no site left is just owned
+            // again, whatever stage it was in before, including live/releasing: this
+            // is a deliberate, typed-confirm, one-at-a-time action, never an automatic
+            // re-provision retry, so there is no accidental-regression risk to guard
+            // against here the way provision.php's own automatic re-run path has to.
+            // Without this, a domain whose host is gone (deleted here, or outside the
+            // normal Teardown flow entirely) stays stuck claiming server infrastructure
+            // it no longer has — a false "already provisioned" ghost that D.Buy's
+            // acquisition-only filter permanently hides.
+            if (($rec['owned'] ?? '') === 'yes') {
+                $write['status'] = 'owned';
+            }
+            infra_state_upsert_domain($write);
+        }
         infra_cache_flush();
         infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete site: {$r['message']}");
         header('Location: ' . $back); exit;

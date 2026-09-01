@@ -259,7 +259,45 @@
     </div>
 
     <div class="ic-card">
-      <h2>Domain inventory <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $q !== '' ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?>, sorted by <?= ih($sort) ?> <?= $dir ?></span></h2>
+      <h2>Domain inventory
+        <button type="button" onclick="document.getElementById('dbBtnHelp').showModal()"
+                title="What do the buttons above the table do?"
+                style="border:none;background:none;cursor:pointer;font-size:15px;line-height:1;vertical-align:middle;padding:0 2px;opacity:.6">&#128065;</button>
+        <span style="color:#9ca3af;font-weight:400;font-size:13px">— <?= $total ?><?= $q !== '' ? ' match' . ($total === 1 ? '' : 'es') : '' ?>, page <?= $page ?>/<?= $pages ?>, sorted by <?= ih($sort) ?> <?= $dir ?></span>
+      </h2>
+      <?php /* Plain <dialog>, not a hand-built overlay — native show/close/backdrop/ESC
+               for free, and this content is static text, never dynamic. Kept as one
+               definitions list here rather than a title="" on every button: a tooltip
+               only ever shows one at a time and can't be read at leisure or copied. */ ?>
+      <dialog id="dbBtnHelp" style="max-width:600px;width:90%;border:1px solid #d1d5db;border-radius:10px;padding:0">
+        <div style="padding:18px 22px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <strong style="font-size:15px">What each button above the table does</strong>
+            <button type="button" onclick="this.closest('dialog').close()"
+                    style="border:none;background:none;font-size:20px;line-height:1;cursor:pointer;color:#6b7280;padding:0 4px">&times;</button>
+          </div>
+          <dl style="font-size:13px;line-height:1.5;margin:0">
+            <dt style="font-weight:600;margin-top:10px">Check availability</dt>
+            <dd style="margin:2px 0 0;color:#374151">Runs a real availability check on the ticked domains via the picked registrar (defaults to the fastest one — availability is a public fact, so speed is the only real difference between checkers). Sets Ready to buy.</dd>
+            <dt style="font-weight:600;margin-top:10px">Ready to buy → Set</dt>
+            <dd style="margin:2px 0 0;color:#374151">Overrides the ready flag by hand — for when a check can't run, or you already know the answer some other way.</dd>
+            <dt style="font-weight:600;margin-top:10px">Niche → Set</dt>
+            <dd style="margin:2px 0 0;color:#374151">Bulk-assigns a niche label to the ticked rows.</dd>
+            <dt style="font-weight:600;margin-top:10px">Registrar → Set</dt>
+            <dd style="margin:2px 0 0;color:#374151">Assigns which registrar will execute the purchase (or spreads the ticked rows round-robin across whichever registrars can buy).</dd>
+            <dt style="font-weight:600;margin-top:10px">Buy date → Set</dt>
+            <dd style="margin:2px 0 0;color:#374151">Sets one buy date on the ticked rows.</dd>
+            <dt style="font-weight:600;margin-top:10px">Spread /day from … → Schedule</dt>
+            <dd style="margin:2px 0 0;color:#374151">Same idea, spread across multiple days instead of one date — buying hundreds of domains in one minute is its own footprint signal.</dd>
+            <dt style="font-weight:600;margin-top:10px">&rarr; D.Finder (not available)</dt>
+            <dd style="margin:2px 0 0;color:#374151">Moves ticked TAKEN domains back to D.Finder marked "Not available" and removes them here, so D.Finder can propose the name again later.</dd>
+            <dt style="font-weight:600;margin-top:10px">&rarr; Send to Bulk</dt>
+            <dd style="margin:2px 0 0;color:#374151">Sends the ticked OWNED domains to Bulk Provision's textarea. Nothing here changes and nothing is provisioned until Run is pressed on the Bulk tab.</dd>
+            <dt style="font-weight:600;margin-top:10px">Remove</dt>
+            <dd style="margin:2px 0 0;color:#374151">Untracks the ticked domains here only. Refuses anything actually owned or with real infrastructure behind it — that belongs in the domain's own Danger Zone instead.</dd>
+          </dl>
+        </div>
+      </dialog>
       <div class="body">
         <?php if (empty($slice)): ?>
           <div class="ic-empty"><?= $q !== '' ? 'No domains match “' . ih($q) . '”.' : 'No domains yet — load some above.' ?></div>
