@@ -1,408 +1,408 @@
 {
-  "template_id": "tpl_appliance_leak_cleanup",
-  "city_id": "city_lufkin_tx",
-  "slug": "appliance-leak-cleanup-lufkin-tx",
-  "title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_appliance_leak_cleanup",
+    "city_id": "city_lufkin_tx",
+    "slug": "appliance-leak-cleanup-lufkin-tx",
+    "title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas experiences significant seasonal moisture challenges, from spring storms and summer humidity to winter freeze-thaw cycles that stress pipes and appliances throughout the year. Appliance leaks and overflows—whether from failed water heaters, dishwashers, washing machines, or supply line ruptures—demand fast mitigation to prevent structural damage and mold growth. Freeman Restoration connects Lufkin property owners with responsive local restoration providers who handle water extraction and drying, so you can focus on your claim and recovery without delay.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Appliance leak & overflow cleanup in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/appliance-leak-cleanup-worker-moving-box-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:19:56.488797Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "dbdcc350b6d2c41d",
+            "_hs_photo_orig": "sites/water-site/uploads/media/restoration-worker-moving-box-lufkin-tx.webp",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-lufkin-tx.webp",
+            "it_alt": "Refrigerator leak in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Appliance Leak & Overflow Cleanup for Lufkin Homes",
+            "text": "<p>Property owners throughout Lufkin face real risks from appliance leaks and overflows year-round. East Texas's humid subtropical climate means air conditioning units, water heaters, and refrigerators work overtime, increasing the likelihood of mechanical failure and water escape. Winter freeze-thaw cycles can stress pipes and connections, while heavy seasonal rainfall taxes drainage systems and basement integrity. A burst supply line, a clogged drain pan, or a failed seal on a washing machine can release hundreds of gallons in hours, saturating walls, flooring, and personal belongings before you even notice the problem. The longer water sits in your home, the greater the risk of structural damage and secondary issues that extend far beyond the initial cleanup.</p><p>Freeman Restoration connects Lufkin property owners with independent local restoration providers who specialize in appliance leak and overflow cleanup. These professionals respond quickly to extract standing water, assess moisture damage in walls and subflooring, and begin the drying process to prevent long-term harm. Their approach is thorough—documenting the damage, identifying the water's extent, and following up with monitoring to confirm affected areas are truly dry. While water damage from appliances is their focus, many providers also handle related restoration needs. If you discover an active leak or overflow in your Lufkin home, reaching out for immediate professional help can make the difference between a contained incident and a costly, lingering problem.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:01.071261Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "9a44c48447b7dec3",
+            "_it_photo_orig": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Fast Response to Appliance Leaks",
+                    "text": "Water damage from failed refrigerators, dishwashers, and washing machines spreads quickly. Freeman Restoration connects you with local providers ready to respond rapidly, minimizing damage to flooring, cabinets, and belongings before secondary problems develop."
+                },
+                {
+                    "heading": "Thorough Cleanup and Drying",
+                    "text": "Independent restoration providers in the Freeman network handle complete water extraction, structural drying, and affected material treatment. Comprehensive cleanup prevents lingering moisture, odor, and deterioration that homeowners often miss with partial DIY efforts."
+                },
+                {
+                    "heading": "Experienced Local Technicians",
+                    "text": "Freeman connects you with restoration professionals experienced in appliance overflow damage. These trained providers understand water behavior in walls, crawlspaces, and under flooring—critical for preventing future problems and protecting your home's structural integrity."
+                },
+                {
+                    "heading": "Storm and Freeze-Thaw Readiness",
+                    "text": "East Texas weather brings heavy rain, seasonal temperature swings, and occasional ice events that strain plumbing and roofing. Freeman's local provider network understands regional storm damage patterns and is equipped to respond when weather-related water emergencies strike Lufkin homes."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:05.696807Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "0f555bdf67935952"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Contact {business}",
+                    "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/craftsman-home-exterior-with-flag-lufkin-tx.webp",
+            "it_alt": "Water mitigation in progress — washing machine overflow in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Appliance Leaks & Water Damage Across Lufkin",
+            "text": "<p>Lufkin's mix of older established neighborhoods and newer residential areas each face distinct challenges when appliance leaks or overflow events occur. In mature communities like Downtown Lufkin and the Kurth area, older plumbing systems and foundation designs can complicate water extraction and drying, especially when leaks penetrate subflooring or settle into aging structural elements. Conversely, newer subdivisions often have updated construction but may experience rapid water spread across larger open layouts before detection. The East Texas climate—with its humid summers and occasional winter freeze-thaw cycles—means standing water can foster secondary damage quickly, making prompt response critical regardless of neighborhood age.</p><p>Spring and early summer storms bring the region's heaviest rainfall, increasing the risk of both sudden appliance failures and overwhelmed drainage systems that back up into homes. When freezing temperatures occur in winter, burst pipes and frozen supply lines can cause significant overflow damage across all property types. Freeman Restoration connects Lufkin property owners with responsive local restoration providers who understand these regional water damage patterns and can mobilize quickly to assess, extract, and begin drying operations before moisture compounds the problem. Time is essential in preventing secondary damage.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:09.897148Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "e296a11f9150a25d",
+            "_it_photo_orig": "sites/water-site/uploads/media/craftsman-home-exterior-with-flag-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Damage: Year-Round Protection in Lufkin",
+            "steps_items": [
+                {
+                    "heading": "Spring: Heavy Rains & Flooding",
+                    "text": "Spring storms bring intense rainfall and thunderstorms across East Texas, raising flood risk in low-lying areas and basements throughout the region. Appliance hose failures and roof leaks are common as winter wear becomes apparent. Freeman Restoration connects you with local water damage providers who respond quickly to extract standing water and begin drying before secondary damage occurs."
+                },
+                {
+                    "heading": "Summer: Heat & Humidity Challenges",
+                    "text": "Summer heat accelerates evaporation but also increases indoor humidity and mold growth risk after any water event. Air conditioning system leaks and burst pipes from thermal stress can flood crawl spaces and finished areas. Freeman Restoration links property owners to experienced restoration providers across neighborhoods like South Lufkin who manage moisture control and prevent costly secondary damage during humid months."
+                },
+                {
+                    "heading": "Fall: Storm Season Onset",
+                    "text": "Fall brings renewed severe weather, heavy winds, and occasional tropical moisture that can overwhelm gutters and drainage systems. Roof damage from falling limbs and water intrusion into attics create urgent restoration needs. Freeman Restoration helps you connect with responsive local providers to address roof leaks, water extraction, and structural drying before conditions worsen."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw & Pipe Breaks",
+                    "text": "Winter freeze-thaw cycles in East Texas stress plumbing systems, causing pipe breaks that flood attics, walls, and basements without warning. Homeowners around the Loop 287 corridor and elsewhere face rapid water spread in sub-freezing conditions. Freeman Restoration connects you to local water damage specialists who respond immediately to contain damage and begin emergency water removal and drying."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:15.585394Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "41194f28152648db"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly does appliance leak and overflow cleanup in Lufkin involve?",
+                    "answer": "<p>Appliance leak and overflow cleanup addresses water damage from dishwashers, washing machines, refrigerators, water heaters, and similar equipment failures. Freeman Restoration connects you with local providers who assess water-damaged areas, extract standing water, dry affected materials, and help document damage for insurance. The scope depends on how much water spread and which surfaces were saturated.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman Restoration connect me with an appliance leak cleanup provider in Lufkin?",
+                    "answer": "<p>Freeman Restoration works to connect you with responsive local providers as soon as possible. For active leaks or overflows causing ongoing water damage, reach out immediately so a local restoration company can arrive to stop water entry and begin extraction. Speed matters because standing water can worsen structural and material damage within hours.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of appliance leak cleanup in Lufkin?",
+                    "answer": "<p>Pricing for appliance leak cleanup depends on water volume, affected square footage, types of materials soaked (drywall, flooring, insulation), and how quickly cleanup begins. Additional factors include whether the water reached electrical systems or multiple rooms. Contact a local provider through Freeman Restoration for an assessment and cost estimate specific to your situation.</p>"
+                },
+                {
+                    "question": "What should I do before the cleanup crew arrives for an appliance leak in Lufkin?",
+                    "answer": "<p>If safe to do so, turn off the water supply to the leaking appliance and move unaffected belongings away from wet areas. Do not enter spaces with standing water near electrical outlets or equipment. Document visible damage with photos for your insurance claim. Open windows for ventilation if weather permits, then wait for the local restoration provider to assess and begin professional water extraction and drying.</p>"
+                },
+                {
+                    "question": "How can I prevent appliance leaks and overflows at my Lufkin home?",
+                    "answer": "<p>Regularly inspect hose connections on washing machines and refrigerators for cracks or loose fittings. Clean dishwasher and washing machine filters to prevent clogs that cause overflow. Have water heaters checked annually and replace units nearing end of life. Know where your main water shut-off valve is located. These steps reduce—though cannot eliminate—the risk of sudden appliance failures causing water damage.</p>"
+                },
+                {
+                    "question": "Does cold weather in Texas increase appliance leak risk in the Lufkin area?",
+                    "answer": "<p>Yes. Winter freezes in the Lufkin region can damage exposed water lines and hoses connected to outdoor faucets and appliances, leading to leaks when they thaw. Pipes in uninsulated crawl spaces or garages are especially vulnerable. Additionally, the freeze-thaw cycle stresses connections, increasing failure risk. Have exposed hoses and lines inspected before cold months, and insulate vulnerable areas to reduce winter appliance leak emergencies.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:24.578027Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "faa41b32ea7942dd",
+            "skin": "dark",
+            "fq_open": true,
+            "_ai_injected_count": 6
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas experiences significant seasonal moisture challenges, from spring storms and summer humidity to winter freeze-thaw cycles that stress pipes and appliances throughout the year. Appliance leaks and overflows—whether from failed water heaters, dishwashers, washing machines, or supply line ruptures—demand fast mitigation to prevent structural damage and mold growth. Freeman Restoration connects Lufkin property owners with responsive local restoration providers who handle water extraction and drying, so you can focus on your claim and recovery without delay.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Appliance leak & overflow cleanup in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/appliance-leak-cleanup-worker-moving-box-lufkin-tx.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:19:56.488797Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "dbdcc350b6d2c41d",
-      "_hs_photo_orig": "sites/water-site/uploads/media/restoration-worker-moving-box-lufkin-tx.webp",
-      "_ai_injected_count": 1
+    "seo": {
+        "seo_title": "Appliance Leak Cleanup in {city_state} | {business}",
+        "canonical_url": "{website}/appliance-leak-cleanup-lufkin-tx/",
+        "meta_description": "Appliance Leak & Overflow Cleanup in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "appliance leak & overflow cleanup Lufkin TX, refrigerator leak Lufkin, washing machine overflow Lufkin, dishwasher leak cleanup Lufkin",
+        "og_title": "Appliance Leak Cleanup in {city_state} | {business}",
+        "og_description": "24/7 appliance leak & overflow cleanup in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/water-damage-cleanup-worker-mopping-2-lufkin-tx.webp",
+        "service_name": "Appliance Leak & Overflow Cleanup",
+        "service_type": "Appliance Leak & Overflow Cleanup",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Appliance leak & overflow cleanup for homes and businesses in {city_state}, including refrigerator leak, washing machine overflow and dishwasher leak cleanup.",
+        "bc_label": "Appliance Leak & Overflow Cleanup",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Appliance Leak & Overflow Cleanup\",\n    \"name\": \"Appliance Leak & Overflow Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 appliance leak & overflow cleanup in Lufkin, TX — refrigerator leak, washing machine overflow and dishwasher leak cleanup.\"\n}",
+        "primary_keyword": "Appliance Leak & Overflow Cleanup",
+        "secondary_keywords": "refrigerator leak, washing machine overflow, dishwasher leak cleanup"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-lufkin-tx.webp",
-      "it_alt": "Refrigerator leak in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Appliance Leak & Overflow Cleanup for Lufkin Homes",
-      "text": "<p>Property owners throughout Lufkin face real risks from appliance leaks and overflows year-round. East Texas's humid subtropical climate means air conditioning units, water heaters, and refrigerators work overtime, increasing the likelihood of mechanical failure and water escape. Winter freeze-thaw cycles can stress pipes and connections, while heavy seasonal rainfall taxes drainage systems and basement integrity. A burst supply line, a clogged drain pan, or a failed seal on a washing machine can release hundreds of gallons in hours, saturating walls, flooring, and personal belongings before you even notice the problem. The longer water sits in your home, the greater the risk of structural damage and secondary issues that extend far beyond the initial cleanup.</p><p>Freeman Restoration connects Lufkin property owners with independent local restoration providers who specialize in appliance leak and overflow cleanup. These professionals respond quickly to extract standing water, assess moisture damage in walls and subflooring, and begin the drying process to prevent long-term harm. Their approach is thorough—documenting the damage, identifying the water's extent, and following up with monitoring to confirm affected areas are truly dry. While water damage from appliances is their focus, many providers also handle related restoration needs. If you discover an active leak or overflow in your Lufkin home, reaching out for immediate professional help can make the difference between a contained incident and a costly, lingering problem.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:01.071261Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "9a44c48447b7dec3",
-      "_it_photo_orig": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Fast Response to Appliance Leaks",
-          "text": "Water damage from failed refrigerators, dishwashers, and washing machines spreads quickly. Freeman Restoration connects you with local providers ready to respond rapidly, minimizing damage to flooring, cabinets, and belongings before secondary problems develop."
-        },
-        {
-          "heading": "Thorough Cleanup and Drying",
-          "text": "Independent restoration providers in the Freeman network handle complete water extraction, structural drying, and affected material treatment. Comprehensive cleanup prevents lingering moisture, odor, and deterioration that homeowners often miss with partial DIY efforts."
-        },
-        {
-          "heading": "Experienced Local Technicians",
-          "text": "Freeman connects you with restoration professionals experienced in appliance overflow damage. These trained providers understand water behavior in walls, crawlspaces, and under flooring—critical for preventing future problems and protecting your home's structural integrity."
-        },
-        {
-          "heading": "Storm and Freeze-Thaw Readiness",
-          "text": "East Texas weather brings heavy rain, seasonal temperature swings, and occasional ice events that strain plumbing and roofing. Freeman's local provider network understands regional storm damage patterns and is equipped to respond when weather-related water emergencies strike Lufkin homes."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:05.696807Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "0f555bdf67935952"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Contact {business}",
-          "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/craftsman-home-exterior-with-flag-lufkin-tx.webp",
-      "it_alt": "Water mitigation in progress — washing machine overflow in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Appliance Leaks & Water Damage Across Lufkin",
-      "text": "<p>Lufkin's mix of older established neighborhoods and newer residential areas each face distinct challenges when appliance leaks or overflow events occur. In mature communities like Downtown Lufkin and the Kurth area, older plumbing systems and foundation designs can complicate water extraction and drying, especially when leaks penetrate subflooring or settle into aging structural elements. Conversely, newer subdivisions often have updated construction but may experience rapid water spread across larger open layouts before detection. The East Texas climate—with its humid summers and occasional winter freeze-thaw cycles—means standing water can foster secondary damage quickly, making prompt response critical regardless of neighborhood age.</p><p>Spring and early summer storms bring the region's heaviest rainfall, increasing the risk of both sudden appliance failures and overwhelmed drainage systems that back up into homes. When freezing temperatures occur in winter, burst pipes and frozen supply lines can cause significant overflow damage across all property types. Freeman Restoration connects Lufkin property owners with responsive local restoration providers who understand these regional water damage patterns and can mobilize quickly to assess, extract, and begin drying operations before moisture compounds the problem. Time is essential in preventing secondary damage.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:09.897148Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "e296a11f9150a25d",
-      "_it_photo_orig": "sites/water-site/uploads/media/craftsman-home-exterior-with-flag-2-lufkin-tx.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Damage: Year-Round Protection in Lufkin",
-      "steps_items": [
-        {
-          "heading": "Spring: Heavy Rains & Flooding",
-          "text": "Spring storms bring intense rainfall and thunderstorms across East Texas, raising flood risk in low-lying areas and basements throughout the region. Appliance hose failures and roof leaks are common as winter wear becomes apparent. Freeman Restoration connects you with local water damage providers who respond quickly to extract standing water and begin drying before secondary damage occurs."
-        },
-        {
-          "heading": "Summer: Heat & Humidity Challenges",
-          "text": "Summer heat accelerates evaporation but also increases indoor humidity and mold growth risk after any water event. Air conditioning system leaks and burst pipes from thermal stress can flood crawl spaces and finished areas. Freeman Restoration links property owners to experienced restoration providers across neighborhoods like South Lufkin who manage moisture control and prevent costly secondary damage during humid months."
-        },
-        {
-          "heading": "Fall: Storm Season Onset",
-          "text": "Fall brings renewed severe weather, heavy winds, and occasional tropical moisture that can overwhelm gutters and drainage systems. Roof damage from falling limbs and water intrusion into attics create urgent restoration needs. Freeman Restoration helps you connect with responsive local providers to address roof leaks, water extraction, and structural drying before conditions worsen."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw & Pipe Breaks",
-          "text": "Winter freeze-thaw cycles in East Texas stress plumbing systems, causing pipe breaks that flood attics, walls, and basements without warning. Homeowners around the Loop 287 corridor and elsewhere face rapid water spread in sub-freezing conditions. Freeman Restoration connects you to local water damage specialists who respond immediately to contain damage and begin emergency water removal and drying."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:15.585394Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "41194f28152648db"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly does appliance leak and overflow cleanup in Lufkin involve?",
-          "answer": "<p>Appliance leak and overflow cleanup addresses water damage from dishwashers, washing machines, refrigerators, water heaters, and similar equipment failures. Freeman Restoration connects you with local providers who assess water-damaged areas, extract standing water, dry affected materials, and help document damage for insurance. The scope depends on how much water spread and which surfaces were saturated.</p>"
-        },
-        {
-          "question": "How quickly can Freeman Restoration connect me with an appliance leak cleanup provider in Lufkin?",
-          "answer": "<p>Freeman Restoration works to connect you with responsive local providers as soon as possible. For active leaks or overflows causing ongoing water damage, reach out immediately so a local restoration company can arrive to stop water entry and begin extraction. Speed matters because standing water can worsen structural and material damage within hours.</p>"
-        },
-        {
-          "question": "What factors affect the cost of appliance leak cleanup in Lufkin?",
-          "answer": "<p>Pricing for appliance leak cleanup depends on water volume, affected square footage, types of materials soaked (drywall, flooring, insulation), and how quickly cleanup begins. Additional factors include whether the water reached electrical systems or multiple rooms. Contact a local provider through Freeman Restoration for an assessment and cost estimate specific to your situation.</p>"
-        },
-        {
-          "question": "What should I do before the cleanup crew arrives for an appliance leak in Lufkin?",
-          "answer": "<p>If safe to do so, turn off the water supply to the leaking appliance and move unaffected belongings away from wet areas. Do not enter spaces with standing water near electrical outlets or equipment. Document visible damage with photos for your insurance claim. Open windows for ventilation if weather permits, then wait for the local restoration provider to assess and begin professional water extraction and drying.</p>"
-        },
-        {
-          "question": "How can I prevent appliance leaks and overflows at my Lufkin home?",
-          "answer": "<p>Regularly inspect hose connections on washing machines and refrigerators for cracks or loose fittings. Clean dishwasher and washing machine filters to prevent clogs that cause overflow. Have water heaters checked annually and replace units nearing end of life. Know where your main water shut-off valve is located. These steps reduce—though cannot eliminate—the risk of sudden appliance failures causing water damage.</p>"
-        },
-        {
-          "question": "Does cold weather in Texas increase appliance leak risk in the Lufkin area?",
-          "answer": "<p>Yes. Winter freezes in the Lufkin region can damage exposed water lines and hoses connected to outdoor faucets and appliances, leading to leaks when they thaw. Pipes in uninsulated crawl spaces or garages are especially vulnerable. Additionally, the freeze-thaw cycle stresses connections, increasing failure risk. Have exposed hoses and lines inspected before cold months, and insulate vulnerable areas to reduce winter appliance leak emergencies.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:24.578027Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "faa41b32ea7942dd",
-      "skin": "dark",
-      "fq_open": true,
-      "_ai_injected_count": 6
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
-    "canonical_url": "{website}/appliance-leak-cleanup-lufkin-tx/",
-    "meta_description": "Appliance Leak & Overflow Cleanup in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "appliance leak & overflow cleanup Lufkin TX, refrigerator leak Lufkin, washing machine overflow Lufkin, dishwasher leak cleanup Lufkin",
-    "og_title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
-    "og_description": "24/7 appliance leak & overflow cleanup in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/water-damage-cleanup-worker-mopping-2-lufkin-tx.webp",
-    "service_name": "Appliance Leak & Overflow Cleanup",
-    "service_type": "Appliance Leak & Overflow Cleanup",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Appliance leak & overflow cleanup for homes and businesses in {city_state}, including refrigerator leak, washing machine overflow and dishwasher leak cleanup.",
-    "bc_label": "Appliance Leak & Overflow Cleanup",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Appliance Leak & Overflow Cleanup\",\n    \"name\": \"Appliance Leak & Overflow Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 appliance leak & overflow cleanup in Lufkin, TX — refrigerator leak, washing machine overflow and dishwasher leak cleanup.\"\n}",
-    "primary_keyword": "Appliance Leak & Overflow Cleanup",
-    "secondary_keywords": "refrigerator leak, washing machine overflow, dishwasher leak cleanup"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "c09434dfab77a753ddf1aafdf4eb9f4b"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "c09434dfab77a753ddf1aafdf4eb9f4b"
 }

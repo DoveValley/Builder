@@ -1,408 +1,408 @@
 {
-  "template_id": "tpl_drywall_water_damage_repair",
-  "city_id": "city_lufkin_tx",
-  "slug": "drywall-water-damage-repair-lufkin-tx",
-  "title": "Drywall Water Damage Repair in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_drywall_water_damage_repair",
+    "city_id": "city_lufkin_tx",
+    "slug": "drywall-water-damage-repair-lufkin-tx",
+    "title": "Drywall Water Damage Repair in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas weather brings heavy spring storms, occasional winter freeze-thaw cycles, and saturated soil conditions that put Lufkin-area homes at risk for water intrusion and drywall damage. Drywall absorbs moisture quickly and can deteriorate or support mold growth if not dried and restored promptly by qualified professionals. Freeman Restoration connects property owners in and around Lufkin with local, independent restoration providers who can assess water-damaged drywall and begin mitigation work when time matters most.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Water-damaged drywall — drywall water damage repair in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/drywall-water-damage-repair-painting-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:19:56.694221Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "7fe3d8a0610bef9d",
+            "_hs_photo_orig": "sites/water-site/uploads/media/drywall-water-damage-repair-painting-2-lufkin-tx.webp",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/drywall-repair-patching-hole-lufkin-tx.webp",
+            "it_alt": "Fixing water damaged drywall in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Drywall Water Damage Repair Services in Lufkin",
+            "text": "<p>Lufkin property owners face significant drywall water damage risks from the region's weather patterns and seasonal changes. Heavy spring and summer storms, combined with occasional freeze-thaw cycles during winter months, create conditions where water intrusion into walls, ceilings, and structural cavities becomes a common concern. Whether damage results from roof leaks, burst pipes, foundation seepage, or storm flooding, wet drywall deteriorates quickly and can compromise the integrity of your home or business. Addressing drywall water damage promptly is essential to prevent mold growth, structural weakening, and costly long-term repairs across Lufkin.</p><p>Freeman Restoration connects Lufkin property owners with local, independent restoration providers who specialize in thorough drywall water damage repair. These professionals assess the full extent of moisture penetration, remove saturated materials safely, and employ proper drying techniques to restore affected areas. Their approach prioritizes both immediate damage control and careful follow-up to ensure drying is complete and secondary issues are prevented. By partnering with Freeman Restoration, you gain rapid access to local expertise ready to respond when water damage strikes, helping protect your property and peace of mind.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:00.578711Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "c9dd30b38e523b48",
+            "_it_photo_orig": "sites/water-site/uploads/media/drywall-repair-patching-hole-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Fast Connection to Local Experts",
+                    "text": "Freeman Restoration connects you directly with independent local drywall water damage repair providers who respond quickly to emergency calls. Reach experienced professionals ready to assess and begin mitigation promptly."
+                },
+                {
+                    "heading": "Thorough Drywall Assessment and Repair",
+                    "text": "Connected providers conduct detailed inspections to identify water-saturated drywall and hidden moisture. They address affected areas systematically to prevent secondary damage and support proper structural drying."
+                },
+                {
+                    "heading": "Accountability and Peace of Mind",
+                    "text": "Freeman Restoration's network of independent local providers stands behind their drywall water damage work. Clear communication and follow-up ensure you understand the repair process and timeline."
+                },
+                {
+                    "heading": "Prepared for Texas Storm and Freeze Risks",
+                    "text": "East Texas weather—heavy rains, occasional freezing, and seasonal storms—can cause sudden water intrusion and drywall damage. Freeman Restoration connects you with local providers familiar with regional moisture challenges and ready for emergencies."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:03.955744Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "803795ac09914c69"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Contact {business}",
+                    "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/drywall-repair-window-trim-painting-lufkin-tx.webp",
+            "it_alt": "Water damaged drywall in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Drywall Water Damage Repair Across Lufkin",
+            "text": "<p>Lufkin's mix of older, established neighborhoods and newer construction creates distinct challenges for drywall water damage repair. Homes in areas like Downtown Lufkin and South Lufkin often feature aging wall systems and mature tree canopies that increase vulnerability to roof leaks, branch damage during storms, and prolonged moisture retention. Newer subdivisions may have different construction standards but remain exposed to the same East Texas weather patterns—heavy spring rains, occasional severe thunderstorms, and freeze-thaw cycles during winter months that can crack foundations and allow water intrusion.</p><p>The region's humid subtropical climate means that once drywall becomes saturated, the moisture can linger within walls and materials, creating urgency for prompt assessment and restoration. Properties near the Loop 287 corridor and surrounding areas face similar seasonal risks. Restoration providers in Freeman's network understand how local weather patterns and property age affect drying strategies, wall cavity assessment, and decisions about drywall replacement versus salvage. Fast, local response is critical—the sooner independent contractors can evaluate water-damaged areas, the better the chances of limiting secondary issues and restoring your home efficiently.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:08.006635Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "b04c9b79035f749f",
+            "_it_photo_orig": "sites/water-site/uploads/media/drywall-repair-window-trim-painting-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Damage: Lufkin's Year-Round Drywall Risks",
+            "steps_items": [
+                {
+                    "heading": "Spring: Storm Season Preparedness",
+                    "text": "Spring in East Texas brings severe thunderstorms, heavy rainfall, and hail that can breach roofs and saturate walls. Drywall absorbs moisture quickly, leading to swelling and mold conditions if not dried promptly. Freeman Restoration connects you with local water damage specialists ready to respond when storms strike, preventing structural compromise."
+                },
+                {
+                    "heading": "Summer: Heat and Hidden Moisture",
+                    "text": "Summer heat can mask lingering moisture trapped inside walls after spring storms or plumbing failures. Slow-drying drywall becomes a breeding ground for secondary damage. Freeman Restoration links you to providers experienced in identifying and removing hidden moisture before it spreads, protecting your property during the warmest months."
+                },
+                {
+                    "heading": "Fall: Roof and Drainage Issues",
+                    "text": "Fall rains and debris accumulation in gutters can divert water into attics and walls, saturating drywall from above. Properties across the region face water intrusion as drainage systems become clogged. Freeman Restoration helps you quickly connect with restoration providers who address water entry points and begin drying affected drywall."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw and Burst Pipes",
+                    "text": "Winter freezes in the Lufkin area risk burst pipes that flood interiors, soaking drywall with standing water. Thaw cycles can worsen structural damage. Freeman Restoration connects you immediately to local water extraction and drywall restoration specialists who remove water and begin the drying process before permanent damage occurs."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:13.439927Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "da9ca4cbc3635a81"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What does drywall water damage repair involve in Lufkin?",
+                    "answer": "<p>Drywall water damage repair assesses how deeply water has penetrated the wall material and underlying structure. Depending on saturation level, repair may involve drying the drywall in place, removing and replacing damaged sections, or treating compromised areas. Freeman Restoration connects you with local providers who evaluate the extent of damage and recommend the right repair approach for your property.</p>"
+                },
+                {
+                    "question": "How fast can Freeman Restoration connect me with a drywall repair specialist in Lufkin?",
+                    "answer": "<p>Freeman Restoration works to connect you with independent local drywall water damage repair providers quickly, especially for active water emergencies. Response times vary by provider availability and workload. Contact Freeman as soon as water damage occurs so the network can match you with a responsive local provider in your area.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of drywall water damage repair?",
+                    "answer": "<p>Drywall repair costs depend on the extent of damage, wall area affected, whether studs or insulation underneath are compromised, and repair method chosen—drying in place versus partial or full replacement. Local labor and material availability also influence pricing. Freeman Restoration connects you with providers who can assess your specific situation and discuss cost factors upfront.</p>"
+                },
+                {
+                    "question": "What should I do to prepare before drywall water damage repair begins?",
+                    "answer": "<p>Before repair work starts, remove furniture and personal items from the affected walls if safe to do so. Ensure electrical hazards are addressed by a qualified professional—do not handle wet outlets yourself. Provide the repair provider clear access to the damaged drywall and surrounding areas. Your provider will guide you on additional prep steps once they assess the damage.</p>"
+                },
+                {
+                    "question": "How can I prevent drywall water damage in my Lufkin home?",
+                    "answer": "<p>Prevent drywall damage by maintaining gutters and downspouts, sealing foundation cracks, inspecting plumbing regularly, and ensuring proper grading around your home. In areas like South Lufkin prone to heavy rainfall, consider water barriers in vulnerable spaces. Early detection of leaks—inside walls, around windows, and under sinks—stops water from reaching drywall before damage spreads.</p>"
+                },
+                {
+                    "question": "Does drywall water damage happen more in certain seasons in Texas?",
+                    "answer": "<p>Central Texas, including the Lufkin area, experiences heavy rainfall in spring and early summer, increasing drywall damage risk from storms and roof leaks. Winter freeze-thaw cycles can also crack foundations and plumbing, leading to interior water intrusion. Year-round vigilance is important, but spring storms and winter weather patterns elevate the need for rapid drywall repair response.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:20.879098Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "bf04785845ca6fa0",
+            "skin": "dark",
+            "fq_open": true,
+            "_ai_injected_count": 6
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas weather brings heavy spring storms, occasional winter freeze-thaw cycles, and saturated soil conditions that put Lufkin-area homes at risk for water intrusion and drywall damage. Drywall absorbs moisture quickly and can deteriorate or support mold growth if not dried and restored promptly by qualified professionals. Freeman Restoration connects property owners in and around Lufkin with local, independent restoration providers who can assess water-damaged drywall and begin mitigation work when time matters most.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Water-damaged drywall — drywall water damage repair in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/drywall-water-damage-repair-painting-lufkin-tx.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:19:56.694221Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "7fe3d8a0610bef9d",
-      "_hs_photo_orig": "sites/water-site/uploads/media/drywall-water-damage-repair-painting-2-lufkin-tx.webp",
-      "_ai_injected_count": 1
+    "seo": {
+        "seo_title": "Drywall Water Damage Repair in {city_state} | {business}",
+        "canonical_url": "{website}/drywall-water-damage-repair-lufkin-tx/",
+        "meta_description": "Drywall Water Damage Repair in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "drywall water damage repair Lufkin TX, fixing water damaged drywall Lufkin, water damaged drywall Lufkin, sheetrock water damage repair Lufkin",
+        "og_title": "Drywall Water Damage Repair in {city_state} | {business}",
+        "og_description": "24/7 drywall water damage repair in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/water-damage-repair-framing-crew-lufkin-tx.webp",
+        "service_name": "Drywall Water Damage Repair",
+        "service_type": "Drywall Water Damage Repair",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Drywall water damage repair for homes and businesses in {city_state}, including fixing water damaged drywall, water damaged drywall and sheetrock water damage repair.",
+        "bc_label": "Drywall Water Damage Repair",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Drywall Water Damage Repair\",\n    \"name\": \"Drywall Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 drywall water damage repair in Lufkin, TX — fixing water damaged drywall, water damaged drywall and sheetrock water damage repair.\"\n}",
+        "primary_keyword": "Drywall Water Damage Repair",
+        "secondary_keywords": "fixing water damaged drywall, water damaged drywall, sheetrock water damage repair, wet drywall repair"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/drywall-repair-patching-hole-lufkin-tx.webp",
-      "it_alt": "Fixing water damaged drywall in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Drywall Water Damage Repair Services in Lufkin",
-      "text": "<p>Lufkin property owners face significant drywall water damage risks from the region's weather patterns and seasonal changes. Heavy spring and summer storms, combined with occasional freeze-thaw cycles during winter months, create conditions where water intrusion into walls, ceilings, and structural cavities becomes a common concern. Whether damage results from roof leaks, burst pipes, foundation seepage, or storm flooding, wet drywall deteriorates quickly and can compromise the integrity of your home or business. Addressing drywall water damage promptly is essential to prevent mold growth, structural weakening, and costly long-term repairs across Lufkin.</p><p>Freeman Restoration connects Lufkin property owners with local, independent restoration providers who specialize in thorough drywall water damage repair. These professionals assess the full extent of moisture penetration, remove saturated materials safely, and employ proper drying techniques to restore affected areas. Their approach prioritizes both immediate damage control and careful follow-up to ensure drying is complete and secondary issues are prevented. By partnering with Freeman Restoration, you gain rapid access to local expertise ready to respond when water damage strikes, helping protect your property and peace of mind.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:00.578711Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "c9dd30b38e523b48",
-      "_it_photo_orig": "sites/water-site/uploads/media/drywall-repair-patching-hole-2-lufkin-tx.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Fast Connection to Local Experts",
-          "text": "Freeman Restoration connects you directly with independent local drywall water damage repair providers who respond quickly to emergency calls. Reach experienced professionals ready to assess and begin mitigation promptly."
-        },
-        {
-          "heading": "Thorough Drywall Assessment and Repair",
-          "text": "Connected providers conduct detailed inspections to identify water-saturated drywall and hidden moisture. They address affected areas systematically to prevent secondary damage and support proper structural drying."
-        },
-        {
-          "heading": "Accountability and Peace of Mind",
-          "text": "Freeman Restoration's network of independent local providers stands behind their drywall water damage work. Clear communication and follow-up ensure you understand the repair process and timeline."
-        },
-        {
-          "heading": "Prepared for Texas Storm and Freeze Risks",
-          "text": "East Texas weather—heavy rains, occasional freezing, and seasonal storms—can cause sudden water intrusion and drywall damage. Freeman Restoration connects you with local providers familiar with regional moisture challenges and ready for emergencies."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:03.955744Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "803795ac09914c69"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Contact {business}",
-          "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/drywall-repair-window-trim-painting-lufkin-tx.webp",
-      "it_alt": "Water damaged drywall in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Drywall Water Damage Repair Across Lufkin",
-      "text": "<p>Lufkin's mix of older, established neighborhoods and newer construction creates distinct challenges for drywall water damage repair. Homes in areas like Downtown Lufkin and South Lufkin often feature aging wall systems and mature tree canopies that increase vulnerability to roof leaks, branch damage during storms, and prolonged moisture retention. Newer subdivisions may have different construction standards but remain exposed to the same East Texas weather patterns—heavy spring rains, occasional severe thunderstorms, and freeze-thaw cycles during winter months that can crack foundations and allow water intrusion.</p><p>The region's humid subtropical climate means that once drywall becomes saturated, the moisture can linger within walls and materials, creating urgency for prompt assessment and restoration. Properties near the Loop 287 corridor and surrounding areas face similar seasonal risks. Restoration providers in Freeman's network understand how local weather patterns and property age affect drying strategies, wall cavity assessment, and decisions about drywall replacement versus salvage. Fast, local response is critical—the sooner independent contractors can evaluate water-damaged areas, the better the chances of limiting secondary issues and restoring your home efficiently.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:08.006635Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "b04c9b79035f749f",
-      "_it_photo_orig": "sites/water-site/uploads/media/drywall-repair-window-trim-painting-2-lufkin-tx.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Damage: Lufkin's Year-Round Drywall Risks",
-      "steps_items": [
-        {
-          "heading": "Spring: Storm Season Preparedness",
-          "text": "Spring in East Texas brings severe thunderstorms, heavy rainfall, and hail that can breach roofs and saturate walls. Drywall absorbs moisture quickly, leading to swelling and mold conditions if not dried promptly. Freeman Restoration connects you with local water damage specialists ready to respond when storms strike, preventing structural compromise."
-        },
-        {
-          "heading": "Summer: Heat and Hidden Moisture",
-          "text": "Summer heat can mask lingering moisture trapped inside walls after spring storms or plumbing failures. Slow-drying drywall becomes a breeding ground for secondary damage. Freeman Restoration links you to providers experienced in identifying and removing hidden moisture before it spreads, protecting your property during the warmest months."
-        },
-        {
-          "heading": "Fall: Roof and Drainage Issues",
-          "text": "Fall rains and debris accumulation in gutters can divert water into attics and walls, saturating drywall from above. Properties across the region face water intrusion as drainage systems become clogged. Freeman Restoration helps you quickly connect with restoration providers who address water entry points and begin drying affected drywall."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw and Burst Pipes",
-          "text": "Winter freezes in the Lufkin area risk burst pipes that flood interiors, soaking drywall with standing water. Thaw cycles can worsen structural damage. Freeman Restoration connects you immediately to local water extraction and drywall restoration specialists who remove water and begin the drying process before permanent damage occurs."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:13.439927Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "da9ca4cbc3635a81"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What does drywall water damage repair involve in Lufkin?",
-          "answer": "<p>Drywall water damage repair assesses how deeply water has penetrated the wall material and underlying structure. Depending on saturation level, repair may involve drying the drywall in place, removing and replacing damaged sections, or treating compromised areas. Freeman Restoration connects you with local providers who evaluate the extent of damage and recommend the right repair approach for your property.</p>"
-        },
-        {
-          "question": "How fast can Freeman Restoration connect me with a drywall repair specialist in Lufkin?",
-          "answer": "<p>Freeman Restoration works to connect you with independent local drywall water damage repair providers quickly, especially for active water emergencies. Response times vary by provider availability and workload. Contact Freeman as soon as water damage occurs so the network can match you with a responsive local provider in your area.</p>"
-        },
-        {
-          "question": "What factors affect the cost of drywall water damage repair?",
-          "answer": "<p>Drywall repair costs depend on the extent of damage, wall area affected, whether studs or insulation underneath are compromised, and repair method chosen—drying in place versus partial or full replacement. Local labor and material availability also influence pricing. Freeman Restoration connects you with providers who can assess your specific situation and discuss cost factors upfront.</p>"
-        },
-        {
-          "question": "What should I do to prepare before drywall water damage repair begins?",
-          "answer": "<p>Before repair work starts, remove furniture and personal items from the affected walls if safe to do so. Ensure electrical hazards are addressed by a qualified professional—do not handle wet outlets yourself. Provide the repair provider clear access to the damaged drywall and surrounding areas. Your provider will guide you on additional prep steps once they assess the damage.</p>"
-        },
-        {
-          "question": "How can I prevent drywall water damage in my Lufkin home?",
-          "answer": "<p>Prevent drywall damage by maintaining gutters and downspouts, sealing foundation cracks, inspecting plumbing regularly, and ensuring proper grading around your home. In areas like South Lufkin prone to heavy rainfall, consider water barriers in vulnerable spaces. Early detection of leaks—inside walls, around windows, and under sinks—stops water from reaching drywall before damage spreads.</p>"
-        },
-        {
-          "question": "Does drywall water damage happen more in certain seasons in Texas?",
-          "answer": "<p>Central Texas, including the Lufkin area, experiences heavy rainfall in spring and early summer, increasing drywall damage risk from storms and roof leaks. Winter freeze-thaw cycles can also crack foundations and plumbing, leading to interior water intrusion. Year-round vigilance is important, but spring storms and winter weather patterns elevate the need for rapid drywall repair response.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:20.879098Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "bf04785845ca6fa0",
-      "skin": "dark",
-      "fq_open": true,
-      "_ai_injected_count": 6
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Drywall Water Damage Repair in {city_state} | {business}",
-    "canonical_url": "{website}/drywall-water-damage-repair-lufkin-tx/",
-    "meta_description": "Drywall Water Damage Repair in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "drywall water damage repair Lufkin TX, fixing water damaged drywall Lufkin, water damaged drywall Lufkin, sheetrock water damage repair Lufkin",
-    "og_title": "Drywall Water Damage Repair in {city_state} | {business}",
-    "og_description": "24/7 drywall water damage repair in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/water-damage-repair-framing-crew-lufkin-tx.webp",
-    "service_name": "Drywall Water Damage Repair",
-    "service_type": "Drywall Water Damage Repair",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Drywall water damage repair for homes and businesses in {city_state}, including fixing water damaged drywall, water damaged drywall and sheetrock water damage repair.",
-    "bc_label": "Drywall Water Damage Repair",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Drywall Water Damage Repair\",\n    \"name\": \"Drywall Water Damage Repair in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 drywall water damage repair in Lufkin, TX — fixing water damaged drywall, water damaged drywall and sheetrock water damage repair.\"\n}",
-    "primary_keyword": "Drywall Water Damage Repair",
-    "secondary_keywords": "fixing water damaged drywall, water damaged drywall, sheetrock water damage repair, wet drywall repair"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "2ba5fe031d1db0673fbccb158fa82756"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "2ba5fe031d1db0673fbccb158fa82756"
 }

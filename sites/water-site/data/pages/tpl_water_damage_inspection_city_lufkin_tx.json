@@ -1,408 +1,408 @@
 {
-  "template_id": "tpl_water_damage_inspection",
-  "city_id": "city_lufkin_tx",
-  "slug": "water-damage-inspection-lufkin-tx",
-  "title": "Water Damage Inspection & Assessment in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
+    "template_id": "tpl_water_damage_inspection",
+    "city_id": "city_lufkin_tx",
+    "slug": "water-damage-inspection-lufkin-tx",
+    "title": "Water Damage Inspection & Assessment in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth",
+            "Copeland Springs",
+            "Brentwood"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>The Lufkin area experiences heavy seasonal rainfall and severe thunderstorms that can overwhelm drainage systems and cause sudden water intrusion into homes and businesses. Freeman Restoration connects property owners with independent local restoration providers who conduct thorough water damage inspections and assessments to identify hidden moisture, structural concerns, and next steps for recovery. Fast access to a qualified local provider means your property is evaluated promptly when minutes matter most.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Water damage inspection & assessment in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/water-damage-inspection-ceiling-flashlight-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "text_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:53.641044Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "5a2368f4a3af0d49",
+            "_hs_photo_orig": "sites/water-site/uploads/media/water-damage-inspection-ceiling-flashlight-2-lufkin-tx.webp",
+            "_ai_injected_count": 1
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg": "accent",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "tb_show_icons": true
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-lufkin-tx.webp",
+            "it_alt": "Water damage assessment in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Water Damage Inspection & Assessment in Lufkin, Texas",
+            "text": "<p>Lufkin's location in East Texas exposes property owners to significant water damage risks throughout the year. The region experiences heavy spring rainfall, summer thunderstorms that can develop rapidly, and occasional flooding from nearby waterways during wet seasons. Winter freeze-thaw cycles can crack pipes and compromise foundations, while the area's humidity creates conditions where hidden moisture damage may develop slowly inside walls and crawl spaces. Whether damage is visible or suspected, a thorough inspection and assessment from qualified professionals is essential to identify the full scope of the problem before restoration begins.</p><p>Freeman Restoration connects Lufkin property owners with independent local restoration providers who specialize in water damage inspection and assessment. These professionals arrive ready to document the affected areas, identify moisture intrusion points, and evaluate structural and material damage with careful attention to detail. They photograph findings, assess drying potential, and outline a clear path forward so you understand what happened and what comes next. Whether your property is in North Lufkin, the Loop 287 corridor, or elsewhere in the area, a fast local connection to an experienced inspection team can make the difference in protecting your home or business and supporting your insurance claim process.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:57.585594Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "402e82640dd5f313",
+            "_it_photo_orig": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Fast Access to Local Experts",
+                    "text": "Freeman Restoration connects you directly to independent restoration providers in your area. Quick response to water damage emergencies means faster mitigation and reduced secondary damage to your property."
+                },
+                {
+                    "heading": "Thorough Damage Assessment and Documentation",
+                    "text": "Connected providers conduct detailed inspections of affected areas, documenting water intrusion, saturation, and structural impact. Comprehensive assessment supports insurance claims and guides effective restoration decisions."
+                },
+                {
+                    "heading": "Professional Drying and Treatment Plans",
+                    "text": "Local restoration specialists develop tailored drying strategies and treatment protocols for your specific damage. Professional-grade equipment and methods help prevent mold growth and structural deterioration."
+                },
+                {
+                    "heading": "Ready for Texas Seasonal Water Risks",
+                    "text": "East Texas experiences heavy spring and summer storms, plus freeze-thaw cycles in winter that stress pipes and foundations. Freeman Restoration connects you with providers experienced in rapid response to the region's unpredictable weather patterns."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:21:01.137139Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "88b4f12149d111f4"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Contact {business}",
+                    "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "On-Site Assessment",
+                    "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Mitigation & Drying",
+                    "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Restoration & Repairs",
+                    "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "sites/water-site/uploads/media/traditional-two-story-home-exterior-lufkin-tx.webp",
+            "it_alt": "Moisture inspection in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Water Damage Assessment Across Lufkin",
+            "text": "<p>Properties throughout Lufkin face distinct water damage risks shaped by the region's climate and building stock. Established neighborhoods with mature trees—including areas like Downtown Lufkin and South Lufkin—often deal with older construction materials and aging foundations that absorb water differently than modern builds. Root systems from large trees can stress drainage systems during heavy rainfall, and decades-old plumbing and roof structures may fail more quickly when storms strike. Newer subdivisions typically have updated materials and grading, but are still vulnerable to the intense thunderstorms and seasonal flooding common to East Texas.</p><p>The inspection and assessment process must account for Lufkin's weather patterns: spring and summer storms bring rapid rainfall and occasional flash flooding, while winter freeze-thaw cycles can crack foundations and burst pipes, leading to hidden water intrusion. Professionals connecting with Freeman Restoration understand how these local conditions—combined with each property's age, construction type, and drainage design—affect the scope and urgency of water damage assessment. Quick, expert evaluation is critical to identify both visible damage and moisture trapped in walls, crawlspaces, and foundations before secondary damage develops.</p>",
+            "_ai_generated_at": "2026-09-01T01:21:05.334344Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "51c1477451a22d6e",
+            "_it_photo_orig": "sites/water-site/uploads/media/traditional-two-story-home-exterior-2-lufkin-tx.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Damage Inspection & Assessment for Lufkin",
+            "steps_items": [
+                {
+                    "heading": "Spring: Heavy Rain & Flooding",
+                    "text": "Spring brings increased rainfall and thunderstorm activity across the Lufkin region, raising flood risk for basements, crawl spaces, and low-lying properties. Freeman Restoration connects you with local water damage specialists who assess saturation, document loss, and begin water removal and drying to prevent mold growth and structural issues."
+                },
+                {
+                    "heading": "Summer: Heat & Humidity Damage",
+                    "text": "Summer's intense heat and humidity accelerate water damage deterioration and create conditions for secondary problems in affected areas. Local restoration providers in the Freeman network inspect moisture levels in walls, flooring, and contents, implement targeted drying strategies, and monitor for emerging concerns during this critical season."
+                },
+                {
+                    "heading": "Fall: Storm Season Peak",
+                    "text": "Fall severe weather brings thunderstorms and potential wind-driven rain that penetrate roofs and walls, causing interior water intrusion. Freeman Restoration links property owners with responsive local providers who quickly assess storm-related water damage, identify entry points, and coordinate water extraction and structural drying before secondary damage spreads."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw & Pipes",
+                    "text": "Winter cold snaps in Texas can freeze exposed pipes and burst water lines, flooding interiors rapidly. Freeman Restoration helps connect you with local water damage experts who assess pipe damage, standing water, and structural impact, then coordinate immediate water removal and drying to stabilize your property and contents."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:21:09.814661Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "bbf2099a223aa87e"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "skin": "subtle"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What exactly happens during a water damage inspection and assessment in Lufkin?",
+                    "answer": "<p>A water damage inspection involves a thorough evaluation of affected areas to identify moisture intrusion, structural damage, and hidden water pockets. The assessment documents the extent of damage, affected materials, and drying needs. Freeman Restoration connects you with local providers who use moisture meters, thermal imaging, and visual inspection to create a detailed report—essential for insurance claims and restoration planning.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman Restoration connect me with an inspector in Lufkin after water damage?",
+                    "answer": "<p>Water damage requires urgent response, and Freeman Restoration works to connect you with independent local providers promptly. Many providers in the Lufkin area offer same-day or next-day inspection appointments for active water emergencies. Contact Freeman Restoration immediately when damage occurs so we can link you with available inspectors who can assess the situation quickly.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of water damage inspection and assessment?",
+                    "answer": "<p>Inspection costs vary based on property size, damage severity, and whether the water is clean or contaminated. Extensive moisture mapping or hard-to-reach areas may increase the fee. Freeman Restoration connects you with local providers who can discuss pricing during initial contact. Many inspections are covered or partially reimbursed by homeowners' insurance, so clarify coverage before scheduling.</p>"
+                },
+                {
+                    "question": "How should I prepare before a water damage inspector arrives at my property?",
+                    "answer": "<p>Clear pathways to affected areas and shut off water at the main if safe to do so. Do not attempt to remove standing water if electrical hazards are present. Document visible damage with photos, but avoid disturbing wet materials. Make a list of affected rooms and items. When the inspector arrives, provide access to all affected zones and share details about when damage began and its source.</p>"
+                },
+                {
+                    "question": "What can I do to prevent water damage in my Lufkin home after inspection?",
+                    "answer": "<p>After assessment, inspectors typically recommend preventive measures such as improving drainage, sealing foundation cracks, maintaining gutters, and installing sump pumps or backflow valves. Regular inspection of plumbing, HVAC condensation lines, and roof condition reduces risk. In areas like South Lufkin prone to foundation moisture, ground grading away from the home is important. Freeman Restoration's connected providers can explain findings and recommend next steps.</p>"
+                },
+                {
+                    "question": "Why is water damage inspection urgent during Lufkin's heavy rain and freeze seasons?",
+                    "answer": "<p>East Texas experiences heavy spring and summer rainfall, plus winter freeze-thaw cycles that crack foundations and burst pipes. Delayed inspection allows water to penetrate deeper, increasing drying time and damage scope. Mold and structural deterioration accelerate in humid conditions. Lufkin's climate makes prompt assessment critical—Freeman Restoration helps you connect with local inspectors quickly to document damage before it worsens and to support insurance documentation.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:21:18.877711Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "349fd4b446dd794b",
+            "skin": "dark",
+            "fq_open": true,
+            "_ai_injected_count": 6
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "skin": "accent"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links]"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "skin": "light"
+        }
     ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
-    ],
-    "population": 34187,
-    "_researched": 1,
-    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>The Lufkin area experiences heavy seasonal rainfall and severe thunderstorms that can overwhelm drainage systems and cause sudden water intrusion into homes and businesses. Freeman Restoration connects property owners with independent local restoration providers who conduct thorough water damage inspections and assessments to identify hidden moisture, structural concerns, and next steps for recovery. Fast access to a qualified local provider means your property is evaluated promptly when minutes matter most.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Water damage inspection & assessment in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/water-damage-inspection-ceiling-flashlight-lufkin-tx.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:53.641044Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "5a2368f4a3af0d49",
-      "_hs_photo_orig": "sites/water-site/uploads/media/water-damage-inspection-ceiling-flashlight-2-lufkin-tx.webp",
-      "_ai_injected_count": 1
+    "seo": {
+        "seo_title": "Water Damage Inspection in {city_state} | {business}",
+        "canonical_url": "{website}/water-damage-inspection-lufkin-tx/",
+        "meta_description": "Water Damage Inspection & Assessment in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "water damage inspection & assessment Lufkin TX, water damage assessment Lufkin, moisture inspection Lufkin, water damage evaluation Lufkin",
+        "og_title": "Water Damage Inspection in {city_state} | {business}",
+        "og_description": "24/7 water damage inspection & assessment in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/about-us-restoration-crew-lufkin-tx.webp",
+        "service_name": "Water Damage Inspection & Assessment",
+        "service_type": "Water Damage Inspection & Assessment",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Water damage inspection & assessment for homes and businesses in {city_state}, including water damage assessment, moisture inspection and water damage evaluation.",
+        "bc_label": "Water Damage Inspection & Assessment",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Inspection & Assessment\",\n    \"name\": \"Water Damage Inspection & Assessment in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 water damage inspection & assessment in Lufkin, TX — water damage assessment, moisture inspection and water damage evaluation.\"\n}",
+        "primary_keyword": "Water Damage Inspection & Assessment",
+        "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate"
     },
-    {
-      "type": "trust_bar",
-      "tb_bg": "accent",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
-        {
-          "label": "Free Estimates",
-          "icon": ""
-        },
-        {
-          "label": "24/7 Response",
-          "icon": ""
-        },
-        {
-          "label": "Fast Local Response",
-          "icon": ""
-        }
-      ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-lufkin-tx.webp",
-      "it_alt": "Water damage assessment in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Water Damage Inspection & Assessment in Lufkin, Texas",
-      "text": "<p>Lufkin's location in East Texas exposes property owners to significant water damage risks throughout the year. The region experiences heavy spring rainfall, summer thunderstorms that can develop rapidly, and occasional flooding from nearby waterways during wet seasons. Winter freeze-thaw cycles can crack pipes and compromise foundations, while the area's humidity creates conditions where hidden moisture damage may develop slowly inside walls and crawl spaces. Whether damage is visible or suspected, a thorough inspection and assessment from qualified professionals is essential to identify the full scope of the problem before restoration begins.</p><p>Freeman Restoration connects Lufkin property owners with independent local restoration providers who specialize in water damage inspection and assessment. These professionals arrive ready to document the affected areas, identify moisture intrusion points, and evaluate structural and material damage with careful attention to detail. They photograph findings, assess drying potential, and outline a clear path forward so you understand what happened and what comes next. Whether your property is in North Lufkin, the Loop 287 corridor, or elsewhere in the area, a fast local connection to an experienced inspection team can make the difference in protecting your home or business and supporting your insurance claim process.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:57.585594Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "402e82640dd5f313",
-      "_it_photo_orig": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-2-lufkin-tx.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Fast Access to Local Experts",
-          "text": "Freeman Restoration connects you directly to independent restoration providers in your area. Quick response to water damage emergencies means faster mitigation and reduced secondary damage to your property."
-        },
-        {
-          "heading": "Thorough Damage Assessment and Documentation",
-          "text": "Connected providers conduct detailed inspections of affected areas, documenting water intrusion, saturation, and structural impact. Comprehensive assessment supports insurance claims and guides effective restoration decisions."
-        },
-        {
-          "heading": "Professional Drying and Treatment Plans",
-          "text": "Local restoration specialists develop tailored drying strategies and treatment protocols for your specific damage. Professional-grade equipment and methods help prevent mold growth and structural deterioration."
-        },
-        {
-          "heading": "Ready for Texas Seasonal Water Risks",
-          "text": "East Texas experiences heavy spring and summer storms, plus freeze-thaw cycles in winter that stress pipes and foundations. Freeman Restoration connects you with providers experienced in rapid response to the region's unpredictable weather patterns."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:21:01.137139Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "88b4f12149d111f4"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Contact {business}",
-          "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/traditional-two-story-home-exterior-lufkin-tx.webp",
-      "it_alt": "Moisture inspection in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Water Damage Assessment Across Lufkin",
-      "text": "<p>Properties throughout Lufkin face distinct water damage risks shaped by the region's climate and building stock. Established neighborhoods with mature trees—including areas like Downtown Lufkin and South Lufkin—often deal with older construction materials and aging foundations that absorb water differently than modern builds. Root systems from large trees can stress drainage systems during heavy rainfall, and decades-old plumbing and roof structures may fail more quickly when storms strike. Newer subdivisions typically have updated materials and grading, but are still vulnerable to the intense thunderstorms and seasonal flooding common to East Texas.</p><p>The inspection and assessment process must account for Lufkin's weather patterns: spring and summer storms bring rapid rainfall and occasional flash flooding, while winter freeze-thaw cycles can crack foundations and burst pipes, leading to hidden water intrusion. Professionals connecting with Freeman Restoration understand how these local conditions—combined with each property's age, construction type, and drainage design—affect the scope and urgency of water damage assessment. Quick, expert evaluation is critical to identify both visible damage and moisture trapped in walls, crawlspaces, and foundations before secondary damage develops.</p>",
-      "_ai_generated_at": "2026-09-01T01:21:05.334344Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "51c1477451a22d6e",
-      "_it_photo_orig": "sites/water-site/uploads/media/traditional-two-story-home-exterior-2-lufkin-tx.webp"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Damage Inspection & Assessment for Lufkin",
-      "steps_items": [
-        {
-          "heading": "Spring: Heavy Rain & Flooding",
-          "text": "Spring brings increased rainfall and thunderstorm activity across the Lufkin region, raising flood risk for basements, crawl spaces, and low-lying properties. Freeman Restoration connects you with local water damage specialists who assess saturation, document loss, and begin water removal and drying to prevent mold growth and structural issues."
-        },
-        {
-          "heading": "Summer: Heat & Humidity Damage",
-          "text": "Summer's intense heat and humidity accelerate water damage deterioration and create conditions for secondary problems in affected areas. Local restoration providers in the Freeman network inspect moisture levels in walls, flooring, and contents, implement targeted drying strategies, and monitor for emerging concerns during this critical season."
-        },
-        {
-          "heading": "Fall: Storm Season Peak",
-          "text": "Fall severe weather brings thunderstorms and potential wind-driven rain that penetrate roofs and walls, causing interior water intrusion. Freeman Restoration links property owners with responsive local providers who quickly assess storm-related water damage, identify entry points, and coordinate water extraction and structural drying before secondary damage spreads."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw & Pipes",
-          "text": "Winter cold snaps in Texas can freeze exposed pipes and burst water lines, flooding interiors rapidly. Freeman Restoration helps connect you with local water damage experts who assess pipe damage, standing water, and structural impact, then coordinate immediate water removal and drying to stabilize your property and contents."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:21:09.814661Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "bbf2099a223aa87e"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "skin": "subtle"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What exactly happens during a water damage inspection and assessment in Lufkin?",
-          "answer": "<p>A water damage inspection involves a thorough evaluation of affected areas to identify moisture intrusion, structural damage, and hidden water pockets. The assessment documents the extent of damage, affected materials, and drying needs. Freeman Restoration connects you with local providers who use moisture meters, thermal imaging, and visual inspection to create a detailed report—essential for insurance claims and restoration planning.</p>"
-        },
-        {
-          "question": "How quickly can Freeman Restoration connect me with an inspector in Lufkin after water damage?",
-          "answer": "<p>Water damage requires urgent response, and Freeman Restoration works to connect you with independent local providers promptly. Many providers in the Lufkin area offer same-day or next-day inspection appointments for active water emergencies. Contact Freeman Restoration immediately when damage occurs so we can link you with available inspectors who can assess the situation quickly.</p>"
-        },
-        {
-          "question": "What factors affect the cost of water damage inspection and assessment?",
-          "answer": "<p>Inspection costs vary based on property size, damage severity, and whether the water is clean or contaminated. Extensive moisture mapping or hard-to-reach areas may increase the fee. Freeman Restoration connects you with local providers who can discuss pricing during initial contact. Many inspections are covered or partially reimbursed by homeowners' insurance, so clarify coverage before scheduling.</p>"
-        },
-        {
-          "question": "How should I prepare before a water damage inspector arrives at my property?",
-          "answer": "<p>Clear pathways to affected areas and shut off water at the main if safe to do so. Do not attempt to remove standing water if electrical hazards are present. Document visible damage with photos, but avoid disturbing wet materials. Make a list of affected rooms and items. When the inspector arrives, provide access to all affected zones and share details about when damage began and its source.</p>"
-        },
-        {
-          "question": "What can I do to prevent water damage in my Lufkin home after inspection?",
-          "answer": "<p>After assessment, inspectors typically recommend preventive measures such as improving drainage, sealing foundation cracks, maintaining gutters, and installing sump pumps or backflow valves. Regular inspection of plumbing, HVAC condensation lines, and roof condition reduces risk. In areas like South Lufkin prone to foundation moisture, ground grading away from the home is important. Freeman Restoration's connected providers can explain findings and recommend next steps.</p>"
-        },
-        {
-          "question": "Why is water damage inspection urgent during Lufkin's heavy rain and freeze seasons?",
-          "answer": "<p>East Texas experiences heavy spring and summer rainfall, plus winter freeze-thaw cycles that crack foundations and burst pipes. Delayed inspection allows water to penetrate deeper, increasing drying time and damage scope. Mold and structural deterioration accelerate in humid conditions. Lufkin's climate makes prompt assessment critical—Freeman Restoration helps you connect with local inspectors quickly to document damage before it worsens and to support insurance documentation.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:21:18.877711Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "349fd4b446dd794b",
-      "skin": "dark",
-      "fq_open": true,
-      "_ai_injected_count": 6
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "skin": "light"
-    }
-  ],
-  "seo": {
-    "seo_title": "Water Damage Inspection & Assessment in {city_state} | {business}",
-    "canonical_url": "{website}/water-damage-inspection-lufkin-tx/",
-    "meta_description": "Water Damage Inspection & Assessment in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "water damage inspection & assessment Lufkin TX, water damage assessment Lufkin, moisture inspection Lufkin, water damage evaluation Lufkin",
-    "og_title": "Water Damage Inspection & Assessment in {city_state} | {business}",
-    "og_description": "24/7 water damage inspection & assessment in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/about-us-restoration-crew-lufkin-tx.webp",
-    "service_name": "Water Damage Inspection & Assessment",
-    "service_type": "Water Damage Inspection & Assessment",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Water damage inspection & assessment for homes and businesses in {city_state}, including water damage assessment, moisture inspection and water damage evaluation.",
-    "bc_label": "Water Damage Inspection & Assessment",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Inspection & Assessment\",\n    \"name\": \"Water Damage Inspection & Assessment in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 water damage inspection & assessment in Lufkin, TX — water damage assessment, moisture inspection and water damage evaluation.\"\n}",
-    "primary_keyword": "Water Damage Inspection & Assessment",
-    "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "b2c91afd4e9a7974724dd615b0e6d854"
+    "locked_blocks": [],
+    "generated_at": "2026-07-12T01:05:23+00:00",
+    "template_version": "b2c91afd4e9a7974724dd615b0e6d854"
 }
