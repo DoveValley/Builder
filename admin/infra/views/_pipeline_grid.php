@@ -20,7 +20,11 @@
 require_once __DIR__ . '/../lib/pipeline.php';
 require_once BASE_DIR . '/includes/multisite/batch.php';   // ms_batch_seq() for the Batch # column
 
-$pgBatch   = (string) ($_GET['batch'] ?? '');
+// No ?batch= at all (a plain click on the Bulk nav tab) defaults to "All batches" —
+// Scott's own call, since that view catches a freshly-claimed domain "All in flight"
+// alone would miss. "All in flight" stays one click away in the dropdown, reached by
+// an EXPLICIT empty ?batch= (not the same as the param being absent).
+$pgBatch   = isset($_GET['batch']) ? (string) $_GET['batch'] : INFRA_PIPELINE_ALL_BATCHES;
 $pgBatches = infra_pipeline_batches();
 $pgSteps   = infra_pipeline_steps();
 $pgRows    = infra_pipeline_rows($pgBatch);
@@ -133,8 +137,8 @@ function pg_cell(array $c): string
     <?php if ($pgBatches): ?>
     <div class="pg-tabs">
       <select onchange="if (this.value) location.href = this.value;">
-        <option value="index.php?view=bulk" <?= $pgBatch === '' ? 'selected' : '' ?>>All in flight</option>
         <option value="index.php?view=bulk&amp;batch=<?= INFRA_PIPELINE_ALL_BATCHES ?>" <?= $pgBatch === INFRA_PIPELINE_ALL_BATCHES ? 'selected' : '' ?>>All batches (<?= array_sum($pgBatches) ?>)</option>
+        <option value="index.php?view=bulk&amp;batch=" <?= $pgBatch === '' ? 'selected' : '' ?>>All in flight</option>
         <?php foreach ($pgBatches as $b => $c): ?>
           <option value="index.php?view=bulk&amp;batch=<?= urlencode($b) ?>" <?= $pgBatch === $b ? 'selected' : '' ?>><?= ih($b) ?> (<?= $c ?>)</option>
         <?php endforeach; ?>

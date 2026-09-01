@@ -63,6 +63,10 @@ $sitesExist = !empty($sites);
 ms_migrate_all_legacy_batches();
 
 $batches   = ms_all_batches();
+// Displayed by batch number, not last-touched — this page's own default; other
+// callers of ms_all_batches() (e.g. the D.Buy "Claim for Batch" picker) are
+// untouched by this and keep whatever order they already had.
+usort($batches, fn($a, $b) => ((int) ($a['seq'] ?? PHP_INT_MAX)) <=> ((int) ($b['seq'] ?? PHP_INT_MAX)));
 $siteNames = array_column($sites, 'name', 'id');
 
 // How many batches each site owns — deleting a site takes its batches with it, so the
@@ -294,7 +298,7 @@ function fmt_date(string $iso): string {
         <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
             <input type="search" id="batch-search" placeholder="Search batches&hellip;" oninput="filterBatches()"
                    style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px;font-size:.85rem;min-width:220px">
-            <button type="button" class="btn-sm-outline" id="batch-sort-btn" onclick="toggleBatchSort()">Sort A&ndash;Z &#8645;</button>
+            <button type="button" class="btn-sm-outline" id="batch-sort-btn" onclick="toggleBatchSort()">Sort by # &#8645;</button>
             <span id="batch-search-count" style="font-size:.82rem;color:#6b7280"></span>
         </div>
         <div id="batch-list">
@@ -303,7 +307,7 @@ function fmt_date(string $iso): string {
             $col = ['running' => ['#1d4ed8', '#dbeafe'], 'done' => ['#166534', '#dcfce7'],
                     'failed'  => ['#991b1b', '#fee2e2'], 'stale' => ['#92400e', '#fef3c7']][$st['state']] ?? ['#475569', '#f1f5f9'];
         ?>
-        <div class="batch-row" id="batch-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>" data-name="<?= h(strtolower((string) ($b['name'] ?? $b['id']))) ?>">
+        <div class="batch-row" id="batch-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>" data-name="<?= h(strtolower((string) ($b['name'] ?? $b['id']))) ?>" data-seq="<?= (int) ($b['seq'] ?? 0) ?>">
             <div class="batch-main">
                 <p class="batch-name" id="bname-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>"><?= isset($b['seq']) ? '<span style="color:#94a3b8;font-weight:400">#' . (int) $b['seq'] . '</span> ' : '' ?><?= h($b['name'] ?? $b['id']) ?></p>
                 <p class="batch-master">copies from <strong><?= h($siteNames[$b['master_id']] ?? $b['master_id']) ?></strong></p>
@@ -333,7 +337,7 @@ function fmt_date(string $iso): string {
     </div>
     <script>
     (function () {
-        var sortAsc = null;   // null = untouched (server/creation order), true/false once toggled
+        var sortAsc = true;   // page already renders in ascending # order; this is what the next click flips
         window.filterBatches = function () {
             var q = document.getElementById('batch-search').value.trim().toLowerCase();
             var rows = document.querySelectorAll('#batch-list .batch-row');
@@ -348,15 +352,15 @@ function fmt_date(string $iso): string {
             document.getElementById('batch-empty-search').style.display = (shown === 0 && q !== '') ? '' : 'none';
         };
         window.toggleBatchSort = function () {
-            sortAsc = sortAsc === true ? false : true;
+            sortAsc = !sortAsc;
             var list = document.getElementById('batch-list');
             var rows = Array.prototype.slice.call(list.querySelectorAll('.batch-row'));
             rows.sort(function (a, b) {
-                var c = (a.dataset.name || '').localeCompare(b.dataset.name || '');
+                var c = (parseInt(a.dataset.seq, 10) || 0) - (parseInt(b.dataset.seq, 10) || 0);
                 return sortAsc ? c : -c;
             });
             rows.forEach(function (r) { list.appendChild(r); });
-            document.getElementById('batch-sort-btn').textContent = 'Sort ' + (sortAsc ? 'A–Z ↑' : 'Z–A ↓');
+            document.getElementById('batch-sort-btn').textContent = 'Sort by # ' + (sortAsc ? '↑' : '↓');
         };
     })();
     </script>
