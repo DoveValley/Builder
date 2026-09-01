@@ -9,6 +9,7 @@
  *        | check_avail    availability check for the ticked rows (read-only)
  *        | remove         untrack the ticked rows (no infrastructure touched)
  *        | to_dfinder     hand ticked TAKEN rows back to D.Finder as "Not available"
+ *        | to_bulk        hand ticked OWNED rows to Bulk Provision's target textarea
  *
  * Nothing here spends money — buying is a separate, deliberately separate step.
  */
@@ -36,7 +37,7 @@ $sel    = array_values(array_unique(array_filter(array_map(
     fn($d) => strtolower(trim((string) $d)), (array) ($_POST['sel'] ?? [])))));
 
 /** Actions that operate on ticked rows all need at least one tick. */
-$needsSelection = ['set_registrar', 'set_buy_at', 'schedule_buys', 'check_avail', 'remove', 'to_dfinder'];
+$needsSelection = ['set_registrar', 'set_buy_at', 'schedule_buys', 'check_avail', 'remove', 'to_dfinder', 'to_bulk'];
 if (in_array($action, $needsSelection, true) && !$sel) {
     infra_set_flash('warn', 'No rows ticked — nothing to do.');
     header('Location: ' . $back); exit;
@@ -337,6 +338,36 @@ switch ($action) {
         }
         infra_set_flash(($noNiche || $skipped) ? 'warn' : 'ok', $msg);
         break;
+
+    /* ---- bulk: send ticked rows to Bulk Provision's target list -----------
+       A one-time UI handoff, not a data move: nothing here is provisioned and
+       nothing leaves this table — the domain still shows up next time this
+       page loads (it only drops off once Bulk actually changes its status).
+       Only owned domains make sense to hand off — anything else has no
+       purchase receipt yet, so it is reported and left behind rather than
+       silently included in the count. */
+    case 'to_bulk':
+        $ready = []; $notOwned = [];
+        foreach ($sel as $d) {
+            $rec = infra_state_get_domain($d);
+            if ($rec && ($rec['owned'] ?? '') === 'yes') $ready[] = $d;
+            else $notOwned[] = $d;
+        }
+        if (!$ready) {
+            infra_set_flash('err', 'None of the ticked rows are owned yet — only owned domains can be sent to Bulk.');
+            break;
+        }
+        // Read once by bulk.php via infra_session_take(), which clears the key on
+        // read — a later plain visit to Bulk starts with an empty textarea again.
+        infra_session_resume();
+        $_SESSION['infra_bulk_prefill'] = implode("\n", $ready);
+        $msg = 'Sent ' . count($ready) . ' domain(s) to Bulk — check the textarea there.';
+        if ($notOwned) {
+            $msg .= "\nLeft " . count($notOwned) . ' not yet owned: '
+                  . implode(', ', array_slice($notOwned, 0, 6)) . (count($notOwned) > 6 ? ' …' : '');
+        }
+        infra_set_flash($notOwned ? 'warn' : 'ok', $msg);
+        header('Location: ../index.php?view=bulk'); exit;
 
     default:
         infra_set_flash('err', 'Unknown action.');

@@ -1,5 +1,20 @@
 <?php
 /* ============================= BULK PROVISION ============================= */
+    // Read once, BEFORE infra_header(). index.php releases the session lock for
+    // every view (not just actions) before dispatching here, so the session is
+    // already CLOSED at this point — infra_session_resume() reopens it while
+    // headers are still unsent (the only window it's allowed to). Deliberately
+    // NOT calling infra_session_release() ourselves afterward: infra_header()'s
+    // own flash clear (infra_render_flash() -> infra_session_take('infra_flash'))
+    // is the thing that closes the session a few lines from now, and it has to
+    // find this key already unset so both clears persist in that one write.
+    // Releasing here instead would close the session before headers are sent
+    // but reopen-and-close TWICE, leaving the flash's own clear stranded behind
+    // an already-sent header on the second call — persisted key, stuck flash.
+    infra_session_resume();
+    $prefill = (string) ($_SESSION['infra_bulk_prefill'] ?? '');
+    unset($_SESSION['infra_bulk_prefill']);
+
     infra_header('bulk');
     // The durable record of what a run achieved, above the form that starts one. The
     // streaming log below says what is happening right now and is gone the moment you
@@ -13,9 +28,12 @@
       <h2>Bulk Provision — Phase 1 at scale</h2>
       <div class="body">
         <div class="ic-note">Paste one domain per line — a single domain works fine here too, so this also covers what the old standalone "+ New Site" form did (still reachable at <a href="index.php?view=new">index.php?view=new</a> if you want its explicit single-domain layout instead of round-robin). Each gets a host created on its Hestia server + is fully staged in Cloudflare (DNS→VPS IP proxied, SSL, HSTS) and saved to fleet state. Idempotent (existing sites/zones are skipped/updated), staged only — no nameservers switched. Progress streams live below. Provisioning here outside of a Batch? The FTP creds this creates can still be exported as a params CSV on the <a href="index.php?view=deploy">Deploy</a> page.</div>
+        <?php if ($prefill !== ''): ?>
+          <div class="ic-note" style="background:#eff6ff;border-color:#bfdbfe;">Prefilled with <?= substr_count($prefill, "\n") + 1 ?> domain(s) sent from <a href="index.php?view=domains">D.Buy</a> — edit freely before running.</div>
+        <?php endif; ?>
         <form id="bulkForm">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
-          <textarea name="domains" rows="8" placeholder="dallaspestpros.com&#10;katypestpros.com&#10;austinpestpros.com" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-family:monospace;font-size:13px"></textarea>
+          <textarea name="domains" rows="8" placeholder="dallaspestpros.com&#10;katypestpros.com&#10;austinpestpros.com" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-family:monospace;font-size:13px"><?= ih($prefill) ?></textarea>
           <table style="margin-top:10px">
             <tr><th style="width:180px">Hestia server</th><td>
               <select name="server_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
