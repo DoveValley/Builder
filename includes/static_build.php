@@ -54,6 +54,29 @@ if (!function_exists('gen_reset_shortcode_globals')) {
     }
 }
 
+if (!function_exists('gen_clear_dir')) {
+    /**
+     * Delete everything under $dir (but not $dir itself). gen_copy_dir() only
+     * ever adds/overwrites — it never removes a destination file whose source
+     * was renamed or deleted, so output/{site}/assets and uploads/ silently
+     * accumulated every stale file from every past build forever (this is how
+     * long-removed logos and pre-rename image filenames ended up back on a live
+     * deploy months after they'd been cleaned up in the actual site data).
+     * Called right before each copy so a build is always a true clean snapshot
+     * of current source, never "whatever was already there plus today's files".
+     */
+    function gen_clear_dir(string $dir): void {
+        if (!is_dir($dir)) return;
+        $items = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($items as $item) {
+            $item->isDir() ? rmdir($item->getPathname()) : unlink($item->getPathname());
+        }
+    }
+}
+
 if (!function_exists('gen_copy_dir')) {
     /**
      * @param string[] $skipDirNames Directory basenames to exclude anywhere in the
@@ -397,12 +420,17 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     progress_tick(++$_preDone, $_preTotal);
 
     // ── 6. Copy assets ────────────────────────────────────────────────────────────
+    // Clear the destination first — gen_copy_dir() only adds/overwrites, so without
+    // this a file removed or renamed from the real source would linger in every
+    // build forever (see gen_clear_dir()'s docblock).
     progress_log('Copying assets…');
+    gen_clear_dir($outputBase . 'assets');
     [$assetCount, $assetFailed] = gen_copy_dir(BASE_DIR . '/assets', $outputBase . 'assets', ['admin', 'src']);
     progress_log("Assets: {$assetCount} files copied." . ($assetFailed ? " ({$assetFailed} failed)" : ''), $assetFailed ? 'warn' : 'log');
 
     // ── 7. Copy uploads ───────────────────────────────────────────────────────────
     progress_log('Copying uploads…');
+    gen_clear_dir($outputBase . 'uploads/');
     [$uploadCount, $uploadFailed] = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
     progress_log("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''));
     progress_tick(++$_preDone, $_preTotal);
