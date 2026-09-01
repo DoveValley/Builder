@@ -38,6 +38,9 @@ uploads/downloads/
 # Test Lab -> build locked hero-overlay style (set per-environment via the UI)
 multisite/hero_style.json
 
+# Fleet-wide batch sequence counter -- live runtime state, not config
+multisite/batch_seq.json
+
 # Generation backups (created by generate.py on each landing regen)
 sites/*/data/pages/*.bak
 

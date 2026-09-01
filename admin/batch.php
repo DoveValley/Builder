@@ -57,7 +57,7 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= h($batch['name']) ?> — Batch — <?= h(SITE_TITLE) ?></title>
+<title><?= isset($batch['seq']) ? '#' . (int) $batch['seq'] . ' ' : '' ?><?= h($batch['name']) ?> — Batch — <?= h(SITE_TITLE) ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
 .bp-master   { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:.85rem; color:#475569; margin:0 0 20px; }
@@ -72,6 +72,7 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
     <div class="admin-header">
         <h1>
             <a href="sites.php" style="color:inherit;text-decoration:none;font-size:0.75em;opacity:0.7;margin-right:10px;" title="Site Factory">&#8592; Factory</a>
+            <?php if (isset($batch['seq'])): ?><span style="color:#94a3b8;font-weight:400">#<?= (int) $batch['seq'] ?></span> <?php endif; ?>
             <?= h($batch['name']) ?>
         </h1>
         <div>

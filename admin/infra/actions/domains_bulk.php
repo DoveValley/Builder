@@ -9,12 +9,14 @@
  *        | check_avail    availability check for the ticked rows (read-only)
  *        | remove         untrack the ticked rows (no infrastructure touched)
  *        | to_dfinder     hand ticked TAKEN rows back to D.Finder as "Not available"
- *        | to_bulk        hand ticked OWNED rows to Bulk Provision's target textarea
+ *        | claim_batch    claim ticked OWNED rows into a batch's own target list
+ *        | mark_owned     record a hand-bought domain as owned, no purchase made here
  *
  * Nothing here spends money — buying is a separate, deliberately separate step.
  */
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/acquire.php';
+require_once __DIR__ . '/../lib/claim.php';
 
 $backQs = (string) ($_POST['back'] ?? 'view=domains');
 // Only our own query string may come back through — never an absolute URL.
@@ -37,7 +39,7 @@ $sel    = array_values(array_unique(array_filter(array_map(
     fn($d) => strtolower(trim((string) $d)), (array) ($_POST['sel'] ?? [])))));
 
 /** Actions that operate on ticked rows all need at least one tick. */
-$needsSelection = ['set_registrar', 'set_buy_at', 'schedule_buys', 'check_avail', 'remove', 'to_dfinder', 'to_bulk'];
+$needsSelection = ['set_registrar', 'set_buy_at', 'schedule_buys', 'check_avail', 'remove', 'to_dfinder', 'claim_batch', 'mark_owned'];
 if (in_array($action, $needsSelection, true) && !$sel) {
     infra_set_flash('warn', 'No rows ticked — nothing to do.');
     header('Location: ' . $back); exit;
@@ -346,32 +348,58 @@ switch ($action) {
        Only owned domains make sense to hand off — anything else has no
        purchase receipt yet, so it is reported and left behind rather than
        silently included in the count. */
-    case 'to_bulk':
-        $ready = []; $notOwned = [];
-        foreach ($sel as $d) {
-            $rec = infra_state_get_domain($d);
-            if ($rec && ($rec['owned'] ?? '') === 'yes') $ready[] = $d;
-            else $notOwned[] = $d;
-        }
-        if (!$ready) {
-            infra_set_flash('err', 'None of the ticked rows are owned yet — only owned domains can be sent to Bulk.');
+    /* ---- bulk: claim ticked OWNED rows into a batch's own target list -----
+       Tight on purpose: a row only ever gets appended to the batch's params.csv
+       after infra_claim_for_batch() confirms it is tracked in D.Buy, actually
+       owned, and not already claimed by a DIFFERENT batch. Nothing here ever
+       invents a row for an untracked domain the way Create host's older,
+       looser path still does for a hand-typed target list. */
+    case 'claim_batch':
+        $target = (string) ($_POST['claim_batch'] ?? '');
+        if (!preg_match('#^([a-z0-9_-]+)/([a-z0-9]+)$#i', $target, $m)) {
+            infra_set_flash('err', 'Pick a batch first.');
             break;
         }
-        // Read once by bulk.php via infra_session_take(), which clears the key on
-        // read — a later plain visit to Bulk starts with an empty textarea again.
-        infra_session_resume();
-        $_SESSION['infra_bulk_prefill'] = implode("\n", $ready);
-        // A durable record on the row itself, separate from the session stash above —
-        // the session clears the instant Bulk is opened, but "was this sent already"
-        // needs to survive far longer than that (until it is actually provisioned).
-        infra_state_bulk_set($ready, ['bulk_sent_at' => infra_now()]);
-        $msg = 'Sent ' . count($ready) . ' domain(s) to Bulk — check the textarea there.';
-        if ($notOwned) {
-            $msg .= "\nLeft " . count($notOwned) . ' not yet owned: '
-                  . implode(', ', array_slice($notOwned, 0, 6)) . (count($notOwned) > 6 ? ' …' : '');
+        [, $masterId, $batchId] = $m;
+        $claimed = []; $skipped = [];
+        foreach ($sel as $d) {
+            $r = infra_claim_for_batch($d, $masterId, $batchId);
+            if ($r['ok']) $claimed[] = $d;
+            else $skipped[] = "{$d} ({$r['reason']})";
         }
-        infra_set_flash($notOwned ? 'warn' : 'ok', $msg);
-        header('Location: ../index.php?view=bulk'); exit;
+        $msg = $claimed
+            ? 'Claimed ' . count($claimed) . " domain(s) for {$masterId}/{$batchId}."
+            : 'Nothing claimed.';
+        if ($skipped) {
+            $msg .= "\nSkipped " . count($skipped) . ': '
+                  . implode(', ', array_slice($skipped, 0, 6)) . (count($skipped) > 6 ? ' …' : '');
+        }
+        infra_set_flash($skipped ? 'warn' : 'ok', $msg);
+        break;
+
+    /* ---- bulk: mark ticked rows as bought by hand ------------------------
+       For domains purchased directly at a registrar's own site rather than
+       through this console — same infra_domain_mark_owned() the single-domain
+       "Already bought it by hand?" form on a domain's own page already uses,
+       just applied to every ticked row at once instead of one at a time. */
+    case 'mark_owned':
+        $registrar = strtolower(trim((string) ($_POST['owned_registrar'] ?? '')));
+        if ($registrar === '' || !in_array($registrar, infra_registrar_names(), true)) {
+            infra_set_flash('err', 'Pick a registrar first.');
+            break;
+        }
+        $n = 0; $failed = [];
+        foreach ($sel as $d) {
+            $r = infra_domain_mark_owned($d, $registrar);
+            if ($r['ok']) $n++; else $failed[] = $d;
+        }
+        $msg = "Marked {$n} domain(s) owned at {$registrar} — no purchase was made by the console.";
+        if ($failed) {
+            $msg .= "\nSkipped " . count($failed) . ' not tracked in fleet state: '
+                  . implode(', ', array_slice($failed, 0, 6)) . (count($failed) > 6 ? ' …' : '');
+        }
+        infra_set_flash($failed ? 'warn' : 'ok', $msg);
+        break;
 
     default:
         infra_set_flash('err', 'Unknown action.');

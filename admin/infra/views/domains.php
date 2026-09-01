@@ -1,5 +1,6 @@
 <?php
 /* ============================= DOMAINS ============================= */
+    require_once __DIR__ . '/../lib/claim.php';
     infra_header('domains');
 
     /* Infrastructure hostnames are NOT domains, and counting them as such made the
@@ -112,6 +113,7 @@
         'buyreg' => fn($r) => strtolower((string) $r['buy_registrar']),
         'buy_at' => fn($r) => $r['buy_at'] !== '' ? $r['buy_at'] : '9999-99-99',   // unscheduled last
         'owned'  => fn($r) => $r['owned'] === 'yes' ? '0' : '1',
+        'batch'  => fn($r) => $r['batch'] !== '' ? $r['batch'] : 'zzz',
     ];
     if (!isset($sortable[$sort])) $sort = 'domain';
     $key = $sortable[$sort];
@@ -285,14 +287,16 @@
             <dd style="margin:2px 0 0;color:#374151">Bulk-assigns a niche label to the ticked rows.</dd>
             <dt style="font-weight:600;margin-top:10px">Registrar → Set</dt>
             <dd style="margin:2px 0 0;color:#374151">Assigns which registrar will execute the purchase (or spreads the ticked rows round-robin across whichever registrars can buy).</dd>
+            <dt style="font-weight:600;margin-top:10px">Bought at → Mark owned</dt>
+            <dd style="margin:2px 0 0;color:#374151">For domains bought directly at the registrar's own site instead of through this console. Records the purchase on the ticked rows — nothing is charged.</dd>
             <dt style="font-weight:600;margin-top:10px">Buy date → Set</dt>
             <dd style="margin:2px 0 0;color:#374151">Sets one buy date on the ticked rows.</dd>
             <dt style="font-weight:600;margin-top:10px">Spread /day from … → Schedule</dt>
             <dd style="margin:2px 0 0;color:#374151">Same idea, spread across multiple days instead of one date — buying hundreds of domains in one minute is its own footprint signal.</dd>
             <dt style="font-weight:600;margin-top:10px">&rarr; D.Finder (not available)</dt>
             <dd style="margin:2px 0 0;color:#374151">Moves ticked TAKEN domains back to D.Finder marked "Not available" and removes them here, so D.Finder can propose the name again later.</dd>
-            <dt style="font-weight:600;margin-top:10px">&rarr; Send to Bulk</dt>
-            <dd style="margin:2px 0 0;color:#374151">Sends the ticked OWNED domains to Bulk Provision's textarea. Nothing here changes and nothing is provisioned until Run is pressed on the Bulk tab.</dd>
+            <dt style="font-weight:600;margin-top:10px">Claim for → Claim for Batch</dt>
+            <dd style="margin:2px 0 0;color:#374151">Claims the ticked OWNED domains into the chosen batch's own target list (params.csv) and tags them with it. Refuses anything not owned yet, or already claimed by a different batch — see the Batch column.</dd>
             <dt style="font-weight:600;margin-top:10px">Remove</dt>
             <dd style="margin:2px 0 0;color:#374151">Untracks the ticked domains here only. Refuses anything actually owned or with real infrastructure behind it — that belongs in the domain's own Danger Zone instead.</dd>
           </dl>
@@ -340,6 +344,14 @@
             </select>
             <button class="btn sec" type="submit" name="action" value="set_registrar">Set</button>
             <span style="color:#d1d5db">|</span>
+            <span>Bought at</span>
+            <select name="owned_registrar" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
+              <option value="">—</option>
+              <?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?></option><?php endforeach; ?>
+            </select>
+            <button class="btn sec" type="submit" name="action" value="mark_owned"
+                    title="For domains bought directly at the registrar's own site, outside this console. Records the purchase — nothing is charged.">Mark owned</button>
+            <span style="color:#d1d5db">|</span>
             <span>Buy date</span>
             <input type="date" name="bulk_buy_at" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px">
             <button class="btn sec" type="submit" name="action" value="set_buy_at">Set</button>
@@ -357,8 +369,15 @@
                     title="Adds each as a D.Finder candidate marked Not available, then removes it here"
                     onclick="return confirm('Move the ticked TAKEN domains to D.Finder as “Not available” and remove them from this table?\n\nOnly rows that were checked, came back taken and were never bought are moved — anything else is skipped and reported.')">&rarr; D.Finder (not available)</button>
             <span style="color:#d1d5db">|</span>
-            <button class="btn sec" type="submit" name="action" value="to_bulk"
-                    title="Sends the ticked OWNED domains to Bulk Provision's textarea. Nothing is removed here and nothing is provisioned until you press Run on the Bulk tab.">&rarr; Send to Bulk</button>
+            <span>Claim for</span>
+            <select name="claim_batch" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:8px;max-width:220px">
+              <option value="">— pick a batch —</option>
+              <?php foreach (infra_claimable_batches() as $b): ?>
+                <option value="<?= ih($b['master_id'] . '/' . $b['id']) ?>"><?= ih($b['master_id'] . ' — ' . $b['name']) ?></option>
+              <?php endforeach; ?>
+            </select>
+            <button class="btn sec" type="submit" name="action" value="claim_batch"
+                    title="Claims the ticked OWNED domains into that batch's own target list. Refuses anything not owned, or already claimed by a different batch.">&rarr; Claim for Batch</button>
             <span style="color:#d1d5db">|</span>
             <button class="btn sec" type="submit" name="action" value="remove" style="color:#991b1b" onclick="return confirm('Remove the ticked domains from the table? Only untracks them here — no infrastructure is touched.')">Remove</button>
           </div>
@@ -373,6 +392,7 @@
               <th>5. Buy</th>
               <th><?= $sortLink('buy_at', '6. Buy date') ?></th>
               <th><?= $sortLink('owned',  '7. Own') ?></th>
+              <th style="width:110px"><?= $sortLink('batch', '8. Batch') ?></th>
             </tr></thead>
             <tbody>
             <?php foreach ($slice as $r):
@@ -440,6 +460,7 @@
                   <td><input type="date" name="buy[<?= ih($d) ?>]" value="<?= ih($r['buy_at']) ?>" style="padding:4px 6px;border:1px solid #d1d5db;border-radius:6px;font-size:12px"></td>
                 <?php endif; ?>
                 <td><?= infra_own_cell($r) ?></td>
+                <td><?= infra_batch_cell($r) ?></td>
               </tr>
             <?php endforeach; ?>
             </tbody>

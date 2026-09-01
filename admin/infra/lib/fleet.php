@@ -352,7 +352,7 @@ function infra_fleet_domains(): array
             'avail_checked_at' => $st['avail_checked_at'] ?? '',
             'buy_error'        => $st['buy_error'] ?? '',
             'auto_renew'       => $st['auto_renew'] ?? '',
-            'bulk_sent_at'     => $st['bulk_sent_at'] ?? '',
+            'batch'            => $st['batch'] ?? '',
         ];
     }
     return $rows;

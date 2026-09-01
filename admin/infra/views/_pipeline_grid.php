@@ -18,6 +18,7 @@
  * Expects nothing. Reads ?batch= from the query string.
  */
 require_once __DIR__ . '/../lib/pipeline.php';
+require_once BASE_DIR . '/includes/multisite/batch.php';   // ms_batch_seq() for the Batch # column
 
 $pgBatch   = (string) ($_GET['batch'] ?? '');
 $pgBatches = infra_pipeline_batches();
@@ -96,9 +97,8 @@ function pg_cell(array $c): string
 .pg-d       { opacity:.45; border-bottom:1px dotted currentColor }   /* inferred, not checked */
 .pg-dom     { font-weight:600; color:#111827 }
 .pg-sub     { display:block; font-size:11px; color:#9ca3af; font-weight:400 }
-.pg-tabs a  { display:inline-block; padding:3px 10px; border:1px solid #d1d5db; border-radius:999px;
-              font-size:12px; text-decoration:none; color:#374151; margin:0 6px 6px 0 }
-.pg-tabs a.on { background:#111827; border-color:#111827; color:#fff }
+.pg-tabs    { margin-bottom:12px }
+.pg-tabs select { padding:6px 10px; border:1px solid #d1d5db; border-radius:8px; font-size:13px; color:#374151 }
 .pg-r       { border:1px solid #d1d5db; background:#fff; border-radius:5px; cursor:pointer;
               font-size:12px; line-height:1; padding:3px 7px; color:#374151 }
 .pg-r:hover { background:#111827; border-color:#111827; color:#fff }
@@ -132,17 +132,25 @@ function pg_cell(array $c): string
 
     <?php if ($pgBatches): ?>
     <div class="pg-tabs">
-      <a href="index.php?view=bulk" class="<?= $pgBatch === '' ? 'on' : '' ?>">All in flight</a>
-      <?php foreach ($pgBatches as $b => $c): ?>
-        <a href="index.php?view=bulk&amp;batch=<?= urlencode($b) ?>" class="<?= $pgBatch === $b ? 'on' : '' ?>"><?= ih($b) ?> (<?= $c ?>)</a>
-      <?php endforeach; ?>
+      <select onchange="if (this.value) location.href = this.value;">
+        <option value="index.php?view=bulk" <?= $pgBatch === '' ? 'selected' : '' ?>>All in flight</option>
+        <option value="index.php?view=bulk&amp;batch=<?= INFRA_PIPELINE_ALL_BATCHES ?>" <?= $pgBatch === INFRA_PIPELINE_ALL_BATCHES ? 'selected' : '' ?>>All batches (<?= array_sum($pgBatches) ?>)</option>
+        <?php foreach ($pgBatches as $b => $c): ?>
+          <option value="index.php?view=bulk&amp;batch=<?= urlencode($b) ?>" <?= $pgBatch === $b ? 'selected' : '' ?>><?= ih($b) ?> (<?= $c ?>)</option>
+        <?php endforeach; ?>
+      </select>
     </div>
     <?php endif; ?>
 
     <?php if (!$pgRows): ?>
       <div class="ic-empty">
-        <?= $pgBatch !== '' ? 'No domains tagged &ldquo;' . ih($pgBatch) . '&rdquo;.'
-                            : 'Nothing is in flight — no domain has a box or a Cloudflare zone yet.' ?>
+        <?php if ($pgBatch === INFRA_PIPELINE_ALL_BATCHES): ?>
+          No domain has been claimed into a batch yet.
+        <?php elseif ($pgBatch !== ''): ?>
+          No domains tagged &ldquo;<?= ih($pgBatch) ?>&rdquo;.
+        <?php else: ?>
+          Nothing is in flight — no domain has a box or a Cloudflare zone yet.
+        <?php endif; ?>
       </div>
     <?php else: ?>
 
@@ -169,6 +177,7 @@ function pg_cell(array $c): string
       <table class="pg">
         <thead>
           <tr>
+            <th style="width:40px" title="The batch's own fleet-wide number — unique, never reused, even after a batch is deleted.">Batch #</th>
             <th style="width:24px"><input type="checkbox" onclick="this.closest('table').querySelectorAll('.pg-sel').forEach(b=>b.checked=this.checked)" title="Select all"></th>
             <th>Domain</th>
             <th>
@@ -216,8 +225,11 @@ function pg_cell(array $c): string
             $late = !$gone && $when !== '' && $when < $pgToday;
             // Green Upload is the gate. It is stated on the row rather than discovered
             // when the button is pressed — see infra_golive_gate().
-            $ready = ($r['cells']['upload']['state'] ?? '') === INFRA_STEP_OK; ?>
+            $ready = ($r['cells']['upload']['state'] ?? '') === INFRA_STEP_OK;
+            [$pgMaster, $pgBid] = array_pad(explode('/', (string) ($rec['batch'] ?? ''), 2), 2, '');
+            $pgSeq = ($pgMaster !== '' && $pgBid !== '') ? ms_batch_seq($pgMaster, $pgBid) : null; ?>
           <tr>
+            <td style="color:#94a3b8;text-align:center"><?= $pgSeq !== null ? '#' . $pgSeq : '—' ?></td>
             <td><input type="checkbox" class="pg-sel" name="sel[]" value="<?= ih($dom) ?>"></td>
             <td>
               <?php if ($isUp): ?>

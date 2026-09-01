@@ -136,6 +136,39 @@ function ms_next_batch_id(string $masterId): string {
     return 'b' . ($max + 1);
 }
 
+/**
+ * The next fleet-wide batch number — one sequence across every master, never
+ * reused even after a batch is deleted. Scott's own spec: "everyone gets a
+ * unique number... the sequential numbers just keep going up."
+ *
+ * Persisted in its own counter file rather than derived by scanning existing
+ * batches for the highest `seq` in use — scanning can't tell "never assigned"
+ * apart from "assigned, then the batch got deleted", and the whole point here
+ * is that a deleted batch's number never comes back around. Same locked
+ * read-then-write shape as ms_next_batch_id()'s claim step, just fleet-wide
+ * instead of per-master.
+ */
+function ms_next_batch_seq(): int {
+    $path = BASE_DIR . '/multisite/batch_seq.json';
+    $lock = BASE_DIR . '/multisite/.batch_seq.lock';
+    return ms_with_launch_lock($lock, function () use ($path) {
+        $cur = 0;
+        if (is_file($path)) {
+            $d   = json_decode((string) file_get_contents($path), true);
+            $cur = is_array($d) ? (int) ($d['next'] ?? 0) : 0;
+        }
+        $seq = max(1, $cur);
+        ms_atomic_write_json($path, ['next' => $seq + 1]);
+        return $seq;
+    });
+}
+
+/** A batch's own fleet-wide number, or null if it predates this feature / doesn't exist. */
+function ms_batch_seq(string $masterId, string $batchId): ?int {
+    $meta = ms_batch_meta($masterId, $batchId);
+    return $meta && isset($meta['seq']) ? (int) $meta['seq'] : null;
+}
+
 /** @return array ['id'=>string] on success, ['error'=>string] on failure. */
 function ms_create_batch(string $masterId, string $name): array {
     if (!ms_valid_master_id($masterId)) return ['error' => 'Pick a master site.'];
@@ -163,6 +196,7 @@ function ms_create_batch(string $masterId, string $name): array {
         'name'       => $name,
         'master_id'  => $masterId,
         'created_at' => gmdate('c'),
+        'seq'        => ms_next_batch_seq(),
     ]);
     if (!$ok) return ['error' => 'Could not write the batch record.'];
     return ['id' => $id];
@@ -248,6 +282,7 @@ function ms_copy_batch(string $masterId, string $batchId, string $name = ''): ar
         'master_id'   => $masterId,
         'created_at'  => gmdate('c'),
         'copied_from' => $batchId,
+        'seq'         => ms_next_batch_seq(),
     ]);
     if (!$ok) { ms_rmtree($dstDir); return ['error' => 'Could not write the batch record.']; }
     return ['id' => $newId, 'name' => $name];

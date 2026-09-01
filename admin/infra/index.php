@@ -26,6 +26,7 @@
  * and a shared file for six one-line functions would be a third place to look.
  */
 require_once __DIR__ . '/bootstrap.php';
+require_once BASE_DIR . '/includes/multisite/batch.php';   // ms_batch_seq() for D.Buy's Batch column
 
 // Views READ the session — who you are, the CSRF token, one-shot flash values —
 // and the reads are all done by the time anything slow starts. Let go of the lock
@@ -100,16 +101,7 @@ function infra_own_cell(array $r): string
         // Registrars tab rather than shouting from every line of the table.
         $ar    = (string) ($r['auto_renew'] ?? '');
         $title = $ar !== '' ? ' title="auto-renew: ' . ih($ar) . '"' : '';
-        $out   = '<span class="badge b-ok"' . $title . '>Yes</span>';
-        // Advisory only — set by D.Buy's "Send to Bulk" button, cleared the moment
-        // provisioning actually runs (success or failure). A domain can sit sent-
-        // but-unprovisioned indefinitely if Bulk's Run button is never pressed.
-        $sentAt = (string) ($r['bulk_sent_at'] ?? '');
-        if ($sentAt !== '') {
-            $out .= '<br><span class="badge b-mut" title="Sent to Bulk\'s textarea ' . ih($sentAt)
-                  . ' — not yet provisioned. Stays like this until Run is pressed on the Bulk tab.">&rarr; Bulk</span>';
-        }
-        return $out;
+        return '<span class="badge b-ok"' . $title . '>Yes</span>';
     }
     if (($r['state'] ?? '') === 'buy-failed') {
         return '<span class="badge b-err">failed</span>'
@@ -124,6 +116,28 @@ function infra_own_cell(array $r): string
     }
     if ($due) return '<span class="badge b-warn">due</span>';
     return '<span style="color:#9ca3af">No</span>';
+}
+
+/**
+ * D.Buy's own "Bulk" column — reads bulk_sent_at directly, the exact same field
+ * Bulk's textarea queries live (infra_state_bulk_queue()). One source, two views,
+ * never disagreeing about what is currently queued.
+ */
+/**
+ * D.Buy's own "Batch" column — reads the same `batch` tag Create host and
+ * Claim for Batch both write, so this can never disagree with what the Batch
+ * page's own Go Live grid shows for the same domain.
+ */
+function infra_batch_cell(array $r): string
+{
+    $batch = (string) ($r['batch'] ?? '');
+    if ($batch === '') return '<span style="color:#9ca3af">—</span>';
+    [$masterId, $batchId] = array_pad(explode('/', $batch, 2), 2, '');
+    if ($masterId === '' || $batchId === '') return '<span class="badge b-mut">' . ih($batch) . '</span>';
+    $seq   = ms_batch_seq($masterId, $batchId);
+    $label = ($seq !== null ? '#' . $seq . ' ' : '') . $batch;
+    return '<a href="../batch.php?site=' . ih($masterId) . '&id=' . ih($batchId) . '" class="badge b-mut" style="text-decoration:none">'
+         . ih($label) . '</a>';
 }
 function infra_drift_cell(?string $drift): string
 {

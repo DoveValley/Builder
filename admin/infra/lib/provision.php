@@ -231,14 +231,7 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     // coarse status field.
     $curStatus = (string) (infra_state_get_domain($domain)['status'] ?? '');
     $alreadyAdvanced = in_array($curStatus, ['releasing', 'live', 'awaiting-ns'], true);
-    if (($doSite || $doCf) && !$alreadyAdvanced) {
-        $prov['status'] = $ok ? 'staged' : 'partial';
-        // D.Buy's "sent to Bulk, not yet provisioned" flag stops being true the
-        // moment provisioning actually runs, success or failure — the domain has
-        // left the acquisition stage either way, and a stale flag would keep
-        // claiming "not yet provisioned" on a domain's own page long after it was.
-        $prov['bulk_sent_at'] = '';
-    }
+    if (($doSite || $doCf) && !$alreadyAdvanced) $prov['status'] = $ok ? 'staged' : 'partial';
     infra_state_upsert_domain($prov);
 
     return ['ok' => $ok, 'lines' => $lines];

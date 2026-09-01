@@ -992,6 +992,16 @@ function infra_pipeline_batches(): array
  *
  * @return array<int,array> pipeline rows
  */
+/**
+ * Sentinel for infra_pipeline_rows()'s $batch param — "every domain tagged to ANY
+ * batch", not a real batch name. Distinct from '' ("All in flight" — has real
+ * infrastructure, tagged or not) because the two are genuinely different
+ * populations: Claim for Batch tags a domain before Create host ever runs, so a
+ * freshly-claimed row belongs to "All batches" while having no box or zone yet to
+ * show up under "All in flight" at all.
+ */
+const INFRA_PIPELINE_ALL_BATCHES = '__all_batches__';
+
 function infra_pipeline_rows(string $batch = ''): array
 {
     $all = infra_state_all_domains();
@@ -1009,7 +1019,13 @@ function infra_pipeline_rows(string $batch = ''): array
     // reason). Without this, every Cloudflare-registrar domain shows up here as
     // "in flight" forever, since its zone can never be deleted independently of the
     // registration itself — Cloudflare's own API refuses that call outright.
+    //
+    // "All in flight" is deliberately KEPT alongside "All batches", not replaced by
+    // it: a domain provisioned outside any batch (the still-reachable "+New Site"
+    // single-domain form never tags one) would go invisible under "All batches"
+    // with no other way to spot it — this is the one view that still catches that.
     $picked = array_filter($all, function ($r) use ($batch) {
+        if ($batch === INFRA_PIPELINE_ALL_BATCHES) return trim((string) ($r['batch'] ?? '')) !== '';
         if ($batch !== '') return (string) ($r['batch'] ?? '') === $batch;
         if (infra_is_acquiring($r)) return false;
         return trim((string) ($r['server_id'] ?? '')) !== ''

@@ -1,88 +1,19 @@
 <?php
 /* ============================= BULK PROVISION ============================= */
-    // Read once, BEFORE infra_header(). index.php releases the session lock for
-    // every view (not just actions) before dispatching here, so the session is
-    // already CLOSED at this point — infra_session_resume() reopens it while
-    // headers are still unsent (the only window it's allowed to). Deliberately
-    // NOT calling infra_session_release() ourselves afterward: infra_header()'s
-    // own flash clear (infra_render_flash() -> infra_session_take('infra_flash'))
-    // is the thing that closes the session a few lines from now, and it has to
-    // find this key already unset so both clears persist in that one write.
-    // Releasing here instead would close the session before headers are sent
-    // but reopen-and-close TWICE, leaving the flash's own clear stranded behind
-    // an already-sent header on the second call — persisted key, stuck flash.
-    infra_session_resume();
-    $prefill = (string) ($_SESSION['infra_bulk_prefill'] ?? '');
-    unset($_SESSION['infra_bulk_prefill']);
-
     infra_header('bulk');
-    // The durable record of what a run achieved, above the form that starts one. The
-    // streaming log below says what is happening right now and is gone the moment you
-    // navigate away; the grid is what survives.
+    // The "Run bulk provision" form/textarea that used to live below this grid
+    // is retired (2026-09-01) — provisioning now goes entirely through the Batch
+    // page's own pipeline (Upload target list -> Create host -> Generate sites ->
+    // Upload sites -> Go Live), so a second, parallel way to provision a domain
+    // was exactly the kind of thing that could drift out of sync with it. The
+    // underlying engine (infra_provision_locked()/infra_provision_one() in
+    // lib/provision.php) is unchanged and still what Batch's own Create host
+    // step calls — only this page's UI on top of it is gone. actions/bulk_run.php
+    // is untouched on disk, same as D.Own/+New Site/Deploy when they left the
+    // nav: nothing deleted, just no longer surfaced here.
+    //
+    // What's left is a read-only window onto the same per-domain pipeline state
+    // Batch's own Go Live card drives — "all in flight" fleet-wide, or filtered to
+    // one batch's own tag.
     require __DIR__ . '/_pipeline_grid.php';
-    $servers = infra_hestia_servers();
-    $accts   = infra_cf_accounts();
-    $regs    = infra_registrar_names();
-    ?>
-    <div class="ic-card">
-      <h2>Bulk Provision — Phase 1 at scale</h2>
-      <div class="body">
-        <div class="ic-note">Paste one domain per line — a single domain works fine here too, so this also covers what the old standalone "+ New Site" form did (still reachable at <a href="index.php?view=new">index.php?view=new</a> if you want its explicit single-domain layout instead of round-robin). Each gets a host created on its Hestia server + is fully staged in Cloudflare (DNS→VPS IP proxied, SSL, HSTS) and saved to fleet state. Idempotent (existing sites/zones are skipped/updated), staged only — no nameservers switched. Progress streams live below. Provisioning here outside of a Batch? The FTP creds this creates can still be exported as a params CSV on the <a href="index.php?view=deploy">Deploy</a> page.</div>
-        <?php if ($prefill !== ''): ?>
-          <div class="ic-note" style="background:#eff6ff;border-color:#bfdbfe;">Prefilled with <?= substr_count($prefill, "\n") + 1 ?> domain(s) sent from <a href="index.php?view=domains">D.Buy</a> — edit freely before running.</div>
-        <?php endif; ?>
-        <form id="bulkForm">
-          <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
-          <textarea name="domains" rows="8" placeholder="dallaspestpros.com&#10;katypestpros.com&#10;austinpestpros.com" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-family:monospace;font-size:13px"><?= ih($prefill) ?></textarea>
-          <table style="margin-top:10px">
-            <tr><th style="width:180px">Hestia server</th><td>
-              <select name="server_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-                <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($servers as $s): ?><option value="<?= ih($s['id'] ?? '') ?>"><?= ih(($s['label'] ?? $s['id']) . ' — ' . ($s['host'] ?? '')) ?></option><?php endforeach; ?>
-              </select></td></tr>
-            <tr><th>Cloudflare account</th><td>
-              <?php if ($accts): ?><select name="cf_account_id" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-                <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($accts as $a): ?><option value="<?= ih($a['id'] ?? '') ?>"><?= ih($a['label'] ?? $a['id']) ?></option><?php endforeach; ?>
-              </select><?php else: ?><span class="badge b-mut">no CF account</span><?php endif; ?></td></tr>
-            <tr><th>Registrar</th><td>
-              <?php if ($regs): ?>
-                <select name="registrar" style="padding:7px 10px;border:1px solid #d1d5db;border-radius:8px">
-                  <option value="__auto__">🔀 Auto — round-robin (footprint)</option><?php foreach ($regs as $rn): ?><option value="<?= ih($rn) ?>"><?= ih($rn) ?></option><?php endforeach; ?>
-                </select>
-                <label style="margin-left:12px"><input type="checkbox" name="do_register"> Register (buy) &mdash; <strong style="color:#991b1b">costs money ×N</strong></label>
-                for <input type="number" name="years" value="1" min="1" max="10" style="width:56px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px"> yr
-              <?php else: ?><span class="badge b-mut">no registrar configured</span><?php endif; ?>
-            </td></tr>
-            <tr><th>Steps</th><td>
-              <label style="margin-right:16px"><input type="checkbox" name="do_site" checked> Site on the box</label>
-              <label><input type="checkbox" name="do_cf" <?= $accts ? 'checked' : 'disabled' ?>> Cloudflare zone (staged)</label>
-            </td></tr>
-          </table>
-          <div style="margin-top:12px"><button class="btn" type="submit" id="bulkBtn">Run bulk provision</button></div>
-        </form>
-        <pre id="bulkLog" style="display:none;margin-top:16px;background:#0b1020;color:#d1e0ff;padding:14px;border-radius:8px;max-height:460px;overflow:auto;font-size:12px;line-height:1.5;white-space:pre-wrap"></pre>
-      </div>
-    </div>
-    <script>
-    document.getElementById('bulkForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      var doms = (this.domains.value.match(/\S+/g) || []).length;
-      if (!doms) { alert('Paste at least one domain.'); return; }
-      var buying = this.do_register && this.do_register.checked;
-      if (!confirm(buying ? ('⚠ This BUYS ' + doms + ' domain(s) (real money) then provisions them. Proceed?') : ('Provision ' + doms + ' domain(s)? Creates hosts + Cloudflare zones (staged).'))) return;
-      var log = document.getElementById('bulkLog'), btn = document.getElementById('bulkBtn');
-      log.style.display = 'block'; log.textContent = 'Starting…\n'; btn.disabled = true; btn.textContent = 'Running…';
-      try {
-        var resp = await fetch('actions/bulk_run.php', { method: 'POST', body: new FormData(this), credentials: 'same-origin' });
-        var reader = resp.body.getReader(), dec = new TextDecoder();
-        log.textContent = '';
-        while (true) {
-          var r = await reader.read();
-          if (r.done) break;
-          log.textContent += dec.decode(r.value, { stream: true });
-          log.scrollTop = log.scrollHeight;
-        }
-      } catch (err) { log.textContent += '\n[connection error] ' + err; }
-      btn.disabled = false; btn.textContent = 'Run bulk provision';
-    });
-    </script>
-    <?php infra_footer(); exit;
+    infra_footer(); exit;
