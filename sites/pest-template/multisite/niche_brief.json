@@ -1,7 +1,7 @@
 {
     "niche": "pest",
     "master_site": "pest-template",
-    "business_descriptor": "a trained, locally operated pest control company",
+    "business_descriptor": "a referral service that connects property owners with independent local pest control providers",
     "service_noun": "pest control",
     "customer_noun": "homeowner",
     "offerings": [
@@ -14,7 +14,7 @@
     ],
     "local_angle": "the local climate and seasonal pest cycles",
     "tone": "reassuring and professional, with appropriate urgency for active infestations",
-    "guardrails": "Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.",
     "uses_research_fields": false,
     "enabled_archetypes": [
         "city_intro",
@@ -22,7 +22,8 @@
         "feature_columns_local",
         "faq_local",
         "seasonal_calendar",
-        "local_relevance"
+        "local_relevance",
+        "about_story"
     ],
     "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences naming the pests actually most common and problematic in {city}'s region (be specific — e.g. fire ants, Formosan termites, scorpions, carpenter ants — not just \"pests\" generically) and whether pest activity here is year-round or has a strong seasonal pattern.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation."
 }
