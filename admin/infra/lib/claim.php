@@ -70,3 +70,58 @@ function infra_claim_for_batch(string $domain, string $masterId, string $batchId
     infra_state_upsert_domain(['domain' => $domain, 'batch' => $target]);
     return ['ok' => true, 'reason' => 'claimed'];
 }
+
+/**
+ * Remove one domain from its batch's params.csv row and clear fleet.db's `batch`
+ * tag — the reverse of infra_claim_for_batch(), same bridge, so the Danger Zone's
+ * teardown action doesn't leave a domain "claimed" by a batch that no longer has
+ * any record it was ever tracking it. Without this, a domain re-claimed into the
+ * SAME batch after a teardown would silently reuse its old, stale business-data row
+ * instead of starting clean.
+ *
+ * Never fails on "nothing to remove" — a domain torn down before ever being
+ * claimed, or whose batch tag already points nowhere real, is not an error case;
+ * teardown calls this unconditionally on every domain.
+ *
+ * @return array{ok:bool,reason:string}
+ */
+function infra_unclaim_from_batch(string $domain): array
+{
+    $domain = strtolower(trim($domain));
+    $rec    = infra_state_get_domain($domain);
+    $target = trim((string) ($rec['batch'] ?? ''));
+    if ($target === '') return ['ok' => true, 'reason' => 'was not claimed by any batch'];
+
+    [$masterId, $batchId] = array_pad(explode('/', $target, 2), 2, '');
+    if ($masterId === '' || $batchId === '' || !ms_batch_exists($masterId, $batchId)) {
+        infra_state_upsert_domain(['domain' => $domain, 'batch' => '']);
+        return ['ok' => true, 'reason' => "batch tag '{$target}' cleared (that batch no longer exists)"];
+    }
+
+    $csvPath = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (!is_file($csvPath)) {
+        infra_state_upsert_domain(['domain' => $domain, 'batch' => '']);
+        return ['ok' => true, 'reason' => "batch tag cleared ({$target} has no target list)"];
+    }
+
+    $parsed = ms_parse_csv($csvPath);
+    $before = count($parsed['rows']);
+    $rows   = array_values(array_filter(
+        $parsed['rows'],
+        fn($r) => strtolower(trim((string) ($r['domain'] ?? ''))) !== $domain
+    ));
+
+    if (count($rows) === $before) {
+        // Tagged in fleet.db but the row itself is already gone from the CSV
+        // (e.g. edited out by hand) — still clear the now-orphaned tag.
+        infra_state_upsert_domain(['domain' => $domain, 'batch' => '']);
+        return ['ok' => true, 'reason' => "not in {$target}'s target list — stale tag cleared"];
+    }
+
+    if (!ms_write_csv($csvPath, $parsed['header'] ?: MS_KNOWN_COLS, $rows)) {
+        return ['ok' => false, 'reason' => 'could not write params.csv'];
+    }
+
+    infra_state_upsert_domain(['domain' => $domain, 'batch' => '']);
+    return ['ok' => true, 'reason' => "removed from {$target}'s target list"];
+}

@@ -6,6 +6,7 @@
  */
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/acquire.php';   // infra_domain_buy(), infra_domain_mark_owned()
+require_once __DIR__ . '/../lib/claim.php';     // infra_unclaim_from_batch()
 
 $domain = strtolower(trim($_POST['domain'] ?? ''));
 $action = $_POST['action'] ?? '';
@@ -91,6 +92,15 @@ switch ($action) {
 
     case 'delete_zone':
         if (!$account || ($rec['cf_zone_id'] ?? '') === '') { infra_set_flash('warn', 'No Cloudflare zone on record.'); header('Location: ' . $back); exit; }
+        // A domain registered AT Cloudflare is permanently pinned to Cloudflare's own
+        // nameservers by the registration itself — its zone can never be deleted via
+        // the API, full stop (see docs.php's Registrars section). Checking this up
+        // front means a real, structural limitation reads as an explanation instead
+        // of whatever raw error Cloudflare's API happens to phrase it as today.
+        if (strtolower(trim((string) ($rec['registrar'] ?? ''))) === 'cloudflare') {
+            infra_set_flash('warn', "Delete CF zone: skipped — {$domain} is registered at Cloudflare itself, so its zone is permanently tied to that registration and the API refuses to delete it. Nothing changed.");
+            header('Location: ' . $back); exit;
+        }
         $r = cf_delete_zone($account, $rec['cf_zone_id']);
         if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'cf_zone_id' => '', 'nameservers' => '']);
         infra_cache_flush();
@@ -146,8 +156,23 @@ switch ($action) {
 
     case 'teardown':
         $parts = [];
-        if ($account && ($rec['cf_zone_id'] ?? '') !== '') { $z = cf_delete_zone($account, $rec['cf_zone_id']); $parts[] = 'CF zone: ' . $z['message']; }
+        $cfIsRegistrar = strtolower(trim((string) ($rec['registrar'] ?? ''))) === 'cloudflare';
+        if ($account && ($rec['cf_zone_id'] ?? '') !== '') {
+            if ($cfIsRegistrar) {
+                // See the same check in delete_zone above — a Cloudflare-registered
+                // domain's zone cannot be deleted via the API at all, so attempting it
+                // here would only report someone else's error message. The zone is
+                // harmless left behind: it holds no DNS records for a torn-down site.
+                $parts[] = 'CF zone: skipped — registered at Cloudflare itself, so the zone can\'t be deleted via the API (left in place, harmless)';
+            } else {
+                $z = cf_delete_zone($account, $rec['cf_zone_id']); $parts[] = 'CF zone: ' . $z['message'];
+            }
+        }
         if ($server) { $p = hestia_delete_site($server, $domain); $parts[] = 'site: ' . $p['message']; }
+        // Must run BEFORE infra_state_delete_domain() below — it reads this domain's
+        // own fleet.db record (for its `batch` tag) before that record is gone.
+        $u = infra_unclaim_from_batch($domain);
+        $parts[] = 'batch target list: ' . $u['reason'];
         infra_state_delete_domain($domain);
         $parts[] = 'fleet state: removed';
         infra_cache_flush();
