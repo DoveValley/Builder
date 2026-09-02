@@ -250,11 +250,29 @@ switch ($action) {
 
     /* ---- bulk: hand taken names back to D.Finder ------------------------- */
     case 'to_dfinder':
-        // Only names that were checked and came back taken, and that this console
-        // never bought. Anything owned or provisioned is not a D.Finder candidate.
+        // Only names that were checked and came back NOT available, and that this
+        // console never bought. Anything owned or provisioned is not a D.Finder
+        // candidate.
+        //
+        // Deliberately NOT `avail_note === 'taken'`: that literal string is only
+        // ever written as the FALLBACK when a registrar's own check returned no
+        // reason text (acquire.php's infra_avail_write_results()). A registrar
+        // that DOES return its own status string — Gandi's availability check
+        // returns the raw string "unavailable", for one confirmed real example —
+        // gets stored verbatim and would never match 'taken' literally, even
+        // though the row plainly displays "No · unavailable" and is exactly the
+        // kind of row this button exists for. `ready_to_buy === 'no'` is the
+        // actual fact this button cares about; the reason text is cosmetic.
+        //
+        // Also NOT gated on status === 'begin': a domain checked unavailable
+        // after having been marked ready (by hand, or by an earlier check that
+        // later flipped) can sit at status 'ready' with ready_to_buy already
+        // correctly 'no' — the status field lagging behind is a separate,
+        // pre-existing fact about the row, not a reason to block sending a
+        // confirmed-unavailable domain to D.Finder.
         $r = infra_dfinder_reject($sel, 'taken', fn(array $rec) =>
-            ($rec['avail_note'] ?? '') === 'taken'
-            && ($rec['status'] ?: 'begin') === 'begin'
+            ($rec['ready_to_buy'] ?? '') === 'no'
+            && ($rec['avail_note'] ?? '') !== 'self-owned'
             && ($rec['owned'] ?? '') !== 'yes'
         );
         $msg = $r['moved']
@@ -267,7 +285,7 @@ switch ($action) {
                   . implode(', ', array_slice($r['noNiche'], 0, 6)) . (count($r['noNiche']) > 6 ? ' …' : '');
         }
         if ($r['skipped']) {
-            $msg .= "\nSkipped " . count($r['skipped']) . ' that are not an unbought taken name: '
+            $msg .= "\nSkipped " . count($r['skipped']) . ' not a confirmed-unavailable, unbought domain: '
                   . implode(', ', array_slice($r['skipped'], 0, 6)) . (count($r['skipped']) > 6 ? ' …' : '');
         }
         infra_set_flash(($r['noNiche'] || $r['skipped']) ? 'warn' : 'ok', $msg);
