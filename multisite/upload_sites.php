@@ -2,7 +2,7 @@
 /**
  * Phase 5 — upload the sites this batch has already generated.
  *
- *   php multisite/upload_sites.php <master_id> --batch=bN [--jobs=N] [--limit=N] [--force] [--only=DOMAIN]
+ *   php multisite/upload_sites.php <master_id> --batch=bN [--jobs=N] [--limit=N] [--force] [--only=DOMAIN[,DOMAIN...]] [--wipe]
  *
  * Generating and uploading used to be one act: build to a temp directory, push it, then
  * delete it. That made "build fifty and look at them before anything goes live"
@@ -18,6 +18,13 @@
  *
  * Uploads are INCREMENTAL by md5 manifest, and the manifest lives outside the output
  * directory, so re-running sends only what changed. --force sends everything.
+ *
+ * --wipe deletes every file already on a row's remote host before uploading fresh —
+ * for a domain whose live files have drifted (a renamed/removed page left orphaned
+ * remotely, which --force alone does not clean up: force re-sends everything the
+ * CURRENT build has, it never deletes what the build no longer produces). Requires
+ * --only, on purpose — there is no batch-wide "wipe everything" here, the same way
+ * there is no batch-wide teardown in the Infrastructure console's Danger Zone.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "upload_sites.php is CLI only\n"); exit(2); }
 
@@ -43,14 +50,24 @@ progress_set_sink(function (array $e): void {
 
 $args     = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
-$batchId  = ''; $only = ''; $limit = 0; $force = in_array('--force', $args, true);
+$batchId  = ''; $only = ''; $limit = 0;
+$force    = in_array('--force', $args, true);
+$wipe     = in_array('--wipe', $args, true);
 foreach ($args as $a) {
     if (str_starts_with($a, '--batch='))  $batchId = substr($a, 8);
     if (str_starts_with($a, '--only='))   $only    = strtolower(substr($a, 7));
     if (str_starts_with($a, '--limit='))  $limit   = max(0, (int) substr($a, 8));
 }
-if ($masterId === '' || $batchId === '') { fwrite(STDERR, "usage: upload_sites.php <master_id> --batch=bN [--only=DOMAIN] [--limit=N] [--force]\n"); exit(2); }
+// One or more comma-separated domains — same list shape run_campaign.php's --only
+// already accepts, so the batch page's "Only this domain" field means the same thing
+// on both the Generate and Upload cards.
+$onlyList = $only !== '' ? array_values(array_filter(array_map('trim', explode(',', $only)))) : [];
+if ($masterId === '' || $batchId === '') { fwrite(STDERR, "usage: upload_sites.php <master_id> --batch=bN [--only=DOMAIN[,DOMAIN...]] [--limit=N] [--force] [--wipe]\n"); exit(2); }
 if (!ms_batch_exists($masterId, $batchId)) { fwrite(STDERR, "No such batch: {$masterId}/{$batchId}\n"); exit(2); }
+// Wiping is scoped to explicitly named domains only — never the whole batch. This is
+// enforced again in admin/multisite_api.php before the job is even launched; checking
+// here too means a direct CLI call is just as safe as one driven by the panel.
+if ($wipe && !$onlyList) { fwrite(STDERR, "--wipe requires --only=DOMAIN[,DOMAIN...] — refusing to wipe an entire batch.\n"); exit(2); }
 
 $csvPath = ms_batch_dir($masterId, $batchId) . '/params.csv';
 if (!is_file($csvPath)) { fwrite(STDERR, "This batch has no target list.\n"); exit(2); }
@@ -64,7 +81,7 @@ $ready = []; $noBuild = []; $noCreds = [];
 foreach ($parsed['rows'] as $r) {
     $domain = strtolower(trim((string) ($r['domain'] ?? '')));
     if ($domain === '') continue;
-    if ($only !== '' && $domain !== $only) continue;
+    if ($onlyList && !in_array($domain, $onlyList, true)) continue;
     $slug = trim(preg_replace('/[^a-z0-9]+/', '_', $domain), '_');
 
     if (!isset($built[$slug]))                         { $noBuild[] = $domain; continue; }
@@ -77,7 +94,7 @@ if ($limit > 0) $ready = array_slice($ready, 0, $limit);
 printf("Batch %s/%s — %d ready to upload", $masterId, $batchId, count($ready));
 if ($noBuild) printf(", %d not generated yet", count($noBuild));
 if ($noCreds) printf(", %d without credentials", count($noCreds));
-echo ($force ? "  [--force: full re-upload]" : "") . "\n";
+echo ($force ? "  [--force: full re-upload]" : "") . ($wipe ? "  [--wipe: remote files deleted first]" : "") . "\n";
 foreach ($noBuild as $d) echo "  – {$d}: nothing generated yet — run Generate sites first\n";
 foreach ($noCreds as $d) echo "  – {$d}: no FTP credentials — run Create host first\n";
 if (!$ready) { echo "\nNothing to upload.\n"; exit(0); }
@@ -103,6 +120,21 @@ foreach ($ready as $t) {
     ];
     $slug     = trim(preg_replace('/[^a-z0-9]+/', '_', $t['domain']), '_');
     $manifest = $manifestDir . '/' . $slug . '.json';
+
+    if ($wipe) {
+        printf("  %-34s wiping remote files … ", $t['domain']);
+        $wiped = ms_wipe_remote($ftp);
+        if (($wiped['status'] ?? '') === 'fatal') {
+            $fail++;
+            printf("✗ %s\n", $wiped['msg'] ?? 'wipe failed');
+            continue;   // don't upload into a host we couldn't confirm is now empty
+        }
+        printf("✓ %s\n", $wiped['msg'] ?? 'wiped');
+        // The manifest recorded what was on the server before the wipe — now false,
+        // so leaving it would make deploy_site() skip re-sending files it thinks
+        // (wrongly) are already there.
+        @unlink($manifest);
+    }
 
     printf("  %-34s %d file(s) … ", $t['domain'], $t['files']);
     $dep = deploy_site($ftp, rtrim($t['dir'], '/') . '/', $manifest, $force);

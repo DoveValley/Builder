@@ -93,72 +93,15 @@ foreach (array_slice($testRaw, 0, 3) as $sample) {
     fdel_sse('  [dir] ' . $sample);
 }
 
-// ── Parse any common FTP rawlist format ──────────────────────────────────────
-function fdel_parse_entry(string $item): ?array {
-    $item = rtrim($item, "\r\n ");
-    if ($item === '') return null;
-
-    // UNIX: -rw-r--r-- 1 user group 12345 Jun 27 10:00 name
-    if (preg_match('/^([-dl])\S*\s+\d+\s+\S+\s+\S+\s+(\d+)\s+\w+\s+[\d:]+\s+[\d:]+\s+(.+)$/', $item, $m)) {
-        return ['type' => $m[1], 'name' => trim($m[3])];
-    }
-    // UNIX variant (fewer columns, e.g. some shared hosts):
-    if (preg_match('/^([-dl])\S*\s+\d+\s+\S+\s+\S+\s+(\d+)\s+.{6,15}\s+(.+)$/', $item, $m)) {
-        return ['type' => $m[1], 'name' => trim($m[3])];
-    }
-    // Windows/IIS: 06-27-26  10:00AM  <DIR>  name
-    if (preg_match('/^\d{2}-\d{2}-\d{2,4}\s+\d+:\d+[AP]M\s+(<DIR>|\d+)\s+(.+)$/', $item, $m)) {
-        return ['type' => $m[1] === '<DIR>' ? 'd' : '-', 'name' => trim($m[2])];
-    }
-    return null;
-}
-
 // ── Single-pass recursive delete ─────────────────────────────────────────────
+// ms_ftp_delete_tree() (includes/multisite/deploy.php) — shared with the
+// per-batch-domain wipe feature so the recursive-delete + rawlist-parsing logic
+// exists in exactly one place rather than two copies drifting apart.
 $deleted = 0;
 $failed  = 0;
 
-// Recurses the current working directory. All DELE/RMD/CWD calls use bare
-// (relative) names so they resolve correctly on chrooted FTP servers.
-function fdel_recurse($conn, int &$deleted, int &$failed): void {
-    $raw = @ftp_rawlist($conn, '.');
-    if (!is_array($raw)) return;
-
-    // Collect entries first — deleting while iterating the live listing is fine,
-    // but buffering keeps the loop stable across recursion.
-    $entries = [];
-    foreach ($raw as $item) {
-        $e = fdel_parse_entry($item);
-        if (!$e) continue;
-        if ($e['name'] === '.' || $e['name'] === '..') continue;
-        $entries[] = $e;
-    }
-
-    foreach ($entries as $e) {
-        $name = $e['name'];
-
-        if ($e['type'] === 'd') {
-            if (@ftp_chdir($conn, $name)) {
-                fdel_recurse($conn, $deleted, $failed);
-                @ftp_chdir($conn, '..');
-                @ftp_rmdir($conn, $name);
-            } else {
-                $failed++;
-                fdel_sse("Failed to enter dir: " . (@ftp_pwd($conn) ?: '') . "/$name", 'warn');
-            }
-        } else {
-            if (@ftp_delete($conn, $name)) {
-                $deleted++;
-                if ($deleted % 20 === 0) fdel_sse("Deleted $deleted files…");
-            } else {
-                $failed++;
-                fdel_sse("Failed: " . (@ftp_pwd($conn) ?: '') . "/$name", 'warn');
-            }
-        }
-    }
-}
-
 fdel_sse("Deleting all files under $path …", 'warn');
-fdel_recurse($conn, $deleted, $failed);
+ms_ftp_delete_tree($conn, fn($m, $t = 'log') => fdel_sse($m, $t), $deleted, $failed);
 
 // Clear local manifest so next push re-uploads everything
 $manifestFile = ACTIVE_SITE_DIR . '/deploy_manifest.json';

@@ -213,6 +213,158 @@ function ms_sftp_delete_tree($sftp, string $dir, callable $log, int &$deleted, i
 }
 
 /**
+ * Parse one line of an FTP LIST/rawlist response into ['type'=>'-'|'d'|'l', 'name'=>string],
+ * or null if the line doesn't match a known format. Shared by ms_ftp_delete_tree() —
+ * extracted rather than duplicated between the single-site force-delete endpoint and the
+ * per-batch-domain wipe below, both of which need to walk a raw FTP listing the same way.
+ */
+function ms_ftp_parse_list_entry(string $item): ?array {
+    $item = rtrim($item, "\r\n ");
+    if ($item === '') return null;
+
+    // UNIX: -rw-r--r-- 1 user group 12345 Jun 27 10:00 name
+    if (preg_match('/^([-dl])\S*\s+\d+\s+\S+\s+\S+\s+(\d+)\s+\w+\s+[\d:]+\s+[\d:]+\s+(.+)$/', $item, $m)) {
+        return ['type' => $m[1], 'name' => trim($m[3])];
+    }
+    // UNIX variant (fewer columns, e.g. some shared hosts):
+    if (preg_match('/^([-dl])\S*\s+\d+\s+\S+\s+\S+\s+(\d+)\s+.{6,15}\s+(.+)$/', $item, $m)) {
+        return ['type' => $m[1], 'name' => trim($m[3])];
+    }
+    // Windows/IIS: 06-27-26  10:00AM  <DIR>  name
+    if (preg_match('/^\d{2}-\d{2}-\d{2,4}\s+\d+:\d+[AP]M\s+(<DIR>|\d+)\s+(.+)$/', $item, $m)) {
+        return ['type' => $m[1] === '<DIR>' ? 'd' : '-', 'name' => trim($m[2])];
+    }
+    return null;
+}
+
+/**
+ * Recursively delete everything under the FTP connection's CURRENT working directory
+ * (not the directory itself). Mirrors ms_sftp_delete_tree() exactly — same $log(msg,
+ * type) callback shape ('log' for progress, 'warn' for per-item failures) — so a caller
+ * can wipe either protocol through the same interface.
+ *
+ * Chdir-based rather than path-based: on a chrooted FTP server (e.g. Hostinger
+ * Pure-FTPd) DELE/RMD/CWD reject an absolute path built from the configured remote
+ * path, but accept a bare name once you're actually inside the directory — the same
+ * reason ms_detect_remote_path() exists. The caller chdirs into the target once, this
+ * walks down from there using only relative names.
+ */
+function ms_ftp_delete_tree($conn, callable $log, int &$deleted, int &$failed): void {
+    $raw = @ftp_rawlist($conn, '.');
+    if (!is_array($raw)) return;
+
+    $entries = [];
+    foreach ($raw as $item) {
+        $e = ms_ftp_parse_list_entry($item);
+        if (!$e) continue;
+        if ($e['name'] === '.' || $e['name'] === '..') continue;
+        $entries[] = $e;
+    }
+
+    foreach ($entries as $e) {
+        $name = $e['name'];
+        if ($e['type'] === 'd') {
+            if (@ftp_chdir($conn, $name)) {
+                ms_ftp_delete_tree($conn, $log, $deleted, $failed);
+                @ftp_chdir($conn, '..');
+                @ftp_rmdir($conn, $name);
+            } else {
+                $failed++;
+                $log('Failed to enter dir: ' . (@ftp_pwd($conn) ?: '') . "/{$name}", 'warn');
+            }
+        } else {
+            if (@ftp_delete($conn, $name)) {
+                $deleted++;
+                if ($deleted % 20 === 0) $log("Deleted {$deleted} files…", 'log');
+            } else {
+                $failed++;
+                $log('Failed: ' . (@ftp_pwd($conn) ?: '') . "/{$name}", 'warn');
+            }
+        }
+    }
+}
+
+/**
+ * Delete every file under a site's remote deploy path, over whichever protocol its
+ * $ftp config specifies — same host/port/path resolution as deploy_site(), so a wipe
+ * always targets exactly the directory a matching upload would use.
+ *
+ * Deliberately does NOT touch the local manifest — deleting the remote files and
+ * forgetting what was uploaded are two separate facts, and a caller that wipes without
+ * also clearing the manifest would have deploy_site() wrongly skip re-sending files it
+ * thinks are already there. Callers that want "wipe, then re-upload everything" must
+ * clear the manifest themselves as a second, explicit step.
+ *
+ * @param array $ftp  Same shape as deploy_site()'s $ftp: ftp_host/protocol/port/user/pass/path/passive.
+ * @return array ['status'=>'done'|'fatal', 'deleted'=>int, 'failed'=>int, 'msg'=>string]
+ */
+function ms_wipe_remote(array $ftp): array {
+    $host     = preg_replace('#^s?ftps?://#i', '', trim($ftp['ftp_host'] ?? ''));
+    $protocol = strtolower(trim($ftp['ftp_protocol'] ?? 'ftp')) === 'sftp' ? 'sftp' : 'ftp';
+    $port     = (int) ($ftp['ftp_port'] ?? 0);
+    if ($port < 1) $port = ($protocol === 'sftp' ? 22 : 21);
+    $user      = $ftp['ftp_user'] ?? '';
+    $pass      = $ftp['ftp_pass'] ?? '';
+    $pathGiven = trim((string) ($ftp['ftp_path'] ?? ''));
+    $path      = $pathGiven !== '' ? rtrim($pathGiven, '/') : null;
+    $pasvRaw   = strtolower(trim((string) ($ftp['ftp_passive'] ?? '')));
+    $passive   = !in_array($pasvRaw, ['0', 'no', 'false', 'off', 'active'], true);
+
+    $protoLabel = strtoupper($protocol);
+    if ($host === '' || $user === '' || $pass === '') {
+        progress_log("{$protoLabel} credentials incomplete.", 'fatal');
+        return ['status' => 'fatal', 'deleted' => 0, 'failed' => 0, 'msg' => "{$protoLabel} credentials incomplete."];
+    }
+
+    $log = fn(string $m, string $t = 'log') => progress_log($m, $t);
+    $deleted = 0; $failed = 0;
+
+    if ($protocol === 'sftp') {
+        $err  = null;
+        $sftp = ms_sftp_open($ftp, 20, $err);
+        if (!$sftp) {
+            progress_log($err ?: 'SFTP connection failed.', 'fatal');
+            return ['status' => 'fatal', 'deleted' => 0, 'failed' => 0, 'msg' => $err ?: 'SFTP connection failed.'];
+        }
+        $base = $path !== null ? trim($path, '/') : '';
+        progress_log('Wiping all files under ' . ($base !== '' ? $base : '~') . ' …', 'warn');
+        ms_sftp_delete_tree($sftp, $base, $log, $deleted, $failed);
+    } else {
+        if (!function_exists('ftp_connect')) {
+            progress_log('PHP FTP extension not available on this server.', 'fatal');
+            return ['status' => 'fatal', 'deleted' => 0, 'failed' => 0, 'msg' => 'No FTP extension.'];
+        }
+        $conn = @ftp_connect($host, $port, 15);
+        if (!$conn) {
+            progress_log("Could not connect to {$host}:{$port}.", 'fatal');
+            return ['status' => 'fatal', 'deleted' => 0, 'failed' => 0, 'msg' => 'Connect failed.'];
+        }
+        if (!@ftp_login($conn, $user, $pass)) {
+            ftp_close($conn);
+            progress_log('FTP login failed — check credentials.', 'fatal');
+            return ['status' => 'fatal', 'deleted' => 0, 'failed' => 0, 'msg' => 'Login failed.'];
+        }
+        if ($passive) @ftp_pasv($conn, true);
+
+        $target = $path !== null ? $path : ms_detect_remote_path($conn, $user);
+        if ($target !== '' && !@ftp_chdir($conn, $target)) {
+            ftp_close($conn);
+            progress_log("Could not change to remote path '{$target}'.", 'fatal');
+            return ['status' => 'fatal', 'deleted' => 0, 'failed' => 0, 'msg' => "Could not change to '{$target}'."];
+        }
+        progress_log('Wiping all files under ' . ($target !== '' ? $target : '/') . ' …', 'warn');
+        ms_ftp_delete_tree($conn, $log, $deleted, $failed);
+        ftp_close($conn);
+    }
+
+    $msg = "Wiped {$deleted} file" . ($deleted !== 1 ? 's' : '');
+    if ($failed) $msg .= ", {$failed} failed";
+    $msg .= '.';
+    progress_log($msg, $failed > 0 ? 'warn' : 'done');
+    return ['status' => 'done', 'deleted' => $deleted, 'failed' => $failed, 'msg' => $msg];
+}
+
+/**
  * The absolute remote directory this login should upload into.
  *
  * Asked, not assumed, because the two hosts in this estate disagree and both

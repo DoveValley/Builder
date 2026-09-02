@@ -240,7 +240,14 @@ switch ($action) {
         $uArgs = [$masterId, '--batch=' . $batchId];
         if (!empty($_POST['force'])) $uArgs[] = '--force';
         $ulim = max(0, (int) ($_POST['limit'] ?? 0)); if ($ulim > 0) $uArgs[] = '--limit=' . $ulim;
-        if (!empty($_POST['only'])) $uArgs[] = '--only=' . (string) $_POST['only'];
+        $uOnly = trim((string) ($_POST['only'] ?? ''));
+        if ($uOnly !== '') $uArgs[] = '--only=' . $uOnly;
+        // Wipe is refused here too, not just in upload_sites.php's own check — a batch-
+        // wide wipe should never be one unchecked box away, panel or CLI.
+        if (!empty($_POST['wipe'])) {
+            if ($uOnly === '') { echo json_encode(['error' => 'Wipe requires "Only this domain" — it never runs against the whole batch.']); break; }
+            $uArgs[] = '--wipe';
+        }
         echo json_encode(ms_launch_job($batchDir . '/uploads', '__MS_UPLOAD_DONE__', 'An upload is already running.',
             BASE_DIR . '/multisite/upload_sites.php', $uArgs));
         break;
