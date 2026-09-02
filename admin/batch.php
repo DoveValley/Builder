@@ -92,6 +92,8 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
         <a href="#" onclick="bpChangeMaster();return false;">change master</a>
     </p>
 
+    <?php include __DIR__ . '/_batch_explainer.php'; ?>
+
     <?php include __DIR__ . '/_batch_phases.php'; ?>
 
     <div class="bp-stat">

@@ -373,6 +373,7 @@ tr.ms-rec td { background: #fff3cd !important; }
     <nav id="multisite-nav" hidden>
         <a class="nav-group" href="#ms-overview">Overview</a>
         <a href="#ms-what">What it is</a>
+        <a href="#ms-batch-lifecycle">The batch page: six phases</a>
         <a href="#ms-howitworks">How it works</a>
         <a href="#ms-master-state">State of the SingleSite</a>
         <a href="#ms-vs-insite">MultiSite vs city pages</a>
@@ -4557,6 +4558,30 @@ git add -A &amp;&amp; git commit -m "snapshot before bulk edit"</code></pre>
     <p>A pipeline that takes a single <strong>master site</strong> as a template and a <strong>params table</strong> (one row per target site) and produces many separate, deployed websites — same business and topic, one per city. Each output site is a genuinely distinct entity: its own domain, business name, phone, address, geo coordinates, AI-written city copy, analytics tag, and FTP host.</p>
     <p>It reuses the factory's existing single-site machinery (clone, static build, FTP deploy, the <code>generate.py</code> AI engine) — it does not reinvent them. The generator's job is to drive those primitives across a table of sites, safely and repeatably.</p>
     <div class="callout tip"><strong>One command, many live sites.</strong> Prepare a CSV, then run one campaign command; the generator builds and deploys every site, writes AI copy once and caches it, and produces a run log of exactly what happened, what it cost, and what failed.</div>
+</section>
+
+<section id="ms-batch-lifecycle">
+    <h2>The batch page: six phases</h2>
+    <p>Opening a batch (<code>admin/batch.php</code>) always shows the same six phase cards, in the
+    same order, because every batch goes through the same six steps. <strong>Three of those steps are
+    this page's own content pipeline; the other three are the Infrastructure console's engine,
+    reached through a button on this page rather than reimplemented here.</strong> The batch page
+    itself carries a collapsible version of this same table at the top, for the same reason it's
+    worth stating here too: a failure in phase 3 or phase 6 is failing inside
+    <code>admin/infra/lib/</code>, not in the batch/multisite code, and knowing that changes where you'd
+    go looking.</p>
+    <table>
+        <tr><th>Phase</th><th>Button</th><th>What it does</th><th>Runs where</th></tr>
+        <tr><td><strong>1 &middot; Upload target list</strong></td><td><code>Upload &amp; Validate</code></td><td>Loads the CSV of domains + business data (name, phone, city, FTP creds if already known) that every later phase reads from.</td><td>This page. Stored as this batch's own <code>params.csv</code>.</td></tr>
+        <tr><td><strong>2 &middot; Pick servers</strong></td><td><code>Save plan</code></td><td>Decides which VPS boxes this batch's sites land on, and how many go to each.</td><td>This page saves the plan, but reads live "on it now" counts from the Infrastructure fleet so the plan isn't made blind.</td></tr>
+        <tr><td><strong>3 &middot; Create host</strong></td><td><code>Create host areas</code></td><td>Provisions each site's home on its picked box &mdash; the web folder + a scoped FTP login &mdash; and writes those credentials back into the target list.</td><td><strong>Infrastructure's provisioning engine</strong> &mdash; the identical <code>infra_provision_one()</code> routine "+ New Site" and Bulk provisioning call on HestiaCP. See <a href="#console-provision">Provisioning</a>.</td></tr>
+        <tr><td><strong>4 &middot; Generate sites</strong></td><td><code>Generate sites</code></td><td>Clones the master, injects each row's identity, writes AI copy, renders every page to static HTML.</td><td>This page's own content pipeline (<code>run_campaign.php</code>). No Infrastructure involvement. See <a href="#ms-howitworks">How it works</a>.</td></tr>
+        <tr><td><strong>5 &middot; Upload sites</strong></td><td><code>Upload sites</code></td><td>Pushes the generated files to each site's host over FTP/SFTP using the credentials phase 3 wrote.</td><td>This page's own content pipeline, same as phase 4 &mdash; still just files.</td></tr>
+        <tr><td><strong>6 &middot; Go Live (DNS)</strong></td><td><code>Schedule rollout</code> / per-row <code>Create zone</code> / <code>&#9654; all</code></td><td>Creates each domain's Cloudflare zone, then switches its nameservers at the registrar so it starts serving traffic.</td><td><strong>Infrastructure's own pipeline</strong> (<code>admin/infra/lib/pipeline.php</code> + <code>golive.php</code>) &mdash; the identical engine the Infrastructure console's Bulk tab uses. This card is a batch-scoped view onto it, not a second implementation. See <a href="#console-golive">Go-Live &amp; the daily cron</a>.</td></tr>
+    </table>
+    <div class="callout tip"><p><strong>Getting a domain into a batch happens in Infrastructure, before this page is ever opened.</strong> A domain is bought and owned on <strong>D.Buy</strong>, then <strong>Claim for Batch</strong> appends it to this batch's target list — that's what populates phase 1 for anything acquired through the console.</p></div>
+    <div class="callout warn"><p><strong>Tearing a domain down is not a control on this page.</strong> Deleting a Cloudflare zone, deleting the host, or untracking a domain entirely lives only in Infrastructure's per-domain <a href="#console-manage">Danger Zone</a>, one domain at a time with a typed confirmation. The batch page builds things; the Danger Zone is the only place that destroys them.</p></div>
+    <a class="back-top" href="#ms-batch-lifecycle">&uarr; top</a>
 </section>
 
 <section id="ms-howitworks">
