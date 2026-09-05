@@ -26,10 +26,33 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
     <div class="card">
         <h3 style="margin-top:0;margin-bottom:16px;">Brief</h3>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
+            <?php
+            // This field stopped being a label the moment it started SELECTING things. It drives
+            // the research prompt, the AI content, and — since the chart plugin — which folder of
+            // chart definitions the site gets. Rewording it from "pest" to "pest control" silently
+            // resolves to a folder that does not exist and every chart quietly vanishes, with no
+            // error anywhere. So show what it currently resolves to, right here, rather than
+            // constraining the field or guessing at near-matches.
+            $nbSlug = function_exists('city_chart_niche') ? city_chart_niche(ACTIVE_SITE_DIR) : '';
+            $nbN    = ($nbSlug !== '' && function_exists('city_chart_definitions'))
+                        ? count(city_chart_definitions($nbSlug)) : 0;
+            ?>
             <div class="form-group">
                 <label>Niche ID</label>
                 <input type="text" name="niche" value="<?= $bv('niche') ?>" placeholder="pest">
-                <span class="hint">Label only (e.g. pest, wildlife, lawyers). Master site: <code><?= h(ACTIVE_SITE_ID) ?></code>.</span>
+                <span class="hint">Master site: <code><?= h(ACTIVE_SITE_ID) ?></code>. <strong>Not just a label</strong> &mdash;
+                    it selects the research prompt and this site's chart set, so rewording it changes what the site builds.</span>
+                <?php if ($nbSlug !== ''): ?>
+                    <div class="hint" style="margin-top:6px;padding:7px 10px;border-radius:6px;background:<?= $nbN ? '#f0fdf4' : '#fffbeb' ?>;border:1px solid <?= $nbN ? '#bbf7d0' : '#fde68a' ?>;">
+                        Charts resolve to <code>plugins/image-data-chart/niches/<?= h($nbSlug) ?>/</code> &mdash;
+                        <?php if ($nbN): ?>
+                            <strong style="color:#166534;"><?= $nbN ?> chart<?= $nbN === 1 ? '' : 's' ?></strong>.
+                        <?php else: ?>
+                            <strong style="color:#92400e;">no such folder, so this site draws no charts.</strong>
+                            Either the folder has not been created yet, or the wording here no longer matches it.
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="form-group">
                 <label>Service noun <span class="cf-req">*</span></label>
