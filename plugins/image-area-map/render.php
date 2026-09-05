@@ -40,7 +40,8 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     // Nothing to show around the city means the diagram would be a lone dot — worse than no
     // image. EITHER tier is enough: a city with no named areas but a list of towns it serves
     // still makes a useful picture, and gating on neighbourhoods alone silently suppressed it.
-    if (!array_filter((array) ($city['neighborhoods'] ?? [])) && !city_map_towns($city)) return null;
+    // The diagram is built from the surrounding towns now, so that is the only requirement.
+    if (!city_map_towns($city)) return null;
 
     $p = city_map_paths($siteDir, $city);
     $alt = city_map_alt($city);

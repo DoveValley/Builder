@@ -2,21 +2,14 @@
 /**
  * City service-area diagram — the drawing half. Pure functions, no side effects.
  *
- * TWO TIERS, because they are two different claims, and they are drawn in two different WAYS:
+ * ONE THING ONLY: the city at the centre, and the SURROUNDING TOWNS it serves — on the ring as
+ * a picture, and in the column beside it with their driving distances.
  *
- *   the ring — neighborhoods, subdivisions and districts INSIDE the city.
- *   the list — separate towns nearby that the business also serves, with driving distances,
- *              set beside the diagram rather than scattered around it.
- *
- * Mixing the two was the original mistake: listing Diboll (a separate city ten miles south)
- * beside Crown Colony (a Lufkin neighbourhood) is wrong on its face to any local reader, and
- * "we serve Diboll" is a different — and separately valuable — claim from "we cover Crown
- * Colony".
- *
- * The towns are a LIST for a reason. Ringing them around the diagram put thirteen chips in one
- * picture and read as clutter, and it implied a position for each town that the data does not
- * support. A list makes no positional claim at all, scans far faster with the mileages lined
- * up in a column, and leaves the diagram to do the one job it is good at.
+ * It used to draw neighbourhoods on that ring. They were being INVENTED. Four sites covering
+ * Lufkin returned lists that barely overlapped, "Fredonia Hill Historic District" belongs to
+ * Nacogdoches, and OpenStreetMap records no named areas in Lufkin at all — a city of 34,500
+ * simply has none, so there was nothing to recall. Towns are incorporated municipalities: real,
+ * checkable, and the research got them right. One accurate tier beats two when one is fiction.
  *
  * DELIBERATELY A SCHEMATIC, NOT A MAP. Ring positions carry no geography: they are seeded from
  * the city name so every city's picture differs, and the footer says it is not to scale.
@@ -98,9 +91,8 @@ function city_map_svg(array $city, array $theme = []): string
 
     // More than 8 labels on the ring stops being readable at the size these render on a page.
     // The list is cheaper, so it holds more before it has to say how many it left out.
-    $areas    = array_slice(city_map_areas($city), 0, 8);
     $allTowns = city_map_towns($city);
-    $towns    = array_slice($allTowns, 0, 10);
+    $towns    = array_slice($allTowns, 0, 8);
     $dropped  = count($allTowns) - count($towns);
 
     $bg     = $theme['bg']     ?? '#f4f7fa';
@@ -156,14 +148,26 @@ function city_map_svg(array $city, array $theme = []): string
     // against each other.
     $nodes = [];
 
-    // Areas within the city. Even spread with a deterministic jitter, so two cities with the
-    // same number of areas do not produce the same picture.
-    $n = max(count($areas), 1);
-    foreach ($areas as $i => $area) {
-        $ang = (2 * M_PI * $i / $n) - M_PI / 2 + (city_map_rand($seed, $i) - 0.5) * 0.30;
-        $rad = $R * (0.50 + city_map_rand($seed, $i + 50) * 0.30);
+    // The ring carries the SURROUNDING TOWNS. It used to carry neighbourhoods, and those were
+    // being invented: four sites covering Lufkin returned lists that barely overlapped, and
+    // OpenStreetMap records no named areas there at all. Towns are incorporated municipalities
+    // — real, checkable, and the research got them right. Accuracy beats having a second tier.
+    //
+    // Radius is ordered by distance where we have it, so nearer towns sit nearer the middle.
+    // Angles are seeded, not geographic; the footer says as much.
+    $maxMi = 0.0;
+    foreach ($towns as $t) if ($t['miles'] !== null) $maxMi = max($maxMi, $t['miles']);
+
+    $n = max(count($towns), 1);
+    foreach ($towns as $i => $t) {
+        $ang = (2 * M_PI * $i / $n) - M_PI / 2 + (city_map_rand($seed, $i) - 0.5) * 0.28;
+        $rad = ($maxMi > 0 && $t['miles'] !== null)
+            ? $R * (0.52 + ($t['miles'] / $maxMi) * 0.42)
+            : $R * 0.76;
+        // No mileage on the chip — the column beside the diagram carries it, and printing it
+        // twice only crowds the picture.
         $nodes[] = ['x' => $cx + cos($ang) * $rad, 'y' => $cy + sin($ang) * $rad * 0.78,
-                    'label' => $area, 'sub' => '', 'strong' => true];
+                    'label' => $t['name'], 'sub' => '', 'strong' => true];
     }
 
     // Chip geometry. SVG gives no text metrics, so widths are estimated from character count;
@@ -265,11 +269,11 @@ function city_map_svg(array $city, array $theme = []): string
     $o[] = '<text x="' . $cx . '" y="' . ($cy + 58) . '" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
          . ' font-size="28" font-weight="700" fill="' . $esc($ink) . '">' . $esc($label) . '</text>';
 
-    // A caption for the ring, so the two tiers are never confused for one another.
-    if ($areas) {
+    // Caption for the ring. "AROUND", not "IN" — these are separate towns, not districts.
+    if ($towns) {
         $o[] = '<circle cx="33" cy="29" r="5.5" fill="url(#dotg)"/>';
         $o[] = '<text x="47" y="34" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15"'
-             . ' font-weight="700" letter-spacing="0.6" fill="' . $esc($ink) . '" fill-opacity=".65">AREAS IN '
+             . ' font-weight="700" letter-spacing="0.6" fill="' . $esc($ink) . '" fill-opacity=".65">AROUND '
              . $esc(strtoupper($name)) . '</text>';
     }
 
@@ -348,53 +352,53 @@ function city_map_alt(array $city): string
     $name  = trim((string) ($city['city'] ?? ''));
     $ss    = trim((string) ($city['SS'] ?? ''));
     $where = $ss !== '' ? "$name, $ss" : $name;
-    $areas = array_slice(city_map_areas($city), 0, 8);
     $towns = array_slice(city_map_towns($city), 0, 8);
 
     $parts = [];
-    if ($areas) $parts[] = 'covering ' . city_map_join($areas);
     if ($towns) {
         $desc = [];
         foreach ($towns as $t) {
             $desc[] = $t['name'] . ($t['miles'] !== null ? ' ' . city_map_num($t['miles']) . ' miles away' : '');
         }
-        $parts[] = ($areas ? 'and nearby towns ' : 'covering nearby towns ') . city_map_join($desc);
+        $parts[] = 'covering ' . city_map_join($desc);
     }
     if (!$parts) return "Service area diagram for {$where}.";
     return "Service area diagram for {$where}, " . implode(' ', $parts) . '.';
 }
 
 /**
- * The caption under the diagram — the same coverage claim as TEXT, since every name inside the
- * picture is pixels Google cannot read.
+ * The caption under the diagram — the coverage claim as TEXT, since every name inside the
+ * picture is pixels a crawler cannot read.
  *
- * THE CITY IS THE SUBJECT, and the nearby towns are deliberately LEFT OUT. Listing eight town
- * names under every one of 27 pages is boilerplate and a well-known low-quality local-SEO
+ * THE CITY IS THE SUBJECT, and the surrounding towns are deliberately NOT listed here. Eight
+ * town names repeated under every page is boilerplate and a well-known low-quality local-SEO
  * pattern; it dilutes the single entity the site is built around, and on a one-site-per-city
  * strategy it competes with a future site for those towns. They stay inside the diagram, where
- * being unreadable to a crawler is a FEATURE — a human still gets their answer at a glance.
+ * being unreadable to a crawler is a FEATURE — a person still gets their answer at a glance.
  *
- * Phrasing varies by domain for the same reason the charts' does: one fixed sentence across
- * every site would be a new shared template replacing the one we removed.
+ * It no longer names neighbourhoods either, because those were being invented. Four sites
+ * covering Lufkin returned barely-overlapping lists and OpenStreetMap records no named areas
+ * there at all, yet those names reached the built pages 54 times each.
+ *
+ * Phrasing varies by domain, so sites off one master do not all carry the same sentence.
  */
 function city_map_caption(array $city, string $domain = ''): string
 {
-    $name  = trim((string) ($city['city'] ?? ''));
+    $name = trim((string) ($city['city'] ?? ''));
     if ($name === '') return '';
     $ss    = trim((string) ($city['SS'] ?? ''));
     $where = $ss !== '' ? "$name, $ss" : $name;
-    $areas = array_slice(city_map_areas($city), 0, 8);
-    if (!$areas) return '';
+    $towns = city_map_towns($city);
+    if (!$towns) return '';
+    $n = count($towns);
 
-    $list = city_map_join($areas);
     $opts = [
-        "Coverage across {$where} takes in {$list}. Response times matter most in the first hours after water is found, so knowing the ground is part of the job.",
-        "Service across {$where} reaches {$list} — every part of the city, not just the centre.",
-        "{$where} coverage spans {$list}, so a call from any part of town reaches someone who knows the area.",
-        "Areas covered in {$where} include {$list}. Local knowledge of how each part of the city is built shapes how water damage is handled there.",
+        "Coverage centres on {$where} and reaches {$n} surrounding communities. Response time is what matters most in the hours after a problem is found, so knowing the ground is part of the job.",
+        "Based in {$where}, with {$n} nearby communities inside the service area — near enough to reach quickly rather than a list of places on a map.",
+        "{$where} is the centre of the service area, which extends to {$n} surrounding towns. The diagram shows how far that reaches.",
+        "Serving {$where} and {$n} communities around it. Local knowledge of how each area is built shapes how the work is handled there.",
     ];
-    // ms_variant() is the project's existing per-domain primitive, and it measures
-    // evenly here (150/150/150/150 across 600 domains on four phrasings).
+    // ms_variant() is the project's existing per-domain primitive, and it measures evenly here.
     $pick = function_exists('ms_variant') ? ms_variant($domain, count($opts), 'map_caption') : 0;
     return $opts[$pick] ?? $opts[0];
 }

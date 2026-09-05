@@ -1038,6 +1038,172 @@ Rules:
 - Return JSON only, no markdown fences, no explanation."""
 
 
+# ── Neighbourhoods: OpenStreetMap, not the model ──────────────────────────────
+#
+# We asked the model for "6-10 real, well-known neighborhoods" and it invented them. Four sites
+# covering Lufkin returned lists that barely overlapped; only "Downtown Lufkin" survived
+# corroboration. "Fredonia Hill Historic District" belongs to Nacogdoches. Those names reached
+# the built pages 54 times each.
+#
+# The reason is simple: Lufkin has 34,500 people and OpenStreetMap records ZERO named
+# neighbourhoods there. Small US cities frequently have none, so there was nothing to recall and
+# the model produced plausible-sounding subdivisions instead.
+#
+# So the rule is now: a neighbourhood name appears on a site only if OpenStreetMap has it.
+# Free, no key, and it is the actual geographic record rather than a recollection of one.
+#
+# Nearby TOWNS are left to the model deliberately — those are incorporated municipalities, well
+# documented, and it got them right. Informal area names are the unreliable class.
+
+OSM_UA = 'homepage-builder/1.0 (site generator; neighbourhood verification)'
+
+def _osm_get(url, data=None, timeout=45):
+    import urllib.request, urllib.parse
+    req = urllib.request.Request(url, data=(urllib.parse.urlencode(data).encode() if data else None),
+                                 headers={'User-Agent': OSM_UA})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.loads(r.read().decode('utf-8', 'replace'))
+
+
+def osm_neighborhoods(city, state):
+    """
+    Real named areas inside a city, from OpenStreetMap. ([], '') when it has none — which is a
+    valid answer, not a failure.
+
+    Two steps on purpose: resolve the city to its own OSM boundary first, then search inside
+    that. Matching an area by name alone would happily pick a Springfield in the wrong state.
+    """
+    city, state = (city or '').strip(), (state or '').strip()
+    if not city:
+        return [], ''
+    try:
+        hits = _osm_get('https://nominatim.openstreetmap.org/search?'
+                        + __import__('urllib.parse', fromlist=['x']).urlencode(
+                            {'q': f'{city}, {state}, USA', 'format': 'json', 'limit': 5}))
+    except Exception as exc:
+        _warn(f'    OSM lookup failed for {city}: {exc}')
+        return [], ''
+    rel = next((h for h in hits if h.get('osm_type') == 'relation'), None)
+    if not rel:
+        return [], ''
+
+    area = 3600000000 + int(rel['osm_id'])
+    q = (f'[out:json][timeout:40];area({area})->.a;'
+         '(node(area.a)["place"~"neighbourhood|suburb|quarter"];'
+         ' way(area.a)["place"~"neighbourhood|suburb|quarter"];'
+         ' relation(area.a)["place"~"neighbourhood|suburb|quarter"];);out tags 80;')
+    try:
+        d = _osm_get('https://overpass-api.de/api/interpreter', {'data': q})
+    except Exception as exc:
+        _warn(f'    OSM area query failed for {city}: {exc}')
+        return [], ''
+
+    names = set()
+    for e in d.get('elements', []):
+        n = (e.get('tags') or {}).get('name', '').strip()
+        # A "neighbourhood" that is just the city's own name tells a reader nothing.
+        if n and n.lower() != city.lower():
+            names.add(n)
+    return sorted(names)[:8], 'OpenStreetMap'
+
+
+def verify_neighborhoods(city, state, candidates, api_key, dry_run=False):
+    """
+    Check candidate area names, keeping only the ones that can be DESCRIBED.
+
+    Generating a list of neighbourhoods is a question the model answers badly — four sites
+    covering Lufkin produced barely-overlapping lists. Verifying a specific name is a question
+    it answers well, and the discriminator is being able to say what the place actually IS.
+    A name that sounds like a subdivision but cannot be described is not real enough to publish.
+
+    Tested on the 13 names those four sites produced: it kept Downtown Lufkin, Crown Colony
+    (a real golf-course subdivision), Fuller Springs, Kurth and Kurth Addition, and dropped
+    Colonial Woods, Brentwood, Rangerville, Feagin, Brookhollow, Southland and Copeland Springs.
+
+    Returns [(name, what)] for the survivors.
+    """
+    cands = [c for c in dict.fromkeys(candidates) if c]
+    if not cands or dry_run:
+        return [(c, '') for c in cands] if dry_run else []
+
+    prompt = (
+        f'For the city of {city}, {state}, assess each candidate area name below.\n\n'
+        'For EACH, return an object with:\n'
+        '  "name"       — the candidate, unchanged\n'
+        '  "real"       — true ONLY if you are confident this is a genuine, identifiable area, '
+        'subdivision, neighborhood or district of this city\n'
+        '  "what"       — if real, what it actually is, in a few words\n'
+        '  "confidence" — high | medium | low\n\n'
+        'Be strict. If you cannot say what a place actually IS, it is not real enough to name on '
+        'a page. A name that merely sounds like a subdivision is not evidence.\n\n'
+        'Candidates: ' + ', '.join(cands) + '\n\n'
+        'Return JSON: {"areas": [ ... ]}. JSON only.'
+    )
+    res = call_claude(prompt, RESEARCH_MODEL, api_key, dry_run=False)
+    out = []
+    for a in (res or {}).get('areas', []):
+        if not isinstance(a, dict):
+            continue
+        name = str(a.get('name', '')).strip()
+        what = str(a.get('what', '') or '').strip()
+        conf = str(a.get('confidence', '')).strip().lower()
+        # Confident AND describable. Either alone lets an invented name through.
+        if name and a.get('real') and conf in ('high', 'medium') and what:
+            out.append((name, what))
+    return out
+
+
+def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None):
+    """
+    Rebuild every city's neighbourhood list from names that can actually be stood behind.
+
+    TWO sources, because neither alone is right:
+      - OpenStreetMap, where it has anything. Present in OSM means real.
+      - A verification pass over whatever else is on file. OSM ABSENCE IS NOT DISPROOF — it is
+        thin for small US cities, and Crown Colony is a real Lufkin subdivision that OSM does
+        not record. Deleting on OSM silence alone threw away true data.
+    """
+    rows = load_json(paths['cities'])
+    if not rows:
+        return 0
+    changed = 0
+    _log('\n── Neighbourhoods (OpenStreetMap) ───────────────────')
+    for i, c in enumerate(rows):
+        name = (c.get('city') or '').strip()
+        if not name:
+            continue
+        if city_filter and city_filter.lower() not in f"{c.get('id','')} {name} {c.get('city_slug','')}".lower():
+            continue
+        if c.get('neighborhoods_source') == 'OpenStreetMap':
+            _log(f'  {name} — already verified, skipping')
+            continue
+        had = list(c.get('neighborhoods') or [])
+        osm, _src = osm_neighborhoods(name, c.get('state', ''))
+        if osm:
+            _ok(f'  {name} — OSM confirms {len(osm)}: ' + ', '.join(osm))
+
+        # Anything OSM did not supply still gets a chance, by verification rather than deletion.
+        rest = [x for x in had if x not in osm]
+        kept = verify_neighborhoods(name, c.get('state', ''), rest, api_key, dry_run) if rest else []
+        for nm, what in kept:
+            _log(f'    verified: {nm} — {what}')
+        dropped = [x for x in rest if x not in [k[0] for k in kept]]
+        if dropped:
+            _warn(f'    dropped {len(dropped)} that could not be described: ' + ', '.join(dropped))
+
+        names = osm + [k[0] for k in kept]
+        if not names:
+            _warn(f'  {name} — no area name could be verified; the list is empty')
+        if not dry_run:
+            rows[i] = {**c, 'neighborhoods': names,
+                       'neighborhoods_source': 'OpenStreetMap + verified' if osm else 'verified'}
+        changed += 1
+    if changed and not dry_run:
+        save_json(paths['cities'], rows)
+        _ok(f'  Saved cities.json ({changed} city/cities verified)')
+    return changed
+
+
 def _load_research_prompt(paths):
     """Resolve the research prompt for this master: the Niche Brief's `research_prompt`
     (with brief context substituted) if set, else DEFAULT_RESEARCH_PROMPT. Leaves the
