@@ -548,16 +548,18 @@
         },
         {
             "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
             "mi_info_heading": "{city_state} Information",
             "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
             "mi_head_color": "header",
             "mi_head_color_custom": "#14532d",
             "mi_info_photo": "{city_image}",
-            "skin": "light"
+            "skin": "light",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}"
         },
         {
             "type": "cta_card",

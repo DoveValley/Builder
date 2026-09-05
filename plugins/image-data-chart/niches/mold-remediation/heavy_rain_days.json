@@ -1,0 +1,33 @@
+{
+  "id": "heavy_rain_days",
+  "name": "Days with an inch or more of rain",
+  "type": "bars",
+  "data_key": "heavy_rain_days_monthly",
+  "source_key": "heavy_rain_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days with an inch or more of rain in {city}, {SS}",
+  "alt": "Chart of days per month with at least one inch of rainfall in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"heavy_rain_days_monthly\" — the average number of days per month with precipitation of 1.0 inch or more in {city}, as an array of 12 plain numbers, January first",
+    "source_ask": "\"heavy_rain_days_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "{city}, {SS} averages about {total} a year with an inch or more of rain, most often in {peak}. Mould has a clock on it: material left wet beyond roughly 48 hours starts to grow, so what matters after a downpour is how fast it dries, not how much fell.",
+    "Heavy rain hits {city} around {total} a year, peaking in {peak}. A single inch overwhelms gutters and grading, and water that reaches a wall cavity is exactly the water nobody dries in time.",
+    "Roughly {total} of heavy rain fall on {city} each year. Each one is a chance for intrusion, and intrusion that is not dried within a couple of days is where remediation work begins."
+  ]
+}

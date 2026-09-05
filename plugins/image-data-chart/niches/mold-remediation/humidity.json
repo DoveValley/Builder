@@ -1,0 +1,33 @@
+{
+  "id": "humidity",
+  "name": "Average humidity by month",
+  "type": "bars",
+  "data_key": "humidity_monthly",
+  "source_key": "humidity_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "%",
+  "title": "Average humidity by month in {city}, {SS}",
+  "alt": "Chart of average relative humidity by month in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"humidity_monthly\" — the average relative humidity for {city} in each month, as an array of 12 plain-number percentages, January first",
+    "source_ask": "\"humidity_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "Humidity in {city}, {SS} runs from {low_value} in {low} to {peak_value} in {peak}. Mould needs sustained moisture rather than a single leak: above roughly 60% relative humidity, spores that are always present can germinate on ordinary surfaces without any standing water at all.",
+    "{city} humidity peaks at {peak_value} in {peak} and falls to {low_value} in {low}. Damp air keeps building materials wet long after a leak is fixed, and it is that lingering moisture — not the original water — that decides whether mould takes hold.",
+    "Relative humidity in {city} moves between {low_value} and {peak_value} across the year. The months at the top of that range are when drying stalls, condensation forms on cool surfaces, and hidden growth starts in wall cavities and crawl spaces."
+  ]
+}

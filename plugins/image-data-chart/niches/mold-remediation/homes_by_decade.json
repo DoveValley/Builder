@@ -1,0 +1,19 @@
+{
+  "id": "homes_by_decade",
+  "name": "When homes were built",
+  "type": "bars",
+  "data_key": "homes_by_decade",
+  "source_key": "homes_by_decade_source",
+  "unit": "%",
+  "title": "When {city}, {SS} homes were built",
+  "alt": "Chart of the age of the housing stock in {city}, {SS}, by share built in each period. {summary}",
+  "research": {
+    "ask": "\"homes_by_decade\" — the age of {city}'s housing stock, as an object whose keys are exactly \"Before 1960\", \"1960-1979\", \"1980-1999\", \"2000-2009\", \"2010 or later\" and whose values are the plain-number PERCENTAGE of homes built in each period, adding to about 100",
+    "source_ask": "\"homes_by_decade_source\" — the source of those housing figures (e.g. \"US Census ACS 2019-2023 5-year estimates\")"
+  },
+  "captions": [
+    "The largest share of housing in {city}, {SS} was built {peak}, at {peak_value} of the stock. Vapour barriers, house wrap and sealed crawl spaces became standard late; homes built before that manage moisture differently and hold it longer.",
+    "In {city}, homes built {peak} make up {peak_value} of the housing. Age matters for mould because it decides what is behind the wall — older insulation, unsealed crawl spaces and decades of small leaks nobody recorded.",
+    "{peak} accounts for {peak_value} of {city}'s homes. The older the structure, the more likely a moisture problem has had years to develop out of sight."
+  ]
+}

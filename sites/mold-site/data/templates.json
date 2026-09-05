@@ -131,14 +131,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_humidity_vs_average}",
+                "it_alt": "{chart_humidity_vs_average_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
+                "it_caption": "{chart_humidity_vs_average_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -242,16 +246,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -407,14 +412,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_heavy_rain_days}",
+                "it_alt": "{chart_heavy_rain_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
+                "it_caption": "{chart_heavy_rain_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -518,16 +527,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -683,14 +693,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -794,16 +808,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -959,14 +974,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_humidity_vs_average}",
+                "it_alt": "{chart_humidity_vs_average_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
+                "it_caption": "{chart_humidity_vs_average_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -1070,16 +1089,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1235,14 +1255,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/about.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/about.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -1346,16 +1370,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1511,14 +1536,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_flood_years}",
+                "it_alt": "{chart_flood_years_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
+                "it_caption": "{chart_flood_years_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -1622,16 +1651,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1787,14 +1817,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_humidity_vs_average}",
+                "it_alt": "{chart_humidity_vs_average_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
+                "it_caption": "{chart_humidity_vs_average_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -1898,16 +1932,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2063,14 +2098,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -2174,16 +2213,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2339,14 +2379,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -2450,16 +2494,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2615,14 +2660,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/bright-living-room-after-mold-removal-and-cleanup.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/bright-living-room-after-mold-removal-and-cleanup.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -2726,16 +2775,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2891,14 +2941,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3002,16 +3056,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3167,14 +3222,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_rainfall}",
+                "it_alt": "{chart_rainfall_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
+                "it_caption": "{chart_rainfall_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3278,16 +3337,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3443,14 +3503,18 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/mold-site/uploads/media/about.webp",
-                "it_alt": "A {city_state} home protected by professional {service} from {business}",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
                 "ai_prompt_override": "",
                 "_ai_locked": false,
-                "_ai_generated": false
+                "_ai_generated": false,
+                "_it_photo_prechart": "sites/mold-site/uploads/media/about.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3554,16 +3618,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {

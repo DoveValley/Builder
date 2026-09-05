@@ -193,6 +193,11 @@ function city_chart_text(string $tpl, array $city, array $def, array $series): s
         '{low_value}'   => $fmt($vals[$minI]) . $u,
         '{total}'       => $fmt($sum) . $u,
         '{count}'       => (string) count($vals),
+        // So a caption can write "{count} flood event{count_plural}" and read correctly at one.
+        // Lufkin came back with a single flood year on the mould site and three on the water
+        // site, and "1 documented flood events" is the kind of thing nobody notices in review
+        // and everybody notices on the page.
+        '{count_plural}' => count($vals) === 1 ? '' : 's',
     ];
     if (($def['type'] ?? 'bars') === 'timeline') {
         $extra['{most_recent}'] = (string) (int) max($vals);
