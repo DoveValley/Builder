@@ -33,7 +33,16 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
         $sv['website'] = 'https://' . preg_replace('#^https?://#i', '', rtrim($params['domain'], '/'));
     }
     if (!empty($params['city'])) {
-        $sv['city_slug'] = function_exists('slugify') ? slugify($params['city']) : strtolower(trim($params['city']));
+        // city + STATE, not city alone. The landing pages are slugged "{city}-{ss}"
+        // (landing.php) and the masters store city_slug the same way, but this line used to
+        // write city-only — so every clone's service URLs resolved to /x-lufkin/ while the
+        // pages it linked to were /x-lufkin-tx/. The Services Links grid then dropped all 26
+        // links as "not found", leaving every landing page orphaned from the homepage with no
+        // visible error. The master was right; injection broke it on the way past.
+        // ms_slug_city() is the one definition, shared with the image and landing paths.
+        $sv['city_slug'] = function_exists('ms_slug_city')
+            ? ms_slug_city((string) $params['city'], (string) ($params['SS'] ?? ''))
+            : (function_exists('slugify') ? slugify($params['city']) : strtolower(trim($params['city'])));
     }
 
     $data['site_vars'] = $sv;
