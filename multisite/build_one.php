@@ -36,6 +36,8 @@ require __DIR__ . '/../includes/multisite/landing.php';
 require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 require_once __DIR__ . '/../includes/multisite/seo_gate.php';
+require_once __DIR__ . '/../includes/multisite/class_vocab.php';
+require_once __DIR__ . '/../includes/multisite/schema_shape.php';
 require_once __DIR__ . '/../includes/multisite/steps.php';
 
 progress_set_sink(progress_jsonlines_sink());
@@ -62,8 +64,15 @@ foreach (array_slice($argv, 1) as $a) {
  * feature: it rewrites the master's own domain, email, phone and business name out of
  * every clone, so it has no switch. What can be turned off there is the tagging.
  */
-$skippable = ['landing', 'visual', 'ai', 'images', 'tags'];
-$skip      = array_values(array_intersect($skip, $skippable));
+$skippable = ['landing', 'visual', 'ai', 'images', 'tags', 'structure'];
+// Two shapes: a whole step ("images"), or one piece inside it ("images.metadata"). The parent
+// must be a real step either way. This filter is the SECOND whitelist — multisite_api.php has
+// one too — and it silently dropped every dotted key until this was fixed, which made the
+// card's sub-switches look wired while doing nothing. Keep the two in step.
+$skip = array_values(array_filter($skip, function ($k) use ($skippable) {
+    return in_array(explode('.', $k, 2)[0], $skippable, true)
+        && preg_match('/^[a-z]+(\.[a-z_]+)?$/', $k);
+}));
 $skipped   = fn(string $k) => in_array($k, $skip, true);
 if ($skipped('ai')) $noAi = true;   // one mechanism, not two
 if (!$rowFile || !is_file($rowFile)) {
@@ -336,6 +345,42 @@ if ($buildCode !== 0) {
     progress_log("Build worker failed (code {$buildCode}): " . trim($childErr), 'fatal');
     $cleanup();
     exit(1);
+}
+
+// ── Class vocabulary — same layout, same rules, different class names ────────
+// Runs on the built output, before the SEO gate, so the gate sees what would actually ship.
+// Classes any script touches are detected per build and left alone; renaming those leaves a
+// page that looks right and does nothing.
+if ($skipped('structure') || $skipped('structure.classvocab')) {
+    progress_log('Class vocabulary: skipped — turned off for this run.', 'warn');
+} else {
+    $cv = ms_class_vocab_apply($outputDir, $domain);
+    if ($cv['renamed'] > 0) {
+        progress_log("Class vocabulary: renamed {$cv['renamed']} class(es) across {$cv['files']} file(s); "
+                   . "left {$cv['skipped_js']} alone (referenced by script).");
+    }
+    // Should be impossible. A surviving old name means its rule moved out from under it, so
+    // that element is now unstyled — worse than not renaming at all.
+    if (!empty($cv['orphans'])) {
+        progress_log('Class vocabulary: ' . count($cv['orphans']) . ' class(es) left half-renamed — '
+                   . implode(', ', array_slice($cv['orphans'], 0, 5)) . '. Do not deploy this row.', 'warn');
+    }
+}
+
+// ── Schema shape — same JSON-LD facts, arranged differently per site ─────────
+// Anti-fingerprint only: Google discards key order, node order and whitespace, so this cannot
+// help or hurt rankings. What it breaks is ~10KB of byte-identical structured data being the
+// same on every site in the batch. Runs before the gate so the gate checks what would ship.
+if ($skipped('structure') || $skipped('structure.schemashape')) {
+    progress_log('Schema shape: skipped — turned off for this run.', 'warn');
+} else {
+    $ss = ms_schema_shape_apply($outputDir, $domain);
+    if ($ss['files'] > 0) {
+        progress_log("Schema shape: rearranged {$ss['blocks']} JSON-LD block(s) across {$ss['files']} file(s).");
+    }
+    // Only fires if a block's VALUES changed, which must never happen — the block is left
+    // untouched in that case rather than shipping altered facts.
+    foreach ($ss['errors'] as $e) progress_log('Schema shape: ' . $e, 'warn');
 }
 
 // ── SEO gate — objective 1, checked on the pages that were just built ────────
