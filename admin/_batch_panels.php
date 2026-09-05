@@ -287,6 +287,22 @@ if (!isset($csrfToken)) return;
                     ['Reuses the master\'s city research, not re-fetched per domain', 'auto'],
                  ]],
              ]],
+            // Not a peer of 1-3. Those are categories of what makes a site separate; this is
+            // the constraint over all of them, and it runs last because it checks their output.
+            // No checkbox on the group either — a gate you can switch off isn't a gate, same
+            // reasoning as the identity scrub.
+            ['section' => '4 &middot; SEO gate', 'facet' => 'Checks that 1&ndash;3 didn\'t break anything &mdash; objective 1, and it is a gate, not a goal',
+             'groups' => [
+                ['key' => null, 'label' => 'SEO gate', 'status' => 'todo',
+                 'note' => 'Runs last, on the built pages. Always on once built — a gate you can turn off is not a gate.',
+                 'subs' => [
+                    ['Every page keeps its primary keyword in the H1', 'todo'],
+                    ['One H1 per page', 'todo'],
+                    ['Titles and meta descriptions unchanged', 'todo'],
+                    ['Schema types unchanged', 'todo'],
+                    ['Same set of pages as the master', 'todo'],
+                 ]],
+             ]],
         ];
         $msPill = [
             'live' => ['&#10003;', '#166534', '#dcfce7', 'running today'],
