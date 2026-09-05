@@ -19,6 +19,43 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
 <div class="tab-content" style="<?= $tab === 'niche_brief' ? '' : 'display:none;' ?>">
 <?php tab_header('Niche Brief', 'The domain vocabulary for this master site\'s vertical. Fill it in, then Compile to (re)generate the AI Block Registry from the shared, read-only archetypes. Each master site is one niche.', 'tab-niche-brief'); ?>
 
+<?php
+// The Niche ID is the most consequential field on this tab and it does not look like it: a
+// plain text box that happens to select the research prompt, the AI content and the site's
+// chart set. Rewording it silently resolves to a folder that does not exist and every chart
+// disappears with no error. With many niches coming, that has to be visible, so it gets its
+// own box rather than a hint nobody reads.
+$nbSlug   = function_exists('city_chart_niche') ? city_chart_niche(ACTIVE_SITE_DIR) : '';
+$nbN      = ($nbSlug !== '' && function_exists('city_chart_definitions')) ? count(city_chart_definitions($nbSlug)) : 0;
+$nbAll    = function_exists('city_chart_niches') ? city_chart_niches() : [];
+?>
+<div class="card" style="border-left:4px solid #1e3a5f;">
+    <h3 style="margin-top:0;margin-bottom:8px;">&#129517; Niche ID &mdash; not just a label</h3>
+    <p class="hint" style="margin:0 0 12px;max-width:820px;">One word or phrase per master. It selects
+        <strong>the research prompt</strong>, <strong>the AI content archetypes</strong>, and
+        <strong>which charts this site draws</strong>. Change the wording and you change what the site builds.</p>
+
+    <?php if ($nbSlug !== ''): ?>
+        <div style="padding:9px 12px;border-radius:6px;font-size:.88rem;background:<?= $nbN ? '#f0fdf4' : '#fffbeb' ?>;border:1px solid <?= $nbN ? '#bbf7d0' : '#fde68a' ?>;max-width:820px;">
+            <strong>This site:</strong> <code><?= h($b['niche'] ?? '') ?></code> &rarr;
+            <code>niches/<?= h($nbSlug) ?>/</code> &mdash;
+            <?php if ($nbN): ?><strong style="color:#166534;"><?= $nbN ?> chart<?= $nbN === 1 ? '' : 's' ?></strong>
+            <?php else: ?><strong style="color:#92400e;">no such folder, so no charts are drawn</strong><?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <p class="hint" style="margin:12px 0 4px;"><strong>Chart folders that exist today:</strong>
+        <?php if ($nbAll): foreach ($nbAll as $nbF): ?>
+            <code style="margin-right:8px;"><?= h($nbF) ?></code><span style="color:#94a3b8;font-size:.8rem;">(<?= count(city_chart_definitions($nbF)) ?>)</span>
+        <?php endforeach; else: ?><em>none yet</em><?php endif; ?>
+    </p>
+    <p class="hint" style="margin:8px 0 0;max-width:820px;"><strong>To add a niche:</strong> create
+        <code>plugins/image-data-chart/niches/{this-id-slugified}/</code> and drop chart JSON files in. No code.
+        Slugified means lowercased with spaces as hyphens &mdash; <code>Pest Control</code> becomes <code>pest-control</code>.
+        Capitalisation and punctuation are forgiven; <strong>rewording is not</strong>, so
+        <code>pest</code> and <code>pest control</code> are two different folders.</p>
+</div>
+
 <form action="niche_brief_save.php" method="post">
     <input type="hidden" name="action" value="save">
     <input type="hidden" name="csrf_token" value="<?= h($csrfToken) ?>">
@@ -26,33 +63,10 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
     <div class="card">
         <h3 style="margin-top:0;margin-bottom:16px;">Brief</h3>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
-            <?php
-            // This field stopped being a label the moment it started SELECTING things. It drives
-            // the research prompt, the AI content, and — since the chart plugin — which folder of
-            // chart definitions the site gets. Rewording it from "pest" to "pest control" silently
-            // resolves to a folder that does not exist and every chart quietly vanishes, with no
-            // error anywhere. So show what it currently resolves to, right here, rather than
-            // constraining the field or guessing at near-matches.
-            $nbSlug = function_exists('city_chart_niche') ? city_chart_niche(ACTIVE_SITE_DIR) : '';
-            $nbN    = ($nbSlug !== '' && function_exists('city_chart_definitions'))
-                        ? count(city_chart_definitions($nbSlug)) : 0;
-            ?>
             <div class="form-group">
                 <label>Niche ID</label>
                 <input type="text" name="niche" value="<?= $bv('niche') ?>" placeholder="pest">
-                <span class="hint">Master site: <code><?= h(ACTIVE_SITE_ID) ?></code>. <strong>Not just a label</strong> &mdash;
-                    it selects the research prompt and this site's chart set, so rewording it changes what the site builds.</span>
-                <?php if ($nbSlug !== ''): ?>
-                    <div class="hint" style="margin-top:6px;padding:7px 10px;border-radius:6px;background:<?= $nbN ? '#f0fdf4' : '#fffbeb' ?>;border:1px solid <?= $nbN ? '#bbf7d0' : '#fde68a' ?>;">
-                        Charts resolve to <code>plugins/image-data-chart/niches/<?= h($nbSlug) ?>/</code> &mdash;
-                        <?php if ($nbN): ?>
-                            <strong style="color:#166534;"><?= $nbN ?> chart<?= $nbN === 1 ? '' : 's' ?></strong>.
-                        <?php else: ?>
-                            <strong style="color:#92400e;">no such folder, so this site draws no charts.</strong>
-                            Either the folder has not been created yet, or the wording here no longer matches it.
-                        <?php endif; ?>
-                    </div>
-                <?php endif; ?>
+                <span class="hint">Master site: <code><?= h(ACTIVE_SITE_ID) ?></code>. See the box above &mdash; this ID selects things.</span>
             </div>
             <div class="form-group">
                 <label>Service noun <span class="cf-req">*</span></label>
