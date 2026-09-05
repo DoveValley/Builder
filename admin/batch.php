@@ -43,10 +43,6 @@ $masterName = $masterMeta['name'] ?? $masterId;
 // Research panel only shows when the master's niche brief asks for it.
 $nicheBrief = @json_decode((string) @file_get_contents(ms_master_dir($masterId) . '/niche_brief.json'), true) ?: [];
 $researchOn = !empty($nicheBrief['uses_research_fields']);
-// The Variant Engine's own "Generate sites" replacement (genuinely different architecture/
-// type/color/voice per row) — opt-in per master, same tolerant-flag pattern as $researchOn
-// above. Every other phase on this page is completely unaffected either way.
-$variantEngineOn = !empty($nicheBrief['variant_engine']);
 
 $allMasters = [];
 foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {

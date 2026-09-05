@@ -1,8 +1,0 @@
-{% extends "base.html.j2" %}
-{% block content %}
-{% set l = content.legal.get(page.legal_key, {}) %}
-<article class="cs-legal-article">
-  <h1>{{ page.title_h1 }}</h1>
-  <div class="cs-legal-body">{{ l.body_html }}</div>
-</article>
-{% endblock %}
