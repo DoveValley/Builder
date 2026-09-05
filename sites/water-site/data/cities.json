@@ -7,36 +7,39 @@
     "city_slug": "lufkin-tx",
     "zip": "75901",
     "tags": [],
-    "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by its timber, wood products, and paper manufacturing base. The city also has a strong presence in oilfield equipment manufacturing and healthcare, with CHRISTUS Mother Frances Hospital and Baker Hughes among its largest employers. Retail trade and government/education services round out Lufkin's economy, supported by its role as a regional shopping and services center for surrounding rural counties.",
-    "local_note": "Homes in Lufkin are commonly built on slab-on-grade foundations, with pier-and-beam construction still found in many older neighborhoods. The dominant water-damage risk in this East Texas region is heavy seasonal rainfall and flash flooding, sometimes intensified by remnants of Gulf tropical systems moving inland.",
+    "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by timber, wood products, and heavy manufacturing tied to companies like Lufkin Industries. The local economy has diversified into healthcare, education, and regional retail trade, with hospitals and Angelina College drawing workers from surrounding rural counties. Its location amid piney woods forestland keeps timber and oilfield equipment manufacturing central to the area's identity.",
+    "local_note": "Most homes in Lufkin are built on slab-on-grade foundations, with some older pier-and-beam construction in historic neighborhoods. The dominant water-damage risk is heavy seasonal rainfall and localized flash flooding, particularly during spring and early summer storm systems.",
     "neighborhoods": [
       "Downtown Lufkin",
-      "Crown Colony"
+      "Kurth"
     ],
-    "population": 34434,
+    "population": 34700,
     "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out.",
     "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
     "city_image_alt": "Downtown Lufkin, TX",
     "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
     "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
     "industries": [
-      "Timber, forestry, and wood/paper products manufacturing",
-      "Oilfield equipment and energy services manufacturing",
+      "Timber and forest products manufacturing",
       "Healthcare",
+      "Oil and gas equipment manufacturing",
       "Retail and regional trade",
-      "Education and government services"
+      "Education",
+      "Government/public administration"
     ],
     "top_employers": [
-      "CHRISTUS Mother Frances Hospital - Lufkin",
-      "Baker Hughes (Lufkin Industries)",
-      "Georgia-Pacific",
-      "Angelina County",
+      "Lufkin Industries (Baker Hughes)",
+      "CHI St. Luke's Health Memorial Lufkin",
+      "Woodland Heights Medical Center",
       "Lufkin Independent School District",
-      "City of Lufkin",
       "Angelina College",
-      "Walmart Supercenter",
-      "Brookshire Brothers",
-      "Home Depot Distribution Center"
+      "City of Lufkin",
+      "Angelina County",
+      "Brookshire Grocery Company",
+      "Georgia-Pacific",
+      "Walmart",
+      "Southern Plastics",
+      "Regions Bank"
     ],
     "_researched": 1,
     "freeze_days_monthly": [
@@ -53,22 +56,57 @@
       2,
       6
     ],
-    "freeze_source": "NOAA 1991-2020 Climate Normals (Angelina County Airport station)",
+    "freeze_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
     "rainfall_monthly": [
-      4.31,
-      3.74,
-      3.86,
-      3.49,
-      5.12,
-      4.72,
-      3.44,
-      3.02,
-      4.16,
-      4.53,
-      4.62,
-      4.72
+      4.3,
+      4.0,
+      4.0,
+      3.8,
+      5.2,
+      4.3,
+      3.0,
+      3.0,
+      4.0,
+      4.5,
+      4.6,
+      4.8
     ],
-    "rainfall_source": "NOAA 1991-2020 Climate Normals (Angelina County Airport station)",
-    "rainfall_annual": 49.7
+    "rainfall_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+    "rainfall_annual": 49.5,
+    "rainfall_state_avg": 34.0,
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Hudson",
+        "miles": 5
+      },
+      {
+        "name": "Huntington",
+        "miles": 10
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 10
+      },
+      {
+        "name": "Corrigan",
+        "miles": 25
+      },
+      {
+        "name": "Livingston",
+        "miles": 40
+      }
+    ]
   }
 ]

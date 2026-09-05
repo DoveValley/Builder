@@ -1089,24 +1089,81 @@ def chart_research_fields(brief):
     return out
 
 
+def plugin_research_fields():
+    """
+    Research fields declared by PLUGINS rather than by charts.
+
+    Same idea as chart definitions, one level up: any plugin may ship a research.json listing
+    what it needs the city research to gather, and it is asked for automatically. The area map
+    uses this for surrounding towns. Putting the question here rather than in the prompt
+    constant keeps the plugin the whole unit — remove the folder and the question goes with it,
+    and a site without the plugin never pays for it.
+
+    Unlike chart definitions these are NOT niche-scoped: a plugin that is installed applies to
+    whatever niche the site is.
+
+    Returns [(data_key, source_key, ask, source_ask)].
+    """
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'plugins')
+    out, seen = [], set()
+    for f in sorted(glob.glob(os.path.join(root, '*', 'research.json'))):
+        try:
+            with open(f, encoding='utf-8') as fh:
+                cfg = json.load(fh)
+        except Exception:
+            continue
+        for fld in (cfg.get('fields') or []):
+            if not isinstance(fld, dict):
+                continue
+            key = (fld.get('data_key') or '').strip()
+            ask = (fld.get('ask') or '').strip()
+            if not key or not ask or key in seen:
+                continue
+            seen.add(key)
+            out.append((key, (fld.get('source_key') or '').strip(),
+                        ask, (fld.get('source_ask') or '').strip()))
+    return out
+
+
+def research_fields(brief):
+    """Everything the research should gather beyond the niche prompt's own fields: the charts'
+    figures for this niche, plus whatever the installed plugins ask for. One list, so the
+    top-up and declined-tracking logic treats both the same way."""
+    fields, seen = [], set()
+    for f in list(chart_research_fields(brief)) + list(plugin_research_fields()):
+        if f[0] in seen:
+            continue
+        seen.add(f[0])
+        fields.append(f)
+    return fields
+
+
 def _chart_research_asks(brief):
-    """The extra prompt block, or '' when this niche charts nothing."""
-    fields = chart_research_fields(brief)
+    """The extra prompt block, or '' when nothing extra is asked for."""
+    fields = research_fields(brief)
     if not fields:
         return ''
     lines = []
+    sourced = False
     for _key, _skey, ask, source_ask in fields:
         lines.append('- ' + ask)
         if source_ask:
             lines.append('- ' + source_ask)
-    # The source requirement is stated twice on purpose — once as a field to return, once as a
-    # rule — because a figure without a citation is the one thing the charts must never draw.
+            sourced = True
+
+    rules = ''
+    if sourced:
+        # The source requirement is stated twice on purpose — once as a field to return, once
+        # as a rule — because a figure without a citation is the one thing a chart must never
+        # be drawn from.
+        rules = "- Give the SOURCE for every figure. A number with no source is unusable to us.\n"
+
     return (
-        "\n\nAlso return these figures, used to draw charts for this city:\n"
+        "\n\nAlso return these fields, used to draw images for this city:\n"
         + "\n".join(lines)
-        + "\n\nRules for these figures:\n"
-        "- Give the SOURCE for every figure. A number with no source is unusable to us.\n"
-        "- If you are not confident of a real published figure, OMIT that field entirely.\n"
+        + "\n\nRules for these fields:\n"
+        + rules
+        + "- If you are not confident of a real published fact, OMIT that field entirely.\n"
         "  Omitting it is correct and expected; a plausible estimate is not.\n"
     )
 
@@ -1140,17 +1197,24 @@ def _needs_research(city_data, chart_fields=None):
     # of its own accord once the figure is there (or once the model has declined it twice and
     # the city is marked as asked).
     if city_data.get('_researched'):
-        return _missing_chart_fields(city_data, chart_fields) != []
+        return _missing_research_fields(city_data, chart_fields) != []
     return not city_data.get('industries') and not city_data.get('top_employers')
 
 
-def _missing_chart_fields(city_data, chart_fields):
-    """Chart figures this city still lacks. A field the model has already declined twice is
+def _declined_map(city_data):
+    """Declines recorded against this city. `_chart_declined` is the old key, read so rows
+    written before plugins could ask for fields keep their history instead of being re-billed."""
+    return dict(city_data.get('_research_declined')
+                or city_data.get('_chart_declined') or {})
+
+
+def _missing_research_fields(city_data, chart_fields):
+    """Declared fields this city still lacks. A field the model has already declined twice is
     treated as settled — some cities genuinely have no published figure, and asking forever
     would bill for a question already answered."""
     if not chart_fields:
         return []
-    declined = city_data.get('_chart_declined') or {}
+    declined = _declined_map(city_data)
     missing = []
     for key, _skey, _ask, _sask in chart_fields:
         if city_data.get(key) not in (None, '', [], {}):
@@ -1177,9 +1241,9 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
     prompt_template = _load_research_prompt(paths)   # niche-aware (Niche Brief or default)
     # What this niche's charts need, so an already-researched city can be topped up.
     _brief = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
-    chart_fields = chart_research_fields(_brief)
+    chart_fields = research_fields(_brief)
     if chart_fields:
-        _log('  Chart figures requested: ' + ', '.join(f[0] for f in chart_fields))
+        _log('  Extra fields requested: ' + ', '.join(f[0] for f in chart_fields))
 
     for i, city in enumerate(cities):
         city_name = city.get('city', '')
@@ -1194,13 +1258,13 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
         if tag_ids is not None and city_id not in tag_ids:
             continue
 
-        missing = _missing_chart_fields(city, chart_fields)
+        missing = _missing_research_fields(city, chart_fields)
         if not _needs_research(city, chart_fields):
             _log(f'  {city_name} — research data present, skipping')
             continue
 
         if city.get('_researched') and missing:
-            _log(f'  {city_name}, {city.get("SS","?")} — topping up chart figures: ' + ', '.join(missing))
+            _log(f'  {city_name}, {city.get("SS","?")} — topping up: ' + ', '.join(missing))
         else:
             _log(f'  {city_name}, {city.get("SS","?")} — researching...')
         result = _research_city(
@@ -1224,14 +1288,14 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
                     result.pop(key, None)
             # Track what the model declined, so a city with no published figure is asked twice
             # and then left alone rather than re-billed on every run.
-            declined = dict(city.get('_chart_declined') or {})
+            declined = _declined_map(city)
             for key in missing:
                 if result.get(key) in (None, '', [], {}):
                     declined[key] = int(declined.get(key, 0)) + 1
                 else:
                     declined.pop(key, None)
             if declined:
-                result['_chart_declined'] = declined
+                result['_research_declined'] = declined
 
             cities[i] = {**city, **result, '_researched': 1}
             _ok(f'  {city_name} — research complete')

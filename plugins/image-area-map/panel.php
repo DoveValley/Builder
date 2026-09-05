@@ -34,6 +34,14 @@ $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
 $pmRef = [
     'city' => 'Houston', 'SS' => 'TX', 'state' => 'Texas',
     'neighborhoods' => ['Montrose', 'The Heights', 'Midtown', 'River Oaks', 'EaDo', 'Rice Village', 'Memorial'],
+    'nearby_towns' => [
+        ['name' => 'Bellaire', 'miles' => 7],
+        ['name' => 'Pasadena', 'miles' => 12],
+        ['name' => 'Pearland', 'miles' => 17],
+        ['name' => 'Humble', 'miles' => 20],
+        ['name' => 'Sugar Land', 'miles' => 22],
+        ['name' => 'Katy', 'miles' => 30],
+    ],
 ];
 ?>
 <style>.pm-sample svg{width:100%;height:auto;display:block}</style>
@@ -58,18 +66,32 @@ $pmRef = [
         <li>A city with <strong>no named areas gets no diagram</strong>, rather than a lone dot.</li>
     </ul>
 
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Two tiers, because they are two different claims</h3>
+    <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
+        <li><code>neighborhoods</code> &mdash; areas <strong>inside</strong> the city. Drawn on the ring.</li>
+        <li><code>nearby_towns</code> &mdash; <strong>separate towns</strong> you also serve, each with its driving distance. Set out as a
+            <strong>list beside the diagram</strong>: the mileages line up so they compare at a glance, and a list makes no claim about where
+            a town lies &mdash; which is right, because we don't know. Entries look like <code>{"name": "Diboll", "miles": 10}</code>;
+            a town with no <code>miles</code> still appears, just without the figure.</li>
+        <li>Listing Diboll (a city ten miles out) beside Crown Colony (a Lufkin neighbourhood) is <strong>wrong on its face to a local reader</strong>,
+            and the two are worth different things &mdash; which is why they are separate fields, and why the legend names them separately.</li>
+        <li>The research gathers both automatically. This plugin declares what it needs in its own <code>research.json</code>, so installing it
+            is what makes the question get asked.</li>
+    </ul>
+
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Worth knowing</h3>
     <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
-        <li><strong>It is a diagram, not a map.</strong> The area names carry no coordinates, so placing them on real geography would claim more than the data supports. The image says so on its face.</li>
-        <li>The area names inside it are <strong>pixels, not text</strong> &mdash; Google cannot read them. The SEO value is in your page copy, which already names these areas; this earns its place by being an image no other site can share, and by answering "do you cover my area?" at a glance.</li>
+        <li><strong>It is a diagram, not a map.</strong> Positions carry no geography &mdash; they are seeded from the city name so every city's picture differs. The image says so on its face.</li>
+        <li><strong>We tried placing towns on their true compass bearing and cut it.</strong> It bought nothing (the diagram was already unique per city, and someone in Diboll is looking for the word "Diboll", not for where its dot sits), and the data would not support it: research returned a direction that was wrong for four of eight towns around Lufkin &mdash; Pollok as "S" when it is NW, off by 132&deg;. A wrong bearing is glaring to a local reader in a way this schematic can never be.</li>
+        <li>Every name inside it is <strong>pixels, not text</strong> &mdash; Google cannot read them. The SEO value is in your page copy; this earns its place by being an image no other site can share, and by answering "do you cover my area?" at a glance.</li>
+        <li>That cuts both ways for <code>nearby_towns</code>: its real worth is in the <strong>copy</strong>, where "we serve Diboll" is a keyword of its own with its own volume. On the diagram it is decoration &mdash; useful decoration, but the field is the asset, not the picture.</li>
         <li>No map tiles, no API key, no licence, no cost per site.</li>
     </ul>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">What it draws</h3>
-    <p class="hint" style="max-width:620px;margin-bottom:10px;">A reference sample. These are areas <strong>inside</strong> the city &mdash; which is what
-        <code>neighborhoods</code> means here. Surrounding towns you also serve are a different claim and are not in this
-        field today. The ring layout is seeded from the city name, so a city with four areas and one with nine look
-        different from each other, not just relabelled.</p>
+    <p class="hint" style="max-width:620px;margin-bottom:10px;">A reference sample showing both tiers: seven areas <strong>inside</strong> Houston on the ring,
+        and six <strong>separate towns</strong> it also serves listed beside it with their driving distances. The ring layout is seeded
+        from the city name, so a city with four areas and one with nine look different from each other, not just relabelled.</p>
     <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
         <?= city_map_svg($pmRef) ?>
     </div>
