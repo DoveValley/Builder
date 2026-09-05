@@ -22,7 +22,13 @@ function city_map_paths(string $siteDir, array $city): array
             trim(($city['city'] ?? '') . ' ' . ($city['SS'] ?? ''))));
     }
     $rel = 'uploads/media/service-area-map-' . trim($slug, '-');
-    return ['svg' => $siteDir . '/' . $rel . '.svg', 'webp' => $siteDir . '/' . $rel . '.webp', 'rel' => $rel];
+    // 'rel' is where the file LIVES (always uploads/ inside the site dir). 'url' is how a page
+    // ASKS for it, which differs by context: the panel serves the site from sites/{id}/uploads/,
+    // a built site from /uploads/. UPLOAD_URL already knows which — hardcoding '/uploads/' made
+    // the image work in the build and 404 in the panel.
+    $url = (defined('UPLOAD_URL') ? UPLOAD_URL : 'uploads/') . 'media/' . basename($rel);
+    return ['svg' => $siteDir . '/' . $rel . '.svg', 'webp' => $siteDir . '/' . $rel . '.webp',
+            'rel' => $rel, 'url' => $url];
 }
 
 /**
@@ -48,7 +54,7 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     // and it still skips the expensive rasterise whenever nothing has actually changed, so two
     // sites covering the same city draw it once.
     if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
-        return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => false];
+        return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
     }
     if (!is_dir(dirname($p['svg'])) && !@mkdir(dirname($p['svg']), 0775, true) && !is_dir(dirname($p['svg']))) return null;
     if (@file_put_contents($p['svg'], $svg) === false) return null;
@@ -56,9 +62,9 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     if (!city_map_rasterise($p['svg'], $p['webp'])) {
         // Rasterising failed (no converter on this box). The SVG is still valid and usable,
         // so return that rather than nothing — a diagram in the wrong format beats no diagram.
-        return ['path' => '/' . $p['rel'] . '.svg', 'alt' => $alt, 'drawn' => true];
+        return ['path' => $p['url'] . '.svg', 'alt' => $alt, 'drawn' => true];
     }
-    return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => true];
+    return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => true];
 }
 
 /**

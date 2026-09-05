@@ -19,7 +19,11 @@ function city_chart_paths(string $siteDir, array $city, array $def): array
         $slug = strtolower(preg_replace('/[^a-z0-9]+/i', '-', trim(($city['city'] ?? '') . ' ' . ($city['SS'] ?? ''))));
     }
     $rel = 'uploads/media/chart-' . $def['id'] . '-' . trim($slug, '-');
-    return ['svg' => $siteDir . '/' . $rel . '.svg', 'webp' => $siteDir . '/' . $rel . '.webp', 'rel' => $rel];
+    // 'rel' is where the file LIVES; 'url' is how a page ASKS for it. UPLOAD_URL knows the
+    // difference between the panel (sites/{id}/uploads/) and a built site (/uploads/).
+    $url = (defined('UPLOAD_URL') ? UPLOAD_URL : 'uploads/') . 'media/' . basename($rel);
+    return ['svg' => $siteDir . '/' . $rel . '.svg', 'webp' => $siteDir . '/' . $rel . '.webp',
+            'rel' => $rel, 'url' => $url];
 }
 
 /**
@@ -37,7 +41,7 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
 
     $p = city_chart_paths($siteDir, $city, $def);
     if (!$force && is_file($p['webp'])) {
-        return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => false];
+        return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
     }
 
     $svg = city_chart_svg($series, $def, $title, $theme);
@@ -48,9 +52,9 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
     if (!city_chart_rasterise($p['svg'], $p['webp'])) {
         // No converter on this box. The SVG is valid and usable, so ship that rather than
         // nothing — a chart in the wrong format beats no chart.
-        return ['path' => '/' . $p['rel'] . '.svg', 'alt' => $alt, 'drawn' => true];
+        return ['path' => $p['url'] . '.svg', 'alt' => $alt, 'drawn' => true];
     }
-    return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => true];
+    return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => true];
 }
 
 /**
