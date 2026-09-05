@@ -29,5 +29,9 @@
     "{city} takes about {total} of rain a year, heaviest in {peak} at {peak_value}. Rain drives activity two ways: standing water left behind is where mosquitoes breed, and saturated soil pushes ants and roaches up out of the ground and toward the house.",
     "Rain in {city}, {SS} peaks in {peak} and drops to {low_value} in {low}. A mosquito needs only days and a container of water to complete a cycle, so the wet months set the tempo for the whole season.",
     "Rainfall in {city} totals roughly {total} a year. Wet weather floods the soil that ground-nesting colonies live in, and what comes out of it looks for the nearest dry structure."
+  ],
+  "groups": [
+    "displace",
+    "moisture"
   ]
 }

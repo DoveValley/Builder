@@ -29,5 +29,9 @@
     "Humidity in {city}, {SS} runs from {low_value} in {low} to {peak_value} in {peak}. Damp air slows drying, which is why water damage needs equipment rather than open windows.",
     "{city} humidity peaks at {peak_value} in {peak}. The higher it runs, the longer materials stay wet after the water itself is gone — and the more likely mould becomes.",
     "Relative humidity in {city} moves between {low_value} and {peak_value} across the year. Drying a property properly means controlling that, not waiting it out."
+  ],
+  "groups": [
+    "seasonal",
+    "structure"
   ]
 }

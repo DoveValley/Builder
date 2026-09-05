@@ -68,6 +68,39 @@ function city_chart_definitions(string $niche): array
     return $out;
 }
 
+/**
+ * Every chart in a niche that belongs to a named group, in a stable order.
+ *
+ * A group is how a PAGE says what it is about without naming one chart: a flood page asks for
+ * "weather" and gets whichever of the weather charts this domain draws. Sorted by id so the
+ * order never depends on the filesystem — the pick must be reproducible.
+ */
+function city_chart_group(string $niche, string $group): array
+{
+    $out = [];
+    foreach (city_chart_definitions($niche) as $id => $def) {
+        $groups = array_map('strval', (array) ($def['groups'] ?? []));
+        if (in_array($group, $groups, true)) $out[$id] = $def;
+    }
+    ksort($out);
+    return $out;
+}
+
+/** Every group name this niche defines. Scanned, never listed. */
+function city_chart_groups(string $niche): array
+{
+    $out = [];
+    foreach (city_chart_definitions($niche) as $def) {
+        foreach ((array) ($def['groups'] ?? []) as $g) {
+            $g = trim((string) $g);
+            if ($g !== '') $out[$g] = true;
+        }
+    }
+    $names = array_keys($out);
+    sort($names);
+    return $names;
+}
+
 /** Which niches this plugin ships charts for. Scan, never a list. */
 function city_chart_niches(): array
 {
@@ -320,7 +353,25 @@ function city_chart_compare_summary(array $series, array $def): string
     $vals = $series['values'];
     if (count($vals) < 2 || $vals[1] == 0.0) return '';
     $pct = round((($vals[0] - $vals[1]) / abs($vals[1])) * 100);
-    if (abs($pct) < 1) return 'About the same as ' . ($series['labels'][1] ?? 'average') . '.';
-    return abs($pct) . '% ' . ($pct > 0 ? 'more' : 'less') . ' than ' . ($series['labels'][1] ?? 'average') . '.';
+    $label = city_chart_article($series['labels'][1] ?? 'average');
+    if (abs($pct) < 1) return 'About the same as ' . $label . '.';
+    return abs($pct) . '% ' . ($pct > 0 ? 'more' : 'less') . ' than ' . $label . '.';
+}
+
+/**
+ * Give a benchmark label its article, so it reads inside a sentence.
+ *
+ * Labels are authored as noun phrases and some already carry one: "{state} average" resolves to
+ * "Texas average", while "the hard-water threshold" has its own. Without this the summary said
+ * "46% more than Texas average" — a missing "the" that appeared on every comparison chart on
+ * every site.
+ */
+function city_chart_article(string $label): string
+{
+    $label = trim($label);
+    if ($label === '') return 'average';
+    // Already articled, or a proper name doing the job of one.
+    if (preg_match('/^(the|a|an)\s/i', $label)) return $label;
+    return 'the ' . $label;
 }
 

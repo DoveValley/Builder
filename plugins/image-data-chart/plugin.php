@@ -101,6 +101,42 @@ add_hook('shortcode_tokens', function (array $map): array {
                 $cache['{chart_' . $id . '_caption}'] = ($r && $series)
                     ? city_chart_caption($def, $city, $series, $domain) : '';
             }
+
+            // ── Group tokens: {chart_group_NAME} ────────────────────────────
+            //
+            // A page asks for a TOPIC and the domain decides which chart in that topic it gets.
+            // Without this, every site built from one master puts the same chart on the same
+            // page — the images differ, the arrangement does not, and the arrangement is itself
+            // a fingerprint across the network.
+            //
+            // ms_variant() is a pure function of the domain (crc32 of salt|domain), so this is
+            // fully REPRODUCIBLE: rebuild the same site in a year and it picks the same chart.
+            //
+            // A group of one simply does not rotate, which is correct when only one chart fits
+            // a page. And a pick with no data falls through to the next chart in the group, so
+            // a thin city loses a chart rather than the whole image slot.
+            foreach (city_chart_groups($niche) as $g) {
+                $defs = city_chart_group($niche, $g);
+                $ids  = array_keys($defs);
+                $path = $alt = $cap = '';
+                if ($ids) {
+                    $n     = count($ids);
+                    $start = function_exists('ms_variant') ? ms_variant($domain, $n, 'chart_group_' . $g) : 0;
+                    for ($k = 0; $k < $n; $k++) {
+                        $id  = $ids[($start + $k) % $n];
+                        $key = '{chart_' . $id . '}';
+                        if (($cache[$key] ?? '') !== '') {
+                            $path = $cache[$key];
+                            $alt  = $cache['{chart_' . $id . '_alt}'] ?? '';
+                            $cap  = $cache['{chart_' . $id . '_caption}'] ?? '';
+                            break;
+                        }
+                    }
+                }
+                $cache['{chart_group_' . $g . '}']         = $path;
+                $cache['{chart_group_' . $g . '_alt}']     = $alt;
+                $cache['{chart_group_' . $g . '_caption}'] = $cap;
+            }
         }
     }
     return array_merge($map, $cache);

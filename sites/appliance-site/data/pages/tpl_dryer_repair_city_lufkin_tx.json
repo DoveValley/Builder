@@ -100,8 +100,8 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "{chart_humidity}",
-            "it_alt": "{chart_humidity_alt}",
+            "it_photo": "{chart_group_drying}",
+            "it_alt": "{chart_group_drying_alt}",
             "skin": "light",
             "heading_level": "h2",
             "heading_text": "Professional Dryer Repair Services in Lufkin, TX",
@@ -113,9 +113,9 @@
             "_ai_input_hash": "4bf1c5e15035b0c3",
             "_ai_locked": true,
             "_it_photo_prechart": "sites/appliance-site/uploads/media/tech-2.webp",
-            "it_caption": "{chart_humidity_caption}",
+            "it_caption": "{chart_group_drying_caption}",
             "it_ratio": "auto",
-            "it_layout": "side"
+            "it_layout": "stacked"
         },
         {
             "type": "custom_html",

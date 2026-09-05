@@ -229,8 +229,8 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "right",
-            "it_photo": "{chart_humidity}",
-            "it_alt": "{chart_humidity_alt}",
+            "it_photo": "{chart_group_drying}",
+            "it_alt": "{chart_group_drying_alt}",
             "_ai_locked": true,
             "skin": "light",
             "heading_level": "h2",
@@ -242,9 +242,9 @@
             "_ai_type": "local_relevance",
             "_ai_input_hash": "b465440d93302d36",
             "_it_photo_prechart": "sites/appliance-site/uploads/media/home-3.webp",
-            "it_caption": "{chart_humidity_caption}",
+            "it_caption": "{chart_group_drying_caption}",
             "it_ratio": "auto",
-            "it_layout": "side"
+            "it_layout": "stacked"
         },
         {
             "type": "faq_two_col",

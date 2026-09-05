@@ -29,5 +29,10 @@
     "Humidity in {city}, {SS} runs from {low_value} in {low} to {peak_value} in {peak}. Moisture governs which pests can survive: subterranean termites must stay damp to forage, and roaches, silverfish and centipedes all track humidity — the damper months are the active ones.",
     "{city} humidity peaks at {peak_value} in {peak} and falls to {low_value} in {low}. That swing decides where the pressure lands — damp air keeps termites working and pushes moisture-seeking insects toward kitchens, bathrooms and crawl spaces.",
     "Relative humidity in {city} moves between {low_value} and {peak_value} across the year. Insects lose water through their shells, so humid spells extend how long they can stay active and how far from shelter they will travel."
+  ],
+  "groups": [
+    "heat",
+    "moisture",
+    "structure"
   ]
 }

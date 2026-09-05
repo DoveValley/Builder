@@ -29,5 +29,8 @@
     "{city} records about {total} above 90°F, peaking in {peak} at {peak_value}. Refrigeration is the one appliance group the weather genuinely reaches: a fridge or freezer works against the air around it, so ambient heat raises the duty cycle and compressors run far longer in the hottest weeks.",
     "Days over 90°F in {city}, {SS} total roughly {total}, concentrated in {peak}. A garage freezer has no air conditioning to help it — in those months it runs closer to continuously, which is why summer is when compressors and start relays give out.",
     "The hottest stretch in {city} is {peak}, at {peak_value} above 90°F. Sealed systems are sized for a normal ambient range; sustained heat pushes them past it, and the failures show up as a unit that runs constantly and still will not hold temperature."
+  ],
+  "groups": [
+    "cooling"
   ]
 }

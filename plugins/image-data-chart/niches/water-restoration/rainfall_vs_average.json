@@ -24,9 +24,12 @@
     "source_ask": "\"rainfall_source\" — the source of that rainfall figure (e.g. \"NOAA 1991-2020 normals\")"
   },
   "captions": [
-    "{city} is a wetter place than most of {state}: {self_value} of rain a year against {benchmark_value} for the {benchmark}. {difference}",
-    "At {self_value} a year, rainfall in {city}, {SS} runs well ahead of the {benchmark} figure of {benchmark_value}. {difference} More rain means more chances for water to find a way in.",
-    "Homes in {city}, {SS} face {self_value} of rain a year against {benchmark_value} for the {benchmark} — {difference}",
-    "{difference} {city}, {SS} takes {self_value} a year where the {benchmark} sees {benchmark_value} — a meaningful difference for any property owner."
+    "{city} is a wetter place than most of {state}: {self_value} of rain a year, against {benchmark_value} for the state as a whole. {difference}",
+    "Rainfall in {city}, {SS} runs to {self_value} a year. {difference} More rain means more chances for water to find a way in.",
+    "Homes in {city} face {self_value} of rain annually. {difference} That gap is why drainage, grading and roof flashing matter more here than the state average would suggest.",
+    "{difference} {city}, {SS} takes {self_value} a year where the wider state sees {benchmark_value} — a meaningful difference for any property owner."
+  ],
+  "groups": [
+    "flood"
   ]
 }

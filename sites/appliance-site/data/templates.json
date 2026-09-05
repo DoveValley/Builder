@@ -115,10 +115,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -255,10 +255,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -418,10 +418,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -579,10 +579,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -797,12 +797,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -936,12 +936,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -1098,10 +1098,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -1260,12 +1260,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -1422,10 +1422,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -1584,12 +1584,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -1746,12 +1746,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -1908,12 +1908,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -2070,12 +2070,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -2232,12 +2232,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -2394,10 +2394,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -2556,10 +2556,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -2718,10 +2718,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -2880,12 +2880,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "custom_html",
@@ -3042,10 +3042,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -3204,10 +3204,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -3366,10 +3366,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -3528,10 +3528,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -3690,10 +3690,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -3852,10 +3852,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4014,10 +4014,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4176,10 +4176,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4338,10 +4338,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4500,10 +4500,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4662,10 +4662,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4824,10 +4824,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -4986,10 +4986,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -5148,10 +5148,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -5310,10 +5310,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -5472,10 +5472,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -5634,10 +5634,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -5796,10 +5796,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -5958,10 +5958,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -6176,10 +6176,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -6371,12 +6371,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -6566,10 +6566,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -6761,12 +6761,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -6956,12 +6956,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -7151,12 +7151,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -7346,12 +7346,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -7541,12 +7541,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -7736,10 +7736,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -7931,12 +7931,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -8126,10 +8126,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -8321,12 +8321,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -8516,12 +8516,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -8711,12 +8711,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -8906,12 +8906,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -9101,10 +9101,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -9296,12 +9296,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -9491,10 +9491,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -9686,12 +9686,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -9881,12 +9881,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -10076,12 +10076,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -10271,12 +10271,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -10466,12 +10466,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -10661,10 +10661,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -10856,10 +10856,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -11051,12 +11051,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -11246,10 +11246,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -11441,12 +11441,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -11636,12 +11636,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -11831,12 +11831,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -12026,12 +12026,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -12221,10 +12221,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -12416,12 +12416,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -12611,10 +12611,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -12806,12 +12806,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -13001,12 +13001,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -13196,12 +13196,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -13391,12 +13391,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -13586,10 +13586,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -13781,12 +13781,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -13976,10 +13976,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -14171,12 +14171,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -14366,12 +14366,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -14561,12 +14561,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -14756,12 +14756,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -14951,10 +14951,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -15146,12 +15146,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -15341,10 +15341,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -15536,12 +15536,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -15731,12 +15731,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -15926,12 +15926,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -16121,12 +16121,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -16316,10 +16316,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -16511,12 +16511,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -16706,10 +16706,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -16901,12 +16901,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -17096,12 +17096,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -17291,12 +17291,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -17486,12 +17486,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -17681,10 +17681,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -17876,12 +17876,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -18071,10 +18071,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -18266,12 +18266,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -18461,12 +18461,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -18656,12 +18656,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -18851,12 +18851,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -19046,10 +19046,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -19241,12 +19241,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -19436,10 +19436,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -19631,12 +19631,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -19826,12 +19826,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -20021,12 +20021,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -20216,12 +20216,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -20411,10 +20411,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -20606,12 +20606,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -20801,10 +20801,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -20996,12 +20996,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -21191,12 +21191,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -21386,12 +21386,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -21581,12 +21581,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -21776,10 +21776,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -21971,12 +21971,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -22166,12 +22166,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -22361,12 +22361,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -22556,12 +22556,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -22751,12 +22751,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -22946,10 +22946,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -23141,12 +23141,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -23336,12 +23336,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -23531,12 +23531,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -23726,12 +23726,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -23921,12 +23921,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -24116,12 +24116,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -24311,12 +24311,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -24506,10 +24506,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -24701,12 +24701,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -24896,12 +24896,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -25091,12 +25091,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -25286,10 +25286,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -25481,12 +25481,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -25676,10 +25676,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -25871,12 +25871,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -26066,12 +26066,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -26261,12 +26261,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -26456,12 +26456,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -26651,10 +26651,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -26846,10 +26846,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -27041,12 +27041,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -27236,10 +27236,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -27431,12 +27431,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -27626,12 +27626,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -27821,12 +27821,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -28016,12 +28016,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -28211,12 +28211,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -28406,10 +28406,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -28601,12 +28601,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_humidity}",
-                "it_alt": "{chart_humidity_alt}",
+                "it_photo": "{chart_group_drying}",
+                "it_alt": "{chart_group_drying_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_humidity_caption}",
+                "it_caption": "{chart_group_drying_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -28796,10 +28796,10 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_water_hardness}",
-                "it_alt": "{chart_water_hardness_alt}",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_water_hardness_caption}",
+                "it_caption": "{chart_group_water_caption}",
                 "it_ratio": "auto",
                 "it_layout": "stacked"
             },
@@ -28991,12 +28991,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_homes_by_decade}",
-                "it_alt": "{chart_homes_by_decade_alt}",
+                "it_photo": "{chart_group_age}",
+                "it_alt": "{chart_group_age_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_caption": "{chart_group_age_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",
@@ -29186,12 +29186,12 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "{chart_hot_days}",
-                "it_alt": "{chart_hot_days_alt}",
+                "it_photo": "{chart_group_cooling}",
+                "it_alt": "{chart_group_cooling_alt}",
                 "_it_photo_prechart": "",
-                "it_caption": "{chart_hot_days_caption}",
+                "it_caption": "{chart_group_cooling_caption}",
                 "it_ratio": "auto",
-                "it_layout": "side"
+                "it_layout": "stacked"
             },
             {
                 "type": "faq_two_col",

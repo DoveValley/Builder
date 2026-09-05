@@ -204,8 +204,8 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "right",
-            "it_photo": "{chart_homes_by_decade}",
-            "it_alt": "{chart_homes_by_decade_alt}",
+            "it_photo": "{chart_group_structure}",
+            "it_alt": "{chart_group_structure_alt}",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
@@ -221,9 +221,9 @@
             "_ai_input_hash": "c0177c24f56b13db",
             "_ai_locked": true,
             "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-inspection-katy_05bb4d.webp",
-            "it_caption": "{chart_homes_by_decade_caption}",
+            "it_caption": "{chart_group_structure_caption}",
             "it_ratio": "auto",
-            "it_layout": "side"
+            "it_layout": "stacked"
         },
         {
             "type": "feature_columns",

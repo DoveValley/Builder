@@ -19,8 +19,13 @@
     "source_ask": "\"frost_free_source\" — the source of those growing-season figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
   },
   "captions": [
-    "The frost-free season in {city} runs {self_value}, against {benchmark_value} for the {benchmark}. {difference} Every frost-free day is a day insects can breed, so the length of that window sets how many generations a population gets through in a year.",
-    "{city}, {SS} gets {self_value} between freezes where the {benchmark} sees {benchmark_value}. {difference} Pest activity starts when the last freeze passes and ends when the first one arrives — that gap is the season.",
-    "{difference} At {self_value} frost-free against {benchmark_value} for the {benchmark}, treatment in {city} has to cover more of the calendar than a state average would suggest."
+    "The frost-free season in {city} runs {self_value}, against {benchmark_value} statewide. {difference} Every frost-free day is a day insects can breed, so that window sets how many generations a population gets through.",
+    "{city}, {SS} gets {self_value} between freezes. {difference} Pest activity starts when the last freeze passes and ends when the first one arrives — that gap is the season.",
+    "{difference} At {self_value} frost-free, treatment in {city} has to cover more of the calendar than a state average would suggest."
+  ],
+  "groups": [
+    "cold",
+    "heat",
+    "season"
   ]
 }

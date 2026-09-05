@@ -27,7 +27,11 @@
   },
   "captions": [
     "{city} records about {total} below freezing in a typical year, concentrated in {peak}. Freeze-thaw cycles are what split supply lines and crack exterior spigots.",
-    "Winter in {city}, {SS} brings roughly {total} at or below freezing, worst in {peak} at {peak_value}. Uninsulated pipes in garages and crawl spaces are the usual casualties.",
+    "Winter in {city}, {SS} brings roughly {total} at or below freezing, peaking in {peak} at {peak_value}. Uninsulated pipes in garages and crawl spaces are the usual casualties.",
     "With around {total} of freezing temperatures a year, {peak} is the month to have pipes protected in {city}."
+  ],
+  "groups": [
+    "cold",
+    "seasonal"
   ]
 }

@@ -29,5 +29,10 @@
     "{city}, {SS} records about {total} above 90°F, peaking in {peak} at {peak_value}. Insects are cold-blooded, so heat directly sets their pace — egg-to-adult time shortens, generations stack up, and a population that was manageable in spring compounds through the hottest weeks.",
     "Days over 90°F in {city} total roughly {total}, concentrated in {peak}. Warmth accelerates every stage of the life cycle: mosquitoes complete a cycle in days rather than weeks, and ant and wasp colonies expand fastest exactly when the chart peaks.",
     "The hottest stretch in {city} is {peak}, at {peak_value} above 90°F. Stinging insects forage hardest in that heat, and it is when colonies reach the size that makes a nest a problem rather than a nuisance."
+  ],
+  "groups": [
+    "displace",
+    "heat",
+    "season"
   ]
 }

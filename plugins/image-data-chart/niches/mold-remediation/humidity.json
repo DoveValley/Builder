@@ -29,5 +29,10 @@
     "Humidity in {city}, {SS} runs from {low_value} in {low} to {peak_value} in {peak}. Mould needs sustained moisture rather than a single leak: above roughly 60% relative humidity, spores that are always present can germinate on ordinary surfaces without any standing water at all.",
     "{city} humidity peaks at {peak_value} in {peak} and falls to {low_value} in {low}. Damp air keeps building materials wet long after a leak is fixed, and it is that lingering moisture — not the original water — that decides whether mould takes hold.",
     "Relative humidity in {city} moves between {low_value} and {peak_value} across the year. The months at the top of that range are when drying stalls, condensation forms on cool surfaces, and hidden growth starts in wall cavities and crawl spaces."
+  ],
+  "groups": [
+    "heat",
+    "moisture",
+    "structure"
   ]
 }

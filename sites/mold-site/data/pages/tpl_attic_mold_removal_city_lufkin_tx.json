@@ -203,8 +203,8 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "right",
-            "it_photo": "{chart_humidity}",
-            "it_alt": "{chart_humidity_alt}",
+            "it_photo": "{chart_group_moisture}",
+            "it_alt": "{chart_group_moisture_alt}",
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
@@ -220,9 +220,9 @@
             "_ai_type": "local_relevance",
             "_ai_input_hash": "4d81e6172f2264b3",
             "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
-            "it_caption": "{chart_humidity_caption}",
+            "it_caption": "{chart_group_moisture_caption}",
             "it_ratio": "auto",
-            "it_layout": "side"
+            "it_layout": "stacked"
         },
         {
             "type": "ai_block",

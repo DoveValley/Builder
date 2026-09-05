@@ -19,8 +19,12 @@
     "source_ask": "\"humidity_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
   },
   "captions": [
-    "{city} averages {self_value} relative humidity against {benchmark_value} for the {benchmark}. {difference} Humidity is the single condition mould cannot do without, so a wetter-than-average climate raises the baseline risk for every property in it.",
-    "At {self_value} against the {benchmark}'s {benchmark_value}, air in {city}, {SS} holds more moisture than most of the state. {difference} That difference shows up as slower drying and a shorter window between a leak and visible growth.",
-    "{difference} {city} sits at {self_value} where the {benchmark} sees {benchmark_value} — enough to change how quickly a small moisture problem becomes a remediation job."
+    "{city} averages {self_value} relative humidity. {difference} Humidity is the single condition mould cannot do without, so a damper-than-average climate raises the baseline risk for every property in it.",
+    "Air in {city}, {SS} holds more moisture than most of {state}: {self_value} against {benchmark_value} statewide. {difference} That shows up as slower drying and a shorter window between a leak and visible growth.",
+    "{difference} {city} sits at {self_value} where the wider state sees {benchmark_value} — enough to change how quickly a small moisture problem becomes a remediation job."
+  ],
+  "groups": [
+    "moisture",
+    "whyhere"
   ]
 }

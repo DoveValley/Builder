@@ -280,6 +280,7 @@ if (!isset($csrfToken)) return;
                     ['Area map — the city and the surrounding towns it serves, any niche', 'auto'],
                     ['Data charts from the research figures — 8 water restoration &middot; 7 pest &middot; 7 mold &middot; 4 appliance', 'auto'],
                     ['Caption under each graphic, phrasing varied per domain', 'auto'],
+                    ['Chart rotation — which chart a page gets is picked per domain from its topic group', 'auto'],
                  ]],
              ]],
             ['section' => '3 &middot; Identity &amp; setup', 'facet' => 'Who the business is &mdash; already solved &mdash; plus what the run builds',

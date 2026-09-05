@@ -20,8 +20,12 @@
     "source_ask": "\"water_hardness_source\" — the source of that hardness figure (e.g. the utility's annual water quality report, or USGS)"
   },
   "captions": [
-    "Water serving {city}, {SS} measures {self_value}; water is classified hard from {benchmark_value}. {difference} Dissolved mineral comes out of solution on heating elements and valves, so hardness is what decides how fast scale builds in a dishwasher, washing machine or water heater.",
-    "{city} water runs at {self_value} against {benchmark_value} for {benchmark}. {difference} Scale insulates a heating element, so it runs hotter and longer for the same result — the ordinary route to a burnt-out element, and the reason two identical machines can fail years apart in different towns.",
+    "Water serving {city}, {SS} measures {self_value}; water is classified hard from {benchmark_value}. {difference} Dissolved mineral comes out of solution on heating elements and valves, so hardness decides how fast scale builds in a dishwasher, washing machine or water heater.",
+    "{city} water runs at {self_value}. {difference} Scale insulates a heating element, so it runs hotter and longer for the same result — the ordinary route to a burnt-out element, and the reason two identical machines can fail years apart in different towns.",
     "{difference} At {self_value}, the supply to {city} sits against a classification threshold of {benchmark_value}. Every gallon leaves a little mineral behind in valves, seals and spray arms, and how much it leaves is set by the water rather than the machine."
+  ],
+  "groups": [
+    "age",
+    "water"
   ]
 }
