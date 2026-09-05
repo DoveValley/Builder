@@ -293,14 +293,15 @@ if (!isset($csrfToken)) return;
             // reasoning as the identity scrub.
             ['section' => '4 &middot; SEO gate', 'facet' => 'Checks that 1&ndash;3 didn\'t break anything &mdash; objective 1, and it is a gate, not a goal',
              'groups' => [
-                ['key' => null, 'label' => 'SEO gate', 'status' => 'todo',
-                 'note' => 'Runs last, on the built pages. Always on once built — a gate you can turn off is not a gate.',
+                ['key' => null, 'label' => 'SEO gate', 'status' => 'live',
+                 'note' => 'Runs after the build, before upload. Always on — a gate you can turn off is not a gate. <strong>Reports but does not stop a row yet</strong>: it warns in the run log until it has seen enough real batches to prove it never fires on a good page.',
                  'subs' => [
-                    ['Every page keeps its primary keyword in the H1', 'todo'],
-                    ['One H1 per page', 'todo'],
-                    ['Titles and meta descriptions unchanged', 'todo'],
-                    ['Schema types unchanged', 'todo'],
-                    ['Same set of pages as the master', 'todo'],
+                    ['Every page keeps its primary keyword in the H1', 'auto'],
+                    ['One H1 per page', 'auto'],
+                    ['Titles and meta descriptions present and fully resolved', 'auto'],
+                    ['Schema types unchanged', 'auto'],
+                    ['Same set of pages as the master', 'auto'],
+                    ['Canonical points at this site, not the master', 'auto'],
                  ]],
              ]],
         ];

@@ -35,6 +35,7 @@ require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
 require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
+require_once __DIR__ . '/../includes/multisite/seo_gate.php';
 require_once __DIR__ . '/../includes/multisite/steps.php';
 
 progress_set_sink(progress_jsonlines_sink());
@@ -330,6 +331,26 @@ if ($buildCode !== 0) {
     $cleanup();
     exit(1);
 }
+
+// ── SEO gate — objective 1, checked on the pages that were just built ────────
+// Runs after the build and BEFORE deploy, so a breach is visible while the files are still
+// only on this box. Reports rather than blocks for now; see ms_seo_gate_blocks().
+$gate = ms_seo_gate($workingDir, $outputDir);
+if ($gate['failures']) {
+    progress_log('SEO gate: ' . count($gate['failures']) . ' problem(s) on ' . $gate['checked'] . ' page(s):', 'warn');
+    foreach (array_slice($gate['failures'], 0, 12) as $g) progress_log('  · ' . $g, 'warn');
+    if (count($gate['failures']) > 12) {
+        progress_log('  · …and ' . (count($gate['failures']) - 12) . ' more.', 'warn');
+    }
+    if (ms_seo_gate_blocks()) {
+        progress_log('SEO gate failed — not deploying this row.', 'fatal');
+        $cleanup();
+        exit(1);
+    }
+} else {
+    progress_log("SEO gate: {$gate['checked']} page(s) checked, all clear.");
+}
+foreach (array_slice($gate['warnings'], 0, 6) as $g) progress_log('SEO gate: ' . $g, 'warn');
 
 // ── Deploy (parent — deploy_site needs only params) ──────────────────────────
 if ($noDeploy) {
