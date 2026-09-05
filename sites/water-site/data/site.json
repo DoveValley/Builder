@@ -427,21 +427,20 @@
             "if_phone_label": "Call Us 24/7",
             "if_phone": "{phone}",
             "if_phone_url": "tel:{tel}",
-            "if_photo_alt": "{chart_rainfall_vs_average_alt}",
+            "if_photo_alt": "Water damage restoration in {city}, {SS}",
             "if_bg_color": "#eef4fb",
             "if_check_color": "accent",
             "if_head_color": "header",
             "if_check_color_custom": "#2563eb",
             "if_head_color_custom": "#0d2340",
-            "if_photo": "{chart_rainfall_vs_average}",
+            "if_photo": "sites/water-site/uploads/media/construction-workshop-ladder-lufkin-tx.webp",
             "if_features": [
                 "24/7 emergency water extraction",
                 "Structural drying & dehumidification",
                 "Flood, storm & sewage cleanup",
                 "Full repairs & reconstruction"
             ],
-            "id": "image_features_1",
-            "_if_photo_prechart": "sites/water-site/uploads/media/construction-workshop-ladder-lufkin-tx.webp"
+            "id": "image_features_1"
         },
         {
             "type": "faq_two_col",
@@ -499,7 +498,7 @@
             "skin": "light",
             "ai_type_id": "local_relevance",
             "ai_mode": "standalone",
-            "ai_render_as": "text",
+            "ai_render_as": "image_text",
             "ai_model": "claude-haiku-4-5-20251001",
             "ai_prompt_override": "",
             "ai_inject_target": "previous",
@@ -514,7 +513,11 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "local_relevance",
             "id": "ai_block_3",
-            "_ai_input_hash": "f6d200b0d22ec752"
+            "_ai_input_hash": "f6d200b0d22ec752",
+            "it_photo": "{chart_rainfall_vs_average}",
+            "it_alt": "{chart_rainfall_vs_average_alt}",
+            "it_image_side": "right",
+            "it_ratio": "auto"
         },
         {
             "type": "cta_banner",
@@ -559,7 +562,7 @@
             "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_map_side": "left",
+            "mi_map_side": "top",
             "mi_head_color": "header",
             "mi_head_color_custom": "#0d2340",
             "mi_info_photo": "{city_image}",

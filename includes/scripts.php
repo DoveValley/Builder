@@ -504,7 +504,7 @@ function content_editor_scripts() {
                     <input type="color" name="mi_head_color_custom[]" value="#120575" style="margin-top:4px;">
                 </div>
                 <div class="form-group"><label>Map position</label>
-                    <select name="mi_map_side[]"><option value="left" selected>Map on left, info on right (default)</option><option value="right">Map on right, info on left</option></select>
+                    <select name="mi_map_side[]"><option value="left" selected>Map on left, info on right (default)</option><option value="right">Map on right, info on left</option><option value="top">Map across the top, info below</option></select>
                 </div>
                 <div class="form-group"><label>Map panel heading</label><input type="text" name="mi_map_heading[]" placeholder="e.g. Katy, Texas Map"></div>
                 <div class="form-group"><label>Google Maps embed code</label>

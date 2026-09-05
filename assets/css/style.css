@@ -3426,8 +3426,23 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     max-height: 320px;
 }
 
+/* Map on top: one full-width column, with the city text and photo side by side beneath.
+   For the Area Map plugin's diagram, which is wide (diagram + a column of nearby towns) and
+   becomes unreadable squeezed into half the width. */
+.mi-grid.mi-stacked { grid-template-columns: 1fr; }
+.mi-info-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+.mi-info-split .mi-text { margin: 0; }
+/* A diagram must never be cropped — its labels live at the edges. */
+.mi-map-wrap img { width: 100%; height: auto; display: block; border-radius: 6px; }
+
 @media (max-width: 768px) {
     .mi-grid { grid-template-columns: 1fr; }
+    .mi-info-split { grid-template-columns: 1fr; }
     .mi-map-wrap iframe { height: 280px; }
 }
 

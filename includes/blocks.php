@@ -725,8 +725,15 @@ function render_content_block($block, $pathPrefix = '') {
             $infoCredit  = $block['mi_info_credit']   ?? '';
             $headColor   = $block['mi_head_color']    ?? 'header';
             $headColorC  = $block['mi_head_color_custom'] ?? '#120575';
-            // Which side the map sits on — 'left' (default) or 'right'.
-            $mapSide     = (($block['mi_map_side'] ?? 'left') === 'right') ? 'right' : 'left';
+            // Which side the map sits on — 'left' (default), 'right', or 'top'.
+            //
+            // 'top' exists for the Area Map plugin's diagram, which is a WIDE image (a diagram
+            // plus a column of nearby towns). Squeezed into a half-width panel the town list
+            // becomes unreadable, so this runs it full width across the top and puts the city
+            // text and photo side by side underneath.
+            $mapSide = in_array($block['mi_map_side'] ?? 'left', ['left', 'right', 'top'], true)
+                ? $block['mi_map_side'] : 'left';
+            $stacked = ($mapSide === 'top');
 
             $headStyle = resolve_color($headColor, $headColorC);
 
@@ -741,16 +748,27 @@ function render_content_block($block, $pathPrefix = '') {
             if ($mapEmbed)   $mapPanel .= '<div class="mi-map-wrap">'.$mapEmbed.'</div>';
             $mapPanel .= '</div>';
 
+            $photoHtml = '';
+            if ($infoPhotoSrc) {
+                $photoHtml .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" '.img_intrinsic_attrs($infoPhoto).'loading="lazy">';
+                if ($infoCredit) $photoHtml .= '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
+            }
+
             $infoPanel = '<div class="mi-panel mi-info-panel">';
             if ($infoHeading) $infoPanel .= '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($infoHeading).'</h2>';
             // text_to_html renders multi-paragraph plain text (and passes through AI <p> HTML)
-            if ($infoText)    $infoPanel .= '<div class="mi-text">'.text_to_html($infoText).'</div>';
-            if ($infoPhotoSrc) $infoPanel .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" '.img_intrinsic_attrs($infoPhoto).'loading="lazy">';
-            if ($infoPhotoSrc && $infoCredit) $infoPanel .= '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
+            $textHtml = $infoText ? '<div class="mi-text">'.text_to_html($infoText).'</div>' : '';
+            if ($stacked && $textHtml && $photoHtml) {
+                // Text left, photo right — the panel is full width here, so stacking them
+                // would leave a very long column of prose above a lone picture.
+                $infoPanel .= '<div class="mi-info-split">'.$textHtml.'<div>'.$photoHtml.'</div></div>';
+            } else {
+                $infoPanel .= $textHtml.$photoHtml;
+            }
             $infoPanel .= '</div>';
 
             echo '<div class="content-block block-map-info"'.$anchorAttr.'>';
-            echo '<div class="container mi-grid">';
+            echo '<div class="container mi-grid'.($stacked ? ' mi-stacked' : '').'">';
             echo $mapSide === 'right' ? $infoPanel.$mapPanel : $mapPanel.$infoPanel;
             echo '</div></div>';
             break;

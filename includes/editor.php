@@ -735,6 +735,7 @@ function render_content_blocks_editor($blocks) {
                         <select name="mi_map_side[]">
                             <option value="left"  <?= ($block['mi_map_side'] ?? 'left') === 'left'  ? 'selected' : '' ?>>Map on left, info on right (default)</option>
                             <option value="right" <?= ($block['mi_map_side'] ?? 'left') === 'right' ? 'selected' : '' ?>>Map on right, info on left</option>
+                            <option value="top"   <?= ($block['mi_map_side'] ?? 'left') === 'top'   ? 'selected' : '' ?>>Map across the top, info below (best for the Area Map diagram)</option>
                         </select>
                     </div>
 
