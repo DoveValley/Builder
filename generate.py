@@ -1297,6 +1297,27 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
             if declined:
                 result['_research_declined'] = declined
 
+            # A TOP-UP MUST ONLY FILL THE GAPS IT WAS ASKED TO FILL.
+            #
+            # The model re-answers every field in the prompt whether we needed it or not, and
+            # merging all of that back overwrote good data with a fresh, usually worse roll.
+            # Lufkin lost four of its six neighborhoods across two top-ups this way — Crown
+            # Colony, a real subdivision, was replaced by "Kurth" — purely because we asked for
+            # an unrelated chart figure. Silent, and invisible unless you diff the row.
+            #
+            # A first-time research pass still takes everything; only a top-up is restricted.
+            if city.get('_researched'):
+                allowed = set(missing) | {'_research_declined'}
+                for key, skey, _a, _s in (chart_fields or []):
+                    if key in missing and skey:
+                        allowed.add(skey)          # a figure's source comes with it
+                keep = {k: v for k, v in result.items() if k in allowed}
+                dropped = [k for k in result if k not in allowed and k in city]
+                if dropped:
+                    _log('    kept ' + (', '.join(keep) or 'nothing')
+                         + '; left existing ' + ', '.join(sorted(dropped)) + ' untouched')
+                result = keep
+
             cities[i] = {**city, **result, '_researched': 1}
             _ok(f'  {city_name} — research complete')
             for k, v in list(result.items())[:4]:
