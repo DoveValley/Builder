@@ -16,43 +16,70 @@ $pmCity = [];
 if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
     $rows = json_decode((string) @file_get_contents(ACTIVE_SITE_DIR . '/data/cities.json'), true);
     foreach ((is_array($rows) ? $rows : []) as $row) {
-        if (is_array($row) && array_filter((array) ($row['neighborhoods'] ?? []))) { $pmCity = $row; break; }
+        // Either tier is enough to draw, so either is enough to be worth showing here.
+        if (is_array($row) && (array_filter((array) ($row['neighborhoods'] ?? [])) || city_map_towns($row))) { $pmCity = $row; break; }
     }
 }
 $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
 
 /**
- * Reference sample — shown when this site has no areas of its own yet, so the panel is not
- * documenting a picture nobody can see.
+ * Reference samples — one per STATE the drawing can be in, so the panel shows every shape it
+ * produces even on a site whose cities have no data yet (which is most of them today).
  *
- * These are all genuinely WITHIN the city, which is what the field means: generate.py asks for
- * "neighborhoods, subdivisions, or districts IN {city}". An earlier version of this sample mixed
- * in Diboll and Huntington — real places, but separate incorporated cities ten miles out — which
- * taught the wrong thing about the field. Surrounding towns are a different claim and would need
- * a different field.
+ * The area names are all genuinely WITHIN the city and the towns are all genuinely SEPARATE
+ * cities, because that distinction is the thing this panel is teaching. An earlier version put
+ * Diboll and Huntington under `neighborhoods` — real places, but separate incorporated cities
+ * ten miles out — which taught the wrong thing about the field it was documenting.
  */
-$pmRef = [
-    'city' => 'Houston', 'SS' => 'TX', 'state' => 'Texas',
-    'neighborhoods' => ['Montrose', 'The Heights', 'Midtown', 'River Oaks', 'EaDo', 'Rice Village', 'Memorial'],
-    'nearby_towns' => [
-        ['name' => 'Bellaire', 'miles' => 7],
-        ['name' => 'Pasadena', 'miles' => 12],
-        ['name' => 'Pearland', 'miles' => 17],
-        ['name' => 'Humble', 'miles' => 20],
-        ['name' => 'Sugar Land', 'miles' => 22],
-        ['name' => 'Katy', 'miles' => 30],
-    ],
+$pmAreas = ['Montrose', 'The Heights', 'Midtown', 'River Oaks', 'EaDo', 'Rice Village', 'Memorial'];
+$pmTowns = [
+    ['name' => 'Bellaire', 'miles' => 7],
+    ['name' => 'Pasadena', 'miles' => 12],
+    ['name' => 'Pearland', 'miles' => 17],
+    ['name' => 'Humble', 'miles' => 20],
+    ['name' => 'Sugar Land', 'miles' => 22],
+    ['name' => 'Katy', 'miles' => 30],
+];
+$pmBase = ['city' => 'Houston', 'SS' => 'TX', 'state' => 'Texas'];
+
+$pmStates = [
+    ['Both tiers', 'The usual case once research has run. Areas on the ring, towns in the column.',
+     $pmBase + ['neighborhoods' => $pmAreas, 'nearby_towns' => $pmTowns]],
+    ['Areas only', 'No <code>nearby_towns</code> yet. The diagram takes the full width and centres itself &mdash; no empty column.',
+     $pmBase + ['neighborhoods' => $pmAreas]],
+    ['Towns only', 'No <code>neighborhoods</code>, which is common for a small city. Still a useful picture, so it is still drawn.',
+     $pmBase + ['nearby_towns' => $pmTowns]],
+    ['A town with no mileage', 'A missing <code>miles</code> just omits the figure &mdash; the town is never dropped, and no distance is invented.',
+     $pmBase + ['neighborhoods' => array_slice($pmAreas, 0, 3),
+                'nearby_towns' => [['name' => 'Bellaire', 'miles' => 7], ['name' => 'Katy'], ['name' => 'Pasadena', 'miles' => 12]]]],
+];
+
+/** The fields this plugin reads, documented once here so the panel IS the reference. */
+$pmParams = [
+    ['city',          'yes', 'The city name. No city, no diagram &mdash; this is the only hard requirement.'],
+    ['SS',            'no',  'State abbreviation. Shown beside the city name in the centre.'],
+    ['city_slug',     'no',  'Used for the output filename. Derived from <code>city</code> + <code>SS</code> if absent.'],
+    ['neighborhoods', 'no',  'Array of area names <strong>inside</strong> the city. Drawn on the ring, up to 8. Plain strings.'],
+    ['nearby_towns',  'no',  '<strong>Separate towns</strong> you also serve, listed beside the diagram, up to 10. '
+                           . 'Each is <code>{"name": &hellip;, "miles": &hellip;}</code>; <code>miles</code> is optional. '
+                           . 'A bare string works too. Past 10, the rest are counted, never silently dropped.'],
 ];
 ?>
-<style>.pm-sample svg{width:100%;height:auto;display:block}</style>
+<style>.pm-sample svg{width:100%;height:auto;display:block}
+.pm-tbl{font-size:.84rem;border-collapse:collapse;width:100%;max-width:820px}
+.pm-tbl td{padding:5px 10px 5px 0;border-top:1px solid #eef2f7;vertical-align:top;color:#334155}
+.pm-tbl td:first-child{white-space:nowrap;font-family:ui-monospace,monospace;color:#1e3a5f;font-weight:600}
+.pm-req{color:#b91c1c;font-size:.74rem;font-weight:700}
+.pm-opt{color:#94a3b8;font-size:.74rem}
+</style>
 <div class="card">
     <h2>&#128506; Image &middot; Area Map</h2>
-    <p class="hint" style="margin-bottom:16px;">A service-area diagram drawn from the city's own named areas. One image per city that no other city can have.</p>
+    <p class="hint" style="margin-bottom:16px;">A service-area diagram drawn from the city's own coverage &mdash; the areas inside it, and the towns around it. One image per city that no other city can have.</p>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">What it does</h3>
     <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
-        <li>Draws the city at the centre with its <strong>real named neighbourhoods</strong> around it, from <code>cities.json</code>.</li>
-        <li>Every city has different area names, so <strong>every diagram is different by construction</strong> &mdash; not a photo shuffled or cropped.</li>
+        <li>Draws the city at the centre with its <strong>real named neighbourhoods</strong> on a ring, and the <strong>separate towns it also serves</strong> listed beside it with driving distances &mdash; both from <code>cities.json</code>.</li>
+        <li>Every city has different names, counts and distances, so <strong>every diagram is different by construction</strong> &mdash; not a photo shuffled or cropped.</li>
         <li><strong>Writes its own alt text</strong> from the same data it drew, so no two sites ship the same alt string.</li>
         <li>Takes its colours from the site's own theme, so it doesn't look like a stock graphic dropped in.</li>
     </ul>
@@ -63,7 +90,8 @@ $pmRef = [
         <li>Drawn <strong>once per city and cached</strong>. Ten sites covering one city draw it once.</li>
         <li>A landing page gets <em>its own</em> city's diagram, not the homepage's.</li>
         <li>Saved as SVG, then rasterised to WebP &mdash; the WebP is what the page uses, so it stays an ordinary indexable image.</li>
-        <li>A city with <strong>no named areas gets no diagram</strong>, rather than a lone dot.</li>
+        <li>A city with <strong>neither areas nor towns gets no diagram</strong>, rather than a lone dot. Either one on its own is enough to draw.</li>
+        <li>The cache is keyed on the <strong>drawing</strong>, not just the filename, so a city that gains new data is redrawn instead of keeping a stale picture.</li>
     </ul>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Two tiers, because they are two different claims</h3>
@@ -74,10 +102,25 @@ $pmRef = [
             a town lies &mdash; which is right, because we don't know. Entries look like <code>{"name": "Diboll", "miles": 10}</code>;
             a town with no <code>miles</code> still appears, just without the figure.</li>
         <li>Listing Diboll (a city ten miles out) beside Crown Colony (a Lufkin neighbourhood) is <strong>wrong on its face to a local reader</strong>,
-            and the two are worth different things &mdash; which is why they are separate fields, and why the legend names them separately.</li>
+            and the two are worth different things &mdash; which is why they are separate fields, and why the picture keeps them visually apart.</li>
         <li>The research gathers both automatically. This plugin declares what it needs in its own <code>research.json</code>, so installing it
-            is what makes the question get asked.</li>
+            is what makes the question get asked &mdash; and a site without the plugin never pays for it.</li>
     </ul>
+
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">Fields it reads</h3>
+    <p class="hint" style="max-width:820px;margin-bottom:8px;">All from the city's row in <code>cities.json</code>. Everything except the city name is optional; the diagram
+        draws whatever is there and claims nothing about what isn't.</p>
+    <table class="pm-tbl">
+        <?php foreach ($pmParams as [$k, $req, $desc]): ?>
+        <tr>
+            <td><?= $pmH($k) ?></td>
+            <td style="white-space:nowrap;"><span class="<?= $req === 'yes' ? 'pm-req' : 'pm-opt' ?>"><?= $req === 'yes' ? 'required' : 'optional' ?></span></td>
+            <td><?= $desc ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <p class="hint" style="max-width:820px;margin-top:10px;">Two tokens come out: <code>{city_map}</code> (the image path, for any photo field) and
+        <code>{city_map_alt}</code> (the alt text). Colours come from the site theme &mdash; nothing to configure per site.</p>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Worth knowing</h3>
     <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
@@ -88,18 +131,23 @@ $pmRef = [
         <li>No map tiles, no API key, no licence, no cost per site.</li>
     </ul>
 
-    <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">What it draws</h3>
-    <p class="hint" style="max-width:620px;margin-bottom:10px;">A reference sample showing both tiers: seven areas <strong>inside</strong> Houston on the ring,
-        and six <strong>separate towns</strong> it also serves listed beside it with their driving distances. The ring layout is seeded
-        from the city name, so a city with four areas and one with nine look different from each other, not just relabelled.</p>
-    <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
-        <?= city_map_svg($pmRef) ?>
-    </div>
-    <p class="hint" style="margin-top:8px;max-width:620px;"><strong>alt:</strong> <?= $pmH(city_map_alt($pmRef)) ?></p>
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:22px 0 6px;">What it draws</h3>
+    <p class="hint" style="max-width:660px;margin-bottom:14px;">Every shape the drawing takes, from real areas of a real city. The layout is seeded from the
+        city name, so a city with four areas and one with nine look different from each other rather than relabelled.</p>
+    <?php foreach ($pmStates as $i => [$title, $note, $sample]): ?>
+        <div style="margin-bottom:24px;">
+            <div style="font-weight:600;color:#1e3a5f;font-size:.9rem;"><?= $pmH($title) ?></div>
+            <p class="hint" style="margin:3px 0 8px;max-width:660px;"><?= $note ?></p>
+            <div class="pm-sample" style="max-width:660px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+                <?= city_map_svg($sample) ?>
+            </div>
+            <p class="hint" style="margin-top:6px;max-width:660px;"><strong>alt:</strong> <?= $pmH(city_map_alt($sample)) ?></p>
+        </div>
+    <?php endforeach; ?>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:22px 0 8px;">This site's own data</h3>
     <?php if (!$pmCity): ?>
-        <p class="hint" style="color:#92400e;">No city on this site has named neighbourhoods yet, so nothing would be drawn today. Add them under Cities, or run the city research step, and this site's own diagram appears here.</p>
+        <p class="hint" style="color:#92400e;">No city on this site has named areas or nearby towns yet, so nothing would be drawn today. Add them under Cities, or run the city research step, and this site's own diagram appears here.</p>
     <?php else: ?>
         <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
             <?= city_map_svg($pmCity) ?>

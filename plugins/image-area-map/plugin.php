@@ -25,7 +25,7 @@ require_once __DIR__ . '/render.php';
 register_plugin(
     'image_area_map',
     'Image · Area Map',
-    'Draws a service-area diagram from the city\'s own named neighbourhoods and exposes it as {city_map}. Unique per city by construction, costs nothing per site, and writes its own alt text.',
+    'Draws a service-area diagram from the city\'s own named areas plus the nearby towns it serves, and exposes it as {city_map}. Unique per city by construction, costs nothing per site, and writes its own alt text.',
     '&#128506;',   // 🗺
     __DIR__
 );
@@ -45,14 +45,18 @@ function city_map_current_city(): array
         'city_slug'     => $v['city_slug']  ?? '',
         'neighborhoods' => $v['neighborhoods'] ?? [],
     ];
-    // cities.json is the fuller record — site_vars rarely carries neighbourhoods.
-    if (!$city['neighborhoods'] && defined('ACTIVE_SITE_DIR')) {
+    // cities.json is ALWAYS consulted, because it is the fuller record: site_vars rarely
+    // carries neighbourhoods and never carries nearby_towns. This used to be skipped whenever
+    // site_vars happened to have neighbourhoods, which silently meant a page could never show
+    // the town list — the data was there and simply never loaded.
+    if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
         $rows = json_decode((string) @file_get_contents(ACTIVE_SITE_DIR . '/data/cities.json'), true);
         foreach ((is_array($rows) ? $rows : []) as $row) {
             if (!is_array($row)) continue;
             $sameSlug = ($row['city_slug'] ?? '') !== '' && $row['city_slug'] === $city['city_slug'];
             $sameName = strcasecmp((string) ($row['city'] ?? ''), (string) $city['city']) === 0;
-            if ($sameSlug || $sameName) { $city = array_merge($city, $row); break; }
+            // The row wins on everything it actually has; site_vars fills the rest.
+            if ($sameSlug || $sameName) { $city = array_merge($city, array_filter($row, fn($x) => $x !== null && $x !== '' && $x !== [])); break; }
         }
     }
     return $city;

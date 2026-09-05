@@ -206,6 +206,18 @@ function city_map_svg(array $city, array $theme = []): string
                 $moved = true;
             }
         }
+        // The city's own name is an obstacle too — with only a few areas the ring is sparse and
+        // a chip can land right on top of it. Push clear of it, away from the centre.
+        $lblW = 12.0 * mb_strlen($ss !== '' ? "$name, $ss" : $name) + 24;
+        $lblL = $cx - $lblW / 2; $lblR = $cx + $lblW / 2;
+        $lblT = $cy + 36;        $lblB = $cy + 74;
+        foreach ($nodes as $i => $nd) {
+            if ($nd['chX'] + $nd['w'] < $lblL || $nd['chX'] > $lblR) continue;
+            if ($nd['cy'] + 15 < $lblT || $nd['cy'] - 15 > $lblB) continue;
+            $nodes[$i]['cy'] += ($nd['cy'] < ($lblT + $lblB) / 2) ? -($nd['cy'] + 15 - $lblT) - 2
+                                                                 : ($lblB - $nd['cy'] + 15) + 2;
+            $moved = true;
+        }
         if (!$moved) break;
     }
     // Keep every chip on the canvas, below the caption and above the footer.

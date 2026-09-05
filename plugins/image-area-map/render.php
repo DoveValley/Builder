@@ -31,18 +31,25 @@ function city_map_paths(string $siteDir, array $city): array
 function city_map_render(string $siteDir, array $city, array $theme = [], bool $force = false): ?array
 {
     if (trim((string) ($city['city'] ?? '')) === '') return null;
-    // No named areas means the diagram would be a lone dot — worse than no image.
-    if (!array_filter((array) ($city['neighborhoods'] ?? []))) return null;
+    // Nothing to show around the city means the diagram would be a lone dot — worse than no
+    // image. EITHER tier is enough: a city with no named areas but a list of towns it serves
+    // still makes a useful picture, and gating on neighbourhoods alone silently suppressed it.
+    if (!array_filter((array) ($city['neighborhoods'] ?? [])) && !city_map_towns($city)) return null;
 
     $p = city_map_paths($siteDir, $city);
     $alt = city_map_alt($city);
 
-    if (!$force && is_file($p['webp'])) {
-        return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => false];
-    }
-
     $svg = city_map_svg($city, $theme);
     if ($svg === '') return null;
+
+    // Cache on the DRAWING, not merely on the file existing. Checking is_file() alone meant a
+    // city that gained new data kept its old picture forever, because the path is keyed on the
+    // city slug and never changes. Comparing the SVG is cheap — it is pure string building —
+    // and it still skips the expensive rasterise whenever nothing has actually changed, so two
+    // sites covering the same city draw it once.
+    if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
+        return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => false];
+    }
     if (!is_dir(dirname($p['svg'])) && !@mkdir(dirname($p['svg']), 0775, true) && !is_dir(dirname($p['svg']))) return null;
     if (@file_put_contents($p['svg'], $svg) === false) return null;
 
