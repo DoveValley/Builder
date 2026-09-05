@@ -124,7 +124,24 @@ function ms_gsc_meta(string $token): string {
  * details in its copy. Clearing a fabricated rating is the same kind of guard. Those
  * are safety nets, not features, so they have no switch.
  */
-function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false): void {
+/**
+ * Which section-order group a page belongs to — the three the batch card switches separately.
+ * Matched on the slug rather than a stored flag, because no such flag exists and adding one to
+ * every master's data would be a migration for a three-way split. Substring, not exact, so a
+ * master that calls it "privacy" or "privacy-policy" lands in the same group either way.
+ */
+function ms_structure_group(string $slug): string {
+    foreach (['privacy', 'terms', 'disclaimer', 'legal'] as $needle) {
+        if (str_contains($slug, $needle)) return 'legal';
+    }
+    return 'home';                     // home + core pages; landing pages are handled separately
+}
+
+/**
+ * $structureSkip: ['home'=>bool,'legal'=>bool,'landing'=>bool] — the section-order switches
+ * from the batch card. Absent/empty means every group varies, which is the old behaviour.
+ */
+function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = []): void {
     $sf = $workingDir . '/data/site.json';
     if (!file_exists($sf)) return;
     $data = json_decode(file_get_contents($sf), true);
@@ -220,14 +237,38 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
         $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
     }
 
-    // ── 5. Layout variation (2a) — one ordering per domain, homepage + each page ─
+    // ── 5. Layout variation (2a) — one ordering per domain ───────────────────
+    // Split into the three groups the batch card switches independently: the home + core
+    // pages, the legal pages, and the landing pages. A page that has no stored orderings is
+    // a no-op inside layout_apply_for_domain(), so an un-generated page costs nothing here.
     if (function_exists('layout_apply_for_domain')) {
-        layout_apply_for_domain($data, $domain);                              // homepage
-        foreach (($data['pages'] ?? []) as &$pg) { layout_apply_for_domain($pg, $domain); }
+        if (empty($structureSkip['home'])) layout_apply_for_domain($data, $domain);
+        foreach (($data['pages'] ?? []) as &$pg) {
+            $group = ms_structure_group((string) ($pg['slug'] ?? ''));
+            if (empty($structureSkip[$group])) layout_apply_for_domain($pg, $domain);
+        }
         unset($pg);
     }
 
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $sf);
+
+    // ── 5b. Landing pages ────────────────────────────────────────────────────
+    // They live in their own files, so the loop above never saw them — which is why every
+    // generated site shared the landing pages' section order, and the landing pages are where
+    // the keywords and most of the traffic are. Same function, same per-domain hash.
+    if (empty($structureSkip['landing']) && function_exists('layout_apply_for_domain')) {
+        foreach (glob($workingDir . '/data/pages/*.json') ?: [] as $pf) {
+            $pg = json_decode((string) @file_get_contents($pf), true);
+            if (!is_array($pg) || empty($pg['layout_enabled']) || empty($pg['layout_variants'])) continue;
+            layout_apply_for_domain($pg, $domain);
+            $t = $pf . '.tmp.' . getmypid();
+            if (@file_put_contents($t, json_encode($pg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
+                @rename($t, $pf);
+            } else {
+                @unlink($t);
+            }
+        }
+    }
 }

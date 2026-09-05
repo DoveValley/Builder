@@ -103,7 +103,7 @@ function ms_run_flags(array $o): string {
         // Two shapes are allowed: a whole step ("images"), or one piece inside a step
         // ("images.metadata"). The parent must still be a real step either way, so a
         // hand-crafted POST cannot ask to skip the structural ones or invent a key.
-        $steps = ['landing', 'visual', 'ai', 'images', 'tags'];
+        $steps = ['landing', 'visual', 'ai', 'images', 'tags', 'structure'];
         $skip = [];
         foreach ((array) $o['skip'] as $k) {
             $k = (string) $k;

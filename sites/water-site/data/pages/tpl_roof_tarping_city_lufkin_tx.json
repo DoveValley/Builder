@@ -72,7 +72,8 @@
       "_ai_type": "hero_subtext",
       "_ai_input_hash": "b4cf18db0e97e57e",
       "_hs_photo_orig": "sites/water-site/uploads/media/roof-tarp-blue-cover-lufkin-tx.webp",
-      "_ai_injected_count": 1
+      "_ai_injected_count": 1,
+      "id": "hero_split_1"
     },
     {
       "type": "trust_bar",
@@ -93,7 +94,8 @@
         }
       ],
       "anchor": "trust_bar",
-      "tb_show_icons": true
+      "tb_show_icons": true,
+      "id": "trust_bar_1"
     },
     {
       "type": "ai_block",
@@ -117,7 +119,8 @@
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "city_intro",
       "_ai_input_hash": "466a4258277ee98f",
-      "_it_photo_orig": "sites/water-site/uploads/media/roof-tarping-aerial-drone-view-2-lufkin-tx.webp"
+      "_it_photo_orig": "sites/water-site/uploads/media/roof-tarping-aerial-drone-view-2-lufkin-tx.webp",
+      "id": "ai_block_1"
     },
     {
       "type": "ai_block",
@@ -154,7 +157,8 @@
       "_ai_generated_at": "2026-09-01T01:20:58.175511Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "99ad5af38dd75a11"
+      "_ai_input_hash": "99ad5af38dd75a11",
+      "id": "ai_block_2"
     },
     {
       "type": "steps",
@@ -185,7 +189,8 @@
           "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
         }
       ],
-      "skin": "subtle"
+      "skin": "subtle",
+      "id": "steps_1"
     },
     {
       "type": "cta_banner",
@@ -198,7 +203,8 @@
       "cb_bg_custom": "#2563eb",
       "cb_text_color": "#ffffff",
       "cb_padding": "compact",
-      "skin": "accent"
+      "skin": "accent",
+      "id": "cta_banner_1"
     },
     {
       "type": "ai_block",
@@ -222,7 +228,8 @@
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "local_relevance",
       "_ai_input_hash": "73a8ac77145c1c3f",
-      "_it_photo_orig": "sites/water-site/uploads/media/restoration-consultation-clipboard-2-lufkin-tx.webp"
+      "_it_photo_orig": "sites/water-site/uploads/media/restoration-consultation-clipboard-2-lufkin-tx.webp",
+      "id": "ai_block_3"
     },
     {
       "type": "ai_block",
@@ -258,7 +265,8 @@
       "_ai_generated_at": "2026-09-01T01:21:07.913009Z",
       "_ai_model": "claude-haiku-4-5-20251001",
       "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "a587a9a92a0c59f3"
+      "_ai_input_hash": "a587a9a92a0c59f3",
+      "id": "ai_block_4"
     },
     {
       "type": "service_cards",
@@ -301,7 +309,8 @@
           "url": "/water-mitigation-{city_slug}"
         }
       ],
-      "skin": "subtle"
+      "skin": "subtle",
+      "id": "service_cards_1"
     },
     {
       "type": "faq_two_col",
@@ -349,7 +358,8 @@
       "_ai_input_hash": "1588b6a9ea66111a",
       "skin": "dark",
       "fq_open": true,
-      "_ai_injected_count": 6
+      "_ai_injected_count": 6,
+      "id": "faq_two_col_1"
     },
     {
       "type": "cta_banner",
@@ -361,12 +371,14 @@
       "cb_bg_custom": "#0d2340",
       "cb_text_color": "#ffffff",
       "cb_padding": "compact",
-      "skin": "accent"
+      "skin": "accent",
+      "id": "cta_banner_2"
     },
     {
       "type": "custom_html",
       "anchor": "pest_services",
-      "html": "[services_links]"
+      "html": "[services_links]",
+      "id": "custom_html_1"
     },
     {
       "type": "map_info",
@@ -380,7 +392,8 @@
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
       "mi_map_side": "left",
-      "skin": "light"
+      "skin": "light",
+      "id": "map_info_1"
     }
   ],
   "seo": {
@@ -404,5 +417,53 @@
   },
   "locked_blocks": [],
   "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "2cd8101a885555b68d9c00898d4b712d"
+  "template_version": "2cd8101a885555b68d9c00898d4b712d",
+  "layout_enabled": true,
+  "layout_variants": [
+    [
+      "hero_split_1",
+      "ai_block_1",
+      "trust_bar_1",
+      "steps_1",
+      "ai_block_2",
+      "cta_banner_1",
+      "ai_block_3",
+      "ai_block_4",
+      "service_cards_1",
+      "faq_two_col_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ],
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_2",
+      "ai_block_1",
+      "cta_banner_1",
+      "steps_1",
+      "ai_block_3",
+      "ai_block_4",
+      "service_cards_1",
+      "faq_two_col_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ],
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_1",
+      "steps_1",
+      "ai_block_2",
+      "ai_block_3",
+      "cta_banner_1",
+      "ai_block_4",
+      "service_cards_1",
+      "faq_two_col_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ]
+  ]
 }
