@@ -82,7 +82,121 @@ if (!isset($csrfToken)) return;
 
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
-    <h3 style="margin-top:0;">4. Generate sites</h3>
+    <h3 style="margin-top:0;">4. Generate sites
+        <button type="button" onclick="document.getElementById('ms-agreement').showModal()"
+                style="background:#4c1d95;color:#fff;border:0;border-radius:6px;padding:4px 13px;font-weight:600;font-size:.76rem;cursor:pointer;margin-left:10px;vertical-align:middle;">&#129309; Scott &amp; Claude agreement</button>
+    </h3>
+
+    <!--
+        The rules this card is built to. DELIBERATELY RULES ONLY — no counts, no "what's built"
+        status. The card already reads that live from the master and from disk; restating it
+        here would give it a second copy to drift from. Rules don't go stale, figures do.
+    -->
+    <dialog id="ms-agreement" style="max-width:780px;border:1px solid #cbd5e1;border-radius:12px;padding:0;">
+        <div style="padding:20px 24px;">
+            <h3 style="margin:0 0 3px;color:#4c1d95;">&#129309; Scott &amp; Claude agreement</h3>
+            <p class="hint" style="margin:0 0 16px;">
+                How this card works, agreed between us. Living document &mdash; when we change our
+                minds, this changes with it. If the card and this disagree, one of them is a bug.
+            </p>
+
+            <div style="display:grid;gap:14px;font-size:.86rem;line-height:1.5;">
+
+                <div>
+                    <strong style="color:#1e3a5f;">What this card is</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        A <strong>control panel</strong> &mdash; it decides what a run actually does.
+                        It is not a status board and not a scope document.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">A tick mark is a promise that it does something</strong>
+                    <ul style="margin:4px 0 0 18px;padding:0;color:#334155;">
+                        <li><strong>Has a checkbox</strong> &rarr; you can turn it on or off, and it genuinely runs or doesn't.</li>
+                        <li><strong>No checkbox, &#10003;</strong> &rarr; not separable. It happens whenever its step runs.</li>
+                        <li><strong>No checkbox, &#9888;</strong> &rarr; built, but nothing switched on behind it yet.</li>
+                        <li><strong>No checkbox, &#128679;</strong> &rarr; not built. Nothing to switch.</li>
+                    </ul>
+                    <p style="margin:4px 0 0;color:#334155;">
+                        A checkbox that changes nothing is worse than no checkbox, so we don't put one
+                        there just to show an item exists.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">Parent and child</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        Top-level step off &rarr; everything under it is off and greyed. Back on &rarr;
+                        each child returns to <em>what you had set</em>, not all-on &mdash; toggling a
+                        parent must never quietly re-enable something you deliberately turned off.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">Only wire a switch where the code has a real seam</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        Some pieces sit inside a function that does several things in one pass.
+                        Those get a switch when one is genuinely wanted &mdash; one at a time, not ten
+                        speculative seams cut into the runner at once.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">Status is read, never hand-maintained</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        Anything that can be counted &mdash; options in a pool, whether a feature exists
+                        &mdash; is read from the master's own data or from disk, so it can't go stale.
+                        That is why this agreement holds rules and no figures.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">The three sections</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        <strong>1 Content</strong> &mdash; what the words say ·
+                        <strong>2 Template footprint</strong> &mdash; how the site is built ·
+                        <strong>3 Identity &amp; setup</strong> &mdash; who the business is, plus what the run builds.
+                        Grouped by what makes a site separate, not by the order the runner happens to work in.
+                    </p>
+                </div>
+
+                <div style="border-left:3px solid #166534;background:#f0fdf4;padding:9px 12px;border-radius:0 7px 7px 0;">
+                    <strong style="color:#166534;">Objective 1 is a gate, not a goal</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        Primary keyword in the H1, the title and meta patterns, the schema types, the page
+                        set. No variance is allowed to move any of it. A change either provably leaves it
+                        untouched, or it doesn't ship.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">Objectives 2 and 3, and the honest difference</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        <strong>2 · Template footprint uniqueness</strong> stops the sites being matched to
+                        each other as one operator's network. It is <em>not</em> what makes Google treat a
+                        site as original.<br>
+                        <strong>3 · Content uniqueness</strong> is what decides that, and it comes after 2
+                        by your call &mdash; named here so it can't quietly disappear.
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="color:#1e3a5f;">What this card does not cover</strong>
+                    <p style="margin:3px 0 0;color:#334155;">
+                        Hosting, nameservers, registrar and launch timing live in the Infrastructure
+                        console. Off-page &mdash; links, citations, Google Business Profile &mdash; isn't
+                        owned anywhere yet, and outweighs everything on this card.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top:18px;text-align:right;">
+                <button type="button" onclick="this.closest('dialog').close()"
+                        style="background:#4c1d95;color:#fff;border:0;border-radius:6px;padding:8px 18px;font-weight:600;cursor:pointer;">Close</button>
+            </div>
+        </div>
+    </dialog>
 
     <!-- The steps come FIRST: what a run does is decided before how fast it goes. -->
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
@@ -92,17 +206,334 @@ if (!isset($csrfToken)) return;
             because they cannot be skipped &mdash; without them a run makes no site, or fifty
             copies of the master.
         </p>
-        <div style="display:flex;gap:18px;flex-wrap:wrap;">
-            <label class="hint"><input type="checkbox" class="ms-step-opt" value="landing" checked> Landing pages</label>
-            <label class="hint"><input type="checkbox" class="ms-step-opt" value="visual"  checked> Visual identity</label>
-            <label class="hint"><input type="checkbox" class="ms-step-opt" value="ai"      checked> AI content</label>
-            <label class="hint"><input type="checkbox" class="ms-step-opt" value="images"  checked> Images</label>
-            <label class="hint"><input type="checkbox" class="ms-step-opt" value="tags"    checked> Site tags <span style="color:#94a3b8;">(analytics, Search Console)</span></label>
+        <?php
+        /**
+         * Two-level step list. Top level = the run's real skippable steps; each opens to the
+         * pieces inside it, so the whole scope of "what a generated site gets" is visible in
+         * one place, built or not.
+         *
+         * ONLY the top-level inputs carry class="ms-step-opt" — the run builds its skip list
+         * from every unticked one of those, so a sub-item sharing the class would silently
+         * ship as a skip value. Sub-items are inert markers, and the ones that aren't built
+         * are disabled as well.
+         *
+         * A TICK MARK IS A PROMISE THAT IT DOES SOMETHING. Three kinds of sub-item, and the
+         * difference is deliberate:
+         *   'control' — has its own checkbox and its own skip key. Untick it and that piece
+         *               genuinely does not run. Only items with a real seam in the code get
+         *               one; a decorative checkbox that changes nothing is worse than no
+         *               checkbox at all.
+         *   'auto'    — no checkbox. It simply happens when the parent step runs, because it
+         *               isn't separable. Shown so the step's contents are visible.
+         *   'todo'    — no checkbox. Not built, so there is nothing to switch.
+         * Anything shown as running was checked against the master's own data, not assumed.
+         */
+        /**
+         * Grouped by WHAT MAKES A SITE SEPARATE, not by the order the runner happens to do
+         * things — the sections are the same A/B/C facets as the "Why these axes?" explainer
+         * and uploads/downloads/site-network-five-facets.md, so the card and the write-up can't
+         * describe the same work in two different vocabularies.
+         */
+        $msTree = [
+            ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
+             'groups' => [
+                ['key' => 'ai', 'label' => 'AI content', 'status' => 'live',
+                 'subs' => [
+                    ['Landing-page blocks — 8 AI block types', 'auto'],
+                    ['About Us — company story', 'auto'],
+                    ['Privacy Policy — static today, identical on every site', 'todo'],
+                    ['Terms &amp; Conditions — static today, identical on every site', 'todo'],
+                    ['Contact Us — static today, identical on every site', 'todo'],
+                    ['Disclaimer — no such page on the master yet', 'todo'],
+                    ['Boilerplate blocks (steps, service cards, CTA, trust bar) — ~190 words/page, identical fleet-wide', 'todo'],
+                 ]],
+             ]],
+            ['section' => '2 &middot; Template footprint', 'facet' => 'How the site is built &mdash; stops the sites being matched to each other',
+             'groups' => [
+                ['key' => 'visual', 'label' => 'Visual identity', 'status' => 'live',
+                 'subs' => [
+                    ['Colour + font preset — 10 in rotation', 'auto'],
+                    ['Logo wordmark, drawn per site', 'auto'],
+                    ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
+                 ]],
+                ['key' => null, 'label' => 'Site structure variance', 'status' => 'todo',
+                 'note' => 'The anti-fingerprint axes. Not a run step yet — nothing to skip.',
+                 'subs' => [
+                    ['Section order — built, but no page has orderings generated', 'off'],
+                    ['Class vocabulary — same layout, different class names', 'todo'],
+                    ['Schema shape — same facts, different JSON-LD field order', 'todo'],
+                    ['HTML nesting / hero treatment variants', 'todo'],
+                 ]],
+                ['key' => 'images', 'label' => 'Images', 'status' => 'live',
+                 'subs' => [
+                    ['Per-city photo differentiation', 'auto'],
+                    ['Unique filename per site', 'auto'],
+                    ['Metadata strip — EXIF, XMP, GPS', 'control', 'images.metadata'],
+                    ['City data graphics drawn from the research figures', 'todo'],
+                 ]],
+             ]],
+            ['section' => '3 &middot; Identity &amp; setup', 'facet' => 'Who the business is &mdash; already solved &mdash; plus what the run builds',
+             'groups' => [
+                ['key' => 'tags', 'label' => 'Site tags', 'status' => 'live',
+                 'subs' => [
+                    ['Analytics tag from analytics_id — never shared between sites', 'auto'],
+                    ['Search Console tag from gsc_verification', 'auto'],
+                 ]],
+                ['key' => 'landing', 'label' => 'Landing pages', 'status' => 'live',
+                 'note' => 'Not variance — this is what makes the site exist, not what makes it different.',
+                 'subs' => [
+                    ['One page per city in the landing_cities column', 'auto'],
+                    ['Built from the master\'s landing templates', 'auto'],
+                    ['Reuses the master\'s city research, not re-fetched per domain', 'auto'],
+                 ]],
+             ]],
+        ];
+        $msPill = [
+            'live' => ['&#10003;', '#166534', '#dcfce7', 'running today'],
+            'off'  => ['&#9888;',  '#92400e', '#fef3c7', 'built &mdash; switched off'],
+            'todo' => ['&#128679;', '#64748b', '#f1f5f9', 'not built yet'],
+        ];
+        ?>
+        <?php foreach ($msTree as $msSec): ?>
+        <div style="margin-bottom:12px;">
+            <div style="display:flex;align-items:baseline;gap:9px;margin-bottom:5px;">
+                <strong style="font-size:.83rem;color:#1e3a5f;"><?= $msSec['section'] ?></strong>
+                <span class="hint" style="color:#94a3b8;"><?= $msSec['facet'] ?></span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+            <?php foreach ($msSec['groups'] as $msT):
+                [$msIcon, $msFg, $msBg, $msWord] = $msPill[$msT['status']]; ?>
+                <details style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;">
+                    <summary style="cursor:pointer;padding:7px 11px;display:flex;align-items:center;gap:9px;font-size:.86rem;">
+                        <?php if ($msT['key'] !== null): ?>
+                            <!-- onclick stops the tick from also opening/closing the row -->
+                            <input type="checkbox" class="ms-step-opt" value="<?= $msT['key'] ?>" checked
+                                   onclick="event.stopPropagation()">
+                        <?php else: ?>
+                            <input type="checkbox" disabled onclick="event.stopPropagation()">
+                        <?php endif; ?>
+                        <span style="font-weight:600;color:<?= $msT['status'] === 'live' ? '#1e3a5f' : '#64748b' ?>;"><?= $msT['label'] ?></span>
+                        <span style="background:<?= $msBg ?>;color:<?= $msFg ?>;border-radius:4px;padding:1px 8px;font-size:.7rem;font-weight:700;white-space:nowrap;"><?= $msIcon ?> <?= $msWord ?></span>
+                        <span class="hint" style="margin-left:auto;color:#cbd5e1;font-size:.74rem;"><?= count($msT['subs']) ?> items</span>
+                    </summary>
+                    <div style="padding:2px 11px 10px 34px;">
+                        <?php if (!empty($msT['note'])): ?>
+                            <p class="hint" style="margin:0 0 6px;color:#94a3b8;"><?= $msT['note'] ?></p>
+                        <?php endif; ?>
+                        <?php foreach ($msT['subs'] as $msSub):
+                            $msLabel = $msSub[0];
+                            $msMode  = $msSub[1];
+                            $msKey   = $msSub[2] ?? null;
+                            if ($msMode === 'control'): ?>
+                                <!-- A real switch: its own skip key, collected by msRun(). -->
+                                <label class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0;color:#334155;">
+                                    <input type="checkbox" class="ms-sub-opt" value="<?= htmlspecialchars($msKey, ENT_QUOTES) ?>"
+                                           data-parent="<?= htmlspecialchars($msT['key'] ?? '', ENT_QUOTES) ?>" checked>
+                                    <span><?= $msLabel ?></span>
+                                </label>
+                            <?php elseif ($msMode === 'todo'): ?>
+                                <!-- Not built: nothing to switch, so no checkbox. -->
+                                <div class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0 1px 22px;color:#94a3b8;">
+                                    <span>&#128679;</span><span><?= $msLabel ?></span>
+                                </div>
+                            <?php elseif ($msMode === 'off'): ?>
+                                <!-- Built, but nothing switched on behind it — must not read as
+                                     running, which a green tick would. -->
+                                <div class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0 1px 22px;color:#92400e;">
+                                    <span>&#9888;</span><span><?= $msLabel ?></span>
+                                </div>
+                            <?php else: ?>
+                                <!-- Happens whenever the parent step runs; not separable, so no
+                                     checkbox — an unclickable tick would only look like a control. -->
+                                <div class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0 1px 22px;color:#334155;">
+                                    <span style="color:#166534;">&#10003;</span><span><?= $msLabel ?></span>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                </details>
+            <?php endforeach; ?>
+            </div>
         </div>
+        <?php endforeach; ?>
+        <script>
+        // Parent off -> every switch under it goes off and greys out. Parent back on ->
+        // they return to what they were, rather than all springing back to ticked.
+        (function () {
+            function sync(parent) {
+                var on = parent.checked;
+                document.querySelectorAll('.ms-sub-opt[data-parent="' + parent.value + '"]').forEach(function (cb) {
+                    if (!on) {
+                        if (cb.dataset.was === undefined) cb.dataset.was = cb.checked ? '1' : '';
+                        cb.checked = false;
+                    } else if (cb.dataset.was !== undefined) {
+                        cb.checked = cb.dataset.was === '1';
+                        delete cb.dataset.was;
+                    }
+                    cb.disabled = !on;
+                    cb.closest('label').style.opacity = on ? '1' : '.45';
+                });
+            }
+            document.querySelectorAll('.ms-step-opt').forEach(function (p) {
+                p.addEventListener('change', function () { sync(p); });
+                sync(p);
+            });
+        })();
+        </script>
+        <p class="hint" style="margin:8px 0 0;color:#94a3b8;">
+            A tick mark means you can turn that piece on or off. Lines without one aren't
+            separable &mdash; they happen whenever their step runs. &#128679; means not built yet.
+        </p>
+        <p class="hint" style="margin:6px 0 0;color:#94a3b8;">
+            <strong>Two things deliberately absent.</strong> Hosting, nameservers, registrar and
+            launch timing are handled in the Infrastructure console, not here. Off-page &mdash;
+            links, citations, Google Business Profile &mdash; isn't addressed anywhere yet, and
+            for local service businesses it outweighs everything on this card.
+        </p>
         <p class="hint" style="margin:10px 0 0;color:#94a3b8;">
             The identity scrub always runs &mdash; it removes the master's own domain, email,
             phone and business name from every clone, so it is not an option.
         </p>
+        <?php
+        // Variance status, shown HERE because this is the card you're on when you care about
+        // it — the full table sits above all six phase cards, which is a long way to scroll.
+        // NOT a second list: it filters the run table's own items through the shared
+        // ms_variance_axis_labels(), so the two cannot drift.
+        require_once __DIR__ . '/../includes/multisite/steps.php';
+        $vzItems = [];
+        if (isset($masterId, $batchId)) {
+            $vzReady = ms_step_readiness($masterId, $batchId);
+            $vzLabels = ms_variance_axis_labels();
+            foreach ($vzReady['differentiate']['items'] ?? [] as $vzIt) {
+                if (in_array($vzIt['label'] ?? '', $vzLabels, true)) $vzItems[] = $vzIt;
+            }
+        }
+        $vzStyle = [MS_STEP_OK => ['#166534', '#dcfce7'], MS_STEP_WARN => ['#92400e', '#fef3c7'],
+                    MS_STEP_OFF => ['#64748b', '#f1f5f9']];
+        ?>
+        <div style="margin-top:12px;padding-top:12px;border-top:1px dashed #cbd5e1;">
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                <strong style="font-size:.82rem;color:#1e3a5f;">How different each site comes out</strong>
+                <button type="button" onclick="document.getElementById('ms-variance-why').showModal()"
+                        style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:3px 11px;font-weight:600;font-size:.76rem;cursor:pointer;">Why these axes? &rarr;</button>
+            </div>
+            <?php if (!$vzItems): ?>
+                <p class="hint" style="margin:4px 0 0;">Variance status unavailable &mdash; see <strong>Differentiate</strong> in the run table above.</p>
+            <?php else: ?>
+            <table style="margin-top:7px;border-collapse:collapse;font-size:.8rem;">
+                <?php foreach ($vzItems as $vzIt):
+                    [$vzFg, $vzBg] = $vzStyle[$vzIt['state']] ?? $vzStyle[MS_STEP_OFF]; ?>
+                    <tr>
+                        <td style="padding:2px 12px 2px 0;"><code style="background:#f1f5f9;padding:1px 5px;border-radius:3px;color:#334155;font-size:.76rem;"><?= htmlspecialchars($vzIt['label'], ENT_QUOTES) ?></code></td>
+                        <td style="padding:2px 12px 2px 0;color:#64748b;"><?= htmlspecialchars($vzIt['drives'], ENT_QUOTES) ?></td>
+                        <td style="padding:2px 0;"><span style="background:<?= $vzBg ?>;color:<?= $vzFg ?>;border-radius:4px;padding:1px 8px;font-weight:700;font-size:.72rem;white-space:nowrap;"><?= htmlspecialchars($vzIt['value'], ENT_QUOTES) ?></span></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            <p class="hint" style="margin:6px 0 0;color:#94a3b8;">
+                Plus colours, logo and images, which already vary &mdash; full detail under
+                <strong>Differentiate</strong> and <strong>Visual identity</strong> in the run table above.
+            </p>
+            <?php endif; ?>
+        </div>
+
+        <!-- Why the variance axes exist, and which of the five separation facets each one
+             actually moves. Native <dialog> so it costs nothing until opened. The long-form
+             version with the measurements is uploads/downloads/site-network-five-facets.md. -->
+        <dialog id="ms-variance-why" style="max-width:760px;border:1px solid #cbd5e1;border-radius:12px;padding:0;">
+            <div style="padding:20px 24px;">
+                <h3 style="margin:0 0 4px;color:#1e3a5f;">What this is for &mdash; the three objectives</h3>
+                <p class="hint" style="margin:0 0 12px;">
+                    In priority order. Everything on this card is judged against these.
+                </p>
+
+                <div style="display:grid;gap:9px;margin-bottom:18px;">
+                    <div style="border-left:3px solid #166534;background:#f0fdf4;padding:9px 12px;border-radius:0 7px 7px 0;">
+                        <strong style="color:#166534;font-size:.88rem;">1 &middot; Great SEO and rankability &mdash; a GATE, not a goal</strong>
+                        <div class="hint" style="margin-top:3px;color:#334155;">
+                            Every page keeps its primary keyword in the H1, its title and meta pattern,
+                            its schema types, and its place in the page set. This isn't something we aim
+                            at &mdash; it's something no variance is allowed to break. A change either
+                            provably leaves all of it untouched, or it doesn't ship.
+                        </div>
+                    </div>
+                    <div style="border-left:3px solid #1e3a5f;background:#f8fafc;padding:9px 12px;border-radius:0 7px 7px 0;">
+                        <strong style="color:#1e3a5f;font-size:.88rem;">2 &middot; Template footprint uniqueness</strong>
+                        <div class="hint" style="margin-top:3px;color:#334155;">
+                            So the sites <strong>can't be matched to each other as one operator's
+                            network</strong> &mdash; by a competitor, a fingerprinting tool, or a manual
+                            reviewer. Worth being precise: this is not what makes Google treat a site as
+                            original. Google already knows they're different domains. What it judges is
+                            whether the <em>content</em> duplicates something it has &mdash; which is
+                            objective 3, not this one.
+                        </div>
+                    </div>
+                    <div style="border-left:3px solid #92400e;background:#fffbeb;padding:9px 12px;border-radius:0 7px 7px 0;">
+                        <strong style="color:#92400e;font-size:.88rem;">3 &middot; Content uniqueness &mdash; named now, built next</strong>
+                        <div class="hint" style="margin-top:3px;color:#334155;">
+                            Deliberately sequenced after objective 2, but listed here because it is the
+                            one that actually decides whether Google treats these as duplicates. Concretely:
+                            the ~190 words a page of boilerplate, plus Privacy, Terms and Contact, which
+                            are byte-identical on every site generated today.
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin:0 0 4px;color:#1e3a5f;">Why these axes &mdash; the five facets underneath</h3>
+                <p class="hint" style="margin:0 0 14px;">
+                    Five separate questions, detected differently and fixed differently. The variance
+                    steps on this card move <strong>B</strong>, and the tail of <strong>A</strong>.
+                </p>
+
+                <div style="display:grid;gap:12px;font-size:.86rem;line-height:1.5;">
+                    <div><strong style="color:#166534;">A &middot; Are the pages the same? &mdash; content</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li><strong>The facet that actually costs rankings.</strong> Near-duplicate text gets clustered and filtered.</li>
+                            <li>Measured on water-site's 26 landing pages: <strong>87% of the words are AI-written per site</strong>, 13% static template text. Largely solved already.</li>
+                            <li>Open: the ~190 words/page of boilerplate (steps, service cards, CTAs, trust bar), identical fleet-wide; plus homepage, About and the 4 legal pages, which are unmeasured.</li>
+                        </ul></div>
+
+                    <div><strong style="color:#1e3a5f;">B &middot; Are the sites built the same? &mdash; template fingerprint</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>Markup signature: HTML nesting, class names, section order, JSON-LD field order.</li>
+                            <li><strong>Not mainly a ranking mechanism</strong> &mdash; millions of sites share a theme. It's about being <em>linkable</em>: a competitor or tool matching your sites to each other.</li>
+                            <li>Today a clone differs only by colours, logo, images and identity. <strong>This card's variance steps are the fix, and they're the only thing that touches this facet.</strong></li>
+                        </ul></div>
+
+                    <div><strong style="color:#166534;">C &middot; Are they the same business? &mdash; entity signals</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>Name, phone, address, LocalBusiness schema, canonical, analytics ID.</li>
+                            <li>Probably the strongest "one operation" signal &mdash; and <strong>already solved</strong> by the identity scrub + per-site LocalBusiness node + own analytics tag + self-canonical.</li>
+                        </ul></div>
+
+                    <div><strong style="color:#92400e;">D &middot; Same operator? &mdash; infrastructure footprint</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>Hosting IPs, nameservers, registrar, WHOIS, SSL, and <strong>timing</strong>. What network-detection tools lean on most.</li>
+                            <li><strong>Handled in the Infrastructure console</strong> &mdash; boxes, Cloudflare zones, registrars &mdash; not on this card. Listed here only so the picture is complete.</li>
+                        </ul></div>
+
+                    <div><strong style="color:#b91c1c;">E &middot; Are they worth anything? &mdash; value &amp; off-page</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>Inbound links, citations, Google Business Profile, real engagement. Google's scaled-content-abuse policy judges <em>usefulness</em>, not technical diversity.</li>
+                            <li><strong>The site factory does nothing here</strong>, and for local service businesses it outweighs everything above. The real gap.</li>
+                        </ul></div>
+                </div>
+
+                <p class="hint" style="margin:14px 0 0;padding-top:12px;border-top:1px solid #e2e8f0;">
+                    <strong>Why it matters:</strong> the variance work is insurance against being
+                    <em>linked together</em>, not against being <em>filtered out</em>. Buy it cheaply.
+                    "Will Google see these as different sites" is mostly decided by A, C and E &mdash;
+                    and C is already won.
+                    Full version with the measurements: <code>uploads/downloads/site-network-five-facets.md</code>
+                    (Test Lab &rarr; Downloads).
+                </p>
+
+                <div style="margin-top:16px;text-align:right;">
+                    <button type="button" onclick="this.closest('dialog').close()"
+                            style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:8px 18px;font-weight:600;cursor:pointer;">Close</button>
+                </div>
+            </div>
+        </dialog>
 
         <details style="margin-top:10px;">
             <summary class="hint" style="cursor:pointer;color:#1e3a5f;font-weight:600;">What each step actually does</summary>
@@ -466,6 +897,13 @@ if (!isset($csrfToken)) return;
         // one mechanism for it rather than two that could disagree.
         const skip = Array.from(document.querySelectorAll('.ms-step-opt'))
             .filter(cb => !cb.checked).map(cb => cb.value);
+        // Sub-switches use the same skip list, keyed "parent.child". A sub-switch under a
+        // parent that's already off is NOT added — the parent skip already covers it, and
+        // sending both would just be noise.
+        Array.from(document.querySelectorAll('.ms-sub-opt')).forEach(cb => {
+            if (skip.includes(cb.dataset.parent)) return;
+            if (!cb.checked) skip.push(cb.value);
+        });
         if (skip.length) fd.append('skip', skip.join(','));
         if (skip.includes('ai')) fd.append('no_ai', '1');
         if (document.getElementById('ms-force').checked) fd.append('force', '1');

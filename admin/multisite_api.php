@@ -100,7 +100,19 @@ function ms_run_flags(array $o): string {
     // Optional steps turned off for this run. Whitelisted here as well as in
     // build_one.php so a hand-crafted POST cannot ask to skip the structural ones.
     if (!empty($o['skip'])) {
-        $skip = array_values(array_intersect((array) $o['skip'], ['landing', 'visual', 'ai', 'images', 'tags']));
+        // Two shapes are allowed: a whole step ("images"), or one piece inside a step
+        // ("images.metadata"). The parent must still be a real step either way, so a
+        // hand-crafted POST cannot ask to skip the structural ones or invent a key.
+        $steps = ['landing', 'visual', 'ai', 'images', 'tags'];
+        $skip = [];
+        foreach ((array) $o['skip'] as $k) {
+            $k = (string) $k;
+            $parent = explode('.', $k, 2)[0];
+            if (!in_array($parent, $steps, true)) continue;
+            if (!preg_match('/^[a-z]+(\.[a-z_]+)?$/', $k)) continue;
+            $skip[] = $k;
+        }
+        $skip = array_values(array_unique($skip));
         if ($skip) $flags .= ' --skip=' . escapeshellarg(implode(',', $skip));
     }
     if (!empty($o['only']))  $flags .= ' --only=' . escapeshellarg(implode(',', (array)$o['only']));

@@ -146,6 +146,31 @@ function ms_item(string $label, string $drives, string $value, string $state = M
 }
 
 /**
+ * The variance axes, named by their item label inside the Differentiate step. ONE list, so
+ * the Generate-sites card and the run table can never disagree about what counts as variance —
+ * the card filters the table's own items through this rather than keeping its own copy.
+ */
+function ms_variance_axis_labels(): array {
+    return ['layout variation', 'class vocabulary', 'schema shape'];
+}
+
+/**
+ * An item backed by a folder of options — the variance pools. A missing folder means the
+ * feature isn't built, one option means it's built but has nothing to rotate through, and
+ * two or more means it's live. Nothing to keep in sync: the row is whatever is on disk.
+ */
+function ms_item_pool(string $label, string $drives, string $dir): array {
+    if (!is_dir($dir)) {
+        return ms_item($label, $drives, 'not built yet', MS_STEP_OFF);
+    }
+    $n = count(glob($dir . '/*') ?: []);
+    if ($n < 2) {
+        return ms_item($label, $drives, $n === 1 ? '1 option — nothing to rotate' : 'no options yet', MS_STEP_OFF);
+    }
+    return ms_item($label, $drives, $n . ' in rotation', MS_STEP_OK);
+}
+
+/**
  * An item measured across the target list. Required and empty is a problem; optional
  * and empty is not — it just means every site keeps whatever the master already had.
  */
@@ -319,6 +344,17 @@ function ms_step_readiness(string $masterId, string $batchId): array {
         ms_item('layout variation', 'Block order differs per domain',
                 $layoutOn ? ($variants + 1) . ' orderings' : 'off',
                 $layoutOn ? MS_STEP_OK : MS_STEP_OFF),
+        // The two anti-fingerprint axes docs.php#ms-variation specifies but nothing builds
+        // yet. Reported here, next to the axis that IS live, so "what varies per site" has
+        // one answer rather than a table plus a hand-kept list beside it.
+        //
+        // Deliberately read off the DISK rather than hardcoding "not built": each pool is a
+        // folder of options (the brief's rule — drop a folder in, no code change), so the day
+        // one exists this row starts reporting a real count on its own and cannot go stale.
+        ms_item_pool('class vocabulary', 'Same layout + same CSS rules, different class names',
+                     BASE_DIR . '/variants/class_vocab'),
+        ms_item_pool('schema shape', 'Same JSON-LD facts, different field order',
+                     BASE_DIR . '/variants/schema_shapes'),
     ];
     $out['differentiate'] = ms_step_cell(
         MS_STEP_OK,

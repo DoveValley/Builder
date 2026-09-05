@@ -724,3 +724,139 @@ function ms_differentiate_site_images(string $workingDir, array $params, string 
 
     return $tot;
 }
+
+// ── Metadata stripping ────────────────────────────────────────────────────────
+//
+// Photos arrive carrying EXIF/XMP: camera make and model, editing software, sometimes a
+// photographer's name, and sometimes GPS coordinates. Real example from water-site: two
+// drone shots filed as "lufkin-tx" carried coordinates in Florida, ~900 miles from the city
+// the page claims to serve. That is readable by anyone who downloads the file, and it
+// contradicts the site's own locality claim.
+//
+// LOSSLESS ON PURPOSE. Re-encoding through GD to drop a few bytes of metadata would
+// re-compress every photo in the library. These functions edit the CONTAINER instead: they
+// remove the metadata chunks and leave the compressed image data byte-for-byte untouched.
+// ICC colour profiles are deliberately KEPT — not identifying, and removing one can shift
+// how an image renders.
+
+/** Rebuild a WebP (RIFF) without its EXIF/XMP chunks. Null = nothing to remove. */
+function ms_strip_webp_metadata(string $bytes): ?string
+{
+    if (substr($bytes, 0, 4) !== 'RIFF' || substr($bytes, 8, 4) !== 'WEBP') return null;
+    $out = '';
+    $i = 12;
+    $dropped = false;
+    $len = strlen($bytes);
+    while ($i + 8 <= $len) {
+        $fourcc = substr($bytes, $i, 4);
+        $size = unpack('V', substr($bytes, $i + 4, 4))[1];
+        if ($size < 0 || $i + 8 + $size > $len) return null;   // malformed — leave it alone
+        $payload = substr($bytes, $i + 8, $size);
+        $pad = $size & 1;
+        if ($fourcc === 'EXIF' || $fourcc === 'XMP ') {
+            $dropped = true;
+        } else {
+            // VP8X flags byte: .. I L E X A R — clear E (exif, 0x08) and X (xmp, 0x04) so the
+            // header stops advertising metadata that is no longer in the file.
+            if ($fourcc === 'VP8X' && strlen($payload) >= 1) {
+                $payload[0] = chr(ord($payload[0]) & ~0x08 & ~0x04);
+            }
+            $out .= $fourcc . pack('V', strlen($payload)) . $payload . str_repeat("\0", $pad);
+        }
+        $i += 8 + $size + $pad;
+    }
+    if (!$dropped) return null;
+    $body = 'WEBP' . $out;
+    return 'RIFF' . pack('V', strlen($body)) . $body;
+}
+
+/** Rebuild a PNG without its text/time/EXIF chunks. Each chunk carries its own CRC, so
+ *  dropping whole chunks needs no checksum recalculation. */
+function ms_strip_png_metadata(string $bytes): ?string
+{
+    if (substr($bytes, 0, 8) !== "\x89PNG\r\n\x1a\n") return null;
+    $drop = ['eXIf' => 1, 'tEXt' => 1, 'zTXt' => 1, 'iTXt' => 1, 'tIME' => 1];
+    $out = substr($bytes, 0, 8);
+    $i = 8;
+    $dropped = false;
+    $len = strlen($bytes);
+    while ($i + 8 <= $len) {
+        $chunkLen = unpack('N', substr($bytes, $i, 4))[1];
+        $type = substr($bytes, $i + 4, 4);
+        if ($i + 12 + $chunkLen > $len) return null;           // malformed — leave it alone
+        if (isset($drop[$type])) $dropped = true;
+        else $out .= substr($bytes, $i, 12 + $chunkLen);
+        $i += 12 + $chunkLen;
+        if ($type === 'IEND') break;
+    }
+    return $dropped ? $out : null;
+}
+
+/** Rebuild a JPEG without its APP1 (Exif / XMP) segments. APP2 — normally the ICC
+ *  profile — is kept. */
+function ms_strip_jpeg_metadata(string $bytes): ?string
+{
+    if (substr($bytes, 0, 2) !== "\xFF\xD8") return null;
+    $out = "\xFF\xD8";
+    $i = 2;
+    $dropped = false;
+    $len = strlen($bytes);
+    while ($i + 4 <= $len) {
+        if ($bytes[$i] !== "\xFF") return null;                // not a marker — leave it alone
+        $marker = ord($bytes[$i + 1]);
+        if ($marker === 0xDA) { $out .= substr($bytes, $i); break; }   // scan: copy the rest
+        $segLen = unpack('n', substr($bytes, $i + 2, 2))[1];
+        if ($i + 2 + $segLen > $len) return null;
+        if ($marker === 0xE1) $dropped = true;
+        else $out .= substr($bytes, $i, 2 + $segLen);
+        $i += 2 + $segLen;
+    }
+    return $dropped ? $out : null;
+}
+
+/** True if this file still carries any metadata chunk — the verification half. */
+function ms_image_has_metadata(string $bytes): bool
+{
+    return ms_strip_webp_metadata($bytes) !== null
+        || ms_strip_png_metadata($bytes) !== null
+        || ms_strip_jpeg_metadata($bytes) !== null;
+}
+
+/**
+ * Strip metadata from every image under a built site's uploads/, then VERIFY none is left.
+ * Returns ['scanned','stripped','failed','remaining'] — `remaining` is the check, and it
+ * should always be 0. Anything else means a file was written that still carries metadata,
+ * which the caller reports rather than swallowing.
+ */
+function ms_strip_uploads_metadata(string $workingDir): array
+{
+    $res = ['scanned' => 0, 'stripped' => 0, 'failed' => 0, 'remaining' => 0];
+    $dir = $workingDir . '/uploads';
+    if (!is_dir($dir)) return $res;
+
+    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
+    foreach ($it as $file) {
+        if (!$file->isFile()) continue;
+        $ext = strtolower($file->getExtension());
+        if (!in_array($ext, ['webp', 'jpg', 'jpeg', 'png'], true)) continue;
+
+        $path = $file->getPathname();
+        $bytes = (string) @file_get_contents($path);
+        if ($bytes === '') continue;
+        $res['scanned']++;
+
+        $clean = ms_strip_webp_metadata($bytes)
+              ?? ms_strip_png_metadata($bytes)
+              ?? ms_strip_jpeg_metadata($bytes);
+        if ($clean === null) continue;                          // nothing to remove
+
+        // A truncated write would corrupt the image, so write beside it and rename.
+        $tmp = $path . '.strip';
+        if (@file_put_contents($tmp, $clean) === false) { $res['failed']++; continue; }
+        if (!@rename($tmp, $path)) { @unlink($tmp); $res['failed']++; continue; }
+        $res['stripped']++;
+
+        if (ms_image_has_metadata((string) @file_get_contents($path))) $res['remaining']++;
+    }
+    return $res;
+}

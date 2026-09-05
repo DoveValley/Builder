@@ -12,10 +12,50 @@
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/convo_uploads.php';   // accepted upload types, shared with convo_upload.php
+require_once __DIR__ . '/../includes/layout_variations.php';  // ms_variant() — the REAL assigner
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 
 $csrf = $_SESSION['csrf_token'] ?? '';
 $h = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
+
+/**
+ * ── Batch variance mockup ────────────────────────────────────────────────────────────────
+ * A LOOK-ONLY proposal of the phase-4 controls, for agreeing scope before anything is built.
+ * Writes nothing, changes nothing, is not wired to any batch. The option lists below are
+ * illustrative placeholders EXCEPT the assignment itself: the "what each domain gets" preview
+ * calls the real ms_variant() with the real salts, so the picks shown are the picks you'd get.
+ */
+$vmAxes = [
+    'theme' => [
+        'label' => 'Visual identity', 'status' => 'existing', 'salt' => 'theme',
+        'blurb' => 'Colour/font preset + logo. Already runs today.',
+        'options' => ['Navy + Orange', 'Slate + Red-Orange', 'Teal + Crimson', 'Forest + Orange',
+                      'Charcoal + Amber', 'Navy + Hi-Vis Yellow'],
+        'column' => 'theme_preset',
+    ],
+    'layout' => [
+        'label' => 'Section order', 'status' => 'built, switched off', 'salt' => 'layout',
+        'blurb' => 'Reorders the sections on each page. Hero stays first, so the H1 never moves.',
+        'options' => ['Natural order', 'Trust bar before steps', 'FAQ above services', 'Steps last'],
+        'column' => 'section_order',
+    ],
+    'classvocab' => [
+        'label' => 'Class vocabulary', 'status' => 'NOT BUILT', 'salt' => 'classvocab',
+        'blurb' => 'Same layout and same CSS rules under different class names, so two sites don\'t share a markup signature.',
+        'options' => ['Semantic (.hero-wrap / .service-card)', 'Utility (.b-hero / .c-tile)',
+                      'BEM (.site__hero / .site__card)'],
+        'column' => 'class_vocab',
+    ],
+    'schemashape' => [
+        'label' => 'Schema shape', 'status' => 'NOT BUILT', 'salt' => 'schemashape',
+        'blurb' => 'Same facts in the JSON-LD, different field order and boilerplate phrasing.',
+        'options' => ['serviceType → provider → description', 'description → name → areaServed',
+                      'name → areaServed → serviceType'],
+        'column' => 'schema_shape',
+    ],
+];
+// Sample domains just to show the spread; any real batch's rows would appear here instead.
+$vmDomains = ['boylerestoration.com', 'lufkinwaterpros.com', 'pineywoodsrestore.com', 'angelinadryout.com'];
 // "Share with Claude" uploads (newest first) for the gallery.
 $convoDir = BASE_DIR . '/uploads/convo';
 $convoFiles = [];
@@ -62,6 +102,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <body>
 <div id="side">
     <div class="logo">Site Factory <small>Test Lab</small></div>
+    <a href="#variance-mockup" style="color:#c4b5fd;font-weight:700;">🧩 Batch variance (mock-up)</a>
     <a href="dirnet-data.php" style="color:#fdba74;font-weight:700;">📊 Directory Network data</a>
     <a href="dirnet-answers.php" style="color:#fdba74;font-weight:700;">❓ Directory Network answers</a>
     <a href="dirnet-sheets.php" style="color:#fdba74;font-weight:700;">📄 Directory Network sheets</a>
@@ -76,6 +117,95 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a class="back" href="index.php">← Admin</a>
 </div>
 <main>
+    <section id="variance-mockup" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Batch variance <span class="pill" style="background:#fef3c7;color:#92400e;border-color:#fde68a;">MOCK-UP · nothing here is wired up</span></h1>
+        <p class="sub">A proposal for the phase-4 controls, so we can agree the scope before any of it is built. <strong>Every tick below is inert</strong> — this page writes nothing and is not connected to a batch. The one honest part is the assignment table at the bottom: it runs the real <code>ms_variant()</code> hash, so those picks are the picks a domain would actually get.</p>
+
+        <div style="display:grid;grid-template-columns:minmax(340px,1fr) minmax(340px,1fr);gap:22px;align-items:start;">
+
+            <!-- 1 · the run card as it would look -->
+            <div class="card">
+                <h3 style="margin-top:0;">4. Generate sites <span style="font-weight:400;color:#94a3b8;font-size:.8rem;">— as it would look</span></h3>
+                <p class="note" style="margin-top:0;">Untick a step to skip it for this run. Three new steps, in the list that already exists.</p>
+                <div style="margin-top:12px;display:flex;flex-direction:column;gap:7px;">
+                    <?php
+                    $vmSteps = [
+                        ['Landing pages', false], ['Visual identity', false],
+                        ['Section order', true], ['Class vocabulary', true], ['Schema shape', true],
+                        ['AI content', false], ['Images', false], ['Site tags (analytics, Search Console)', false],
+                    ];
+                    foreach ($vmSteps as [$label, $isNew]): ?>
+                        <label class="hint" style="display:flex;align-items:center;gap:8px;<?= $isNew ? 'font-weight:700;color:#1e3a5f;' : '' ?>">
+                            <input type="checkbox" checked disabled>
+                            <?= $h($label) ?>
+                            <?php if ($isNew): ?><span style="background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;border-radius:999px;padding:1px 8px;font-size:.68rem;font-weight:700;">NEW</span><?php endif; ?>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+                <p class="note" style="margin-top:14px;">Below this, unchanged: <em>Limit</em>, <em>Only this domain</em>, <em>Force</em>, and the <strong>Generate sites</strong> button.</p>
+                <div style="margin-top:14px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+                    <div style="font-weight:700;color:#1e3a5f;font-size:.82rem;">Not in this round</div>
+                    <div class="note">No new page architectures · no change to the 26 landing pages · no approval workflow · no second renderer. Same pages, same H1s, same keywords, same titles and metas.</div>
+                </div>
+            </div>
+
+            <!-- 2 · the pools -->
+            <div class="card">
+                <h3 style="margin-top:0;">Variance pools <span style="font-weight:400;color:#94a3b8;font-size:.8rem;">— set once on the master</span></h3>
+                <p class="note" style="margin-top:0;">Which options are in rotation, exactly like Theme presets work today. Drop a folder in, it appears here — no code change.</p>
+                <?php foreach ($vmAxes as $key => $ax): ?>
+                    <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e2e8f0;">
+                        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                            <strong style="color:#1e3a5f;font-size:.9rem;"><?= $h($ax['label']) ?></strong>
+                            <?php
+                            $st = $ax['status'];
+                            $stStyle = $st === 'existing' ? 'background:#ecfdf5;color:#065f46;border-color:#a7f3d0;'
+                                     : ($st === 'NOT BUILT' ? 'background:#fef2f2;color:#b91c1c;border-color:#fecaca;'
+                                     : 'background:#fffbeb;color:#92400e;border-color:#fde68a;');
+                            ?>
+                            <span style="border:1px solid;border-radius:999px;padding:1px 9px;font-size:.68rem;font-weight:700;<?= $stStyle ?>"><?= $h($st) ?></span>
+                        </div>
+                        <div class="note" style="margin:3px 0 6px;"><?= $h($ax['blurb']) ?></div>
+                        <?php foreach ($ax['options'] as $opt): ?>
+                            <label class="hint" style="display:flex;align-items:center;gap:7px;"><input type="checkbox" checked disabled> <?= $h($opt) ?></label>
+                        <?php endforeach; ?>
+                        <div class="note" style="margin-top:5px;">Per-row override column: <code><?= $h($ax['column']) ?></code></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <!-- 3 · the honest part -->
+        <div class="card" style="margin-top:22px;">
+            <h3 style="margin-top:0;">What each domain would actually get <span class="pill">real <code>ms_variant()</code> hash, not mocked</span></h3>
+            <p class="note" style="margin-top:0;">Assignment is automatic and deterministic per domain — the same domain picks the same option forever, so a rebuild never churns your SEO signals. You choose <em>whether an axis runs</em> and <em>which options are in the pool</em>, not which option a given site gets. Sample domains shown; a real batch would list its own rows.</p>
+            <table style="width:100%;border-collapse:collapse;font-size:.84rem;margin-top:10px;">
+                <thead><tr>
+                    <th style="text-align:left;padding:6px;">Domain</th>
+                    <?php foreach ($vmAxes as $ax): ?><th style="text-align:left;padding:6px;"><?= $h($ax['label']) ?></th><?php endforeach; ?>
+                </tr></thead>
+                <tbody>
+                <?php foreach ($vmDomains as $dom): ?>
+                    <tr style="border-top:1px solid #e2e8f0;">
+                        <td style="padding:6px;font-weight:600;"><?= $h($dom) ?></td>
+                        <?php foreach ($vmAxes as $ax):
+                            $opts = $ax['options'];
+                            $pick = $opts[ms_variant($dom, count($opts), $ax['salt'])] ?? $opts[0]; ?>
+                            <td style="padding:6px;"><?= $h($pick) ?></td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <p class="note" style="margin-top:10px;">Every axis is salted separately, so two domains that happen to share a theme still differ everywhere else — the rotations don't move in lockstep.</p>
+        </div>
+
+        <div class="card" style="margin-top:22px;border-color:#c7d2fe;background:#f5f3ff;">
+            <h3 style="margin-top:0;">Ships alongside — the SEO guard</h3>
+            <p class="note" style="margin-top:0;">A before/after check that renders each page with and without the variance and compares <strong>the page set, every H1, every title, every meta description, and the schema types</strong>. If any of those move, the variance is wrong and the run fails. That makes "the SEO held" a test result rather than a claim.</p>
+        </div>
+    </section>
+
     <section id="water-icons" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
         <h1>Water icons <span class="pill">Recovery Wellspring · pick one</span></h1>
         <p class="sub">Simple water-themed SVG options for the logo/favicon. Tell me the letter you want and I'll set it as the site logo + favicon (currently live: <strong>B · Waves</strong>).</p>

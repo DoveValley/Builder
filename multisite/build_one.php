@@ -283,6 +283,28 @@ if ($skipped('images')) {
     if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0) {
         progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
     }
+
+    // Metadata scrub — its own switch under Images on the batch card, so it has its own skip
+    // key. Inside the Images step because that is where the card shows it: untick Images and
+    // everything beneath it stops, this included.
+    // Byte-level, not re-encoding, so photos are unchanged. Only files that actually carry
+    // metadata get rewritten.
+    $metaRes = ['scanned' => 0, 'stripped' => 0, 'failed' => 0, 'remaining' => 0];
+    if ($skipped('images.metadata')) {
+        progress_log('Images: metadata strip skipped — turned off for this run.', 'warn');
+    } else {
+        $metaRes = ms_strip_uploads_metadata($workingDir);
+    }
+    if ($metaRes['stripped'] > 0 || $metaRes['failed'] > 0) {
+        progress_log("Images: stripped metadata from {$metaRes['stripped']} of {$metaRes['scanned']} image(s)."
+            . ($metaRes['failed'] ? " {$metaRes['failed']} could not be written." : ''),
+            $metaRes['failed'] ? 'warn' : 'info');
+    }
+    // Verify rather than assume: every stripped file is re-read and re-checked. This should
+    // be impossible, so say it loudly rather than letting it pass as a normal run.
+    if ($metaRes['remaining'] > 0) {
+        progress_log("Images: {$metaRes['remaining']} image(s) STILL carry metadata after stripping — investigate before deploying.", 'warn');
+    }
 }
 
 // ── Build in a worker-mode child process ──────────────────────────────────────
