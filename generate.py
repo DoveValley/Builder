@@ -1044,12 +1044,71 @@ def _load_research_prompt(paths):
     per-city {city}/{state}/{SS} placeholders intact."""
     brief = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
     tmpl = (brief.get('research_prompt') or '').strip() or DEFAULT_RESEARCH_PROMPT
+    tmpl += _chart_research_asks(brief)
     return substitute_vars(tmpl, {
         'business_descriptor': brief.get('business_descriptor', 'a local business'),
         'service_noun':        brief.get('service_noun', 'services'),
         'customer_noun':       brief.get('customer_noun', 'customer'),
         'niche':               brief.get('niche', ''),
     })
+
+
+def chart_research_fields(brief):
+    """
+    The figures this niche's CHARTS need, read from the chart plugin's own definitions.
+
+    The alternative was pasting a rainfall paragraph into all four niche prompts — four edits
+    now and four more per metric, which is the hardcoding this system exists to avoid. Instead a
+    chart declares what it needs, and the research asks for it. Add a chart definition and the
+    research starts gathering its data with no code change; a niche with no charts asks for
+    nothing extra.
+
+    Returns [(data_key, source_key, ask, source_ask)].
+    """
+    niche = (brief.get('niche') or '').strip().lower()
+    if not niche:
+        return []
+    slug = re.sub(r'[^a-z0-9]+', '-', niche).strip('-')
+    d = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                     'plugins', 'image-data-chart', 'niches', slug)
+    out, seen = [], set()
+    for f in sorted(glob.glob(os.path.join(d, '*.json'))):
+        try:
+            with open(f, encoding='utf-8') as fh:
+                cfg = json.load(fh)
+        except Exception:
+            continue
+        r = cfg.get('research') or {}
+        ask = (r.get('ask') or '').strip()
+        key = (cfg.get('data_key') or '').strip()
+        if not ask or not key or key in seen:
+            continue
+        seen.add(key)
+        out.append((key, (cfg.get('source_key') or '').strip(),
+                    ask, (r.get('source_ask') or '').strip()))
+    return out
+
+
+def _chart_research_asks(brief):
+    """The extra prompt block, or '' when this niche charts nothing."""
+    fields = chart_research_fields(brief)
+    if not fields:
+        return ''
+    lines = []
+    for _key, _skey, ask, source_ask in fields:
+        lines.append('- ' + ask)
+        if source_ask:
+            lines.append('- ' + source_ask)
+    # The source requirement is stated twice on purpose — once as a field to return, once as a
+    # rule — because a figure without a citation is the one thing the charts must never draw.
+    return (
+        "\n\nAlso return these figures, used to draw charts for this city:\n"
+        + "\n".join(lines)
+        + "\n\nRules for these figures:\n"
+        "- Give the SOURCE for every figure. A number with no source is unusable to us.\n"
+        "- If you are not confident of a real published figure, OMIT that field entirely.\n"
+        "  Omitting it is correct and expected; a plausible estimate is not.\n"
+    )
 
 def _research_city(city_name, state_name, SS, api_key, prompt_template, dry_run=False):
     """Call Claude to produce research fields for one city, using the niche's prompt
@@ -1070,12 +1129,36 @@ def _research_city(city_name, state_name, SS, api_key, prompt_template, dry_run=
         return None
     return result
 
-def _needs_research(city_data):
+def _needs_research(city_data, chart_fields=None):
     # Niche-agnostic: a completed research pass stamps `_researched`. Fall back to the
     # legacy PM signal for rows researched before the flag existed.
+    #
+    # A city already researched is ALSO re-asked when a chart it should have data for has
+    # none. Without this, adding a chart definition would only ever benefit cities researched
+    # after it — every existing city would sit permanently chartless with no sign of why.
+    # Cheap in practice: the re-ask only fires while a field is genuinely missing, so it stops
+    # of its own accord once the figure is there (or once the model has declined it twice and
+    # the city is marked as asked).
     if city_data.get('_researched'):
-        return False
+        return _missing_chart_fields(city_data, chart_fields) != []
     return not city_data.get('industries') and not city_data.get('top_employers')
+
+
+def _missing_chart_fields(city_data, chart_fields):
+    """Chart figures this city still lacks. A field the model has already declined twice is
+    treated as settled — some cities genuinely have no published figure, and asking forever
+    would bill for a question already answered."""
+    if not chart_fields:
+        return []
+    declined = city_data.get('_chart_declined') or {}
+    missing = []
+    for key, _skey, _ask, _sask in chart_fields:
+        if city_data.get(key) not in (None, '', [], {}):
+            continue
+        if int(declined.get(key, 0)) >= 2:
+            continue
+        missing.append(key)
+    return missing
 
 def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=None):
     """
@@ -1092,6 +1175,11 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
     cities    = list(raw)
     researched = 0
     prompt_template = _load_research_prompt(paths)   # niche-aware (Niche Brief or default)
+    # What this niche's charts need, so an already-researched city can be topped up.
+    _brief = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
+    chart_fields = chart_research_fields(_brief)
+    if chart_fields:
+        _log('  Chart figures requested: ' + ', '.join(f[0] for f in chart_fields))
 
     for i, city in enumerate(cities):
         city_name = city.get('city', '')
@@ -1106,11 +1194,15 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
         if tag_ids is not None and city_id not in tag_ids:
             continue
 
-        if not _needs_research(city):
+        missing = _missing_chart_fields(city, chart_fields)
+        if not _needs_research(city, chart_fields):
             _log(f'  {city_name} — research data present, skipping')
             continue
 
-        _log(f'  {city_name}, {city.get("SS","?")} — researching...')
+        if city.get('_researched') and missing:
+            _log(f'  {city_name}, {city.get("SS","?")} — topping up chart figures: ' + ', '.join(missing))
+        else:
+            _log(f'  {city_name}, {city.get("SS","?")} — researching...')
         result = _research_city(
             city_name       = city_name,
             state_name      = city.get('state', ''),
@@ -1121,6 +1213,26 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
         )
 
         if result:
+            # A figure is only accepted WITH its source. The chart engine refuses to draw
+            # without one, so storing a bare number would just create a field that looks
+            # present and can never be used.
+            for key, skey, _ask, _sask in (chart_fields or []):
+                if result.get(key) in (None, '', [], {}):
+                    continue
+                if skey and not str(result.get(skey, '')).strip():
+                    _warn(f'    {key}: returned without a source — discarded')
+                    result.pop(key, None)
+            # Track what the model declined, so a city with no published figure is asked twice
+            # and then left alone rather than re-billed on every run.
+            declined = dict(city.get('_chart_declined') or {})
+            for key in missing:
+                if result.get(key) in (None, '', [], {}):
+                    declined[key] = int(declined.get(key, 0)) + 1
+                else:
+                    declined.pop(key, None)
+            if declined:
+                result['_chart_declined'] = declined
+
             cities[i] = {**city, **result, '_researched': 1}
             _ok(f'  {city_name} — research complete')
             for k, v in list(result.items())[:4]:

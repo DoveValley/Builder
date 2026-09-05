@@ -4,8 +4,25 @@
   "type": "bars",
   "data_key": "freeze_days_monthly",
   "source_key": "freeze_source",
-  "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
   "unit": "days",
   "title": "Days below freezing each month in {city}, {SS}",
-  "alt": "Chart of days below freezing per month in {city}, {SS}. {summary}"
+  "alt": "Chart of days below freezing per month in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"freeze_days_monthly\" — the average number of days per month with a minimum temperature at or below freezing in {city}, as an array of 12 plain numbers, January first",
+    "source_ask": "\"freeze_source\" — the source of those freezing-day figures"
+  }
 }

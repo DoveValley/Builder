@@ -119,10 +119,21 @@ function city_chart_text(string $tpl, array $city, array $def, array $series): s
     $minI = array_keys($vals, min($vals))[0];
     $fmt = fn($n) => rtrim(rtrim(number_format($n, 1), '0'), '.');
 
-    $summary = $labels
-        ? 'Highest ' . $labels[$maxI] . ' at ' . $fmt($vals[$maxI]) . ($unit ? " $unit" : '')
-          . ', lowest ' . $labels[$minI] . ' at ' . $fmt($vals[$minI]) . ($unit ? " $unit" : '') . '.'
-        : 'Ranges from ' . $fmt(min($vals)) . ' to ' . $fmt(max($vals)) . ($unit ? " $unit" : '') . '.';
+    // A comparison's point is the gap, not the extremes. "Highest Lufkin, lowest US average" is
+    // true and says nothing; describe it the way the picture does, so the alt text carries the
+    // same argument to someone who cannot see it.
+    if (($def['type'] ?? 'bars') === 'compare' && count($vals) > 1) {
+        $parts = [];
+        foreach ($vals as $i => $v) {
+            $parts[] = ($labels[$i] ?? '') . ' ' . $fmt($v) . ($unit ? " $unit" : '');
+        }
+        $summary = implode(', ', $parts) . '. ' . city_chart_compare_summary($series, $def);
+    } else {
+        $summary = $labels
+            ? 'Highest ' . $labels[$maxI] . ' at ' . $fmt($vals[$maxI]) . ($unit ? " $unit" : '')
+              . ', lowest ' . $labels[$minI] . ' at ' . $fmt($vals[$minI]) . ($unit ? " $unit" : '') . '.'
+            : 'Ranges from ' . $fmt(min($vals)) . ' to ' . $fmt(max($vals)) . ($unit ? " $unit" : '') . '.';
+    }
 
     return strtr($tpl, [
         '{city}' => (string) ($city['city'] ?? ''),

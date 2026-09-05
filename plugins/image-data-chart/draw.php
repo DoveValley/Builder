@@ -103,6 +103,11 @@ function city_chart_svg(array $series, array $def, string $title, array $theme =
     $chW = 10.2 * mb_strlen($peakTxt) + 22;
     $chX = $padL + $slot * $maxI + $slot / 2 - $chW / 2;
     $chY = $y($vals[$maxI]) - 40;
+    // A tall peak leaves no room above the bar and the chip would sit on the title. Drop it
+    // INSIDE the bar instead — the peak bar is dark at the top, so white text still reads.
+    // Only surfaced once a chart had its maximum in the first month; charts that peak in the
+    // middle never hit it.
+    if ($chY < $padT + 4) $chY = $y($vals[$maxI]) + 8;
     $o[] = '<rect x="' . round($chX, 1) . '" y="' . round($chY, 1) . '" width="' . round($chW, 1) . '" height="28" rx="14" fill="'
          . $esc($ink) . '"/>';
     $o[] = '<text x="' . round($chX + $chW / 2, 1) . '" y="' . round($chY + 19, 1) . '" text-anchor="middle"'

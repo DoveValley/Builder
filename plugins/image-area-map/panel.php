@@ -20,6 +20,15 @@ if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
     }
 }
 $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
+
+/**
+ * Reference sample — real areas of a real city, shown when this site has none of its own yet
+ * (which is most sites today). Without it the panel documents a picture nobody can see.
+ */
+$pmRef = [
+    'city' => 'Lufkin', 'SS' => 'TX', 'state' => 'Texas',
+    'neighborhoods' => ['Downtown Lufkin', 'Crown Colony', 'Herty', 'Redland', 'Diboll', 'Huntington'],
+];
 ?>
 <style>.pm-sample svg{width:100%;height:auto;display:block}</style>
 <div class="card">
@@ -50,9 +59,17 @@ $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
         <li>No map tiles, no API key, no licence, no cost per site.</li>
     </ul>
 
-    <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">Sample &mdash; drawn live from this site's data</h3>
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">What it draws</h3>
+    <p class="hint" style="max-width:620px;margin-bottom:10px;">A reference sample &mdash; real areas of a real city. The ring layout is seeded from the city name, so a
+        city with four areas and a city with nine look different from each other, not just relabelled.</p>
+    <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
+        <?= city_map_svg($pmRef) ?>
+    </div>
+    <p class="hint" style="margin-top:8px;max-width:620px;"><strong>alt:</strong> <?= $pmH(city_map_alt($pmRef)) ?></p>
+
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:22px 0 8px;">This site's own data</h3>
     <?php if (!$pmCity): ?>
-        <p class="hint">No city on this site has named neighbourhoods yet, so there is nothing to draw. Add them under Cities, or run the city research step, and a diagram appears here.</p>
+        <p class="hint" style="color:#92400e;">No city on this site has named neighbourhoods yet, so nothing would be drawn today. Add them under Cities, or run the city research step, and this site's own diagram appears here.</p>
     <?php else: ?>
         <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
             <?= city_map_svg($pmCity) ?>

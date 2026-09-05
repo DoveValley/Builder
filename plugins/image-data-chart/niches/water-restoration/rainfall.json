@@ -4,8 +4,25 @@
   "type": "bars",
   "data_key": "rainfall_monthly",
   "source_key": "rainfall_source",
-  "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
   "unit": "in",
   "title": "Average monthly rainfall in {city}, {SS}",
-  "alt": "Chart of average monthly rainfall in {city}, {SS}, in inches. {summary}"
+  "alt": "Chart of average monthly rainfall in {city}, {SS}, in inches. {summary}",
+  "research": {
+    "ask": "\"rainfall_monthly\" — average precipitation for {city} for each of the 12 months, as an array of 12 plain numbers in inches, January first",
+    "source_ask": "\"rainfall_source\" — the source of those monthly figures"
+  }
 }

@@ -6,10 +6,21 @@
   "source_key": "rainfall_source",
   "self_label": "{city}, {SS}",
   "benchmarks": [
-    { "label": "{state} average", "value_key": "rainfall_state_avg" },
-    { "label": "US average", "value": 30.3, "source": "NOAA 1991-2020 US normals" }
+    {
+      "label": "{state} average",
+      "value_key": "rainfall_state_avg"
+    },
+    {
+      "label": "US average",
+      "value": 30.3,
+      "source": "NOAA 1991-2020 US normals"
+    }
   ],
   "unit": "in",
   "title": "Annual rainfall: {city} vs average",
-  "alt": "Chart comparing annual rainfall in {city}, {SS} with state and national averages. {summary}"
+  "alt": "Chart comparing annual rainfall in {city}, {SS} with state and national averages. {summary}",
+  "research": {
+    "ask": "\"rainfall_annual\" — the average ANNUAL precipitation for {city} in inches, as a plain number (e.g. 48.4); and \"rainfall_state_avg\" — the average ANNUAL precipitation for the STATE of {state} as a whole, in inches, as a plain number, so the city can be compared against it",
+    "source_ask": "\"rainfall_source\" — the source of that rainfall figure (e.g. \"NOAA 1991-2020 normals\")"
+  }
 }
