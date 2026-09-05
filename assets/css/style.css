@@ -247,7 +247,13 @@ a:hover {
     position: static;
     width: 100%;
     height: auto;
+    /* Plugin images (charts, diagrams) are drawn at a fixed size and must not be stretched past
+       it, so they cap at their natural width and sit centred in whatever block holds them. */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
+.content-block .content-photo.content-photo-auto { text-align: center; }
 
 .content-block .content-text {
     flex: 2 1 260px;
@@ -3452,8 +3458,19 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .mi-map-wrap img { width: 100%; height: auto; display: block; border-radius: 6px; }
 /* Across the full width the diagram is bigger than it needs to be, so hold it to 75% and
    centre it. Scoped to the stacked layout — in the half-width left/right panels it is
-   already small enough. */
-.mi-stacked .mi-map-wrap img { width: 75%; margin-left: auto; margin-right: auto; }
+   already small enough.
+
+   The width lives on the WRAPPER, not the <img>, so the heading and caption can share the same
+   column and line up with the picture instead of with the panel. */
+.mi-stacked .mi-map-panel .mi-map-wrap,
+.mi-stacked .mi-map-panel .mi-heading,
+.mi-stacked .mi-map-panel .mi-map-caption {
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mi-stacked .mi-map-panel .mi-heading { text-align: left; }
+.mi-stacked .mi-map-wrap img { width: 100%; }
 
 @media (max-width: 768px) {
     .mi-grid { grid-template-columns: 1fr; }
@@ -4270,14 +4287,20 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 }
 
 /* Image captions — the picture's facts as text, since everything inside a chart or diagram is
-   pixels a crawler cannot read. Kept visually quiet: it is a caption, not body copy. */
+   pixels a crawler cannot read. Kept visually quiet: it is a caption, not body copy.
+
+   Title, image and caption share ONE column. Before this they had three different left edges —
+   heading at the panel edge, image centred, caption somewhere else again — which read as
+   sloppy. The caption is centred under its picture; a heading above stays left-justified to the
+   same edge the image starts at. */
 .content-figure { margin: 0; }
 .content-figcaption,
 .mi-map-caption {
     font-size: 0.85rem;
     line-height: 1.6;
     color: #64748b;
-    margin: 10px 0 0;
-    max-width: 900px;
+    margin: 10px auto 0;
+    text-align: center;
 }
-.mi-map-caption { margin-left: auto; margin-right: auto; }
+/* Match the image's own box so the caption cannot be wider than the picture it describes. */
+.content-figcaption { max-width: 900px; }
