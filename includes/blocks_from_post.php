@@ -201,6 +201,7 @@ function parse_blocks_from_post(): array {
                 elseif ($up !== null) $block['it_photo'] = $up;
                 $block['it_ratio']    = array_key_exists($_POST['it_ratio'][$i]    ?? '', photo_ratio_options())    ? $_POST['it_ratio'][$i]    : 'landscape';
                 $block['it_position'] = array_key_exists($_POST['it_position'][$i] ?? '', photo_position_options()) ? $_POST['it_position'][$i] : 'center';
+                $block['it_layout']   = ($_POST['it_layout'][$i] ?? 'side') === 'stacked' ? 'stacked' : 'side';
                 if ($block['it_heading'] === '' && $block['it_text'] === '' && $block['it_photo'] === '') continue 2;
                 break;
 
@@ -963,6 +964,10 @@ function parse_blocks_from_post(): array {
                 if ($aiPhotoAlt !== '') $block['it_alt'] = $aiPhotoAlt;
                 $aiSide = trim($_POST['it_image_side'][$i] ?? '');
                 if (in_array($aiSide, ['left', 'right'], true)) $block['it_image_side'] = $aiSide;
+                $aiLayout = trim($_POST['it_layout'][$i] ?? '');
+                if (in_array($aiLayout, ['side', 'stacked'], true)) $block['it_layout'] = $aiLayout;
+                $aiRatio = trim($_POST['it_ratio'][$i] ?? '');
+                if ($aiRatio !== '') $block['it_ratio'] = $aiRatio;
                 // Round-trip AI meta from hidden fields
                 $aiGenRaw = trim($_POST['ai_meta_generated'][$i] ?? '');
                 if ($aiGenRaw === '1') {

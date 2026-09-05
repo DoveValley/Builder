@@ -565,6 +565,13 @@ function render_content_blocks_editor($blocks) {
                         </select>
                     </div>
                     <div class="form-group">
+                        <label>Layout</label>
+                        <select name="it_layout[]">
+                            <option value="side"    <?= ($block['it_layout'] ?? 'side') === 'side'    ? 'selected' : '' ?>>Side by side</option>
+                            <option value="stacked" <?= ($block['it_layout'] ?? 'side') === 'stacked' ? 'selected' : '' ?>>Stacked (text above, image below &mdash; best for wide charts)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label>Heading level</label>
                         <select name="it_heading_level[]"><?= heading_level_options_html($block['it_heading_level'] ?? 'h2') ?></select>
                     </div>

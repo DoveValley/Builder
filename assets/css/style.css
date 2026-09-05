@@ -282,6 +282,17 @@ a:hover {
     flex: 1 1 100%;
     padding-top: 41%;
 }
+/* "Original size" must still win inside a stacked block. Same specificity as the rule above,
+   so without this the 41% crop applied and a wide chart lost its edges again. */
+.content-block.layout-stacked .content-photo.content-photo-auto {
+    padding-top: 0;
+}
+/* Don't upscale a diagram past the size it was drawn at — it just goes soft. */
+.content-block.layout-stacked .content-photo.content-photo-auto img {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /* =========================================================
    Public site footer

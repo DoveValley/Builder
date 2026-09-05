@@ -426,7 +426,7 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-image_text is-hidden">
                 <div class="form-group"><label>Image side</label>
-                    <select name="it_image_side[]"><option value="left" selected>Image left, text right</option><option value="right">Text left, image right</option></select>
+                    <select name="it_image_side[]"><option value="left" selected>Image left, text right</option><option value="right">Text left, image right</option></select></div><div class="form-group"><label>Layout</label><select name="it_layout[]"><option value="side" selected>Side by side</option><option value="stacked">Stacked (text above, image below)</option></select>
                 </div>
                 <div class="form-group"><label>Heading level</label>
                     <select name="it_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="p">Paragraph</option></select>

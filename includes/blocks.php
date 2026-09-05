@@ -576,14 +576,19 @@ function render_content_block($block, $pathPrefix = '') {
             $itBtn    = $block['it_btn_text']   ?? '';
             $itBtnUrl = $block['it_btn_url']    ?? '';
             $layout   = ($imgSide === 'right') ? 'image-right' : 'image-left';
-            echo '<div class="content-block ' . $layout . '"' . $anchorAttr . '>';
-            if ($imgSide === 'left' && $itPhoto)  echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
+            // Stacked: text across the full width, image beneath. Same option image_left and
+            // image_right already have, and the same layout-stacked class — a wide image (a
+            // chart, a diagram) squeezed into half the width shrinks BOTH halves, so the text
+            // becomes a narrow column and the picture becomes unreadable.
+            $itStacked = ($block['it_layout'] ?? 'side') === 'stacked';
+            echo '<div class="content-block ' . $layout . ($itStacked ? ' layout-stacked' : '') . '"' . $anchorAttr . '>';
+            if ($imgSide === 'left' && $itPhoto && !$itStacked) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
             echo '<div class="content-text">';
             if ($itHead) echo '<' . h($itLevel) . ' class="block-heading">' . h($itHead) . '</' . h($itLevel) . '>';
             if ($itText) echo text_to_html($itText);
             if ($itBtn)  echo '<a href="' . h($itBtnUrl ?: '#') . '" class="cta-btn cta-btn-sm">' . h($itBtn) . '</a>';
             echo '</div>';
-            if ($imgSide === 'right' && $itPhoto) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
+            if ($itPhoto && ($itStacked || $imgSide === 'right')) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
             echo '</div>';
             break;
 
