@@ -37,6 +37,24 @@ function photo_src($photo, $pathPrefix = '') {
     return $pathPrefix . $photo;
 }
 
+/**
+ * Is this image too wide to sit beside a column of text?
+ *
+ * A general rule, not a plugin special case: anything past about 2:1 leaves a band of dead space
+ * next to a tall paragraph, which is exactly the fault that had to be fixed by hand twice. The
+ * plugin charts are 900x520, 900x344 and 900x300, and with per-domain rotation the shape is not
+ * known when the page is authored — so the page must not have to know it.
+ *
+ * Returns false when the file cannot be measured, which keeps the authored layout.
+ */
+function photo_is_wide($photo): bool {
+    $fs = function_exists('upload_fs_path') ? upload_fs_path((string) $photo) : '';
+    if ($fs === '' || !is_file($fs)) return false;
+    $sz = @getimagesize($fs);
+    if (!$sz || empty($sz[0]) || empty($sz[1])) return false;
+    return ($sz[0] / $sz[1]) >= 2.0;
+}
+
 function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix = '', $caption = '') {
     $position = array_key_exists((string) $position, photo_position_options()) ? (string) $position : 'center';
     $padding  = photo_ratio_to_padding((string) $ratio);
@@ -590,6 +608,9 @@ function render_content_block($block, $pathPrefix = '') {
             // chart, a diagram) squeezed into half the width shrinks BOTH halves, so the text
             // becomes a narrow column and the picture becomes unreadable.
             $itStacked = ($block['it_layout'] ?? 'side') === 'stacked';
+            // A wide image stacks itself, whatever the page asked for. With charts rotating per
+            // domain the shape is unknown at authoring time, so this has to be decided here.
+            if (!$itStacked && $itPhoto && photo_is_wide($itPhoto)) $itStacked = true;
             echo '<div class="content-block ' . $layout . ($itStacked ? ' layout-stacked' : '') . '"' . $anchorAttr . '>';
             if ($imgSide === 'left' && $itPhoto && !$itStacked) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix, $itCaption);
             echo '<div class="content-text">';
