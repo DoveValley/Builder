@@ -3439,11 +3439,17 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .mi-info-split .mi-text { margin: 0; }
 /* A diagram must never be cropped — its labels live at the edges. */
 .mi-map-wrap img { width: 100%; height: auto; display: block; border-radius: 6px; }
+/* Across the full width the diagram is bigger than it needs to be, so hold it to 75% and
+   centre it. Scoped to the stacked layout — in the half-width left/right panels it is
+   already small enough. */
+.mi-stacked .mi-map-wrap img { width: 75%; margin-left: auto; margin-right: auto; }
 
 @media (max-width: 768px) {
     .mi-grid { grid-template-columns: 1fr; }
     .mi-info-split { grid-template-columns: 1fr; }
     .mi-map-wrap iframe { height: 280px; }
+    /* On a phone there is no spare width to give away. */
+    .mi-stacked .mi-map-wrap img { width: 100%; }
 }
 
 /* CTA Card — centered layout (full width, no container) */
