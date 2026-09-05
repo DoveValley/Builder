@@ -111,6 +111,65 @@
         "name": "Livingston",
         "miles": 40
       }
-    ]
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "flood_years": [
+      2016,
+      2017,
+      2019
+    ],
+    "heavy_rain_days_monthly": [
+      2.5,
+      2.3,
+      2.5,
+      2.6,
+      3.0,
+      2.3,
+      1.8,
+      1.7,
+      2.2,
+      2.3,
+      2.3,
+      2.5
+    ],
+    "heavy_rain_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+    "homes_by_decade": {
+      "Before 1960": 25,
+      "1960-1979": 30,
+      "1980-1999": 25,
+      "2000-2009": 10,
+      "2010 or later": 10
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      1,
+      4,
+      15,
+      23,
+      24,
+      12,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+    "humidity_monthly": [
+      75,
+      72,
+      68,
+      68,
+      72,
+      72,
+      71,
+      70,
+      71,
+      71,
+      74,
+      76
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals"
   }
 ]

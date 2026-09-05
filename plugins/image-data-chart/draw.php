@@ -17,7 +17,8 @@
  */
 function city_chart_svg(array $series, array $def, string $title, array $theme = []): string
 {
-    if (($def['type'] ?? 'bars') === 'compare') return city_chart_svg_compare($series, $def, $title, $theme);
+    if (($def['type'] ?? 'bars') === 'compare')  return city_chart_svg_compare($series, $def, $title, $theme);
+    if (($def['type'] ?? 'bars') === 'timeline') return city_chart_svg_timeline($series, $def, $title, $theme);
 
     $vals = $series['values'];
     $labels = $series['labels'];
@@ -99,7 +100,8 @@ function city_chart_svg(array $series, array $def, string $title, array $theme =
 
     // Value on the peak only — labelling every bar turns a shape into a table. On a chip, so
     // it reads as a callout rather than floating text.
-    $peakTxt = $fmt($vals[$maxI]) . ($unit !== '' ? ' ' . $unit : '');
+    // A percent sign attaches to its number ("30%"); every other unit takes a space ("5.2 in").
+    $peakTxt = $fmt($vals[$maxI]) . ($unit === '' ? '' : ($unit === '%' ? '%' : ' ' . $unit));
     $chW = 10.2 * mb_strlen($peakTxt) + 22;
     $chX = $padL + $slot * $maxI + $slot / 2 - $chW / 2;
     $chY = $y($vals[$maxI]) - 40;
@@ -217,6 +219,99 @@ function city_chart_svg_compare(array $series, array $def, string $title, array 
     // <img>, so it travels with the image everywhere it is used and never restyles the site's
     // other photos. Inset by half the stroke, because a stroke straddles its path and would
     // otherwise be clipped in half at the canvas edge.
+    $o[] = '<rect x="2" y="2" width="' . ($W - 4) . '" height="' . ($H - 4) . '" rx="16" fill="none" stroke="'
+         . $esc($accent) . '" stroke-opacity=".55" stroke-width="4"/>';
+    $o[] = '</svg>';
+    return implode("\n", $o);
+}
+
+/**
+ * TIMELINE — the years something happened, along a time axis.
+ *
+ * The bar charts answer "how much". This answers "when, and how recently", which for flood
+ * history is the fact a homeowner actually reacts to: "the last major flood here was 2016"
+ * lands harder than any average.
+ *
+ * The most recent event is called out, because recency is the whole point. The axis runs a
+ * little past the last event to today, so a long quiet stretch reads as a long quiet stretch
+ * rather than the chart simply ending.
+ */
+function city_chart_svg_timeline(array $series, array $def, string $title, array $theme = []): string
+{
+    $years = array_map('intval', $series['values']);
+    if (!$years) return '';
+    sort($years);
+
+    $bg     = $theme['bg']     ?? '#f4f7fa';
+    $ink    = $theme['ink']    ?? '#12314f';
+    $accent = $theme['accent'] ?? '#1f78d1';
+    $muted  = $theme['muted']  ?? '#6b7f95';
+
+    $W = 900; $H = 300;
+    $padL = 62; $padR = 62;
+    $axisY = 176;
+
+    // Pad the span so the first and last markers are not jammed against the ends, and always
+    // run to the current year so the gap since the last event is visible.
+    $first = min($years);
+    $last  = max((int) date('Y'), max($years));
+    $span  = max($last - $first, 1);
+    $first -= max(1, (int) round($span * 0.06));
+    $span   = max($last - $first, 1);
+    $x = fn($yr) => $padL + (($yr - $first) / $span) * ($W - $padL - $padR);
+
+    $esc = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES | ENT_XML1, 'UTF-8');
+    $o = [];
+    $o[] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $W . ' ' . $H . '" width="' . $W . '" height="' . $H . '" role="img">';
+    $o[] = '<defs>'
+         . '<linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1">'
+         . '<stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="' . $esc($bg) . '"/></linearGradient>'
+         . '<linearGradient id="tdot" x1="0" y1="0" x2="0" y2="1">'
+         . '<stop offset="0" stop-color="' . $esc($accent) . '"/><stop offset="1" stop-color="' . $esc($ink) . '"/></linearGradient>'
+         . '</defs>';
+    $o[] = '<rect width="' . $W . '" height="' . $H . '" fill="url(#tbg)"/>';
+    $o[] = '<rect x="0" y="0" width="' . $W . '" height="6" fill="' . $esc($accent) . '" fill-opacity=".9"/>';
+
+    $o[] = '<text x="' . $padL . '" y="52" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
+         . ' font-size="25" font-weight="700" fill="' . $esc($ink) . '">' . $esc($title) . '</text>';
+
+    $mostRecent = max($years);
+    $o[] = '<text x="' . $padL . '" y="78" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
+         . ' font-size="17" font-weight="700" fill="' . $esc($accent) . '">Most recent: ' . $mostRecent . '</text>';
+
+    // The axis, with the two ends dated so the span is readable at a glance.
+    $o[] = '<line x1="' . $padL . '" y1="' . $axisY . '" x2="' . ($W - $padR) . '" y2="' . $axisY
+         . '" stroke="' . $esc($muted) . '" stroke-opacity=".35" stroke-width="2"/>';
+    foreach ([$first, $last] as $endYr) {
+        $o[] = '<text x="' . round($x($endYr), 1) . '" y="' . ($axisY + 30) . '" text-anchor="middle"'
+             . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" fill="'
+             . $esc($muted) . '">' . $endYr . '</text>';
+    }
+
+    // Markers. Labels alternate above and below the line so close years stay readable.
+    foreach ($years as $i => $yr) {
+        $px  = $x($yr);
+        $isLast = ($yr === $mostRecent);
+        $up  = ($i % 2 === 0);
+        $ly  = $up ? $axisY - 22 : $axisY + 52;
+        $o[] = '<line x1="' . round($px, 1) . '" y1="' . ($axisY - ($up ? 14 : 0)) . '" x2="' . round($px, 1)
+             . '" y2="' . ($axisY + ($up ? 0 : 14)) . '" stroke="' . $esc($accent) . '" stroke-opacity=".45" stroke-width="1.5"/>';
+        $o[] = '<circle cx="' . round($px, 1) . '" cy="' . $axisY . '" r="' . ($isLast ? 9 : 6.5) . '" fill="url(#tdot)"/>';
+        if ($isLast) {
+            $o[] = '<circle cx="' . round($px, 1) . '" cy="' . $axisY . '" r="15" fill="none" stroke="'
+                 . $esc($accent) . '" stroke-opacity=".45" stroke-width="2"/>';
+        }
+        $o[] = '<text x="' . round($px, 1) . '" y="' . $ly . '" text-anchor="middle"'
+             . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="' . ($isLast ? 18 : 16)
+             . '" font-weight="' . ($isLast ? 700 : 600) . '" fill="' . $esc($ink) . '">' . $yr . '</text>';
+    }
+
+    if (trim($series['source']) !== '') {
+        $o[] = '<text x="' . $padL . '" y="' . ($H - 18) . '" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
+             . ' font-size="14" fill="' . $esc($muted) . '">Source: ' . $esc($series['source']) . '</text>';
+    }
+
+    // Same framing line as the other chart types. NUMERIC entities only — SVG is XML.
     $o[] = '<rect x="2" y="2" width="' . ($W - 4) . '" height="' . ($H - 4) . '" rx="16" fill="none" stroke="'
          . $esc($accent) . '" stroke-opacity=".55" stroke-width="4"/>';
     $o[] = '</svg>';

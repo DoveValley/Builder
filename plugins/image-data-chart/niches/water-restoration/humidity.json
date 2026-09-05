@@ -1,0 +1,28 @@
+{
+  "id": "humidity",
+  "name": "Average humidity by month",
+  "type": "bars",
+  "data_key": "humidity_monthly",
+  "source_key": "humidity_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "%",
+  "title": "Average humidity by month in {city}, {SS}",
+  "alt": "Chart of average relative humidity by month in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"humidity_monthly\" — the average relative humidity for {city} in each month, as an array of 12 plain-number percentages, January first",
+    "source_ask": "\"humidity_source\" — the source of those humidity figures"
+  }
+}

@@ -83,7 +83,8 @@ function city_chart_niches(): array
  */
 function city_chart_series(array $def, array $city): ?array
 {
-    if (($def['type'] ?? 'bars') === 'compare') return city_chart_compare_series($def, $city);
+    if (($def['type'] ?? 'bars') === 'compare')  return city_chart_compare_series($def, $city);
+    if (($def['type'] ?? 'bars') === 'timeline') return city_chart_timeline_series($def, $city);
 
     $key = (string) ($def['data_key'] ?? '');
     if ($key === '' || !isset($city[$key])) return null;
@@ -109,12 +110,51 @@ function city_chart_series(array $def, array $city): ?array
     return ['values' => $values, 'labels' => $labels, 'source' => $src];
 }
 
+/**
+ * A TIMELINE series: the years something happened, plotted along a time axis.
+ *
+ * A different question from the bar charts. Those ask "how much"; this asks "when, and how
+ * recently" — which for flood history is the fact a homeowner actually reacts to. "The last
+ * major flood here was 2016" lands harder than any average.
+ *
+ * Years only, sanity-checked to a plausible range: a stray 12 or 20166 is a mis-parse, not a
+ * flood, and one bad value would stretch the axis and make the whole picture wrong.
+ *
+ * @return array{values:float[],labels:string[],source:string}|null
+ */
+function city_chart_timeline_series(array $def, array $city): ?array
+{
+    $key = (string) ($def['data_key'] ?? '');
+    if ($key === '' || !isset($city[$key]) || !is_array($city[$key])) return null;
+
+    $years = [];
+    foreach ($city[$key] as $y) {
+        // An entry may be a bare year or an object carrying one.
+        if (is_array($y)) $y = $y['year'] ?? null;
+        if (!is_numeric($y)) continue;
+        $y = (int) $y;
+        if ($y < 1800 || $y > (int) date('Y')) continue;
+        $years[$y] = true;                       // de-duplicate
+    }
+    $years = array_keys($years);
+    if (!$years) return null;
+    sort($years);
+
+    return [
+        'values' => array_map('floatval', $years),
+        'labels' => array_map('strval', $years),
+        'source' => (string) ($city[$def['source_key'] ?? '__none'] ?? ''),
+    ];
+}
+
 /** Fill {city}/{SS}/{unit}/{summary} in a definition's title or alt string. */
 function city_chart_text(string $tpl, array $city, array $def, array $series): string
 {
     $vals = $series['values'];
     $labels = $series['labels'];
     $unit = (string) ($def['unit'] ?? '');
+    // Same rule as the drawing: "%" attaches, other units take a space.
+    $u = $unit === '' ? '' : ($unit === '%' ? '%' : ' ' . $unit);
     $maxI = array_keys($vals, max($vals))[0];
     $minI = array_keys($vals, min($vals))[0];
     $fmt = fn($n) => rtrim(rtrim(number_format($n, 1), '0'), '.');
@@ -122,17 +162,24 @@ function city_chart_text(string $tpl, array $city, array $def, array $series): s
     // A comparison's point is the gap, not the extremes. "Highest Lufkin, lowest US average" is
     // true and says nothing; describe it the way the picture does, so the alt text carries the
     // same argument to someone who cannot see it.
-    if (($def['type'] ?? 'bars') === 'compare' && count($vals) > 1) {
+    // A timeline's point is recency and frequency, not a maximum. "Highest 2016, lowest 1994"
+    // would be arithmetically true and completely useless.
+    if (($def['type'] ?? 'bars') === 'timeline') {
+        $last = (int) max($vals);
+        $n    = count($vals);
+        $summary = 'Most recent: ' . $last . '. '
+                 . ($n === 1 ? 'One recorded event' : $n . ' recorded events since ' . (int) min($vals)) . '.';
+    } elseif (($def['type'] ?? 'bars') === 'compare' && count($vals) > 1) {
         $parts = [];
         foreach ($vals as $i => $v) {
-            $parts[] = ($labels[$i] ?? '') . ' ' . $fmt($v) . ($unit ? " $unit" : '');
+            $parts[] = ($labels[$i] ?? '') . ' ' . $fmt($v) . $u;
         }
         $summary = implode(', ', $parts) . '. ' . city_chart_compare_summary($series, $def);
     } else {
         $summary = $labels
-            ? 'Highest ' . $labels[$maxI] . ' at ' . $fmt($vals[$maxI]) . ($unit ? " $unit" : '')
-              . ', lowest ' . $labels[$minI] . ' at ' . $fmt($vals[$minI]) . ($unit ? " $unit" : '') . '.'
-            : 'Ranges from ' . $fmt(min($vals)) . ' to ' . $fmt(max($vals)) . ($unit ? " $unit" : '') . '.';
+            ? 'Highest ' . $labels[$maxI] . ' at ' . $fmt($vals[$maxI]) . $u
+              . ', lowest ' . $labels[$minI] . ' at ' . $fmt($vals[$minI]) . $u . '.'
+            : 'Ranges from ' . $fmt(min($vals)) . ' to ' . $fmt(max($vals)) . $u . '.';
     }
 
     return strtr($tpl, [

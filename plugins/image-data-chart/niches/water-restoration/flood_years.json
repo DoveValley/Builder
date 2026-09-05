@@ -1,0 +1,13 @@
+{
+  "id": "flood_years",
+  "name": "Major flood events",
+  "type": "timeline",
+  "data_key": "flood_years",
+  "source_key": "flood_years_source",
+  "title": "Major flood events in {city}, {SS}",
+  "alt": "Timeline of major flood events affecting {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"flood_years\" — the years of MAJOR, well-documented flood events that affected {city}, as an array of plain 4-digit numbers in ascending order, at most 8 of them. Include only floods you are confident are real and documented; if you are not confident of any, return an empty array",
+    "source_ask": "\"flood_years_source\" — the source for those flood events (e.g. \"NOAA Storm Events Database\")"
+  }
+}
