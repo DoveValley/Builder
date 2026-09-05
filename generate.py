@@ -1086,7 +1086,7 @@ def chart_research_fields(brief):
         seen.add(key)
         skey = (cfg.get('source_key') or '').strip()
         sask = (r.get('source_ask') or '').strip()
-        out.append((key, skey, ask, sask))
+        out.append((key, skey, ask, sask, int(cfg.get('min_items') or 0)))
 
         # A `compare` chart needs its BENCHMARK as well as its own figure, and the benchmark
         # lives in a different field. Tracking only data_key meant a chart could have its own
@@ -1101,7 +1101,7 @@ def chart_research_fields(brief):
             vk = (b.get('value_key') or '').strip() if isinstance(b, dict) else ''
             if vk and vk not in seen:
                 seen.add(vk)
-                out.append((vk, skey, ask, sask))
+                out.append((vk, skey, ask, sask, 0))
     return out
 
 
@@ -1132,12 +1132,16 @@ def plugin_research_fields():
             if not isinstance(fld, dict):
                 continue
             key = (fld.get('data_key') or '').strip()
-            ask = (fld.get('ask') or '').strip()
-            if not key or not ask or key in seen:
+            if not key or key in seen:
                 continue
+            # An ask-less declaration is TRACKED but adds no prompt line. That is how a plugin
+            # can say "this field must have at least N entries" about something the base prompt
+            # already asks for, without asking for it twice in the same call.
+            ask = (fld.get('ask') or '').strip()
             seen.add(key)
             out.append((key, (fld.get('source_key') or '').strip(),
-                        ask, (fld.get('source_ask') or '').strip()))
+                        ask, (fld.get('source_ask') or '').strip(),
+                        int(fld.get('min_items') or 0)))
     return out
 
 
@@ -1162,7 +1166,10 @@ def _chart_research_asks(brief):
     lines = []
     sourced = False
     seen_asks = set()
-    for _key, _skey, ask, source_ask in fields:
+    for _key, _skey, ask, source_ask, _min in fields:
+        # An ask-less declaration is tracked only — it contributes no line to the prompt.
+        if not ask:
+            continue
         # Two tracked fields can share one ask (a compare chart and its benchmark), so the
         # prompt must not print it twice.
         if ask in seen_asks:
@@ -1190,11 +1197,42 @@ def _chart_research_asks(brief):
         "  Omitting it is correct and expected; a plausible estimate is not.\n"
     )
 
-def _research_city(city_name, state_name, SS, api_key, prompt_template, dry_run=False):
+def _thin_topup_note(city, thin_fields):
+    """
+    A top-up for a THIN list must ask a different question from the first pass.
+
+    The base prompt tells the model "better to return none than a fake one", which is correct
+    for accuracy and biases hard toward short lists. Re-sending that same prompt gets the same
+    short answer — mold-site asked again for Lufkin's neighbourhoods and got the same two.
+
+    So say what is already held and ask for MORE, keeping those. That is a question the model
+    can answer without being pushed into inventing anything.
+    """
+    if not thin_fields:
+        return ''
+    lines = []
+    for key, have, want in thin_fields:
+        names = []
+        for v in (have if isinstance(have, list) else []):
+            names.append(v.get('name', '') if isinstance(v, dict) else str(v))
+        names = [n for n in names if n]
+        lines.append(
+            f'- "{key}": you have already given {len(names)} '
+            + (f'({", ".join(names)}). ' if names else '. ')
+            + f'KEEP those and add more real ones, to at least {want} in total. '
+              'Only genuine, verifiable names — if you truly cannot reach that many, return what you can.'
+        )
+    return ('\n\nIMPORTANT — these fields came back short last time and need a fuller answer:\n'
+            + '\n'.join(lines) + '\n')
+
+
+def _research_city(city_name, state_name, SS, api_key, prompt_template, dry_run=False, topup_note=''):
     """Call Claude to produce research fields for one city, using the niche's prompt
     template. Returns a dict of fields or None. Fields are niche-defined, so validation
     is soft (must be a non-empty dict)."""
     prompt = substitute_vars(prompt_template, {'city': city_name, 'state': state_name, 'SS': SS})
+    if topup_note:
+        prompt += topup_note
 
     if dry_run:
         _log(f'    [dry-run] Would call {RESEARCH_MODEL} ({len(prompt)} chars)')
@@ -1239,8 +1277,13 @@ def _missing_research_fields(city_data, chart_fields):
         return []
     declined = _declined_map(city_data)
     missing = []
-    for key, _skey, _ask, _sask in chart_fields:
-        if city_data.get(key) not in (None, '', [], {}):
+    for key, _skey, _ask, _sask, min_items in chart_fields:
+        val = city_data.get(key)
+        # A field can be PRESENT and still incomplete. The prompt asks for 6-10 neighbourhoods
+        # and the model sometimes returns two; because two is not empty, the top-up never
+        # re-asked and that city kept two forever. A short list now counts as missing.
+        thin = min_items and isinstance(val, (list, dict)) and len(val) < min_items
+        if val not in (None, '', [], {}) and not thin:
             continue
         if int(declined.get(key, 0)) >= 2:
             continue
@@ -1290,7 +1333,10 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
             _log(f'  {city_name}, {city.get("SS","?")} — topping up: ' + ', '.join(missing))
         else:
             _log(f'  {city_name}, {city.get("SS","?")} — researching...')
+        thin = [(k, city.get(k), m) for k, _s, _a, _sa, m in (chart_fields or [])
+                if m and isinstance(city.get(k), (list, dict)) and 0 < len(city.get(k)) < m]
         result = _research_city(
+            topup_note      = _thin_topup_note(city, thin),
             city_name       = city_name,
             state_name      = city.get('state', ''),
             SS              = city.get('SS', ''),
@@ -1303,17 +1349,32 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
             # A figure is only accepted WITH its source. The chart engine refuses to draw
             # without one, so storing a bare number would just create a field that looks
             # present and can never be used.
-            for key, skey, _ask, _sask in (chart_fields or []):
+            for key, skey, _ask, _sask, _min in (chart_fields or []):
                 if result.get(key) in (None, '', [], {}):
                     continue
                 if skey and not str(result.get(skey, '')).strip():
                     _warn(f'    {key}: returned without a source — discarded')
                     result.pop(key, None)
+            # A re-ask for a THIN list can come back thinner. Keep whichever is longer, so a
+            # top-up can only improve the record — the same principle as the whitelist above,
+            # applied within a field instead of across fields.
+            for key, _skey, _ask, _sask, min_items in (chart_fields or []):
+                if not min_items:
+                    continue
+                new_v, old_v = result.get(key), city.get(key)
+                if isinstance(new_v, (list, dict)) and isinstance(old_v, (list, dict)) \
+                        and len(new_v) < len(old_v):
+                    _warn(f'    {key}: re-ask returned {len(new_v)} vs {len(old_v)} held — keeping the longer')
+                    result.pop(key, None)
+
             # Track what the model declined, so a city with no published figure is asked twice
             # and then left alone rather than re-billed on every run.
             declined = _declined_map(city)
+            mins = {k: m for k, _s, _a, _sa, m in (chart_fields or [])}
             for key in missing:
-                if result.get(key) in (None, '', [], {}):
+                v = result.get(key)
+                still_thin = mins.get(key) and isinstance(v, (list, dict)) and len(v) < mins[key]
+                if v in (None, '', [], {}) or still_thin:
                     declined[key] = int(declined.get(key, 0)) + 1
                 else:
                     declined.pop(key, None)
@@ -1331,7 +1392,7 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
             # A first-time research pass still takes everything; only a top-up is restricted.
             if city.get('_researched'):
                 allowed = set(missing) | {'_research_declined'}
-                for key, skey, _a, _s in (chart_fields or []):
+                for key, skey, _a, _s, _m in (chart_fields or []):
                     if key in missing and skey:
                         allowed.add(skey)          # a figure's source comes with it
                 keep = {k: v for k, v in result.items() if k in allowed}

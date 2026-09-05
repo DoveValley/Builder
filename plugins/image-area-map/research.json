@@ -1,12 +1,21 @@
 {
   "_comment": "What this plugin needs the city research to gather. Any plugin may ship a research.json; generate.py collects them all and appends the asks to the niche research prompt. Declaring it here rather than in generate.py is the point — the plugin is the whole unit, and a site that does not have this plugin does not pay for the question.",
   "_no_direction": "We asked for a compass direction once and cut it. The data did not support it — 4 of 8 towns around Lufkin came back wrong, Pollok as 'S' when it is NW, off by 132 degrees — and more to the point the diagram did not need it: it was already unique per city, and a reader from Diboll is looking for the word 'Diboll', not for where its dot sits. Do not re-add it.",
+  "_neighborhoods_note": "The base research prompt already ASKS for neighborhoods, so this entry has no ask of its own — it exists to set min_items. Without it a city that returned two names kept two forever: two is not empty, so the top-up never re-asked. Mold-site had 2 for Lufkin while water-site had 6, same city.",
   "fields": [
+    {
+      "data_key": "neighborhoods",
+      "source_key": "",
+      "ask": "",
+      "source_ask": "",
+      "min_items": 5
+    },
     {
       "data_key": "nearby_towns",
       "source_key": "",
       "ask": "\"nearby_towns\" — an array of 4-8 SEPARATE towns or cities near {city}, {SS} that a local service business would realistically also cover. These must NOT be neighborhoods or districts of {city} itself — those belong in \"neighborhoods\". Each entry is an object with \"name\" (the town) and \"miles\" (approximate DRIVING distance from {city} as a plain number). Example: {\"name\": \"Diboll\", \"miles\": 10}. Only real, separately-named places you are confident exist; never invent one, and never list {city} itself. If you are confident of the town but not the distance, omit the \"miles\" key rather than guessing.",
-      "source_ask": ""
+      "source_ask": "",
+      "min_items": 4
     }
   ]
 }
