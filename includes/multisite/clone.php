@@ -99,6 +99,18 @@ function snapshot_master(string $masterId, string $snapshotDir): string {
     mkdir($snapshotDir, 0775, true);
     ms_copy_dir($masterDir . '/data',    $snapshotDir . '/data');
     ms_copy_dir($masterDir . '/uploads', $snapshotDir . '/uploads');
+    // multisite/icons/ ONLY, not the whole multisite/ dir — that still holds this run's own
+    // params, cache and credentials and must not travel into a clone.
+    //
+    // The icons have to, though: blocks.php inlines an icon's SVG when the file is present at
+    // ACTIVE_SITE_DIR/multisite/icons/, and falls back to <img src="/name.svg"> when it isn't.
+    // In a clone the file was never there, so every flip-tile fell back to an image at the
+    // site root that nothing writes — six broken images on the homepage of every generated
+    // site, while the master itself looked perfect. The "multisite/ is not copied" rule was
+    // written before icons lived under it.
+    if (is_dir($masterDir . '/multisite/icons')) {
+        ms_copy_dir($masterDir . '/multisite/icons', $snapshotDir . '/multisite/icons');
+    }
     return $snapshotDir;
 }
 
@@ -129,6 +141,18 @@ function clone_to_working_dir(string $snapshotDir, string $workingDir, string $m
     if (is_dir($srcUploads)) {
         if (!@symlink($srcUploads, $dstUploads)) {
             ms_copy_dir($srcUploads, $dstUploads);
+        }
+    }
+
+    // multisite/icons/ — shared the same way. blocks.php reads these from
+    // ACTIVE_SITE_DIR/multisite/icons/ at render time, which is the WORKING dir, so getting
+    // them into the snapshot alone is not enough. Nothing mutates them, so a symlink is fine.
+    $srcIcons = $snapshotDir . '/multisite/icons';
+    $dstIcons = $workingDir . '/multisite/icons';
+    if (is_dir($srcIcons)) {
+        if (!is_dir(dirname($dstIcons))) @mkdir(dirname($dstIcons), 0775, true);
+        if (!@symlink($srcIcons, $dstIcons)) {
+            ms_copy_dir($srcIcons, $dstIcons);
         }
     }
     return $workingDir;
