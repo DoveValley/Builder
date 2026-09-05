@@ -14,10 +14,11 @@
  *   5. same set of pages as the master
  *   + the canonical points at this site's own domain
  *
- * Check 3 deliberately does NOT compare each title against the master's expected value. That
- * would be the stronger check and it is the one most likely to cry wolf on a good page, since
- * the renderer post-processes titles. Presence, full resolution and uniqueness catch what
- * actually breaks; exact comparison is a later tightening, not an oversight.
+ * Check 3 has two tiers. Missing, unresolved or duplicated is a FAILURE. Differing from the
+ * value the master composes is a WARNING — that comparison is the one most likely to disagree
+ * with a perfectly good page, so it earns its way up to a failure by being quiet across real
+ * batches first. It is composed exactly as the renderer composes it (static_build.php:199 →
+ * site-template.php:65-66); anything else would be a second copy of the title rules.
  *
  * Expected values come from the WORKING DIRECTORY's own JSON — the clone the renderer just
  * read — and are resolved with resolve_shortcodes(), the same function the renderer uses.
@@ -135,11 +136,14 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
     // Reading a different source would make this check disagree with the renderer, which is
     // exactly the failure it exists to catch.
     $slugOk = fn($s) => (bool) preg_match('/^[a-z0-9][a-z0-9-]*$/', (string) $s);
-    $expected = [['path' => '', 'seo' => $site['seo'] ?? [], 'label' => '(home)']];
+    // 'title' is carried because the renderer falls back to it when seo_title is blank —
+    // see static_build.php:199. Without it the expected title would be wrong on every page
+    // that has no explicit SEO title, which is most of them.
+    $expected = [['path' => '', 'seo' => $site['seo'] ?? [], 'title' => '', 'label' => '(home)']];
     foreach (($site['pages'] ?? []) as $pg) {
         $slug = trim((string) ($pg['slug'] ?? ''));
         if (!$slugOk($slug)) continue;
-        $expected[] = ['path' => $slug, 'seo' => $pg['seo'] ?? [], 'label' => $slug];
+        $expected[] = ['path' => $slug, 'seo' => $pg['seo'] ?? [], 'title' => (string) ($pg['title'] ?? ''), 'label' => $slug];
     }
     $indexFile = $workingDir . '/data/page-index.json';
     foreach ((json_decode((string) @file_get_contents($indexFile), true) ?: []) as $slug => $fn) {
@@ -148,7 +152,7 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
         if (!is_file($pf)) continue;                    // stale index entry — renderer skips it too
         $pg = json_decode((string) @file_get_contents($pf), true);
         if (!is_array($pg)) continue;
-        $expected[] = ['path' => $slug, 'seo' => $pg['seo'] ?? [], 'label' => $slug];
+        $expected[] = ['path' => $slug, 'seo' => $pg['seo'] ?? [], 'title' => (string) ($pg['title'] ?? ''), 'label' => $slug];
     }
 
     // The site's own host, taken from its own data rather than passed in — one source, and it
@@ -201,6 +205,29 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
                 $out['failures'][] = "$label: unresolved shortcode in the $what — \"$val\"";
             }
         }
+        // Did the title/meta actually stay what the master says they should be? Composed the
+        // same way the renderer composes them — seo_title, else the page title, else the site
+        // default (static_build.php:199) — then resolved through the same resolve_shortcodes()
+        // (site-template.php:65-66). Compared after decoding entities, because the template
+        // writes the title through h().
+        //
+        // WARNING, not a failure, for now. This is the check most likely to disagree with a
+        // perfectly good page, so it earns its way up to a failure by being quiet first.
+        $rawTitle = ($seo['seo_title'] ?? '') !== ''
+            ? (string) $seo['seo_title']
+            : (($page['title'] ?? '') !== '' ? (string) $page['title'] : site_default_title($site));
+        $expTitle = trim(resolve_shortcodes($rawTitle));
+        $gotTitle = $title === null ? '' : trim(html_entity_decode($title, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        if ($expTitle !== '' && $gotTitle !== '' && $gotTitle !== $expTitle) {
+            $out['warnings'][] = "$label: title differs from the master's — expected \"$expTitle\", built \"$gotTitle\"";
+        }
+
+        $expMeta = trim(resolve_shortcodes((string) ($seo['meta_description'] ?? '')));
+        $gotMeta = $meta === null ? '' : trim(html_entity_decode($meta, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        if ($expMeta !== '' && $gotMeta !== '' && $gotMeta !== $expMeta) {
+            $out['warnings'][] = "$label: meta description differs from the master's";
+        }
+
         // Duplicates across the site are an SEO defect in their own right.
         if ($title) {
             if (isset($seenTitles[$title])) $out['warnings'][] = "$label: same <title> as {$seenTitles[$title]}";

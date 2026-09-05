@@ -298,7 +298,7 @@ if (!isset($csrfToken)) return;
                  'subs' => [
                     ['Every page keeps its primary keyword in the H1', 'auto'],
                     ['One H1 per page', 'auto'],
-                    ['Titles and meta descriptions present and fully resolved', 'auto'],
+                    ['Titles and meta descriptions match the master', 'auto'],
                     ['Schema types unchanged', 'auto'],
                     ['Same set of pages as the master', 'auto'],
                     ['Canonical points at this site, not the master', 'auto'],
