@@ -1,0 +1,18 @@
+{
+  "name": "Service First",
+  "description": "Leads with the service and city, business name last, separated by a pipe — direct and keyword-forward.",
+  "patterns": {
+    "home": "{business} | {service_noun_title} in {city}, {SS}",
+    "city_hub": "{service_noun_title} in {city}, {SS} | {business}",
+    "service": "{service_name} Services in {city}, {SS} | {business}",
+    "guide": "{guide_title} | {business}",
+    "legal": "{legal_title} | {business}"
+  },
+  "meta_patterns": {
+    "home": "{business} connects {city}, {SS} homeowners with trusted, local {service_noun} providers. Call now for fast help.",
+    "city_hub": "Looking for {service_noun} in {city}, {SS}? {business} connects you with vetted local providers ready to help today.",
+    "service": "{service_short_desc} {business} connects {city}, {SS} homeowners with local providers who handle it.",
+    "guide": "{guide_summary}",
+    "legal": "{legal_summary}"
+  }
+}

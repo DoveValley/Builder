@@ -6,7 +6,7 @@
  * (session), via multisite_api.php. Master-level setup (niche brief, theme presets,
  * icons, master health check) deliberately lives with the SITE, not here.
  *
- * Expects: $csrfToken, $researchOn, $masterId
+ * Expects: $csrfToken, $researchOn, $masterId, $variantEngineOn
  */
 if (!isset($csrfToken)) return;
 ?>
@@ -80,6 +80,13 @@ if (!isset($csrfToken)) return;
 
 <?php include __DIR__ . '/_batch_hosts.php'; ?>
 
+<?php if (!empty($variantEngineOn)): ?>
+<?php
+    include __DIR__ . '/_batch_variant_explainer.php';
+    include __DIR__ . '/_batch_variant_review.php';
+    include __DIR__ . '/_batch_variant_run.php';
+?>
+<?php else: ?>
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">
     <h3 style="margin-top:0;">4. Generate sites</h3>
@@ -168,6 +175,7 @@ if (!isset($csrfToken)) return;
     </div>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 </div>
+<?php endif; ?>
 
 <?php include __DIR__ . '/_batch_upload.php'; ?>
 

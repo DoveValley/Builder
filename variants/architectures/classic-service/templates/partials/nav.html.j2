@@ -1,0 +1,21 @@
+<header class="cs-header">
+  <div class="cs-header-inner">
+    <a class="cs-logo" href="/">{{ site.identity.business }}</a>
+    <nav class="cs-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      {% if site.cities|length > 1 %}
+      <div class="cs-nav-dropdown">
+        <span>Areas We Serve</span>
+        <div class="cs-nav-dropdown-menu">
+          {% for city in site.cities %}
+          <a href="/cities/{{ city.slug }}/">{{ city.name }}, {{ city.SS }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      <a href="/about-us/">About</a>
+      <a href="/contact-us/" class="cs-nav-cta">Contact</a>
+    </nav>
+    <a class="cs-nav-phone" href="tel:{{ site.identity.tel }}">{{ site.identity.phone }}</a>
+  </div>
+</header>
