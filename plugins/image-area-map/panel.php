@@ -22,12 +22,18 @@ if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
 $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
 
 /**
- * Reference sample — real areas of a real city, shown when this site has none of its own yet
- * (which is most sites today). Without it the panel documents a picture nobody can see.
+ * Reference sample — shown when this site has no areas of its own yet, so the panel is not
+ * documenting a picture nobody can see.
+ *
+ * These are all genuinely WITHIN the city, which is what the field means: generate.py asks for
+ * "neighborhoods, subdivisions, or districts IN {city}". An earlier version of this sample mixed
+ * in Diboll and Huntington — real places, but separate incorporated cities ten miles out — which
+ * taught the wrong thing about the field. Surrounding towns are a different claim and would need
+ * a different field.
  */
 $pmRef = [
-    'city' => 'Lufkin', 'SS' => 'TX', 'state' => 'Texas',
-    'neighborhoods' => ['Downtown Lufkin', 'Crown Colony', 'Herty', 'Redland', 'Diboll', 'Huntington'],
+    'city' => 'Houston', 'SS' => 'TX', 'state' => 'Texas',
+    'neighborhoods' => ['Montrose', 'The Heights', 'Midtown', 'River Oaks', 'EaDo', 'Rice Village', 'Memorial'],
 ];
 ?>
 <style>.pm-sample svg{width:100%;height:auto;display:block}</style>
@@ -60,8 +66,10 @@ $pmRef = [
     </ul>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">What it draws</h3>
-    <p class="hint" style="max-width:620px;margin-bottom:10px;">A reference sample &mdash; real areas of a real city. The ring layout is seeded from the city name, so a
-        city with four areas and a city with nine look different from each other, not just relabelled.</p>
+    <p class="hint" style="max-width:620px;margin-bottom:10px;">A reference sample. These are areas <strong>inside</strong> the city &mdash; which is what
+        <code>neighborhoods</code> means here. Surrounding towns you also serve are a different claim and are not in this
+        field today. The ring layout is seeded from the city name, so a city with four areas and one with nine look
+        different from each other, not just relabelled.</p>
     <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
         <?= city_map_svg($pmRef) ?>
     </div>
