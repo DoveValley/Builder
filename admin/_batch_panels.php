@@ -264,7 +264,12 @@ if (!isset($csrfToken)) return;
                     ['Section order — landing pages', 'control', 'structure.landing'],
                     ['Class vocabulary — same layout, different class names', 'control', 'structure.classvocab'],
                     ['Schema shape — same facts, different JSON-LD field order', 'control', 'structure.schemashape'],
-                    ['HTML nesting / hero treatment variants', 'todo'],
+                    // HTML nesting was built, measured and DELIBERATELY DROPPED — not left
+                    // undone. A tag swap on block wrappers moved the tag skeleton 100% -> 91.6%
+                    // between two sites, on the weakest of the signals, after class vocabulary
+                    // and schema shape had already taken shared class names to 6.9% and shared
+                    // JSON-LD to 6.6%. Not worth a sixth transform touching every built page.
+                    // Listing it as 🚧 would read as work still owed.
                  ]],
                 ['key' => 'images', 'label' => 'Images', 'status' => 'live',
                  'subs' => [
