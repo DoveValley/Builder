@@ -202,6 +202,7 @@ function parse_blocks_from_post(): array {
                 $block['it_ratio']    = array_key_exists($_POST['it_ratio'][$i]    ?? '', photo_ratio_options())    ? $_POST['it_ratio'][$i]    : 'landscape';
                 $block['it_position'] = array_key_exists($_POST['it_position'][$i] ?? '', photo_position_options()) ? $_POST['it_position'][$i] : 'center';
                 $block['it_layout']   = ($_POST['it_layout'][$i] ?? 'side') === 'stacked' ? 'stacked' : 'side';
+                $block['it_caption']  = trim($_POST['it_caption'][$i] ?? '');
                 if ($block['it_heading'] === '' && $block['it_text'] === '' && $block['it_photo'] === '') continue 2;
                 break;
 
@@ -274,6 +275,7 @@ function parse_blocks_from_post(): array {
                 }
                 $msRaw = $_POST['mi_map_side'][$i] ?? 'left';
                 $block['mi_map_side'] = in_array($msRaw, ['left', 'right', 'top'], true) ? $msRaw : 'left';
+                $block['mi_map_caption'] = trim($_POST['mi_map_caption'][$i] ?? '');
                 $mhc = in_array($_POST['mi_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['mi_head_color'][$i] : 'header';
                 $block['mi_head_color'] = $mhc;
                 $mcc = trim($_POST['mi_head_color_custom'][$i] ?? '#120575');
@@ -966,6 +968,8 @@ function parse_blocks_from_post(): array {
                 if (in_array($aiSide, ['left', 'right'], true)) $block['it_image_side'] = $aiSide;
                 $aiLayout = trim($_POST['it_layout'][$i] ?? '');
                 if (in_array($aiLayout, ['side', 'stacked'], true)) $block['it_layout'] = $aiLayout;
+                $aiCaption = trim($_POST['it_caption'][$i] ?? '');
+                if ($aiCaption !== '') $block['it_caption'] = $aiCaption;
                 $aiRatio = trim($_POST['it_ratio'][$i] ?? '');
                 if ($aiRatio !== '') $block['it_ratio'] = $aiRatio;
                 // Round-trip AI meta from hidden fields

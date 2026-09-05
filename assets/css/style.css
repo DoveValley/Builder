@@ -4268,3 +4268,16 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 @media (max-width: 480px) {
     .team-grid-2, .team-grid-3, .team-grid-4 { grid-template-columns: 1fr; }
 }
+
+/* Image captions — the picture's facts as text, since everything inside a chart or diagram is
+   pixels a crawler cannot read. Kept visually quiet: it is a caption, not body copy. */
+.content-figure { margin: 0; }
+.content-figcaption,
+.mi-map-caption {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 10px 0 0;
+    max-width: 900px;
+}
+.mi-map-caption { margin-left: auto; margin-right: auto; }

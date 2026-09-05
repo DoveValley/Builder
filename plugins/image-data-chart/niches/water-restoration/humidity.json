@@ -24,5 +24,10 @@
   "research": {
     "ask": "\"humidity_monthly\" — the average relative humidity for {city} in each month, as an array of 12 plain-number percentages, January first",
     "source_ask": "\"humidity_source\" — the source of those humidity figures"
-  }
+  },
+  "captions": [
+    "Humidity in {city}, {SS} peaks at {peak_value} in {peak}. Damp air slows drying, which is why water damage here needs equipment rather than open windows.",
+    "{city} stays humid year-round, peaking at {peak_value} in {peak}. High humidity keeps materials wet long after the water is gone and gives mould the conditions it needs.",
+    "With humidity reaching {peak_value} in {peak}, drying a property properly in {city} takes more than time — it takes controlled airflow and dehumidification."
+  ]
 }

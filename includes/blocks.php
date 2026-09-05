@@ -37,7 +37,7 @@ function photo_src($photo, $pathPrefix = '') {
     return $pathPrefix . $photo;
 }
 
-function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix = '') {
+function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix = '', $caption = '') {
     $position = array_key_exists((string) $position, photo_position_options()) ? (string) $position : 'center';
     $padding  = photo_ratio_to_padding((string) $ratio);
     $class = 'content-photo';
@@ -52,6 +52,12 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     $html  = '<div class="' . $class . '"' . ($style !== '' ? ' style="' . h($style) . '"' : '') . '>';
     $html .= '<img src="' . h($src) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . 'loading="lazy" style="object-position:' . h($position) . ';">';
     $html .= '</div>';
+    // A <figcaption> belongs to its image, which is what makes the text and the picture read as
+    // one thing to a person and to a crawler.
+    if (trim((string) $caption) !== '') {
+        $html = '<figure class="content-figure">' . $html
+              . '<figcaption class="content-figcaption">' . h(trim((string) $caption)) . '</figcaption></figure>';
+    }
     return $html;
 }
 
@@ -564,6 +570,9 @@ function render_content_block($block, $pathPrefix = '') {
         case 'image_text':
             $imgSide  = $block['it_image_side'] ?? 'left';
             $itPhoto  = $block['it_photo']      ?? '';
+            // The caption carries the picture's facts as TEXT, because everything inside the
+            // image is pixels a crawler cannot read.
+            $itCaption = trim((string) ($block['it_caption'] ?? ''));
             $itAlt    = $block['it_alt']        ?? '';
             $itRatio  = $block['it_ratio']      ?? 'landscape';
             $itPos    = $block['it_position']   ?? 'center';
@@ -582,13 +591,13 @@ function render_content_block($block, $pathPrefix = '') {
             // becomes a narrow column and the picture becomes unreadable.
             $itStacked = ($block['it_layout'] ?? 'side') === 'stacked';
             echo '<div class="content-block ' . $layout . ($itStacked ? ' layout-stacked' : '') . '"' . $anchorAttr . '>';
-            if ($imgSide === 'left' && $itPhoto && !$itStacked) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
+            if ($imgSide === 'left' && $itPhoto && !$itStacked) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix, $itCaption);
             echo '<div class="content-text">';
             if ($itHead) echo '<' . h($itLevel) . ' class="block-heading">' . h($itHead) . '</' . h($itLevel) . '>';
             if ($itText) echo text_to_html($itText);
             if ($itBtn)  echo '<a href="' . h($itBtnUrl ?: '#') . '" class="cta-btn cta-btn-sm">' . h($itBtn) . '</a>';
             echo '</div>';
-            if ($itPhoto && ($itStacked || $imgSide === 'right')) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix);
+            if ($itPhoto && ($itStacked || $imgSide === 'right')) echo render_content_photo($itPhoto, $itRatio, $itPos, $itAlt, $pathPrefix, $itCaption);
             echo '</div>';
             break;
 
@@ -751,6 +760,10 @@ function render_content_block($block, $pathPrefix = '') {
             $mapPanel = '<div class="mi-panel mi-map-panel">';
             if ($mapHeading) $mapPanel .= '<h2 class="mi-heading" style="color:'.$headStyle.';">'.h($mapHeading).'</h2>';
             if ($mapEmbed)   $mapPanel .= '<div class="mi-map-wrap">'.$mapEmbed.'</div>';
+            $mapCaption = trim((string) ($block['mi_map_caption'] ?? ''));
+            if ($mapEmbed && $mapCaption !== '') {
+                $mapPanel .= '<p class="mi-map-caption">'.h($mapCaption).'</p>';
+            }
             $mapPanel .= '</div>';
 
             $photoHtml = '';

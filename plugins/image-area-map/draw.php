@@ -363,3 +363,39 @@ function city_map_alt(array $city): string
     if (!$parts) return "Service area diagram for {$where}.";
     return "Service area diagram for {$where}, " . implode(' ', $parts) . '.';
 }
+
+/**
+ * The caption under the diagram — the same coverage claim as TEXT, since every name inside the
+ * picture is pixels Google cannot read.
+ *
+ * THE CITY IS THE SUBJECT, and the nearby towns are deliberately LEFT OUT. Listing eight town
+ * names under every one of 27 pages is boilerplate and a well-known low-quality local-SEO
+ * pattern; it dilutes the single entity the site is built around, and on a one-site-per-city
+ * strategy it competes with a future site for those towns. They stay inside the diagram, where
+ * being unreadable to a crawler is a FEATURE — a human still gets their answer at a glance.
+ *
+ * Phrasing varies by domain for the same reason the charts' does: one fixed sentence across
+ * every site would be a new shared template replacing the one we removed.
+ */
+function city_map_caption(array $city, string $domain = ''): string
+{
+    $name  = trim((string) ($city['city'] ?? ''));
+    if ($name === '') return '';
+    $ss    = trim((string) ($city['SS'] ?? ''));
+    $where = $ss !== '' ? "$name, $ss" : $name;
+    $areas = array_slice(city_map_areas($city), 0, 8);
+    if (!$areas) return '';
+
+    $list = city_map_join($areas);
+    $opts = [
+        "Coverage across {$where} takes in {$list}. Response times matter most in the first hours after water is found, so knowing the ground is part of the job.",
+        "Service across {$where} reaches {$list} — every part of the city, not just the centre.",
+        "{$where} coverage spans {$list}, so a call from any part of town reaches someone who knows the area.",
+        "Areas covered in {$where} include {$list}. Local knowledge of how each part of the city is built shapes how water damage is handled there.",
+    ];
+    // ms_variant() is the project's existing per-domain primitive, and it measures
+    // evenly here (150/150/150/150 across 600 domains on four phrasings).
+    $pick = function_exists('ms_variant') ? ms_variant($domain, count($opts), 'map_caption') : 0;
+    return $opts[$pick] ?? $opts[0];
+}
+

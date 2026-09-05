@@ -232,7 +232,8 @@
       "id": "ai_block_3",
       "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
       "it_ratio": "auto",
-      "it_layout": "stacked"
+      "it_layout": "stacked",
+      "it_caption": "{chart_rainfall_vs_average_caption}"
     },
     {
       "type": "ai_block",
@@ -396,7 +397,8 @@
       "mi_info_photo": "{city_image}",
       "mi_map_side": "top",
       "skin": "light",
-      "id": "map_info_1"
+      "id": "map_info_1",
+      "mi_map_caption": "{city_map_caption}"
     }
   ],
   "seo": {

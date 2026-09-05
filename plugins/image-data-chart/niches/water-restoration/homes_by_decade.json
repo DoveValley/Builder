@@ -10,5 +10,10 @@
   "research": {
     "ask": "\"homes_by_decade\" — the age of {city}'s housing stock, as an object whose keys are exactly \"Before 1960\", \"1960-1979\", \"1980-1999\", \"2000-2009\", \"2010 or later\" and whose values are the plain-number PERCENTAGE of homes built in each period, adding to about 100",
     "source_ask": "\"homes_by_decade_source\" — the source of those housing figures (e.g. \"US Census ACS 2019-2023 5-year estimates\")"
-  }
+  },
+  "captions": [
+    "Much of the housing in {city}, {SS} is not new: the largest share was built {peak}. Older supply lines, water heaters and shut-off valves fail more often and with less warning.",
+    "The biggest slice of {city}'s housing stock dates from {peak}. Plumbing of that age is the single most common source of sudden indoor water damage.",
+    "In {city}, homes built {peak} make up the largest group at {peak_value} of the stock — old enough that original plumbing is often still in place."
+  ]
 }

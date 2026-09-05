@@ -518,7 +518,8 @@
             "it_alt": "{chart_rainfall_vs_average_alt}",
             "it_image_side": "right",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "it_caption": "{chart_rainfall_vs_average_caption}"
         },
         {
             "type": "cta_banner",
@@ -567,7 +568,8 @@
             "mi_head_color": "header",
             "mi_head_color_custom": "#0d2340",
             "mi_info_photo": "{city_image}",
-            "id": "map_info_1"
+            "id": "map_info_1",
+            "mi_map_caption": "{city_map_caption}"
         },
         {
             "type": "cta_card",

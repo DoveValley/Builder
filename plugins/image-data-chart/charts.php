@@ -182,7 +182,30 @@ function city_chart_text(string $tpl, array $city, array $def, array $series): s
             : 'Ranges from ' . $fmt(min($vals)) . ' to ' . $fmt(max($vals)) . $u . '.';
     }
 
-    return strtr($tpl, [
+    // Figures a CAPTION can quote. The alt text and title only ever needed {summary}; a caption
+    // wants to build its own sentence, so it gets the individual numbers — and gets them from
+    // the same series the picture was drawn from, so a caption can never contradict its image.
+    $sum = array_sum($vals);
+    $extra = [
+        '{peak}'        => $labels[$maxI] ?? '',
+        '{peak_value}'  => $fmt($vals[$maxI]) . $u,
+        '{low}'         => $labels[$minI] ?? '',
+        '{low_value}'   => $fmt($vals[$minI]) . $u,
+        '{total}'       => $fmt($sum) . $u,
+        '{count}'       => (string) count($vals),
+    ];
+    if (($def['type'] ?? 'bars') === 'timeline') {
+        $extra['{most_recent}'] = (string) (int) max($vals);
+        $extra['{earliest}']    = (string) (int) min($vals);
+        $extra['{years_since}'] = (string) max(0, (int) date('Y') - (int) max($vals));
+    } elseif (($def['type'] ?? 'bars') === 'compare' && count($vals) > 1) {
+        $extra['{self_value}']       = $fmt($vals[0]) . $u;
+        $extra['{benchmark}']        = $labels[1] ?? '';
+        $extra['{benchmark_value}']  = $fmt($vals[1]) . $u;
+        $extra['{difference}']       = city_chart_compare_summary($series, $def);
+    }
+
+    return strtr($tpl, $extra + [
         '{city}' => (string) ($city['city'] ?? ''),
         '{SS}' => (string) ($city['SS'] ?? ''),
         '{state}' => (string) ($city['state'] ?? ''),
@@ -190,6 +213,40 @@ function city_chart_text(string $tpl, array $city, array $def, array $series): s
         '{summary}' => $summary,
         '{source}' => $series['source'],
     ]);
+}
+
+/**
+ * The caption that sits UNDER the picture — the same facts as text, because everything inside
+ * the image is pixels Google cannot read.
+ *
+ * PHRASINGS VARY BY DOMAIN. A definition holds several, and `ms_variant()` picks one. Without
+ * that, every site built from this master would carry the identical sentence with only the
+ * numbers swapped — a template shared across the whole network, which is precisely the
+ * duplicate-content pattern the variance work exists to remove. Adding one while removing
+ * another would be no progress at all.
+ *
+ * The city is the subject. Deliberately NO list of nearby towns: repeated on 27 pages that is
+ * boilerplate and a well-known low-quality local-SEO pattern, it dilutes the one entity the
+ * site is about, and it would compete with a future site for those towns. The town names stay
+ * in the diagram, where being pixels is a FEATURE.
+ *
+ * Returns '' when the definition declares no captions — no data, no caption, same rule as the
+ * chart itself.
+ */
+function city_chart_caption(array $def, array $city, array $series, string $domain = ''): string
+{
+    $caps = array_values(array_filter(array_map('trim', (array) ($def['captions'] ?? []))));
+    if (!$caps) return '';
+    // ms_variant() is the project's existing per-domain primitive, and it measures
+    // evenly here (150/150/150/150 across 600 domains on four phrasings).
+    $pick = function_exists('ms_variant') ? ms_variant($domain, count($caps), 'chart_caption_' . ($def['id'] ?? '')) : 0;
+    $text = city_chart_text($caps[$pick] ?? $caps[0], $city, $def, $series);
+
+    // The citation belongs in the text too, not only burned into the image — a sourced figure
+    // on a page advising a homeowner is worth more than an unsourced one.
+    $src = trim((string) ($series['source'] ?? ''));
+    if ($src !== '' && stripos($text, $src) === false) $text .= ' Source: ' . $src . '.';
+    return trim($text);
 }
 
 /**
@@ -261,3 +318,4 @@ function city_chart_compare_summary(array $series, array $def): string
     if (abs($pct) < 1) return 'About the same as ' . ($series['labels'][1] ?? 'average') . '.';
     return abs($pct) . '% ' . ($pct > 0 ? 'more' : 'less') . ' than ' . ($series['labels'][1] ?? 'average') . '.';
 }
+

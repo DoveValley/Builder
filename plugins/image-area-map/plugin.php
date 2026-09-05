@@ -67,12 +67,19 @@ function city_map_current_city(): array
 add_hook('shortcode_tokens', function (array $map): array {
     static $cache = null;
     if ($cache === null) {
-        $cache = ['{city_map}' => '', '{city_map_alt}' => ''];
+        $cache = ['{city_map}' => '', '{city_map_alt}' => '', '{city_map_caption}' => ''];
         if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
             $city = city_map_current_city();
             $theme = city_map_theme();
             $r = city_map_render(ACTIVE_SITE_DIR, $city, $theme);
-            if ($r) $cache = ['{city_map}' => $r['path'], '{city_map_alt}' => $r['alt']];
+            if ($r) $cache = [
+                '{city_map}'         => $r['path'],
+                '{city_map_alt}'     => $r['alt'],
+                // The coverage claim as TEXT. City-focused: no list of nearby towns, which
+                // repeated site-wide would be boilerplate and would dilute the one entity
+                // this site is about.
+                '{city_map_caption}' => city_map_caption($city, city_map_domain()),
+            ];
         }
     }
     return array_merge($map, $cache);
@@ -97,4 +104,16 @@ function city_map_theme(): array
         'accent' => $pick(['color_accent', 'accent_color'], '#1f78d1'),
         'muted'  => '#6b7f95',
     ];
+}
+
+/** The domain this build is for, so caption phrasing differs between sites off one master. */
+function city_map_domain(): string
+{
+    $d = (string) (getenv('MULTISITE_CANONICAL') ?: '');
+    if ($d === '') {
+        global $data;
+        $d = (string) ($data['seo']['canonical'] ?? $data['site_vars']['domain'] ?? '');
+    }
+    if ($d === '' && defined('ACTIVE_SITE_ID')) $d = (string) ACTIVE_SITE_ID;
+    return preg_replace('#^https?://#i', '', trim($d));
 }

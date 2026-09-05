@@ -24,5 +24,10 @@
   "research": {
     "ask": "\"freeze_days_monthly\" — the average number of days per month with a minimum temperature at or below freezing in {city}, as an array of 12 plain numbers, January first",
     "source_ask": "\"freeze_source\" — the source of those freezing-day figures"
-  }
+  },
+  "captions": [
+    "{city} records about {total} below freezing in a typical year, concentrated in {peak}. Freeze-thaw cycles are what split supply lines and crack exterior spigots.",
+    "Winter in {city}, {SS} brings roughly {total} at or below freezing, worst in {peak} at {peak_value}. Uninsulated pipes in garages and crawl spaces are the usual casualties.",
+    "With around {total} of freezing temperatures a year, {peak} is the month to have pipes protected in {city}."
+  ]
 }

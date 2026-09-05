@@ -22,5 +22,11 @@
   "research": {
     "ask": "\"rainfall_annual\" — the average ANNUAL precipitation for {city} in inches, as a plain number (e.g. 48.4); and \"rainfall_state_avg\" — the average ANNUAL precipitation for the STATE of {state} as a whole, in inches, as a plain number, so the city can be compared against it",
     "source_ask": "\"rainfall_source\" — the source of that rainfall figure (e.g. \"NOAA 1991-2020 normals\")"
-  }
+  },
+  "captions": [
+    "{city} is a wetter place than most of {state}: {self_value} of rain a year against {benchmark_value} for the {benchmark}. {difference}",
+    "At {self_value} a year, rainfall in {city}, {SS} runs well ahead of the {benchmark} figure of {benchmark_value}. {difference} More rain means more chances for water to find a way in.",
+    "Homes in {city}, {SS} face {self_value} of rain a year against {benchmark_value} for the {benchmark} — {difference}",
+    "{difference} {city}, {SS} takes {self_value} a year where the {benchmark} sees {benchmark_value} — a meaningful difference for any property owner."
+  ]
 }

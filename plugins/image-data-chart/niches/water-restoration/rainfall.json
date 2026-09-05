@@ -24,5 +24,11 @@
   "research": {
     "ask": "\"rainfall_monthly\" — average precipitation for {city} for each of the 12 months, as an array of 12 plain numbers in inches, January first",
     "source_ask": "\"rainfall_source\" — the source of those monthly figures"
-  }
+  },
+  "captions": [
+    "{city} averages {total} of rain a year, with {peak} the wettest month at {peak_value}. Sustained wet stretches are when slow leaks and saturated ground turn into interior damage.",
+    "Rainfall in {city}, {SS} peaks in {peak} at {peak_value} and eases to {low_value} in {low}. Knowing the wet months is half of staying ahead of water damage.",
+    "Across the year {city} sees about {total} of rain, heaviest in {peak}. Gutters, grading and roof flashing all get tested hardest in those months.",
+    "{peak} is the wettest month in {city}, {SS}, averaging {peak_value} against {low_value} in {low} — a swing worth planning maintenance around."
+  ]
 }

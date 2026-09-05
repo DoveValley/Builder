@@ -87,14 +87,39 @@ add_hook('shortcode_tokens', function (array $map): array {
             $niche = city_chart_niche(ACTIVE_SITE_DIR);
             $city  = city_chart_current_city();
             $theme = city_chart_theme();
+            $domain = city_chart_domain();
             foreach (city_chart_definitions($niche) as $id => $def) {
                 $r = city_chart_render(ACTIVE_SITE_DIR, $city, $def, $theme);
                 // Tokens are registered even when empty, so an unplaced or dataless chart
                 // resolves to nothing rather than printing "{chart_rainfall}" on the page.
                 $cache['{chart_' . $id . '}']      = $r['path'] ?? '';
                 $cache['{chart_' . $id . '_alt}']  = $r['alt']  ?? '';
+                // The caption: the same facts as TEXT, because everything inside the picture
+                // is pixels Google cannot read. Built from the same series the chart was drawn
+                // from, so the two can never disagree.
+                $series = city_chart_series($def, $city);
+                $cache['{chart_' . $id . '_caption}'] = ($r && $series)
+                    ? city_chart_caption($def, $city, $series, $domain) : '';
             }
         }
     }
     return array_merge($map, $cache);
 });
+
+/**
+ * The domain this build is for, used to vary caption phrasing between sites.
+ *
+ * Without it every site off one master carries the identical sentence with the numbers
+ * swapped — a template shared across the network, which is the duplicate-content pattern this
+ * whole effort exists to remove. Falls back to the site id, which at least differs per master.
+ */
+function city_chart_domain(): string
+{
+    $d = (string) (getenv('MULTISITE_CANONICAL') ?: '');
+    if ($d === '') {
+        global $data;
+        $d = (string) ($data['seo']['canonical'] ?? $data['site_vars']['domain'] ?? '');
+    }
+    if ($d === '' && defined('ACTIVE_SITE_ID')) $d = (string) ACTIVE_SITE_ID;
+    return preg_replace('#^https?://#i', '', trim($d));
+}
