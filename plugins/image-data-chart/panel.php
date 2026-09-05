@@ -42,6 +42,8 @@ $pcRefCity = [
     'rainfall_monthly' => [4.31, 3.74, 3.86, 3.49, 5.12, 4.72, 3.44, 3.02, 4.16, 4.53, 4.62, 4.72],
     'freeze_days_monthly' => [8, 5, 1, 0, 0, 0, 0, 0, 0, 0, 2, 6],
     'rainfall_annual' => 49.7,
+    'flood_years' => [2016, 2017, 2019],
+    'noaa_storm' => 'NOAA Storm Events Database',
     'noaa' => 'NOAA 1991-2020 Climate Normals (Angelina County Airport station)',
 ];
 $pcMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -65,6 +67,16 @@ $pcTypes = [
                    'alt' => 'Chart of days below freezing per month in {city}, {SS}. {summary}'],
     ],
     [
+        'type' => 'timeline',
+        'note' => 'The years something happened, along a time axis. A different question from the bars: not '
+                . '<em>how much</em> but <strong>when, and how recently</strong> &mdash; which is the fact a homeowner reacts to. '
+                . 'The most recent event is called out and the axis runs to today, so a quiet stretch reads as one.',
+        'def'  => ['id' => 'flood_years', 'type' => 'timeline', 'data_key' => 'flood_years',
+                   'source_key' => 'noaa_storm',
+                   'title' => 'Major flood events in {city}, {SS}',
+                   'alt' => 'Timeline of major flood events affecting {city}, {SS}. {summary}'],
+    ],
+    [
         'type' => 'compare',
         'note' => 'Horizontal, this city highlighted against benchmarks, with a headline <strong>computed '
                 . 'from the figures</strong> rather than asserted. A lone number is a fact; a number against '
@@ -79,8 +91,8 @@ $pcTypes = [
 
 /** Definition parameters, documented once here so the panel IS the reference. */
 $pcParams = [
-    ['id',         'yes', 'Token-safe name. Becomes <code>{chart_ID}</code> and <code>{chart_ID_alt}</code>.'],
-    ['type',       'no',  '<code>bars</code> (default) for a series, or <code>compare</code> for this city against benchmarks.'],
+    ['id',         'yes', 'Token-safe name. Becomes <code>{chart_ID}</code> (image), <code>{chart_ID_alt}</code> (alt text) and <code>{chart_ID_caption}</code> (the text under it).'],
+    ['type',       'no',  '<code>bars</code> (default) a labelled series &middot; <code>compare</code> this city against benchmarks &middot; <code>timeline</code> the years something happened.'],
     ['name',       'no',  'Human label, shown in this panel.'],
     ['data_key',   'yes', 'The field read from the city\'s row in <code>cities.json</code>. No value there means no chart.'],
     ['source_key', 'no',  'The field holding the citation. Strongly recommended &mdash; the citation is drawn onto the image.'],
@@ -89,6 +101,9 @@ $pcParams = [
     ['title',      'no',  'Heading on the image. Accepts <code>{city}</code> <code>{SS}</code> <code>{state}</code>.'],
     ['alt',        'no',  'Alt text. Same tokens plus <code>{summary}</code>, which is written from the figures.'],
     ['research',   'no',  '<code>{ask, source_ask}</code> &mdash; what the city research should gather. Adding this is what makes the data appear.'],
+    ['captions',   'no',  'A LIST of phrasings for the text under the picture. One is chosen <strong>per domain</strong>, so sites built from '
+                        . 'one master do not all carry the same sentence. Can use every token below plus <code>{peak}</code> <code>{peak_value}</code> '
+                        . '<code>{low}</code> <code>{low_value}</code> <code>{total}</code> <code>{count}</code>.'],
     ['self_label', 'no',  '<em>compare only.</em> Label for this city\'s own bar. Default <code>{city}</code>.'],
     ['benchmarks', 'no',  '<em>compare only.</em> List of <code>{label, value}</code> or <code>{label, value_key}</code>. A per-city field beats a constant.'],
 ];
@@ -137,7 +152,7 @@ $pcParams = [
         <div style="margin-bottom:24px;">
             <div style="font-weight:600;color:#1e3a5f;font-size:.9rem;">
                 <code>"type": "<?= $pcH($t['type']) ?>"</code>
-                <span style="color:#94a3b8;font-weight:400;">&middot; <?= $pcH($t['def']['data_key']) ?><?= $t['def']['unit'] ? ' (' . $pcH($t['def']['unit']) . ')' : '' ?></span>
+                <span style="color:#94a3b8;font-weight:400;">&middot; <?= $pcH($t['def']['data_key']) ?><?= !empty($t['def']['unit']) ? ' (' . $pcH($t['def']['unit']) . ')' : '' ?></span>
             </div>
             <p class="hint" style="margin:3px 0 8px;max-width:660px;"><?= $t['note'] ?></p>
             <?php if ($s): ?>
@@ -178,6 +193,21 @@ $pcParams = [
     <span class="k">"source_ask"</span>: "\"rainfall_source\" — the source"
   }
 }</pre>
+
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">Example &mdash; a <code>timeline</code> chart</h3>
+    <pre class="pc-code">{
+  <span class="k">"id"</span>: "flood_years",
+  <span class="k">"type"</span>: "timeline",
+  <span class="k">"data_key"</span>: "flood_years",        <span class="c">// an array of YEARS</span>
+  <span class="k">"source_key"</span>: "flood_years_source",
+  <span class="k">"title"</span>: "Major flood events in {city}, {SS}",
+  <span class="k">"captions"</span>: [                     <span class="c">// one picked per domain</span>
+    "{city}, {SS} has been hit by {count} documented floods, most recently {most_recent}.",
+    "The last major flood on record in {city} was {most_recent}, one of {count} since {earliest}."
+  ]
+}</pre>
+    <p class="hint" style="max-width:820px;">Timeline captions also get <code>{most_recent}</code>, <code>{earliest}</code> and <code>{years_since}</code>.
+        Years outside 1800&ndash;today are dropped &mdash; one bad value would stretch the axis and make the whole picture wrong.</p>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">Example &mdash; a <code>compare</code> chart</h3>
     <pre class="pc-code">{
@@ -221,6 +251,12 @@ $pcParams = [
                     </div>
                     <p class="hint" style="margin-top:6px;max-width:660px;"><strong>alt:</strong>
                         <?= $pcH(city_chart_text((string) ($def['alt'] ?? ''), $drawnCity, $def, $drawn)) ?></p>
+                    <?php $pcCap = city_chart_caption($def, $drawnCity, $drawn, function_exists('city_chart_domain') ? city_chart_domain() : ''); ?>
+                    <?php if ($pcCap !== ''): ?>
+                        <p class="hint" style="margin-top:4px;max-width:660px;"><strong>caption:</strong> <?= $pcH($pcCap) ?></p>
+                    <?php else: ?>
+                        <p class="hint" style="margin-top:4px;max-width:660px;color:#92400e;">No <code>captions</code> declared &mdash; this chart ships as an image only, with no text a crawler can read.</p>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>

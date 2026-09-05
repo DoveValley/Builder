@@ -86,7 +86,8 @@ $pmParams = [
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">How it works</h3>
     <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
-        <li>Drop <code>{city_map}</code> into any photo field and <code>{city_map_alt}</code> beside it &mdash; the same way <code>{city_image}</code> works.</li>
+        <li>Drop <code>{city_map}</code> into any photo field, <code>{city_map_alt}</code> beside it, and <code>{city_map_caption}</code> under it &mdash; the same way <code>{city_image}</code> works.</li>
+        <li>In a <strong>Map + Info</strong> block, set map position to <strong>&ldquo;across the top&rdquo;</strong>: the diagram runs full width with the city text and photo side by side beneath. In a half-width panel the nearby-towns column is too small to read.</li>
         <li>Drawn <strong>once per city and cached</strong>. Ten sites covering one city draw it once.</li>
         <li>A landing page gets <em>its own</em> city's diagram, not the homepage's.</li>
         <li>Saved as SVG, then rasterised to WebP &mdash; the WebP is what the page uses, so it stays an ordinary indexable image.</li>
@@ -119,8 +120,20 @@ $pmParams = [
         </tr>
         <?php endforeach; ?>
     </table>
-    <p class="hint" style="max-width:820px;margin-top:10px;">Two tokens come out: <code>{city_map}</code> (the image path, for any photo field) and
-        <code>{city_map_alt}</code> (the alt text). Colours come from the site theme &mdash; nothing to configure per site.</p>
+    <p class="hint" style="max-width:820px;margin-top:10px;"><strong>Three tokens come out:</strong>
+        <code>{city_map}</code> (the image path, for any photo field), <code>{city_map_alt}</code> (alt text), and
+        <code>{city_map_caption}</code> (the text under the picture). Colours come from the site theme &mdash; nothing to configure per site.</p>
+
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">The caption, and what it deliberately leaves out</h3>
+    <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
+        <li>Everything inside the diagram is <strong>pixels</strong>. The caption is the same coverage claim as text, which is the only part a crawler can read.</li>
+        <li><strong>The city is the subject. The nearby towns are deliberately NOT listed.</strong> Eight town names repeated under all 27 pages is boilerplate
+            and a well-known low-quality local-SEO pattern; it dilutes the one entity the site is built on, and on a one-site-per-city strategy it competes with
+            a future site for those towns. They stay in the diagram, where being unreadable to a crawler is a <em>feature</em> &mdash; a person still gets the
+            answer at a glance.</li>
+        <li>Phrasing is <strong>chosen per domain</strong>, so sites built from one master don't all carry the same sentence &mdash; that would just be a new
+            shared template replacing the one we removed.</li>
+    </ul>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Worth knowing</h3>
     <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
@@ -142,6 +155,8 @@ $pmParams = [
                 <?= city_map_svg($sample) ?>
             </div>
             <p class="hint" style="margin-top:6px;max-width:660px;"><strong>alt:</strong> <?= $pmH(city_map_alt($sample)) ?></p>
+            <?php $pmCap = city_map_caption($sample, function_exists('city_map_domain') ? city_map_domain() : ''); ?>
+            <?php if ($pmCap !== ''): ?><p class="hint" style="margin-top:4px;max-width:660px;"><strong>caption:</strong> <?= $pmH($pmCap) ?></p><?php endif; ?>
         </div>
     <?php endforeach; ?>
 
