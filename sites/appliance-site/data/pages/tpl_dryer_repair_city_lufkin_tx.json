@@ -100,8 +100,8 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-2.webp",
-            "it_alt": "Appliance repair technician in {city_state}",
+            "it_photo": "{chart_humidity}",
+            "it_alt": "{chart_humidity_alt}",
             "skin": "light",
             "heading_level": "h2",
             "heading_text": "Professional Dryer Repair Services in Lufkin, TX",
@@ -111,7 +111,11 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
             "_ai_input_hash": "4bf1c5e15035b0c3",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "_it_photo_prechart": "sites/appliance-site/uploads/media/tech-2.webp",
+            "it_caption": "{chart_humidity_caption}",
+            "it_ratio": "auto",
+            "it_layout": "side"
         },
         {
             "type": "custom_html",
@@ -269,17 +273,18 @@
         },
         {
             "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
             "mi_info_heading": "{city_state} Information",
             "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
             "mi_head_color": "header",
             "mi_head_color_custom": "#65a30d",
             "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "skin": "light"
+            "mi_map_side": "top",
+            "skin": "light",
+            "mi_map_caption": "{city_map_caption}"
         },
         {
             "type": "cta_banner",

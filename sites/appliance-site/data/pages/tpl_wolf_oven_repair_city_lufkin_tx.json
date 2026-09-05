@@ -229,8 +229,8 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "right",
-            "it_photo": "sites/appliance-site/uploads/media/home-4.webp",
-            "it_alt": "Appliance repair for {city_state} homes",
+            "it_photo": "{chart_homes_by_decade}",
+            "it_alt": "{chart_homes_by_decade_alt}",
             "_ai_locked": true,
             "skin": "light",
             "heading_level": "h2",
@@ -240,7 +240,11 @@
             "_ai_generated_at": "2026-07-10T02:14:32.647457Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "local_relevance",
-            "_ai_input_hash": "77d798ced949f0a5"
+            "_ai_input_hash": "77d798ced949f0a5",
+            "_it_photo_prechart": "sites/appliance-site/uploads/media/home-4.webp",
+            "it_caption": "{chart_homes_by_decade_caption}",
+            "it_ratio": "auto",
+            "it_layout": "side"
         },
         {
             "type": "faq_two_col",
@@ -323,17 +327,18 @@
         },
         {
             "type": "map_info",
-            "mi_map_heading": "{city}, {state} Map",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
             "mi_info_heading": "{city_state} Information",
             "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
             "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
             "mi_head_color": "header",
             "mi_head_color_custom": "#65a30d",
             "mi_info_photo": "{city_image}",
-            "mi_map_side": "left",
-            "skin": "light"
+            "mi_map_side": "top",
+            "skin": "light",
+            "mi_map_caption": "{city_map_caption}"
         }
     ],
     "seo": {

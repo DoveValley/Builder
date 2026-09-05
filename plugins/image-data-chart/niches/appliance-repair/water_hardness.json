@@ -1,0 +1,27 @@
+{
+  "id": "water_hardness",
+  "name": "Water hardness vs the hard-water threshold",
+  "type": "compare",
+  "data_key": "water_hardness_gpg",
+  "source_key": "water_hardness_source",
+  "self_label": "{city}, {SS}",
+  "benchmarks": [
+    {
+      "label": "the hard-water threshold",
+      "value": 7,
+      "source": "US Geological Survey hardness classification"
+    }
+  ],
+  "unit": "gpg",
+  "title": "Water hardness in {city}, {SS}",
+  "alt": "Chart comparing water hardness in {city}, {SS} against the threshold for hard water. {summary}",
+  "research": {
+    "ask": "\"water_hardness_gpg\" — the average hardness of the municipal water supply serving {city}, {SS}, in GRAINS PER GALLON as a plain number (divide ppm or mg/L by 17.1 if the published figure is in those units). Use the figure published by the local water utility or a state/USGS survey",
+    "source_ask": "\"water_hardness_source\" — the source of that hardness figure (e.g. the utility's annual water quality report, or USGS)"
+  },
+  "captions": [
+    "Water serving {city}, {SS} measures {self_value}; water is classified hard from {benchmark_value}. {difference} Dissolved mineral comes out of solution on heating elements and valves, so hardness is what decides how fast scale builds in a dishwasher, washing machine or water heater.",
+    "{city} water runs at {self_value} against {benchmark_value} for {benchmark}. {difference} Scale insulates a heating element, so it runs hotter and longer for the same result — the ordinary route to a burnt-out element, and the reason two identical machines can fail years apart in different towns.",
+    "{difference} At {self_value}, the supply to {city} sits against a classification threshold of {benchmark_value}. Every gallon leaves a little mineral behind in valves, seals and spray arms, and how much it leaves is set by the water rather than the machine."
+  ]
+}

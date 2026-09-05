@@ -44,6 +44,75 @@
       "Georgia-Pacific",
       "Brookshire Brothers"
     ],
-    "_researched": 1
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 25,
+      "1960-1979": 30,
+      "1980-1999": 25,
+      "2000-2009": 10,
+      "2010 or later": 10
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      1,
+      6,
+      18,
+      27,
+      28,
+      16,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "humidity_monthly": [
+      75,
+      72,
+      68,
+      68,
+      72,
+      73,
+      73,
+      73,
+      75,
+      73,
+      75,
+      76
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Hudson",
+        "miles": 7
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report"
   }
 ]
