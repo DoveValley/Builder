@@ -272,11 +272,14 @@ if (!isset($csrfToken)) return;
                     // Listing it as 🚧 would read as work still owed.
                  ]],
                 ['key' => 'images', 'label' => 'Images', 'status' => 'live',
+                 'note' => 'The graphics are drawn from each city\'s own researched figures, so they cannot be shared between sites the way a stock photo can — a 1&ndash;2% crop does not stop Google matching the same photograph, but a chart of a different city\'s rainfall is a different picture. <strong>A city with no researched figures gets no chart</strong>, never one drawn from estimates.',
                  'subs' => [
                     ['Per-city photo differentiation', 'auto'],
                     ['Unique filename per site', 'auto'],
                     ['Metadata strip — EXIF, XMP, GPS', 'control', 'images.metadata'],
-                    ['City data graphics drawn from the research figures', 'todo'],
+                    ['Area map — service-area diagram + nearby towns, any niche', 'auto'],
+                    ['Data charts from the research figures — 8 for water restoration, 1 for pest, none yet for mold or appliance', 'auto'],
+                    ['Caption under each graphic, phrasing varied per domain', 'auto'],
                  ]],
              ]],
             ['section' => '3 &middot; Identity &amp; setup', 'facet' => 'Who the business is &mdash; already solved &mdash; plus what the run builds',
