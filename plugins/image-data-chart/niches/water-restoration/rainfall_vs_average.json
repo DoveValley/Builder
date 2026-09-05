@@ -1,0 +1,15 @@
+{
+  "id": "rainfall_vs_average",
+  "name": "Annual rainfall vs average",
+  "type": "compare",
+  "data_key": "rainfall_annual",
+  "source_key": "rainfall_source",
+  "self_label": "{city}, {SS}",
+  "benchmarks": [
+    { "label": "{state} average", "value_key": "rainfall_state_avg" },
+    { "label": "US average", "value": 30.3, "source": "NOAA 1991-2020 US normals" }
+  ],
+  "unit": "in",
+  "title": "Annual rainfall: {city} vs average",
+  "alt": "Chart comparing annual rainfall in {city}, {SS} with state and national averages. {summary}"
+}

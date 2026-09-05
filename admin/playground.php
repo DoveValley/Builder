@@ -103,6 +103,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
 <div id="side">
     <div class="logo">Site Factory <small>Test Lab</small></div>
     <a href="city_map_demo.php" style="color:#7dd3fc;font-weight:700;">&#128506; City Map demo</a>
+    <a href="city_chart_demo.php" style="color:#7dd3fc;font-weight:700;">&#128202; City Chart demo</a>
     <a href="#variance-mockup" style="color:#c4b5fd;font-weight:700;">🧩 Batch variance (mock-up)</a>
     <a href="dirnet-data.php" style="color:#fdba74;font-weight:700;">📊 Directory Network data</a>
     <a href="dirnet-answers.php" style="color:#fdba74;font-weight:700;">❓ Directory Network answers</a>

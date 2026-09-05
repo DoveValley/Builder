@@ -23,8 +23,8 @@
 require_once __DIR__ . '/render.php';
 
 register_plugin(
-    'city_map',
-    'City Map',
+    'image_area_map',
+    'Image · Area Map',
     'Draws a service-area diagram from the city\'s own named neighbourhoods and exposes it as {city_map}. Unique per city by construction, costs nothing per site, and writes its own alt text.',
     '&#128506;',   // 🗺
     __DIR__

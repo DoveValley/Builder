@@ -1,0 +1,11 @@
+{
+  "id": "freeze_days",
+  "name": "Freezing days per month",
+  "type": "bars",
+  "data_key": "freeze_days_monthly",
+  "source_key": "freeze_source",
+  "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+  "unit": "days",
+  "title": "Days below freezing each month in {city}, {SS}",
+  "alt": "Chart of days below freezing per month in {city}, {SS}. {summary}"
+}

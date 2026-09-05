@@ -1,0 +1,11 @@
+{
+  "id": "pest_season",
+  "name": "Pest activity by month",
+  "type": "bars",
+  "data_key": "pest_activity_monthly",
+  "source_key": "pest_activity_source",
+  "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+  "unit": "",
+  "title": "Pest activity through the year in {city}, {SS}",
+  "alt": "Chart of pest activity by month in {city}, {SS}. {summary}"
+}

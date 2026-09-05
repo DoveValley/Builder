@@ -1,0 +1,11 @@
+{
+  "id": "rainfall",
+  "name": "Monthly rainfall",
+  "type": "bars",
+  "data_key": "rainfall_monthly",
+  "source_key": "rainfall_source",
+  "labels": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+  "unit": "in",
+  "title": "Average monthly rainfall in {city}, {SS}",
+  "alt": "Chart of average monthly rainfall in {city}, {SS}, in inches. {summary}"
+}
