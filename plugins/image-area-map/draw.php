@@ -38,17 +38,6 @@ function city_map_rand(string $seed, int $i): float
     return (hexdec(substr(md5($seed . '|' . $i), 0, 8)) % 100000) / 100000;
 }
 
-/** The within-city areas, cleaned. */
-function city_map_areas(array $city): array
-{
-    $out = [];
-    foreach ((array) ($city['neighborhoods'] ?? []) as $n) {
-        $n = trim((string) $n);
-        if ($n !== '') $out[] = $n;
-    }
-    return $out;
-}
-
 /**
  * Nearby towns, normalised to ['name','miles'].
  *

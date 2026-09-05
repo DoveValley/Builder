@@ -17,7 +17,7 @@ if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
     $rows = json_decode((string) @file_get_contents(ACTIVE_SITE_DIR . '/data/cities.json'), true);
     foreach ((is_array($rows) ? $rows : []) as $row) {
         // Either tier is enough to draw, so either is enough to be worth showing here.
-        if (is_array($row) && (array_filter((array) ($row['neighborhoods'] ?? [])) || city_map_towns($row))) { $pmCity = $row; break; }
+        if (is_array($row) && city_map_towns($row)) { $pmCity = $row; break; }
     }
 }
 $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
@@ -31,7 +31,6 @@ $pmH = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
  * Diboll and Huntington under `neighborhoods` — real places, but separate incorporated cities
  * ten miles out — which taught the wrong thing about the field it was documenting.
  */
-$pmAreas = ['Montrose', 'The Heights', 'Midtown', 'River Oaks', 'EaDo', 'Rice Village', 'Memorial'];
 $pmTowns = [
     ['name' => 'Bellaire', 'miles' => 7],
     ['name' => 'Pasadena', 'miles' => 12],
@@ -43,15 +42,12 @@ $pmTowns = [
 $pmBase = ['city' => 'Houston', 'SS' => 'TX', 'state' => 'Texas'];
 
 $pmStates = [
-    ['Both tiers', 'The usual case once research has run. Areas on the ring, towns in the column.',
-     $pmBase + ['neighborhoods' => $pmAreas, 'nearby_towns' => $pmTowns]],
-    ['Areas only', 'No <code>nearby_towns</code> yet. The diagram takes the full width and centres itself &mdash; no empty column.',
-     $pmBase + ['neighborhoods' => $pmAreas]],
-    ['Towns only', 'No <code>neighborhoods</code>, which is common for a small city. Still a useful picture, so it is still drawn.',
+    ['The usual case', 'Six towns, each with its driving distance. Nearer towns sit nearer the middle.',
      $pmBase + ['nearby_towns' => $pmTowns]],
-    ['A town with no mileage', 'A missing <code>miles</code> just omits the figure &mdash; the town is never dropped, and no distance is invented.',
-     $pmBase + ['neighborhoods' => array_slice($pmAreas, 0, 3),
-                'nearby_towns' => [['name' => 'Bellaire', 'miles' => 7], ['name' => 'Katy'], ['name' => 'Pasadena', 'miles' => 12]]]],
+    ['A town with no mileage', 'A missing <code>miles</code> just leaves the figure off the column &mdash; the town is never dropped, and no distance is invented.',
+     $pmBase + ['nearby_towns' => [['name' => 'Bellaire', 'miles' => 7], ['name' => 'Katy'], ['name' => 'Pasadena', 'miles' => 12]]]],
+    ['A short list', 'Two towns still make a picture. The ring simply has fewer points on it.',
+     $pmBase + ['nearby_towns' => array_slice($pmTowns, 0, 2)]],
 ];
 
 /** The fields this plugin reads, documented once here so the panel IS the reference. */
@@ -59,10 +55,10 @@ $pmParams = [
     ['city',          'yes', 'The city name. No city, no diagram &mdash; this is the only hard requirement.'],
     ['SS',            'no',  'State abbreviation. Shown beside the city name in the centre.'],
     ['city_slug',     'no',  'Used for the output filename. Derived from <code>city</code> + <code>SS</code> if absent.'],
-    ['neighborhoods', 'no',  'Array of area names <strong>inside</strong> the city. Drawn on the ring, up to 8. Plain strings.'],
-    ['nearby_towns',  'no',  '<strong>Separate towns</strong> you also serve, listed beside the diagram, up to 10. '
-                           . 'Each is <code>{"name": &hellip;, "miles": &hellip;}</code>; <code>miles</code> is optional. '
-                           . 'A bare string works too. Past 10, the rest are counted, never silently dropped.'],
+    ['nearby_towns',  'yes', '<strong>The towns this city serves.</strong> Drawn on the ring AND listed beside it with distances, up to 8. '
+                           . 'Each is <code>{"name": &hellip;, "miles": &hellip;}</code>; <code>miles</code> is optional, and a bare string works too. '
+                           . 'No towns, no diagram.'],
+    ['neighborhoods', 'no',  'Area names inside the city. <strong>No longer drawn</strong> &mdash; see below. Still used in page copy.'],
 ];
 ?>
 <style>.pm-sample svg{width:100%;height:auto;display:block}
@@ -95,17 +91,19 @@ $pmParams = [
         <li>The cache is keyed on the <strong>drawing</strong>, not just the filename, so a city that gains new data is redrawn instead of keeping a stale picture.</li>
     </ul>
 
-    <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Two tiers, because they are two different claims</h3>
+    <h3 style="font-size:.95rem;color:#1e3a5f;margin:18px 0 8px;">Why it shows towns, not neighbourhoods</h3>
     <ul style="margin:0 0 4px 18px;padding:0;line-height:1.7;font-size:.9rem;color:#334155;">
-        <li><code>neighborhoods</code> &mdash; areas <strong>inside</strong> the city. Drawn on the ring.</li>
-        <li><code>nearby_towns</code> &mdash; <strong>separate towns</strong> you also serve, each with its driving distance. Set out as a
-            <strong>list beside the diagram</strong>: the mileages line up so they compare at a glance, and a list makes no claim about where
-            a town lies &mdash; which is right, because we don't know. Entries look like <code>{"name": "Diboll", "miles": 10}</code>;
-            a town with no <code>miles</code> still appears, just without the figure.</li>
-        <li>Listing Diboll (a city ten miles out) beside Crown Colony (a Lufkin neighbourhood) is <strong>wrong on its face to a local reader</strong>,
-            and the two are worth different things &mdash; which is why they are separate fields, and why the picture keeps them visually apart.</li>
-        <li>The research gathers both automatically. This plugin declares what it needs in its own <code>research.json</code>, so installing it
-            is what makes the question get asked &mdash; and a site without the plugin never pays for it.</li>
+        <li>It used to draw <strong>neighbourhoods</strong> on the ring. They were being <strong>invented</strong>: four sites covering Lufkin returned
+            lists that barely overlapped, "Fredonia Hill Historic District" belongs to Nacogdoches, and OpenStreetMap records
+            <strong>no named areas in Lufkin at all</strong>. A city of 34,500 often has none, so there was nothing to recall.</li>
+        <li><strong>Towns are incorporated municipalities</strong> &mdash; real, checkable, and the research gets them right.
+            One accurate tier beats two when one of them is fiction.</li>
+        <li>Neighbourhood names are still used in <strong>page copy</strong>, but only after a verification pass: a name survives only if the
+            research can say <em>what the place actually is</em>. That kept Crown Colony ("golf-course subdivision") and dropped Colonial Woods.
+            <strong>OpenStreetMap absence is not disproof</strong> &mdash; its coverage is thin below about 50k population, and Crown Colony is real
+            but unrecorded there.</li>
+        <li>The <strong>caption gives a count, never the names</strong>. Eight town names repeated under every page is boilerplate, and it would
+            dilute the one city the site is built on.</li>
     </ul>
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:20px 0 8px;">Fields it reads</h3>
@@ -162,7 +160,7 @@ $pmParams = [
 
     <h3 style="font-size:.95rem;color:#1e3a5f;margin:22px 0 8px;">This site's own data</h3>
     <?php if (!$pmCity): ?>
-        <p class="hint" style="color:#92400e;">No city on this site has named areas or nearby towns yet, so nothing would be drawn today. Add them under Cities, or run the city research step, and this site's own diagram appears here.</p>
+        <p class="hint" style="color:#92400e;">No city on this site has nearby towns yet, so nothing would be drawn today. Add them under Cities, or run the city research step, and this site's own diagram appears here.</p>
     <?php else: ?>
         <div class="pm-sample" style="max-width:620px;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;">
             <?= city_map_svg($pmCity) ?>
