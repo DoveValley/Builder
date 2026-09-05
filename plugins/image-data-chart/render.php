@@ -40,12 +40,19 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
     $alt   = city_chart_text((string) ($def['alt'] ?? ($def['title'] ?? '')), $city, $def, $series);
 
     $p = city_chart_paths($siteDir, $city, $def);
-    if (!$force && is_file($p['webp'])) {
-        return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
-    }
 
     $svg = city_chart_svg($series, $def, $title, $theme);
     if ($svg === '') return null;
+
+    // Cache on the DRAWING, not merely on the file existing — the same fix the area-map plugin
+    // already had. Checking is_file() alone meant a chart never changed once written: new
+    // figures, a new theme colour or a change to the drawing code all left the old picture in
+    // place, because the path is keyed on city + chart id and never varies. Comparing the SVG
+    // is cheap (pure string building) and still skips the expensive rasterise when nothing
+    // actually changed, so ten sites covering one city draw it once.
+    if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
+        return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
+    }
     if (!is_dir(dirname($p['svg'])) && !@mkdir(dirname($p['svg']), 0775, true) && !is_dir(dirname($p['svg']))) return null;
     if (@file_put_contents($p['svg'], $svg) === false) return null;
 

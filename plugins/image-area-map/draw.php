@@ -321,6 +321,12 @@ function city_map_svg(array $city, array $theme = []): string
     // silently fails and the page ships raw SVG.
     $o[] = '<text x="' . $cx . '" y="' . ($H - 22) . '" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
          . ' font-size="16" fill="' . $esc($muted) . '">Areas served &#8212; coverage diagram, not to scale</text>';
+    // A framing line around the whole picture. Drawn INSIDE the SVG rather than as CSS on the
+    // <img>, so it travels with the image everywhere it is used and never restyles the site's
+    // other photos. Inset by half the stroke, because a stroke straddles its path and would
+    // otherwise be clipped in half at the canvas edge.
+    $o[] = '<rect x="2" y="2" width="' . ($W - 4) . '" height="' . ($H - 4) . '" rx="16" fill="none" stroke="'
+         . $esc($accent) . '" stroke-opacity=".55" stroke-width="4"/>';
     $o[] = '</svg>';
 
     return implode("\n", $o);

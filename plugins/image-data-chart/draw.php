@@ -123,6 +123,12 @@ function city_chart_svg(array $series, array $def, string $title, array $theme =
         $o[] = '<text x="' . $padL . '" y="' . ($H - 20) . '" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
              . ' font-size="14" fill="' . $esc($muted) . '">' . $esc('Source: ' . $src) . '</text>';
     }
+    // A framing line around the whole picture. Drawn INSIDE the SVG rather than as CSS on the
+    // <img>, so it travels with the image everywhere it is used and never restyles the site's
+    // other photos. Inset by half the stroke, because a stroke straddles its path and would
+    // otherwise be clipped in half at the canvas edge.
+    $o[] = '<rect x="2" y="2" width="' . ($W - 4) . '" height="' . ($H - 4) . '" rx="16" fill="none" stroke="'
+         . $esc($accent) . '" stroke-opacity=".55" stroke-width="4"/>';
     $o[] = '</svg>';
     return implode("\n", $o);
 }
@@ -207,6 +213,12 @@ function city_chart_svg_compare(array $series, array $def, string $title, array 
         $o[] = '<text x="' . $padL . '" y="' . ($H - 22) . '" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
              . ' font-size="14" fill="' . $esc($muted) . '">' . $esc('Source: ' . $src) . '</text>';
     }
+    // A framing line around the whole picture. Drawn INSIDE the SVG rather than as CSS on the
+    // <img>, so it travels with the image everywhere it is used and never restyles the site's
+    // other photos. Inset by half the stroke, because a stroke straddles its path and would
+    // otherwise be clipped in half at the canvas edge.
+    $o[] = '<rect x="2" y="2" width="' . ($W - 4) . '" height="' . ($H - 4) . '" rx="16" fill="none" stroke="'
+         . $esc($accent) . '" stroke-opacity=".55" stroke-width="4"/>';
     $o[] = '</svg>';
     return implode("\n", $o);
 }
