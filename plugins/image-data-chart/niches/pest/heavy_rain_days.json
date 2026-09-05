@@ -1,0 +1,33 @@
+{
+  "id": "heavy_rain_days",
+  "name": "Days with an inch or more of rain",
+  "type": "bars",
+  "data_key": "heavy_rain_days_monthly",
+  "source_key": "heavy_rain_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days with an inch or more of rain in {city}, {SS}",
+  "alt": "Chart of days per month with at least one inch of rainfall in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"heavy_rain_days_monthly\" — the average number of days per month with precipitation of 1.0 inch or more in {city}, as an array of 12 plain numbers, January first",
+    "source_ask": "\"heavy_rain_days_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "{city}, {SS} gets around {total} a year with an inch or more of rain, most often in {peak}. A downpour floods nests and soil within hours, and ants, roaches and rodents move to higher, drier ground — which is usually the building.",
+    "Heavy rain hits {city} about {total} a year, peaking in {peak}. The spike in calls after a storm is not a coincidence: an inch of rain displaces whatever was living in the soil around a property.",
+    "Roughly {total} of heavy rain fall on {city} each year. Sudden water does what steady rain does not — it evicts colonies all at once, and they relocate indoors the same day."
+  ]
+}

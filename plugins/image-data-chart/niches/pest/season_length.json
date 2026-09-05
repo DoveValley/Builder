@@ -1,0 +1,26 @@
+{
+  "id": "season_length",
+  "name": "Pest season length vs average",
+  "type": "compare",
+  "data_key": "frost_free_days",
+  "source_key": "frost_free_source",
+  "self_label": "{city}, {SS}",
+  "benchmarks": [
+    {
+      "label": "{state} average",
+      "value_key": "frost_free_state_avg"
+    }
+  ],
+  "unit": "days",
+  "title": "Pest season length: {city} vs average",
+  "alt": "Chart comparing the frost-free season in {city}, {SS} with the state average. {summary}",
+  "research": {
+    "ask": "\"frost_free_days\" — the average length of the FROST-FREE period in {city} (days between the last spring freeze and the first autumn freeze), as a plain number; and \"frost_free_state_avg\" — the same figure averaged across the STATE of {state}, as a plain number, so the city can be compared against it",
+    "source_ask": "\"frost_free_source\" — the source of those growing-season figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "The frost-free season in {city} runs {self_value}, against {benchmark_value} for the {benchmark}. {difference} Every frost-free day is a day insects can breed, so the length of that window sets how many generations a population gets through in a year.",
+    "{city}, {SS} gets {self_value} between freezes where the {benchmark} sees {benchmark_value}. {difference} Pest activity starts when the last freeze passes and ends when the first one arrives — that gap is the season.",
+    "{difference} At {self_value} frost-free against {benchmark_value} for the {benchmark}, treatment in {city} has to cover more of the calendar than a state average would suggest."
+  ]
+}

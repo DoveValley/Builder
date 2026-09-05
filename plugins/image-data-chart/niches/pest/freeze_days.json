@@ -1,0 +1,33 @@
+{
+  "id": "freeze_days",
+  "name": "Freezing days per month",
+  "type": "bars",
+  "data_key": "freeze_days_monthly",
+  "source_key": "freeze_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days below freezing each month in {city}, {SS}",
+  "alt": "Chart of days below freezing per month in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"freeze_days_monthly\" — the average number of days per month with a minimum temperature at or below freezing in {city}, as an array of 12 plain numbers, January first",
+    "source_ask": "\"freeze_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "{city}, {SS} sees about {total} at or below freezing, concentrated in {peak}. Sustained cold is the natural brake on insect numbers: it kills exposed adults and drives survivors into wall voids and crawl spaces, which is why rodent and overwintering-insect calls climb as those months arrive.",
+    "Freezing days in {city} total roughly {total}, peaking in {peak}. Every hard freeze knocks a population back, and every mild winter lets more of it carry through to spring — the length of the cold is what decides which happens.",
+    "{city} records about {total} of freezing weather a year, worst in {peak}. Cold does not eliminate pests so much as relocate them: warm structures become the refuge, and activity moves indoors just as it drops outside."
+  ]
+}

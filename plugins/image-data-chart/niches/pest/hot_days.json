@@ -1,0 +1,33 @@
+{
+  "id": "hot_days",
+  "name": "Days above 90F per month",
+  "type": "bars",
+  "data_key": "hot_days_monthly",
+  "source_key": "hot_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days above 90°F each month in {city}, {SS}",
+  "alt": "Chart of days above 90 degrees Fahrenheit per month in {city}, {SS}. {summary}",
+  "research": {
+    "ask": "\"hot_days_monthly\" — the average number of days per month with a maximum temperature at or above 90°F in {city}, as an array of 12 plain numbers, January first",
+    "source_ask": "\"hot_days_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "{city}, {SS} records about {total} above 90°F, peaking in {peak} at {peak_value}. Insects are cold-blooded, so heat directly sets their pace — egg-to-adult time shortens, generations stack up, and a population that was manageable in spring compounds through the hottest weeks.",
+    "Days over 90°F in {city} total roughly {total}, concentrated in {peak}. Warmth accelerates every stage of the life cycle: mosquitoes complete a cycle in days rather than weeks, and ant and wasp colonies expand fastest exactly when the chart peaks.",
+    "The hottest stretch in {city} is {peak}, at {peak_value} above 90°F. Stinging insects forage hardest in that heat, and it is when colonies reach the size that makes a nest a problem rather than a nuisance."
+  ]
+}

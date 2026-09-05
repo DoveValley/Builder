@@ -11,8 +11,8 @@
     "source_ask": "\"flood_years_source\" — the source for those flood events (e.g. \"NOAA Storm Events Database\")"
   },
   "captions": [
-    "{city}, {SS} has been hit by {count} documented flood events, most recently in {most_recent}. Flooding here is a recurring risk, not a one-off.",
-    "The last major flood on record in {city} was {most_recent}, one of {count} since {earliest}. History is the clearest guide to what a property should be prepared for.",
-    "{count} significant floods have affected {city} since {earliest}, the most recent {years_since} years ago. Properties that flooded once tend to be the ones at risk again."
+    "{city}, {SS} has {count} documented flood events on record, the most recent in {most_recent}. History is the clearest guide to what a property should be prepared for.",
+    "The most recent major flood on record in {city} was {most_recent}, {years_since} years ago. Properties that have flooded once are usually the ones at risk again.",
+    "Flood events on record for {city} span {earliest} to {most_recent}. What has happened before is what a property should be ready for."
   ]
 }

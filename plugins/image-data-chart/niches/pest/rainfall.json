@@ -1,0 +1,33 @@
+{
+  "id": "rainfall",
+  "name": "Monthly rainfall",
+  "type": "bars",
+  "data_key": "rainfall_monthly",
+  "source_key": "rainfall_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "in",
+  "title": "Average monthly rainfall in {city}, {SS}",
+  "alt": "Chart of average monthly rainfall in {city}, {SS}, in inches. {summary}",
+  "research": {
+    "ask": "\"rainfall_monthly\" — average precipitation for {city} for each of the 12 months, as an array of 12 plain numbers in inches, January first",
+    "source_ask": "\"rainfall_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
+  },
+  "captions": [
+    "{city} takes about {total} of rain a year, heaviest in {peak} at {peak_value}. Rain drives activity two ways: standing water left behind is where mosquitoes breed, and saturated soil pushes ants and roaches up out of the ground and toward the house.",
+    "Rain in {city}, {SS} peaks in {peak} and drops to {low_value} in {low}. A mosquito needs only days and a container of water to complete a cycle, so the wet months set the tempo for the whole season.",
+    "Rainfall in {city} totals roughly {total} a year. Wet weather floods the soil that ground-nesting colonies live in, and what comes out of it looks for the nearest dry structure."
+  ]
+}

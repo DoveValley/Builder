@@ -119,12 +119,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/cockroach-control-family-home.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} cockroach control",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/cockroach-control-family-home.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -210,16 +214,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -362,12 +367,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-ant-exterminator-katy_3ee145.webp",
-                "it_alt": "Ant Pest Control for {city_state} properties",
+                "it_photo": "{chart_heavy_rain_days}",
+                "it_alt": "{chart_heavy_rain_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-ant-exterminator-katy_3ee145.webp",
+                "it_caption": "{chart_heavy_rain_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -453,16 +462,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -604,12 +614,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/ants-katy_f0c30b.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} fire ant control",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/ants-katy_f0c30b.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -695,16 +709,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -846,12 +861,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/carpenter-ants-katy_2fe626.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} carpenter ant control",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/carpenter-ants-katy_2fe626.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -937,16 +956,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1088,12 +1108,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-bed-bug-exterminator-katy_970238.webp",
-                "it_alt": "Bed Bug Control for {city_state} properties",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-bed-bug-exterminator-katy_970238.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -1179,16 +1203,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1330,12 +1355,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-termite-treatment-katy_c5a5b5.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} termite control",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-termite-treatment-katy_c5a5b5.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -1421,16 +1450,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1572,12 +1602,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-mosquito-control-katy_44af32.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} mosquito control",
+                "it_photo": "{chart_rainfall}",
+                "it_alt": "{chart_rainfall_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-mosquito-control-katy_44af32.webp",
+                "it_caption": "{chart_rainfall_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -1663,16 +1697,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -1814,12 +1849,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-flea-exterminator-katy_5a0eb0.webp",
-                "it_alt": "Flea Pest Control for {city_state} properties",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-flea-exterminator-katy_5a0eb0.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -1905,16 +1944,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2056,12 +2096,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-tick-control-katy_468411.webp",
-                "it_alt": "Tick Treatment for {city_state} properties",
+                "it_photo": "{chart_season_length}",
+                "it_alt": "{chart_season_length_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-tick-control-katy_468411.webp",
+                "it_caption": "{chart_season_length_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -2147,16 +2191,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2298,12 +2343,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-rat-exterminator-katy_11641d.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} rat control",
+                "it_photo": "{chart_freeze_days}",
+                "it_alt": "{chart_freeze_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-rat-exterminator-katy_11641d.webp",
+                "it_caption": "{chart_freeze_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -2389,16 +2438,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2540,12 +2590,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-mouse-exterminator-katy_701267.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} mouse control",
+                "it_photo": "{chart_freeze_days}",
+                "it_alt": "{chart_freeze_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-mouse-exterminator-katy_701267.webp",
+                "it_caption": "{chart_freeze_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -2631,16 +2685,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -2782,12 +2837,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-spider-exterminator-katy_c031b7.webp",
-                "it_alt": "Spider Pest Control for {city_state} properties",
+                "it_photo": "{chart_freeze_days}",
+                "it_alt": "{chart_freeze_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-spider-exterminator-katy_c031b7.webp",
+                "it_caption": "{chart_freeze_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -2873,16 +2932,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3024,12 +3084,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-                "it_alt": "Scorpion Pest Control for {city_state} properties",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3115,16 +3179,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3266,12 +3331,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-wasp-exterminator-katy_953241.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} wasp control",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-wasp-exterminator-katy_953241.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3357,16 +3426,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3508,12 +3578,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-yellow-jacket-exterminator-katy_05d941.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} yellow jacket control",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-yellow-jacket-exterminator-katy_05d941.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3599,16 +3673,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3750,12 +3825,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-silverfish-control-katy_180509.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} silverfish control",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-silverfish-control-katy_180509.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -3841,16 +3920,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -3992,12 +4072,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/centipedes-katy_d74ba0.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} centipede control",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/centipedes-katy_d74ba0.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -4083,16 +4167,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -4234,12 +4319,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} cricket control",
+                "it_photo": "{chart_freeze_days}",
+                "it_alt": "{chart_freeze_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
+                "it_caption": "{chart_freeze_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -4325,16 +4414,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -4476,12 +4566,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} stink bug control",
+                "it_photo": "{chart_freeze_days}",
+                "it_alt": "{chart_freeze_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
+                "it_caption": "{chart_freeze_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -4567,16 +4661,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -4718,12 +4813,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} wasp control",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -4809,16 +4908,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -4960,12 +5060,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} hornet control",
+                "it_photo": "{chart_hot_days}",
+                "it_alt": "{chart_hot_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
+                "it_caption": "{chart_hot_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -5051,16 +5155,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -5202,12 +5307,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-                "it_alt": "A {city_state} family relaxing at home, protected by {business} bee control",
+                "it_photo": "{chart_season_length}",
+                "it_alt": "{chart_season_length_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
+                "it_caption": "{chart_season_length_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -5293,16 +5402,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -5445,12 +5555,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-termite-inspection-katy_347d82.webp",
-                "it_alt": "Termite Inspection for {city_state} properties",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-termite-inspection-katy_347d82.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "feature_columns",
@@ -5563,16 +5677,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -5715,12 +5830,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-pest-inspection-katy_05bb4d.webp",
-                "it_alt": "Pest Inspection for {city_state} properties",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-inspection-katy_05bb4d.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "feature_columns",
@@ -5833,16 +5952,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -5984,12 +6104,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-wdi-inspection-katy_8574ff.webp",
-                "it_alt": "WDI Inspection for {city_state} properties",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-wdi-inspection-katy_8574ff.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "feature_columns",
@@ -6102,16 +6226,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -6254,12 +6379,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-residential-pest-katy_4f1621.webp",
-                "it_alt": "Residential Pest Control for {city_state} properties",
+                "it_photo": "{chart_season_length}",
+                "it_alt": "{chart_season_length_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-residential-pest-katy_4f1621.webp",
+                "it_caption": "{chart_season_length_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "ai_block",
@@ -6345,16 +6474,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -6497,12 +6627,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
-                "it_alt": "Commercial Pest Control for {city_state} properties",
+                "it_photo": "{chart_homes_by_decade}",
+                "it_alt": "{chart_homes_by_decade_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
+                "it_caption": "{chart_homes_by_decade_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -6588,16 +6722,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -6739,12 +6874,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-emergency-exterminator-katy_2d2726.webp",
-                "it_alt": "Emergency Pest Control for {city_state} properties",
+                "it_photo": "{chart_heavy_rain_days}",
+                "it_alt": "{chart_heavy_rain_days_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-emergency-exterminator-katy_2d2726.webp",
+                "it_caption": "{chart_heavy_rain_days_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -6830,16 +6969,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -6981,12 +7121,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
-                "it_alt": "Restaurant Pest Control for {city_state} properties",
+                "it_photo": "{chart_humidity}",
+                "it_alt": "{chart_humidity_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
+                "it_caption": "{chart_humidity_caption}",
+                "it_ratio": "auto",
+                "it_layout": "side"
             },
             {
                 "type": "ai_block",
@@ -7072,16 +7216,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {
@@ -7261,12 +7406,16 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "right",
-                "it_photo": "sites/pest-template/uploads/media/effective-pest-treatments-katy_4e74f6.webp",
-                "it_alt": "Pest Control Plans for {city_state} properties",
+                "it_photo": "{chart_season_length}",
+                "it_alt": "{chart_season_length_alt}",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
                 "ai_inject_mode": null,
-                "ai_prompt_override": ""
+                "ai_prompt_override": "",
+                "_it_photo_prechart": "sites/pest-template/uploads/media/effective-pest-treatments-katy_4e74f6.webp",
+                "it_caption": "{chart_season_length_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked"
             },
             {
                 "type": "service_cards",
@@ -7342,16 +7491,17 @@
             },
             {
                 "type": "map_info",
-                "mi_map_heading": "{city}, {state} Map",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
                 "mi_info_heading": "{city_state} Information",
                 "mi_info_text": "{city_spotlight}",
                 "mi_info_alt": "{city_image_alt}",
                 "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
                 "mi_head_color": "header",
                 "mi_head_color_custom": "#120575",
                 "mi_info_photo": "{city_image}",
-                "mi_map_side": "left"
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}"
             }
         ],
         "seo": {

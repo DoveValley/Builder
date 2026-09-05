@@ -1084,8 +1084,24 @@ def chart_research_fields(brief):
         if not ask or not key or key in seen:
             continue
         seen.add(key)
-        out.append((key, (cfg.get('source_key') or '').strip(),
-                    ask, (r.get('source_ask') or '').strip()))
+        skey = (cfg.get('source_key') or '').strip()
+        sask = (r.get('source_ask') or '').strip()
+        out.append((key, skey, ask, sask))
+
+        # A `compare` chart needs its BENCHMARK as well as its own figure, and the benchmark
+        # lives in a different field. Tracking only data_key meant a chart could have its own
+        # number, never draw for want of the benchmark, and never be re-asked — because the key
+        # being watched was already satisfied. Pest's frost_free_days came back without
+        # frost_free_state_avg and would have stayed that way permanently.
+        #
+        # Each benchmark field is tracked in its own right, carrying the same ask. The ask is
+        # de-duplicated when the prompt is assembled, so asking for two fields in one sentence
+        # still only prints that sentence once.
+        for b in (cfg.get('benchmarks') or []):
+            vk = (b.get('value_key') or '').strip() if isinstance(b, dict) else ''
+            if vk and vk not in seen:
+                seen.add(vk)
+                out.append((vk, skey, ask, sask))
     return out
 
 
@@ -1145,9 +1161,16 @@ def _chart_research_asks(brief):
         return ''
     lines = []
     sourced = False
+    seen_asks = set()
     for _key, _skey, ask, source_ask in fields:
+        # Two tracked fields can share one ask (a compare chart and its benchmark), so the
+        # prompt must not print it twice.
+        if ask in seen_asks:
+            continue
+        seen_asks.add(ask)
         lines.append('- ' + ask)
-        if source_ask:
+        if source_ask and source_ask not in seen_asks:
+            seen_asks.add(source_ask)
             lines.append('- ' + source_ask)
             sourced = True
 
