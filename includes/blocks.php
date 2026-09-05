@@ -16,6 +16,27 @@ function photo_position_options() {
     return ['center' => 'Center', 'top' => 'Top', 'bottom' => 'Bottom', 'left' => 'Left', 'right' => 'Right'];
 }
 
+/**
+ * Resolve a stored image path to a src attribute.
+ *
+ * Most stored paths are relative ("uploads/media/x.webp") and need the page's prefix. Three
+ * kinds must be left alone: absolute URLs, protocol-relative URLs, and ROOT-ABSOLUTE paths
+ * ("/uploads/media/x.webp").
+ *
+ * That last case is the one this exists for. Fifteen blocks each open-coded the check and every
+ * one of them tested only for 'http' and '//', so a root-absolute path got the prefix glued on
+ * and became "//uploads/…" — which a browser reads as protocol-relative and resolves to
+ * http://uploads/…, i.e. a silently broken image. The plugin image tokens ({city_map},
+ * {chart_*}) return root-absolute paths because they also go into raw HTML fields, where a
+ * relative path would resolve against the page's own directory instead.
+ */
+function photo_src($photo, $pathPrefix = '') {
+    $photo = (string) $photo;
+    if ($photo === '') return '';
+    if ($photo[0] === '/' || preg_match('#^https?://#i', $photo)) return $photo;
+    return $pathPrefix . $photo;
+}
+
 function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix = '') {
     $position = array_key_exists((string) $position, photo_position_options()) ? (string) $position : 'center';
     $padding  = photo_ratio_to_padding((string) $ratio);
@@ -27,8 +48,9 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
         $style = 'padding-top:' . $padding . '%;';
     }
     $altAttr = h($alt ?: '');
+    $src = photo_src($photo, $pathPrefix);
     $html  = '<div class="' . $class . '"' . ($style !== '' ? ' style="' . h($style) . '"' : '') . '>';
-    $html .= '<img src="' . h($pathPrefix . $photo) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . 'loading="lazy" style="object-position:' . h($position) . ';">';
+    $html .= '<img src="' . h($src) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . 'loading="lazy" style="object-position:' . h($position) . ';">';
     $html .= '</div>';
     return $html;
 }
@@ -350,8 +372,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $textColor = $lum < 0.5 ? '#fff' : 'var(--color-heading,#111)';
             }
             if ($bgPhoto) {
-                $bgPhotoSrc = (str_starts_with($bgPhoto, 'http') || str_starts_with($bgPhoto, '//'))
-                    ? $bgPhoto : $pathPrefix . $bgPhoto;
+                $bgPhotoSrc = photo_src($bgPhoto, $pathPrefix);
                 $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:'.h(get_focal_point($bgPhoto)).';color:'.$textColor.';';
             } else {
                 $bgStyle = 'background:'.h($bgColor).';color:'.$textColor.';';
@@ -362,8 +383,7 @@ function render_content_block($block, $pathPrefix = '') {
             // Build image column HTML
             $hsImgCol = '';
             if ($photo) {
-                $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
-                    ? $photo : $pathPrefix . $photo;
+                $photoSrc = photo_src($photo, $pathPrefix);
                 $hsImgCol .= '<div class="hs-image-wrap">';
                 $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_intrinsic_attrs($photo).'style="object-position:'.h(get_focal_point($photo)).';">';
                 if ($caption1 || $caption2) {
@@ -410,8 +430,7 @@ function render_content_block($block, $pathPrefix = '') {
             $fsMobOrder  = $block['fs_mobile_order'] ?? '';
             $photoSrc    = '';
             if ($photo) {
-                $photoSrc = (str_starts_with($photo, 'http') || str_starts_with($photo, '//'))
-                    ? $photo : $pathPrefix . $photo;
+                $photoSrc = photo_src($photo, $pathPrefix);
             }
             $hasIcons = !empty(array_filter($items, fn($i) => !empty($i['icon'])));
 
@@ -438,7 +457,7 @@ function render_content_block($block, $pathPrefix = '') {
                 foreach ($items as $item) {
                     $iIcon = $item['icon'] ?? ''; $iHead = $item['heading'] ?? '';
                     $iText = $item['text'] ?? ''; $iAlt  = $item['alt'] ?? '';
-                    $iIconSrc = $iIcon ? ((str_starts_with($iIcon,'http')||str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon) : '';
+                    $iIconSrc = $iIcon ? (photo_src($iIcon, $pathPrefix)) : '';
                     echo '<div class="fs-item">';
                     if ($iIconSrc) echo '<img class="fs-item-icon" src="'.h($iIconSrc).'" alt="'.h($iAlt).'" '.img_intrinsic_attrs($iIcon).'loading="lazy">';
                     echo '<div class="fs-item-body">';
@@ -713,8 +732,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             $infoPhotoSrc = '';
             if ($infoPhoto) {
-                $infoPhotoSrc = (str_starts_with($infoPhoto,'http') || str_starts_with($infoPhoto,'//'))
-                    ? $infoPhoto : $pathPrefix.$infoPhoto;
+                $infoPhotoSrc = photo_src($infoPhoto, $pathPrefix);
             }
 
             // Build each panel, then emit in the order dictated by $mapSide.
@@ -756,8 +774,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             $photoSrc = '';
             if ($photo) {
-                $photoSrc = (str_starts_with($photo,'http') || str_starts_with($photo,'//'))
-                    ? $photo : $pathPrefix.$photo;
+                $photoSrc = photo_src($photo, $pathPrefix);
             }
 
             if ($style === 'light') {
@@ -934,8 +951,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             $photoSrc = '';
             if ($photo) {
-                $photoSrc = (str_starts_with($photo,'http') || str_starts_with($photo,'//'))
-                    ? $photo : $pathPrefix.$photo;
+                $photoSrc = photo_src($photo, $pathPrefix);
             }
             $tel = $phoneUrl ?: ('tel:'.preg_replace('/[^0-9+]/', '', $phone));
 
@@ -1002,8 +1018,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             $photoSrc = '';
             if ($photo) {
-                $photoSrc = (str_starts_with($photo,'http') || str_starts_with($photo,'//'))
-                    ? $photo : $pathPrefix.$photo;
+                $photoSrc = photo_src($photo, $pathPrefix);
             }
 
             if ($photoSrc) {
@@ -1079,7 +1094,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $iText  = $item['text']    ?? '';
                 $iUrl   = $item['url']     ?? '';
                 $iIconSrc = '';
-                if ($iIcon) $iIconSrc = (str_starts_with($iIcon,'http') || str_starts_with($iIcon,'//')) ? $iIcon : $pathPrefix.$iIcon;
+                if ($iIcon) $iIconSrc = photo_src($iIcon, $pathPrefix);
                 $tag    = $iUrl ? 'a' : 'div';
                 $tagAttr = $iUrl ? ' href="'.h($iUrl).'"' : '';
                 echo '<'.$tag.' class="svc-card"'.$tagAttr.'>';
@@ -1118,8 +1133,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             $photoSrc = '';
             if ($photo) {
-                $photoSrc = (str_starts_with($photo,'http') || str_starts_with($photo,'//'))
-                    ? $photo : $pathPrefix.$photo;
+                $photoSrc = photo_src($photo, $pathPrefix);
             }
 
             echo '<div class="content-block block-hero-grid"'.$anchorAttr.'>';
@@ -1144,8 +1158,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $iDesc    = $item['desc']    ?? '';
                 $iIconSrc = '';
                 if ($iIcon) {
-                    $iIconSrc = (str_starts_with($iIcon,'http') || str_starts_with($iIcon,'//'))
-                        ? $iIcon : $pathPrefix.$iIcon;
+                    $iIconSrc = photo_src($iIcon, $pathPrefix);
                 }
                 if ($hgFlip) {
                     // Icon: inline a white silhouette from the brand icon library when the
@@ -1221,7 +1234,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $icon    = $tab['icon']    ?? '';
                 $iconSrc = '';
                 if ($icon) {
-                    $iconSrc = (str_starts_with($icon,'http') || str_starts_with($icon,'//')) ? $icon : $pathPrefix.$icon;
+                    $iconSrc = photo_src($icon, $pathPrefix);
                 }
                 $isActive = $ti === 0 ? 'ts-tab-active' : '';
                 $activeInlineStyle = $ti === 0 ? 'background:'.$activeBgStyle.';color:#fff;' : '';
@@ -1242,7 +1255,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $desc    = $tab['desc']  ?? '';
                 $photoSrc = '';
                 if ($photo) {
-                    $photoSrc = (str_starts_with($photo,'http') || str_starts_with($photo,'//')) ? $photo : $pathPrefix.$photo;
+                    $photoSrc = photo_src($photo, $pathPrefix);
                 }
                 $hidden = $ti === 0 ? '' : ' hidden';
                 echo '<div class="ts-panel" data-panel="'.$ti.'"'.$hidden.'>';
@@ -1494,7 +1507,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($tag)         echo '<a class="post-meta-tag" href="/blog?tag=' . h(slugify($tag)) . '">' . h($tag) . '</a>';
             echo '</div>';
             if ($featImg) {
-                $featSrc = (str_starts_with($featImg,'http') || str_starts_with($featImg,'//')) ? $featImg : $pathPrefix . $featImg;
+                $featSrc = photo_src($featImg, $pathPrefix);
                 echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" ' . img_intrinsic_attrs($featImg) . 'loading="lazy">';
             }
             echo '</div>';
@@ -1530,7 +1543,7 @@ function render_content_block($block, $pathPrefix = '') {
                     $bpImg = $bp['featured_image'] ?? '';
                     echo '<a class="blog-card" href="/blog/' . h($bp['slug'] ?? '') . '">';
                     if ($bpImg) {
-                        $bpSrc = (str_starts_with($bpImg,'http') || str_starts_with($bpImg,'//')) ? $bpImg : $pathPrefix . $bpImg;
+                        $bpSrc = photo_src($bpImg, $pathPrefix);
                         echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" ' . img_intrinsic_attrs($bpImg) . 'loading="lazy">';
                     }
                     echo '<div class="blog-card-body">';

@@ -427,20 +427,21 @@
             "if_phone_label": "Call Us 24/7",
             "if_phone": "{phone}",
             "if_phone_url": "tel:{tel}",
-            "if_photo_alt": "Water damage restoration in {city}, {SS}",
+            "if_photo_alt": "{chart_rainfall_vs_average_alt}",
             "if_bg_color": "#eef4fb",
             "if_check_color": "accent",
             "if_head_color": "header",
             "if_check_color_custom": "#2563eb",
             "if_head_color_custom": "#0d2340",
-            "if_photo": "sites/water-site/uploads/media/construction-workshop-ladder-lufkin-tx.webp",
+            "if_photo": "{chart_rainfall_vs_average}",
             "if_features": [
                 "24/7 emergency water extraction",
                 "Structural drying & dehumidification",
                 "Flood, storm & sewage cleanup",
                 "Full repairs & reconstruction"
             ],
-            "id": "image_features_1"
+            "id": "image_features_1",
+            "_if_photo_prechart": "sites/water-site/uploads/media/construction-workshop-ladder-lufkin-tx.webp"
         },
         {
             "type": "faq_two_col",
@@ -553,11 +554,11 @@
         {
             "type": "map_info",
             "skin": "light",
-            "mi_map_heading": "{city}, {state} Map",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
             "mi_info_heading": "{city_state} Information",
             "mi_info_text": "{city_spotlight}",
             "mi_info_alt": "{city_image_alt}",
-            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_map_embed": "<img src=\"{city_map}\" alt=\"{city_map_alt}\">",
             "mi_map_side": "left",
             "mi_head_color": "header",
             "mi_head_color_custom": "#0d2340",

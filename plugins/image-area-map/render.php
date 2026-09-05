@@ -61,18 +61,48 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => true];
 }
 
+/**
+ * PNG to WebP. ImageMagick first, GD second.
+ *
+ * Deliberately duplicated from the chart plugin rather than shared: a plugin is the whole unit,
+ * and this one must not stop working because the other was removed.
+ *
+ * Not just GD: imagecreatefrompng()+imagewebp() on rsvg's output produced an all-BLACK image —
+ * a perfect PNG and a WebP-shaped void on the page. ImageMagick is reliable on PNG; only its
+ * SVG parsing is weak, and that job belongs to rsvg.
+ */
+function city_map_png_to_webp(string $png, string $webpPath): bool
+{
+    $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
+    if ($bin) {
+        @exec(escapeshellarg($bin) . ' ' . escapeshellarg($png) . ' -background white -flatten'
+            . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null', $o, $c);
+        if ($c === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
+    }
+    if (function_exists('imagewebp')) {
+        $im = @imagecreatefrompng($png);
+        if ($im) {
+            // Flatten onto white before encoding — a transparent background became black.
+            $flat = imagecreatetruecolor(imagesx($im), imagesy($im));
+            imagefill($flat, 0, 0, imagecolorallocate($flat, 255, 255, 255));
+            imagecopy($flat, $im, 0, 0, 0, 0, imagesx($im), imagesy($im));
+            $ok = @imagewebp($flat, $webpPath, 88);
+            imagedestroy($im);
+            imagedestroy($flat);
+            if ($ok && is_file($webpPath) && filesize($webpPath) > 0) return true;
+        }
+    }
+    return false;
+}
+
 /** SVG → WebP. Uses whichever converter the box has; returns false if none does. */
 function city_map_rasterise(string $svgPath, string $webpPath): bool
 {
-    // ms_convert_bin() is the multisite build's own ImageMagick locator — reuse it rather
-    // than guessing at a path, so this works wherever the image pipeline already works.
-    $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
-    if ($bin) {
-        $cmd = escapeshellarg($bin) . ' -background none ' . escapeshellarg($svgPath)
-             . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null';
-        @exec($cmd, $out, $code);
-        if ($code === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
-    }
+    // rsvg-convert FIRST, because it is a real SVG renderer. ImageMagick's built-in MSVG
+    // delegate silently drops gradient fills: the diagram rasterised with a TRANSPARENT
+    // background, so on a dark section the dark ink text sat on dark and was unreadable. The
+    // picture was there, correct, and invisible. ImageMagick stays as the fallback because it
+    // is the one binary the build is guaranteed to have.
     foreach (['rsvg-convert', 'inkscape'] as $alt) {
         $which = trim((string) @shell_exec('command -v ' . escapeshellarg($alt) . ' 2>/dev/null'));
         if ($which === '') continue;
@@ -81,17 +111,23 @@ function city_map_rasterise(string $svgPath, string $webpPath): bool
             ? escapeshellarg($which) . ' -o ' . escapeshellarg($png) . ' ' . escapeshellarg($svgPath)
             : escapeshellarg($which) . ' --export-type=png --export-filename=' . escapeshellarg($png) . ' ' . escapeshellarg($svgPath);
         @exec($cmd . ' 2>/dev/null', $o2, $c2);
-        if ($c2 === 0 && is_file($png) && function_exists('imagewebp')) {
-            $im = @imagecreatefrompng($png);
-            if ($im) {
-                imagepalettetotruecolor($im);
-                $ok = @imagewebp($im, $webpPath, 88);
-                imagedestroy($im);
-                @unlink($png);
-                if ($ok) return true;
-            }
+        // The encode is deliberately NOT GD's: imagewebp() on rsvg's output produced an
+        // all-black image, so the diagram was perfect as a PNG and a void as a WebP.
+        if ($c2 === 0 && is_file($png) && city_map_png_to_webp($png, $webpPath)) {
+            @unlink($png);
+            return true;
         }
         @unlink($png);
+    }
+    // ms_convert_bin() is the multisite build's own ImageMagick locator — reuse it rather than
+    // guessing at a path, so this works wherever the image pipeline already works. Last resort:
+    // it loses gradients, but a flat-looking diagram beats shipping raw SVG.
+    $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
+    if ($bin) {
+        $cmd = escapeshellarg($bin) . ' -background white -flatten ' . escapeshellarg($svgPath)
+             . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null';
+        @exec($cmd, $out, $code);
+        if ($code === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
     }
     return false;
 }

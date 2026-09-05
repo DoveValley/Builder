@@ -53,30 +53,63 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
     return ['path' => '/' . $p['rel'] . '.webp', 'alt' => $alt, 'drawn' => true];
 }
 
-/** SVG to WebP, using whatever the box has. Mirrors the city-map plugin deliberately. */
-function city_chart_rasterise(string $svgPath, string $webpPath): bool
+/**
+ * PNG to WebP. ImageMagick first, GD second.
+ *
+ * Not just GD: imagecreatefrompng()+imagewebp() on rsvg's output produced an all-BLACK image
+ * here — the PNG was perfect, the WebP was black, and the page showed a chart-shaped void. So
+ * the encode is handed to ImageMagick, which is reliable on PNG; only its SVG parsing is weak,
+ * and that job belongs to rsvg. GD stays as the fallback for boxes with no ImageMagick.
+ */
+function city_chart_png_to_webp(string $png, string $webpPath): bool
 {
     $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
     if ($bin) {
-        @exec(escapeshellarg($bin) . ' -background none ' . escapeshellarg($svgPath)
+        @exec(escapeshellarg($bin) . ' ' . escapeshellarg($png) . ' -background white -flatten'
             . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null', $o, $c);
         if ($c === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
     }
+    if (function_exists('imagewebp')) {
+        $im = @imagecreatefrompng($png);
+        if ($im) {
+            // Flatten onto white before encoding — a transparent background became black.
+            $flat = imagecreatetruecolor(imagesx($im), imagesy($im));
+            imagefill($flat, 0, 0, imagecolorallocate($flat, 255, 255, 255));
+            imagecopy($flat, $im, 0, 0, 0, 0, imagesx($im), imagesy($im));
+            $ok = @imagewebp($flat, $webpPath, 88);
+            imagedestroy($im);
+            imagedestroy($flat);
+            if ($ok && is_file($webpPath) && filesize($webpPath) > 0) return true;
+        }
+    }
+    return false;
+}
+
+/** SVG to WebP, using whatever the box has. Mirrors the city-map plugin deliberately. */
+function city_chart_rasterise(string $svgPath, string $webpPath): bool
+{
+    // rsvg-convert FIRST — it is a real SVG renderer. ImageMagick's MSVG delegate silently
+    // drops gradient fills, so the chart rasterised with a TRANSPARENT background and its dark
+    // title sat on the page's dark section, unreadable. The chart was correct and invisible.
+    // NOT gated on imagewebp(): the encode step picks its own tool (ImageMagick first), so
+    // requiring GD here made a box without GD-WebP skip the good renderer entirely and fall
+    // through to ImageMagick-on-SVG — which is what produced the black chart.
     $which = trim((string) @shell_exec('command -v rsvg-convert 2>/dev/null'));
-    if ($which !== '' && function_exists('imagewebp')) {
+    if ($which !== '') {
         $png = $webpPath . '.png';
         @exec(escapeshellarg($which) . ' -o ' . escapeshellarg($png) . ' ' . escapeshellarg($svgPath) . ' 2>/dev/null', $o2, $c2);
         if ($c2 === 0 && is_file($png)) {
-            $im = @imagecreatefrompng($png);
-            if ($im) {
-                imagepalettetotruecolor($im);
-                $ok = @imagewebp($im, $webpPath, 88);
-                imagedestroy($im);
-                @unlink($png);
-                if ($ok) return true;
-            }
+            if (city_chart_png_to_webp($png, $webpPath)) { @unlink($png); return true; }
         }
         @unlink($png);
+    }
+    // ImageMagick last: it loses gradients, but -flatten onto white keeps the chart readable,
+    // and it is the one binary the build is guaranteed to have.
+    $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
+    if ($bin) {
+        @exec(escapeshellarg($bin) . ' -background white -flatten ' . escapeshellarg($svgPath)
+            . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null', $o, $c);
+        if ($c === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
     }
     return false;
 }

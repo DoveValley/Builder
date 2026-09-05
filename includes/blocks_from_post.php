@@ -256,10 +256,21 @@ function parse_blocks_from_post(): array {
                 // Sanitize map embed — only allow iframe tag, strip event attributes
                 $rawEmbed = trim($_POST['mi_map_embed'][$i] ?? '');
                 $rawEmbed = preg_replace('/\s+on\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]*)/i', '', $rawEmbed);
-                // Store ONLY the matched <iframe>…</iframe>, not the whole input — a payload
-                // like "<script>…</script><iframe…></iframe>" must not survive just because
-                // an iframe is present. Non-greedy so we capture a single embed.
-                $block['mi_map_embed'] = preg_match('/<iframe[^>]*>.*?<\/iframe>/is', $rawEmbed, $ifr) ? $ifr[0] : '';
+                // Store ONLY the matched tag, not the whole input — a payload like
+                // "<script>…</script><iframe…></iframe>" must not survive just because an
+                // iframe is present. Non-greedy so we capture a single embed.
+                //
+                // A bare <img> is allowed as well as an <iframe>, because this panel is where
+                // the Area Map plugin's diagram goes: <img src="{city_map}" alt="{city_map_alt}">.
+                // Without this the iframe-only filter silently wiped the diagram the first time
+                // anyone re-saved the block, which looks like the plugin failing.
+                if (preg_match('/<iframe[^>]*>.*?<\/iframe>/is', $rawEmbed, $ifr)) {
+                    $block['mi_map_embed'] = $ifr[0];
+                } elseif (preg_match('/<img\s[^>]*>/i', $rawEmbed, $img)) {
+                    $block['mi_map_embed'] = $img[0];
+                } else {
+                    $block['mi_map_embed'] = '';
+                }
                 $block['mi_map_side'] = (($_POST['mi_map_side'][$i] ?? 'left') === 'right') ? 'right' : 'left';
                 $mhc = in_array($_POST['mi_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['mi_head_color'][$i] : 'header';
                 $block['mi_head_color'] = $mhc;
@@ -941,6 +952,16 @@ function parse_blocks_from_post(): array {
                 $block['heading_level'] = in_array($aiHlRaw, ['h2','h3','h4']) ? $aiHlRaw : 'h2';
                 $block['text']          = trim($_POST['ai_text'][$i] ?? '');
                 $block['_ai_locked']    = !empty($_POST['ai_locked'][$i]);
+                // An ai_block with ai_render_as="image_text" carries a photo, and the
+                // image_text hidden inputs post for every block regardless of type — but this
+                // case never read them, so saving a page in the panel silently dropped the
+                // picture. Round-trip them so a chart token (or any photo) survives a save.
+                $aiPhoto = trim($_POST['it_photo_existing'][$i] ?? '');
+                if ($aiPhoto !== '') $block['it_photo'] = $aiPhoto;
+                $aiPhotoAlt = trim($_POST['it_alt'][$i] ?? '');
+                if ($aiPhotoAlt !== '') $block['it_alt'] = $aiPhotoAlt;
+                $aiSide = trim($_POST['it_image_side'][$i] ?? '');
+                if (in_array($aiSide, ['left', 'right'], true)) $block['it_image_side'] = $aiSide;
                 // Round-trip AI meta from hidden fields
                 $aiGenRaw = trim($_POST['ai_meta_generated'][$i] ?? '');
                 if ($aiGenRaw === '1') {

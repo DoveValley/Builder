@@ -300,9 +300,18 @@ function apply_shortcodes_to_block(array $block): array {
                     if (stripos($key, $sk) !== false) { $skip = true; break; }
                 }
             }
-            // Photo/image/src keys are normally skipped (they hold literal paths), but the
-            // {city_image} token legitimately resolves to a path, so let it through.
-            if ($skip && strpos($value, '{city_image') !== false) $skip = false;
+            // Photo/image/src keys are normally skipped, because they hold literal paths and
+            // a stray brace in a filename should not be treated as a token.
+            //
+            // But a value that is ONLY a token is not a path — it is a request for one, and
+            // several plugins answer it: {city_image}, {city_map}, {chart_rainfall}. So let a
+            // bare token through and skip everything else.
+            //
+            // This used to name {city_image} specifically, which meant every later plugin
+            // silently failed in photo fields: the Data Chart's alt text resolved (keys ending
+            // _alt are never skipped) while its path came out as the literal "{chart_rainfall}"
+            // — an image URL of "/{chart_rainfall}" on the page and no clue why.
+            if ($skip && preg_match('/^\s*\{[a-z0-9_]+\}\s*$/i', $value)) $skip = false;
             if (!$skip) $block[$key] = resolve_shortcodes($value);
         } elseif (is_array($value)) {
             $block[$key] = apply_shortcodes_to_block($value);

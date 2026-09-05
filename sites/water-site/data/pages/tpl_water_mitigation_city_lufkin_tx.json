@@ -212,8 +212,8 @@
       "ai_mode": "standalone",
       "ai_render_as": "image_text",
       "it_image_side": "right",
-      "it_photo": "sites/water-site/uploads/media/stone-mansion-home-exterior-lufkin-tx.webp",
-      "it_alt": "Water mitigation in progress — water removal in {city_state} by {business}",
+      "it_photo": "{chart_rainfall}",
+      "it_alt": "{chart_rainfall_alt}",
       "ai_inject_target": null,
       "ai_inject_field": null,
       "ai_inject_mode": null,
@@ -229,7 +229,9 @@
       "_ai_type": "local_relevance",
       "_ai_input_hash": "720332e16cc36539",
       "_it_photo_orig": "sites/water-site/uploads/media/stone-mansion-home-exterior-2-lufkin-tx.webp",
-      "id": "ai_block_3"
+      "id": "ai_block_3",
+      "_it_photo_prechart": "sites/water-site/uploads/media/stone-mansion-home-exterior-lufkin-tx.webp",
+      "it_ratio": "auto"
     },
     {
       "type": "ai_block",
@@ -382,12 +384,12 @@
     },
     {
       "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
       "mi_info_heading": "{city_state} Information",
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+      "mi_map_embed": "<img src=\"{city_map}\" alt=\"{city_map_alt}\">",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
