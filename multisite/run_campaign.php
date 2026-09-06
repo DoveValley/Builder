@@ -141,8 +141,11 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
         $m['step'] = $ev['step'];
         if (!in_array($ev['step'], $m['steps'], true)) $m['steps'][] = $ev['step'];
     }
-    if (($ev['type'] ?? '') === 'fatal') { $m['status'] = 'failed'; $m['last'] = $msg; }
-    if (($ev['type'] ?? '') === 'done')  { $m['last'] = $msg; }
+    // Every message updates 'last', not just fatal/done — so a row still IN PROGRESS
+    // can say what it's doing right now (which AI block, which landing page, …)
+    // instead of showing nothing until it finishes or dies.
+    if ($msg !== '') $m['last'] = $msg;
+    if (($ev['type'] ?? '') === 'fatal') $m['status'] = 'failed';
     if (preg_match('/Deploy complete — (\d+) uploaded/u', $msg, $x)) $m['uploaded'] = (int)$x[1];
     if (preg_match('/Tokens\s*:\s*([\d,]+) in \/ ([\d,]+) out/u', $msg, $x)) {
         $m['tokens_in']  = (int)str_replace(',', '', $x[1]);
@@ -228,12 +231,28 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
                     'cost' => $m['cost'], 'duration_ms' => $dur, 'last' => $m['last'],
                     'step' => $m['step'], 'steps' => $m['steps'],
                 ];
-                if ($onProgress) $onProgress($results, $total);   // live status after each completed row
+                // Reported below, once per tick, alongside whatever's still in flight.
             }
             unset($running[$k]);
         }
         unset($rp);
         $running = array_values($running);
+
+        // Report live progress every tick, not just when a row finishes — a row still
+        // IN PROGRESS is exactly the case with nothing to show otherwise (see 'last'
+        // fix in ms_parse_line above). Same shape as a finished row, status='running'.
+        if ($onProgress) {
+            $inFlight = array_map(function (array $rp): array {
+                $m = $rp['m'];
+                return [
+                    'domain' => $rp['job']['domain'], 'status' => 'running', 'attempts' => $rp['job']['attempts'] + 1,
+                    'uploaded' => $m['uploaded'], 'tokens_in' => $m['tokens_in'], 'tokens_out' => $m['tokens_out'],
+                    'cost' => $m['cost'], 'duration_ms' => (int) round((microtime(true) - $rp['t0']) * 1000),
+                    'last' => $m['last'], 'step' => $m['step'], 'steps' => $m['steps'],
+                ];
+            }, $running);
+            $onProgress($results, $total, $inFlight);
+        }
         while (count($running) < $concurrency && $queue) $launch(array_shift($queue));
     }
     return $results;
@@ -263,8 +282,10 @@ $paramsVersion = ms_current_params_version($batchDir);   // which params table t
 // Write the run status file (state = running | done | failed). Written incrementally
 // so the admin UI can poll it while a detached run is in progress.
 $writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt) {
-    $ok  = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
-    $done = count($results);
+    // $results here can carry in-flight rows too (status='running') so the UI has
+    // something to show mid-build — those must not count toward done/ok/failed.
+    $ok   = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
+    $done = count(array_filter($results, fn($r) => $r['status'] !== 'running'));
     $payload = [
         'run_id'      => $runId,
         // master_id is recorded per run on purpose: a batch can be re-pointed at a
@@ -302,8 +323,8 @@ $writeStatus = function (string $state, array $results) use ($statusFile, $runId
 $writeStatus('running', []);   // initial marker so the UI sees the run immediately
 
 echo ($jobs > 1 ? "Running {$jobs} at a time…\n" : "Running sequentially…\n");
-$results = ms_run_pool($jobList, $jobs, $retries, $verbose, function ($partial, $total) use ($writeStatus) {
-    $writeStatus('running', $partial);
+$results = ms_run_pool($jobList, $jobs, $retries, $verbose, function ($partial, $total, $inFlight = []) use ($writeStatus) {
+    $writeStatus('running', array_merge($partial, $inFlight));
 });
 foreach ($rowFiles as $rf) @unlink($rf);
 
