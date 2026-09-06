@@ -489,6 +489,11 @@ function ms_contrast_ratio(string $a, string $b): float {
 }
 
 /** One colour, shifted deterministically for this domain. */
+/** Colours that must stay VIVID. Jitter may move their hue freely, but never dull them. */
+function ms_jitter_vivid_keys(): array {
+    return ['accent_color'];
+}
+
 function ms_jitter_color(string $hex, string $domain, string $key): string {
     $rgb = ms_hex_to_rgb($hex);
     if (!$rgb) return $hex;
@@ -503,9 +508,18 @@ function ms_jitter_color(string $hex, string $domain, string $key): string {
     $h = fmod(($h * 60) + 360, 360);
 
     $seed = crc32('jitter|' . $key . '|' . strtolower(trim($domain)));
+    $sat0 = $sat; $v0 = $v;
     $h   = fmod($h + (($seed % 21) - 10) + 360, 360);          // +/- 10 degrees
     $sat = min(max($sat + ((($seed >> 8) % 11) - 5) / 100, 0), 1);   // +/- 5%
     $v   = min(max($v   + ((($seed >> 16) % 7) - 3) / 100, 0), 1);   // +/- 3%
+
+    // The accent is the colour that carries the brand. Hue may move — that is where the
+    // mechanical difference comes from — but it must never come out duller or darker than the
+    // preset, or fifty sites slowly grey out to buy a signal nobody was reading anyway.
+    if (in_array($key, ms_jitter_vivid_keys(), true)) {
+        $sat = max($sat, $sat0);
+        $v   = max($v,   $v0);
+    }
 
     $c = $v * $sat; $x = $c * (1 - abs(fmod($h / 60, 2) - 1)); $m = $v - $c;
     if     ($h <  60) [$r,$g,$b] = [$c,$x,0];
