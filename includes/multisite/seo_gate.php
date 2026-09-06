@@ -268,6 +268,24 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
             $out['warnings'][] = "$label: unresolved shortcode(s) in the page body — "
                                . implode(', ', array_slice(array_unique($tk[0]), 0, 4));
         }
+
+        // Same class again: an <img> pointing at a file that was never built is a broken
+        // picture on a live page, and it is silent — the build reports success, the page
+        // reports 404 only to whoever loads it. A control run found 36 of these on a generated
+        // site, all from template photo paths left behind when the media was re-imported under
+        // different names. Checking the built output is the only place this shows up, because
+        // the paths are perfectly valid strings right up until someone asks for the file.
+        if (preg_match_all('/src="(\/[^"]+\.(?:webp|png|jpe?g|svg|gif))"/i', $html, $im)) {
+            $gone = [];
+            foreach (array_unique($im[1]) as $src) {
+                if (!is_file($outputDir . '/' . ltrim($src, '/'))) $gone[] = basename($src);
+            }
+            if ($gone) {
+                $out['warnings'][] = "$label: " . count($gone) . " image(s) referenced but not built — "
+                                   . implode(', ', array_slice($gone, 0, 3))
+                                   . (count($gone) > 3 ? ', …' : '');
+            }
+        }
     }
 
     // The other direction: pages built that the master has no record of.

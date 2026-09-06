@@ -30,12 +30,26 @@ const MS_AI_CONFIG_KEYS = [
     'ai_inject_target', 'ai_inject_field', 'ai_inject_mode', 'ai_prompt_override',
 ];
 
+/**
+ * Image fields, which are NOT generated content even on a standalone ai_block — the path comes
+ * from the template scaffold and the model only ever echoes it back. Caching one freezes a
+ * filename for the life of the cache, so when the media library changes the cache keeps
+ * reinstating the old name and the page ships a 404. That is not theoretical: water-site's
+ * Pic Drop images were deleted in 721a59b and cached ai_blocks were still asking for them
+ * weeks later. Same reasoning as the enrich path below — cache what the model wrote, nothing else.
+ */
+const MS_AI_IMAGE_KEYS = [
+    'hs_photo', 'hs_bg_photo', 'it_photo', 'fs_photo', 'hg_photo', 'wb_photo',
+    'if_photo', 'lg_photo', 'mi_info_photo', 'mi_photo', 'photo', 'bg_photo',
+];
+
 /** The generated payload of a block = content only (no static config, no `_`-prefixed meta). */
 function ms_ai_block_value(array $block): array {
     $v = [];
     foreach ($block as $k => $val) {
         if ($k === '' || $k[0] === '_') continue;                 // drop _ai_* generation metadata
         if (in_array($k, MS_AI_CONFIG_KEYS, true)) continue;      // drop static config/scaffold
+        if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;       // drop image paths — see above
         $v[$k] = $val;
     }
     return $v;
@@ -124,7 +138,10 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
     ms_ai_walk_site($site, function (array &$b) use ($entries, &$candidates) {
         $id = $b['id'] ?? '';
         if ($id === '' || !isset($entries[$id])) return;
-        foreach (($entries[$id]['value'] ?? []) as $k => $v) $b[$k] = $v;
+        foreach (($entries[$id]['value'] ?? []) as $k => $v) {
+            if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;   // pre-existing caches carry these
+            $b[$k] = $v;
+        }
         $b['_ai_cache_hash'] = $entries[$id]['input_hash'] ?? '';
         $candidates++;
     });
@@ -142,7 +159,10 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
         ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $base, &$candidates, &$pageHits) {
             $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
             if (!isset($entries[$key])) return;
-            foreach (($entries[$key]['value'] ?? []) as $k => $v) $b[$k] = $v;
+            foreach (($entries[$key]['value'] ?? []) as $k => $v) {
+                if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;   // pre-existing caches carry these
+                $b[$k] = $v;
+            }
             $b['_ai_cache_hash'] = $entries[$key]['input_hash'] ?? '';
             $candidates++; $pageHits++;
         });
