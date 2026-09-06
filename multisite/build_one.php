@@ -182,6 +182,13 @@ if ($landingCities && $skipped('landing')) {
     $label = implode(', ', array_map(fn($c) => $c['city'] . ', ' . $c['SS'], $landingCities));
     ms_step_begin('landing');
     progress_log('Generating landing pages for ' . count($landingCities) . ' city(ies): ' . $label . '…');
+
+    // The clone started as a full copy of the master, including whatever landing pages
+    // the master itself already has for its OWN city (e.g. water-site's master doubles
+    // as a real Lufkin site) — see ms_prune_stale_landing_pages(). Prune those before
+    // generating, so this deploy only ever ships pages for cities it actually asked for.
+    $prunedN = ms_prune_stale_landing_pages($workingDir, array_column($landingCities, 'id'));
+    if ($prunedN > 0) progress_log("Landing pages: removed {$prunedN} page(s) inherited from the master for a city not requested here.");
     // Scope the working-dir city list to just this deploy's landing cities — but keep
     // the research the master already gathered for them (neighborhoods, population,
     // industries, employers, …). The working cities.json here is still the cloned master
