@@ -79,67 +79,81 @@ function city_chart_theme(): array
 }
 
 // Registered lazily: a site that never places a chart token never draws anything.
+//
+// Keyed by city_slug, not one flat value — a static multisite build renders MANY
+// pages in a single process, each potentially a DIFFERENT city (the home page's own,
+// plus whichever cities landing pages cover). A flat `static $cache` computed once
+// used whichever page happened to render FIRST (always the homepage) for the rest of
+// the entire build — so a landing page for any city other than the home page's own
+// silently got the home page's chart data (or its lack of data) instead of its own,
+// and never showed a chart at all. Caching per city_slug keeps the free reuse across
+// the many pages that share one city, while still recomputing when the city changes.
 add_hook('shortcode_tokens', function (array $map): array {
-    static $cache = null;
-    if ($cache === null) {
-        $cache = [];
-        if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
-            $niche = city_chart_niche(ACTIVE_SITE_DIR);
-            $city  = city_chart_current_city();
-            $theme = city_chart_theme();
-            $domain = city_chart_domain();
-            foreach (city_chart_definitions($niche) as $id => $def) {
-                $r = city_chart_render(ACTIVE_SITE_DIR, $city, $def, $theme);
-                // Tokens are registered even when empty, so an unplaced or dataless chart
-                // resolves to nothing rather than printing "{chart_rainfall}" on the page.
-                $cache['{chart_' . $id . '}']      = $r['path'] ?? '';
-                $cache['{chart_' . $id . '_alt}']  = $r['alt']  ?? '';
-                // The caption: the same facts as TEXT, because everything inside the picture
-                // is pixels Google cannot read. Built from the same series the chart was drawn
-                // from, so the two can never disagree.
-                $series = city_chart_series($def, $city);
-                $cache['{chart_' . $id . '_caption}'] = ($r && $series)
-                    ? city_chart_caption($def, $city, $series, $domain) : '';
-            }
+    static $cacheByCity = [];
+    if (!defined('ACTIVE_SITE_DIR') || !ACTIVE_SITE_DIR) return $map;
 
-            // ── Group tokens: {chart_group_NAME} ────────────────────────────
-            //
-            // A page asks for a TOPIC and the domain decides which chart in that topic it gets.
-            // Without this, every site built from one master puts the same chart on the same
-            // page — the images differ, the arrangement does not, and the arrangement is itself
-            // a fingerprint across the network.
-            //
-            // ms_variant() is a pure function of the domain (crc32 of salt|domain), so this is
-            // fully REPRODUCIBLE: rebuild the same site in a year and it picks the same chart.
-            //
-            // A group of one simply does not rotate, which is correct when only one chart fits
-            // a page. And a pick with no data falls through to the next chart in the group, so
-            // a thin city loses a chart rather than the whole image slot.
-            foreach (city_chart_groups($niche) as $g) {
-                $defs = city_chart_group($niche, $g);
-                $ids  = array_keys($defs);
-                $path = $alt = $cap = '';
-                if ($ids) {
-                    $n     = count($ids);
-                    $start = function_exists('ms_variant') ? ms_variant($domain, $n, 'chart_group_' . $g) : 0;
-                    for ($k = 0; $k < $n; $k++) {
-                        $id  = $ids[($start + $k) % $n];
-                        $key = '{chart_' . $id . '}';
-                        if (($cache[$key] ?? '') !== '') {
-                            $path = $cache[$key];
-                            $alt  = $cache['{chart_' . $id . '_alt}'] ?? '';
-                            $cap  = $cache['{chart_' . $id . '_caption}'] ?? '';
-                            break;
-                        }
+    $city    = city_chart_current_city();
+    $cityKey = $city['city_slug'] !== '' ? $city['city_slug'] : ($city['city'] . '|' . $city['SS']);
+
+    if (!isset($cacheByCity[$cityKey])) {
+        $cache  = [];
+        $niche  = city_chart_niche(ACTIVE_SITE_DIR);
+        $theme  = city_chart_theme();
+        $domain = city_chart_domain();
+
+        foreach (city_chart_definitions($niche) as $id => $def) {
+            $r = city_chart_render(ACTIVE_SITE_DIR, $city, $def, $theme);
+            // Tokens are registered even when empty, so an unplaced or dataless chart
+            // resolves to nothing rather than printing "{chart_rainfall}" on the page.
+            $cache['{chart_' . $id . '}']      = $r['path'] ?? '';
+            $cache['{chart_' . $id . '_alt}']  = $r['alt']  ?? '';
+            // The caption: the same facts as TEXT, because everything inside the picture
+            // is pixels Google cannot read. Built from the same series the chart was drawn
+            // from, so the two can never disagree.
+            $series = city_chart_series($def, $city);
+            $cache['{chart_' . $id . '_caption}'] = ($r && $series)
+                ? city_chart_caption($def, $city, $series, $domain) : '';
+        }
+
+        // ── Group tokens: {chart_group_NAME} ────────────────────────────
+        //
+        // A page asks for a TOPIC and the domain decides which chart in that topic it gets.
+        // Without this, every site built from one master puts the same chart on the same
+        // page — the images differ, the arrangement does not, and the arrangement is itself
+        // a fingerprint across the network.
+        //
+        // ms_variant() is a pure function of the domain (crc32 of salt|domain), so this is
+        // fully REPRODUCIBLE: rebuild the same site in a year and it picks the same chart.
+        //
+        // A group of one simply does not rotate, which is correct when only one chart fits
+        // a page. And a pick with no data falls through to the next chart in the group, so
+        // a thin city loses a chart rather than the whole image slot.
+        foreach (city_chart_groups($niche) as $g) {
+            $defs = city_chart_group($niche, $g);
+            $ids  = array_keys($defs);
+            $path = $alt = $cap = '';
+            if ($ids) {
+                $n     = count($ids);
+                $start = function_exists('ms_variant') ? ms_variant($domain, $n, 'chart_group_' . $g) : 0;
+                for ($k = 0; $k < $n; $k++) {
+                    $id  = $ids[($start + $k) % $n];
+                    $key = '{chart_' . $id . '}';
+                    if (($cache[$key] ?? '') !== '') {
+                        $path = $cache[$key];
+                        $alt  = $cache['{chart_' . $id . '_alt}'] ?? '';
+                        $cap  = $cache['{chart_' . $id . '_caption}'] ?? '';
+                        break;
                     }
                 }
-                $cache['{chart_group_' . $g . '}']         = $path;
-                $cache['{chart_group_' . $g . '_alt}']     = $alt;
-                $cache['{chart_group_' . $g . '_caption}'] = $cap;
             }
+            $cache['{chart_group_' . $g . '}']         = $path;
+            $cache['{chart_group_' . $g . '_alt}']     = $alt;
+            $cache['{chart_group_' . $g . '_caption}'] = $cap;
         }
+
+        $cacheByCity[$cityKey] = $cache;
     }
-    return array_merge($map, $cache);
+    return array_merge($map, $cacheByCity[$cityKey]);
 });
 
 /**
