@@ -252,7 +252,8 @@ if (!isset($csrfToken)) return;
              'groups' => [
                 ['key' => 'visual', 'label' => 'Visual identity', 'status' => 'live',
                  'subs' => [
-                    ['Colour + font preset — 10 in rotation', 'auto'],
+                    ['Colour palette — 10 in rotation, picked per domain', 'auto'],
+                    ['Font — 6 in rotation, picked per domain INDEPENDENTLY of the palette (60 combinations)', 'auto'],
                     ['Logo wordmark, drawn per site', 'auto'],
                     ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
                  ]],

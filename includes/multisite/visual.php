@@ -60,6 +60,38 @@ function ms_pick_theme_preset(string $masterId, array $params): ?array {
     return $pool[$idx] ?? $pool[0];
 }
 
+/**
+ * The font pool for this master. Panel-editable data, never a list in code.
+ *
+ * FONT IS ITS OWN AXIS, not a property of a palette. Baked into the ten presets it would give
+ * ten combinations with four fonts repeating; picked independently it gives 10 x 6 = 60, and
+ * nothing repeats. Same six fonts, same ten palettes, six times the mechanical variety.
+ *
+ * All six are top-tier Google Fonts and deliberately UNREMARKABLE — a distinctive font shared
+ * across fifty sites is a stronger fingerprint than a common one, and readability is worth more
+ * than the marginal signal a rare face would buy.
+ */
+function ms_load_fonts(string $masterId): array {
+    $file = BASE_DIR . '/sites/' . $masterId . '/multisite/theme_presets.json';
+    $d = @json_decode((string)@file_get_contents($file), true);
+    $pool = [];
+    foreach (($d['fonts'] ?? []) as $f) {
+        if (!is_array($f)) continue;
+        if (($f['in_rotation'] ?? true) === false) continue;
+        $stack = trim((string)($f['stack'] ?? ''));
+        if ($stack !== '') $pool[] = $stack;
+    }
+    return $pool;
+}
+
+/** The font this domain gets. Deterministic — crc32 of the domain, so a rebuild repeats it. */
+function ms_pick_font(string $masterId, array $params): string {
+    $pool = ms_load_fonts($masterId);
+    if (!$pool) return '';
+    $domain = (string)($params['domain'] ?? $params['DOMAIN'] ?? '');
+    return $pool[ms_variant($domain, count($pool), 'font')] ?? $pool[0];
+}
+
 /** Load this master's Logo Library (array, or []). */
 function ms_load_logo_configs(string $masterId): array {
     $file = BASE_DIR . '/sites/' . $masterId . '/multisite/logo_configs.json';
@@ -420,6 +452,12 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
 
     // 2. Theme.
     ms_apply_theme_preset($data, $preset);
+
+    // Font is a SEPARATE axis from the palette, applied after it. Ten palettes and six fonts
+    // give sixty combinations; baked into the presets it would give ten, with four fonts
+    // repeating. Deterministic per domain, like the palette itself.
+    $font = ms_pick_font($masterId, $params);
+    if ($font !== '') $data['theme']['primary_font'] = $font;
 
     // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors
     // but with text/icon from this domain's Logo Config — a fully independent

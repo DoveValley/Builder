@@ -54,6 +54,26 @@ $file     = ACTIVE_SITE_DIR . '/multisite/theme_presets.json';
 $existing = @json_decode((string)@file_get_contents($file), true) ?: [];
 
 // Single-site brand selection: which preset id this site itself uses (0/blank = none).
+// Fonts round-trip whole: the panel posts the library it holds, and anything it does not send
+// keeps whatever is already on file rather than being silently dropped.
+$fonts = [];
+$rawFonts = json_decode((string)($_POST['fonts'] ?? ''), true);
+if (is_array($rawFonts)) {
+    foreach ($rawFonts as $f) {
+        if (!is_array($f)) continue;
+        $stack = trim((string)($f['stack'] ?? ''));
+        if ($stack === '') continue;
+        $fonts[] = [
+            'name'        => trim((string)($f['name'] ?? $stack)),
+            'stack'       => $stack,
+            'in_rotation' => ($f['in_rotation'] ?? true) !== false,
+        ];
+    }
+}
+if (!$fonts) $fonts = $existing['fonts'] ?? [];
+$singleFontId = isset($_POST['single_font_id']) && ctype_digit((string)$_POST['single_font_id'])
+    ? (int)$_POST['single_font_id'] : (int)($existing['single_font_id'] ?? 0);
+
 $singleId = isset($_POST['single_preset_id']) && ctype_digit((string)$_POST['single_preset_id'])
     ? (int)$_POST['single_preset_id'] : (int)($existing['single_preset_id'] ?? 0);
 if ($singleId > count($presets)) $singleId = 0;   // stale id (preset removed) → clear
@@ -62,6 +82,9 @@ $doc = [
     '_about'  => $existing['_about'] ?? 'Per-site Visual Identity library. Each preset = colors + font + button radius → drives the theme, logo, and favicon colors (icon/text come from the Logo Library instead). `single_preset_id` = the preset applied to THIS site; `in_rotation` per preset = whether the multisite build rotates through it when generating clones.',
     'niche'   => $existing['niche'] ?? '',
     'single_preset_id' => $singleId,
+    // The Font Library. Its own axis, not a property of a colour preset — see _about.
+    'fonts'            => $fonts,
+    'single_font_id'   => $singleFontId,
     'presets' => $presets,
 ];
 

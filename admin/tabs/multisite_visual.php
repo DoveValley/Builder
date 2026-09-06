@@ -30,6 +30,17 @@ foreach (($vpDoc['presets'] ?? []) as $p) {
         'in_rotation' => array_key_exists('in_rotation', $p) ? (bool)$p['in_rotation'] : true,
     ];
 }
+$vpFonts      = [];
+foreach (($vpDoc['fonts'] ?? []) as $f) {
+    if (!is_array($f)) continue;
+    $vpFonts[] = [
+        'name'        => (string)($f['name'] ?? ''),
+        'stack'       => (string)($f['stack'] ?? ''),
+        'in_rotation' => array_key_exists('in_rotation', $f) ? (bool)$f['in_rotation'] : true,
+    ];
+}
+$vpSingleFontId = (int)($vpDoc['single_font_id'] ?? 0);
+
 $vpBusiness = trim($data['site_vars']['business'] ?? '') ?: 'Acme Company';
 
 // Every card's preview below renders THIS SITE'S REAL active Logo Config
@@ -197,7 +208,7 @@ function msvCardHtml(i){
       +     '</div></div>'
       +   '</div>'
       +   '<div style="display:flex;gap:14px;margin-top:8px;">'
-      +     '<div style="flex:1;"><label style="margin-top:0;">Font</label><select class="msv-f" data-k="font">'+fonts+'</select></div>'
+      +     '<div style="flex:1;" class="hint">Font is chosen in the Font Library below, not per preset &mdash; 10 palettes &times; 6 fonts = 60 combinations.</div>'
       +     '<div><label style="margin-top:0;">Button radius</label><input type="number" min="0" max="50" class="msv-f" data-k="radius" value="'+msvEsc(p.radius)+'" style="width:80px;"></div>'
       +   '</div>'
       +   '<button type="button" onclick="msvRemove('+i+')" style="margin-top:12px;background:none;border:0;color:#dc2626;cursor:pointer;font-size:.85rem;padding:0;">✕ Remove preset</button>'
@@ -238,6 +249,8 @@ function msvPayload(){
     fd.append('csrf_token', MSV_CSRF);
     fd.append('presets', JSON.stringify(MSV));
     fd.append('single_preset_id', MSV_SINGLE >= 0 ? (MSV_SINGLE + 1) : 0);
+    fd.append('fonts', JSON.stringify(MSF));
+    fd.append('single_font_id', MSF_SINGLE >= 0 ? (MSF_SINGLE + 1) : 0);
     return fd;
 }
 // Debounced auto-save so preset edits (esp. picking an icon) persist without needing
@@ -275,3 +288,67 @@ function msvUse(i){
 msvRender();
 </script>
 </div>
+
+<?php /* ── Font Library ─────────────────────────────────────────────────────
+     Font is its OWN axis, not a property of a colour preset. Baked into the ten
+     presets it would give ten combinations with four fonts repeating; picked
+     independently by domain it gives 10 x 6 = 60 and nothing repeats.
+     Same shape as the preset and logo libraries: one is this site's default,
+     a tick marks each one the multisite build may rotate through. */ ?>
+<div class="card" id="msf-card">
+    <h3 style="margin-top:0;margin-bottom:6px;">&#127912; Font Library</h3>
+    <p class="hint" style="margin:0 0 14px;max-width:820px;">
+        Picked <strong>per domain</strong>, independently of the colour preset &mdash;
+        <?= count($vpPresets) ?> palettes &times; <?= max(1, count(array_filter($vpFonts, fn($f) => $f['in_rotation']))) ?> fonts in rotation =
+        <strong><?= count($vpPresets) * max(1, count(array_filter($vpFonts, fn($f) => $f['in_rotation']))) ?> combinations</strong>.
+        Deterministic, so a rebuild gives a site the same font. Kept deliberately common:
+        a distinctive face shared across fifty sites is a <em>stronger</em> fingerprint than a familiar one.
+    </p>
+    <div id="msf-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+    <button type="button" class="btn btn-secondary" style="margin-top:12px;" onclick="msfAdd()">+ Add font</button>
+</div>
+<script>
+var MSF        = <?= json_encode($vpFonts, JSON_UNESCAPED_SLASHES) ?>;
+var MSF_SINGLE = <?= $vpSingleFontId > 0 ? ($vpSingleFontId - 1) : -1 ?>;
+
+function msfRender(){
+    var h = '';
+    MSF.forEach(function(f, i){
+        var isSingle = (i === MSF_SINGLE);
+        h += '<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 12px;border:1px solid '
+           + (isSingle ? '#2563eb' : '#e5e7eb') + ';border-radius:8px;background:' + (isSingle ? '#f5f9ff' : '#fff') + ';">'
+           +   '<div style="flex:0 0 210px;font-size:1.15rem;font-family:' + msvEsc(f.stack) + ';">The quick brown fox</div>'
+           +   '<input type="text" class="msf-f" data-i="' + i + '" data-k="name"  value="' + msvEsc(f.name)  + '" style="flex:0 0 150px;" placeholder="Name">'
+           +   '<input type="text" class="msf-f" data-i="' + i + '" data-k="stack" value="' + msvEsc(f.stack) + '" style="flex:1;min-width:190px;font-family:monospace;font-size:.82rem;" placeholder="Inter, sans-serif">'
+           +   (isSingle
+                 ? '<span style="font-size:.85rem;color:#2563eb;font-weight:700;white-space:nowrap;">&#9733; This site</span>'
+                 : '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;white-space:nowrap;" onclick="msfUse(' + i + ')">Use for this site</button>')
+           +   '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.88rem;white-space:nowrap;">'
+           +     '<input type="checkbox" class="msf-rot" data-i="' + i + '"' + (f.in_rotation !== false ? ' checked' : '') + '> In rotation</label>'
+           +   '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;" onclick="msfRemove(' + i + ')" title="Remove">&times;</button>'
+           + '</div>';
+    });
+    document.getElementById('msf-list').innerHTML = h || '<p class="hint">No fonts yet.</p>';
+    document.querySelectorAll('.msf-f').forEach(function(el){
+        el.addEventListener('change', function(){
+            MSF[+el.getAttribute('data-i')][el.getAttribute('data-k')] = el.value;
+            msfRender(); msvAutoSave();
+        });
+    });
+    document.querySelectorAll('.msf-rot').forEach(function(el){
+        el.addEventListener('change', function(){
+            MSF[+el.getAttribute('data-i')].in_rotation = el.checked;
+            msfRender(); msvAutoSave();
+        });
+    });
+}
+function msfUse(i){ MSF_SINGLE = i; msfRender(); msvAutoSave(); }
+function msfAdd(){ MSF.push({name:'', stack:'', in_rotation:true}); msfRender(); msvAutoSave(); }
+function msfRemove(i){
+    if (MSF.length <= 1){ alert('Keep at least one font.'); return; }
+    MSF.splice(i, 1);
+    if (MSF_SINGLE === i) MSF_SINGLE = -1; else if (MSF_SINGLE > i) MSF_SINGLE--;
+    msfRender(); msvAutoSave();
+}
+msfRender();
+</script>

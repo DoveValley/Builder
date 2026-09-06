@@ -1,217 +1,240 @@
 {
-    "_about": "Per-niche Theme Presets for this master. A Theme Preset is a named bundle of theme-tab values (colors + fonts + button radius) + the header nav color + a bug icon. Apply = deep-merge preset.theme into data['theme'], preset.header into data['header'], and generate a wordmark logo + favicon in the preset's colors with preset.icon (a bug from multisite/icons/, Apache-2.0 Noto Emoji) as an accent silhouette on a dark tile. Assignment per site: CSV 'theme_preset' column = id or name; blank = hash(domain) % count. See memory feedback_theme_naming + project_multisite_visual_styles.",
-    "niche": "pest",
-    "single_preset_id": 2,
-    "presets": [
-        {
-            "id": 1,
-            "name": "Green + Orange",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#F26A21",
-                "header_bg": "#1B5E3A",
-                "footer_bg": "#1B5E3A",
-                "heading_color": "#1B5E3A",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "5"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 2,
-            "name": "Forest + Amber",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#FFB100",
-                "header_bg": "#14532D",
-                "footer_bg": "#14532D",
-                "heading_color": "#14532D",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "2"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 3,
-            "name": "Navy + Leaf Green",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#8DC63F",
-                "header_bg": "#123A5C",
-                "footer_bg": "#123A5C",
-                "heading_color": "#123A5C",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "24"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Brown + Green",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#6FBF2F",
-                "header_bg": "#3B2A1A",
-                "footer_bg": "#3B2A1A",
-                "heading_color": "#3B2A1A",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "10"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Slate + Yellow",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#FFC400",
-                "header_bg": "#2E3338",
-                "footer_bg": "#2E3338",
-                "heading_color": "#2E3338",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "8"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 6,
-            "name": "Teal + Coral",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#E24B3C",
-                "header_bg": "#0E4A46",
-                "footer_bg": "#0E4A46",
-                "heading_color": "#0E4A46",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "6"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 7,
-            "name": "Midnight + Orange",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#FF7A00",
-                "header_bg": "#16273F",
-                "footer_bg": "#16273F",
-                "heading_color": "#16273F",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "3"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 8,
-            "name": "Plum + Lime",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#9BCC3B",
-                "header_bg": "#35234A",
-                "footer_bg": "#35234A",
-                "heading_color": "#35234A",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "12"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 9,
-            "name": "Olive + Red",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#E04E1B",
-                "header_bg": "#3D4127",
-                "footer_bg": "#3D4127",
-                "heading_color": "#3D4127",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "4"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        },
-        {
-            "id": 10,
-            "name": "Deep Green + Gold",
-            "note": "",
-            "in_rotation": true,
-            "theme": {
-                "accent_color": "#E8B31D",
-                "header_bg": "#12241C",
-                "footer_bg": "#12241C",
-                "heading_color": "#12241C",
-                "header_text": "#ffffff",
-                "footer_text": "#ffffff",
-                "header_top_bg": "#ffffff",
-                "primary_font": "Inter, sans-serif",
-                "heading_font": "",
-                "button_radius": "16"
-            },
-            "header": {
-                "nav_bg": "accent"
-            }
-        }
-    ]
+  "_about": "Per-niche Theme Presets for this master. A Theme Preset is a named bundle of theme-tab values (colors + fonts + button radius) + the header nav color + a bug icon. Apply = deep-merge preset.theme into data['theme'], preset.header into data['header'], and generate a wordmark logo + favicon in the preset's colors with preset.icon (a bug from multisite/icons/, Apache-2.0 Noto Emoji) as an accent silhouette on a dark tile. Assignment per site: CSV 'theme_preset' column = id or name; blank = hash(domain) % count. See memory feedback_theme_naming + project_multisite_visual_styles. `single_font_id` = the font applied to THIS site; `in_rotation` per font = whether the multisite build rotates through it. Font is its own axis, not part of a colour preset — 10 palettes x 6 fonts = 60 combinations rather than 10 with repeats.",
+  "niche": "pest",
+  "single_preset_id": 2,
+  "presets": [
+    {
+      "id": 1,
+      "name": "Green + Orange",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#F26A21",
+        "header_bg": "#1B5E3A",
+        "footer_bg": "#1B5E3A",
+        "heading_color": "#1B5E3A",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "5"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Forest + Amber",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#FFB100",
+        "header_bg": "#14532D",
+        "footer_bg": "#14532D",
+        "heading_color": "#14532D",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "2"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Navy + Leaf Green",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#8DC63F",
+        "header_bg": "#123A5C",
+        "footer_bg": "#123A5C",
+        "heading_color": "#123A5C",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "24"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Brown + Green",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#6FBF2F",
+        "header_bg": "#3B2A1A",
+        "footer_bg": "#3B2A1A",
+        "heading_color": "#3B2A1A",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "10"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Slate + Yellow",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#FFC400",
+        "header_bg": "#2E3338",
+        "footer_bg": "#2E3338",
+        "heading_color": "#2E3338",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "8"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Teal + Coral",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#E24B3C",
+        "header_bg": "#0E4A46",
+        "footer_bg": "#0E4A46",
+        "heading_color": "#0E4A46",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "6"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Midnight + Orange",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#FF7A00",
+        "header_bg": "#16273F",
+        "footer_bg": "#16273F",
+        "heading_color": "#16273F",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "3"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Plum + Lime",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#9BCC3B",
+        "header_bg": "#35234A",
+        "footer_bg": "#35234A",
+        "heading_color": "#35234A",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "12"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Olive + Red",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#E04E1B",
+        "header_bg": "#3D4127",
+        "footer_bg": "#3D4127",
+        "heading_color": "#3D4127",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "4"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Deep Green + Gold",
+      "note": "",
+      "in_rotation": true,
+      "theme": {
+        "accent_color": "#E8B31D",
+        "header_bg": "#12241C",
+        "footer_bg": "#12241C",
+        "heading_color": "#12241C",
+        "header_text": "#ffffff",
+        "footer_text": "#ffffff",
+        "header_top_bg": "#ffffff",
+        "heading_font": "",
+        "button_radius": "16"
+      },
+      "header": {
+        "nav_bg": "accent"
+      }
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Inter",
+      "stack": "Inter, sans-serif",
+      "in_rotation": true
+    },
+    {
+      "name": "Source Sans Pro",
+      "stack": "Source Sans Pro, sans-serif",
+      "in_rotation": true
+    },
+    {
+      "name": "Lato",
+      "stack": "Lato, sans-serif",
+      "in_rotation": true
+    },
+    {
+      "name": "Mulish",
+      "stack": "Mulish, sans-serif",
+      "in_rotation": true
+    },
+    {
+      "name": "Montserrat",
+      "stack": "Montserrat, sans-serif",
+      "in_rotation": true
+    },
+    {
+      "name": "Poppins",
+      "stack": "Poppins, sans-serif",
+      "in_rotation": true
+    }
+  ],
+  "single_font_id": 1
 }
