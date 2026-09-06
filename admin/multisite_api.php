@@ -8,6 +8,7 @@ require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/params.php';
 require_once __DIR__ . '/../includes/multisite/batch.php';
 require_once __DIR__ . '/../includes/multisite/master_lint.php';
+require_once __DIR__ . '/../includes/multisite/deploy.php';
 
 header('Content-Type: application/json');
 
@@ -24,7 +25,7 @@ $masterId = ACTIVE_SITE_ID;
 
 // ── Which batch ───────────────────────────────────────────────────────────────
 // Everything except the master-level actions below operates on the open batch.
-const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master'];
+const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 'test_deploy_save'];
 
 $batchId = ''; $batchDir = ''; $paramsPath = ''; $runsDir = '';
 $active  = ms_active_batch();
@@ -70,6 +71,20 @@ function ms_validation_payload(array $v): array {
         'unknown_columns' => $v['unknown_columns'],
         'rows'            => ms_rows_for_ui($v),
     ];
+}
+
+// ── Fixed "test server" (card 4) ──────────────────────────────────────────────
+// One reusable, always-overwritten deploy target OUTSIDE the fleet — a real host
+// + real domain + real HTTPS the operator already owns, so "does this look right
+// as an actual live page" can be checked without ever touching a fleet box or
+// Hestia. Gitignored like every other credential file under admin/infra/config/.
+
+function ms_test_deploy_path(): string { return BASE_DIR . '/admin/infra/config/test_deploy.json'; }
+
+function ms_test_deploy_config(): array {
+    $p = ms_test_deploy_path();
+    if (!is_file($p)) return [];
+    return json_decode((string) @file_get_contents($p), true) ?: [];
 }
 
 // ms_pid_alive() / ms_latest_run_file() / ms_read_run() / ms_active_run() live in
@@ -453,6 +468,113 @@ switch ($action) {
         if ($parsed['error']) { echo json_encode(['stored' => true, 'error' => $parsed['error']]); break; }
         $v = ms_validate_rows($parsed['rows'], $parsed['header']);
         echo json_encode(['stored' => true] + ms_validation_payload($v));
+        break;
+
+    // "Preview test" (card 1) — stores the same one-row placeholder already used by
+    // preview_titles, so a batch can go 1 → 4 → view with no real business data typed
+    // in. Same parse/validate/store path as upload_csv, so it can't drift from it.
+    case 'load_test_csv':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $cols = ['domain', 'business', 'phone', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
+                 'lat', 'lng', 'rating', 'review_count', 'analytics_id', 'logo',
+                 'ftp_host', 'ftp_port', 'ftp_user', 'ftp_pass', 'ftp_path', 'ftp_passive',
+                 'landing_cities', 'gsc_verification', 'theme_preset', 'ftp_protocol'];
+        $testRow = [
+            'domain' => 'example-city.com', 'business' => 'Example City Pros',
+            'phone' => '214-555-0100', 'tel' => '+12145550100', 'email' => 'info@example-city.com',
+            'address' => '100 Main St, Suite 400', 'city' => 'Dallas', 'state' => 'Texas', 'SS' => 'TX',
+            'zip' => '75201', 'lat' => '32.7767', 'lng' => '-96.7970', 'rating' => '4.8', 'review_count' => '126',
+        ];
+        // Kept deliberately DIFFERENT from the primary city above: landing_cities uses
+        // whichever city the master already has real research for (cities.json), so the
+        // test actually produces service pages instead of shipping none — but since it's
+        // never the same city as "Dallas", a bug that silently falls back to the master's
+        // own default city (like the ai_block lock issue) still has something to disagree with.
+        $masterCities = json_decode((string) @file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/cities.json'), true);
+        if (is_array($masterCities) && !empty($masterCities[0]['city']) && !empty($masterCities[0]['SS'])) {
+            $testRow['landing_cities'] = $masterCities[0]['city'] . ', ' . $masterCities[0]['SS'];
+        }
+        $tmp = tempnam(sys_get_temp_dir(), 'mstestcsv');
+        ms_write_csv($tmp, $cols, [$testRow]);
+
+        $parsed = ms_parse_csv($tmp);
+        @unlink($tmp);
+        if ($parsed['error']) { echo json_encode(['error' => 'CSV error: ' . $parsed['error']]); break; }
+        $v = ms_validate_rows($parsed['rows'], $parsed['header']);
+
+        $stored = false;
+        if ($v['error'] === 0 && count($v['rows']) > 0) {
+            $rehydrated = tempnam(sys_get_temp_dir(), 'mstestcsv2');
+            ms_write_csv($rehydrated, $parsed['header'], $parsed['rows']);
+            ms_store_params_csv($batchDir, $rehydrated);
+            @unlink($rehydrated);
+            $stored = true;
+        }
+        echo json_encode(['stored' => $stored, 'filename' => 'preview-test.csv'] + ms_validation_payload($v));
+        break;
+
+    // Read the stored test-server FTP config. Password never leaves the server —
+    // only whether one is set, same pattern as the target-list CSV's __KEEP__ mask.
+    case 'test_deploy_get':
+        $c = ms_test_deploy_config();
+        echo json_encode([
+            'ftp_host' => $c['ftp_host'] ?? '', 'ftp_protocol' => $c['ftp_protocol'] ?? 'ftp',
+            'ftp_port' => $c['ftp_port'] ?? '', 'ftp_user' => $c['ftp_user'] ?? '',
+            'ftp_path' => $c['ftp_path'] ?? '', 'ftp_passive' => $c['ftp_passive'] ?? true,
+            'view_url' => $c['view_url'] ?? '', 'has_password' => ($c['ftp_pass'] ?? '') !== '',
+        ]);
+        break;
+
+    // Save the test-server FTP config. An empty ftp_pass means "leave the stored
+    // password alone" — the form never carries the real one back down to fill in.
+    case 'test_deploy_save':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $existing = ms_test_deploy_config();
+        $newPass  = (string) ($_POST['ftp_pass'] ?? '');
+        $cfg = [
+            'ftp_host'     => trim((string) ($_POST['ftp_host'] ?? '')),
+            'ftp_protocol' => (($_POST['ftp_protocol'] ?? 'ftp') === 'sftp') ? 'sftp' : 'ftp',
+            'ftp_port'     => trim((string) ($_POST['ftp_port'] ?? '')),
+            'ftp_user'     => trim((string) ($_POST['ftp_user'] ?? '')),
+            'ftp_pass'     => $newPass !== '' ? $newPass : ($existing['ftp_pass'] ?? ''),
+            'ftp_path'     => trim((string) ($_POST['ftp_path'] ?? '')),
+            'ftp_passive'  => !empty($_POST['ftp_passive']),
+            'view_url'     => trim((string) ($_POST['view_url'] ?? '')),
+        ];
+        $ok = @file_put_contents(ms_test_deploy_path(), json_encode($cfg, JSON_PRETTY_PRINT)) !== false;
+        if ($ok) @chmod(ms_test_deploy_path(), 0600);
+        echo json_encode(['ok' => $ok, 'has_password' => $cfg['ftp_pass'] !== '']);
+        break;
+
+    // Push whatever "4. Generate sites" already built for one domain to the fixed
+    // test server — same deploy_site() the real Upload step uses, just pointed at
+    // credentials read from disk instead of the target list's ftp_* columns. Always
+    // forces a full upload: the slot is reused across totally different sites, so a
+    // manifest from the LAST site there would wrongly skip files as "unchanged".
+    case 'deploy_test_server':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $domain = trim((string) ($_POST['domain'] ?? ''));
+        if ($domain === '') { echo json_encode(['error' => 'No domain given.']); break; }
+
+        $cfg = ms_test_deploy_config();
+        if (($cfg['ftp_host'] ?? '') === '' || ($cfg['ftp_user'] ?? '') === '' || ($cfg['ftp_pass'] ?? '') === '') {
+            echo json_encode(['error' => 'Test server not configured yet — fill in its FTP details first.']);
+            break;
+        }
+
+        $outputDir = ms_batch_output_dir($masterId, $batchId, $domain);
+        if (!is_dir($outputDir)) {
+            echo json_encode(['error' => 'Nothing generated yet for this domain — run "4. Generate sites" first.']);
+            break;
+        }
+
+        $log = [];
+        progress_set_sink(function ($payload) use (&$log) { $log[] = $payload; });
+        $manifestFile = ms_test_deploy_path() . '.manifest.json';
+        $dep = deploy_site($cfg, rtrim($outputDir, '/') . '/', $manifestFile, true);
+        progress_set_sink(null);
+
+        echo json_encode(['result' => $dep, 'log' => $log, 'view_url' => $cfg['view_url'] ?? '']);
         break;
 
     // Upload a CSV → validate → store only if error-free.

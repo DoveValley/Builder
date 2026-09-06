@@ -30,9 +30,11 @@ if (!isset($csrfToken)) return;
             <input type="file" name="csv" id="ms-csv" accept=".csv,text/csv" required>
         </div>
         <button type="submit" class="btn btn-primary" id="ms-upload-btn">Upload &amp; Validate</button>
+        <button type="button" class="btn" id="ms-test-csv-btn" onclick="msLoadTestCsv()">Preview test</button>
         <span id="ms-upload-msg" class="hint" style="margin-left:10px;"></span>
     </form>
     <p class="hint" style="margin-top:10px;">The table is stored only when every row is error-free. Rows with warnings are kept (they build, but a row without FTP credentials won't deploy). Fix any errors and re-upload.</p>
+    <p class="hint" style="margin-top:4px;"><strong>Preview test</strong> skips all of that — it stores one placeholder row (no real business data, no FTP) so you can jump straight to "4. Generate sites" and use its "view" link. Its <code>landing_cities</code> is set to whatever city the master already has real research for, so service pages actually get built too — deliberately a DIFFERENT city than the row's own, so a bug that silently reuses the master's city has something to disagree with. Overwrites whatever target list is currently stored.</p>
 </div>
 
 <!-- ===== RESULTS CARD ===== -->
@@ -198,6 +200,45 @@ if (!isset($csrfToken)) return;
         </div>
     </dialog>
 
+    <!--
+        Test server (FTP) — one fixed, reusable deploy target OUTSIDE the fleet: a real
+        host + real domain + real HTTPS you already own, so "deploy to test server" next
+        to each result row can push a build there with deploy_site(), the exact same
+        code "5. Upload sites" uses. Every deploy overwrites this same slot on purpose —
+        it's meant to be reused across totally different sites, not kept per-site.
+    -->
+    <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;">
+        <summary style="cursor:pointer;padding:10px 16px;font-size:.86rem;font-weight:600;color:#1e3a5f;">&#9881;&#65039; Test server (FTP)</summary>
+        <div style="padding:2px 16px 14px;">
+            <p class="hint" style="margin:0 0 10px;">
+                A deploy target you already control — not one of the fleet boxes. "Deploy to test server"
+                next to each result below pushes that build here over FTP/SFTP, overwriting whatever was
+                here before. View it at the URL below, with real HTTPS, exactly like a live site.
+            </p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px 12px;max-width:820px;">
+                <label class="hint">Host<br><input type="text" id="td-host" style="width:100%;"></label>
+                <label class="hint">Protocol<br>
+                    <select id="td-protocol" style="width:100%;">
+                        <option value="ftp">FTP</option>
+                        <option value="sftp">SFTP</option>
+                    </select>
+                </label>
+                <label class="hint">Port (blank = default)<br><input type="text" id="td-port" style="width:100%;"></label>
+                <label class="hint">Username<br><input type="text" id="td-user" style="width:100%;"></label>
+                <label class="hint">Password<br><input type="password" id="td-pass" placeholder="leave blank to keep" style="width:100%;"></label>
+                <label class="hint">Remote path (blank = auto-detect)<br><input type="text" id="td-path" style="width:100%;"></label>
+                <label class="hint">View URL<br><input type="text" id="td-view-url" placeholder="https://preview2.example.com/" style="width:100%;"></label>
+                <label class="hint" style="display:flex;align-items:center;gap:6px;margin-top:18px;">
+                    <input type="checkbox" id="td-passive" checked> Passive FTP
+                </label>
+            </div>
+            <p style="margin:10px 0 0;">
+                <button type="button" class="btn btn-primary" id="td-save-btn" onclick="msTestDeploySave()">Save</button>
+                <span id="td-save-msg" class="hint" style="margin-left:10px;"></span>
+            </p>
+        </div>
+    </details>
+
     <!-- The steps come FIRST: what a run does is decided before how fast it goes. -->
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
         <strong style="font-size:.9rem;color:#1e3a5f;">What this run does</strong>
@@ -205,6 +246,9 @@ if (!isset($csrfToken)) return;
             Untick a step to skip it for this run. Clone, identity and build are not listed
             because they cannot be skipped &mdash; without them a run makes no site, or fifty
             copies of the master.
+            &nbsp;<a href="#" onclick="msSetAllSteps(true);return false;">Select all</a>
+            &nbsp;&middot;&nbsp;
+            <a href="#" onclick="msSetAllSteps(false);return false;">Unselect all</a>
         </p>
         <?php
         /**
@@ -237,6 +281,12 @@ if (!isset($csrfToken)) return;
         $msTree = [
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
              'groups' => [
+                ['key' => null, 'label' => 'City research', 'status' => 'live',
+                 'note' => 'Not a toggle here — <strong>Generate sites never runs this itself</strong>, it only reads whatever research already exists. This is a separate action: the "Research cities" card further down this page. Runs once per city; an already-researched city is skipped and reused free. Everything in "AI content" and "Images" below reads from what this produces.',
+                 'subs' => [
+                    ['Per-city facts — climate stats, market data, employers, chart figures (flood years, rainfall, etc.)', 'auto'],
+                    ['Neighborhood name verification — each candidate checked against real-world records before it ships', 'auto'],
+                 ]],
                 ['key' => 'ai', 'label' => 'AI content', 'status' => 'live',
                  'subs' => [
                     ['Landing-page blocks — 8 AI block types', 'auto'],
@@ -412,6 +462,19 @@ if (!isset($csrfToken)) return;
                 p.addEventListener('change', function () { sync(p); });
                 sync(p);
             });
+
+            // "Select all" / "Unselect all" — sets every step AND every sub-switch, then
+            // re-runs sync() per parent so the disabled/greyed state matches. Clearing
+            // data-was first stops sync() from restoring an older per-sub state instead of
+            // the all-on/all-off state this just set.
+            window.msSetAllSteps = function (on) {
+                document.querySelectorAll('.ms-step-opt').forEach(function (p) { p.checked = on; });
+                document.querySelectorAll('.ms-sub-opt').forEach(function (cb) {
+                    delete cb.dataset.was;
+                    cb.checked = on;
+                });
+                document.querySelectorAll('.ms-step-opt').forEach(function (p) { sync(p); });
+            };
         })();
         </script>
         <p class="hint" style="margin:8px 0 0;color:#94a3b8;">
@@ -654,6 +717,8 @@ if (!isset($csrfToken)) return;
 <script>
 (function () {
     const csrfToken = <?= json_encode($csrfToken) ?>;
+    const bpMasterId = <?= json_encode($masterId ?? '') ?>;
+    const bpBatchId  = <?= json_encode($batchId ?? '') ?>;
     let msPollTimer = null;
 
     // See admin/_batch_servers.php's esc() for why ' is escaped too — this file also
@@ -720,6 +785,82 @@ if (!isset($csrfToken)) return;
             .then(d => { btn.disabled = false; msg.textContent = d.stored ? 'Stored.' : (d.error ? '' : 'Reviewed — not stored.'); render(d); if (d.stored) refreshParamsState(); })
             .catch(e => { btn.disabled = false; msg.textContent = 'Upload failed.'; });
         return false;
+    };
+
+    window.msLoadTestCsv = function () {
+        const btn = document.getElementById('ms-test-csv-btn');
+        const msg = document.getElementById('ms-upload-msg');
+        if (!confirm('Store the placeholder test row? This replaces whatever target list is currently stored.')) return;
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        btn.disabled = true; msg.textContent = 'Loading test row…';
+        fetch('multisite_api.php?action=load_test_csv', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => { btn.disabled = false; msg.textContent = d.stored ? 'Test row stored.' : (d.error ? '' : 'Reviewed — not stored.'); render(d); if (d.stored) refreshParamsState(); })
+            .catch(e => { btn.disabled = false; msg.textContent = 'Failed to load test row.'; });
+    };
+
+    // ── Test server (FTP) — settings + per-row "deploy to test server" ─────────
+    function loadTestDeployConfig() {
+        fetch('multisite_api.php?action=test_deploy_get').then(r => r.json()).then(d => {
+            if (!d || d.error) return;
+            document.getElementById('td-host').value = d.ftp_host || '';
+            document.getElementById('td-protocol').value = d.ftp_protocol || 'ftp';
+            document.getElementById('td-port').value = d.ftp_port || '';
+            document.getElementById('td-user').value = d.ftp_user || '';
+            document.getElementById('td-path').value = d.ftp_path || '';
+            document.getElementById('td-view-url').value = d.view_url || '';
+            document.getElementById('td-passive').checked = d.ftp_passive !== false;
+            document.getElementById('td-pass').placeholder = d.has_password ? 'set — leave blank to keep' : 'leave blank to keep';
+        }).catch(() => {});
+    }
+    loadTestDeployConfig();
+
+    window.msTestDeploySave = function () {
+        const btn = document.getElementById('td-save-btn');
+        const msg = document.getElementById('td-save-msg');
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('ftp_host', document.getElementById('td-host').value.trim());
+        fd.append('ftp_protocol', document.getElementById('td-protocol').value);
+        fd.append('ftp_port', document.getElementById('td-port').value.trim());
+        fd.append('ftp_user', document.getElementById('td-user').value.trim());
+        fd.append('ftp_pass', document.getElementById('td-pass').value);
+        fd.append('ftp_path', document.getElementById('td-path').value.trim());
+        fd.append('view_url', document.getElementById('td-view-url').value.trim());
+        if (document.getElementById('td-passive').checked) fd.append('ftp_passive', '1');
+        btn.disabled = true; msg.textContent = 'Saving…';
+        fetch('multisite_api.php?action=test_deploy_save', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                btn.disabled = false;
+                msg.textContent = d.ok ? 'Saved.' : (d.error || 'Save failed.');
+                document.getElementById('td-pass').value = '';
+                document.getElementById('td-pass').placeholder = d.has_password ? 'set — leave blank to keep' : 'leave blank to keep';
+            })
+            .catch(() => { btn.disabled = false; msg.textContent = 'Save failed.'; });
+    };
+
+    window.msDeployTestServer = function (domain, linkEl) {
+        if (!confirm('Deploy "' + domain + '" to the test server? This overwrites whatever is there now.')) return;
+        const original = linkEl.textContent;
+        linkEl.textContent = 'deploying…';
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('domain', domain);
+        fetch('multisite_api.php?action=deploy_test_server', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (d.error) { linkEl.textContent = original; alert(d.error); return; }
+                const r = d.result || {};
+                if ((r.status || '') === 'fatal' || (r.failed || 0) > 0) {
+                    linkEl.textContent = original;
+                    alert('Deploy had problems: ' + (r.msg || (r.failed + ' file(s) failed')));
+                    return;
+                }
+                linkEl.outerHTML = '<a href="' + esc(d.view_url || '#') + '" target="_blank" rel="noopener">deployed — view it</a>';
+            })
+            .catch(() => { linkEl.textContent = original; alert('Deploy failed.'); });
     };
 
     // ── Target list: download-current visibility + saved versions ──────────────
@@ -834,11 +975,37 @@ if (!isset($csrfToken)) return;
         if (d.results && d.results.length) {
             html += '<div style="max-height:240px;overflow:auto;font-size:0.85rem;line-height:1.7;">' +
                 d.results.slice().reverse().map(r => {
-                    const mk = r.status === 'ok' ? '<span style="color:#166534;">✓</span>' : '<span style="color:#991b1b;">✗</span>';
-                    return '<div>' + mk + ' ' + esc(r.domain) + ' — ' + esc(r.status) +
+                    const mk = r.status === 'running' ? '<span style="color:#2563eb;">⋯</span>'
+                             : r.status === 'ok'       ? '<span style="color:#166534;">✓</span>'
+                             :                           '<span style="color:#991b1b;">✗</span>';
+                    // In-flight rows show the current STEP (short, stable) plus the most
+                    // recent progress line (changes every tick) — this is the whole point:
+                    // a still-running row used to show nothing at all until it finished.
+                    const stepLabel = r.status === 'running' && r.step ? ' [' + esc(r.step) + ']' : '';
+                    // "view" only once this row has actually generated output on disk — a
+                    // failed row has nothing under batches/{id}/output/ for batch_preview.php to serve.
+                    const viewLink = r.status === 'ok' && r.domain
+                        ? ' &nbsp;·&nbsp; <a href="batch_preview.php?master=' + encodeURIComponent(bpMasterId) +
+                          '&batch=' + encodeURIComponent(bpBatchId) + '&domain=' + encodeURIComponent(r.domain) +
+                          '" target="_blank" rel="noopener">view</a>'
+                        : '';
+                    // Public preview — same output, no login, reachable by Google's own tools.
+                    // Slug must match ms_batch_output_dir()'s folder-naming exactly (lowercase,
+                    // any run of non a-z0-9 becomes one underscore, no leading/trailing underscore).
+                    const slug = r.status === 'ok' && r.domain
+                        ? r.domain.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') : '';
+                    const publicLink = slug
+                        ? ' &nbsp;·&nbsp; <a href="http://' + bpMasterId + '--' + bpBatchId + '--' + slug +
+                          '.preview.q111.xyz/" target="_blank" rel="noopener">public preview</a>'
+                        : '';
+                    // Real deploy to the fixed test server — see the settings panel above.
+                    const deployLink = r.status === 'ok' && r.domain
+                        ? ' &nbsp;·&nbsp; <a href="#" onclick="msDeployTestServer(\'' + esc(r.domain) + '\', this);return false;">deploy to test server</a>'
+                        : '';
+                    return '<div>' + mk + ' ' + esc(r.domain) + ' — ' + esc(r.status) + stepLabel +
                         (r.uploaded != null ? ' (' + r.uploaded + ' up)' : '') +
                         (r.cost > 0 ? ' $' + Number(r.cost).toFixed(4) : '') +
-                        (r.last ? ' — ' + esc(r.last) : '') + '</div>';
+                        (r.last ? ' — ' + esc(r.last) : '') + viewLink + publicLink + deployLink + '</div>';
                 }).join('') + '</div>';
         }
         el.innerHTML = html;
