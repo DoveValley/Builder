@@ -72,11 +72,12 @@ $vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif
             'Raleway, sans-serif','Mulish, sans-serif','Playfair Display, serif','Merriweather, serif'];
 ?>
 <div class="card" id="ms-visual">
-    <h2 style="margin-top:0;">Color Presets &amp; Fonts</h2>
+    <h2 style="margin-top:0;">Color Presets</h2>
     <p class="hint" style="margin-bottom:6px;">Build a library of color/font/button combinations. Each drives a generated <strong>logo + favicon</strong> — using <em>this site's actual Logo Library arrangement</em> (icon, line text, line colors, below), just with that preset's colors swapped in — so what you see here is what applying it would really look like. Then:</p>
     <ul class="hint" style="margin:0 0 12px 18px;line-height:1.7;">
         <li><strong>Use for this site</strong> — applies one preset to <em>this</em> site now (theme + logo + favicon).</li>
         <li><strong>In multisite rotation</strong> — the multisite build rotates through the checked presets when generating clone sites (or a row's <code>theme_preset</code> column overrides).</li>
+        <li><strong>Font is a separate axis</strong> — set it in the <span style="color:#b91c1c;font-weight:700;">Font Library</span> below, not on a preset. Palette and font are picked independently per domain, so 10 palettes &times; 6 fonts = <strong>60 combinations</strong> rather than 10.</li>
     </ul>
     <div style="display:flex;gap:10px;align-items:center;margin:12px 0 16px;flex-wrap:wrap;">
         <label for="msv-name" style="margin:0;font-weight:600;">Preview business name:</label>
@@ -89,11 +90,11 @@ $vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif
         <button type="button" class="btn btn-secondary" id="msv-add" onclick="msvAdd()">+ Add preset</button>
         <button type="button" class="btn" onclick="msvSave()">Save library</button>
         <label style="margin:0 0 0 8px;font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;">
-            <input type="checkbox" id="msv-typo" checked> “Use for this site” applies font &amp; buttons too
+            <input type="checkbox" id="msv-typo" checked> “Use for this site” applies heading style &amp; buttons too
         </label>
         <span id="msv-msg" class="hint" style="margin-left:4px;"></span>
     </div>
-    <p class="hint" style="margin:8px 0 0;">Changes <strong>save automatically</strong> as you edit (icon, colors, font, rotation) — the “Saved” note confirms it; <strong>Save library</strong> is just a manual re-save. Tick which presets are <strong>in multisite rotation</strong>. To set <em>this</em> site's own brand, click <strong>Use for this site →</strong> on a preset (applies its look + regenerates the logo now).</p>
+    <p class="hint" style="margin:8px 0 0;">Changes <strong>save automatically</strong> as you edit (icon, colors, rotation) — the “Saved” note confirms it; <strong>Save library</strong> is just a manual re-save. Tick which presets are <strong>in multisite rotation</strong>. To set <em>this</em> site's own brand, click <strong>Use for this site →</strong> on a preset (applies its look + regenerates the logo now).</p>
 
     <!-- Real POST for the single-site apply (full reload → shows the applied theme). -->
     <form id="msv-apply-form" action="save.php" method="post" style="display:none;">
@@ -208,7 +209,7 @@ function msvCardHtml(i){
       +     '</div></div>'
       +   '</div>'
       +   '<div style="display:flex;gap:14px;margin-top:8px;">'
-      +     '<div style="flex:1;" class="hint">Font is chosen in the Font Library below, not per preset &mdash; 10 palettes &times; 6 fonts = 60 combinations.</div>'
+      +     '<div style="flex:1;" class="hint">Font is chosen in the <strong>Font Library</strong> below, not per preset &mdash; 10 palettes &times; 6 fonts = 60 combinations.</div>'
       +     '<div><label style="margin-top:0;">Button radius</label><input type="number" min="0" max="50" class="msv-f" data-k="radius" value="'+msvEsc(p.radius)+'" style="width:80px;"></div>'
       +   '</div>'
       +   '<button type="button" onclick="msvRemove('+i+')" style="margin-top:12px;background:none;border:0;color:#dc2626;cursor:pointer;font-size:.85rem;padding:0;">✕ Remove preset</button>'
@@ -296,7 +297,7 @@ msvRender();
      Same shape as the preset and logo libraries: one is this site's default,
      a tick marks each one the multisite build may rotate through. */ ?>
 <div class="card" id="msf-card">
-    <h3 style="margin-top:0;margin-bottom:6px;">&#127912; Font Library</h3>
+    <h2 style="margin-top:0;margin-bottom:6px;color:#b91c1c;">&#127912; Font Library</h2>
     <p class="hint" style="margin:0 0 14px;max-width:820px;">
         Picked <strong>per domain</strong>, independently of the colour preset &mdash;
         <?= count($vpPresets) ?> palettes &times; <?= max(1, count(array_filter($vpFonts, fn($f) => $f['in_rotation']))) ?> fonts in rotation =
@@ -324,7 +325,7 @@ function msfRender(){
                  ? '<span style="font-size:.85rem;color:#2563eb;font-weight:700;white-space:nowrap;">&#9733; This site</span>'
                  : '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;white-space:nowrap;" onclick="msfUse(' + i + ')">Use for this site</button>')
            +   '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.88rem;white-space:nowrap;">'
-           +     '<input type="checkbox" class="msf-rot" data-i="' + i + '"' + (f.in_rotation !== false ? ' checked' : '') + '> In rotation</label>'
+           +     '<input type="checkbox" class="msf-rot" data-i="' + i + '"' + (f.in_rotation !== false ? ' checked' : '') + '> In multisite rotation</label>'
            +   '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;" onclick="msfRemove(' + i + ')" title="Remove">&times;</button>'
            + '</div>';
     });
