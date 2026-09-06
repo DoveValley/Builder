@@ -111,6 +111,17 @@ function snapshot_master(string $masterId, string $snapshotDir): string {
     if (is_dir($masterDir . '/multisite/icons')) {
         ms_copy_dir($masterDir . '/multisite/icons', $snapshotDir . '/multisite/icons');
     }
+    // niche_brief.json for the same reason, and it cost the same way. The chart plugin reads
+    // ACTIVE_SITE_DIR/multisite/niche_brief.json to learn which niche a site is, and that is
+    // what selects its chart folder. In a clone the file was never there, so the niche resolved
+    // to nothing, no chart definitions loaded, and every {chart_*} token stayed unregistered —
+    // charts silently absent from every generated site while the master rendered all eight.
+    foreach (['niche_brief.json'] as $f) {
+        if (is_file($masterDir . '/multisite/' . $f)) {
+            if (!is_dir($snapshotDir . '/multisite')) @mkdir($snapshotDir . '/multisite', 0775, true);
+            @copy($masterDir . '/multisite/' . $f, $snapshotDir . '/multisite/' . $f);
+        }
+    }
     return $snapshotDir;
 }
 
@@ -153,6 +164,17 @@ function clone_to_working_dir(string $snapshotDir, string $workingDir, string $m
         if (!is_dir(dirname($dstIcons))) @mkdir(dirname($dstIcons), 0775, true);
         if (!@symlink($srcIcons, $dstIcons)) {
             ms_copy_dir($srcIcons, $dstIcons);
+        }
+    }
+
+    // Same again for niche_brief.json — the snapshot alone is not enough, because the plugin
+    // reads it from the WORKING dir at render time. Copied rather than symlinked: it is one
+    // small file and a copy cannot be broken by the snapshot being cleaned up mid-run.
+    foreach (['niche_brief.json'] as $f) {
+        $src = $snapshotDir . '/multisite/' . $f;
+        if (is_file($src)) {
+            if (!is_dir($workingDir . '/multisite')) @mkdir($workingDir . '/multisite', 0775, true);
+            @copy($src, $workingDir . '/multisite/' . $f);
         }
     }
     return $workingDir;
