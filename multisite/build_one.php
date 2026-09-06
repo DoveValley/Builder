@@ -233,6 +233,7 @@ if ($skipped('visual')) {
     $visRes = ms_apply_visual_identity($workingDir, $params, $masterId, [
         'palette' => !$skipped('visual.palette'),
         'font'    => !$skipped('visual.font'),
+        'jitter'  => !$skipped('visual.jitter'),
     ]);
     if ($visRes['applied']) progress_log("Visual identity: Theme Preset '{$visRes['preset']}'" . (!empty($visRes['logo']) ? ", logo generated" : "") . ".");
 }

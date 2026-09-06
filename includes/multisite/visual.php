@@ -438,6 +438,119 @@ function ms_apply_theme_preset(array &$data, array $preset): void {
 }
 
 /**
+ * ── Palette jitter ────────────────────────────────────────────────────────────
+ *
+ * Nudge every chrome colour a couple of points, per domain, so two sites that landed on the
+ * same preset do not ship a byte-identical stylesheet. Five of fifty sites carry #F26A21
+ * exactly today, which any grep clusters in seconds.
+ *
+ * HONEST LIMIT: this defeats EXACT matching, not perceptual matching. #F7762C and #F75B2C are
+ * different strings and near-identical colours, so anyone comparing by colour distance still
+ * groups them. It is the weakest of the three axes and worth having because it is free.
+ *
+ * Deterministic — crc32 of the domain, seeded per colour KEY so the five shift by different
+ * amounts rather than sliding as a block. A rebuild reproduces the same hex.
+ */
+
+/** Colours the jitter is allowed to touch. Text colours are excluded on purpose: they are pure
+ *  white here, and nudging them is exactly where contrast breaks. */
+function ms_jitter_keys(): array {
+    return ['accent_color', 'header_bg', 'footer_bg', 'heading_color', 'header_top_bg'];
+}
+
+/** Text/background pairs the gate below must protect. */
+function ms_jitter_contrast_pairs(): array {
+    return [['header_text', 'header_bg'], ['footer_text', 'footer_bg']];
+}
+
+function ms_hex_to_rgb(string $hex): ?array {
+    $h = ltrim(trim($hex), '#');
+    if (strlen($h) === 3) $h = $h[0].$h[0].$h[1].$h[1].$h[2].$h[2];
+    if (!preg_match('/^[0-9a-f]{6}$/i', $h)) return null;
+    return [hexdec(substr($h,0,2)), hexdec(substr($h,2,2)), hexdec(substr($h,4,2))];
+}
+
+/** Relative luminance, WCAG 2.x definition. */
+function ms_luminance(string $hex): float {
+    $rgb = ms_hex_to_rgb($hex);
+    if (!$rgb) return 0.0;
+    $c = array_map(function ($v) {
+        $v /= 255;
+        return $v <= 0.03928 ? $v / 12.92 : pow(($v + 0.055) / 1.055, 2.4);
+    }, $rgb);
+    return 0.2126 * $c[0] + 0.7152 * $c[1] + 0.0722 * $c[2];
+}
+
+/** Contrast ratio between two colours, 1.0 to 21.0. */
+function ms_contrast_ratio(string $a, string $b): float {
+    $l1 = ms_luminance($a); $l2 = ms_luminance($b);
+    if ($l1 < $l2) { $t = $l1; $l1 = $l2; $l2 = $t; }
+    return ($l1 + 0.05) / ($l2 + 0.05);
+}
+
+/** One colour, shifted deterministically for this domain. */
+function ms_jitter_color(string $hex, string $domain, string $key): string {
+    $rgb = ms_hex_to_rgb($hex);
+    if (!$rgb) return $hex;
+    [$r, $g, $b] = array_map(fn($v) => $v / 255, $rgb);
+    $max = max($r,$g,$b); $min = min($r,$g,$b); $d = $max - $min;
+    $v = $max;
+    $sat = $max == 0.0 ? 0.0 : $d / $max;
+    if ($d == 0.0)        $h = 0.0;
+    elseif ($max == $r)   $h = fmod((($g - $b) / $d), 6);
+    elseif ($max == $g)   $h = (($b - $r) / $d) + 2;
+    else                  $h = (($r - $g) / $d) + 4;
+    $h = fmod(($h * 60) + 360, 360);
+
+    $seed = crc32('jitter|' . $key . '|' . strtolower(trim($domain)));
+    $h   = fmod($h + (($seed % 21) - 10) + 360, 360);          // +/- 10 degrees
+    $sat = min(max($sat + ((($seed >> 8) % 11) - 5) / 100, 0), 1);   // +/- 5%
+    $v   = min(max($v   + ((($seed >> 16) % 7) - 3) / 100, 0), 1);   // +/- 3%
+
+    $c = $v * $sat; $x = $c * (1 - abs(fmod($h / 60, 2) - 1)); $m = $v - $c;
+    if     ($h <  60) [$r,$g,$b] = [$c,$x,0];
+    elseif ($h < 120) [$r,$g,$b] = [$x,$c,0];
+    elseif ($h < 180) [$r,$g,$b] = [0,$c,$x];
+    elseif ($h < 240) [$r,$g,$b] = [0,$x,$c];
+    elseif ($h < 300) [$r,$g,$b] = [$x,0,$c];
+    else              [$r,$g,$b] = [$c,0,$x];
+    return sprintf('#%02X%02X%02X', round(($r+$m)*255), round(($g+$m)*255), round(($b+$m)*255));
+}
+
+/**
+ * Jitter the palette in place, then GATE on contrast: any colour whose text pair drops below
+ * WCAG AA (4.5:1) or below what it already was is reverted. Jitter must never make a site less
+ * legible than the preset it came from.
+ */
+function ms_apply_palette_jitter(array &$data, string $domain): int {
+    if ($domain === '') return 0;
+    $theme  = $data['theme'] ?? [];
+    $before = $theme;
+    $n = 0;
+    foreach (ms_jitter_keys() as $k) {
+        $cur = (string)($theme[$k] ?? '');
+        if ($cur === '' || !ms_hex_to_rgb($cur)) continue;
+        $theme[$k] = ms_jitter_color($cur, $domain, $k);
+        if ($theme[$k] !== $cur) $n++;
+    }
+    foreach (ms_jitter_contrast_pairs() as [$textKey, $bgKey]) {
+        $text = (string)($theme[$textKey] ?? '');
+        $bg   = (string)($theme[$bgKey]   ?? '');
+        $old  = (string)($before[$bgKey]  ?? '');
+        if ($text === '' || $bg === '' || $old === '') continue;
+        $now = ms_contrast_ratio($text, $bg);
+        // Gate on the STANDARD, not on the previous value. "Never worse than before" sounds
+        // safer and is not: brightening always lowers contrast against white text, so that rule
+        // reverted every lightward jitter and backgrounds could only ever darken — half of them
+        // did not move at all. WCAG AA is the line that actually matters; 7.34 to 7.30 is not a
+        // legibility change, it is arithmetic.
+        if ($now < 4.5) { $theme[$bgKey] = $old; $n--; }
+    }
+    $data['theme'] = $theme;
+    return max($n, 0);
+}
+
+/**
  * Apply the coordinated visual identity to a working-dir site.
  * Returns ['applied'=>bool, 'preset'=>string label].
  */
@@ -445,6 +558,7 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     // Default both on, so every existing caller keeps its behaviour.
     $doPalette = ($axes['palette'] ?? true) !== false;
     $doFont    = ($axes['font']    ?? true) !== false;
+    $doJitter  = ($axes['jitter']  ?? true) !== false;
     $sf = $workingDir . '/data/site.json';
     if (!is_file($sf)) return ['applied' => false, 'preset' => ''];
     $data = json_decode((string)file_get_contents($sf), true);
@@ -461,6 +575,13 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     // repeating. Deterministic per domain, like the palette itself.
     $font = $doFont ? ms_pick_font($masterId, $params) : '';
     if ($font !== '') $data['theme']['primary_font'] = $font;
+
+    // Jitter BEFORE the logo is drawn — the logo is painted from these colours, so jittering
+    // afterwards would leave it in the un-jittered accent and quietly mismatch its own site.
+    $jittered = 0;
+    if ($doJitter) {
+        $jittered = ms_apply_palette_jitter($data, (string)($params['domain'] ?? $params['DOMAIN'] ?? ''));
+    }
 
     // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors
     // but with text/icon from this domain's Logo Config — a fully independent
