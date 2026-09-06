@@ -281,14 +281,10 @@ if (!isset($csrfToken)) return;
         $msTree = [
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
              'groups' => [
-                ['key' => null, 'label' => 'City research', 'status' => 'live',
-                 'note' => 'Not a toggle here — <strong>Generate sites never runs this itself</strong>, it only reads whatever research already exists. This is a separate action: the "Research cities" card further down this page. Runs once per city; an already-researched city is skipped and reused free. Everything in "AI content" and "Images" below reads from what this produces.',
-                 'subs' => [
-                    ['Per-city facts — climate stats, market data, employers, chart figures (flood years, rainfall, etc.)', 'auto'],
-                    ['Neighborhood name verification — each candidate checked against real-world records before it ships', 'auto'],
-                 ]],
                 ['key' => 'ai', 'label' => 'AI content', 'status' => 'live',
+                 'note' => 'Not a toggle here — <strong>Generate sites never runs research itself</strong>, it only reads whatever research already exists. Research is a separate action: the "Research cities" card further down this page. Runs once per city; an already-researched city is skipped and reused free. Everything below reads from what it produces.',
                  'subs' => [
+                    ['Research — per-city facts (climate stats, market data, employers, chart figures) plus neighborhood-name verification', 'auto'],
                     ['Landing-page blocks — 8 AI block types', 'auto'],
                     ['About Us — company story', 'auto'],
                     ['Privacy Policy — static today, identical on every site', 'todo'],
