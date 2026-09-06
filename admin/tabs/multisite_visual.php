@@ -30,10 +30,10 @@ foreach (($vpDoc['presets'] ?? []) as $p) {
         'in_rotation' => array_key_exists('in_rotation', $p) ? (bool)$p['in_rotation'] : true,
     ];
 }
-$vpFonts      = [];
+$vpFontLib    = [];
 foreach (($vpDoc['fonts'] ?? []) as $f) {
     if (!is_array($f)) continue;
-    $vpFonts[] = [
+    $vpFontLib[] = [
         'name'        => (string)($f['name'] ?? ''),
         'stack'       => (string)($f['stack'] ?? ''),
         'in_rotation' => array_key_exists('in_rotation', $f) ? (bool)$f['in_rotation'] : true,
@@ -67,9 +67,6 @@ $vpLine2Custom    = (string)($vpLogoConfig['line2_custom'] ?? '');
 $vpLine1ColorMode = ($vpLogoConfig['line1_color'] ?? 'accent') === 'dark' ? 'dark' : 'accent';
 $vpLine2ColorMode = ($vpLogoConfig['line2_color'] ?? 'dark') === 'accent' ? 'accent' : 'dark';
 $vpCity = trim((string)($data['site_vars']['city'] ?? '')) ?: 'Lufkin';
-$vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif','Poppins, sans-serif',
-            'Montserrat, sans-serif','Roboto, sans-serif','Open Sans, sans-serif','Lato, sans-serif',
-            'Raleway, sans-serif','Mulish, sans-serif','Playfair Display, serif','Merriweather, serif'];
 ?>
 <div class="card" id="ms-visual">
     <h2 style="margin-top:0;">Color Presets</h2>
@@ -106,7 +103,6 @@ $vpFonts = ['Inclusive Sans, sans-serif','Inter, sans-serif','Nunito, sans-serif
 
 <script>
 var MSV        = <?= json_encode($vpPresets, JSON_UNESCAPED_SLASHES) ?>;
-var MSV_FONTS  = <?= json_encode($vpFonts, JSON_UNESCAPED_SLASHES) ?>;
 var MSV_CSRF   = <?= json_encode($csrfToken ?? '') ?>;
 var MSV_SINGLE = <?= $vpSingleId > 0 ? ($vpSingleId - 1) : -1 ?>;   // 0-based index of this site's brand
 var msvBust    = 0;
@@ -179,8 +175,6 @@ function msvColorSync(i, key, fromColor, value){
 
 function msvCardHtml(i){
     var p = MSV[i];
-    var fonts = MSV_FONTS.map(function(f){ return '<option value="'+msvEsc(f)+'"'+(f===p.font?' selected':'')+'>'+msvEsc(f.split(',')[0])+'</option>'; }).join('');
-    if (MSV_FONTS.indexOf(p.font)<0) fonts = '<option value="'+msvEsc(p.font)+'" selected>'+msvEsc(p.font.split(',')[0])+'</option>' + fonts;
     var isSingle = (MSV_SINGLE === i);
     return '<div class="msv-card" data-i="'+i+'" style="position:relative;border:1px solid '+(isSingle?'#2563eb':'#e2e8f0')+';border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;'+(isSingle?'box-shadow:0 0 0 2px #dbeafe;':'')+'">'
       + '<span style="position:absolute;top:-10px;left:12px;background:#2563eb;color:#fff;border-radius:999px;min-width:22px;height:22px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;">'+(i+1)+'</span>'
@@ -300,8 +294,8 @@ msvRender();
     <h2 style="margin-top:0;margin-bottom:6px;color:#b91c1c;">&#127912; Font Library</h2>
     <p class="hint" style="margin:0 0 14px;max-width:820px;">
         Picked <strong>per domain</strong>, independently of the colour preset &mdash;
-        <?= count($vpPresets) ?> palettes &times; <?= max(1, count(array_filter($vpFonts, fn($f) => $f['in_rotation']))) ?> fonts in rotation =
-        <strong><?= count($vpPresets) * max(1, count(array_filter($vpFonts, fn($f) => $f['in_rotation']))) ?> combinations</strong>.
+        <?= count($vpPresets) ?> palettes &times; <?= max(1, count(array_filter($vpFontLib, fn($f) => $f['in_rotation']))) ?> fonts in rotation =
+        <strong><?= count($vpPresets) * max(1, count(array_filter($vpFontLib, fn($f) => $f['in_rotation']))) ?> combinations</strong>.
         Deterministic, so a rebuild gives a site the same font. Kept deliberately common:
         a distinctive face shared across fifty sites is a <em>stronger</em> fingerprint than a familiar one.
     </p>
@@ -309,7 +303,7 @@ msvRender();
     <button type="button" class="btn btn-secondary" style="margin-top:12px;" onclick="msfAdd()">+ Add font</button>
 </div>
 <script>
-var MSF        = <?= json_encode($vpFonts, JSON_UNESCAPED_SLASHES) ?>;
+var MSF        = <?= json_encode($vpFontLib, JSON_UNESCAPED_SLASHES) ?>;
 var MSF_SINGLE = <?= $vpSingleFontId > 0 ? ($vpSingleFontId - 1) : -1 ?>;
 
 function msfRender(){
