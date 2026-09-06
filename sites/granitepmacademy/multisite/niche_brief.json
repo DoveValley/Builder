@@ -1,0 +1,33 @@
+{
+    "niche": "Project Management Certification Training",
+    "master_site": "granitepmacademy",
+    "business_descriptor": "a project management certification training academy",
+    "service_noun": "project management certification training",
+    "customer_noun": "aspiring or working project manager",
+    "offerings": [
+        "PMP Certification Training",
+        "PMP Bootcamp",
+        "CAPM Certification & Bootcamp",
+        "AI Training for Project Managers (CPMAI / PMI-CPMAI)"
+    ],
+    "local_angle": "Serve professionals in {city}, {SS} who want a PMI-authorized path to certification, tying the training to the local job market and the employers hiring project and program managers there.",
+    "tone": "Professional, authoritative, and encouraging — speaks to career-focused adults without hype. Open each page on the single most distinctive feature of THIS city's project-management market (its dominant industry or a specific major employer) so no two city pages begin the same way. Match search intent: a reader searching for certification in their city wants to know the schedule/format, cost, eligibility, and whether the credential is worth it for their local career — answer those plainly.",
+    "guardrails": "Use PMI marks correctly (PMP, CAPM, PMI are registered marks of the Project Management Institute). Never invent pass rates, student counts, salary figures, or employer lists — state only what the research returns, and keep salary references as qualitative ranges rather than fabricated precise numbers. Do not imply endorsement by any named employer. Never reuse a sentence verbatim across cities; vary sentence structure and the facts you lead with, not just the city name. Do not pad with generic filler — every paragraph must say something specific to this city or this credential. Do not state a specific PMI contact-hour count (such as 35 or 23) or specific eligibility numbers in generated prose — refer to such requirements generically; exact figures belong only in fixed page sections.",
+    "uses_research_fields": true,
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with EXACTLY these fields (keep the field names — the site templates depend on them):\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city} that employ project and program managers.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} that hire project/program managers (exact organization names only; omit any you are not confident actually operate in {city}).\n3. \"salary_note\" — 1-2 sentences on project-manager compensation in the {city} area. Give a qualitative range only if you are confident it is realistic; if unsure, describe demand/competitiveness instead of citing a specific dollar figure. Never invent a precise number.\n4. \"market_blurb\" — 2-3 sentences on {city}'s project-management job market, referencing the city by name and its main industries.\n5. \"notable_projects\" — array of 2-4 real, verifiable large-scale initiatives, expansions, or infrastructure/development projects in or near {city} that plausibly require project managers (name the organization or project; omit any you cannot verify).\n6. \"credential_demand\" — 1-2 sentences on how sought-after PMP/CAPM certification is among {city}-area employers and job postings. If you are not confident, describe general project-management hiring demand instead. Never fabricate a statistic.\n\nRules:\n- Only verifiable facts — real employers, sectors, and projects; no invented statistics or companies.\n- Ground everything in {service_noun} and the local {city} market.\n- Return JSON only, no markdown fences, no explanation.",
+    "enabled_archetypes": [
+        "hero_subtext",
+        "city_market_intro",
+        "feature_columns_local",
+        "local_relevance",
+        "pmp_pathway",
+        "faq_local",
+        "city_spotlight",
+        "capm_pathway",
+        "national_hero_subtext",
+        "national_intro",
+        "national_features",
+        "national_value",
+        "national_faq"
+    ]
+}

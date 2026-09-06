@@ -9,8 +9,15 @@ sites/*/deploy.json
 sites/*/data/deploy.json
 
 # Multisite master-level data (holds FTP credentials) — never commit.
-# Ignore the whole dir: fail-safe, so no future file inside can ever leak.
-sites/*/multisite/
+# Fail-safe: ignore everything in the dir by default, so nothing added later can
+# leak. Written as /* rather than / so git descends and the negation below can
+# un-ignore one specific safe file — a rule naming the directory itself cannot be
+# un-ignored file by file (same reasoning as uploads/convo and _originals below).
+sites/*/multisite/*
+# niche_brief.json holds no secrets — niche descriptor, tone, offerings, research
+# prompt. pest-template's copy was already tracked; water/mold/appliance's were
+# not, purely by omission, which left real config edits with no git history at all.
+!sites/*/multisite/niche_brief.json
 
 # Multisite batch data — params.csv carries ftp_pass in plaintext, plus run logs.
 # Same fail-safe rule: the whole dir, so nothing added later can leak either.

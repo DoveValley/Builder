@@ -1,0 +1,31 @@
+{
+    "niche": "mold remediation",
+    "master_site": "mold-site",
+    "business_descriptor": "a referral service that connects property owners with independent local mold inspection and remediation providers",
+    "service_noun": "mold remediation",
+    "customer_noun": "property owner",
+    "offerings": [
+        "mold remediation",
+        "mold removal",
+        "black mold removal",
+        "mold inspection",
+        "mold testing and air sampling",
+        "mold mitigation and containment",
+        "attic, crawl space, and basement mold removal",
+        "moisture control and mold prevention"
+    ],
+    "local_angle": "the region’s humidity, seasonal rainfall, and moisture patterns that drive indoor mold growth in homes and businesses",
+    "tone": "reassuring and professional, emphasizing health, indoor air quality, safe containment, and thorough removal without fear-mongering",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not diagnose health conditions or make medical claims about mold exposure; describe potential effects in general, cautious terms only. Do not guarantee complete or permanent mold elimination, or that mold will never return. Do not promise specific removal or drying times. Do not promise insurance claim approval or coverage. Do not claim specific licenses, certifications, lab accreditations, or spore-count results. Do not give unsafe do-it-yourself advice for disturbing black mold or large affected areas. Avoid alarmist or exaggerated toxic-mold scare language.",
+    "uses_research_fields": true,
+    "enabled_archetypes": [
+        "city_intro",
+        "hero_subtext",
+        "feature_columns_local",
+        "faq_local",
+        "seasonal_calendar",
+        "local_relevance",
+        "about_story"
+    ],
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences on how humid {city} is year-round (not just storm events) and whether crawl spaces or basements are common here — the conditions that actually drive indoor mold growth in this region.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation."
+}
