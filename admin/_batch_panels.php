@@ -250,10 +250,14 @@ if (!isset($csrfToken)) return;
              ]],
             ['section' => '2 &middot; Template footprint', 'facet' => 'How the site is built &mdash; stops the sites being matched to each other',
              'groups' => [
-                ['key' => 'visual', 'label' => 'Visual identity', 'status' => 'live',
+                ['key' => 'visual', 'label' => 'Colours &amp; fonts', 'status' => 'live',
+                 'note' => 'Two SEPARATE axes, each picked by a hash of the domain so a rebuild reproduces it exactly. Independent on purpose: 10 palettes &times; 6 fonts = <strong>60 combinations</strong>, where a font baked into each palette would give 10 with four fonts repeating. Edit both in <strong>Gen-Visual &rarr; Visual Identity / Font Library</strong>.',
                  'subs' => [
-                    ['Colour palette — 10 in rotation, picked per domain', 'auto'],
-                    ['Font — 6 in rotation, picked per domain INDEPENDENTLY of the palette (60 combinations)', 'auto'],
+                    ['Colour palette — 10 in rotation, picked per domain', 'control', 'visual.palette'],
+                    ['Font — 6 in rotation, picked per domain independently of the palette', 'control', 'visual.font'],
+                 ]],
+                ['key' => 'visual', 'label' => 'Logo &amp; favicon', 'status' => 'live',
+                 'subs' => [
                     ['Logo wordmark, drawn per site', 'auto'],
                     ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
                  ]],

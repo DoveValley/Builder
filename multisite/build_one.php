@@ -227,7 +227,13 @@ if ($skipped('visual')) {
     progress_log('Visual identity: skipped — turned off for this run.', 'warn');
 } else {
     ms_step_begin('visual');
-    $visRes = ms_apply_visual_identity($workingDir, $params, $masterId);
+    // Palette and font are separate axes and separately switchable, so a run can vary one
+    // without the other. Passed down rather than tested inside, because the picker is shared
+    // with the panel preview and must stay free of build state.
+    $visRes = ms_apply_visual_identity($workingDir, $params, $masterId, [
+        'palette' => !$skipped('visual.palette'),
+        'font'    => !$skipped('visual.font'),
+    ]);
     if ($visRes['applied']) progress_log("Visual identity: Theme Preset '{$visRes['preset']}'" . (!empty($visRes['logo']) ? ", logo generated" : "") . ".");
 }
 

@@ -441,7 +441,10 @@ function ms_apply_theme_preset(array &$data, array $preset): void {
  * Apply the coordinated visual identity to a working-dir site.
  * Returns ['applied'=>bool, 'preset'=>string label].
  */
-function ms_apply_visual_identity(string $workingDir, array $params, string $masterId): array {
+function ms_apply_visual_identity(string $workingDir, array $params, string $masterId, array $axes = []): array {
+    // Default both on, so every existing caller keeps its behaviour.
+    $doPalette = ($axes['palette'] ?? true) !== false;
+    $doFont    = ($axes['font']    ?? true) !== false;
     $sf = $workingDir . '/data/site.json';
     if (!is_file($sf)) return ['applied' => false, 'preset' => ''];
     $data = json_decode((string)file_get_contents($sf), true);
@@ -451,12 +454,12 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     if (!$preset) return ['applied' => false, 'preset' => ''];
 
     // 2. Theme.
-    ms_apply_theme_preset($data, $preset);
+    if ($doPalette) ms_apply_theme_preset($data, $preset);
 
     // Font is a SEPARATE axis from the palette, applied after it. Ten palettes and six fonts
     // give sixty combinations; baked into the presets it would give ten, with four fonts
     // repeating. Deterministic per domain, like the palette itself.
-    $font = ms_pick_font($masterId, $params);
+    $font = $doFont ? ms_pick_font($masterId, $params) : '';
     if ($font !== '') $data['theme']['primary_font'] = $font;
 
     // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors
