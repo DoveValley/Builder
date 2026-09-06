@@ -781,8 +781,19 @@ def _fetch_city_image(paths, city, refresh=False, dry_run=False):
         _log(f'  [dry-run] city image → {city_name}, {city.get("SS","?")}')
         return None
 
-    out_dir      = os.path.join(paths['site_dir'], 'uploads', 'media')
-    store_prefix = f"sites/{paths['site_id']}/uploads/media"   # matches how uploaded media is stored in JSON
+    out_dir = os.path.join(paths['site_dir'], 'uploads', 'media')
+    # save_uploaded_file() (PHP) always stores UPLOAD_URL + filename, and UPLOAD_URL itself
+    # differs by context: 'sites/{id}/uploads/' for a real site living at sites/{id}, but a
+    # flat 'uploads/' for a multisite worker's ephemeral clone (config.php, MULTISITE_SITE_BASE
+    # branch) — its static build copies uploads/ to the output root with no sites/{id}/ wrapper.
+    # site_id here is only meaningful as a real, permanent site when site_dir actually IS
+    # sites/{site_id}; a worker's site_dir is an unrelated temp path (e.g. /tmp/ms_work_...),
+    # so using its basename as a "site id" produced a path nothing on the deployed site serves.
+    real_site_dir = os.path.abspath(os.path.join(paths['base_dir'], 'sites', paths['site_id']))
+    if os.path.abspath(paths['site_dir']) == real_site_dir:
+        store_prefix = f"sites/{paths['site_id']}/uploads/media"
+    else:
+        store_prefix = "uploads/media"
     try:
         proc = subprocess.run(
             ['php', cli,
