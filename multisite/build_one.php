@@ -168,7 +168,14 @@ inject_params_into_working_dir($workingDir, $params);
 // Runs after injection so slugs/canonicals/schema resolve against the deploy identity.
 // generate_city_pages() reads config path-constants, so it runs in a worker process
 // rooted at the working dir (same reason render_site.php is a separate worker).
-$landingCities = ms_parse_landing_cities((string)($params['landing_cities'] ?? ''));
+// Always include the row's own city first — nothing else guarantees it, and the
+// homepage's own {city_slug} service links assume a landing page for it exists.
+// ms_parse_landing_cities() dedupes by city+state, so listing it twice (here and
+// in the landing_cities column) is harmless.
+$ownCityStr = (trim((string)($params['city'] ?? '')) !== '' && trim((string)($params['SS'] ?? '')) !== '')
+    ? $params['city'] . ', ' . $params['SS'] . '; '
+    : '';
+$landingCities = ms_parse_landing_cities($ownCityStr . (string)($params['landing_cities'] ?? ''));
 if ($landingCities && $skipped('landing')) {
     progress_log('Landing pages: skipped — turned off for this run.', 'warn');
 } elseif ($landingCities) {
@@ -244,6 +251,12 @@ if ($noAi) {
 } elseif (!ANTHROPIC_API_KEY) {
     progress_log('AI generation skipped — ANTHROPIC_API_KEY not configured.', 'warn');
 } else {
+    // A locked master ai_block would make generate.py skip it and every clone ship the
+    // MASTER's own baked copy — see ms_ai_unlock_working_copy(). This only touches the
+    // ephemeral working dir, never the master's own stored site.json.
+    $unlockedN = ms_ai_unlock_working_copy($workingDir);
+    if ($unlockedN > 0) progress_log("AI: unlocked {$unlockedN} block(s) inherited locked from the master.");
+
     // Cache (§6a): re-inject known copy so generate.py only fills misses/stale blocks.
     $cacheFile = BASE_DIR . '/sites/' . $masterId . '/multisite/cache/' . $domainSlug . '.json';
     $registry  = json_decode(@file_get_contents($workingDir . '/data/ai_block_types.json'), true) ?: [];

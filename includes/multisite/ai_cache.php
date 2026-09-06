@@ -121,6 +121,46 @@ function ms_ai_pages_files(string $workingDir): array {
 }
 
 /**
+ * Clears `_ai_locked` on every AI block in the ephemeral clone (home, core pages, and
+ * already-generated landing pages) before generate.py runs.
+ *
+ * A master's OWN ai_blocks are meant to be lockable — that protects a finished, live
+ * single site from an accidental regen. But a generator MASTER's blocks are templates,
+ * not finished copy: locked, they make every clone inherit the master's own baked text
+ * (Lufkin's, or whatever city the master itself is written about) instead of writing
+ * something new per city — see feedback_master_ai_blocks_unlocked. Depending on someone
+ * remembering to pass --refresh/Force every real run is exactly how that slips through.
+ *
+ * Only ever writes the WORKING DIR copy passed in, never the master's own stored
+ * site.json — a master that also doubles as its own live site stays protected when it's
+ * edited directly; this only changes what a disposable clone made FROM it does.
+ *
+ * @return int  blocks unlocked
+ */
+function ms_ai_unlock_working_copy(string $workingDir): int {
+    $unlocked = 0;
+    $clearLock = function (array &$b) use (&$unlocked) {
+        if (!empty($b['_ai_locked'])) { $b['_ai_locked'] = false; $unlocked++; }
+    };
+
+    $siteFile = $workingDir . '/data/site.json';
+    $site = json_decode((string) @file_get_contents($siteFile), true);
+    if (is_array($site)) {
+        ms_ai_walk_site($site, $clearLock);
+        file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    }
+
+    foreach (ms_ai_pages_files($workingDir) as $pageFile) {
+        $page = json_decode((string) @file_get_contents($pageFile), true);
+        if (!is_array($page)) continue;
+        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($clearLock) { $clearLock($b); });
+        file_put_contents($pageFile, json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    }
+
+    return $unlocked;
+}
+
+/**
  * Offer cached copy to the working site BEFORE generate.py: inject each cached block's
  * value plus the hash it was generated under (`_ai_cache_hash`), WITHOUT locking. Whether
  * to reuse is decided by generate.py (resolved-prompt hash), so this file computes nothing.
