@@ -161,6 +161,51 @@ function ms_ai_unlock_working_copy(string $workingDir): int {
 }
 
 /**
+ * Clear the master's own city_spotlight from a clone's working copy before generate.py runs.
+ *
+ * city_spotlight is a plain site_vars field, not an ai_block, so ms_ai_unlock_working_copy()
+ * above never touches it — every clone inherits the MASTER's own spotlight text verbatim
+ * (e.g. water-site's master describes Lufkin). generate_site_spotlight() in generate.py treats
+ * a non-empty site_vars.city_spotlight as "already generated, skip", and worse, seeds that
+ * stale text into the row's OWN cities.json entry as a one-time migration shortcut meant for
+ * pre-multisite single-city sites — so a clone whose row is any city other than the master's
+ * own ships that OTHER city's photo next to the master's city's paragraph, permanently baking
+ * the wrong text into its own cities.json row. Safe to always clear: if the row's city really
+ * is the master's own, generate.py finds that city's own cached spotlight in cities.json and
+ * skips regenerating anyway — no extra API cost either way.
+ */
+function ms_clear_inherited_city_spotlight(string $workingDir): bool {
+    $siteFile = $workingDir . '/data/site.json';
+    $site = json_decode((string) @file_get_contents($siteFile), true);
+    if (!is_array($site) || empty($site['site_vars']['city_spotlight'])) return false;
+    unset($site['site_vars']['city_spotlight']);
+    file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    return true;
+}
+
+/**
+ * THE single required step for anything the master authored that a clone must never inherit
+ * verbatim — one call site in build_one.php, one place in the run tree, one place in this file
+ * that any future "generate once per site, skip if already present" feature MUST register
+ * itself into. Before this existed, ai-lock and city_spotlight were two separate, easy-to-forget
+ * calls discovered one at a time by a bug reaching a live page — see the two functions above for
+ * why each one is wrong to skip. Cheap to run unconditionally: every check inside is a per-city
+ * cache read that costs nothing extra when the row's city genuinely is the master's own.
+ *
+ * Add a new field to this list ONLY WHEN generate.py (or any future step) treats a site_vars/
+ * ai_block value as "already done" based on mere presence rather than validating it against the
+ * row's own city — that is the exact shape of bug this function exists to close off at the door.
+ *
+ * @return array{unlocked:int, spotlight_cleared:bool}
+ */
+function ms_scrub_master_content(string $workingDir): array {
+    return [
+        'unlocked'          => ms_ai_unlock_working_copy($workingDir),
+        'spotlight_cleared' => ms_clear_inherited_city_spotlight($workingDir),
+    ];
+}
+
+/**
  * Offer cached copy to the working site BEFORE generate.py: inject each cached block's
  * value plus the hash it was generated under (`_ai_cache_hash`), WITHOUT locking. Whether
  * to reuse is decided by generate.py (resolved-prompt hash), so this file computes nothing.

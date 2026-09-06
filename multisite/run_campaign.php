@@ -118,6 +118,26 @@ if (!$noPre) {
     }
 }
 
+// ── Research (auto) ──────────────────────────────────────────────────────────
+// Every city this batch needs gets real data before generating — a separate manual
+// "Research cities" click is no longer required first. Cheap to run every time:
+// research_cities.php reuses any city already researched and is a no-op for a
+// niche whose brief has uses_research_fields=false. Must run BEFORE the snapshot
+// below — snapshot_master() freezes the master's data for every row in this run,
+// so research after it would leave newly-added cities invisible to their own build.
+$skipList      = $skip !== '' ? array_map('trim', explode(',', $skip)) : [];
+$aiSkipped     = $noAi || in_array('ai', $skipList, true);
+$imagesSkipped = in_array('images', $skipList, true);
+if (!$aiSkipped || !$imagesSkipped) {
+    echo "Research (auto)…\n";
+    $rcCmd = escapeshellarg(PHP_BINARY) . ' ' . escapeshellarg(__DIR__ . '/research_cities.php')
+           . ' ' . escapeshellarg($masterId) . ' --batch=' . escapeshellarg($batchId);
+    passthru($rcCmd, $rcExit);
+    if ($rcExit !== 0) {
+        fwrite(STDERR, "Research step exited {$rcExit} — continuing; any city still missing data just won't get research-based content.\n");
+    }
+}
+
 // ── Snapshot master ONCE (shared by every row) ───────────────────────────────
 $snapshotDir = sys_get_temp_dir() . '/ms_campaign_snap_' . $masterId;
 echo "Snapshotting master…\n";

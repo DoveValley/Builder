@@ -251,11 +251,13 @@ if ($noAi) {
 } elseif (!ANTHROPIC_API_KEY) {
     progress_log('AI generation skipped — ANTHROPIC_API_KEY not configured.', 'warn');
 } else {
-    // A locked master ai_block would make generate.py skip it and every clone ship the
-    // MASTER's own baked copy — see ms_ai_unlock_working_copy(). This only touches the
-    // ephemeral working dir, never the master's own stored site.json.
-    $unlockedN = ms_ai_unlock_working_copy($workingDir);
-    if ($unlockedN > 0) progress_log("AI: unlocked {$unlockedN} block(s) inherited locked from the master.");
+    // Scrub anything the master authored that this clone must not inherit verbatim
+    // (locked blocks, the master's own city_spotlight) — see ms_scrub_master_content(),
+    // the one required registration point for this whole class of bug. Only ever
+    // touches this ephemeral working dir, never the master's own stored site.json.
+    $scrub = ms_scrub_master_content($workingDir);
+    if ($scrub['unlocked'] > 0)         progress_log("AI: unlocked {$scrub['unlocked']} block(s) inherited locked from the master.");
+    if ($scrub['spotlight_cleared'])    progress_log('AI: cleared city_spotlight inherited from the master.');
 
     // Cache (§6a): re-inject known copy so generate.py only fills misses/stale blocks.
     $cacheFile = BASE_DIR . '/sites/' . $masterId . '/multisite/cache/' . $domainSlug . '.json';

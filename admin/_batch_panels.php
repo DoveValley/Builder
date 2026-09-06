@@ -31,10 +31,11 @@ if (!isset($csrfToken)) return;
         </div>
         <button type="submit" class="btn btn-primary" id="ms-upload-btn">Upload &amp; Validate</button>
         <button type="button" class="btn" id="ms-test-csv-btn" onclick="msLoadTestCsv()">Preview test</button>
+        <a class="btn" href="multisite_api.php?action=download_csv" target="_blank" rel="noopener">Download CSV</a>
         <span id="ms-upload-msg" class="hint" style="margin-left:10px;"></span>
     </form>
     <p class="hint" style="margin-top:10px;">The table is stored only when every row is error-free. Rows with warnings are kept (they build, but a row without FTP credentials won't deploy). Fix any errors and re-upload.</p>
-    <p class="hint" style="margin-top:4px;"><strong>Preview test</strong> skips all of that — it stores one placeholder row (no real business data, no FTP) so you can jump straight to "4. Generate sites" and use its "view" link. Its <code>landing_cities</code> is set to whatever city the master already has real research for, so service pages actually get built too — deliberately a DIFFERENT city than the row's own, so a bug that silently reuses the master's city has something to disagree with. Overwrites whatever target list is currently stored.</p>
+    <p class="hint" style="margin-top:4px;"><strong>Preview test</strong> skips all of that — it stores one single placeholder row (no real business data, no FTP, no <code>landing_cities</code>) so you can jump straight to "4. Generate sites" and use its "view" link. One city only, on purpose: an earlier version paired the placeholder with a second, unrelated city as its landing city, and the result made no sense to look at (a Dallas business "serving" a city 150 miles away, with no link to it anywhere on the site). Overwrites whatever target list is currently stored — use <strong>Download CSV</strong> any time to see exactly what's stored, whether from Preview test or a real upload.</p>
 </div>
 
 <!-- ===== RESULTS CARD ===== -->
@@ -282,11 +283,16 @@ if (!isset($csrfToken)) return;
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
              'groups' => [
                 ['key' => 'ai', 'label' => 'AI content', 'status' => 'live',
-                 'note' => 'Not a toggle here — <strong>Generate sites never runs research itself</strong>, it only reads whatever research already exists. Research is a separate action: the "Research cities" card further down this page. Runs once per city; an already-researched city is skipped and reused free. Everything below reads from what it produces.',
+                 'note' => 'Not a toggle here — <strong>Generate sites now runs research itself, automatically, first</strong>, for every city this run needs. Every item below has its own checkpoint deciding whether it actually re-runs or reuses what\'s already on file — <strong>none of them re-does work that\'s already correct</strong>. You can still run the "Research cities" card further down this page ahead of time if you want to see the data before generating.',
                  'subs' => [
-                    ['Research — per-city facts (climate stats, market data, employers, chart figures) plus neighborhood-name verification', 'auto'],
-                    ['Landing-page blocks — 8 AI block types', 'auto'],
-                    ['About Us — company story', 'auto'],
+                    ['Research — per-city facts: industries, employers, market blurb, foundation/climate note, population, plus this niche\'s own chart figures (flood years, rainfall, etc.) &mdash; <em>checkpoint: skipped per FIELD, not per city — an already-researched city is only re-asked for whatever field is still missing or too short; a field the model can\'t find twice is left alone rather than re-billed forever</em>', 'auto'],
+                    ['Neighborhood names — asked for in the same research call, with an explicit "only names you\'re sure are real, never invent" instruction &mdash; <em>checkpoint: same per-field top-up/decline rule as Research above</em>', 'auto'],
+                    ['Neighborhood name verification against OpenStreetMap — fully written (<code>osm_neighborhoods()</code>, <code>verify_neighborhoods()</code>) but <strong>has no caller anywhere in the pipeline</strong> — no CLI flag reaches it. Today\'s only check is the model\'s own "don\'t invent" instruction above, not an independent real-world check.', 'off'],
+                    ['City Spotlight — one AI-written city profile, reused on every page for that city &mdash; <em>checkpoint: per-city cache in cities.json; a locked/inherited copy from the master can no longer leak into a different city\'s page (fixed this session)</em>', 'auto'],
+                    ['City photo — one photo per city from Wikimedia; no AI cost, a lookup+cache &mdash; <em>checkpoint: per-city cache, free after the first fetch</em>', 'auto'],
+                    ['Content scrub — runs right before the two items below, every time, no exceptions: clears any of the master\'s own content this clone must not inherit as-is (a locked block, the master\'s own City Spotlight) &mdash; <em>checkpoint: none — this is what enforces the checkpoints above are actually checking THIS city\'s data, not leftovers from the master\'s</em>', 'auto'],
+                    ['Landing-page blocks — 8 AI block types &mdash; <em>checkpoint: skipped while locked (unless Force); reused free from the per-domain cache when the fully-resolved prompt — already carrying city/business/keyword — hashes the same as last time</em>', 'auto'],
+                    ['About Us — company story &mdash; <em>same two checkpoints as landing-page blocks above</em>', 'auto'],
                     ['Privacy Policy — static today, identical on every site', 'todo'],
                     ['Terms &amp; Conditions — static today, identical on every site', 'todo'],
                     ['Contact Us — static today, identical on every site', 'todo'],

@@ -485,15 +485,13 @@ switch ($action) {
             'address' => '100 Main St, Suite 400', 'city' => 'Dallas', 'state' => 'Texas', 'SS' => 'TX',
             'zip' => '75201', 'lat' => '32.7767', 'lng' => '-96.7970', 'rating' => '4.8', 'review_count' => '126',
         ];
-        // Kept deliberately DIFFERENT from the primary city above: landing_cities uses
-        // whichever city the master already has real research for (cities.json), so the
-        // test actually produces service pages instead of shipping none — but since it's
-        // never the same city as "Dallas", a bug that silently falls back to the master's
-        // own default city (like the ai_block lock issue) still has something to disagree with.
-        $masterCities = json_decode((string) @file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/cities.json'), true);
-        if (is_array($masterCities) && !empty($masterCities[0]['city']) && !empty($masterCities[0]['SS'])) {
-            $testRow['landing_cities'] = $masterCities[0]['city'] . ', ' . $masterCities[0]['SS'];
-        }
+        // One city only, deliberately — landing_cities stays blank. An earlier version
+        // paired Dallas (primary) with the master's own unrelated city as landing_cities,
+        // meant to prove one city's data can't leak into another's. It worked, but the
+        // result made no business sense (a Dallas company "serving" a city 150 miles away)
+        // and the second city wasn't reachable from nav anyway — every test session ended
+        // up confused about a page nobody could find a reason for. A single city is what
+        // someone actually looks at when they click through the site.
         $tmp = tempnam(sys_get_temp_dir(), 'mstestcsv');
         ms_write_csv($tmp, $cols, [$testRow]);
 
