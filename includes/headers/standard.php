@@ -65,8 +65,30 @@
                 <ul>
                     <?php foreach ($header['menu'] as $item): ?>
                         <?php if (empty($item['label'])) continue; ?>
-                        <?php $hasChildren = !empty($item['children']); ?>
-                        <li class="<?= $hasChildren ? 'has-dropdown' : '' ?>">
+                        <?php
+                        // A menu item's children can be '@services_links' — a sentinel meaning
+                        // "resolve this site's full service list at render time" instead of a
+                        // hand-kept array, via the SAME resolver + page-exists guard the
+                        // [services_links] shortcode uses (plugins/services_links/plugin.php),
+                        // so the nav can never link to a page that wasn't actually built for
+                        // this city and never drifts from that shortcode's own list.
+                        $navChildren = $item['children'] ?? [];
+                        if ($navChildren === '@services_links' && function_exists('services_links_resolve')) {
+                            $navChildren = array_map(
+                                fn($row) => ['label' => $row[0], 'url' => $row[1]],
+                                services_links_resolve($data['services_links'] ?? [])
+                            );
+                        } elseif (!is_array($navChildren)) {
+                            $navChildren = [];
+                        }
+                        $hasChildren = !empty($navChildren);
+                        // A short list (e.g. 4-5 links) fits a normal single-column dropdown.
+                        // A long one (a niche with 20-30+ services) needs a wide, multi-column
+                        // "mega menu" instead — one narrow column of that many items would run
+                        // off the bottom of the screen.
+                        $isMega = $hasChildren && count($navChildren) > 8;
+                        ?>
+                        <li class="<?= $hasChildren ? 'has-dropdown' : '' ?><?= $isMega ? ' has-mega-dropdown' : '' ?>">
                             <a href="<?= h($item['url'] ?: '#') ?>"
                                style="color:<?= h($navText) ?>;"
                                <?= $hasChildren ? 'aria-haspopup="true" aria-expanded="false"' : '' ?>>
@@ -74,8 +96,8 @@
                                 <?php if ($hasChildren): ?><span class="dropdown-arrow" aria-hidden="true">&#9662;</span><?php endif; ?>
                             </a>
                             <?php if ($hasChildren): ?>
-                            <ul class="dropdown-menu">
-                                <?php foreach ($item['children'] as $child): ?>
+                            <ul class="dropdown-menu<?= $isMega ? ' dropdown-menu-mega' : '' ?>">
+                                <?php foreach ($navChildren as $child): ?>
                                     <?php if (empty($child['label'])) continue; ?>
                                     <li><a href="<?= h($child['url'] ?: '#') ?>"><?= h($child['label']) ?></a></li>
                                 <?php endforeach; ?>

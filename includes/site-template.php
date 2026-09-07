@@ -657,6 +657,29 @@ if ($firstBlockHero) {
         var open = nav.classList.toggle('is-open');
         toggle.classList.toggle('is-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        // A sticky header is position:fixed, so an expanded nav (all services open)
+        // can grow taller than the viewport with no way to reach the rest — fixed
+        // elements aren't part of normal document flow, so the page's own scroll
+        // never reveals their overflow. Cap the open panel to the space actually
+        // left below it and let IT scroll instead. Only one scroll region is ever
+        // created this way (the mega-menu itself carries no scroll of its own),
+        // so this doesn't reintroduce the nested-scroll tap-swallow bug.
+        var header = document.querySelector('.site-header');
+        var isFixed = header && getComputedStyle(header).position === 'fixed';
+        if (open && isFixed) {
+            var rect = nav.getBoundingClientRect();
+            // The mobile sticky call bar is also position:fixed at the bottom of the
+            // viewport, on top of the nav (higher z-index) — reserve its height so the
+            // scrollable nav stops above it instead of scrolling underneath it out of
+            // sight the whole time it's open.
+            var stickyBar = document.querySelector('.sticky-bottom-bar');
+            var stickyBarHeight = stickyBar ? stickyBar.getBoundingClientRect().height : 0;
+            nav.style.maxHeight = (window.innerHeight - rect.top - stickyBarHeight) + 'px';
+            nav.style.overflowY = 'auto';
+        } else if (!open) {
+            nav.style.maxHeight = '';
+            nav.style.overflowY = '';
+        }
     });
 
     // Dropdown toggle: mobile = click accordion; desktop = click closes others, Esc closes

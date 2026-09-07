@@ -1359,9 +1359,15 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     display: inline-block;
 }
 
-/* Dropdown panel — hidden by default */
+/* Dropdown panel — hidden by default.
+   Non-display properties (position/background/etc.) are safe as a bare .dropdown-menu
+   selector — nothing else sets those. display specifically is NOT safe bare: it loses
+   to .header-nav-row .site-nav ul's display:flex (0,2,1 beats this rule's 0,1,0), so
+   the dropdown rendered as a permanently-visible flex row instead of a hidden panel —
+   this was a real, live bug (not just theoretical), caught only because "Services" had
+   no populated children before today to ever reveal it. Both display rules below are
+   qualified the same way the -mega variant already was, to actually out-rank it. */
 .dropdown-menu {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -1375,17 +1381,35 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     list-style: none;
     margin: 0;
 }
-
-/* Show on hover (desktop) */
-.site-nav ul li.has-dropdown:hover > .dropdown-menu {
-    display: block;
+.header-nav-row .site-nav ul.dropdown-menu {
+    display: none;
 }
 
-.site-nav ul li.has-dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
+/* Show on hover — real mouse devices ONLY. Scoping the entire hover-enable rule
+   under (hover:hover) and (pointer:fine) means it does not exist at all as far as
+   a touch device's stylesheet is concerned, instead of existing but losing a
+   specificity fight against the mobile .open rule below. That fight was tried
+   first (matching the disable rule's specificity to this one) and still lost on
+   real touch: WebKit/Chrome apply a "sticky" :hover to whatever a tap last landed
+   on, so a real tap on "Services" satisfies this selector's :hover exactly as a
+   real mouse would, re-triggering the same bug this rule exists to prevent. Media
+   scoping removes the rule from the touch cascade entirely — no fight to lose. */
+@media (hover: hover) and (pointer: fine) {
+    .header-nav-row .site-nav ul li.has-dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+
+    .site-nav ul li.has-dropdown:hover .dropdown-arrow {
+        transform: rotate(180deg);
+    }
 }
 
-.dropdown-menu li a {
+/* .header-nav-row .site-nav ul li a (further down this file, meant for the TOP-LEVEL
+   Home/Services links) is a descendant selector with no ">" — it also matches every
+   nested dropdown-submenu link, at higher specificity (0,2,3) than a bare
+   ".dropdown-menu li a" (0,1,2), silently overriding this rule's own font-size/padding.
+   Qualifying with the same .header-nav-row .site-nav prefix is what actually wins. */
+.header-nav-row .site-nav ul.dropdown-menu li a {
     display: block;
     padding: 9px 18px;
     white-space: nowrap;
@@ -1399,10 +1423,53 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     background: rgba(0,0,0,0.05);
 }
 
+/* Mega menu — a niche with a long service list (20-30+) flows into a grid instead of
+   one narrow column running off the bottom of the screen. CSS grid, not column-count:
+   multicol needs a known height to balance columns evenly, which an absolutely
+   positioned, auto-height dropdown never has — it silently collapses to fewer,
+   uneven columns. Grid's row-major flow needs no such height up front.
+   display is deliberately NOT in this rule — see the hover-gated rule below. Setting
+   display:grid unconditionally here made the mega dropdown permanently visible (same
+   bug class as the base .dropdown-menu fix above): this selector's specificity ties
+   with the base hover rule's, so whichever comes later in the file wins outright,
+   with no hover condition attached at all. */
+.dropdown-menu-mega {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px 10px;
+    width: 800px;
+    max-width: 90vw;
+    padding: 10px 14px;
+}
+/* Hidden by default — same reasoning as the base .dropdown-menu rule. */
+.header-nav-row .site-nav ul.dropdown-menu-mega {
+    display: none;
+}
+/* Shown on hover, as a grid (not the base rule's display:block) — real mouse
+   devices only, same (hover:hover) and (pointer:fine) scoping and same reasoning
+   as the base dropdown's hover rule above. */
+@media (hover: hover) and (pointer: fine) {
+    .header-nav-row .site-nav ul li.has-dropdown:hover > ul.dropdown-menu-mega {
+        display: grid;
+    }
+}
+/* Smaller text + tighter horizontal padding so most labels fit on a single line
+   within their column — white-space stays "normal" (not nowrap) as a fallback for
+   the rare label that still doesn't fit, so it wraps instead of overflowing into
+   the next column. Same specificity fix as the base .dropdown-menu li a rule above:
+   .header-nav-row .site-nav ul li a (top-level nav links) was winning here too. */
+.header-nav-row .site-nav ul.dropdown-menu-mega li a {
+    white-space: normal;
+    line-height: 1.3;
+    font-size: 0.94rem;
+    padding: 8px 10px;
+}
+
 /* ---- Mobile: dropdown becomes accordion ---- */
 @media (max-width: 768px) {
+    /* Same specificity note as the desktop rule above — .header-nav-row .site-nav ul's
+       display:flex is not media-gated, so it's just as live at mobile widths and just
+       as capable of beating a bare .dropdown-menu selector. */
     .dropdown-menu {
-        display: none;
         position: static;
         box-shadow: none;
         border: none;
@@ -1410,6 +1477,9 @@ summary.block-card-header::-webkit-details-marker { display: none; }
         border-radius: 0;
         padding: 0;
         background: rgba(0,0,0,0.03);
+    }
+    .header-nav-row .site-nav ul.dropdown-menu {
+        display: none;
     }
     /* Show when parent li has .open class (toggled by JS) */
     .site-nav ul li.has-dropdown.open > .dropdown-menu {
@@ -1420,6 +1490,26 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     }
     .dropdown-menu li a {
         padding: 9px 28px;
+    }
+    /* Mega menu on mobile is just a taller accordion — one column, no fixed width, so
+       it never forces horizontal scroll on a phone screen. Same specificity note as
+       the desktop rule above: must out-rank .header-nav-row .site-nav ul's display:flex.
+       Deliberately NO max-height/overflow-y here — a nested scroll box on a long list
+       is exactly what causes a real tap (thumb drifts slightly while scrolling to find
+       a service) to be swallowed as a scroll-inside-the-box instead of a click: the
+       link's :active highlight flashes but it never navigates and the menu stays open.
+       Letting the list expand into the page's own scroll avoids that ambiguity. */
+    /* Same unconditional-display mistake as the desktop rule above: setting display
+       here unconditionally made the mega list permanently visible on mobile too,
+       regardless of whether the accordion was actually tapped open. Width/max-width
+       are safe unconditional (nothing else contests them); display must be gated by
+       .open, same as the base .dropdown-menu mobile rule. */
+    .dropdown-menu-mega {
+        width: auto;
+        max-width: 100%;
+    }
+    .site-nav ul li.has-dropdown.open > ul.dropdown-menu-mega {
+        display: block;
     }
 }
 
@@ -1605,8 +1695,13 @@ html, body {
 
 /* ---- TOUCH DEVICE ENHANCEMENTS ---- */
 @media (hover: none) and (pointer: coarse) {
-    /* Disable hover-only dropdown on touch — JS handles it */
-    .site-nav ul li.has-dropdown:hover > .dropdown-menu { display: none; }
+    /* The hover-enable dropdown rules are scoped under (hover:hover) and
+       (pointer:fine) at their own definition, so on a real touch device they are
+       not part of the cascade at all here — nothing to disable. That replaced an
+       earlier same-specificity "disable" rule in this block, which lost to a real
+       tap's sticky :hover state on WebKit/Chrome touch browsers (a tap satisfies
+       :hover exactly like a real mouse would), re-opening the exact bug it was
+       meant to prevent. */
 
     /* Larger tap areas for nav links */
     .site-nav a { padding: 4px 0; }
@@ -1806,9 +1901,18 @@ body.has-fixed-header main {
     .helpline-label, .helpline-sponsored { display: none; }
     .header-phone-btn { padding: 7px 14px; font-size: 0.85rem; }
 
-    /* Mobile nav dropdown */
+    /* Mobile nav dropdown. flex-basis:0% (part of the desktop rule's "flex:1"
+       shorthand, further up this file, unconditional) is not reset by width:100%
+       alone — flex-basis wins over width for a flex item's main-axis size, so
+       without overriding it here .site-nav never actually wraps onto its own row;
+       it just grows to fill whatever space is left over next to the hamburger and
+       phone button on the SAME row, rendering as a narrow column squeezed against
+       the right edge and overlapping the phone number. Same recurring bug class as
+       the dropdown display/font-size fixes above, this time on flex sizing instead
+       of display. */
     .header-nav-row .site-nav {
         display: none;
+        flex: 0 0 100%;
         width: 100%;
         order: 10;
         background: rgba(0,0,0,0.15);
@@ -2107,10 +2211,13 @@ body { padding-bottom: 70px; }
 .scroll-to-top:hover { opacity: 0.85; }
 
 @media (max-width: 768px) {
-    .sticky-bar-text { font-size: 1rem; }
+    /* Drop the "24/7 Support Line" label + its info-circle button (nested inside
+       the same span, in site-template.php) on mobile — just the phone icon and
+       number, so the bar always fits on one line at phone widths. */
+    .sticky-bar-text { display: none; }
     .sticky-phone-number { font-size: 1.2rem; }
     .sticky-phone-icon { width: 38px; height: 38px; }
-    .sticky-bar-inner { gap: 14px; }
+    .sticky-bar-inner { gap: 14px; justify-content: center; }
     body { padding-bottom: 72px; }
 }
 
@@ -2134,17 +2241,7 @@ body { padding-bottom: 70px; }
     flex-shrink: 0;
     width: 32px;
     height: 32px;
-    /* The dark palette color, not the accent — deliberately --color-footer-bg,
-       not --color-header-bg: site-template.php overwrites the header_bg CSS var
-       with the resolved nav-bar color whenever a preset sets nav_bg=accent (every
-       niche preset here does — "option A", site-template.php ~line 49), so
-       --color-header-bg is actually gold on these sites, not dark. footer_bg is
-       untouched by that override and is the true dark anchor color (every preset
-       sets footer_bg = header_bg identically in theme_presets.json) — meaning
-       this is the SAME color as the footer background itself. The border is
-       what keeps the badge visible against that identically-colored background,
-       not a second color. */
-    background: var(--color-footer-bg, #1a1464);
+    background: var(--color-accent, #fd783b);
     color: #ffffff;
     border: 1px solid rgba(255,255,255,0.35);
     border-radius: 50%;
@@ -2485,6 +2582,30 @@ body { padding-bottom: 70px; }
 .hs-caption-sub {
     font-size: var(--font-size-body);
     opacity: 0.9;
+}
+
+/* Contact Us page's hero_split only (id="contact-hero", set via the block's own
+   anchor field) — NOT a global hero_split change, since the homepage uses this same
+   block type with its own sizing. `flex: none` opts fully out of the base rule's
+   flex-grow/shrink (1 1 380px) — a flex-basis alone still inherits flex-shrink:1
+   and min-width:0 from that rule, letting the box collapse to a sliver under any
+   space pressure from the text column beside it. */
+/* Sized to match .mi-photo — the map_info block's photo at the bottom of the
+   homepage (max-height:320px in a ~510px-wide panel column). */
+#contact-hero .hs-image-wrap {
+    flex: none;
+    width: 510px;
+    max-width: 510px;
+    height: 320px;
+}
+/* A fixed height on the wrapper (above), not just aspect-ratio on the image, is
+   what actually crops this reliably — object-fit:cover + height:100% fills that
+   box exactly, cropping any source photo regardless of its own real aspect ratio. */
+#contact-hero .hs-image {
+    height: 100%;
+}
+#contact-hero .hs-heading {
+    font-size: calc(var(--font-size-h1, 2.4rem) * 1.2);
 }
 
 /* Mobile */

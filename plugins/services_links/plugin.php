@@ -69,6 +69,45 @@ function _services_links_passes(array $filter, $svc): bool {
     return true;
 }
 
+/**
+ * Resolve $cfg['services'] (this site's full service list) into [name, url] pairs for
+ * ONE city — filtered (role/brand/type, same rules as the [services_links] shortcode)
+ * and existence-checked against page-index.json so a caller never links to a page that
+ * was not actually built for this city (partial builds, appliance leaf-only sites, etc).
+ * Shared by the shortcode renderer below and the header nav's Services dropdown
+ * (includes/headers/standard.php) — one resolver, so neither can drift from the other
+ * or from what pages actually exist.
+ *
+ * @param array $filter ['brand'=>string, 'type'=>string, 'role'=>string] — empty strings
+ *              for "no filter". Use appliance_derive_slug()'s vocabulary for brand/type.
+ * @return array<int, array{0:string,1:string}> [name, resolved url] pairs
+ */
+function services_links_resolve(array $cfg, array $filter = ['brand' => '', 'type' => '', 'role' => '']): array {
+    $filter += ['brand' => '', 'type' => '', 'role' => ''];
+    $filter['_active'] = ($filter['brand'] !== '' || $filter['type'] !== '' || $filter['role'] !== '');
+
+    $services = $cfg['services'] ?? [];
+    $pattern  = $cfg['url_pattern'] ?? '/{service_slug}-{city_slug}';
+
+    $existSlugs = null;
+    if (defined('PAGE_INDEX_FILE') && file_exists(PAGE_INDEX_FILE)) {
+        $pi = json_decode((string)file_get_contents(PAGE_INDEX_FILE), true);
+        $existSlugs = is_array($pi) ? $pi : [];
+    }
+    $links = [];
+    foreach ($services as $svc) {
+        if (!_services_links_passes($filter, $svc)) continue;
+        [$name, $url] = _services_links_row($svc, $pattern);
+        if ($name === '') continue;
+        if ($existSlugs !== null && isset($url[0]) && $url[0] === '/') {
+            $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
+            if ($slug !== '' && strpos($slug, '/') === false && !isset($existSlugs[$slug])) continue;
+        }
+        $links[] = [$name, $url];
+    }
+    return $links;
+}
+
 function _services_links_render(array $cfg, string $pathPrefix = '', array $attrs = []): string {
     global $data;
 
