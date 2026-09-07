@@ -111,6 +111,7 @@ function default_data() {
             'logo'                  => '',
             'logo_in_copyright_bar' => false,
             'logo_in_contact_column' => false,
+            'tagline'         => '',
             'phone'           => '+1 (555) 123-4567',
             'col_count'       => 3,
             'disclaimer'      => '',

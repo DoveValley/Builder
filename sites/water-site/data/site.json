@@ -639,9 +639,7 @@
         "phone": "{phone}",
         "columns": [
             {
-                "type": "text",
-                "title": "About {business}",
-                "text": "<p>We connect {city} property owners with trained, experienced water and storm damage restoration specialists through our advertising network. Our providers bring years of hands-on experience in water extraction, structural drying, and flood, sewage, and storm damage cleanup for homes and businesses across {city}. Whether it is a burst pipe, a flooded basement, or storm damage, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and getting your property back to normal fast &mdash; because your peace of mind is our priority.</p>"
+                "type": "logo"
             },
             {
                 "type": "links",
@@ -716,7 +714,8 @@
             "youtube": "",
             "twitter": ""
         },
-        "logo_in_contact_column": true
+        "logo_in_contact_column": false,
+        "tagline": "We know every home and every problem is different. Our goal is simple: understand exactly what you're dealing with, and connect you with someone who can solve it right. That's the only outcome that matters to us."
     },
     "pages": {
         "page_8845f40cd5d04": {

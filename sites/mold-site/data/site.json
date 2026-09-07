@@ -623,9 +623,7 @@
         "phone": "{phone}",
         "columns": [
             {
-                "type": "text",
-                "title": "About {business}",
-                "text": "<p>We connect {city} property owners with trained, certified mold specialists through our advertising network. Our providers bring years of hands-on experience in mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation for homes and businesses across {city}. Whether it is black mold behind a wall, musty attic growth, or a lingering moisture problem, every job is handled with speed, care, and professionalism. We believe in honest service, clear communication, and restoring a clean, healthy indoor environment fast &mdash; because your peace of mind is our priority.</p>"
+                "type": "logo"
             },
             {
                 "type": "links",
@@ -704,7 +702,8 @@
             "youtube": "",
             "twitter": ""
         },
-        "logo_in_contact_column": true
+        "logo_in_contact_column": false,
+        "tagline": "We know every home and every problem is different. Our goal is simple: understand exactly what you're dealing with, and connect you with someone who can solve it right. That's the only outcome that matters to us."
     },
     "pages": {
         "page_8845f40cd5d04": {

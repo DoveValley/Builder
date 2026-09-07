@@ -401,7 +401,7 @@ if ($firstBlockHero) {
             <?php foreach ($footer['columns'] as $column):
                 $colType = $column['type'] ?? 'links';
             ?>
-            <div class="footer-col">
+            <div class="footer-col<?= $colType === 'logo' ? ' footer-col-logo-only' : '' ?>">
                 <?php if (!empty($column['title'])): ?>
                     <h3 class="footer-col-title"><?= h($column['title']) ?></h3>
                     <div class="footer-col-divider"></div>
@@ -454,6 +454,16 @@ if ($firstBlockHero) {
                         <div class="footer-col-logo-box">
                             <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], 40) ?>>
                         </div>
+                    <?php endif; ?>
+
+                <?php elseif ($colType === 'logo'): ?>
+                    <?php if (!empty($footer['logo'])): ?>
+                        <div class="footer-col-logo-box">
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], 72) ?>>
+                        </div>
+                    <?php endif; ?>
+                    <?php if (!empty($footer['tagline'])): ?>
+                        <p class="footer-col-tagline"><?= h(resolve_shortcodes($footer['tagline'])) ?></p>
                     <?php endif; ?>
                 <?php endif; ?>
             </div>

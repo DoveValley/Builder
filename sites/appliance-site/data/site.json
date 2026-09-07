@@ -506,9 +506,7 @@
         "phone": "{phone}",
         "columns": [
             {
-                "type": "text",
-                "title": "About {business}",
-                "text": "<p>{business} provides fast, reliable appliance repair for homes across {city_state} and the surrounding area. Our factory-trained technicians service all major brands and appliances &mdash; refrigerators, washers, dryers, dishwashers, ovens, and more &mdash; with accurate diagnosis, upfront pricing, and warranty-backed repairs. We&rsquo;re committed to honest, same-day service that gets your household back to normal.</p>"
+                "type": "logo"
             },
             {
                 "type": "links",
@@ -575,7 +573,7 @@
                 "url": "/contact-us"
             }
         ],
-        "disclaimer": "",
+        "disclaimer": "<p>Disclaimer: {business_domain} is a free service that helps homeowners connect with local appliance repair service providers. All contractors and providers are independent, and {business_domain} does not warrant or guarantee any work performed. It is the homeowner&rsquo;s responsibility to verify that any hired contractor carries the license and insurance required for the work being performed, and to confirm the scope of the appliance repair &mdash; including the diagnosis, the recommended repair, and any parts involved &mdash; before work begins. All persons depicted in any photo or video are actors or models and not contractors listed on {business_domain}. Any advertiser relationships are clearly marked as &ldquo;Sponsored&rdquo; or &ldquo;Ad&rdquo;. See our Terms and Conditions for further details.</p>",
         "sticky_bar_text": "24/7 Support Line - Call Now",
         "sticky_bar_info": "Calls are answered by our advertising partners who can help match you with a suitable provider.",
         "logo_in_copyright_bar": false,
@@ -587,7 +585,8 @@
             "youtube": "",
             "twitter": ""
         },
-        "logo_in_contact_column": true
+        "logo_in_contact_column": false,
+        "tagline": "We know every home and every problem is different. Our goal is simple: understand exactly what you're dealing with, and connect you with someone who can solve it right. That's the only outcome that matters to us."
     },
     "pages": {
         "page_8845f40cd5d04": {

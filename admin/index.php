@@ -542,6 +542,7 @@ function addColumn() {
                 <option value="links">Links column</option>
                 <option value="text">Text column</option>
                 <option value="contact">Contact column</option>
+                <option value="logo">Logo column</option>
             </select>
             <button type="button" class="icon-btn remove-row" onclick="removeColumn(this)">Remove</button>
         </div>
@@ -564,6 +565,9 @@ function addColumn() {
             <p class="hint" style="margin:8px 0;">Phone and city shown automatically. Add extra items below.</p>
             <div class="column-links"></div>
             <button type="button" class="btn btn-secondary btn-small" onclick="addContactExtra(this)">+ Add item</button>
+        </div>
+        <div class="col-type-panel col-type-logo is-hidden">
+            <p class="hint" style="margin:8px 0;">Shows the footer logo uploaded above (Footer Logo &amp; Phone card). Nothing to configure here — upload/change the logo there.</p>
         </div>
     `;
     container.appendChild(card);

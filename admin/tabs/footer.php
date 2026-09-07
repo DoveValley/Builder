@@ -40,6 +40,10 @@
                     <label>Phone number (used in Contact column + sticky bar)</label>
                     <input type="tel" name="footer_phone" value="<?= h($footer['phone'] ?? '') ?>" placeholder="+1 (555) 123-4567">
                 </div>
+                <div class="form-group">
+                    <label>Tagline (shown under the logo, Logo column type only)</label>
+                    <textarea name="footer_tagline" rows="3" class="rich-editor" placeholder="A short line about what this business does for the customer."><?= h($footer['tagline'] ?? '') ?></textarea>
+                </div>
             </div>
 
             <div class="card">
@@ -70,7 +74,7 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <p class="hint" style="margin:0;">Column type: <strong>Text</strong> = heading + paragraph &nbsp;|&nbsp; <strong>Links</strong> = heading + link list &nbsp;|&nbsp; <strong>Contact</strong> = phone + city + optional extras.</p>
+                    <p class="hint" style="margin:0;">Column type: <strong>Text</strong> = heading + paragraph &nbsp;|&nbsp; <strong>Links</strong> = heading + link list &nbsp;|&nbsp; <strong>Contact</strong> = phone + city + optional extras &nbsp;|&nbsp; <strong>Logo</strong> = the footer logo uploaded above.</p>
                 </div>
 
                 <div id="footer-columns">
@@ -88,6 +92,7 @@
                                     <option value="links"   <?= $colType === 'links'   ? 'selected' : '' ?>>Links column</option>
                                     <option value="text"    <?= $colType === 'text'    ? 'selected' : '' ?>>Text column</option>
                                     <option value="contact" <?= $colType === 'contact' ? 'selected' : '' ?>>Contact column</option>
+                                    <option value="logo"    <?= $colType === 'logo'    ? 'selected' : '' ?>>Logo column</option>
                                 </select>
                                 <button type="button" class="icon-btn remove-row" onclick="removeColumn(this)">Remove</button>
                             </div>
@@ -129,6 +134,11 @@
                                     <?php endforeach; ?>
                                 </div>
                                 <button type="button" class="btn btn-secondary btn-small" onclick="addContactExtra(this)">+ Add item</button>
+                            </div>
+
+                            <!-- LOGO type -->
+                            <div class="col-type-panel col-type-logo <?= $colType !== 'logo' ? 'is-hidden' : '' ?>">
+                                <p class="hint" style="margin:8px 0;">Shows the footer logo uploaded above (Footer Logo &amp; Phone card). Nothing to configure here — upload/change the logo there.</p>
                             </div>
 
                         </div>

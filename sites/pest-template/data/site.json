@@ -631,9 +631,7 @@
         "phone": "{phone}",
         "columns": [
             {
-                "type": "text",
-                "title": "About {business}",
-                "text": "<p>We connect homeowners with trained, experienced {city} pest control specialists through our advertising network. Our providers have years of on-the-job experience in safe, effective long-standing solutions to homes and businesses in {city}. Whether it’s ants and roaches, rodents, or termites, we handle every infestation with precision, care, and professionalism. We believe in honest service, upfront pricing, and long-term results &mdash; because your peace of mind is our priority.</p>"
+                "type": "logo"
             },
             {
                 "type": "links",
@@ -708,7 +706,8 @@
             "youtube": "",
             "twitter": ""
         },
-        "logo_in_contact_column": true
+        "logo_in_contact_column": false,
+        "tagline": "We know every home and every problem is different. Our goal is simple: understand exactly what you're dealing with, and connect you with someone who can solve it right. That's the only outcome that matters to us."
     },
     "pages": {
         "page_8845f40cd5d04": {

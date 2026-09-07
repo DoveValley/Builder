@@ -1,6 +1,7 @@
 <?php
         $activeTab = 'footer';
         $data['footer']['phone']                = trim($_POST['footer_phone']    ?? '');
+        $data['footer']['tagline']              = trim($_POST['footer_tagline']  ?? '');
         $data['footer']['copyright']            = trim($_POST['copyright']       ?? '');
         $data['footer']['disclaimer']           = trim($_POST['disclaimer']      ?? '');
         $data['footer']['sticky_bar_text']      = trim($_POST['sticky_bar_text'] ?? '');
@@ -20,7 +21,7 @@
         $columns = [];
         foreach ($columnsInput as $col) {
             $title   = trim($col['title'] ?? '');
-            $colType = in_array($col['type'] ?? '', ['text','links','contact']) ? $col['type'] : 'links';
+            $colType = in_array($col['type'] ?? '', ['text','links','contact','logo']) ? $col['type'] : 'links';
 
             if ($colType === 'links') {
                 $links = [];
@@ -50,6 +51,9 @@
                 }
                 if ($title === '') continue;
                 $columns[] = ['type' => 'contact', 'title' => $title, 'contact_extras' => $extras];
+
+            } elseif ($colType === 'logo') {
+                $columns[] = ['type' => 'logo'];
             }
         }
         $data['footer']['columns'] = $columns;

@@ -266,12 +266,23 @@ if ($noAi) {
     $scrub = ms_scrub_master_content($workingDir);
     if ($scrub['unlocked'] > 0)         progress_log("AI: unlocked {$scrub['unlocked']} block(s) inherited locked from the master.");
     if ($scrub['spotlight_cleared'])    progress_log('AI: cleared city_spotlight inherited from the master.');
+    if ($scrub['legal_reword_cleared'] > 0) progress_log("AI: cleared {$scrub['legal_reword_cleared']} legal-page reword lock(s) inherited from the master.");
+    if ($scrub['disclaimer_reword_cleared'] > 0) progress_log('AI: cleared footer-disclaimer reword lock inherited from the master.');
+    if ($scrub['tagline_reword_cleared'] > 0)    progress_log('AI: cleared footer-tagline reword lock inherited from the master.');
 
     // Cache (§6a): re-inject known copy so generate.py only fills misses/stale blocks.
     $cacheFile = BASE_DIR . '/sites/' . $masterId . '/multisite/cache/' . $domainSlug . '.json';
     $registry  = json_decode(@file_get_contents($workingDir . '/data/ai_block_types.json'), true) ?: [];
     $c = ms_ai_inject_from_cache($workingDir, $cacheFile, $registry);
     if ($c['candidates'] > 0) progress_log("AI cache: offered {$c['candidates']} cached block(s) for reuse (generate.py validates each by resolved-prompt hash).");
+
+    // Same idea for the footer disclaimer/tagline rewords — not ai_blocks, so the cache
+    // above never sees them. Disclaimer always reinjects (permanent lock); tagline skips
+    // reinjection when Force is set, so Force is what gets a domain a fresh variation.
+    $fr = ms_footer_reword_inject_from_cache($workingDir, $cacheFile, $force);
+    if ($fr['disclaimer'])     progress_log('AI cache: reused cached footer disclaimer.');
+    if ($fr['tagline'])        progress_log('AI cache: reused cached footer tagline.');
+    if ($fr['legal_pages'] > 0) progress_log("AI cache: reused {$fr['legal_pages']} cached legal-page reword(s).");
 
     ms_step_begin('ai');
     progress_log('Generating AI content for city…');
@@ -280,7 +291,10 @@ if ($noAi) {
     $genEnv['PYTHONUNBUFFERED']  = '1';
     $genCmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
             . ' --site-dir ' . escapeshellarg($workingDir) . ' --all'
-            . ($force ? ' --refresh' : '') . ' 2>&1';
+            . ($force ? ' --refresh' : '')
+            . ($skipped('ai.legal_reword') ? ' --no-legal-reword' : '')
+            . ($skipped('ai.disclaimer_reword') ? ' --no-disclaimer-reword' : '')
+            . ($skipped('ai.tagline_reword') ? ' --no-tagline-reword' : '') . ' 2>&1';
     $gp = proc_open($genCmd, [1 => ['pipe', 'w']], $gpipes, BASE_DIR, $genEnv);
     if (is_resource($gp)) {
         while (($l = fgets($gpipes[1])) !== false) {
@@ -297,6 +311,13 @@ if ($noAi) {
     // Persist all generated copy to the per-domain cache for future rebuilds.
     $cached = ms_ai_extract_to_cache($workingDir, $cacheFile, $registry);
     if ($cached > 0) progress_log("AI cache: {$cached} block(s) cached → " . basename($cacheFile));
+
+    // Must run AFTER ms_ai_extract_to_cache() above — that call overwrites the whole
+    // cache file, so a footer_reword key written before it would be silently wiped.
+    $frOut = ms_footer_reword_extract_to_cache($workingDir, $cacheFile);
+    if ($frOut['disclaimer'] || $frOut['tagline'] || $frOut['legal_pages'] > 0) {
+        progress_log('AI cache: footer/legal reword(s) cached → ' . basename($cacheFile));
+    }
 }
 
 // ── Per-site image differentiation (4c hero overlay + image pass) ─────────────

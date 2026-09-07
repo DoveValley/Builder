@@ -1822,6 +1822,209 @@ def rewrite_template_for_service(template, brief, service, keyword, base_service
     return template, stats
 
 
+# ── Legal page rewording (per-domain, one-time) ────────────────────────────────
+#
+# Privacy/Terms/Contact are one fixed page per domain (like the homepage), not templated
+# per service, so this needs neither the per-city archetype engine (no {city}-specific
+# facts to weave in — there's nothing here that benefits from re-checking on every
+# rebuild) nor Tier 2's multi-field/chunked rewrite (there's exactly one field per page).
+# A single, deliberately narrow reword: only the opening framing paragraph, never the
+# itemized legal clauses that follow it, and the LEGAL constraint is stricter than any
+# other prompt in this file — meaning must not change at all, only phrasing.
+#
+# This closes a real gap the fleet-network-fingerprinting effort (visual identity,
+# structure variance, class vocabulary) already invests in elsewhere: those all vary
+# STRUCTURE per domain, but until now the legal pages' actual PROSE was still
+# byte-identical across every domain off one master.
+
+LEGAL_REWORD_SLUGS = {
+    'privacy-policy':        'Privacy Policy',
+    'terms-and-conditions':  'Terms and Conditions',
+    'contact-us':            'Contact Us',
+}
+
+def reword_legal_text(text, brief, page_label, api_key, dry_run=False):
+    """Reword one legal page's opening paragraph(s) for this domain. Returns (text, changed).
+    Falls back to the original text — never a guess — whenever the model fails, returns
+    something unusable, or drops/alters a {token}."""
+    guardrails = (brief.get('guardrails') or '').strip()
+    prompt = (
+        f'Below is the opening section of a website\'s "{page_label}" page for '
+        f'{brief.get("business_descriptor") or "a local business"}. The FIRST LINE is the '
+        'page heading — copy it back EXACTLY, unchanged. Reword only the paragraph(s) that '
+        'follow it: preserve the EXACT same legal meaning, scope, and every factual claim — '
+        'change nothing about what is collected, promised, disclosed, or offered. Vary only '
+        'sentence structure and word choice, so this reads as independently written rather '
+        'than copied. Preserve every {token}-style placeholder (e.g. {business}, {website}) '
+        'EXACTLY as written wherever one appears — never translate, remove, or reword around '
+        'one in a way that changes what it refers to.'
+        + (f'\n\nGuardrails: {guardrails}' if guardrails else '')
+        + f'\n\nCurrent text (heading line, then HTML paragraphs):\n{text}\n\n'
+        'Return JSON only: {"text": "same heading line, then reworded HTML paragraphs"}'
+    )
+
+    if dry_run:
+        _log(f'    [dry-run] Would reword "{page_label}" opening ({len(prompt)} char prompt)')
+        return text, False
+
+    result = call_claude(prompt, REWRITE_MODEL, api_key, dry_run=False)
+    if not result or not isinstance(result, dict) or not isinstance(result.get('text'), str) or not result['text'].strip():
+        _warn(f'    Reword for "{page_label}" failed — keeping existing text')
+        return text, False
+
+    new_text = result['text']
+    if _rewrite_tokens(new_text) != _rewrite_tokens(text):
+        _warn(f'    "{page_label}": dropped/altered a {{token}} in the reword — kept original text')
+        return text, False
+
+    return new_text, True
+
+
+def reword_legal_pages(site_data, brief, api_key, dry_run=False) -> bool:
+    """Runs once per domain: rewords the opening paragraph of each matched legal page
+    (see LEGAL_REWORD_SLUGS), then stamps _legal_reworded on that block so it is never
+    re-billed on a later rebuild — success or failure, one attempt is enough for text this
+    low-stakes; there is no per-city data here that would ever justify asking again."""
+    changed = False
+    for pid, page in (site_data.get('pages') or {}).items():
+        label = LEGAL_REWORD_SLUGS.get(page.get('slug'))
+        if not label:
+            continue
+        blocks = page.get('content_blocks') or []
+        if not blocks or blocks[0].get('type') != 'text' or blocks[0].get('_legal_reworded'):
+            continue
+        text = (blocks[0].get('text') or '').strip()
+        if not text:
+            continue
+        _log(f'  Rewording "{label}" opening for this domain...')
+        new_text, ok = reword_legal_text(text, brief, label, api_key, dry_run)
+        if ok:
+            blocks[0]['text'] = new_text
+            _ok(f'    "{label}" — reworded')
+        if not dry_run:
+            blocks[0]['_legal_reworded'] = True
+            changed = True
+    return changed
+
+
+def reword_disclaimer_text(text, brief, api_key, dry_run=False):
+    """Reword the footer disclaimer for this domain. Returns (text, changed). Same rules as
+    reword_legal_text, but the disclaimer is one flowing paragraph with no heading line to
+    preserve."""
+    guardrails = (brief.get('guardrails') or '').strip()
+    prompt = (
+        'Below is the legal disclaimer shown in the footer of every page for '
+        f'{brief.get("business_descriptor") or "a local business"}. Reword it: preserve the '
+        'EXACT same legal meaning, scope, and every factual claim — change nothing about what '
+        'is disclaimed, promised, or disclosed. Vary only sentence structure and word choice, '
+        'so this reads as independently written rather than copied. Preserve every '
+        '{token}-style placeholder (e.g. {business_domain}) EXACTLY as written wherever one '
+        'appears — never translate, remove, or reword around one in a way that changes what '
+        'it refers to. Keep the surrounding HTML tags (e.g. <p>...</p>) as they are.'
+        + (f'\n\nGuardrails: {guardrails}' if guardrails else '')
+        + f'\n\nCurrent text:\n{text}\n\n'
+        'Return JSON only: {"text": "reworded HTML"}'
+    )
+
+    if dry_run:
+        _log(f'    [dry-run] Would reword footer disclaimer ({len(prompt)} char prompt)')
+        return text, False
+
+    result = call_claude(prompt, REWRITE_MODEL, api_key, dry_run=False)
+    if not result or not isinstance(result, dict) or not isinstance(result.get('text'), str) or not result['text'].strip():
+        _warn('    Reword for footer disclaimer failed — keeping existing text')
+        return text, False
+
+    new_text = result['text']
+    if _rewrite_tokens(new_text) != _rewrite_tokens(text):
+        _warn('    Footer disclaimer: dropped/altered a {token} in the reword — kept original text')
+        return text, False
+
+    return new_text, True
+
+
+def reword_disclaimer(site_data, brief, api_key, dry_run=False) -> bool:
+    """Runs once per domain: rewords the footer disclaimer, then stamps
+    _disclaimer_reworded on the footer so it is never re-billed on a later rebuild —
+    success or failure, one attempt is enough for text this low-stakes."""
+    footer = site_data.setdefault('footer', {})
+    if footer.get('_disclaimer_reworded'):
+        return False
+    text = (footer.get('disclaimer') or '').strip()
+    if not text:
+        return False
+    _log('  Rewording footer disclaimer for this domain...')
+    new_text, ok = reword_disclaimer_text(text, brief, api_key, dry_run)
+    if ok:
+        footer['disclaimer'] = new_text
+        _ok('    Footer disclaimer — reworded')
+    if not dry_run:
+        footer['_disclaimer_reworded'] = True
+        return True
+    return False
+
+
+def reword_tagline_text(text, brief, api_key, dry_run=False):
+    """Reword the footer tagline for this domain. Returns (text, changed). Unlike the
+    disclaimer, this one is expected to be asked for again later (via Force) to get a
+    different variation — so the instruction is looser: keep the same theme/promise,
+    but word choice and sentence structure should read as freshly written, not a
+    synonym-swap of last time's version."""
+    guardrails = (brief.get('guardrails') or '').strip()
+    prompt = (
+        'Below is a short footer tagline (2-3 sentences) for '
+        f'{brief.get("business_descriptor") or "a local business"}. Rewrite it: keep the '
+        'exact same theme and promise — that the goal is to understand the customer\'s '
+        'problem and connect them with the right help to solve it — but write fresh '
+        'wording and sentence structure, not a synonym-swap of the original. Stay '
+        'generic and low-key; do not invent specific claims, numbers, or credentials. '
+        'Preserve every {token}-style placeholder EXACTLY as written wherever one appears.'
+        + (f'\n\nGuardrails: {guardrails}' if guardrails else '')
+        + f'\n\nCurrent text:\n{text}\n\n'
+        'Return JSON only: {"text": "rewritten tagline, 2-3 sentences, plain text, no HTML tags"}'
+    )
+
+    if dry_run:
+        _log(f'    [dry-run] Would reword footer tagline ({len(prompt)} char prompt)')
+        return text, False
+
+    result = call_claude(prompt, REWRITE_MODEL, api_key, dry_run=False)
+    if not result or not isinstance(result, dict) or not isinstance(result.get('text'), str) or not result['text'].strip():
+        _warn('    Reword for footer tagline failed — keeping existing text')
+        return text, False
+
+    new_text = result['text']
+    if _rewrite_tokens(new_text) != _rewrite_tokens(text):
+        _warn('    Footer tagline: dropped/altered a {token} in the reword — kept original text')
+        return text, False
+
+    return new_text, True
+
+
+def reword_tagline(site_data, brief, api_key, dry_run=False) -> bool:
+    """Rewords the footer tagline, then stamps _tagline_reworded. Unlike the disclaimer,
+    this stamp is deliberately NOT a permanent lock at the pipeline level — build_one.php's
+    per-domain cache reinjects the cached tagline (+ this flag) on a routine rebuild, so it
+    doesn't re-bill for no reason, but skips that reinjection when Force is used, so this
+    function runs again and produces a genuinely different variation. From generate.py's own
+    point of view the rule is identical to the disclaimer: if the flag is already set, skip."""
+    footer = site_data.setdefault('footer', {})
+    if footer.get('_tagline_reworded'):
+        return False
+    text = (footer.get('tagline') or '').strip()
+    if not text:
+        return False
+    _log('  Rewording footer tagline for this domain...')
+    new_text, ok = reword_tagline_text(text, brief, api_key, dry_run)
+    if ok:
+        footer['tagline'] = new_text
+        _ok('    Footer tagline — reworded')
+    if not dry_run:
+        footer['_tagline_reworded'] = True
+        return True
+    return False
+
+
 def sync_templates(paths, dry_run=False) -> dict:
     """
     For each page file in pages/, compare ai_blocks against the source template.
@@ -1963,6 +2166,15 @@ def main():
                     help='Re-research every matched city regardless of what it already has '
                          '(a rewritten research prompt, or facts believed stale/wrong). '
                          'Only affects the research step, not content/image generation.')
+    ap.add_argument('--no-legal-reword', action='store_true', dest='no_legal_reword',
+                    help='Skip the one-time per-domain reword of Privacy/Terms/Contact opening '
+                         'text (runs automatically as part of --page core / --all otherwise).')
+    ap.add_argument('--no-disclaimer-reword', action='store_true', dest='no_disclaimer_reword',
+                    help='Skip the one-time per-domain reword of the footer disclaimer '
+                         '(runs automatically as part of --page core / --all otherwise).')
+    ap.add_argument('--no-tagline-reword', action='store_true', dest='no_tagline_reword',
+                    help='Skip the per-domain reword of the footer tagline '
+                         '(runs automatically as part of --page core / --all otherwise).')
     ap.add_argument('--sync-templates',  action='store_true', dest='sync_templates',
                     help='Insert missing ai_blocks from templates.json into existing page files, then exit')
     ap.add_argument('--rewrite-template', dest='rewrite_template', default=None,
@@ -2120,6 +2332,17 @@ def main():
 
     if args.all or args.page == 'core':
         _merge_stats(total, process_core_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))
+        if not args.no_legal_reword or not args.no_disclaimer_reword or not args.no_tagline_reword:
+            _brief_for_legal = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
+            _legal_changed = False
+            if not args.no_legal_reword:
+                _legal_changed = reword_legal_pages(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
+            if not args.no_disclaimer_reword:
+                _legal_changed = reword_disclaimer(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
+            if not args.no_tagline_reword:
+                _legal_changed = reword_tagline(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
+            if _legal_changed and not args.dry_run:
+                save_json(paths['site_json'], site_data)
 
     if args.all or args.page == 'landing':
         _merge_stats(total, process_landing_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, file_filter=args.file, model_override=model_override, workers=args.workers, tag_ids=tag_ids))

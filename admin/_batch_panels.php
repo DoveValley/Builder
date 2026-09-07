@@ -272,10 +272,9 @@ if (!isset($csrfToken)) return;
                     ['Landing-page blocks — 7 AI block types, now including <code>steps_local</code> — replaced word-for-word-identical process-step text with real per-city copy, and along the way corrected a live guardrail violation (static text was claiming to directly employ technicians on a referral-network niche) &mdash; <em>checkpoint: skipped while locked (unless Force); reused free from the per-domain cache when the fully-resolved prompt — already carrying city/business/keyword — hashes the same as last time</em>', 'auto'],
                     ['Homepage blocks — 3 AI block types (intro, body copy, service-area statement), same per-domain cache/checkpoint as landing pages &mdash; <em>fixed a real bug where the homepage\'s <code>{keyword}</code> token wasn\'t resolving at all</em>', 'auto'],
                     ['About Us — company story &mdash; <em>same two checkpoints as landing-page blocks above</em>', 'auto'],
-                    ['Privacy Policy — static today, identical on every site', 'todo'],
-                    ['Terms &amp; Conditions — static today, identical on every site', 'todo'],
-                    ['Contact Us — static today, identical on every site', 'todo'],
-                    ['Disclaimer — no such page on the master yet', 'todo'],
+                    ['Privacy Policy, Terms &amp; Conditions, Contact Us — opening paragraph reworded per domain, one time; the legal meaning and contact details are never changed, only the phrasing &mdash; <em>checkpoint: stamped <code>_legal_reworded</code> after one attempt, success or failure, so it\'s never re-billed on a rebuild</em>', 'control', 'ai.legal_reword'],
+                    ['Footer disclaimer — reworded per domain, one time; same legal meaning, only the phrasing changes &mdash; <em>checkpoint: stamped <code>_disclaimer_reworded</code> after one attempt, success or failure, cached per domain so it\'s never re-billed on a routine rebuild</em>', 'control', 'ai.disclaimer_reword'],
+                    ['Footer logo tagline — reworded per domain, same theme (understand the problem, connect to the right help), different phrasing &mdash; <em>checkpoint: cached per domain like the disclaimer, but Force skips the cache — checking Force on a domain is what gets it a fresh variation; a routine rebuild reuses the last one for free</em>', 'control', 'ai.tagline_reword'],
                     ['Boilerplate blocks (service cards, CTA, trust bar) — identical fleet-wide', 'todo'],
                  ]],
              ]],
@@ -391,26 +390,26 @@ if (!isset($csrfToken)) return;
                             $msKey   = $msSub[2] ?? null;
                             if ($msMode === 'control'): ?>
                                 <!-- A real switch: its own skip key, collected by msRun(). -->
-                                <label class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0;color:#334155;">
+                                <label class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0;color:#334155;">
                                     <input type="checkbox" class="ms-sub-opt" value="<?= htmlspecialchars($msKey, ENT_QUOTES) ?>"
                                            data-parent="<?= htmlspecialchars($msT['key'] ?? '', ENT_QUOTES) ?>" checked>
                                     <span><?= $msLabel ?></span>
                                 </label>
                             <?php elseif ($msMode === 'todo'): ?>
                                 <!-- Not built: nothing to switch, so no checkbox. -->
-                                <div class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0 1px 22px;color:#94a3b8;">
+                                <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#94a3b8;">
                                     <span>&#128679;</span><span><?= $msLabel ?></span>
                                 </div>
                             <?php elseif ($msMode === 'off'): ?>
                                 <!-- Built, but nothing switched on behind it — must not read as
                                      running, which a green tick would. -->
-                                <div class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0 1px 22px;color:#92400e;">
+                                <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#92400e;">
                                     <span>&#9888;</span><span><?= $msLabel ?></span>
                                 </div>
                             <?php else: ?>
                                 <!-- Happens whenever the parent step runs; not separable, so no
                                      checkbox — an unclickable tick would only look like a control. -->
-                                <div class="hint" style="display:flex;align-items:center;gap:7px;padding:1px 0 1px 22px;color:#334155;">
+                                <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#334155;">
                                     <span style="color:#166534;">&#10003;</span><span><?= $msLabel ?></span>
                                 </div>
                             <?php endif; ?>

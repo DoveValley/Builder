@@ -184,6 +184,62 @@ function ms_clear_inherited_city_spotlight(string $workingDir): bool {
 }
 
 /**
+ * Clear the master's own _legal_reworded flag (and the reworded text under it) from a
+ * clone's working copy before generate.py runs.
+ *
+ * Same shape of bug as city_spotlight above: generate.py's reword_legal_pages() treats
+ * _legal_reworded as "already done for this domain, skip" — but the master's OWN
+ * site.json is exactly what every clone starts from, so the master's one reword (done
+ * once, e.g. while testing) would otherwise become every future domain's reword too,
+ * defeating the entire point of doing this per domain. Caught before any real rollout
+ * happened, not after — see the test that found it, in the same session this was built.
+ */
+function ms_clear_inherited_legal_reword(string $workingDir): int {
+    $siteFile = $workingDir . '/data/site.json';
+    $site = json_decode((string) @file_get_contents($siteFile), true);
+    if (!is_array($site) || empty($site['pages']) || !is_array($site['pages'])) return 0;
+    $cleared = 0;
+    foreach ($site['pages'] as $pid => &$page) {
+        if (empty($page['content_blocks'][0]['_legal_reworded'])) continue;
+        unset($site['pages'][$pid]['content_blocks'][0]['_legal_reworded']);
+        $cleared++;
+    }
+    unset($page);
+    if ($cleared > 0) {
+        file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    }
+    return $cleared;
+}
+
+/**
+ * Same shape of bug as ms_clear_inherited_legal_reword() above, for generate.py's
+ * reword_disclaimer(): _disclaimer_reworded on the master's own footer would otherwise
+ * become every future domain's reword too.
+ */
+function ms_clear_inherited_disclaimer_reword(string $workingDir): int {
+    $siteFile = $workingDir . '/data/site.json';
+    $site = json_decode((string) @file_get_contents($siteFile), true);
+    if (!is_array($site) || empty($site['footer']['_disclaimer_reworded'])) return 0;
+    unset($site['footer']['_disclaimer_reworded']);
+    file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    return 1;
+}
+
+/**
+ * Same shape of bug as ms_clear_inherited_disclaimer_reword() above, for generate.py's
+ * reword_tagline(): _tagline_reworded on the master's own footer would otherwise become
+ * every future domain's reword too.
+ */
+function ms_clear_inherited_tagline_reword(string $workingDir): int {
+    $siteFile = $workingDir . '/data/site.json';
+    $site = json_decode((string) @file_get_contents($siteFile), true);
+    if (!is_array($site) || empty($site['footer']['_tagline_reworded'])) return 0;
+    unset($site['footer']['_tagline_reworded']);
+    file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    return 1;
+}
+
+/**
  * THE single required step for anything the master authored that a clone must never inherit
  * verbatim — one call site in build_one.php, one place in the run tree, one place in this file
  * that any future "generate once per site, skip if already present" feature MUST register
@@ -200,8 +256,11 @@ function ms_clear_inherited_city_spotlight(string $workingDir): bool {
  */
 function ms_scrub_master_content(string $workingDir): array {
     return [
-        'unlocked'          => ms_ai_unlock_working_copy($workingDir),
-        'spotlight_cleared' => ms_clear_inherited_city_spotlight($workingDir),
+        'unlocked'            => ms_ai_unlock_working_copy($workingDir),
+        'spotlight_cleared'   => ms_clear_inherited_city_spotlight($workingDir),
+        'legal_reword_cleared'=> ms_clear_inherited_legal_reword($workingDir),
+        'disclaimer_reword_cleared' => ms_clear_inherited_disclaimer_reword($workingDir),
+        'tagline_reword_cleared'    => ms_clear_inherited_tagline_reword($workingDir),
     ];
 }
 
@@ -342,4 +401,111 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
     file_put_contents($tmp, json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $cacheFile);
     return count($fields);
+}
+
+/** Page slugs generate.py's reword_legal_pages() rewords — must mirror LEGAL_REWORD_SLUGS
+ *  in generate.py; only used here as cache keys, not to duplicate its labels/logic. */
+const MS_LEGAL_REWORD_SLUGS = ['privacy-policy', 'terms-and-conditions', 'contact-us'];
+
+/**
+ * Cache/reinject the one-time-per-domain rewords: the three legal pages' opening text
+ * (generate.py's reword_legal_pages()), plus footer.disclaimer and footer.tagline. None
+ * of these are ai_blocks, so ms_ai_inject_from_cache()/ms_ai_extract_to_cache() above
+ * never touch them (they only walk content_blocks by ai_type_id). Without this, every
+ * fresh build — which always starts from a pristine clone of the master, per
+ * clone_to_working_dir() — would re-run every one of those reword functions and re-bill
+ * the API on every single rebuild, even though each one's own _*_reworded flag is
+ * designed to make it a one-time (or, for tagline, Force-only) cost.
+ *
+ * Legal pages and disclaimer are true permanent locks: always reinjected regardless of
+ * Force, so they can never reroll. Tagline is deliberately different — pass
+ * $skipTagline = true (this run's Force flag) to skip its reinjection, so generate.py
+ * sees a pristine, un-stamped tagline and rewords it fresh. A routine (non-Force)
+ * rebuild reuses the cached tagline for free.
+ */
+function ms_footer_reword_inject_from_cache(string $workingDir, string $cacheFile, bool $skipTagline = false): array {
+    $siteFile = $workingDir . '/data/site.json';
+    $hit = ['disclaimer' => false, 'tagline' => false, 'legal_pages' => 0];
+    if (!file_exists($siteFile) || !file_exists($cacheFile)) return $hit;
+    $site  = json_decode(file_get_contents($siteFile), true);
+    $cache = json_decode(file_get_contents($cacheFile), true);
+    if (!is_array($site) || !is_array($cache)) return $hit;
+    $fr = $cache['footer_reword'] ?? [];
+    $lr = $cache['legal_reword'] ?? [];
+    $changed = false;
+
+    if (!empty($fr['disclaimer']['text'])) {
+        $site['footer']['disclaimer'] = $fr['disclaimer']['text'];
+        $site['footer']['_disclaimer_reworded'] = true;
+        $hit['disclaimer'] = true; $changed = true;
+    }
+    if (!$skipTagline && !empty($fr['tagline']['text'])) {
+        $site['footer']['tagline'] = $fr['tagline']['text'];
+        $site['footer']['_tagline_reworded'] = true;
+        $hit['tagline'] = true; $changed = true;
+    }
+    if ($lr && !empty($site['pages']) && is_array($site['pages'])) {
+        foreach ($site['pages'] as $pid => &$page) {
+            $slug = $page['slug'] ?? '';
+            if (!in_array($slug, MS_LEGAL_REWORD_SLUGS, true) || empty($lr[$slug]['text'])) continue;
+            if (empty($page['content_blocks'][0]) || ($page['content_blocks'][0]['type'] ?? '') !== 'text') continue;
+            $page['content_blocks'][0]['text'] = $lr[$slug]['text'];
+            $page['content_blocks'][0]['_legal_reworded'] = true;
+            $hit['legal_pages']++; $changed = true;
+        }
+        unset($page);
+    }
+    if ($changed) {
+        file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    }
+    return $hit;
+}
+
+/**
+ * Companion to ms_footer_reword_inject_from_cache() — persists whatever generate.py just
+ * (re)worded back into the SAME cache file ms_ai_extract_to_cache() writes. Must run AFTER
+ * that function each build: it overwrites the whole cache file with just {generated_at,
+ * fields}, so a footer_reword/legal_reword key written before it would be silently wiped.
+ */
+function ms_footer_reword_extract_to_cache(string $workingDir, string $cacheFile): array {
+    $siteFile = $workingDir . '/data/site.json';
+    $out = ['disclaimer' => false, 'tagline' => false, 'legal_pages' => 0];
+    if (!file_exists($siteFile)) return $out;
+    $site = json_decode(file_get_contents($siteFile), true);
+    if (!is_array($site)) return $out;
+    $footer = $site['footer'] ?? [];
+
+    $existing = file_exists($cacheFile) ? (json_decode(file_get_contents($cacheFile), true) ?: []) : [];
+    $fr = $existing['footer_reword'] ?? [];
+    $lr = $existing['legal_reword'] ?? [];
+    $changed = false;
+
+    if (!empty($footer['_disclaimer_reworded']) && !empty($footer['disclaimer'])) {
+        $fr['disclaimer'] = ['text' => $footer['disclaimer']];
+        $out['disclaimer'] = true; $changed = true;
+    }
+    if (!empty($footer['_tagline_reworded']) && !empty($footer['tagline'])) {
+        $fr['tagline'] = ['text' => $footer['tagline']];
+        $out['tagline'] = true; $changed = true;
+    }
+    if (!empty($site['pages']) && is_array($site['pages'])) {
+        foreach ($site['pages'] as $page) {
+            $slug = $page['slug'] ?? '';
+            if (!in_array($slug, MS_LEGAL_REWORD_SLUGS, true)) continue;
+            $block = $page['content_blocks'][0] ?? [];
+            if (empty($block['_legal_reworded']) || empty($block['text'])) continue;
+            $lr[$slug] = ['text' => $block['text']];
+            $out['legal_pages']++; $changed = true;
+        }
+    }
+    if ($changed) {
+        $existing['footer_reword'] = $fr;
+        $existing['legal_reword']  = $lr;
+        $dir = dirname($cacheFile);
+        if (!is_dir($dir)) mkdir($dir, 0775, true);
+        $tmp = $cacheFile . '.tmp.' . getmypid();
+        file_put_contents($tmp, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+        rename($tmp, $cacheFile);
+    }
+    return $out;
 }
