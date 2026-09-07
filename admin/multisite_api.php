@@ -568,11 +568,19 @@ switch ($action) {
 
         $log = [];
         progress_set_sink(function ($payload) use (&$log) { $log[] = $payload; });
+        // Wipe first, always — this target is reused across whatever domain was tested
+        // last, so a leftover page from a PAST test (e.g. a city no longer in this
+        // build) would otherwise just sit there forever; nothing ever deletes what a
+        // plain upload doesn't overwrite. Safe here specifically because this is a
+        // disposable, always-overwritten test target, not a real client site — the
+        // brief window where it's empty mid-redeploy costs nothing. force=true below
+        // already bypasses the manifest, so the wipe doesn't need to clear it too.
+        $wipe = ms_wipe_remote($cfg);
         $manifestFile = ms_test_deploy_path() . '.manifest.json';
         $dep = deploy_site($cfg, rtrim($outputDir, '/') . '/', $manifestFile, true);
         progress_set_sink(null);
 
-        echo json_encode(['result' => $dep, 'log' => $log, 'view_url' => $cfg['view_url'] ?? '']);
+        echo json_encode(['result' => $dep, 'wipe' => $wipe, 'log' => $log, 'view_url' => $cfg['view_url'] ?? '']);
         break;
 
     // Upload a CSV → validate → store only if error-free.
