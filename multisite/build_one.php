@@ -37,6 +37,7 @@ require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
 require_once __DIR__ . '/../includes/multisite/seo_gate.php';
 require_once __DIR__ . '/../includes/multisite/class_vocab.php';
+require_once __DIR__ . '/../includes/multisite/cache_bust.php';
 require_once __DIR__ . '/../includes/multisite/schema_shape.php';
 require_once __DIR__ . '/../includes/multisite/steps.php';
 
@@ -394,6 +395,15 @@ if ($skipped('structure') || $skipped('structure.classvocab')) {
         progress_log('Class vocabulary: ' . count($cv['orphans']) . ' class(es) left half-renamed — '
                    . implode(', ', array_slice($cv['orphans'], 0, 5)) . '. Do not deploy this row.', 'warn');
     }
+}
+
+// ── CSS cache-busting — always, not a variance toggle ─────────────────────────
+// style.css?v=N is stamped at render time from the SHARED master template's own file
+// mtime, not this clone's actual (class-vocab-renamed) CSS — so every clone got the
+// same version number regardless of its real content. See ms_cache_bust_apply().
+$cb = ms_cache_bust_apply($outputDir);
+if ($cb['files'] > 0) {
+    progress_log("Cache-bust: stamped this build's real CSS hash across {$cb['files']} file(s).");
 }
 
 // ── Schema shape — same JSON-LD facts, arranged differently per site ─────────
