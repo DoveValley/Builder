@@ -322,3 +322,54 @@ function img_intrinsic_attrs(string $storedPath): string {
     if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
     return 'width="' . (int) $sz[0] . '" height="' . (int) $sz[1] . '" ';
 }
+
+/**
+ * Deliberately conservative CSS minifier: strips comments, then collapses any run of
+ * whitespace that spans a line break down to one space. Never touches an in-line
+ * single space, so calc(100% - 32px)-style expressions (space required around the
+ * operator, or the browser rejects the whole declaration) survive untouched — a
+ * "collapse everything" minifier would silently break those. Costs some of the
+ * achievable byte savings; a single corrupted declaration across the whole site is a
+ * far worse outcome than a few extra bytes.
+ */
+function css_minify(string $css): string {
+    $css = preg_replace('#/\*.*?\*/#s', '', $css);
+    $css = preg_replace('/[ \t]*[\r\n]+[ \t]*/', ' ', (string) $css);
+    return trim((string) $css);
+}
+
+/**
+ * Regenerate a minified CSS file from its hand-edited source, whenever the source is
+ * newer — the same self-healing-on-stale pattern used elsewhere in this codebase
+ * (cache-busting, research top-up), so there's no separate build step to remember and
+ * no way for the two to drift.
+ *
+ * $outPath is deliberately the SAME name every other system already expects
+ * (assets/css/style.css) — not a differently-named sibling. Both the multisite
+ * cache-busting fix (ms_cache_bust_apply(), includes/multisite/cache_bust.php) and any
+ * direct request for that URL depend on that exact filename existing; renaming what
+ * ships would silently break the cache-busting fix's hardcoded path and reopen the
+ * exact bug it was written to close. Only the human-edited SOURCE moves (to
+ * style.src.css) — what everything else looks for stays put.
+ *
+ * Falls back to leaving the existing output file in place if minification or the write
+ * ever fails for any reason — a failed regeneration must never delete a working,
+ * already-styled site.
+ *
+ * @return int mtime to use for cache-busting (the output file's own, or the source's as
+ *             a last resort if the output doesn't exist yet and regeneration failed)
+ */
+function css_minify_to(string $srcPath, string $outPath): int {
+    $srcMtime = @filemtime($srcPath);
+    $outMtime = @filemtime($outPath);
+    if ($srcMtime !== false && ($outMtime === false || $outMtime < $srcMtime)) {
+        $raw = @file_get_contents($srcPath);
+        if ($raw !== false) {
+            $minified = css_minify($raw);
+            if ($minified !== '' && @file_put_contents($outPath, $minified) !== false) {
+                $outMtime = @filemtime($outPath);
+            }
+        }
+    }
+    return $outMtime !== false ? $outMtime : (int) ($srcMtime ?: time());
+}

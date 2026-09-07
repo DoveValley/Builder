@@ -212,7 +212,17 @@ if (empty($seo['og_image'])) {
     <link rel="stylesheet" href="<?= h($gfHref) ?>" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="<?= h($gfHref) ?>"></noscript>
     <?php endif; ?>
-    <link rel="stylesheet" href="<?= h($assetPathPrefix ?? '') ?>assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
+    <?php
+    // style.css itself is now a generated artifact, regenerated automatically from the
+    // hand-edited assets/css/style.src.css whenever that source is newer (see
+    // css_minify_to()) — the served filename never changes, so cache-busting
+    // (ms_cache_bust_apply()) and the multisite static build (which copies the whole
+    // assets/ folder verbatim) both keep working unmodified.
+    $mainCssPath = __DIR__ . '/../assets/css/style.css';
+    $mainCssMtime = css_minify_to(__DIR__ . '/../assets/css/style.src.css', $mainCssPath);
+    $mainCssHref = h($assetPathPrefix ?? '') . 'assets/css/style.css?v=' . $mainCssMtime;
+    ?>
+    <link rel="stylesheet" href="<?= $mainCssHref ?>">
     <?php
     // Flag whether this page actually uses a course shortcode, so plugins that add
     // render-blocking <head> CSS (schedule plugin) can skip it on pages that don't.

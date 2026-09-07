@@ -62,12 +62,12 @@ function city_map_current_city(): array
     return $city;
 }
 
-// ── {city_map} / {city_map_alt} ──────────────────────────────────────────────
+// ── {city_map} / {city_map_alt} / {city_map_dims} ────────────────────────────
 // Rendered lazily on first use: a site that never places the token never draws anything.
 add_hook('shortcode_tokens', function (array $map): array {
     static $cache = null;
     if ($cache === null) {
-        $cache = ['{city_map}' => '', '{city_map_alt}' => '', '{city_map_caption}' => ''];
+        $cache = ['{city_map}' => '', '{city_map_alt}' => '', '{city_map_caption}' => '', '{city_map_dims}' => ''];
         if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
             $city = city_map_current_city();
             $theme = city_map_theme();
@@ -79,6 +79,12 @@ add_hook('shortcode_tokens', function (array $map): array {
                 // repeated site-wide would be boilerplate and would dilute the one entity
                 // this site is about.
                 '{city_map_caption}' => city_map_caption($city, city_map_domain()),
+                // Ready-to-embed width="W" height="H" attrs (same convention as every other
+                // image on the page, img_intrinsic_attrs()) — the hand-written <img> markup
+                // for this plugin had no way to reserve layout space before this existed,
+                // which Lighthouse flags as a CLS risk even on a page where nothing actually
+                // shifted yet.
+                '{city_map_dims}'    => img_intrinsic_attrs($r['path']),
             ];
         }
     }
