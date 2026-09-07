@@ -1,419 +1,540 @@
 {
-    "template_id": "tpl_wdi_inspection",
-    "city_id": "littleton-co",
-    "slug": "wdi-inspection-littleton-co",
-    "title": "WDI Inspection in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "WDI Inspection in {city_state}",
-            "hs_subtext": "<p>Colorado's dry climate and seasonal temperature swings create ideal conditions for wood-destroying insects to seek shelter in homes throughout the Littleton area, particularly as fall approaches. A professional WDI inspection identifies termites, carpenter ants, and wood-boring beetles before they compromise your home's structural integrity, catching damage early when intervention is most effective. For homeowners in neighborhoods like Ken Caryl and Historic Littleton, a thorough inspection provides the clarity needed to protect one of your largest investments.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "WDI Inspection in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/wdi-inspection-katy-tx_5fe6a4.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:39.500935Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "b29a8db15d949eda",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Trained Inspectors",
-                    "icon": ""
-                },
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Detailed Written Report",
-                    "icon": ""
-                },
-                {
-                    "label": "Fast Scheduling",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-wdi-inspection-katy_bb9184.webp",
-            "it_alt": "WDI Inspection in a {city_state} home",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "WDI Inspection in Littleton: Protect Your Home",
-            "text": "<p>Colorado's Front Range climate creates ideal conditions for wood-destroying insects, and Littleton homeowners face particular risk during warmer months when termites, carpenter ants, and wood-boring beetles emerge and establish colonies. The region's combination of moisture from spring snowmelt and summer thunderstorms, paired with the prevalence of wooden structures in established neighborhoods like Ken Caryl and Historic Littleton, makes wood-destroying insect inspection not just a precaution but a practical necessity. A thorough WDI report protects your investment by identifying hidden damage before it becomes costly, and it's often required during real estate transactions or by lenders as part of the home evaluation process.</p><p>Littleton Pest Pros brings trained expertise to every wood destroying insect inspection, conducting detailed examinations of foundation sills, joists, attics, and other vulnerable areas where these pests hide and cause damage. We document findings clearly and provide you with a comprehensive inspection report that outlines what we've found and what it means for your home's structural integrity. Rather than rushing through the assessment, we take time to explain our observations and discuss next steps with you—whether that means immediate treatment, monitoring, or preventive measures. Our goal is to give you confidence that your property is thoroughly evaluated and that you have the information needed to make informed decisions about protecting your Littleton home.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:43.548736Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "401f96f28c02ba7f",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for WDI Inspections",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Technicians, Thorough Results",
-                    "text": "<p>Our inspectors bring deep expertise to every wood-destroying insect inspection. We examine structural vulnerabilities, moisture zones, and entry points with precision—delivering the detailed WDI report you need for confidence and clarity.</p>"
-                },
-                {
-                    "heading": "Fast Inspections, Clear Communication",
-                    "text": "<p>When you need a termite letter or real estate inspection completed promptly, we respond quickly without cutting corners. Transparent findings and straightforward next steps mean no surprises.</p>"
-                },
-                {
-                    "heading": "Backed by Professional Standards",
-                    "text": "<p>Your wood-destroying insect inspection is performed to recognized industry protocols. We document findings thoroughly so you have the credible assessment required for real estate transactions and peace of mind.</p>"
-                },
-                {
-                    "heading": "Colorado's Seasonal Pest Cycles",
-                    "text": "<p>Littleton's freeze-thaw cycles and dry climate create unique pressures on home foundations and wooden structures. Our technicians understand regional seasonal patterns and inspect accordingly, catching vulnerabilities before Colorado's active seasons intensify.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:47.741997Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "eed09a169d90199b",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our WDI Inspection Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Schedule Your Inspection",
-                    "text": "Call our {city} team to book a convenient time. We schedule quickly, including for real estate closings and time-sensitive situations."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Thorough On-Site Inspection",
-                    "text": "Your inspector examines the structure, entry points, and conducive conditions, documenting evidence and areas of concern throughout the property."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Written Report & Recommendations",
-                    "text": "You receive a clear, written report of findings, with photos where relevant, plus straightforward recommendations and next steps."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Need a wdi inspection in {city}? Schedule with our trained {city} inspectors.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_structure}",
-            "it_alt": "{chart_group_structure_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "WDI Inspections for Littleton Homes",
-            "text": "<p>Wood-destroying insect inspections in Littleton require an understanding of how our local environment and property characteristics influence pest risk. Established neighborhoods like Historic Littleton often feature mature trees and older construction—elements that create ideal conditions for termites, carpenter ants, and wood-boring beetles. Aging wood framing, foundation settling, and proximity to trees can all increase vulnerability to wood-destroying insects. Conversely, newer subdivisions typically have modern construction standards and treated lumber, though they are not immune to infestation over time, especially where landscape irrigation creates moisture near foundations.</p><p>Colorado's semi-arid climate and seasonal freeze-thaw cycles mean that pest pressures shift throughout the year. Spring and summer bring active foraging and reproduction cycles for many wood-destroying insects, making this an ideal time to schedule a termite inspection or WDI report, particularly before a real estate transaction. Fall and winter dormancy periods can mask activity, yet inspections remain valuable for identifying existing damage and vulnerabilities. Whether your home sits in an older neighborhood with established shade trees or a newer community, a thorough wood-destroying insect inspection protects your investment and provides the documentation needed for peace of mind or real estate purposes.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:52.093607Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "64a62661eac8afd2",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-wdi-inspection-katy_8574ff.webp",
-            "it_caption": "{chart_group_structure_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "feature_columns",
-            "anchor": "what_we_inspect",
-            "fc_heading": "What Our WDI Inspection Covers",
-            "fc_num_cols": 4,
-            "fc_bg_color": "#f3f6f7",
-            "columns": [
-                {
-                    "icon": "",
-                    "image": "",
-                    "alt": "",
-                    "heading": "Wood-Destroying Insects",
-                    "text": "We inspect for termites, carpenter ants, wood-boring beetles, and other wood-destroying organisms."
-                },
-                {
-                    "icon": "",
-                    "image": "",
-                    "alt": "",
-                    "heading": "Accessible Structure",
-                    "text": "Accessible interior and exterior areas, crawl spaces, and framing are examined for damage and activity."
-                },
-                {
-                    "icon": "",
-                    "image": "",
-                    "alt": "",
-                    "heading": "Conducive Conditions",
-                    "text": "We note moisture, wood-to-soil contact, and other conditions conducive to WDI infestation."
-                },
-                {
-                    "icon": "",
-                    "image": "",
-                    "alt": "",
-                    "heading": "Official WDI Report",
-                    "text": "You receive a completed report suitable for real estate transactions and lenders where required."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Other Pest Control Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "WDI Inspection FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What exactly happens during a wood-destroying insect inspection?",
-                    "answer": "<p>Our technician will thoroughly examine your home's interior and exterior, focusing on wood structures, foundations, crawl spaces, and areas prone to moisture. We look for visible signs of damage, mud tubes, droppings, and conditions that attract these pests. We'll document findings in a detailed report and discuss what we've found and any recommended next steps before leaving your property.</p>"
-                },
-                {
-                    "question": "How long does a termite inspection take in Littleton?",
-                    "answer": "<p>A standard inspection typically takes 1 to 2 hours, depending on your home's size, age, and accessibility of crawl spaces or attics. Older homes in areas like Ken Caryl may require additional time. We complete most inspections in a single visit, though we'll let you know upfront if your situation requires follow-up assessment or treatment planning.</p>"
-                },
-                {
-                    "question": "What signs indicate my Littleton home needs a wood-destroying insect inspection?",
-                    "answer": "<p>Watch for mud tubes on foundation walls, hollow-sounding wood, sagging floors or ceilings, blistering paint, or visible damage to wood trim and siding. Swarmers (winged insects) in spring are a major red flag. Even without obvious signs, a professional inspection is wise for older homes or if you've noticed moisture issues, which attract these pests.</p>"
-                },
-                {
-                    "question": "When is termite season in Colorado and should I inspect now?",
-                    "answer": "<p>Peak termite swarming in CO typically occurs in spring and early summer as temperatures warm. Fall and winter are quieter but not risk-free—termites remain active inside protected wood year-round. If you're buying or suspect an infestation, don't delay; inspecting early gives you time to plan treatment before warmer months arrive.</p>"
-                },
-                {
-                    "question": "Can I do a termite inspection myself or do I need a professional?",
-                    "answer": "<p>DIY checks may spot obvious damage, but professional inspection uses trained eyes, specialized tools, and knowledge of hidden entry points and behavior. Our technicians identify early-stage infestations you'd likely miss, assess structural risk, and provide a documented report—essential for real estate transactions and insurance claims.</p>"
-                },
-                {
-                    "question": "How much does a wood-destroying insect inspection cost?",
-                    "answer": "<p>We offer free estimates tailored to your home's size and condition. Contact us with details about your property, and we'll provide a transparent quote with no hidden fees. Many homeowners find the investment minimal compared to the cost of undetected damage or treatment delays.</p>"
-                },
-                {
-                    "question": "What should I do to prepare my home before your inspection visit?",
-                    "answer": "<p>Ensure easy access to crawl spaces, attics, basements, and exterior foundation areas—clear clutter if possible. Unlock gates or side yards. You don't need to leave, but it helps if someone is home to answer questions about moisture issues, past treatments, or damage you've noticed. We'll handle the rest.</p>"
-                },
-                {
-                    "question": "How can I prevent termites and wood-destroying insects after treatment?",
-                    "answer": "<p>Reduce moisture by fixing leaks, grading soil away from foundations, and ensuring proper ventilation. Keep mulch and wood debris away from your home's base. Have routine inspections annually or every few years for peace of mind. Early detection is far easier and less costly than addressing advanced infestations.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:54:01.950383Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "7de3aa1d65e4a7f5",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Buying or protecting a property in {city}? Schedule your wdi inspection today.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_wdi_inspection",
+  "city_id": "littleton-co",
+  "slug": "wdi-inspection-littleton-co",
+  "title": "WDI Inspection in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "WDI Inspection in {city_state} | {business}",
-        "canonical_url": "{website}/wdi-inspection-littleton-co/",
-        "meta_description": "WDI Inspection in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
-        "meta_keywords": "wdi inspection Littleton CO, real estate termite inspection, wood destroying insect inspection, termite letter",
-        "og_title": "WDI Inspection in {city_state} | {business}",
-        "og_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
-        "og_image": "",
-        "service_name": "WDI Inspection",
-        "service_type": "WDI Inspection",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"WDI Inspection in Littleton, CO\",\n            \"serviceType\": \"WDI Inspection\",\n            \"description\": \"Professional wdi inspection services in Littleton, CO with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "wdi inspection",
-        "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "a837c8475654ea2cde9de6e45fde38f1"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "WDI Inspection in {city_state}",
+      "hs_subtext": "<p>Colorado's dry climate and seasonal temperature swings create ideal conditions for wood-destroying insects to seek shelter in homes throughout the Littleton area, particularly as fall approaches. A professional WDI inspection identifies termites, carpenter ants, and wood-boring beetles before they compromise your home's structural integrity, catching damage early when intervention is most effective. For homeowners in neighborhoods like Ken Caryl and Historic Littleton, a thorough inspection provides the clarity needed to protect one of your largest investments.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "WDI Inspection in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/wdi-inspection-katy-tx_5fe6a4.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:39.500935Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "b29a8db15d949eda",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Inspectors",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Detailed Written Report",
+          "icon": ""
+        },
+        {
+          "label": "Fast Scheduling",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-wdi-inspection-katy_bb9184.webp",
+      "it_alt": "WDI Inspection in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "WDI Inspection in Littleton: Protect Your Home",
+      "text": "<p>Colorado's Front Range climate creates ideal conditions for wood-destroying insects, and Littleton homeowners face particular risk during warmer months when termites, carpenter ants, and wood-boring beetles emerge and establish colonies. The region's combination of moisture from spring snowmelt and summer thunderstorms, paired with the prevalence of wooden structures in established neighborhoods like Ken Caryl and Historic Littleton, makes wood-destroying insect inspection not just a precaution but a practical necessity. A thorough WDI report protects your investment by identifying hidden damage before it becomes costly, and it's often required during real estate transactions or by lenders as part of the home evaluation process.</p><p>Littleton Pest Pros brings trained expertise to every wood destroying insect inspection, conducting detailed examinations of foundation sills, joists, attics, and other vulnerable areas where these pests hide and cause damage. We document findings clearly and provide you with a comprehensive inspection report that outlines what we've found and what it means for your home's structural integrity. Rather than rushing through the assessment, we take time to explain our observations and discuss next steps with you—whether that means immediate treatment, monitoring, or preventive measures. Our goal is to give you confidence that your property is thoroughly evaluated and that you have the information needed to make informed decisions about protecting your Littleton home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:43.548736Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "401f96f28c02ba7f",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for WDI Inspections",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Thorough Results",
+          "text": "<p>Our inspectors bring deep expertise to every wood-destroying insect inspection. We examine structural vulnerabilities, moisture zones, and entry points with precision—delivering the detailed WDI report you need for confidence and clarity.</p>"
+        },
+        {
+          "heading": "Fast Inspections, Clear Communication",
+          "text": "<p>When you need a termite letter or real estate inspection completed promptly, we respond quickly without cutting corners. Transparent findings and straightforward next steps mean no surprises.</p>"
+        },
+        {
+          "heading": "Backed by Professional Standards",
+          "text": "<p>Your wood-destroying insect inspection is performed to recognized industry protocols. We document findings thoroughly so you have the credible assessment required for real estate transactions and peace of mind.</p>"
+        },
+        {
+          "heading": "Colorado's Seasonal Pest Cycles",
+          "text": "<p>Littleton's freeze-thaw cycles and dry climate create unique pressures on home foundations and wooden structures. Our technicians understand regional seasonal patterns and inspect accordingly, catching vulnerabilities before Colorado's active seasons intensify.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:47.741997Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "eed09a169d90199b",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our WDI Inspection Works",
+      "steps_items": [
+        {
+          "heading": "Request Your WDI Inspection",
+          "text": "Contact Littleton Pest Pros to schedule a Wood-Destroying Insect inspection with a local provider. We'll connect you quickly with an independent pest control professional ready to assess your Littleton property for termites, carpenter ants, and other wood-damaging pests."
+        },
+        {
+          "heading": "Receive Detailed WDI Assessment",
+          "text": "The local provider conducts a thorough WDI inspection, examining foundation, framing, and structural wood for signs of active or past infestation. You'll receive a comprehensive report documenting findings—critical for real estate transactions, insurance, and peace of mind in Colorado's variable seasons."
+        },
+        {
+          "heading": "Get Treatment & Monitoring Plan",
+          "text": "If wood-destroying insects are found, the provider recommends targeted treatment options and outlines a monitoring strategy. Follow-up inspections help ensure the WDI threat is addressed and your Littleton home remains protected year-round."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:39.064511Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "ba8860db2b6194d7",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need a wdi inspection in {city}? Schedule with our trained {city} inspectors.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_structure}",
+      "it_alt": "{chart_group_structure_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "WDI Inspections for Littleton Homes",
+      "text": "<p>Wood-destroying insect inspections in Littleton require an understanding of how our local environment and property characteristics influence pest risk. Established neighborhoods like Historic Littleton often feature mature trees and older construction—elements that create ideal conditions for termites, carpenter ants, and wood-boring beetles. Aging wood framing, foundation settling, and proximity to trees can all increase vulnerability to wood-destroying insects. Conversely, newer subdivisions typically have modern construction standards and treated lumber, though they are not immune to infestation over time, especially where landscape irrigation creates moisture near foundations.</p><p>Colorado's semi-arid climate and seasonal freeze-thaw cycles mean that pest pressures shift throughout the year. Spring and summer bring active foraging and reproduction cycles for many wood-destroying insects, making this an ideal time to schedule a termite inspection or WDI report, particularly before a real estate transaction. Fall and winter dormancy periods can mask activity, yet inspections remain valuable for identifying existing damage and vulnerabilities. Whether your home sits in an older neighborhood with established shade trees or a newer community, a thorough wood-destroying insect inspection protects your investment and provides the documentation needed for peace of mind or real estate purposes.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:52.093607Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "64a62661eac8afd2",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-wdi-inspection-katy_8574ff.webp",
+      "it_caption": "{chart_group_structure_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "feature_columns",
+      "anchor": "what_we_inspect",
+      "fc_heading": "What Our WDI Inspection Covers",
+      "fc_num_cols": 4,
+      "fc_bg_color": "#f3f6f7",
+      "columns": [
+        {
+          "icon": "",
+          "image": "",
+          "alt": "",
+          "heading": "Wood-Destroying Insects",
+          "text": "We inspect for termites, carpenter ants, wood-boring beetles, and other wood-destroying organisms."
+        },
+        {
+          "icon": "",
+          "image": "",
+          "alt": "",
+          "heading": "Accessible Structure",
+          "text": "Accessible interior and exterior areas, crawl spaces, and framing are examined for damage and activity."
+        },
+        {
+          "icon": "",
+          "image": "",
+          "alt": "",
+          "heading": "Conducive Conditions",
+          "text": "We note moisture, wood-to-soil contact, and other conditions conducive to WDI infestation."
+        },
+        {
+          "icon": "",
+          "image": "",
+          "alt": "",
+          "heading": "Official WDI Report",
+          "text": "You receive a completed report suitable for real estate transactions and lenders where required."
+        }
+      ]
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "WDI Inspection FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What exactly happens during a wood-destroying insect inspection?",
+          "answer": "<p>Our technician will thoroughly examine your home's interior and exterior, focusing on wood structures, foundations, crawl spaces, and areas prone to moisture. We look for visible signs of damage, mud tubes, droppings, and conditions that attract these pests. We'll document findings in a detailed report and discuss what we've found and any recommended next steps before leaving your property.</p>"
+        },
+        {
+          "question": "How long does a termite inspection take in Littleton?",
+          "answer": "<p>A standard inspection typically takes 1 to 2 hours, depending on your home's size, age, and accessibility of crawl spaces or attics. Older homes in areas like Ken Caryl may require additional time. We complete most inspections in a single visit, though we'll let you know upfront if your situation requires follow-up assessment or treatment planning.</p>"
+        },
+        {
+          "question": "What signs indicate my Littleton home needs a wood-destroying insect inspection?",
+          "answer": "<p>Watch for mud tubes on foundation walls, hollow-sounding wood, sagging floors or ceilings, blistering paint, or visible damage to wood trim and siding. Swarmers (winged insects) in spring are a major red flag. Even without obvious signs, a professional inspection is wise for older homes or if you've noticed moisture issues, which attract these pests.</p>"
+        },
+        {
+          "question": "When is termite season in Colorado and should I inspect now?",
+          "answer": "<p>Peak termite swarming in CO typically occurs in spring and early summer as temperatures warm. Fall and winter are quieter but not risk-free—termites remain active inside protected wood year-round. If you're buying or suspect an infestation, don't delay; inspecting early gives you time to plan treatment before warmer months arrive.</p>"
+        },
+        {
+          "question": "Can I do a termite inspection myself or do I need a professional?",
+          "answer": "<p>DIY checks may spot obvious damage, but professional inspection uses trained eyes, specialized tools, and knowledge of hidden entry points and behavior. Our technicians identify early-stage infestations you'd likely miss, assess structural risk, and provide a documented report—essential for real estate transactions and insurance claims.</p>"
+        },
+        {
+          "question": "How much does a wood-destroying insect inspection cost?",
+          "answer": "<p>We offer free estimates tailored to your home's size and condition. Contact us with details about your property, and we'll provide a transparent quote with no hidden fees. Many homeowners find the investment minimal compared to the cost of undetected damage or treatment delays.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before your inspection visit?",
+          "answer": "<p>Ensure easy access to crawl spaces, attics, basements, and exterior foundation areas—clear clutter if possible. Unlock gates or side yards. You don't need to leave, but it helps if someone is home to answer questions about moisture issues, past treatments, or damage you've noticed. We'll handle the rest.</p>"
+        },
+        {
+          "question": "How can I prevent termites and wood-destroying insects after treatment?",
+          "answer": "<p>Reduce moisture by fixing leaks, grading soil away from foundations, and ensuring proper ventilation. Keep mulch and wood debris away from your home's base. Have routine inspections annually or every few years for peace of mind. Early detection is far easier and less costly than addressing advanced infestations.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:54:01.950383Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7de3aa1d65e4a7f5",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Buying or protecting a property in {city}? Schedule your wdi inspection today.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "WDI Inspection in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/wdi-inspection-littleton-co/",
+    "meta_description": "WDI Inspection in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
+    "meta_keywords": "wdi inspection Littleton CO, real estate termite inspection, wood destroying insect inspection, termite letter",
+    "og_title": "WDI Inspection in {city_state} | {business}",
+    "og_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
+    "og_image": "",
+    "service_name": "WDI Inspection",
+    "service_type": "WDI Inspection",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"WDI Inspection in Littleton, CO\",\"serviceType\":\"WDI Inspection\",\"description\":\"Professional wdi inspection services in Littleton, CO with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "wdi inspection",
+    "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "99f6b125db5591bb06907e7ae8bc0f1b"
 }

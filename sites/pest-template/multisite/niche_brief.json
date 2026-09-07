@@ -23,7 +23,11 @@
         "faq_local",
         "seasonal_calendar",
         "local_relevance",
-        "about_story"
+        "about_story",
+        "steps_local",
+        "homepage_feature_intro",
+        "homepage_grid_intro",
+        "homepage_service_area"
     ],
     "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences naming the pests actually most common and problematic in {city}'s region (be specific — e.g. fire ants, Formosan termites, scorpions, carpenter ants — not just \"pests\" generically) and whether pest activity here is year-round or has a strong seasonal pattern.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation."
 }

@@ -155,5 +155,73 @@
         },
         "_compiled_from": "about_story",
         "_niche": "water restoration"
+    },
+    "steps_local": {
+        "label": "Process Steps (Inject)",
+        "description": "Injects 3 city-specific process steps into a steps block's steps_items field, replacing generic word-swapped text with real per-city, per-service copy focused on the primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "steps_items",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing the \"how it works\" process steps for {business}, a referral service that connects property owners with independent local water and storm damage restoration providers, for a page targeting {city}, {state}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject of every step; do not drift into generic multi-service language.\n\nWrite exactly 3 steps, in chronological order (initial contact → assessment/diagnosis → resolution/follow-up):\n- \"heading\": 2-5 words, action-focused (e.g. \"Schedule Your {service} Visit\").\n- \"text\": 1-2 sentences (20-35 words) describing what actually happens at that step, specific to {service} — not filler that could describe any service. Where it fits naturally, ground one step in {city} or the region's weather, storm and flooding patterns, and seasonal freeze and thaw risks.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee specific drying times or that all water and storm damage can be fully reversed. Do not promise insurance claim approval or coverage. Do not claim specific licenses, certifications, or accreditations. Do not make mold health-hazard claims or offer mold remediation, which is handled separately. Do not give unsafe do-it-yourself advice for standing water, sewage, or electrical hazards.\nTone: reassuring and professional, with clear urgency for active water and storm emergencies. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON: {\"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}. JSON only, no markdown fences.",
+        "ai_output_schema": {
+            "steps_items": "array"
+        },
+        "default_fields": [],
+        "_compiled_from": "steps_local",
+        "_niche": "water restoration"
+    },
+    "homepage_feature_intro": {
+        "label": "Homepage Feature Intro (Inject)",
+        "description": "Injects the homepage's feature_split intro paragraph (fs_subtext), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "fs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing the homepage intro paragraph for {business}, a referral service that connects property owners with independent local water and storm damage restoration providers, serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\" — this page exists to rank for it. {service} must read as the clear subject; do not drift into generic multi-service language.\n\nWrite 1-2 sentences (30-50 words) introducing why {city} residents need {service}, grounded in the region's weather, storm and flooding patterns, and seasonal freeze and thaw risks. This sits above a list of specific offerings, so end in a way that leads naturally into that list rather than repeating it.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee specific drying times or that all water and storm damage can be fully reversed. Do not promise insurance claim approval or coverage. Do not claim specific licenses, certifications, or accreditations. Do not make mold health-hazard claims or offer mold remediation, which is handled separately. Do not give unsafe do-it-yourself advice for standing water, sewage, or electrical hazards.\nTone: reassuring and professional, with clear urgency for active water and storm emergencies. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON: {\"fs_subtext\": \"...\"}. JSON only, no markdown fences.",
+        "ai_output_schema": {
+            "fs_subtext": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "homepage_feature_intro",
+        "_niche": "water restoration"
+    },
+    "homepage_grid_intro": {
+        "label": "Homepage Grid Body (Inject)",
+        "description": "Injects the homepage's hero_grid body paragraph (hg_body), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "hg_body",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing homepage body copy for {business}, a referral service that connects property owners with independent local water and storm damage restoration providers, serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nWrite 1 short paragraph (40-60 words), wrapped in <p>...</p>, explaining how {business} approaches {service} for {city} customers — thoroughness, responsiveness, and fit to the customer's specific situation. Do not list every service offered; stay focused on the approach.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee specific drying times or that all water and storm damage can be fully reversed. Do not promise insurance claim approval or coverage. Do not claim specific licenses, certifications, or accreditations. Do not make mold health-hazard claims or offer mold remediation, which is handled separately. Do not give unsafe do-it-yourself advice for standing water, sewage, or electrical hazards.\nTone: reassuring and professional, with clear urgency for active water and storm emergencies. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON: {\"hg_body\": \"<p>...</p>\"}. JSON only, no markdown fences.",
+        "ai_output_schema": {
+            "hg_body": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "homepage_grid_intro",
+        "_niche": "water restoration"
+    },
+    "homepage_service_area": {
+        "label": "Homepage Service Area Statement (Inject)",
+        "description": "Injects the homepage's split_cta service-area paragraph (sc_left_text), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "sc_left_text",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing the \"who we serve\" statement for {business}, a referral service that connects property owners with independent local water and storm damage restoration providers, serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\" — keep {service} and {city} as the clear focus.\n\nWrite 1-2 sentences (25-40 words) describing the range of property owners {business} serves in {city} for {service}, and what working with them is like (communication, pricing clarity, quality) — without inventing guarantees or credentials not already established.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not guarantee specific drying times or that all water and storm damage can be fully reversed. Do not promise insurance claim approval or coverage. Do not claim specific licenses, certifications, or accreditations. Do not make mold health-hazard claims or offer mold remediation, which is handled separately. Do not give unsafe do-it-yourself advice for standing water, sewage, or electrical hazards.\nTone: reassuring and professional, with clear urgency for active water and storm emergencies. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON: {\"sc_left_text\": \"...\"}. JSON only, no markdown fences.",
+        "ai_output_schema": {
+            "sc_left_text": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "homepage_service_area",
+        "_niche": "water restoration"
     }
 }

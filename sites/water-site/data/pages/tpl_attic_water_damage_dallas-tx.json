@@ -1,0 +1,532 @@
+{
+  "template_id": "tpl_attic_water_damage",
+  "city_id": "dallas-tx",
+  "slug": "attic-water-damage-dallas-tx",
+  "title": "Attic Water Damage in {city_state} | {business}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "lat": "32.776272",
+    "lng": "-96.796856",
+    "industries": [
+      "Financial services",
+      "Technology/telecommunications",
+      "Transportation and logistics",
+      "Healthcare",
+      "Defense and aerospace",
+      "Energy"
+    ],
+    "top_employers": [
+      "American Airlines",
+      "AT&T",
+      "Texas Instruments",
+      "Baylor Scott & White Health",
+      "Bank of America",
+      "JPMorgan Chase",
+      "Southwest Airlines",
+      "UT Southwestern Medical Center",
+      "Parkland Health",
+      "Comerica",
+      "Dallas Independent School District",
+      "City of Dallas"
+    ],
+    "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
+    "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
+    "neighborhoods": [
+      "Uptown",
+      "Deep Ellum",
+      "Bishop Arts District",
+      "Lakewood",
+      "Oak Cliff",
+      "Lake Highlands",
+      "Preston Hollow",
+      "Knox-Henderson",
+      "Downtown Dallas"
+    ],
+    "population": 1302868,
+    "flood_years": [
+      1908,
+      1949,
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      7
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "homes_by_decade": {
+      "Before 1960": 22,
+      "1960-1979": 26,
+      "1980-1999": 26,
+      "2000-2009": 14,
+      "2010 or later": 12
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      25,
+      15,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "humidity_monthly": [
+      68,
+      65,
+      63,
+      62,
+      66,
+      63,
+      60,
+      60,
+      64,
+      65,
+      68,
+      68
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information",
+    "rainfall_monthly": [
+      2.05,
+      2.51,
+      3.13,
+      3.5,
+      5.1,
+      3.51,
+      2.07,
+      1.83,
+      2.87,
+      4.13,
+      2.61,
+      2.53
+    ],
+    "rainfall_annual": 35.85,
+    "rainfall_state_avg": 36.6,
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "nearby_towns": [
+      {
+        "name": "Plano",
+        "miles": 20
+      },
+      {
+        "name": "Irving",
+        "miles": 13
+      },
+      {
+        "name": "Garland",
+        "miles": 18
+      },
+      {
+        "name": "Arlington",
+        "miles": 20
+      },
+      {
+        "name": "Fort Worth",
+        "miles": 32
+      },
+      {
+        "name": "Frisco",
+        "miles": 30
+      },
+      {
+        "name": "McKinney",
+        "miles": 32
+      },
+      {
+        "name": "Richardson",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dallas-area properties face persistent moisture risks from spring and summer storms, freeze-thaw cycles, and the region's variable precipitation patterns—making attic water damage a common concern for homeowners seeking rapid response. When water intrudes into attic spaces, it can compromise structural integrity and create conditions for long-term deterioration if not addressed promptly by qualified local restoration providers. Freeman Restoration connects you directly with independent water damage specialists in your area who can assess attic moisture and coordinate recovery, so you're not managing the crisis alone.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Attic water damage in {city_state} by {business}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/attic-water-damage-empty-room-lufkin-tx.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 1,
+      "_ai_generated_at": "2026-09-07T15:17:57.346745Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a22200c5a58147f2"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "24/7 Emergency Response",
+          "icon": ""
+        },
+        {
+          "label": "Fast Local Response",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/water-site/uploads/media/blue-gray-home-exterior-lufkin-tx.webp",
+      "it_alt": "Attic water damage repair in {city_state} by {business}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Attic Water Damage in Dallas Requires Swift Action",
+      "text": "<p>Dallas property owners face unique seasonal and weather-related risks to their attics. Heavy spring storms, occasional winter freezes followed by rapid thaws, and the region's intense summer heat can all create conditions for water infiltration into attic spaces. Roof leaks, ice dam damage, and condensation buildup are common culprits in the Dallas area, and water that pools or seeps into an attic can quickly compromise insulation, framing, and electrical systems. Attic water damage left unaddressed invites secondary problems, making rapid detection and response essential for protecting your home's structure and your family's safety.</p><p>Freeman Restoration connects Dallas property owners with independent local water damage restoration providers who understand the urgency of attic water damage and approach each situation with care and thoroughness. These providers begin with a complete assessment to identify the source of water entry, document the extent of damage, and develop a restoration plan tailored to your home. They work to extract standing water, dry affected materials, and help prevent mold and structural decay. If your attic has suffered water damage from a storm, leak, or freeze-thaw cycle, reaching out to a local restoration professional quickly can make a meaningful difference in the outcome. Freeman Restoration makes connecting you to responsive, experienced providers in your area straightforward and fast.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:01.581389Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "3025cac0c3269457"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "fc_heading": "Why Dallas Property Owners Trust Freeman Restoration",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Response",
+          "text": "<p>Water damage spreads quickly. Freeman connects you with independent local restoration providers ready to mobilize fast. Rapid response limits moisture spread and secondary damage to walls, floors, and structural framing.</p>"
+        },
+        {
+          "heading": "Trained Technicians & Thorough Drying",
+          "text": "<p>The independent providers in Freeman's network employ trained technicians equipped to assess hidden moisture, deploy industrial drying equipment, and document the restoration process. Thorough treatment prevents long-term structural and air-quality issues.</p>"
+        },
+        {
+          "heading": "Accountability & Guarantees",
+          "text": "<p>Freeman connects you with independent local providers who stand behind their work with written guarantees. Clear accountability and direct communication ensure your attic restoration meets professional standards and your expectations.</p>"
+        },
+        {
+          "heading": "Prepared for North Texas Weather",
+          "text": "<p>Dallas and surrounding areas face heavy spring storms, ice-dam risks in winter, and sudden flooding. Freeman's network of local providers understands TX seasonal hazards and responds around the clock when weather emergencies strike your attic.</p>"
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:05.678062Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "0a15ba76333bfa47"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our {service} Process Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Attic Water Damage",
+          "text": "Contact Freeman Restoration to describe attic water intrusion—whether from roof leaks, ice dam backup, or storm infiltration common to North Texas winters and heavy spring rains. We connect you with a responsive local restoration provider in Dallas, TX within your area."
+        },
+        {
+          "heading": "Local Provider Assesses Attic Moisture",
+          "text": "A restoration specialist inspects your attic to identify water entry points, measure moisture levels, and document structural or insulation damage. They evaluate whether attic ventilation, freeze-thaw cycles, or recent storms contributed to the water intrusion."
+        },
+        {
+          "heading": "Restoration & Drying Plan Begins",
+          "text": "The provider outlines attic water removal, drying, and repair steps—and helps coordinate your insurance claim if applicable. You stay informed as work progresses to restore your attic and prevent future water damage."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:18:09.284265Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "2bedf14a416e5a21",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need {service} in {city}? Get fast, professional help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_envelope}",
+      "it_alt": "{chart_group_envelope_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_it_photo_prechart": "sites/water-site/uploads/media/attic-water-damage-drywall-repair-lufkin-tx.webp",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "it_caption": "{chart_group_envelope_caption}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Attic Water Damage Across the Dallas Area",
+      "text": "<p>Dallas-area homes face distinct attic water damage risks based on their age and location. Older, established neighborhoods often feature mature trees with extensive root systems and aging roof structures that are more susceptible to leaks during the region's heavy spring storms and occasional winter freeze-thaw cycles. These properties may have original or older roofing materials that deteriorate over time, making them vulnerable when North Texas weather shifts rapidly—a common pattern that can trap moisture in attics and create conditions for water intrusion.</p><p>Newer subdivisions typically have more modern construction standards, yet they still encounter attic water damage from intense thunderstorms and hail events common to the area. Flat or low-slope roofs in contemporary designs can pool water during heavy rainfall, while inadequate attic ventilation—sometimes a trade-off in newer energy-efficient builds—can trap condensation and moisture year-round. Whether your home is in a historic neighborhood like Oak Cliff or a more recently developed area, Dallas's variable climate and occasional severe weather make attic inspections and prompt water damage response essential to protect structural integrity and prevent long-term issues.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:13.334123Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "5d15bfb0885542d9"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "steps_heading": "Seasonal Attic Water Damage Risks Across Dallas Years",
+      "steps_items": [
+        {
+          "heading": "Spring: Storm Season Threats",
+          "text": "Spring brings Dallas's most active severe weather, including heavy rain and hail that can compromise roofs and allow water into attics. Freeman Restoration connects property owners with local restoration providers who respond quickly to storm damage, helping document conditions and coordinate next steps before secondary damage spreads."
+        },
+        {
+          "heading": "Summer: Heat and Humidity",
+          "text": "Summer heat intensifies moisture problems in attics, promoting mold and wood decay after spring storms or existing leaks. Freeman Restoration helps property owners in areas like Oak Cliff and Lakewood find experienced local providers who assess hidden water damage and recommend drying strategies."
+        },
+        {
+          "heading": "Fall: Roof Debris Buildup",
+          "text": "Fall leaves clog gutters and roof valleys, trapping water that seeps into attics during heavy autumn rains. Freeman Restoration connects homeowners with local restoration experts who identify water entry points and coordinate with providers to address damage before winter arrives."
+        },
+        {
+          "heading": "Winter: Freeze-Thaw Cycles",
+          "text": "TX winters occasionally freeze pipes and create ice dams, causing attic leaks and structural stress. Freeman Restoration helps property owners reach responsive local providers who assess freeze damage and coordinate restoration work to prevent further deterioration during thaw cycles."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:17.912457Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "dab67f76a370c06d"
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Water Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Water Damage Repair {city} {SS}",
+          "heading": "Water Damage Repair",
+          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+          "url": "/water-damage-repair-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flood Damage Restoration {city} {SS}",
+          "heading": "Flood Damage Restoration",
+          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm Damage Restoration {city} {SS}",
+          "heading": "Storm Damage Restoration",
+          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Water Mitigation {city} {SS}",
+          "heading": "Water Mitigation",
+          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+          "url": "/water-mitigation-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What exactly is attic water damage and what should I expect to find?",
+          "answer": "<p>Attic water damage occurs when water enters your attic space, typically through roof leaks, ice dams, or failed flashing. You may notice staining on ceiling materials, wet or soft insulation, visible mold or mildew growth, a musty odor, or structural wood that feels spongy. The damage depends on the leak's size and how long water was present. Freeman Restoration connects you with local restoration providers who can assess the full extent and create a plan.</p>"
+        },
+        {
+          "question": "How quickly can Freeman Restoration connect me with a Dallas water damage provider?",
+          "answer": "<p>Water damage in your attic requires prompt attention to prevent structural decay and mold growth. Freeman Restoration works to connect Dallas property owners with responsive local restoration providers as fast as possible. Once connected, the provider can schedule an inspection and begin mitigation work. Contact Freeman Restoration right away if you suspect attic water damage—timing is critical.</p>"
+        },
+        {
+          "question": "What factors affect the cost of attic water damage restoration in Dallas?",
+          "answer": "<p>Attic restoration costs depend on the leak's cause, water volume, insulation type, how long water was present, and whether structural repair is needed. Mold remediation, if required, is typically a separate service with its own pricing. The independent local provider Freeman Restoration connects you with will inspect your attic and provide an estimate. Insurance may cover part of the cost—discuss coverage with your insurer first.</p>"
+        },
+        {
+          "question": "What should I do to prepare before a restoration provider inspects my attic water damage?",
+          "answer": "<p>Before inspection, ensure your safety by avoiding electrical hazards and standing water. Document visible damage with photos if it is safe to do so. Make sure the provider has clear attic access. Remove personal items stored in the attic if possible to allow full inspection. The local provider Freeman Restoration connects you with will guide you on any additional steps and perform the water extraction, drying, and damage assessment during their visit.</p>"
+        },
+        {
+          "question": "How can I prevent attic water damage from happening again in Dallas?",
+          "answer": "<p>Regular roof inspections catch missing shingles, damaged flashing, and gaps before they leak. Keep gutters clean and clear of debris to ensure proper drainage. In older homes and certain areas, ice dam prevention is important during freeze cycles. Ensure your attic has adequate ventilation to reduce condensation buildup. After restoration, ask your local provider for maintenance recommendations specific to your home's age and design.</p>"
+        },
+        {
+          "question": "Is attic water damage more common during certain seasons in the Dallas area?",
+          "answer": "<p>Dallas experiences spring storms with heavy rainfall, which can expose roof vulnerabilities and cause leaks. Winter freeze-thaw cycles, though not as severe as northern regions, can shift roofing materials and create ice dams. Older attics are particularly vulnerable during these periods. Fall can bring wind damage that compromises roof integrity. Year-round vigilance is wise, but spring and winter warrant extra attention. Freeman Restoration connects you with local providers who understand these regional seasonal risks.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 6,
+      "_ai_generated_at": "2026-09-07T15:18:27.586320Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "df69ebbbef4dd22e"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#0d2340",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Attic Water Damage in {city_state} | {business}",
+    "canonical_url": "https://freemanrestoration.com/attic-water-damage-dallas-tx/",
+    "meta_description": "Attic Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+    "meta_keywords": "attic water damage Dallas TX, attic water damage repair Dallas, wet attic insulation Dallas",
+    "og_title": "Attic Water Damage in {city_state} | {business}",
+    "og_description": "24/7 attic water damage in {city_state}. Fast, professional local response.",
+    "og_image": "sites/water-site/uploads/media/attic-water-damage-1.webp",
+    "service_name": "Attic Water Damage",
+    "service_type": "Attic Water Damage",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Attic water damage for homes and businesses in {city_state}, including attic water damage repair and wet attic insulation.",
+    "bc_label": "Attic Water Damage",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in Dallas, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Dallas\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 attic water damage in Dallas, TX — attic water damage repair and wet attic insulation.\"\n}",
+    "primary_keyword": "Attic Water Damage",
+    "secondary_keywords": "attic water damage repair, wet attic insulation"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "541e343f0a5bd5104832f68cf15225cf"
+}

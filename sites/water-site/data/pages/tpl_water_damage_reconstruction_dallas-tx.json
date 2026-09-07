@@ -1,0 +1,532 @@
+{
+  "template_id": "tpl_water_damage_reconstruction",
+  "city_id": "dallas-tx",
+  "slug": "water-damage-reconstruction-dallas-tx",
+  "title": "Water Damage Reconstruction in {city_state} | {business}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "lat": "32.776272",
+    "lng": "-96.796856",
+    "industries": [
+      "Financial services",
+      "Technology/telecommunications",
+      "Transportation and logistics",
+      "Healthcare",
+      "Defense and aerospace",
+      "Energy"
+    ],
+    "top_employers": [
+      "American Airlines",
+      "AT&T",
+      "Texas Instruments",
+      "Baylor Scott & White Health",
+      "Bank of America",
+      "JPMorgan Chase",
+      "Southwest Airlines",
+      "UT Southwestern Medical Center",
+      "Parkland Health",
+      "Comerica",
+      "Dallas Independent School District",
+      "City of Dallas"
+    ],
+    "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
+    "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
+    "neighborhoods": [
+      "Uptown",
+      "Deep Ellum",
+      "Bishop Arts District",
+      "Lakewood",
+      "Oak Cliff",
+      "Lake Highlands",
+      "Preston Hollow",
+      "Knox-Henderson",
+      "Downtown Dallas"
+    ],
+    "population": 1302868,
+    "flood_years": [
+      1908,
+      1949,
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      7
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "homes_by_decade": {
+      "Before 1960": 22,
+      "1960-1979": 26,
+      "1980-1999": 26,
+      "2000-2009": 14,
+      "2010 or later": 12
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      25,
+      15,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "humidity_monthly": [
+      68,
+      65,
+      63,
+      62,
+      66,
+      63,
+      60,
+      60,
+      64,
+      65,
+      68,
+      68
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information",
+    "rainfall_monthly": [
+      2.05,
+      2.51,
+      3.13,
+      3.5,
+      5.1,
+      3.51,
+      2.07,
+      1.83,
+      2.87,
+      4.13,
+      2.61,
+      2.53
+    ],
+    "rainfall_annual": 35.85,
+    "rainfall_state_avg": 36.6,
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "nearby_towns": [
+      {
+        "name": "Plano",
+        "miles": 20
+      },
+      {
+        "name": "Irving",
+        "miles": 13
+      },
+      {
+        "name": "Garland",
+        "miles": 18
+      },
+      {
+        "name": "Arlington",
+        "miles": 20
+      },
+      {
+        "name": "Fort Worth",
+        "miles": 32
+      },
+      {
+        "name": "Frisco",
+        "miles": 30
+      },
+      {
+        "name": "McKinney",
+        "miles": 32
+      },
+      {
+        "name": "Richardson",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dallas-area properties face recurring water damage from severe spring and summer storms, winter freeze-thaw cycles, and flash flooding that can strike without warning. When water intrusion threatens your home or business, Freeman Restoration connects you with responsive local restoration providers who handle water damage reconstruction and get your property back to safe, dry condition. Rather than navigating the restoration process alone, you gain fast access to experienced independent contractors in your area.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Water damage reconstruction in {city_state} by {business}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/water-damage-reconstruction-worker-moving-box-lufkin-tx.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 1,
+      "_ai_generated_at": "2026-09-07T15:19:36.568357Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "87aa1a2009044c49"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "24/7 Emergency Response",
+          "icon": ""
+        },
+        {
+          "label": "Fast Local Response",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-lufkin-tx.webp",
+      "it_alt": "Water damage rebuild in {city_state} by {business}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Water Damage Reconstruction Demand Across Dallas",
+      "text": "<p>Property owners throughout Dallas face seasonal and weather-related water damage risks that demand swift reconstruction. The region experiences heavy spring storms, occasional flooding during intense rainfall events, and winter freeze-thaw cycles that can compromise foundations, pipes, and structural integrity. Whether damage stems from burst pipes during cold snaps, roof leaks after severe weather, or basement flooding from storm surge, the window to begin reconstruction is narrow. Prompt assessment and restoration work help prevent secondary damage, mold growth, and long-term structural deterioration that compounds repair costs.</p><p>Freeman Restoration connects Dallas property owners with independent local water damage restoration providers who understand the urgency and scope of reconstruction work. These professionals arrive prepared to document damage, extract standing water, dry affected spaces thoroughly, and begin structural reconstruction—addressing not just visible water intrusion but also hidden moisture in walls, subflooring, and insulation. The providers in our network take a methodical approach to each project, ensuring that reconstruction work meets safety and building standards while keeping you informed throughout the process. If you're facing active water damage in Dallas, reaching out for a fast local connection puts experienced restoration support within reach when it matters most.</p>",
+      "_ai_generated_at": "2026-09-07T15:19:40.456392Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "477017a604354157"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "fc_heading": "Why Dallas Property Owners Choose Freeman Restoration",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Response",
+          "text": "<p>Water damage spreads quickly. Freeman Restoration connects you with independent local restoration providers ready to respond urgently, minimizing further damage to walls, flooring, and structural integrity.</p>"
+        },
+        {
+          "heading": "Thorough Drying & Treatment",
+          "text": "<p>Connected providers use professional equipment and methods to extract standing water, dry affected areas completely, and treat spaces to prevent secondary issues—addressing damage comprehensively, not just surface cleanup.</p>"
+        },
+        {
+          "heading": "Experienced Restoration Specialists",
+          "text": "<p>Freeman connects you with trained restoration professionals familiar with water damage assessment, documentation, and reconstruction—ensuring the work is done right from initial inspection through final restoration.</p>"
+        },
+        {
+          "heading": "Ready for North Texas Storm Season",
+          "text": "<p>Dallas and surrounding areas face heavy spring storms and occasional winter freezes that damage roofs, foundations, and interiors. Freeman's network of local providers understands regional weather risks and responds when water damage strikes.</p>"
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:19:43.779924Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "4cce2cd3e1aadf88"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our {service} Process Works",
+      "steps_items": [
+        {
+          "heading": "Connect with a Local Water Damage Reconstruction Provider",
+          "text": "Contact Freeman Restoration and describe your water damage situation—whether from burst pipes, heavy storms, or flooding common to the Dallas area. We'll quickly connect you with an independent local restoration provider ready to assess and begin water damage reconstruction."
+        },
+        {
+          "heading": "Water Damage Reconstruction Assessment and Drying Plan",
+          "text": "The provider inspects affected areas, identifies water sources, and measures moisture levels to develop a targeted water damage reconstruction strategy. They'll outline the scope of drying, extraction, and structural work needed to restore your property."
+        },
+        {
+          "heading": "Water Damage Reconstruction and Property Restoration",
+          "text": "The local provider executes water damage reconstruction—removing saturated materials, drying affected spaces, and restoring damaged areas. They'll keep you informed throughout the process and coordinate with your insurance adjuster as needed."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:19:46.987580Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "e79afdebffae98e1",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need {service} in {city}? Get fast, professional help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_seasonal}",
+      "it_alt": "{chart_group_seasonal_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_it_photo_prechart": "sites/water-site/uploads/media/modern-craftsman-home-garage-lufkin-tx.webp",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "it_caption": "{chart_group_seasonal_caption}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Water Damage Restoration Across the Dallas Area",
+      "text": "<p>Dallas's diverse neighborhoods present distinct water damage challenges shaped by Texas's climate and seasonal weather patterns. Established areas like Lakewood and Oak Cliff feature mature trees and older construction—both assets and vulnerabilities. Large trees can shield homes from intense summer storms, but their root systems and branches sometimes complicate drainage and gutter function. Aging foundations, roofing systems, and plumbing are more prone to leaks during freeze-thaw cycles, which occur periodically across North Texas winters. Spring and early summer thunderstorms bring rapid rainfall that can overwhelm aging drainage infrastructure in these neighborhoods.</p><p>Newer subdivisions across the Dallas region typically have modern building codes and updated systems, yet they still face water intrusion from the region's intense seasonal storms. Heavy downpours, occasional hail, and wind-driven rain affect all property types. The local clay-heavy soil common to the area can retain water, increasing foundation and basement flood risk during extended wet periods. Whether your home is in an older, tree-lined neighborhood or a newer development, prompt response to water damage—including storm damage from severe weather—is essential. Freeman Restoration connects property owners with independent local restoration providers ready to assess and address water damage quickly.</p>",
+      "_ai_generated_at": "2026-09-07T15:19:51.773788Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "633a99de9b3f0a7d"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "steps_heading": "Seasonal Water Damage Risks Across Dallas's Year",
+      "steps_items": [
+        {
+          "heading": "Spring: Storm & Flooding Season",
+          "text": "Spring thunderstorms bring heavy rainfall and severe weather to the Dallas region, increasing flooding and water intrusion risks. Freeman Restoration connects you quickly with local water damage specialists who respond to storm emergencies, helping minimize damage to your property and contents before mold and structural issues develop."
+        },
+        {
+          "heading": "Summer: Heat & Humidity Stress",
+          "text": "Hot, humid summers in Dallas can mask slow leaks and moisture problems inside walls and crawl spaces. If water damage occurs—from AC failures, plumbing breaks, or flash flooding—Freeman Restoration links you to experienced local providers who work fast to dry and restore affected areas before heat accelerates secondary damage."
+        },
+        {
+          "heading": "Fall: Drainage & Debris Challenges",
+          "text": "Fall weather in TX brings occasional heavy rains when gutters and drainage systems clog with debris, leading to water backup and foundation seepage. Freeman Restoration helps you find responsive local restoration providers who assess water intrusion and begin mitigation promptly, protecting your property as seasons transition."
+        },
+        {
+          "heading": "Winter: Freeze-Thaw & Pipe Risks",
+          "text": "Though Dallas winters are mild, occasional freezes can burst pipes and cause sudden water damage inside homes and businesses. Freeman Restoration connects you to local water damage specialists ready to respond to cold-weather emergencies, extract water, and start restoration before structural and material loss compounds."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:19:56.815594Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "4dca5daf6f473b94"
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Water Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Water Damage Repair {city} {SS}",
+          "heading": "Water Damage Repair",
+          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+          "url": "/water-damage-repair-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flood Damage Restoration {city} {SS}",
+          "heading": "Flood Damage Restoration",
+          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm Damage Restoration {city} {SS}",
+          "heading": "Storm Damage Restoration",
+          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Water Mitigation {city} {SS}",
+          "heading": "Water Mitigation",
+          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+          "url": "/water-mitigation-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does water damage reconstruction in Dallas actually involve?",
+          "answer": "<p>Water damage reconstruction covers assessment, water extraction, structural drying, removal of damaged materials, and rebuilding or refinishing affected areas. The independent local providers Freeman connects you with evaluate moisture depth, salvage what's possible, dehumidify and ventilate spaces, replace drywall or flooring as needed, and restore rooms to pre-damage condition. Each project varies based on water source and duration of exposure.</p>"
+        },
+        {
+          "question": "How fast can Freeman connect me with a water damage reconstruction provider in Dallas?",
+          "answer": "<p>Freeman helps connect Dallas property owners with local water damage reconstruction providers quickly, especially for active emergencies. Response times depend on the independent provider's current workload and availability. We recommend calling immediately if you have standing water or active flooding—time is critical to prevent additional structural damage and mold growth.</p>"
+        },
+        {
+          "question": "What factors affect the cost of water damage reconstruction?",
+          "answer": "<p>Reconstruction costs depend on water volume, affected square footage, materials damaged (drywall, flooring, insulation), water source (clean, gray, or sewage), and how long moisture lingered. Structural damage and the need to replace vs. repair also influence pricing. The independent providers Freeman connects you with can assess your specific situation and discuss cost drivers during an initial evaluation.</p>"
+        },
+        {
+          "question": "How should I prepare before water damage reconstruction begins in my Dallas home?",
+          "answer": "<p>Before reconstruction starts, move personal belongings and furniture away from work areas. Turn off electricity in affected zones if safe to do so. Document damage with photos for insurance claims. Clear access routes for crews and equipment. Discuss timelines and containment procedures with your provider so you understand what to expect during the reconstruction process.</p>"
+        },
+        {
+          "question": "How can Dallas property owners prevent water damage from happening again?",
+          "answer": "<p>Maintain gutters and downspouts, grade soil away from foundations, inspect roofs and seal cracks regularly, install sump pumps in basements, and check plumbing for leaks. Test backflow preventers before heavy rain seasons. These steps reduce—though don't eliminate—water intrusion risk. Your reconstruction provider can also recommend improvements based on how water entered your property.</p>"
+        },
+        {
+          "question": "When is water damage reconstruction most common in the Dallas area?",
+          "answer": "<p>Dallas faces water damage risk year-round, but spring and early summer bring heavy thunderstorms and localized flooding. Winter freeze-thaw cycles can burst pipes and damage structures. Tropical systems in fall also pose flooding threats. Year-round vigilance and maintenance help protect your property, and having a provider connection ready through Freeman means faster response when storms or leaks strike unexpectedly.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 6,
+      "_ai_generated_at": "2026-09-07T15:20:04.746777Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "0206080cfe5bc03e"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#0d2340",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Water Damage Reconstruction in {city_state} | {business}",
+    "canonical_url": "https://freemanrestoration.com/water-damage-reconstruction-dallas-tx/",
+    "meta_description": "Water Damage Reconstruction in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+    "meta_keywords": "water damage reconstruction Dallas TX, water damage rebuild Dallas, rebuild after water damage Dallas, post water damage reconstruction Dallas",
+    "og_title": "Water Damage Reconstruction in {city_state} | {business}",
+    "og_description": "24/7 water damage reconstruction in {city_state}. Fast, professional local response.",
+    "og_image": "sites/water-site/uploads/media/istock-2245358285_7d001c.webp",
+    "service_name": "Water Damage Reconstruction",
+    "service_type": "Water Damage Reconstruction",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Water damage reconstruction for homes and businesses in {city_state}, including water damage rebuild, rebuild after water damage and post water damage reconstruction.",
+    "bc_label": "Water Damage Reconstruction",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Reconstruction\",\n    \"name\": \"Water Damage Reconstruction in Dallas, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Dallas\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water damage reconstruction in Dallas, TX — water damage rebuild, rebuild after water damage and post water damage reconstruction.\"\n}",
+    "primary_keyword": "Water Damage Reconstruction",
+    "secondary_keywords": "water damage rebuild, rebuild after water damage, post water damage reconstruction"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "e4e60fceaf593bc4bec9bff6ba83f821"
+}

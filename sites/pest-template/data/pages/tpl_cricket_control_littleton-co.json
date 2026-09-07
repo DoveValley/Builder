@@ -1,413 +1,539 @@
 {
-    "template_id": "tpl_cricket_control",
-    "city_id": "littleton-co",
-    "slug": "cricket-control-littleton-co",
-    "title": "Cricket Control in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Cricket Control in {city_state}",
-            "hs_subtext": "<p>Colorado's Front Range experiences peak cricket activity in late summer and fall, when cooling temperatures drive these insects indoors seeking warmth and shelter. Littleton homeowners often find crickets infiltrating basements, attics, and living spaces, where their constant chirping and potential for fabric damage become disruptive problems. Littleton Pest Pros addresses cricket infestations with targeted treatments that help restore peace and protect your home without the uncertainty of managing the problem alone.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Cricket exterminator treating a {city_state} home",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/pest-exterminator-katy-tx_968a64.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:09.932621Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "5a950a480861484c",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Re-Treat Guarantee",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator-katy_44058f.webp",
-            "it_alt": "{business} technician applying cricket treatment along a baseboard in a {city_state} home",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Professional Cricket Control Services in Littleton",
-            "text": "<p>Littleton homeowners often face cricket invasions during late summer and fall, when cooling temperatures and decreasing daylight drive these insects indoors seeking shelter and warmth. Colorado's semi-arid climate and elevation create ideal conditions for crickets to thrive outdoors, and once the season shifts, residential properties become attractive refuge. The chirping that begins as a minor annoyance can quickly escalate into a full infestation, with crickets damaging fabrics, paper, and stored goods while their constant noise disrupts sleep and comfort. Residents throughout Littleton recognize that early intervention is key to preventing crickets from establishing themselves inside walls, basements, and attics.</p><p>Littleton Pest Pros approaches cricket removal with a thorough, multi-step strategy tailored to each home's layout and entry points. Our team conducts a detailed inspection to identify how crickets are entering and where they're harboring, then applies targeted treatment methods designed to eliminate active populations and discourage re-entry. We don't simply treat the visible problem—we address conducive conditions and seal potential access points to reduce future vulnerability. Follow-up visits ensure the infestation is fully resolved, and our professionals remain available for questions or concerns as your home returns to normal. Whether you're dealing with an active cricket problem or want to protect your property before pest activity accelerates, Littleton Pest Pros is ready to help restore your peace of mind.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:14.466632Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "8d7cf50be93f2b19",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for Cricket Control",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Technicians, Expert Cricket Removal",
-                    "text": "<p>Our technicians understand cricket behavior and breeding patterns specific to Colorado homes. We apply targeted cricket treatment methods that address both visible crickets and hidden populations, ensuring thorough removal rather than temporary fixes.</p>"
-                },
-                {
-                    "heading": "Fast Response to Active Infestations",
-                    "text": "<p>When crickets invade your home, we prioritize rapid arrival and assessment. Our team responds promptly to get rid of crickets before populations grow, minimizing noise, damage to fabrics, and ongoing disruption to your household.</p>"
-                },
-                {
-                    "heading": "Comprehensive Treatment and Support",
-                    "text": "<p>Cricket extermination requires more than a single spray. We deliver thorough treatment covering entry points, conducive areas, and harborage zones, then follow up to confirm effectiveness and address any remaining activity.</p>"
-                },
-                {
-                    "heading": "Seasonal Cricket Pressure in Colorado's Dry Climate",
-                    "text": "<p>Littleton's low humidity and temperature swings drive crickets indoors each fall seeking warmth and moisture. We help residents in areas like Historic Littleton and Ken Caryl prepare before peak season, reducing the likelihood of large infestations taking hold.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:19.127250Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "c9a64bc438a35bd1",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Cricket Treatment Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call Our {city} Team",
-                    "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Inspection & Assessment",
-                    "text": "Your technician inspects the home, identifies the species and where crickets are harboring, and builds a targeted treatment plan."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Treatment & Follow-Up",
-                    "text": "We treat the areas where crickets live and get inside, then follow up to confirm the infestation is fully cleared."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Ready to get rid of crickets in {city}? Our trained technicians can get started fast.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_cold}",
-            "it_alt": "{chart_group_cold_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Cricket Control Across Littleton's Varied Properties",
-            "text": "<p>Littleton's mix of older, established neighborhoods and newer residential developments creates distinctly different cricket challenges. Mature trees, older construction with more entry points, and accumulated landscaping debris in historic areas like Downtown Littleton provide ideal harborage for crickets seeking shelter as Colorado's cooler months approach. Conversely, newer subdivisions may experience cricket infestations that spread more quickly through adjacent properties, especially when irrigation and outdoor lighting attract these pests. Seasonal cycles in the Front Range mean cricket activity peaks in late summer and fall, making timely cricket removal critical before populations move indoors seeking warmth.</p><p>Your property's specific characteristics—foundation age, vegetation density, moisture levels, and proximity to open space—all influence how quickly crickets establish themselves and how treatment strategies should be tailored. Properties in areas like Ken Caryl, which blend wooded settings with residential development, often see higher seasonal pressure from crickets moving between natural habitats and homes. Whether your home is surrounded by mature landscaping or sits in a newer development, Littleton Pest Pros evaluates these local factors to recommend the most effective cricket control approach for your situation. Early intervention typically yields better results than waiting for infestations to worsen.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:23.224719Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "08a3440017a7f6e7",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-            "it_caption": "{chart_group_cold_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Seasonal Pest Control Guide: Year-Round Cricket Defense",
-            "steps_items": [
-                {
-                    "heading": "Spring: Awakening and Entry",
-                    "text": "<p>As temperatures warm across the Littleton area, crickets emerge from winter dormancy and seek shelter indoors. Spring moisture and fresh landscaping create ideal conditions for crickets to thrive. Littleton Pest Pros helps identify entry points and implement preventive treatments before populations establish inside your home.</p>"
-                },
-                {
-                    "heading": "Summer: Peak Activity",
-                    "text": "<p>Colorado's warm summer months fuel rapid cricket reproduction and feeding activity. Homes in areas like Ken Caryl and Historic Littleton often experience increased indoor cricket presence. Our team uses targeted treatments and exclusion strategies to reduce populations and prevent nesting in basements, crawl spaces, and wall voids.</p>"
-                },
-                {
-                    "heading": "Fall: Migration Indoors",
-                    "text": "<p>As autumn cools the region, crickets actively migrate into structures seeking warmth and shelter before winter. This seasonal surge drives many homeowner calls. Littleton Pest Pros applies comprehensive interior and exterior treatments during this critical window to intercept migrating populations and protect your home.</p>"
-                },
-                {
-                    "heading": "Winter: Indoor Persistence",
-                    "text": "<p>Colorado winters force crickets into homes where they remain active in heated spaces. Winter infestations disrupt sleep and indicate entry pathways that persist year-round. Littleton Pest Pros addresses active winter populations while sealing vulnerabilities to reduce future seasonal invasions.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:27.796175Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "ac0d1412936d2ea9",
-            "_ai_locked": true
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Other Pest Control Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Cricket Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What are the signs my Littleton home has a cricket infestation?",
-                    "answer": "<p>Listen for loud chirping, especially at night—this is the most obvious sign. You may also notice droppings (small dark specks) in corners, basements, or storage areas, or see actual crickets indoors. Damage to fabrics, paper, or stored goods can occur. If you're hearing persistent noise or spotting crickets regularly in your home, an inspection is warranted.</p>"
-                },
-                {
-                    "question": "When is cricket season in Colorado and when should I act?",
-                    "answer": "<p>Crickets become most active and problematic in late summer through fall as outdoor temperatures drop and they seek warmth indoors. In the Littleton area, populations peak from August through October. If you're noticing activity now, don't wait—early treatment prevents larger infestations from establishing inside your home as winter approaches.</p>"
-                },
-                {
-                    "question": "How quickly can Littleton Pest Pros come out to treat my cricket problem?",
-                    "answer": "<p>We prioritize rapid response for active infestations. Contact us today to discuss your situation and schedule an inspection. Our team works to accommodate your timeline while ensuring thorough assessment and treatment planning. The sooner you reach out, the sooner we can address the problem.</p>"
-                },
-                {
-                    "question": "What should I do to prepare my home before a cricket treatment visit?",
-                    "answer": "<p>Clear clutter from affected areas, especially basements, crawl spaces, and storage zones where crickets hide. Vacuum thoroughly and remove cardboard boxes. Seal obvious cracks or gaps if possible. Our technician will provide specific prep instructions when you schedule—following these steps helps maximize treatment effectiveness.</p>"
-                },
-                {
-                    "question": "Is professional cricket removal safer than DIY sprays and traps?",
-                    "answer": "<p>Professional treatment targets the source and harborages with precision, whereas DIY products often only address visible crickets. Our trained technicians apply solutions safely and strategically, reducing exposure risk to your family. We also identify entry points and conducive conditions—something over-the-counter methods cannot do—making professional service more effective long-term.</p>"
-                },
-                {
-                    "question": "Will the treatment be safe around my kids and pets?",
-                    "answer": "<p>Yes. We use treatment methods and applications designed to be safe for households with children and pets when applied as directed. Before your visit, let us know about any household members with sensitivities. Our technician will explain the process, discuss timing for re-entry if needed, and answer safety questions in detail.</p>"
-                },
-                {
-                    "question": "How many visits does it typically take to get rid of crickets?",
-                    "answer": "<p>Most infestations require an initial inspection and treatment, followed by one or more follow-up visits to ensure the problem is resolved. The exact number depends on infestation severity and your home's entry points. During your first visit, we'll outline the expected timeline and explain what to watch for between appointments.</p>"
-                },
-                {
-                    "question": "What's guaranteed if crickets return after treatment?",
-                    "answer": "<p>We stand behind our work. If the problem recurs within the agreed service period, we return to retreat at no additional charge. When you book, we'll review the terms of your service agreement so you understand what's covered. Our goal is lasting results, and we'll work with you until the infestation is resolved.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:37.415321Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "ebef530be65418ed",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Dealing with crickets in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_cricket_control",
+  "city_id": "littleton-co",
+  "slug": "cricket-control-littleton-co",
+  "title": "Cricket Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "Cricket Control in {city_state} | {business}",
-        "canonical_url": "{website}/cricket-control-littleton-co/",
-        "meta_description": "Cricket Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
-        "meta_keywords": "cricket control Littleton CO, cricket exterminator, cricket treatment, cricket removal",
-        "og_title": "Cricket Exterminator in {city_state} | Fast, Guaranteed Cricket Control",
-        "og_description": "Get rid of crickets fast with a professional cricket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
-        "og_image": "",
-        "service_name": "Cricket Control",
-        "service_type": "Cricket Control",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cricket Exterminator in Littleton, CO\",\n            \"serviceType\": \"Cricket Extermination\",\n            \"description\": \"Professional cricket exterminator services in Littleton, CO. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "cricket control",
-        "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "a68ba4c4eef05e60e12f2ea2e5aee08d"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Cricket Control in {city_state}",
+      "hs_subtext": "<p>Colorado's Front Range experiences peak cricket activity in late summer and fall, when cooling temperatures drive these insects indoors seeking warmth and shelter. Littleton homeowners often find crickets infiltrating basements, attics, and living spaces, where their constant chirping and potential for fabric damage become disruptive problems. Littleton Pest Pros addresses cricket infestations with targeted treatments that help restore peace and protect your home without the uncertainty of managing the problem alone.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Cricket exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/pest-exterminator-katy-tx_968a64.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:09.932621Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "5a950a480861484c",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Re-Treat Guarantee",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator-katy_44058f.webp",
+      "it_alt": "{business} technician applying cricket treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Cricket Control Services in Littleton",
+      "text": "<p>Littleton homeowners often face cricket invasions during late summer and fall, when cooling temperatures and decreasing daylight drive these insects indoors seeking shelter and warmth. Colorado's semi-arid climate and elevation create ideal conditions for crickets to thrive outdoors, and once the season shifts, residential properties become attractive refuge. The chirping that begins as a minor annoyance can quickly escalate into a full infestation, with crickets damaging fabrics, paper, and stored goods while their constant noise disrupts sleep and comfort. Residents throughout Littleton recognize that early intervention is key to preventing crickets from establishing themselves inside walls, basements, and attics.</p><p>Littleton Pest Pros approaches cricket removal with a thorough, multi-step strategy tailored to each home's layout and entry points. Our team conducts a detailed inspection to identify how crickets are entering and where they're harboring, then applies targeted treatment methods designed to eliminate active populations and discourage re-entry. We don't simply treat the visible problem—we address conducive conditions and seal potential access points to reduce future vulnerability. Follow-up visits ensure the infestation is fully resolved, and our professionals remain available for questions or concerns as your home returns to normal. Whether you're dealing with an active cricket problem or want to protect your property before pest activity accelerates, Littleton Pest Pros is ready to help restore your peace of mind.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:14.466632Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "8d7cf50be93f2b19",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for Cricket Control",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Expert Cricket Removal",
+          "text": "<p>Our technicians understand cricket behavior and breeding patterns specific to Colorado homes. We apply targeted cricket treatment methods that address both visible crickets and hidden populations, ensuring thorough removal rather than temporary fixes.</p>"
+        },
+        {
+          "heading": "Fast Response to Active Infestations",
+          "text": "<p>When crickets invade your home, we prioritize rapid arrival and assessment. Our team responds promptly to get rid of crickets before populations grow, minimizing noise, damage to fabrics, and ongoing disruption to your household.</p>"
+        },
+        {
+          "heading": "Comprehensive Treatment and Support",
+          "text": "<p>Cricket extermination requires more than a single spray. We deliver thorough treatment covering entry points, conducive areas, and harborage zones, then follow up to confirm effectiveness and address any remaining activity.</p>"
+        },
+        {
+          "heading": "Seasonal Cricket Pressure in Colorado's Dry Climate",
+          "text": "<p>Littleton's low humidity and temperature swings drive crickets indoors each fall seeking warmth and moisture. We help residents in areas like Historic Littleton and Ken Caryl prepare before peak season, reducing the likelihood of large infestations taking hold.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:19.127250Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "c9a64bc438a35bd1",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Cricket Treatment Works",
+      "steps_items": [
+        {
+          "heading": "Describe Your Cricket Problem",
+          "text": "Contact Littleton Pest Pros and tell us about your cricket infestation—where you're hearing them, how severe the activity is, and whether they're in your home or yard. We'll connect you quickly with a local cricket control provider ready to schedule an inspection."
+        },
+        {
+          "heading": "Cricket Inspection & Treatment Plan",
+          "text": "Your local provider will visit to identify cricket entry points, breeding areas, and activity levels, then recommend targeted cricket control methods suited to your property. Fall and spring cricket seasons in Colorado often bring increased indoor invasions, so prompt assessment helps prevent population growth."
+        },
+        {
+          "heading": "Cricket Control & Monitoring",
+          "text": "The local provider you're connected with will apply cricket control treatments to affected areas and discuss follow-up visits if needed to manage any remaining activity. Most customers see significant noise and activity reduction within days of treatment."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:29.466886Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "9ba8d1ace22450e2",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of crickets in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_cold}",
+      "it_alt": "{chart_group_cold_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Cricket Control Across Littleton's Varied Properties",
+      "text": "<p>Littleton's mix of older, established neighborhoods and newer residential developments creates distinctly different cricket challenges. Mature trees, older construction with more entry points, and accumulated landscaping debris in historic areas like Downtown Littleton provide ideal harborage for crickets seeking shelter as Colorado's cooler months approach. Conversely, newer subdivisions may experience cricket infestations that spread more quickly through adjacent properties, especially when irrigation and outdoor lighting attract these pests. Seasonal cycles in the Front Range mean cricket activity peaks in late summer and fall, making timely cricket removal critical before populations move indoors seeking warmth.</p><p>Your property's specific characteristics—foundation age, vegetation density, moisture levels, and proximity to open space—all influence how quickly crickets establish themselves and how treatment strategies should be tailored. Properties in areas like Ken Caryl, which blend wooded settings with residential development, often see higher seasonal pressure from crickets moving between natural habitats and homes. Whether your home is surrounded by mature landscaping or sits in a newer development, Littleton Pest Pros evaluates these local factors to recommend the most effective cricket control approach for your situation. Early intervention typically yields better results than waiting for infestations to worsen.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:23.224719Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "08a3440017a7f6e7",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
+      "it_caption": "{chart_group_cold_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Pest Control Guide: Year-Round Cricket Defense",
+      "steps_items": [
+        {
+          "heading": "Spring: Awakening and Entry",
+          "text": "<p>As temperatures warm across the Littleton area, crickets emerge from winter dormancy and seek shelter indoors. Spring moisture and fresh landscaping create ideal conditions for crickets to thrive. Littleton Pest Pros helps identify entry points and implement preventive treatments before populations establish inside your home.</p>"
+        },
+        {
+          "heading": "Summer: Peak Activity",
+          "text": "<p>Colorado's warm summer months fuel rapid cricket reproduction and feeding activity. Homes in areas like Ken Caryl and Historic Littleton often experience increased indoor cricket presence. Our team uses targeted treatments and exclusion strategies to reduce populations and prevent nesting in basements, crawl spaces, and wall voids.</p>"
+        },
+        {
+          "heading": "Fall: Migration Indoors",
+          "text": "<p>As autumn cools the region, crickets actively migrate into structures seeking warmth and shelter before winter. This seasonal surge drives many homeowner calls. Littleton Pest Pros applies comprehensive interior and exterior treatments during this critical window to intercept migrating populations and protect your home.</p>"
+        },
+        {
+          "heading": "Winter: Indoor Persistence",
+          "text": "<p>Colorado winters force crickets into homes where they remain active in heated spaces. Winter infestations disrupt sleep and indicate entry pathways that persist year-round. Littleton Pest Pros addresses active winter populations while sealing vulnerabilities to reduce future seasonal invasions.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:27.796175Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "ac0d1412936d2ea9",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Cricket Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the signs my Littleton home has a cricket infestation?",
+          "answer": "<p>Listen for loud chirping, especially at night—this is the most obvious sign. You may also notice droppings (small dark specks) in corners, basements, or storage areas, or see actual crickets indoors. Damage to fabrics, paper, or stored goods can occur. If you're hearing persistent noise or spotting crickets regularly in your home, an inspection is warranted.</p>"
+        },
+        {
+          "question": "When is cricket season in Colorado and when should I act?",
+          "answer": "<p>Crickets become most active and problematic in late summer through fall as outdoor temperatures drop and they seek warmth indoors. In the Littleton area, populations peak from August through October. If you're noticing activity now, don't wait—early treatment prevents larger infestations from establishing inside your home as winter approaches.</p>"
+        },
+        {
+          "question": "How quickly can Littleton Pest Pros come out to treat my cricket problem?",
+          "answer": "<p>We prioritize rapid response for active infestations. Contact us today to discuss your situation and schedule an inspection. Our team works to accommodate your timeline while ensuring thorough assessment and treatment planning. The sooner you reach out, the sooner we can address the problem.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before a cricket treatment visit?",
+          "answer": "<p>Clear clutter from affected areas, especially basements, crawl spaces, and storage zones where crickets hide. Vacuum thoroughly and remove cardboard boxes. Seal obvious cracks or gaps if possible. Our technician will provide specific prep instructions when you schedule—following these steps helps maximize treatment effectiveness.</p>"
+        },
+        {
+          "question": "Is professional cricket removal safer than DIY sprays and traps?",
+          "answer": "<p>Professional treatment targets the source and harborages with precision, whereas DIY products often only address visible crickets. Our trained technicians apply solutions safely and strategically, reducing exposure risk to your family. We also identify entry points and conducive conditions—something over-the-counter methods cannot do—making professional service more effective long-term.</p>"
+        },
+        {
+          "question": "Will the treatment be safe around my kids and pets?",
+          "answer": "<p>Yes. We use treatment methods and applications designed to be safe for households with children and pets when applied as directed. Before your visit, let us know about any household members with sensitivities. Our technician will explain the process, discuss timing for re-entry if needed, and answer safety questions in detail.</p>"
+        },
+        {
+          "question": "How many visits does it typically take to get rid of crickets?",
+          "answer": "<p>Most infestations require an initial inspection and treatment, followed by one or more follow-up visits to ensure the problem is resolved. The exact number depends on infestation severity and your home's entry points. During your first visit, we'll outline the expected timeline and explain what to watch for between appointments.</p>"
+        },
+        {
+          "question": "What's guaranteed if crickets return after treatment?",
+          "answer": "<p>We stand behind our work. If the problem recurs within the agreed service period, we return to retreat at no additional charge. When you book, we'll review the terms of your service agreement so you understand what's covered. Our goal is lasting results, and we'll work with you until the infestation is resolved.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:37.415321Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "ebef530be65418ed",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with crickets in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Cricket Control in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/cricket-control-littleton-co/",
+    "meta_description": "Cricket Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
+    "meta_keywords": "cricket control Littleton CO, cricket exterminator, cricket treatment, cricket removal",
+    "og_title": "Cricket Exterminator in {city_state} | Fast, Guaranteed Cricket Control",
+    "og_description": "Get rid of crickets fast with a professional cricket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Cricket Control",
+    "service_type": "Cricket Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cricket Exterminator in Littleton, CO\",\"serviceType\":\"Cricket Extermination\",\"description\":\"Professional cricket exterminator services in Littleton, CO. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "cricket control",
+    "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "f7269866c23c958705638b25fe24677f"
 }

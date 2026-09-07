@@ -11,41 +11,173 @@
     "city_slug": "lufkin-tx",
     "zip": "75901",
     "tags": [],
-    "industries": [
-      "Forestry and timber/wood products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Education",
-      "Retail and distribution",
-      "Government/public administration"
-    ],
-    "top_employers": [
-      "CHI St. Luke's Health Memorial",
-      "Lufkin Industries (Baker Hughes)",
-      "Angelina College",
-      "Lufkin Independent School District",
-      "Georgia-Pacific",
-      "Temple-Inland",
-      "Brookshire Brothers",
-      "City of Lufkin",
-      "Angelina County",
-      "Walmart Supercenter",
-      "Diboll Healthcare System",
-      "Southern Plastics"
-    ],
-    "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-    "local_note": "Lufkin's humid subtropical climate, heavy seasonal rainfall, and dense pine canopy keep moisture levels high year-round — conditions that turn a small roof leak, slab seep, or failed supply line into structural water damage quickly.",
+    "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by timber, wood products, and heavy manufacturing tied to companies like Lufkin Industries. The local economy has diversified into healthcare, education, and regional retail trade, with hospitals and Angelina College drawing workers from surrounding rural counties. Its location amid piney woods forestland keeps timber and oilfield equipment manufacturing central to the area's identity.",
+    "local_note": "Most homes in Lufkin are built on slab-on-grade foundations, with some older pier-and-beam construction in historic neighborhoods. The dominant water-damage risk is heavy seasonal rainfall and localized flash flooding, particularly during spring and early summer storm systems.",
     "neighborhoods": [
       "Downtown Lufkin",
       "Crown Colony",
       "Fuller Springs",
-      "Kurth",
-      "Copeland Springs",
-      "Brentwood"
+      "Copeland",
+      "Green Acres",
+      "Northland Heights"
     ],
-    "population": 34187,
+    "population": 34700,
+    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out.",
+    "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forest products manufacturing",
+      "Healthcare",
+      "Oil and gas equipment manufacturing",
+      "Retail and regional trade",
+      "Education",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "Lufkin Industries (Baker Hughes)",
+      "CHI St. Luke's Health Memorial Lufkin",
+      "Woodland Heights Medical Center",
+      "Lufkin Independent School District",
+      "Angelina College",
+      "City of Lufkin",
+      "Angelina County",
+      "Brookshire Grocery Company",
+      "Georgia-Pacific",
+      "Walmart",
+      "Southern Plastics",
+      "Regions Bank"
+    ],
     "_researched": 1,
-    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out."
+    "freeze_days_monthly": [
+      8,
+      5,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      6
+    ],
+    "freeze_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+    "rainfall_monthly": [
+      4.3,
+      4,
+      4,
+      3.8,
+      5.2,
+      4.3,
+      3,
+      3,
+      4,
+      4.5,
+      4.6,
+      4.8
+    ],
+    "rainfall_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+    "rainfall_annual": 49.5,
+    "rainfall_state_avg": 34,
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Hudson",
+        "miles": 5
+      },
+      {
+        "name": "Huntington",
+        "miles": 10
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 10
+      },
+      {
+        "name": "Corrigan",
+        "miles": 25
+      },
+      {
+        "name": "Livingston",
+        "miles": 40
+      }
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "flood_years": [
+      2016,
+      2017,
+      2019
+    ],
+    "heavy_rain_days_monthly": [
+      2.5,
+      2.3,
+      2.5,
+      2.6,
+      3,
+      2.3,
+      1.8,
+      1.7,
+      2.2,
+      2.3,
+      2.3,
+      2.5
+    ],
+    "heavy_rain_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+    "homes_by_decade": {
+      "Before 1960": 25,
+      "1960-1979": 30,
+      "1980-1999": 25,
+      "2000-2009": 10,
+      "2010 or later": 10
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      1,
+      4,
+      15,
+      23,
+      24,
+      12,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+    "humidity_monthly": [
+      75,
+      72,
+      68,
+      68,
+      72,
+      72,
+      71,
+      70,
+      71,
+      71,
+      74,
+      76
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856"
   },
   "content_blocks": [
     {
@@ -77,15 +209,19 @@
     },
     {
       "type": "trust_bar",
-      "tb_bg": "accent",
+      "tb_bg": "subtle",
       "tb_bg_custom": "#f3f6f7",
       "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
         {
           "label": "Free Estimates",
           "icon": ""
         },
         {
-          "label": "24/7 Response",
+          "label": "24/7 Emergency Response",
           "icon": ""
         },
         {
@@ -93,9 +229,7 @@
           "icon": ""
         }
       ],
-      "anchor": "trust_bar",
-      "tb_show_icons": true,
-      "id": "trust_bar_1"
+      "anchor": "trust_bar"
     },
     {
       "type": "ai_block",
@@ -165,32 +299,26 @@
       "steps_heading": "How Our {service} Process Works",
       "steps_items": [
         {
-          "image": "",
-          "alt": "",
-          "heading": "Contact {business}",
-          "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+          "heading": "Report Your Flooded Bathroom Damage",
+          "text": "Contact Freeman Restoration to describe your flooded bathroom situation. We'll connect you quickly with an independent local restoration provider in Lufkin, TX who can assess water damage and begin cleanup right away."
         },
         {
-          "image": "",
-          "alt": "",
-          "heading": "On-Site Assessment",
-          "text": "Your matched local provider inspects the damage, identifies the water source and category, and plans the work."
+          "heading": "Local Provider Inspects Flooded Bathroom",
+          "text": "A restoration professional from our network visits to evaluate water extent, affected materials, and contamination risk in your flooded bathroom. Given East Texas humidity and occasional heavy rains, prompt inspection helps prevent secondary moisture issues."
         },
         {
-          "image": "",
-          "alt": "",
-          "heading": "Mitigation & Drying",
-          "text": "Your provider handles water extraction, structural drying, and cleanup to stop the damage from spreading."
-        },
-        {
-          "image": "",
-          "alt": "",
-          "heading": "Restoration & Repairs",
-          "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
+          "heading": "Flooded Bathroom Cleanup and Water Removal Begin",
+          "text": "The local provider extracts standing water, removes saturated materials, and begins drying your flooded bathroom. Freeman Restoration stays in touch to ensure the independent crew addresses your needs and answers questions throughout the cleanup process."
         }
       ],
-      "skin": "subtle",
-      "id": "steps_1"
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:18:35.812210Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "a6fd81e6dd892f4c",
+      "_ai_locked": true
     },
     {
       "type": "cta_banner",
@@ -202,9 +330,7 @@
       "cb_bg": "header",
       "cb_bg_custom": "#2563eb",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent",
-      "id": "cta_banner_1"
+      "cb_padding": "compact"
     },
     {
       "type": "ai_block",
@@ -312,9 +438,7 @@
           "text": "Professional Water Mitigation for {city_state} homes and businesses.",
           "url": "/water-mitigation-{city_slug}"
         }
-      ],
-      "skin": "subtle",
-      "id": "service_cards_1"
+      ]
     },
     {
       "type": "faq_two_col",
@@ -374,15 +498,12 @@
       "cb_bg": "accent",
       "cb_bg_custom": "#0d2340",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "skin": "accent",
-      "id": "cta_banner_2"
+      "cb_padding": "compact"
     },
     {
       "type": "custom_html",
       "anchor": "pest_services",
-      "html": "[services_links]",
-      "id": "custom_html_1"
+      "html": "[services_links]"
     },
     {
       "type": "map_info",
@@ -396,19 +517,17 @@
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
       "mi_map_side": "top",
-      "skin": "light",
-      "id": "map_info_1",
       "mi_map_caption": "{city_map_caption}"
     }
   ],
   "seo": {
     "seo_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
-    "canonical_url": "{website}/flooded-bathroom-cleanup-lufkin-tx/",
+    "canonical_url": "https://freemanrestoration.com/flooded-bathroom-cleanup-lufkin-tx/",
     "meta_description": "Flooded Bathroom Cleanup in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
     "meta_keywords": "flooded bathroom cleanup Lufkin TX, bathroom water damage Lufkin, overflowing tub cleanup Lufkin, shower overflow cleanup Lufkin",
     "og_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
     "og_description": "24/7 flooded bathroom cleanup in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/flooded-bathroom-toilet-tub-lufkin-tx.webp",
+    "og_image": "sites/water-site/uploads/media/flooded-bathroom-cleanup-1.webp",
     "service_name": "Flooded Bathroom Cleanup",
     "service_type": "Flooded Bathroom Cleanup",
     "service_area": "{city_state} and surrounding areas",
@@ -416,59 +535,11 @@
     "bc_label": "Flooded Bathroom Cleanup",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\",\n        \"address\": {\n            \"@type\": \"PostalAddress\",\n            \"addressLocality\": \"{city}\",\n            \"addressRegion\": \"{SS}\",\n            \"postalCode\": \"{zip}\",\n            \"addressCountry\": \"US\"\n        }\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in Lufkin, TX — bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in Lufkin, TX — bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
     "primary_keyword": "Flooded Bathroom Cleanup",
     "secondary_keywords": "bathroom water damage, overflowing tub cleanup, shower overflow cleanup"
   },
   "locked_blocks": [],
-  "generated_at": "2026-07-12T01:05:23+00:00",
-  "template_version": "7616e407d0cb258cef401dce093c2cdc",
-  "layout_enabled": true,
-  "layout_variants": [
-    [
-      "hero_split_1",
-      "ai_block_1",
-      "trust_bar_1",
-      "steps_1",
-      "ai_block_2",
-      "cta_banner_1",
-      "ai_block_3",
-      "ai_block_4",
-      "service_cards_1",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
-    ],
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_2",
-      "ai_block_1",
-      "cta_banner_1",
-      "steps_1",
-      "ai_block_3",
-      "ai_block_4",
-      "service_cards_1",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
-    ],
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_1",
-      "steps_1",
-      "ai_block_2",
-      "ai_block_3",
-      "cta_banner_1",
-      "ai_block_4",
-      "service_cards_1",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
-    ]
-  ]
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "d4aeceb9f33952f8894acb61037efa72"
 }

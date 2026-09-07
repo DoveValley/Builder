@@ -1,425 +1,551 @@
 {
-    "template_id": "tpl_bee_removal",
-    "city_id": "littleton-co",
-    "slug": "bee-removal-littleton-co",
-    "title": "Bee Removal in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Bee Removal in {city_state}",
-            "hs_subtext": "<p>Colorado's Front Range foothills experience peak bee activity from spring through early fall, when established hives and swarms naturally seek shelter in residential structures. Littleton Pest Pros specializes in safe bee removal that protects these important pollinators while securing your home, whether you're in historic neighborhoods or newer developments across the area. You'll have peace of mind knowing the problem is handled by trained professionals who understand both the local environment and humane removal practices.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Bee exterminator treating a {city_state} home",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/wildlife-removal-and-exclusion-katy_7aa299.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:09.664350Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "55791305fd1e5a6e",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Re-Treat Guarantee",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator-katy_44058f.webp",
-            "it_alt": "{business} technician applying bee treatment along a baseboard in a {city_state} home",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Professional Bee Removal Services in Littleton",
-            "text": "<p>Littleton's semi-arid climate and abundant flowering plants create ideal conditions for honeybee colonies to establish hives on residential and commercial properties. Spring through fall, when temperatures warm and blooms attract foraging bees, homeowners across Littleton frequently discover established colonies in wall cavities, eaves, and tree branches. Colorado's mild winters mean some colonies can survive year-round, making early intervention critical. When a hive appears on your property, the instinct to remove it quickly is understandable—but the approach matters greatly for both your safety and the bees' survival.</p><p>Littleton Pest Pros specializes in live bee removal and hive relocation, prioritizing humane handling and thorough assessment of each situation. Rather than simply eliminating a colony, our trained team works to safely relocate honeybees whenever possible, preserving these valuable pollinators while eliminating the threat to your family. We inspect the affected area completely, remove all honeycomb and brood, and implement measures to prevent future occupation. Our follow-up support ensures your property remains protected and your peace of mind is restored. Whether you're dealing with a sudden swarm or an established hive, Littleton Pest Pros brings expertise and care to every bee control job.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:14.316326Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "5f6b596134266c72",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for Bee Removal",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Bee Removal Experts",
-                    "text": "<p>Our technicians are trained in safe, humane bee relocation techniques. We understand bee behavior and work to protect colonies while removing hive threats from your property responsibly.</p>"
-                },
-                {
-                    "heading": "Fast Response to Active Infestations",
-                    "text": "<p>When bees establish a hive on your home or outbuilding, prompt action matters. We respond quickly to assess the situation and discuss your removal options without unnecessary delay.</p>"
-                },
-                {
-                    "heading": "Thorough Live Bee Removal Process",
-                    "text": "<p>Our live bee removal approach addresses the entire colony, not just surface treatment. We locate and remove the hive itself to prevent reinfestation and restore peace of mind to your property.</p>"
-                },
-                {
-                    "heading": "Spring Swarm Season Readiness",
-                    "text": "<p>Colorado's warming spring triggers bee swarm activity across the region. We're prepared to handle seasonal hive removals quickly, whether bees cluster on structures in Historic Littleton or establish colonies in residential yards throughout the area.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:18.805108Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "5aa8a163201de271",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Bee Treatment Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call Our {city} Team",
-                    "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Inspection & Assessment",
-                    "text": "Your technician inspects the home, identifies the species and where bees are harboring, and builds a targeted treatment plan."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Treatment & Follow-Up",
-                    "text": "We treat the areas where bees live and get inside, then follow up to confirm the infestation is fully cleared."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Ready to get rid of bees in {city}? Our trained technicians can get started fast.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_season}",
-            "it_alt": "{chart_group_season_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Bee Removal Services Throughout Littleton",
-            "text": "<p>Littleton's diverse neighborhoods present distinct challenges for bee relocation and hive removal. Established areas like Historic Littleton often feature mature trees and older structures that provide ideal nesting sites for honeybees and other bee colonies. These properties may have multiple potential entry points, wall voids, or roof cavities where bees establish hives. Conversely, newer subdivisions such as Governor's Ranch typically have younger landscaping and modern construction, which can still attract bee activity—particularly during Colorado's spring and summer months when foraging is most active. The region's semi-arid climate and elevation create predictable seasonal patterns: bee populations expand rapidly as temperatures warm, making late spring through early fall the peak period for live bee removal calls.</p><p>Property age and condition directly influence how our team approaches each removal. Older homes may require more careful assessment to locate hive access points without compromising structural integrity, while newer construction often allows for cleaner extraction. Regardless of your property's age or location, early intervention is important. A small bee presence can grow into a significant hive within weeks. Littleton Pest Pros specializes in humane bee hive removal and relocation, prioritizing the safety of both your family and the bees themselves whenever possible.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:23.160010Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "e2408b7aea559bfa",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
-            "it_caption": "{chart_group_season_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Seasonal Bee Removal and Pest Guide for Littleton",
-            "steps_items": [
-                {
-                    "heading": "Spring Awakening",
-                    "text": "<p>As temperatures warm across the Littleton region, overwintering pests emerge and new colonies establish themselves. Homeowners often discover carpenter ants, termites, and early bee activity. Littleton Pest Pros helps identify nesting sites and implements removal strategies before populations expand, protecting your home's structure and safety.</p>"
-                },
-                {
-                    "heading": "Summer Activity Peak",
-                    "text": "<p>Colorado's warm, dry summers create ideal conditions for pest reproduction and bee swarming. Mosquitoes, wasps, and multiple pest generations thrive during these months. Littleton Pest Pros provides timely interventions and humane bee removal to manage the season's heightened activity and reduce risks to your family and property.</p>"
-                },
-                {
-                    "heading": "Fall Preparation",
-                    "text": "<p>As cooler weather approaches, pests seek shelter indoors, and late-season bee colonies prepare for winter. Rodents, spiders, and occasional wasp nests become more problematic in residences throughout the area. Littleton Pest Pros offers preventive treatments and removal services to seal entry points and address fall infestations before winter arrives.</p>"
-                },
-                {
-                    "heading": "Winter Dormancy",
-                    "text": "<p>Cold, snowy Colorado winters slow pest activity outdoors, but indoor infestations intensify as rodents and insects shelter inside homes. Winter bee colonies remain hive-bound, reducing removal urgency but creating spring planning needs. Littleton Pest Pros monitors and manages winter populations and prepares for spring bee activity ahead of warmer months.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:29.253224Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "1fa8a84bf9f79e88",
-            "_ai_locked": true
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Other Pest Control Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Bee Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What is the process for removing a honeybee hive from my home?",
-                    "answer": "<p>Our approach prioritizes relocation of healthy colonies whenever possible. We locate the hive, safely contain and extract the bees, and transport them to an appropriate location. The process includes sealing entry points and cleaning affected areas to remove wax and pheromones that attract new colonies. We'll walk you through each step so you know what to expect throughout the visit.</p>"
-                },
-                {
-                    "question": "How many visits does bee removal typically require in Colorado?",
-                    "answer": "<p>Most infestations resolve in a single visit, though the timeline depends on hive size, location, and accessibility. Smaller, exposed hives may take 1–2 hours. Larger or wall-cavity colonies can take longer and occasionally require a follow-up visit to confirm complete removal and address any stragglers. We'll give you a realistic timeframe after inspecting your property.</p>"
-                },
-                {
-                    "question": "Can you remove bees from my Littleton home same-day or next-day?",
-                    "answer": "<p>We understand the urgency when bees nest near your home. Response times depend on current call volume and the complexity of your situation. Contact us right away with details about the hive's location and size—we'll schedule the fastest appointment available and discuss whether your case requires immediate attention or can wait a few days.</p>"
-                },
-                {
-                    "question": "Is bee removal safe for my kids and pets during treatment?",
-                    "answer": "<p>We use methods that minimize chemical exposure and prioritize the safety of your family. We recommend keeping children and pets indoors or away from the treatment area during the work and for a short period afterward. Our team will provide specific safety instructions tailored to your home's layout and the hive's location before we begin.</p>"
-                },
-                {
-                    "question": "What causes the cost of hive removal to change?",
-                    "answer": "<p>Several factors influence pricing: hive size and maturity, location (accessible versus inside walls), how long the colony has been present, and whether relocation or complete removal is needed. Free estimates are always available—we'll inspect the infestation and provide a transparent quote with no hidden fees before any work begins.</p>"
-                },
-                {
-                    "question": "When is bee season in Littleton and when should I act?",
-                    "answer": "<p>Honeybees become most active in late spring and summer as colonies grow and swarms seek new nesting sites. In the Denver-area foothills and plains, this peaks from May through August. Early fall can also bring activity. If you notice bees establishing a hive, contact us promptly—treatment is easier and safer when colonies are smaller and less entrenched.</p>"
-                },
-                {
-                    "question": "What signs show that my home has a bee infestation?",
-                    "answer": "<p>Look for clusters of bees near your home's exterior, a constant stream of bees entering a wall, roof, or eave, buzzing sounds coming from inside walls, or a sweet, honey-like smell indoors. You may also notice honeycomb or wax buildup. Any of these warrants a professional inspection to confirm the species and extent of the problem.</p>"
-                },
-                {
-                    "question": "Why is professional removal better than DIY bee removal products?",
-                    "answer": "<p>Commercial sprays risk harming beneficial honeybees and are often ineffective at eliminating the entire colony. Hives in walls or enclosed spaces require specialized equipment and expertise to safely access and remove. Professional treatment also prevents structural damage, addresses pheromone trails that attract new colonies, and relocates bees humanely when possible—something DIY methods cannot achieve.</p>"
-                },
-                {
-                    "question": "What should I do to prepare before the bee removal appointment?",
-                    "answer": "<p>Keep children and pets indoors on the day of service. Clear the area around the hive if it's accessible—remove garden furniture, toys, or other items. Note whether anyone in your household has bee allergies and inform us beforehand. Avoid pesticides or attempts to treat the hive yourself before our arrival, as this can make the job harder and more dangerous.</p>"
-                },
-                {
-                    "question": "How can I prevent bees from coming back after removal?",
-                    "answer": "<p>After we remove a hive, we seal all entry points and clean areas where bees nested to remove attractant scents. Ongoing prevention includes sealing cracks and gaps in siding, eaves, and roof lines, keeping vegetation trimmed away from your home, and removing sources of standing water. These steps reduce the likelihood that a new swarm will choose your property as a nesting site.</p>"
-                },
-                {
-                    "question": "Is the bee removal work guaranteed if the problem returns?",
-                    "answer": "<p>We stand behind our work and will address any issues that stem directly from incomplete removal. However, new swarms occasionally colonize the same spot if entry points aren't sealed or if preventive measures aren't maintained. We'll discuss warranty details and follow-up recommendations during your service so you understand what's covered and how to protect your home long-term.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:42.694376Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "9699a844d7afffb8",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Dealing with bees in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_bee_removal",
+  "city_id": "littleton-co",
+  "slug": "bee-removal-littleton-co",
+  "title": "Bee Removal in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "Bee Removal in {city_state} | {business}",
-        "canonical_url": "{website}/bee-removal-littleton-co/",
-        "meta_description": "Bee Removal in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
-        "meta_keywords": "bee removal Littleton CO, bee relocation, honey bee removal, live bee removal",
-        "og_title": "Bee Exterminator in {city_state} | Fast, Guaranteed Bee Control",
-        "og_description": "Get rid of bees fast with a professional bee exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
-        "og_image": "",
-        "service_name": "Bee Removal",
-        "service_type": "Bee Removal",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bee Exterminator in Littleton, CO\",\n            \"serviceType\": \"Bee Extermination\",\n            \"description\": \"Professional bee exterminator services in Littleton, CO. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "bee removal",
-        "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "3f7b811878f1f4d4be18f91eea8d9e03"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Bee Removal in {city_state}",
+      "hs_subtext": "<p>Colorado's Front Range foothills experience peak bee activity from spring through early fall, when established hives and swarms naturally seek shelter in residential structures. Littleton Pest Pros specializes in safe bee removal that protects these important pollinators while securing your home, whether you're in historic neighborhoods or newer developments across the area. You'll have peace of mind knowing the problem is handled by trained professionals who understand both the local environment and humane removal practices.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Bee exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/wildlife-removal-and-exclusion-katy_7aa299.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:09.664350Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "55791305fd1e5a6e",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Re-Treat Guarantee",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator-katy_44058f.webp",
+      "it_alt": "{business} technician applying bee treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Bee Removal Services in Littleton",
+      "text": "<p>Littleton's semi-arid climate and abundant flowering plants create ideal conditions for honeybee colonies to establish hives on residential and commercial properties. Spring through fall, when temperatures warm and blooms attract foraging bees, homeowners across Littleton frequently discover established colonies in wall cavities, eaves, and tree branches. Colorado's mild winters mean some colonies can survive year-round, making early intervention critical. When a hive appears on your property, the instinct to remove it quickly is understandable—but the approach matters greatly for both your safety and the bees' survival.</p><p>Littleton Pest Pros specializes in live bee removal and hive relocation, prioritizing humane handling and thorough assessment of each situation. Rather than simply eliminating a colony, our trained team works to safely relocate honeybees whenever possible, preserving these valuable pollinators while eliminating the threat to your family. We inspect the affected area completely, remove all honeycomb and brood, and implement measures to prevent future occupation. Our follow-up support ensures your property remains protected and your peace of mind is restored. Whether you're dealing with a sudden swarm or an established hive, Littleton Pest Pros brings expertise and care to every bee control job.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:14.316326Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "5f6b596134266c72",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for Bee Removal",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Bee Removal Experts",
+          "text": "<p>Our technicians are trained in safe, humane bee relocation techniques. We understand bee behavior and work to protect colonies while removing hive threats from your property responsibly.</p>"
+        },
+        {
+          "heading": "Fast Response to Active Infestations",
+          "text": "<p>When bees establish a hive on your home or outbuilding, prompt action matters. We respond quickly to assess the situation and discuss your removal options without unnecessary delay.</p>"
+        },
+        {
+          "heading": "Thorough Live Bee Removal Process",
+          "text": "<p>Our live bee removal approach addresses the entire colony, not just surface treatment. We locate and remove the hive itself to prevent reinfestation and restore peace of mind to your property.</p>"
+        },
+        {
+          "heading": "Spring Swarm Season Readiness",
+          "text": "<p>Colorado's warming spring triggers bee swarm activity across the region. We're prepared to handle seasonal hive removals quickly, whether bees cluster on structures in Historic Littleton or establish colonies in residential yards throughout the area.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:18.805108Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "5aa8a163201de271",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Bee Treatment Works",
+      "steps_items": [
+        {
+          "heading": "Schedule Your Bee Removal Inspection",
+          "text": "Contact Littleton Pest Pros to connect with a local bee removal specialist who will assess your property and identify the colony location, species, and entry points. Most providers offer rapid scheduling to address active bee situations before they expand."
+        },
+        {
+          "heading": "Professional Bee Assessment & Removal Plan",
+          "text": "The local provider will inspect the hive, determine whether relocation or humane removal is appropriate, and outline the safest approach for your home and the bee population. Colorado's spring and summer months bring heightened bee activity, making prompt professional assessment critical."
+        },
+        {
+          "heading": "Removal Completion & Follow-Up Care",
+          "text": "Once the bee removal is complete, the provider will seal entry points and advise on preventive measures to reduce the risk of future colonies establishing on your property. Follow-up visits ensure the area remains clear and your home stays protected."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:28.941770Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "46a7fbc2c836362d",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of bees in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_season}",
+      "it_alt": "{chart_group_season_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Bee Removal Services Throughout Littleton",
+      "text": "<p>Littleton's diverse neighborhoods present distinct challenges for bee relocation and hive removal. Established areas like Historic Littleton often feature mature trees and older structures that provide ideal nesting sites for honeybees and other bee colonies. These properties may have multiple potential entry points, wall voids, or roof cavities where bees establish hives. Conversely, newer subdivisions such as Governor's Ranch typically have younger landscaping and modern construction, which can still attract bee activity—particularly during Colorado's spring and summer months when foraging is most active. The region's semi-arid climate and elevation create predictable seasonal patterns: bee populations expand rapidly as temperatures warm, making late spring through early fall the peak period for live bee removal calls.</p><p>Property age and condition directly influence how our team approaches each removal. Older homes may require more careful assessment to locate hive access points without compromising structural integrity, while newer construction often allows for cleaner extraction. Regardless of your property's age or location, early intervention is important. A small bee presence can grow into a significant hive within weeks. Littleton Pest Pros specializes in humane bee hive removal and relocation, prioritizing the safety of both your family and the bees themselves whenever possible.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:23.160010Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "e2408b7aea559bfa",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
+      "it_caption": "{chart_group_season_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Bee Removal and Pest Guide for Littleton",
+      "steps_items": [
+        {
+          "heading": "Spring Awakening",
+          "text": "<p>As temperatures warm across the Littleton region, overwintering pests emerge and new colonies establish themselves. Homeowners often discover carpenter ants, termites, and early bee activity. Littleton Pest Pros helps identify nesting sites and implements removal strategies before populations expand, protecting your home's structure and safety.</p>"
+        },
+        {
+          "heading": "Summer Activity Peak",
+          "text": "<p>Colorado's warm, dry summers create ideal conditions for pest reproduction and bee swarming. Mosquitoes, wasps, and multiple pest generations thrive during these months. Littleton Pest Pros provides timely interventions and humane bee removal to manage the season's heightened activity and reduce risks to your family and property.</p>"
+        },
+        {
+          "heading": "Fall Preparation",
+          "text": "<p>As cooler weather approaches, pests seek shelter indoors, and late-season bee colonies prepare for winter. Rodents, spiders, and occasional wasp nests become more problematic in residences throughout the area. Littleton Pest Pros offers preventive treatments and removal services to seal entry points and address fall infestations before winter arrives.</p>"
+        },
+        {
+          "heading": "Winter Dormancy",
+          "text": "<p>Cold, snowy Colorado winters slow pest activity outdoors, but indoor infestations intensify as rodents and insects shelter inside homes. Winter bee colonies remain hive-bound, reducing removal urgency but creating spring planning needs. Littleton Pest Pros monitors and manages winter populations and prepares for spring bee activity ahead of warmer months.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:29.253224Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "1fa8a84bf9f79e88",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Bee Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What is the process for removing a honeybee hive from my home?",
+          "answer": "<p>Our approach prioritizes relocation of healthy colonies whenever possible. We locate the hive, safely contain and extract the bees, and transport them to an appropriate location. The process includes sealing entry points and cleaning affected areas to remove wax and pheromones that attract new colonies. We'll walk you through each step so you know what to expect throughout the visit.</p>"
+        },
+        {
+          "question": "How many visits does bee removal typically require in Colorado?",
+          "answer": "<p>Most infestations resolve in a single visit, though the timeline depends on hive size, location, and accessibility. Smaller, exposed hives may take 1–2 hours. Larger or wall-cavity colonies can take longer and occasionally require a follow-up visit to confirm complete removal and address any stragglers. We'll give you a realistic timeframe after inspecting your property.</p>"
+        },
+        {
+          "question": "Can you remove bees from my Littleton home same-day or next-day?",
+          "answer": "<p>We understand the urgency when bees nest near your home. Response times depend on current call volume and the complexity of your situation. Contact us right away with details about the hive's location and size—we'll schedule the fastest appointment available and discuss whether your case requires immediate attention or can wait a few days.</p>"
+        },
+        {
+          "question": "Is bee removal safe for my kids and pets during treatment?",
+          "answer": "<p>We use methods that minimize chemical exposure and prioritize the safety of your family. We recommend keeping children and pets indoors or away from the treatment area during the work and for a short period afterward. Our team will provide specific safety instructions tailored to your home's layout and the hive's location before we begin.</p>"
+        },
+        {
+          "question": "What causes the cost of hive removal to change?",
+          "answer": "<p>Several factors influence pricing: hive size and maturity, location (accessible versus inside walls), how long the colony has been present, and whether relocation or complete removal is needed. Free estimates are always available—we'll inspect the infestation and provide a transparent quote with no hidden fees before any work begins.</p>"
+        },
+        {
+          "question": "When is bee season in Littleton and when should I act?",
+          "answer": "<p>Honeybees become most active in late spring and summer as colonies grow and swarms seek new nesting sites. In the Denver-area foothills and plains, this peaks from May through August. Early fall can also bring activity. If you notice bees establishing a hive, contact us promptly—treatment is easier and safer when colonies are smaller and less entrenched.</p>"
+        },
+        {
+          "question": "What signs show that my home has a bee infestation?",
+          "answer": "<p>Look for clusters of bees near your home's exterior, a constant stream of bees entering a wall, roof, or eave, buzzing sounds coming from inside walls, or a sweet, honey-like smell indoors. You may also notice honeycomb or wax buildup. Any of these warrants a professional inspection to confirm the species and extent of the problem.</p>"
+        },
+        {
+          "question": "Why is professional removal better than DIY bee removal products?",
+          "answer": "<p>Commercial sprays risk harming beneficial honeybees and are often ineffective at eliminating the entire colony. Hives in walls or enclosed spaces require specialized equipment and expertise to safely access and remove. Professional treatment also prevents structural damage, addresses pheromone trails that attract new colonies, and relocates bees humanely when possible—something DIY methods cannot achieve.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the bee removal appointment?",
+          "answer": "<p>Keep children and pets indoors on the day of service. Clear the area around the hive if it's accessible—remove garden furniture, toys, or other items. Note whether anyone in your household has bee allergies and inform us beforehand. Avoid pesticides or attempts to treat the hive yourself before our arrival, as this can make the job harder and more dangerous.</p>"
+        },
+        {
+          "question": "How can I prevent bees from coming back after removal?",
+          "answer": "<p>After we remove a hive, we seal all entry points and clean areas where bees nested to remove attractant scents. Ongoing prevention includes sealing cracks and gaps in siding, eaves, and roof lines, keeping vegetation trimmed away from your home, and removing sources of standing water. These steps reduce the likelihood that a new swarm will choose your property as a nesting site.</p>"
+        },
+        {
+          "question": "Is the bee removal work guaranteed if the problem returns?",
+          "answer": "<p>We stand behind our work and will address any issues that stem directly from incomplete removal. However, new swarms occasionally colonize the same spot if entry points aren't sealed or if preventive measures aren't maintained. We'll discuss warranty details and follow-up recommendations during your service so you understand what's covered and how to protect your home long-term.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:42.694376Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9699a844d7afffb8",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with bees in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Bee Removal in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/bee-removal-littleton-co/",
+    "meta_description": "Bee Removal in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
+    "meta_keywords": "bee removal Littleton CO, bee relocation, honey bee removal, live bee removal",
+    "og_title": "Bee Exterminator in {city_state} | Fast, Guaranteed Bee Control",
+    "og_description": "Get rid of bees fast with a professional bee exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Bee Removal",
+    "service_type": "Bee Removal",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bee Exterminator in Littleton, CO\",\"serviceType\":\"Bee Extermination\",\"description\":\"Professional bee exterminator services in Littleton, CO. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "bee removal",
+    "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "e94050c11b1695b1217fe0ca70408648"
 }

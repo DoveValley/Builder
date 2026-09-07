@@ -1,413 +1,539 @@
 {
-    "template_id": "tpl_flea_exterminator",
-    "city_id": "littleton-co",
-    "slug": "flea-pest-control-littleton-co",
-    "title": "Flea Pest Control in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Flea Pest Control in {city_state}",
-            "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for fleas to thrive, especially during warmer months when pets spend more time outdoors and indoors alike. Littleton Pest Pros specializes in flea control tailored to your home's specific infestation, addressing both your pets and living spaces to break the flea lifecycle. A thorough, professional approach protects your family and pets from the discomfort and health concerns fleas bring.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Flea Pest Control in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/flea-exterminator-katy-tx_b65819.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:38.515978Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "6ef68a69414b0d99",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Re-Treat Guarantee",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-flea-exterminator-katy_f798d2.webp",
-            "it_alt": "Flea Pest Control in a {city_state} home",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Professional Flea Pest Control Services in Littleton",
-            "text": "<p>Littleton homeowners understand that fleas are more than a minor nuisance—they're a persistent threat, especially as Colorado's warmer months approach. The region's spring and summer climate creates ideal conditions for flea populations to thrive, and once fleas establish themselves indoors, they multiply rapidly. Pets, wildlife passing through yards, and even secondhand furniture can introduce infestations into homes across Littleton. Without prompt, thorough intervention, what begins as a few bites can escalate into a full-scale problem affecting your family's comfort and your pets' wellbeing.</p><p>Littleton Pest Pros takes flea removal seriously through a methodical, comprehensive approach tailored to each home's unique situation. Our team conducts detailed inspections to identify where fleas are hiding and breeding, then applies targeted flea treatment strategies designed to address both adult fleas and their life stages. We don't stop after an initial visit—follow-up care and guidance help ensure lasting results and prevent reinfestation. Whether you're dealing with active flea control needs or seeking preventative measures for your household, our locally trained technicians are committed to restoring your home to a pest-free environment and keeping it that way.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:42.240308Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "14c901118d92e5f9",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for Fleas",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Technicians, Thorough Results",
-                    "text": "<p>Our technicians understand flea biology and behavior, delivering treatment that addresses all life stages. Thorough flea control requires knowledge and precision—we apply both to protect your home and pets.</p>"
-                },
-                {
-                    "heading": "Fast Response to Active Infestations",
-                    "text": "<p>Fleas multiply quickly; delays cost you comfort and peace of mind. We prioritize rapid scheduling and prompt arrival so you can begin flea removal without unnecessary wait.</p>"
-                },
-                {
-                    "heading": "Backed by Our Service Guarantee",
-                    "text": "<p>We stand behind our flea treatment work. If you're not satisfied with our service and follow-up care, we make it right. Your confidence matters to us.</p>"
-                },
-                {
-                    "heading": "Spring Through Fall Flea Season Ready",
-                    "text": "<p>Colorado's warm months, especially late spring and summer, create ideal conditions for flea activity. We help Littleton residents and pet owners stay ahead of seasonal peaks with timely flea and tick control before infestations take hold.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:45.864212Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "50963a605e2aa234",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Flea Treatment Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call Our {city} Team",
-                    "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Inspection & Assessment",
-                    "text": "Your technician inspects the home, identifies the species and where fleas are harboring, and builds a targeted treatment plan."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Treatment & Follow-Up",
-                    "text": "We treat the areas where fleas live and get inside, then follow up to confirm the infestation is fully cleared."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Ready to get rid of fleas in {city}? Our trained technicians can get started fast.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_heat}",
-            "it_alt": "{chart_group_heat_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Flea Control Tailored to Littleton's Neighborhoods",
-            "text": "<p>Littleton's mix of established and newer residential areas creates distinct pest control challenges when it comes to flea removal. Older, tree-lined neighborhoods like Historic Littleton often feature mature landscaping, dense vegetation, and older structures that can harbor fleas in sheltered outdoor spaces and inside aging construction gaps. These areas see year-round flea activity, with peaks during Colorado's warmer months. Newer subdivisions and developments such as Governor's Ranch typically have less overgrown vegetation but tighter, more modern construction—meaning indoor infestations can spread quickly through homes if not addressed promptly. Colorado's semi-arid climate and temperature swings create a compressed but intense flea season, particularly from late spring through early fall, when outdoor conditions are ideal for flea populations to thrive.</p><p>Whether your property is surrounded by established trees or newer construction, flea and tick control requires a strategy suited to your home's specific layout and outdoor environment. Littleton's elevation and variable seasonal temperatures mean fleas may remain active indoors longer than in some regions, making year-round vigilance important for pet owners. Our team assesses your yard's shelter points, your home's entry vulnerabilities, and your pet's habits to develop a targeted flea treatment plan. Early detection and swift action are key—the sooner you address an active infestation, the faster we can help restore your home to a comfortable, pest-free space.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:50.654147Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "8f253c4d6a480d72",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-flea-exterminator-katy_5a0eb0.webp",
-            "it_caption": "{chart_group_heat_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Seasonal Flea Control Guide for Littleton Homes",
-            "steps_items": [
-                {
-                    "heading": "Spring Awakening",
-                    "text": "<p>As temperatures warm across the Littleton area, fleas emerge from winter dormancy on wildlife and pets. Spring thaws create moisture that supports flea development outdoors. Littleton Pest Pros helps homeowners identify early infestations before populations explode, protecting pets and family with targeted spring inspections and treatments.</p>"
-                },
-                {
-                    "heading": "Summer Peak Season",
-                    "text": "<p>Colorado's warm, dry summers create ideal conditions for flea populations to thrive. Pets spend more time outdoors in areas like Ken Caryl and throughout Littleton, increasing exposure risk. Littleton Pest Pros provides intensive summer monitoring and prevention strategies to keep your home and yard protected during peak flea season.</p>"
-                },
-                {
-                    "heading": "Fall Preparation",
-                    "text": "<p>As cooler fall weather arrives, fleas seek shelter indoors before winter, often hitching rides on pets and wildlife. This transition period is critical for preventing indoor infestations. Littleton Pest Pros recommends fall assessments and preventative treatments to seal your home against fleas migrating indoors for the colder months.</p>"
-                },
-                {
-                    "heading": "Winter Management",
-                    "text": "<p>Colorado winters keep outdoor flea activity low, but heated homes provide year-round breeding grounds for indoor infestations. Winter is an excellent time for thorough indoor inspections and targeted treatments. Littleton Pest Pros helps homeowners address established infestations when outdoor re-exposure risk is minimal.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:55.006749Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "7d355e9121ec9e8c",
-            "_ai_locked": true
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Other Pest Control Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Flea Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What are the signs my Littleton home has a flea infestation?",
-                    "answer": "<p>Common signs include pets scratching excessively, tiny dark specks (flea dirt) on bedding or furniture, red bite marks on skin, and seeing small brown insects jumping on pets or carpets. You may also notice your pets becoming restless or developing hair loss from constant scratching. If you spot any of these indicators in your home, contact us promptly for an inspection.</p>"
-                },
-                {
-                    "question": "How does professional flea removal differ from over-the-counter products?",
-                    "answer": "<p>Professional treatment targets all life stages of fleas—eggs, larvae, pupae, and adults—across your entire home using methods that DIY sprays and powders often miss. Trained technicians identify hiding spots and apply treatments strategically. Over-the-counter products typically offer limited, temporary relief and may not reach infestations in carpets, upholstery, and pet bedding where fleas thrive.</p>"
-                },
-                {
-                    "question": "Is flea treatment safe for my children and pets?",
-                    "answer": "<p>Yes. Littleton Pest Pros uses methods and products selected with household safety in mind. We'll provide specific instructions on pet and family precautions before treatment, including temporary removal or containment if needed. Always follow our guidance carefully, and inform us of any pets, young children, or health concerns so we can adjust our approach accordingly.</p>"
-                },
-                {
-                    "question": "What should I do to prepare my home before the technician arrives?",
-                    "answer": "<p>Vacuum all carpets and upholstered surfaces thoroughly, wash pet bedding in hot water, and declutter floors so the technician can access all areas. Remove or secure toys, food bowls, and personal items from treatment zones. Confine pets to a designated area or arrange temporary placement as directed. Our team will provide a full preparation checklist when you schedule.</p>"
-                },
-                {
-                    "question": "How many visits does flea treatment typically require?",
-                    "answer": "<p>Most infestations require two visits spaced 10–14 days apart to break the flea life cycle and eliminate newly hatched fleas. Some situations may need fewer or additional visits depending on severity and your home's layout. We'll assess your specific infestation during the initial inspection and outline the recommended treatment schedule.</p>"
-                },
-                {
-                    "question": "When is flea season worst in Colorado, and should I worry year-round?",
-                    "answer": "<p>Fleas thrive in warm months, peaking from late spring through early fall in Colorado. However, indoor-living fleas can reproduce year-round in heated homes, making winter prevention equally important. Littleton's mild autumn can extend the outdoor season. Year-round vigilance—especially if pets spend time outdoors—helps prevent infestations before they take hold.</p>"
-                },
-                {
-                    "question": "What guarantee do you offer if fleas return after treatment?",
-                    "answer": "<p>We stand behind our work. If the infestation returns within the guaranteed period, we'll return to retreat your home at no additional cost. Terms and coverage details are provided in your service agreement. This commitment reflects our confidence in thorough treatment and proper follow-up—though adherence to our prevention advice significantly reduces recurrence.</p>"
-                },
-                {
-                    "question": "How can I prevent fleas from coming back to my home?",
-                    "answer": "<p>Maintain a year-round flea prevention plan for all pets using veterinarian-approved products. Vacuum regularly and wash pet bedding weekly in hot water. Bathe and groom pets frequently, and keep your yard trimmed to reduce outdoor flea populations. Wash or isolate items that have been in flea-infested areas. Consistent prevention is far easier than treating a full reinfestation.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:15.635777Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "648f1d0786b9f2b7",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Dealing with fleas in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_flea_exterminator",
+  "city_id": "littleton-co",
+  "slug": "flea-pest-control-littleton-co",
+  "title": "Flea Pest Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "Flea Pest Control in {city_state} | {business}",
-        "canonical_url": "{website}/flea-pest-control-littleton-co/",
-        "meta_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
-        "meta_keywords": "flea pest control Littleton CO, flea exterminator, flea control, flea treatment",
-        "og_title": "Flea Pest Control in {city_state} | {business}",
-        "og_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
-        "og_image": "",
-        "service_name": "Flea Pest Control",
-        "service_type": "Flea Pest Control",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional flea exterminator services in {city_state}. Targeted flea control for homes and businesses with fast response and a re-treat guarantee.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Pest Control in Littleton, CO\",\n            \"serviceType\": \"Flea Pest Control\",\n            \"description\": \"Professional flea pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "flea pest control",
-        "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "17934a201fac8d79fca08a1cdc63e64d"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Flea Pest Control in {city_state}",
+      "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for fleas to thrive, especially during warmer months when pets spend more time outdoors and indoors alike. Littleton Pest Pros specializes in flea control tailored to your home's specific infestation, addressing both your pets and living spaces to break the flea lifecycle. A thorough, professional approach protects your family and pets from the discomfort and health concerns fleas bring.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Flea Pest Control in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/flea-exterminator-katy-tx_b65819.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:38.515978Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "6ef68a69414b0d99",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Re-Treat Guarantee",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-flea-exterminator-katy_f798d2.webp",
+      "it_alt": "Flea Pest Control in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Flea Pest Control Services in Littleton",
+      "text": "<p>Littleton homeowners understand that fleas are more than a minor nuisance—they're a persistent threat, especially as Colorado's warmer months approach. The region's spring and summer climate creates ideal conditions for flea populations to thrive, and once fleas establish themselves indoors, they multiply rapidly. Pets, wildlife passing through yards, and even secondhand furniture can introduce infestations into homes across Littleton. Without prompt, thorough intervention, what begins as a few bites can escalate into a full-scale problem affecting your family's comfort and your pets' wellbeing.</p><p>Littleton Pest Pros takes flea removal seriously through a methodical, comprehensive approach tailored to each home's unique situation. Our team conducts detailed inspections to identify where fleas are hiding and breeding, then applies targeted flea treatment strategies designed to address both adult fleas and their life stages. We don't stop after an initial visit—follow-up care and guidance help ensure lasting results and prevent reinfestation. Whether you're dealing with active flea control needs or seeking preventative measures for your household, our locally trained technicians are committed to restoring your home to a pest-free environment and keeping it that way.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:42.240308Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "14c901118d92e5f9",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros for Fleas",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Thorough Results",
+          "text": "<p>Our technicians understand flea biology and behavior, delivering treatment that addresses all life stages. Thorough flea control requires knowledge and precision—we apply both to protect your home and pets.</p>"
+        },
+        {
+          "heading": "Fast Response to Active Infestations",
+          "text": "<p>Fleas multiply quickly; delays cost you comfort and peace of mind. We prioritize rapid scheduling and prompt arrival so you can begin flea removal without unnecessary wait.</p>"
+        },
+        {
+          "heading": "Backed by Our Service Guarantee",
+          "text": "<p>We stand behind our flea treatment work. If you're not satisfied with our service and follow-up care, we make it right. Your confidence matters to us.</p>"
+        },
+        {
+          "heading": "Spring Through Fall Flea Season Ready",
+          "text": "<p>Colorado's warm months, especially late spring and summer, create ideal conditions for flea activity. We help Littleton residents and pet owners stay ahead of seasonal peaks with timely flea and tick control before infestations take hold.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:45.864212Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "50963a605e2aa234",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Flea Treatment Works",
+      "steps_items": [
+        {
+          "heading": "Describe Your Flea Problem",
+          "text": "Contact Littleton Pest Pros and tell us about your flea infestation—whether you're seeing fleas on pets, in carpets, or throughout your home. We'll connect you with a local flea pest control provider in Littleton, CO who can schedule a prompt assessment."
+        },
+        {
+          "heading": "Professional Flea Inspection & Plan",
+          "text": "A local flea pest control specialist will visit your property to identify infestation severity, affected areas, and treatment options tailored to your home and pets. Colorado's dry climate and seasonal pest activity patterns inform their approach to eliminating fleas at every life stage."
+        },
+        {
+          "heading": "Flea Treatment & Follow-Up Care",
+          "text": "The provider will execute targeted flea pest control treatments and advise on pet treatment, cleaning, and monitoring steps to break the infestation cycle. Follow-up visits may be recommended to ensure fleas do not return to your Littleton home."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:32.404112Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "86393342abcc4129",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of fleas in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_heat}",
+      "it_alt": "{chart_group_heat_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Flea Control Tailored to Littleton's Neighborhoods",
+      "text": "<p>Littleton's mix of established and newer residential areas creates distinct pest control challenges when it comes to flea removal. Older, tree-lined neighborhoods like Historic Littleton often feature mature landscaping, dense vegetation, and older structures that can harbor fleas in sheltered outdoor spaces and inside aging construction gaps. These areas see year-round flea activity, with peaks during Colorado's warmer months. Newer subdivisions and developments such as Governor's Ranch typically have less overgrown vegetation but tighter, more modern construction—meaning indoor infestations can spread quickly through homes if not addressed promptly. Colorado's semi-arid climate and temperature swings create a compressed but intense flea season, particularly from late spring through early fall, when outdoor conditions are ideal for flea populations to thrive.</p><p>Whether your property is surrounded by established trees or newer construction, flea and tick control requires a strategy suited to your home's specific layout and outdoor environment. Littleton's elevation and variable seasonal temperatures mean fleas may remain active indoors longer than in some regions, making year-round vigilance important for pet owners. Our team assesses your yard's shelter points, your home's entry vulnerabilities, and your pet's habits to develop a targeted flea treatment plan. Early detection and swift action are key—the sooner you address an active infestation, the faster we can help restore your home to a comfortable, pest-free space.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:50.654147Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "8f253c4d6a480d72",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-flea-exterminator-katy_5a0eb0.webp",
+      "it_caption": "{chart_group_heat_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Flea Control Guide for Littleton Homes",
+      "steps_items": [
+        {
+          "heading": "Spring Awakening",
+          "text": "<p>As temperatures warm across the Littleton area, fleas emerge from winter dormancy on wildlife and pets. Spring thaws create moisture that supports flea development outdoors. Littleton Pest Pros helps homeowners identify early infestations before populations explode, protecting pets and family with targeted spring inspections and treatments.</p>"
+        },
+        {
+          "heading": "Summer Peak Season",
+          "text": "<p>Colorado's warm, dry summers create ideal conditions for flea populations to thrive. Pets spend more time outdoors in areas like Ken Caryl and throughout Littleton, increasing exposure risk. Littleton Pest Pros provides intensive summer monitoring and prevention strategies to keep your home and yard protected during peak flea season.</p>"
+        },
+        {
+          "heading": "Fall Preparation",
+          "text": "<p>As cooler fall weather arrives, fleas seek shelter indoors before winter, often hitching rides on pets and wildlife. This transition period is critical for preventing indoor infestations. Littleton Pest Pros recommends fall assessments and preventative treatments to seal your home against fleas migrating indoors for the colder months.</p>"
+        },
+        {
+          "heading": "Winter Management",
+          "text": "<p>Colorado winters keep outdoor flea activity low, but heated homes provide year-round breeding grounds for indoor infestations. Winter is an excellent time for thorough indoor inspections and targeted treatments. Littleton Pest Pros helps homeowners address established infestations when outdoor re-exposure risk is minimal.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:55.006749Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "7d355e9121ec9e8c",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Flea Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the signs my Littleton home has a flea infestation?",
+          "answer": "<p>Common signs include pets scratching excessively, tiny dark specks (flea dirt) on bedding or furniture, red bite marks on skin, and seeing small brown insects jumping on pets or carpets. You may also notice your pets becoming restless or developing hair loss from constant scratching. If you spot any of these indicators in your home, contact us promptly for an inspection.</p>"
+        },
+        {
+          "question": "How does professional flea removal differ from over-the-counter products?",
+          "answer": "<p>Professional treatment targets all life stages of fleas—eggs, larvae, pupae, and adults—across your entire home using methods that DIY sprays and powders often miss. Trained technicians identify hiding spots and apply treatments strategically. Over-the-counter products typically offer limited, temporary relief and may not reach infestations in carpets, upholstery, and pet bedding where fleas thrive.</p>"
+        },
+        {
+          "question": "Is flea treatment safe for my children and pets?",
+          "answer": "<p>Yes. Littleton Pest Pros uses methods and products selected with household safety in mind. We'll provide specific instructions on pet and family precautions before treatment, including temporary removal or containment if needed. Always follow our guidance carefully, and inform us of any pets, young children, or health concerns so we can adjust our approach accordingly.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before the technician arrives?",
+          "answer": "<p>Vacuum all carpets and upholstered surfaces thoroughly, wash pet bedding in hot water, and declutter floors so the technician can access all areas. Remove or secure toys, food bowls, and personal items from treatment zones. Confine pets to a designated area or arrange temporary placement as directed. Our team will provide a full preparation checklist when you schedule.</p>"
+        },
+        {
+          "question": "How many visits does flea treatment typically require?",
+          "answer": "<p>Most infestations require two visits spaced 10–14 days apart to break the flea life cycle and eliminate newly hatched fleas. Some situations may need fewer or additional visits depending on severity and your home's layout. We'll assess your specific infestation during the initial inspection and outline the recommended treatment schedule.</p>"
+        },
+        {
+          "question": "When is flea season worst in Colorado, and should I worry year-round?",
+          "answer": "<p>Fleas thrive in warm months, peaking from late spring through early fall in Colorado. However, indoor-living fleas can reproduce year-round in heated homes, making winter prevention equally important. Littleton's mild autumn can extend the outdoor season. Year-round vigilance—especially if pets spend time outdoors—helps prevent infestations before they take hold.</p>"
+        },
+        {
+          "question": "What guarantee do you offer if fleas return after treatment?",
+          "answer": "<p>We stand behind our work. If the infestation returns within the guaranteed period, we'll return to retreat your home at no additional cost. Terms and coverage details are provided in your service agreement. This commitment reflects our confidence in thorough treatment and proper follow-up—though adherence to our prevention advice significantly reduces recurrence.</p>"
+        },
+        {
+          "question": "How can I prevent fleas from coming back to my home?",
+          "answer": "<p>Maintain a year-round flea prevention plan for all pets using veterinarian-approved products. Vacuum regularly and wash pet bedding weekly in hot water. Bathe and groom pets frequently, and keep your yard trimmed to reduce outdoor flea populations. Wash or isolate items that have been in flea-infested areas. Consistent prevention is far easier than treating a full reinfestation.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:15.635777Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "648f1d0786b9f2b7",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with fleas in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Flea Pest Control in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/flea-pest-control-littleton-co/",
+    "meta_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+    "meta_keywords": "flea pest control Littleton CO, flea exterminator, flea control, flea treatment",
+    "og_title": "Flea Pest Control in {city_state} | {business}",
+    "og_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+    "og_image": "",
+    "service_name": "Flea Pest Control",
+    "service_type": "Flea Pest Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional flea exterminator services in {city_state}. Targeted flea control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Flea Pest Control in Littleton, CO\",\"serviceType\":\"Flea Pest Control\",\"description\":\"Professional flea pest control services in Littleton, CO for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "flea pest control",
+    "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "7158137bbc1c1c44ecb38a9d9a15f095"
 }

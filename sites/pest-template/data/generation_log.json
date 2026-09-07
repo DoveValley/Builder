@@ -747,5 +747,80 @@
     "output_tokens": 2846,
     "api_calls": 6,
     "estimated_cost_usd": 0.045613
+  },
+  {
+    "run_id": "1f790520-df59-41ea-ab6c-cf173c1e626f",
+    "started_at": "2026-09-07T14:52:03.567319Z",
+    "finished_at": "2026-09-07T14:52:07.391522Z",
+    "duration_ms": 3824,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": "littleton-co",
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 1,
+    "pages_skipped": 176,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 1,
+    "cities_researched": 0,
+    "input_tokens": 616,
+    "output_tokens": 244,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.001836
+  },
+  {
+    "run_id": "c51e4405-9f25-4a15-9015-7f92f46d1e92",
+    "started_at": "2026-09-07T15:17:25.210928Z",
+    "finished_at": "2026-09-07T15:17:39.066590Z",
+    "duration_ms": 13855,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 29,
+    "pages_skipped": 177,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 29,
+    "cities_researched": 0,
+    "input_tokens": 17302,
+    "output_tokens": 7231,
+    "api_calls": 29,
+    "estimated_cost_usd": 0.053457
+  },
+  {
+    "run_id": "3aebd870-606b-43c4-b62b-29d23db593b3",
+    "started_at": "2026-09-07T15:37:27.774827Z",
+    "finished_at": "2026-09-07T15:37:32.724648Z",
+    "duration_ms": 4949,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "homepage",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 3,
+    "pages_skipped": 5,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 3,
+    "cities_researched": 0,
+    "input_tokens": 1451,
+    "output_tokens": 229,
+    "api_calls": 3,
+    "estimated_cost_usd": 0.002596
   }
 ]

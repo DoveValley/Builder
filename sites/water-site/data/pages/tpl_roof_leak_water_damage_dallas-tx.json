@@ -1,0 +1,532 @@
+{
+  "template_id": "tpl_roof_leak_water_damage",
+  "city_id": "dallas-tx",
+  "slug": "roof-leak-water-damage-dallas-tx",
+  "title": "Roof Leak Water Damage in {city_state} | {business}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "lat": "32.776272",
+    "lng": "-96.796856",
+    "industries": [
+      "Financial services",
+      "Technology/telecommunications",
+      "Transportation and logistics",
+      "Healthcare",
+      "Defense and aerospace",
+      "Energy"
+    ],
+    "top_employers": [
+      "American Airlines",
+      "AT&T",
+      "Texas Instruments",
+      "Baylor Scott & White Health",
+      "Bank of America",
+      "JPMorgan Chase",
+      "Southwest Airlines",
+      "UT Southwestern Medical Center",
+      "Parkland Health",
+      "Comerica",
+      "Dallas Independent School District",
+      "City of Dallas"
+    ],
+    "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
+    "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
+    "neighborhoods": [
+      "Uptown",
+      "Deep Ellum",
+      "Bishop Arts District",
+      "Lakewood",
+      "Oak Cliff",
+      "Lake Highlands",
+      "Preston Hollow",
+      "Knox-Henderson",
+      "Downtown Dallas"
+    ],
+    "population": 1302868,
+    "flood_years": [
+      1908,
+      1949,
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      7
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "homes_by_decade": {
+      "Before 1960": 22,
+      "1960-1979": 26,
+      "1980-1999": 26,
+      "2000-2009": 14,
+      "2010 or later": 12
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      25,
+      15,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "humidity_monthly": [
+      68,
+      65,
+      63,
+      62,
+      66,
+      63,
+      60,
+      60,
+      64,
+      65,
+      68,
+      68
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information",
+    "rainfall_monthly": [
+      2.05,
+      2.51,
+      3.13,
+      3.5,
+      5.1,
+      3.51,
+      2.07,
+      1.83,
+      2.87,
+      4.13,
+      2.61,
+      2.53
+    ],
+    "rainfall_annual": 35.85,
+    "rainfall_state_avg": 36.6,
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "nearby_towns": [
+      {
+        "name": "Plano",
+        "miles": 20
+      },
+      {
+        "name": "Irving",
+        "miles": 13
+      },
+      {
+        "name": "Garland",
+        "miles": 18
+      },
+      {
+        "name": "Arlington",
+        "miles": 20
+      },
+      {
+        "name": "Fort Worth",
+        "miles": 32
+      },
+      {
+        "name": "Frisco",
+        "miles": 30
+      },
+      {
+        "name": "McKinney",
+        "miles": 32
+      },
+      {
+        "name": "Richardson",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dallas's spring storms and seasonal temperature swings create ideal conditions for roof leaks, which can quickly compromise a property's interior if not addressed. When water begins penetrating your roof and damaging ceilings, walls, or insulation, Freeman Restoration connects you with responsive local restoration providers who can assess the damage and begin mitigation right away. Getting a qualified, independent local crew on site promptly helps protect your property from secondary damage while you navigate next steps with your insurance and repair timeline.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Roof leak water damage in {city_state} by {business}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/roof-leak-water-damage-empty-room-lufkin-tx.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 1,
+      "_ai_generated_at": "2026-09-07T15:18:47.370192Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "f72d8eadb8f4a525"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "24/7 Emergency Response",
+          "icon": ""
+        },
+        {
+          "label": "Fast Local Response",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/water-site/uploads/media/water-damage-baseboard-drying-2-lufkin-tx.webp",
+      "it_alt": "Water damage from roof leak in {city_state} by {business}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Roof Leak Water Damage in Dallas: Quick Local Help",
+      "text": "<p>Dallas homeowners face persistent roof leak and water damage risks driven by the region's weather patterns. Spring storms bring heavy rainfall and hail that can compromise roofing integrity, while summer downpours overwhelm gutters and drainage systems. Winter freeze-thaw cycles in North Texas cause expansion and contraction of roofing materials, opening seams and creating pathways for water infiltration. Once water enters a home through a roof leak, it spreads quickly into attics, walls, and ceilings, threatening structural integrity and creating conditions for secondary damage. Property owners in areas like Lakewood and Oak Cliff, as well as throughout Dallas, know that acting fast on roof leaks is essential to prevent cascading water damage that grows more costly with delay.</p><p>Freeman Restoration connects Dallas property owners with local, independent restoration providers experienced in addressing roof leak water damage from initial assessment through complete remediation. These providers conduct thorough inspections to identify leak sources, document damage for insurance purposes, and execute drying and restoration work tailored to each home's specific conditions. Beyond roof leaks, they are equipped to address related water intrusion from storms and other sources, ensuring comprehensive follow-up and accountability. When you contact Freeman Restoration, you're matched quickly with responsive professionals ready to mobilize, so your roof leak damage doesn't worsen while you search for help.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:51.934587Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "cbb19c74ec39d571"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "fc_heading": "Why Dallas Property Owners Trust Freeman Restoration",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Water Damage Response",
+          "text": "Freeman connects you with independent restoration providers across the Dallas area who understand urgency. Water damage spreads quickly—rapid response from local pros minimizes structural harm and mold risk."
+        },
+        {
+          "heading": "Trained Technicians, Thorough Restoration",
+          "text": "The independent providers in Freeman's network bring hands-on expertise in water extraction, drying, and damage assessment. Thorough treatment of affected materials—walls, flooring, contents—protects your property's long-term integrity."
+        },
+        {
+          "heading": "Accountability and Clear Guarantees",
+          "text": "Freeman connects you directly to local providers who stand behind their work with written agreements. Transparent estimates and follow-up ensure you understand what restoration entails and what to expect."
+        },
+        {
+          "heading": "Ready for Dallas Weather Swings",
+          "text": "<p>Texas weather brings sudden heavy storms, flash flooding, and freeze-thaw cycles that stress roofs and foundations year-round. Freeman's network of local providers knows how Dallas properties respond to these seasonal and weather-driven risks, offering rapid response when leaks and water intrusion occur.</p>"
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:56.087594Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "763810784d1c3d64"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our {service} Process Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Roof Leak Water Damage",
+          "text": "Contact Freeman Restoration to report active roof leak water damage affecting your Dallas property. We connect you quickly with responsive local restoration providers equipped to assess and address water intrusion from roof failures."
+        },
+        {
+          "heading": "Local Provider Inspects Roof Leak Damage",
+          "text": "An independent restoration provider in the Dallas area visits your property to identify the roof leak source and document water damage to ceilings, walls, and interior spaces. Texas's severe weather and freeze-thaw cycles create urgent roof leak risks—prompt diagnosis prevents secondary damage."
+        },
+        {
+          "heading": "Water Extraction & Drying Begin",
+          "text": "The local provider removes standing water caused by roof leaks and starts moisture extraction and drying. They coordinate next steps with you, including any needed documentation for your insurance claim regarding roof leak water damage."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:18:59.540583Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "970749fbc82952c1",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need {service} in {city}? Get fast, professional help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_envelope}",
+      "it_alt": "{chart_group_envelope_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "it_caption": "{chart_group_envelope_caption}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Roof Leak Water Damage Across the Dallas Area",
+      "text": "<p>Dallas properties face distinct roof leak and water damage risks shaped by the region's climate and housing stock. Older, established neighborhoods like Lakewood and Oak Cliff often feature mature trees and aging roof systems that are more vulnerable to storm damage, ice dam formation during winter freeze-thaw cycles, and accumulated debris that can compromise drainage. TX's spring severe weather season—featuring hail and high winds—poses particular threats to worn roofing materials, while older construction methods may lack modern flashing and ventilation standards that help newer homes shed water more effectively.</p><p>Newer subdivisions typically have updated building codes and fresher materials, yet they still face Dallas-area challenges: rapid runoff from heavy rainfall, the region's occasional freeze conditions that stress flashing and seals, and hail damage from severe storms that can appear minor but compromise waterproofing over time. Whether in an older neighborhood or newer development, unaddressed roof leaks can quickly spread into attics, walls, and foundations. Early detection and fast action are critical. Freeman Restoration connects property owners with responsive, independent local restoration providers who understand Dallas weather patterns and can assess water damage quickly when storms or seasonal shifts strike.</p>",
+      "_ai_generated_at": "2026-09-07T15:19:04.158424Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "aa106aaa695f421c"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "steps_heading": "Seasonal Water Damage Risks Across Dallas Year",
+      "steps_items": [
+        {
+          "heading": "Spring: Storm and Hail Season",
+          "text": "Spring brings severe thunderstorms and hail to the Dallas region, creating roof punctures, gutter damage, and interior leaks. Heavy rainfall can overwhelm drainage systems. Freeman Restoration connects you quickly with local restoration providers who assess storm damage and begin water mitigation before secondary problems develop."
+        },
+        {
+          "heading": "Summer: Heat and Humidity Stress",
+          "text": "Summer heat and occasional intense storms can stress roofing materials and expose existing vulnerabilities to water intrusion. Humidity levels rise after rain events, increasing mold and mildew risk. Freeman Restoration helps property owners locate experienced local providers to address leaks and manage moisture control promptly."
+        },
+        {
+          "heading": "Fall: Debris and Drainage Clogs",
+          "text": "Fall leaves accumulate in gutters and downspouts across the Dallas area, blocking water flow and causing roof and foundation leaks. Early autumn storms compound drainage problems. Freeman Restoration connects you with local restoration specialists who clear blockages and repair water damage before winter arrives."
+        },
+        {
+          "heading": "Winter: Freeze-Thaw and Pipe Bursts",
+          "text": "Winter freeze-thaw cycles in Texas create interior pipe bursts and ice dam leaks, leading to sudden water damage. Cold snaps followed by warming can rupture aging plumbing. Freeman Restoration links property owners with responsive local restoration providers available around the clock for emergency water removal and damage assessment."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:19:08.749177Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "818f25b17503c128"
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Water Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Water Damage Repair {city} {SS}",
+          "heading": "Water Damage Repair",
+          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+          "url": "/water-damage-repair-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flood Damage Restoration {city} {SS}",
+          "heading": "Flood Damage Restoration",
+          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm Damage Restoration {city} {SS}",
+          "heading": "Storm Damage Restoration",
+          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Water Mitigation {city} {SS}",
+          "heading": "Water Mitigation",
+          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+          "url": "/water-mitigation-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does roof leak water damage restoration in Dallas involve?",
+          "answer": "<p>Roof leak water damage restoration addresses water intrusion from compromised roofing, including ceiling and attic damage, insulation saturation, structural wood exposure, and interior wall or floor moisture. The independent local providers Freeman Restoration connects you with assess the leak source, remove standing water, dry affected areas, and address secondary damage like warping or mold growth. The scope depends on leak severity and how long water has been present.</p>"
+        },
+        {
+          "question": "How quickly can Freeman Restoration connect me with a Dallas roof leak expert?",
+          "answer": "<p>Freeman Restoration is designed to connect Dallas property owners with responsive local restoration providers without long delays. During active water emergencies from roof leaks, fast response is critical to prevent structural and mold issues. Contact Freeman Restoration to be matched with an available independent provider in your area who can assess and begin mitigation work promptly.</p>"
+        },
+        {
+          "question": "What factors affect the cost of roof leak water damage repair in Dallas?",
+          "answer": "<p>Roof leak water damage costs vary based on leak location and size, extent of water intrusion, how long moisture has been present, affected materials (drywall, insulation, wood framing), and whether secondary damage like mold growth has occurred. The independent providers Freeman Restoration connects you with can assess your specific situation and discuss pricing and potential insurance coverage with you directly.</p>"
+        },
+        {
+          "question": "What should I do to prepare for roof leak water damage restoration?",
+          "answer": "<p>When roof leak damage is discovered, document the affected areas with photos for insurance purposes. Turn off electrical power to affected rooms if safe to do so. Remove personal items from the area if possible, and open windows to improve air circulation. Avoid walking on saturated ceilings or drywall. When you contact Freeman Restoration, the matched local provider will guide you on next steps and any immediate precautions to take.</p>"
+        },
+        {
+          "question": "How can I prevent roof leaks and water damage at my Dallas home?",
+          "answer": "<p>Regular roof inspections, especially after severe weather, help catch damage early. Keep gutters and downspouts clear of debris to ensure proper water drainage away from the structure. Trim tree branches over the roof, address missing or damaged shingles promptly, and ensure attic ventilation is adequate. In areas like Oak Cliff and Lakewood, older homes may need particular attention to roofing condition and flashing integrity.</p>"
+        },
+        {
+          "question": "What seasons put Dallas roofs at highest risk for leaks?",
+          "answer": "<p>Spring and early summer storms bring heavy rainfall and hail that can damage roofing materials and create leak conditions in the Dallas area. Winter freeze-thaw cycles can stress flashing and existing roof weaknesses. Fall debris accumulation in gutters compromises drainage. Wind-driven rain from severe storms year-round poses ongoing risk. Property owners should inspect roofs after major weather events and maintain preventive measures throughout the year.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 6,
+      "_ai_generated_at": "2026-09-07T15:19:17.848263Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9c95bb65c34ba8ce"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#0d2340",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Roof Leak Water Damage in {city_state} | {business}",
+    "canonical_url": "https://freemanrestoration.com/roof-leak-water-damage-dallas-tx/",
+    "meta_description": "Roof Leak Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+    "meta_keywords": "roof leak water damage Dallas TX, water damage from roof leak Dallas, ceiling leak from roof Dallas, roof leak water damage repair Dallas",
+    "og_title": "Roof Leak Water Damage in {city_state} | {business}",
+    "og_description": "24/7 roof leak water damage in {city_state}. Fast, professional local response.",
+    "og_image": "sites/water-site/uploads/media/attic-water-damage-1.webp",
+    "service_name": "Roof Leak Water Damage",
+    "service_type": "Roof Leak Water Damage",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Roof leak water damage for homes and businesses in {city_state}, including water damage from roof leak, ceiling leak from roof and roof leak water damage repair.",
+    "bc_label": "Roof Leak Water Damage",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Leak Water Damage\",\n    \"name\": \"Roof Leak Water Damage in Dallas, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Dallas\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 roof leak water damage in Dallas, TX — water damage from roof leak, ceiling leak from roof and roof leak water damage repair.\"\n}",
+    "primary_keyword": "Roof Leak Water Damage",
+    "secondary_keywords": "water damage from roof leak, ceiling leak from roof, roof leak water damage repair"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "4b9ddf2a02d98285256a2ddfda100aff"
+}

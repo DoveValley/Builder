@@ -772,5 +772,55 @@
     "output_tokens": 28740,
     "api_calls": 78,
     "estimated_cost_usd": 0.204247
+  },
+  {
+    "run_id": "bfda6296-c27f-4c88-899b-c5fef240488a",
+    "started_at": "2026-09-07T15:21:39.626324Z",
+    "finished_at": "2026-09-07T15:21:44.868011Z",
+    "duration_ms": 5241,
+    "dry_run": false,
+    "options": {
+      "site": "recovery-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 4,
+    "pages_skipped": 78,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 4,
+    "cities_researched": 0,
+    "input_tokens": 3162,
+    "output_tokens": 1064,
+    "api_calls": 4,
+    "estimated_cost_usd": 0.008482
+  },
+  {
+    "run_id": "21e769ed-3586-4534-baea-c2b398ce01fa",
+    "started_at": "2026-09-07T15:40:18.409052Z",
+    "finished_at": "2026-09-07T15:40:22.545375Z",
+    "duration_ms": 4136,
+    "dry_run": false,
+    "options": {
+      "site": "recovery-site",
+      "page": "homepage",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 1,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 1,
+    "cities_researched": 0,
+    "input_tokens": 750,
+    "output_tokens": 266,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.00208
   }
 ]

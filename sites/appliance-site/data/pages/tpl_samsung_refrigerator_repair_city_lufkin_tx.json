@@ -1,368 +1,436 @@
 {
-    "template_id": "tpl_samsung_refrigerator_repair",
-    "city_id": "city_lufkin_tx",
-    "slug": "samsung-refrigerator-repair-lufkin-tx",
-    "title": "Samsung Refrigerator Repair in {city_state} | {business}",
-    "city_vars": {
-        "id": "city_lufkin_tx",
-        "city": "Lufkin",
-        "SS": "TX",
-        "state": "Texas",
-        "city_slug": "lufkin-tx",
-        "zip": "75901",
-        "phone": "936-867-4787",
-        "tel": "+19368674787",
-        "website": "https://a.q111.xyz",
-        "tags": [],
-        "industries": [
-            "Forestry and timber/wood products manufacturing",
-            "Healthcare",
-            "Oil and gas equipment manufacturing",
-            "Education",
-            "Retail and distribution",
-            "Government/public administration"
-        ],
-        "top_employers": [
-            "CHI St. Luke's Health Memorial",
-            "Lufkin Industries (Baker Hughes)",
-            "Angelina College",
-            "Lufkin Independent School District",
-            "Georgia-Pacific",
-            "Temple-Inland",
-            "Brookshire Brothers",
-            "City of Lufkin",
-            "Angelina County",
-            "Walmart Supercenter",
-            "Diboll Healthcare System",
-            "Southern Plastics"
-        ],
-        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-        "local_note": "Lufkin's humid climate and hard well water in outlying areas put extra wear on refrigerators, washing machines, and water heaters, keeping demand for both routine and emergency appliance repair steady year-round.",
-        "neighborhoods": [
-            "Downtown Lufkin",
-            "Crown Colony",
-            "Fuller Springs",
-            "Kurth",
-            "Copeland Springs",
-            "Brentwood"
-        ],
-        "population": 34187,
-        "_researched": 1,
-        "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Samsung Refrigerator Repair in {city_state}",
-            "hs_subtext": "<p>In Lufkin households, a refrigerator breakdown disrupts daily life quickly—food safety becomes urgent and meal planning halts. Wells Appliance Repair specializes in Samsung refrigerator repair, diagnosing and resolving issues with the precision your appliance requires. Our factory-trained technicians deliver prompt service backed by warranty protection, getting your kitchen back to normal when you need it most.</p>",
-            "hs_btn_text": "Call {phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
-            "hs_photo_alt": "Samsung Refrigerator Repair in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_locked": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T02:23:21.797125Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "ab2c64bf963cf46e"
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_show_icons": true,
-            "tb_items": [
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                },
-                {
-                    "label": "Upfront Pricing",
-                    "icon": ""
-                },
-                {
-                    "label": "Warranty on Repairs",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
-            "it_alt": "Appliance repair technician in {city_state}",
-            "_ai_locked": true,
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Samsung Refrigerator Repair Services in Lufkin, TX",
-            "text": "<p>A broken Samsung refrigerator can quickly become a household crisis. When your fridge stops cooling or your ice maker stops working, groceries spoil, daily routines derail, and repair costs mount fast. In Lufkin, where families rely on dependable appliances year-round, a malfunctioning refrigerator demands prompt, professional attention. Delaying repairs risks food waste, potential mold growth, and escalating damage that can turn a simple fix into a costly replacement. That's why timely diagnosis and quality repair work matter so much—they protect both your investment and your peace of mind.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your door for Samsung refrigerator repair throughout Lufkin. Our technicians understand Samsung's unique engineering and common failure points, delivering accurate diagnosis on the first visit. We source genuine parts, explain what's needed upfront with transparent pricing, and back our work with a warranty you can trust. Whether you need same-day refrigerator repair, ice maker troubleshooting, or cooling diagnostics, we treat your Samsung appliance with the precision it deserves. We also service other major brands and appliance types, but Samsung refrigerator repair is a core specialty. When your fridge needs help, call Wells—because a working refrigerator shouldn't be a luxury.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T02:06:45.840241Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "2f41939ba95451e8"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "common_problems",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "fc_num_cols": 3,
-            "_ai_locked": true,
-            "skin": "light",
-            "columns": [
-                {
-                    "heading": "Fridge Not Cooling",
-                    "text": "A refrigerator not cooling properly often stems from a faulty compressor, dirty condenser coils, or a failed thermostat. Wells Appliance Repair technicians diagnose the root cause and restore cooling performance quickly."
-                },
-                {
-                    "heading": "Ice Maker Not Working",
-                    "text": "Ice maker issues typically involve frozen water supply lines, a defective ice maker assembly, or water inlet valve failure. Our technicians identify the problem and repair or replace components to get ice production running again."
-                },
-                {
-                    "heading": "Water Leaking Inside",
-                    "text": "Internal leaks usually result from clogged or frozen drain lines, damaged door seals, or cracked water supply tubing. Wells Appliance Repair clears blockages and replaces worn parts to stop leaking water and prevent damage."
-                },
-                {
-                    "heading": "Freezer Too Cold",
-                    "text": "Excessive freezing in the freezer compartment commonly occurs when the damper control is stuck or the thermostat malfunctions. Our technicians adjust or replace these components to restore proper temperature balance throughout your unit."
-                },
-                {
-                    "heading": "Loud or Unusual Noises",
-                    "text": "Strange sounds often indicate a failing compressor, loose fan blades, or worn drawer slides. Wells Appliance Repair diagnoses noisy refrigerator problems and repairs mechanical issues before they worsen."
-                },
-                {
-                    "heading": "Dispenser Not Working",
-                    "text": "Water and ice dispenser failures typically involve frozen lines, faulty solenoid valves, or a broken dispenser motor. Same day refrigerator repair is often possible; our technicians quickly restore dispenser functionality."
-                }
-            ],
-            "fc_heading": "Common Samsung Refrigerator Problems We Fix",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T02:06:50.333505Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "common_problems",
-            "_ai_input_hash": "39eff79534bc1a99"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "_ai_locked": true,
-            "skin": "light",
-            "fc_heading": "Why Lufkin Homeowners Trust Us With Samsung Refrigerator Repair",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Samsung-Trained Technicians",
-                    "text": "Our technicians are factory-trained on Samsung refrigerator systems. We understand Samsung's cooling circuits, ice maker assemblies, and control boards. Accurate diagnosis means faster repairs and confidence your unit is in expert hands."
-                },
-                {
-                    "heading": "Genuine Samsung Parts On Hand",
-                    "text": "We stock authentic Samsung refrigerator components, reducing wait times. Whether your fridge isn't cooling or the ice maker needs attention, we have the right parts ready. No delays—quality repairs completed promptly at your home."
-                },
-                {
-                    "heading": "Upfront Pricing, Warranty-Backed Work",
-                    "text": "Free estimates on Samsung refrigerator repair. We explain costs before we start, with no surprise charges. All repairs are warranty-backed, so you're protected. Same-day service available for urgent cooling issues."
-                },
-                {
-                    "heading": "Local Lufkin Service You Can Count On",
-                    "text": "Wells Appliance Repair serves Lufkin and the surrounding area with responsive, same-day refrigerator repair when possible. Local ownership means we show up on time and stand behind every job. Your neighbors trust us—so can you."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T02:06:54.153538Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "7fbad0ed48d2bc9d"
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Repair Service Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call or Book Online",
-                    "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Diagnose & Quote",
-                    "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Repair & Warranty",
-                    "text": "We complete the repair with quality parts and back the work with a warranty."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_cooling}",
-            "it_alt": "{chart_group_cooling_alt}",
-            "_ai_locked": true,
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Appliance Repair Serving Lufkin and Surrounding Communities",
-            "text": "<p>Lufkin's neighborhoods span decades of development—from established areas like Crown Colony to newer subdivisions—which means homeowners rely on appliances of widely varying ages and brands. Whether you're dealing with a refrigerator not cooling in a family home or troubleshooting an ice maker in a recently built residence, the range of models across the region requires technicians who know how to handle them all. Wells Appliance Repair brings factory-trained expertise to every job, equipped with access to the right parts and the knowledge to diagnose issues quickly, no matter which appliance or brand you own.</p><p>When an appliance breaks down, you need a repair service that responds promptly across the Lufkin area. Our local team understands the urgency of a kitchen without a working refrigerator or laundry room without functioning washers and dryers. We arrive ready to assess the problem and discuss your repair options with transparency and professionalism. By combining rapid response times with thorough training and proper parts availability, Wells Appliance Repair has become the trusted choice for homeowners throughout the community who need dependable service when it matters most.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T02:06:58.512057Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "69da511116b1fc71",
-            "_it_photo_prechart": "sites/appliance-site/uploads/media/home-1.webp",
-            "it_caption": "{chart_group_cooling_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Appliance Repair FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What should I expect during a Samsung refrigerator repair appointment?",
-                    "answer": "<p>Our technician will arrive at your home, listen to your concerns, and conduct a thorough diagnostic to identify the issue. We'll explain what we found, discuss repair options, and walk you through costs before proceeding. Most visits include testing components, checking electrical connections, and evaluating whether parts need replacement. We work efficiently to minimize disruption to your day.</p>"
-                },
-                {
-                    "question": "How quickly can Wells Appliance Repair service my Samsung fridge in Lufkin?",
-                    "answer": "<p>We understand a broken refrigerator is urgent. We offer prompt scheduling and aim to accommodate same-day or next-day service when possible, depending on current demand and your availability. Contact us as soon as you notice a problem so we can fit you into our schedule. We'll confirm your appointment time before the visit.</p>"
-                },
-                {
-                    "question": "What are common Samsung refrigerator problems that require professional repair?",
-                    "answer": "<p>The most frequent issues we see include refrigerators not cooling properly, ice makers that stop producing ice, water dispensers leaking or malfunctioning, compressor failure, thermostat problems, and faulty door seals. Some symptoms develop gradually—like slow cooling—while others appear suddenly. If your Samsung fridge shows these signs, professional diagnosis is important to prevent food spoilage and further damage.</p>"
-                },
-                {
-                    "question": "Should I repair my Samsung refrigerator or buy a new one?",
-                    "answer": "<p>The decision depends on the repair cost, your appliance's age, and how often it breaks down. We provide free diagnostics to help you decide. Generally, a repair makes sense if your Samsung is relatively recent and the issue is isolated. Our technician can advise whether the problem is worth fixing or if replacement is more practical for your situation.</p>"
-                },
-                {
-                    "question": "Does Wells Appliance Repair offer free estimates for Samsung refrigerator problems?",
-                    "answer": "<p>Yes, we offer free diagnostics to identify what's wrong with your Samsung refrigerator. Once we've pinpointed the issue, we'll provide an estimate covering labor and parts. You'll know the full cost before we begin any repair, so there are no surprises. This gives you the information you need to make a confident decision.</p>"
-                },
-                {
-                    "question": "Are your technicians trained to work on Samsung refrigerators specifically?",
-                    "answer": "<p>Our technicians are experienced with Samsung refrigerators and familiar with their common failure points and repair procedures. We work on Samsung models regularly and understand their design and components. This expertise allows us to diagnose problems accurately and perform repairs to manufacturer standards, ensuring your appliance runs reliably after service.</p>"
-                },
-                {
-                    "question": "What warranty coverage do Samsung refrigerator repairs include?",
-                    "answer": "<p>Our repairs include warranty protection on both labor and parts we install. This gives you peace of mind knowing that if an issue arises shortly after service, we'll address it. Warranty details depend on the specific repair, so we'll explain coverage clearly when you approve the estimate. Always keep your service paperwork for future reference.</p>"
-                },
-                {
-                    "question": "How can I prevent Samsung refrigerator problems from happening again?",
-                    "answer": "<p>Keep the condenser coils clean by vacuuming them every six months, check door seals for leaks or gaps, replace water filters on schedule, and avoid overloading shelves. Don't block air vents inside the fridge, and ensure the appliance has proper ventilation space around it. Regular maintenance catches small issues before they become costly repairs and extends your Samsung's lifespan.</p>"
-                }
-            ],
-            "_ai_locked": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T01:37:24.757845Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "1605729dc99a9c6c",
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "testimonials",
-            "anchor": "reviews",
-            "tm_label": "Reviews",
-            "tm_main_heading": "What {city} Homeowners Say About {business}",
-            "tm_subtext": "",
-            "tm_cols": 3,
-            "tm_items": [],
-            "skin": "light"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "services",
-            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Book your {city} appliance repair today.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#65a30d",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_samsung_refrigerator_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "samsung-refrigerator-repair-lufkin-tx",
+  "title": "Samsung Refrigerator Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [],
+    "market_blurb": "Lufkin, Texas serves as a key economic hub for East Texas, historically anchored by the timber and forestry industry due to its location in the Pineywoods region. The city's economy has diversified over time to include manufacturing—particularly oilfield equipment through companies like Lufkin Industries—along with healthcare and retail trade serving surrounding rural counties. As the largest city in Angelina County, Lufkin functions as a regional commercial and medical center.",
+    "local_note": "Lufkin's water supply, drawn largely from groundwater sources, tends to be moderately hard, which can contribute to mineral buildup in water heaters, dishwashers, and washing machines over time. The region experiences frequent severe thunderstorms and occasional tropical storm remnants from the Gulf, leading to periodic power surges and outages that can stress appliance electronics and compressors.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth"
     ],
-    "seo": {
-        "seo_title": "Samsung Refrigerator Repair in {city_state} | {business}",
-        "canonical_url": "{website}/samsung-refrigerator-repair-lufkin-tx/",
-        "meta_description": "Samsung Refrigerator Repair in {city_state} from {business} — same-day service, upfront pricing, warranty. Call {phone}.",
-        "meta_keywords": "samsung refrigerator repair Lufkin TX, refrigerator not cooling, fridge repair near me",
-        "og_title": "Samsung Refrigerator Repair in {city_state} | {business}",
-        "og_description": "Professional samsung refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "og_image": "",
-        "service_name": "Samsung Refrigerator Repair",
-        "service_type": "Samsung Refrigerator Repair",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional samsung refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "samsung refrigerator repair",
-        "secondary_keywords": "refrigerator not cooling, fridge repair near me, same day refrigerator repair, ice maker not working",
-        "brand": "Samsung",
-        "appliance_type": "Refrigerator",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Samsung Refrigerator Repair in Lufkin, TX\",\n            \"serviceType\": \"Samsung Refrigerator Repair\",\n            \"description\": \"Professional samsung refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}"
+    "population": 33935,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Retail and regional trade",
+      "Education",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "Lufkin Industries",
+      "CHI St. Luke's Health Memorial",
+      "Woodland Heights Medical Center",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Georgia-Pacific",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 25,
+      "1960-1979": 30,
+      "1980-1999": 25,
+      "2000-2009": 10,
+      "2010 or later": 10
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-10T00:03:32+00:00",
-    "template_version": "9b12a7bb146d3b774e7fe3d65f484a98"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      1,
+      6,
+      18,
+      27,
+      28,
+      16,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "humidity_monthly": [
+      75,
+      72,
+      68,
+      68,
+      72,
+      73,
+      73,
+      73,
+      75,
+      73,
+      75,
+      76
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Hudson",
+        "miles": 7
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Samsung Refrigerator Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin households, a refrigerator breakdown disrupts daily life quickly—food safety becomes urgent and meal planning halts. Wells Appliance Repair specializes in Samsung refrigerator repair, diagnosing and resolving issues with the precision your appliance requires. Our factory-trained technicians deliver prompt service backed by warranty protection, getting your kitchen back to normal when you need it most.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-refrigerator.webp",
+      "hs_photo_alt": "Samsung Refrigerator Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:23:21.797125Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ab2c64bf963cf46e"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": [
+        {
+          "label": "Factory-Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        },
+        {
+          "label": "Upfront Pricing",
+          "icon": ""
+        },
+        {
+          "label": "Warranty on Repairs",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-1.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Samsung Refrigerator Repair Services in Lufkin, TX",
+      "text": "<p>A broken Samsung refrigerator can quickly become a household crisis. When your fridge stops cooling or your ice maker stops working, groceries spoil, daily routines derail, and repair costs mount fast. In Lufkin, where families rely on dependable appliances year-round, a malfunctioning refrigerator demands prompt, professional attention. Delaying repairs risks food waste, potential mold growth, and escalating damage that can turn a simple fix into a costly replacement. That's why timely diagnosis and quality repair work matter so much—they protect both your investment and your peace of mind.</p><p>Wells Appliance Repair brings factory-trained expertise directly to your door for Samsung refrigerator repair throughout Lufkin. Our technicians understand Samsung's unique engineering and common failure points, delivering accurate diagnosis on the first visit. We source genuine parts, explain what's needed upfront with transparent pricing, and back our work with a warranty you can trust. Whether you need same-day refrigerator repair, ice maker troubleshooting, or cooling diagnostics, we treat your Samsung appliance with the precision it deserves. We also service other major brands and appliance types, but Samsung refrigerator repair is a core specialty. When your fridge needs help, call Wells—because a working refrigerator shouldn't be a luxury.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:06:45.840241Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "2f41939ba95451e8"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Fridge Not Cooling",
+          "text": "A refrigerator not cooling properly often stems from a faulty compressor, dirty condenser coils, or a failed thermostat. Wells Appliance Repair technicians diagnose the root cause and restore cooling performance quickly."
+        },
+        {
+          "heading": "Ice Maker Not Working",
+          "text": "Ice maker issues typically involve frozen water supply lines, a defective ice maker assembly, or water inlet valve failure. Our technicians identify the problem and repair or replace components to get ice production running again."
+        },
+        {
+          "heading": "Water Leaking Inside",
+          "text": "Internal leaks usually result from clogged or frozen drain lines, damaged door seals, or cracked water supply tubing. Wells Appliance Repair clears blockages and replaces worn parts to stop leaking water and prevent damage."
+        },
+        {
+          "heading": "Freezer Too Cold",
+          "text": "Excessive freezing in the freezer compartment commonly occurs when the damper control is stuck or the thermostat malfunctions. Our technicians adjust or replace these components to restore proper temperature balance throughout your unit."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Strange sounds often indicate a failing compressor, loose fan blades, or worn drawer slides. Wells Appliance Repair diagnoses noisy refrigerator problems and repairs mechanical issues before they worsen."
+        },
+        {
+          "heading": "Dispenser Not Working",
+          "text": "Water and ice dispenser failures typically involve frozen lines, faulty solenoid valves, or a broken dispenser motor. Same day refrigerator repair is often possible; our technicians quickly restore dispenser functionality."
+        }
+      ],
+      "fc_heading": "Common Samsung Refrigerator Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:06:50.333505Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "39eff79534bc1a99"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With Samsung Refrigerator Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Samsung-Trained Technicians",
+          "text": "Our technicians are factory-trained on Samsung refrigerator systems. We understand Samsung's cooling circuits, ice maker assemblies, and control boards. Accurate diagnosis means faster repairs and confidence your unit is in expert hands."
+        },
+        {
+          "heading": "Genuine Samsung Parts On Hand",
+          "text": "We stock authentic Samsung refrigerator components, reducing wait times. Whether your fridge isn't cooling or the ice maker needs attention, we have the right parts ready. No delays—quality repairs completed promptly at your home."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty-Backed Work",
+          "text": "Free estimates on Samsung refrigerator repair. We explain costs before we start, with no surprise charges. All repairs are warranty-backed, so you're protected. Same-day service available for urgent cooling issues."
+        },
+        {
+          "heading": "Local Lufkin Service You Can Count On",
+          "text": "Wells Appliance Repair serves Lufkin and the surrounding area with responsive, same-day refrigerator repair when possible. Local ownership means we show up on time and stand behind every job. Your neighbors trust us—so can you."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:06:54.153538Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "7fbad0ed48d2bc9d"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "heading": "Tell Us About Your Samsung Refrigerator",
+          "text": "Contact Wells Appliance Repair and describe what's wrong with your Samsung refrigerator—whether it's not cooling, leaking water, or making unusual noises. We'll connect you with a local Lufkin-area technician who can schedule a Samsung refrigerator repair visit at your convenience."
+        },
+        {
+          "heading": "Samsung Refrigerator Diagnosis & Quote",
+          "text": "The independent technician arrives to inspect your Samsung refrigerator, identify the issue, and explain what repair work is needed. You'll receive a clear assessment and estimate before any Samsung refrigerator repair work begins."
+        },
+        {
+          "heading": "Complete Your Samsung Refrigerator Repair",
+          "text": "Once you approve, the technician performs the Samsung refrigerator repair and tests it to confirm everything is working properly. You'll be back to normal refrigeration, and the technician will answer any questions about maintaining your Samsung unit."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:21.956514Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "0740d7e0b94ac625",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_cooling}",
+      "it_alt": "{chart_group_cooling_alt}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Serving Lufkin and Surrounding Communities",
+      "text": "<p>Lufkin's neighborhoods span decades of development—from established areas like Crown Colony to newer subdivisions—which means homeowners rely on appliances of widely varying ages and brands. Whether you're dealing with a refrigerator not cooling in a family home or troubleshooting an ice maker in a recently built residence, the range of models across the region requires technicians who know how to handle them all. Wells Appliance Repair brings factory-trained expertise to every job, equipped with access to the right parts and the knowledge to diagnose issues quickly, no matter which appliance or brand you own.</p><p>When an appliance breaks down, you need a repair service that responds promptly across the Lufkin area. Our local team understands the urgency of a kitchen without a working refrigerator or laundry room without functioning washers and dryers. We arrive ready to assess the problem and discuss your repair options with transparency and professionalism. By combining rapid response times with thorough training and proper parts availability, Wells Appliance Repair has become the trusted choice for homeowners throughout the community who need dependable service when it matters most.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:06:58.512057Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "69da511116b1fc71",
+      "_it_photo_prechart": "sites/appliance-site/uploads/media/home-1.webp",
+      "it_caption": "{chart_group_cooling_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What should I expect during a Samsung refrigerator repair appointment?",
+          "answer": "<p>Our technician will arrive at your home, listen to your concerns, and conduct a thorough diagnostic to identify the issue. We'll explain what we found, discuss repair options, and walk you through costs before proceeding. Most visits include testing components, checking electrical connections, and evaluating whether parts need replacement. We work efficiently to minimize disruption to your day.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair service my Samsung fridge in Lufkin?",
+          "answer": "<p>We understand a broken refrigerator is urgent. We offer prompt scheduling and aim to accommodate same-day or next-day service when possible, depending on current demand and your availability. Contact us as soon as you notice a problem so we can fit you into our schedule. We'll confirm your appointment time before the visit.</p>"
+        },
+        {
+          "question": "What are common Samsung refrigerator problems that require professional repair?",
+          "answer": "<p>The most frequent issues we see include refrigerators not cooling properly, ice makers that stop producing ice, water dispensers leaking or malfunctioning, compressor failure, thermostat problems, and faulty door seals. Some symptoms develop gradually—like slow cooling—while others appear suddenly. If your Samsung fridge shows these signs, professional diagnosis is important to prevent food spoilage and further damage.</p>"
+        },
+        {
+          "question": "Should I repair my Samsung refrigerator or buy a new one?",
+          "answer": "<p>The decision depends on the repair cost, your appliance's age, and how often it breaks down. We provide free diagnostics to help you decide. Generally, a repair makes sense if your Samsung is relatively recent and the issue is isolated. Our technician can advise whether the problem is worth fixing or if replacement is more practical for your situation.</p>"
+        },
+        {
+          "question": "Does Wells Appliance Repair offer free estimates for Samsung refrigerator problems?",
+          "answer": "<p>Yes, we offer free diagnostics to identify what's wrong with your Samsung refrigerator. Once we've pinpointed the issue, we'll provide an estimate covering labor and parts. You'll know the full cost before we begin any repair, so there are no surprises. This gives you the information you need to make a confident decision.</p>"
+        },
+        {
+          "question": "Are your technicians trained to work on Samsung refrigerators specifically?",
+          "answer": "<p>Our technicians are experienced with Samsung refrigerators and familiar with their common failure points and repair procedures. We work on Samsung models regularly and understand their design and components. This expertise allows us to diagnose problems accurately and perform repairs to manufacturer standards, ensuring your appliance runs reliably after service.</p>"
+        },
+        {
+          "question": "What warranty coverage do Samsung refrigerator repairs include?",
+          "answer": "<p>Our repairs include warranty protection on both labor and parts we install. This gives you peace of mind knowing that if an issue arises shortly after service, we'll address it. Warranty details depend on the specific repair, so we'll explain coverage clearly when you approve the estimate. Always keep your service paperwork for future reference.</p>"
+        },
+        {
+          "question": "How can I prevent Samsung refrigerator problems from happening again?",
+          "answer": "<p>Keep the condenser coils clean by vacuuming them every six months, check door seals for leaks or gaps, replace water filters on schedule, and avoid overloading shelves. Don't block air vents inside the fridge, and ensure the appliance has proper ventilation space around it. Regular maintenance catches small issues before they become costly repairs and extends your Samsung's lifespan.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:37:24.757845Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "1605729dc99a9c6c",
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "services",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Samsung Refrigerator Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/samsung-refrigerator-repair-lufkin-tx/",
+    "meta_description": "Samsung Refrigerator Repair in {city_state} from {business} — same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "samsung refrigerator repair Lufkin TX",
+    "og_title": "Samsung Refrigerator Repair in {city_state} | {business}",
+    "og_description": "Professional samsung refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Samsung Refrigerator Repair",
+    "service_type": "Samsung Refrigerator Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional samsung refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "samsung refrigerator repair",
+    "secondary_keywords": "",
+    "brand": "Samsung",
+    "appliance_type": "Refrigerator",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Samsung Refrigerator Repair\",\"description\":\"Professional samsung refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "47681aee9f2d807007f9bb1b79974198"
 }

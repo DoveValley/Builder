@@ -1,413 +1,539 @@
 {
-    "template_id": "tpl_restaurant_pest_control",
-    "city_id": "littleton-co",
-    "slug": "restaurant-pest-control-littleton-co",
-    "title": "Restaurant Pest Control in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Restaurant Pest Control in {city_state}",
-            "hs_subtext": "<p>Colorado's front range climate brings seasonal pest pressures year-round, and restaurants in the Littleton area face particular vulnerability to infestations that can disrupt operations and compromise food safety. Littleton Pest Pros specializes in restaurant pest control—addressing rodents, insects, and other threats that threaten your establishment's reputation and compliance. A proactive pest management plan protects your business, customers, and bottom line from the costly consequences of an active infestation.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Restaurant Pest Control in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control-katy-tx_bfd495.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:08.741733Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "87380d98ab1bb1ea",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Re-Treat Guarantee",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control-katy_2dcbb3.webp",
-            "it_alt": "Restaurant Pest Control in a {city_state} property",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Restaurant Pest Control Solutions in Littleton, CO",
-            "text": "<p>Littleton's semi-arid climate and seasonal temperature swings create ideal conditions for pests that threaten food service operations year-round. Rodents, cockroaches, and flying insects are drawn to the warmth, moisture, and food sources that commercial kitchens provide, especially as Colorado winters drive wildlife indoors. Restaurant owners and managers in Littleton understand that even a single pest sighting can undermine customer trust, damage reputation, and invite health code violations. The stakes are high in the food service industry, making proactive pest management not just a convenience but a critical safeguard for your business.</p><p>Littleton Pest Pros specializes in restaurant exterminator services designed around the unique demands of food safety and commercial kitchen environments. We conduct thorough inspections to identify entry points, harborage areas, and conditions that attract pests, then implement targeted exclusion and treatment strategies tailored to your facility. Our approach respects food preparation areas and operational schedules, minimizing disruption while maximizing protection. We follow up regularly to monitor activity, adjust tactics as needed, and help you maintain the pest-free environment your guests and staff deserve. When you partner with us for food service pest control, you're choosing a local team committed to keeping your restaurant safe and compliant.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:13.162684Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "897e5ec438cae867",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Restaurants Choose Littleton Pest Pros",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Restaurant Specialists",
-                    "text": "<p>Our technicians understand food service environments and the unique challenges commercial kitchens face. Every team member is trained to work safely around food preparation areas while delivering thorough pest control solutions.</p>"
-                },
-                {
-                    "heading": "Fast Response When It Matters",
-                    "text": "<p>Active infestations demand immediate attention. We prioritize urgent calls from restaurant operators across the Littleton area, arriving quickly to assess the problem and begin treatment before service is compromised.</p>"
-                },
-                {
-                    "heading": "Ongoing Protection Plans",
-                    "text": "<p>Food safety depends on consistent pest prevention. We offer regular monitoring and maintenance schedules designed to keep your commercial kitchen protected year-round, reducing the risk of future problems.</p>"
-                },
-                {
-                    "heading": "Colorado's Seasonal Pest Pressure",
-                    "text": "<p>Littleton's spring and summer warmth brings increased pest activity into food service spaces. Our local knowledge of regional seasonal cycles helps us anticipate and prevent infestations before they develop in your kitchen.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:16.396158Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "3d85b8267c8606c4",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Restaurant Pest Control Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call Our {city} Team",
-                    "text": "Tell us what you're dealing with. We work to get you scheduled quickly, often the same day for active problems."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Inspection & Assessment",
-                    "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Treatment & Ongoing Protection",
-                    "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Ready for restaurant pest control in {city}? Our trained technicians can start fast.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_moisture}",
-            "it_alt": "{chart_group_moisture_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Restaurant Pest Control Across Littleton",
-            "text": "<p>Littleton's mix of established neighborhoods and newer developments creates distinct pest management challenges for food service operations. Older areas like Historic Littleton often feature mature trees and aging structures—conditions that attract rodents, insects, and wildlife seeking shelter and food sources. These properties may have foundation gaps, weathered entry points, and landscaping that provides pest harborage close to buildings. Newer subdivisions tend to have tighter construction, though young properties still require vigilant food safety pest control because pests are attracted equally to active kitchens regardless of how new the building is.</p><p>Colorado's seasonal cycles intensify pest pressure in food service settings. Warmer months bring increased insect activity, while fall and winter drive rodents indoors seeking warmth and food—making commercial kitchen pest control especially critical as temperatures drop. Littleton's elevation and climate support year-round pest populations that view restaurants as ideal environments. The region's proximity to open space also means wildlife pressure varies by location. A thorough food service exterminator approach accounts for these seasonal swings and property-specific vulnerabilities, protecting your operation's health permits and customer confidence through consistent, proactive monitoring and targeted interventions.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:20.500648Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "6c0e4ae48479cf0e",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
-            "it_caption": "{chart_group_moisture_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Seasonal Pest Control Guide for Littleton Homeowners",
-            "steps_items": [
-                {
-                    "heading": "Spring: Awakening & Entry Points",
-                    "text": "<p>As snow melts across Littleton and surrounding areas, dormant pests emerge seeking food and shelter. Ants, spiders, and rodents become active near foundations and entry points. Littleton Pest Pros inspects vulnerable areas—gaps, cracks, and damaged seals—to prevent infestations before they establish indoors.</p>"
-                },
-                {
-                    "heading": "Summer: Heat & High Activity",
-                    "text": "<p>Colorado's warm, dry summers bring increased pest activity outdoors and pressure to enter homes. Mosquitoes, flies, and carpenter insects thrive in this season. Our team applies targeted treatments around foundations and landscape areas to reduce populations before they become indoor problems.</p>"
-                },
-                {
-                    "heading": "Fall: Preparation & Overwintering",
-                    "text": "<p>As temperatures drop, pests seek warm shelter inside homes and buildings throughout the region. Rodents, boxelder bugs, and cluster flies congregate near walls and attics. Littleton Pest Pros helps seal entry points and treats key areas so pests don't overwinter in your home.</p>"
-                },
-                {
-                    "heading": "Winter: Indoor Survival & Control",
-                    "text": "<p>Cold months keep pests sheltered indoors where they reproduce and cause damage. Rodent activity peaks, and hidden infestations grow unnoticed. Our winter inspections and treatments help manage populations that have already found their way inside your Littleton-area home.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:24.823007Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "3ec95f442e8ee196",
-            "_ai_locked": true
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Pests We Treat in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Restaurant Pest Control FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What happens during a commercial kitchen pest control visit?",
-                    "answer": "<p>A trained technician inspects your kitchen thoroughly—including storage areas, prep surfaces, behind equipment, and entry points—to identify pest activity and conditions that attract them. They'll document findings, discuss treatment options tailored to your space, and explain what will happen next. The actual treatment may involve targeted applications, exclusion work, or monitoring devices, depending on the infestation type and severity.</p>"
-                },
-                {
-                    "question": "How many visits does food service pest control typically require?",
-                    "answer": "<p>Most active infestations need an initial treatment followed by one or more follow-up visits spaced days or weeks apart, depending on the pest and conditions. We'll outline a clear schedule during your first appointment. Some situations resolve in two visits; others may take longer. Regular monitoring visits afterward help prevent recurrence and keep your kitchen protected year-round.</p>"
-                },
-                {
-                    "question": "How quickly can Littleton Pest Pros respond to an active infestation?",
-                    "answer": "<p>We understand that a pest problem in your kitchen demands urgent attention. We prioritize commercial accounts and work to schedule service within 24–48 hours of your call. For emergencies, ask about expedited options. The sooner you contact us, the sooner we can stop the infestation from spreading and threatening food safety.</p>"
-                },
-                {
-                    "question": "Is the treatment safe for my kitchen and food preparation areas?",
-                    "answer": "<p>Yes. All work is performed with food safety as the top priority. We use methods and products approved for food-service environments and apply them only to areas where they won't contact food or prep surfaces. Our technicians are trained in proper application to protect your kitchen, staff, and customers. We'll brief you on any precautions needed after treatment.</p>"
-                },
-                {
-                    "question": "What factors affect the cost of commercial kitchen pest control?",
-                    "answer": "<p>Costs depend on your kitchen's size, the type and extent of the infestation, how many visits are needed, and whether ongoing prevention service is included. Access to problem areas and your location also play a role. We offer free estimates so you know the investment upfront. Contact us to schedule an inspection—there's no obligation.</p>"
-                },
-                {
-                    "question": "When do pest problems peak in Littleton kitchens, and is winter different?",
-                    "answer": "<p>Colorado's warmer months—spring through early fall—typically see higher pest activity outdoors, but kitchens remain attractive year-round because they're warm and offer food. Winter can actually increase indoor infestations as pests seek shelter. Littleton's elevation and seasonal shifts mean prevention and monitoring matter every season, not just summer.</p>"
-                },
-                {
-                    "question": "Why is professional pest control better than over-the-counter kitchen products?",
-                    "answer": "<p>Store-bought sprays and traps rarely resolve commercial infestations because they don't address the root cause—entry points, harborage, or underlying conditions. Professionals identify why pests are there, treat the source, seal vulnerabilities, and use targeted methods unavailable to consumers. DIY approaches often delay the real solution and waste time while the problem worsens.</p>"
-                },
-                {
-                    "question": "What's your guarantee if the pest problem returns after treatment?",
-                    "answer": "<p>We stand behind our work. If the infestation returns under normal conditions within an agreed timeframe, we'll return to retreat at no additional charge. Guarantees have terms—they depend on your cooperation with prevention steps and ongoing monitoring. We'll explain the full details when we quote your service so there are no surprises.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:35.175264Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "7a9fa93262bca5e6",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Get restaurant pest control for your {city} home or business today.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_restaurant_pest_control",
+  "city_id": "littleton-co",
+  "slug": "restaurant-pest-control-littleton-co",
+  "title": "Restaurant Pest Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "Restaurant Pest Control in {city_state} | {business}",
-        "canonical_url": "{website}/restaurant-pest-control-littleton-co/",
-        "meta_description": "Restaurant Pest Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
-        "meta_keywords": "restaurant pest control Littleton CO, commercial kitchen pest control, food service pest control, restaurant exterminator",
-        "og_title": "Restaurant Pest Control in {city_state} | {business}",
-        "og_description": "Professional restaurant pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-        "og_image": "",
-        "service_name": "Restaurant Pest Control",
-        "service_type": "Restaurant Pest Control",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional restaurant pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Restaurant Pest Control in Littleton, CO\",\n            \"serviceType\": \"Restaurant Pest Control\",\n            \"description\": \"Professional restaurant pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "restaurant pest control",
-        "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "f7e4e096d6cd0d873b6b37e5e82084e1"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Restaurant Pest Control in {city_state}",
+      "hs_subtext": "<p>Colorado's front range climate brings seasonal pest pressures year-round, and restaurants in the Littleton area face particular vulnerability to infestations that can disrupt operations and compromise food safety. Littleton Pest Pros specializes in restaurant pest control—addressing rodents, insects, and other threats that threaten your establishment's reputation and compliance. A proactive pest management plan protects your business, customers, and bottom line from the costly consequences of an active infestation.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Restaurant Pest Control in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control-katy-tx_bfd495.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:08.741733Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "87380d98ab1bb1ea",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Re-Treat Guarantee",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control-katy_2dcbb3.webp",
+      "it_alt": "Restaurant Pest Control in a {city_state} property",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Restaurant Pest Control Solutions in Littleton, CO",
+      "text": "<p>Littleton's semi-arid climate and seasonal temperature swings create ideal conditions for pests that threaten food service operations year-round. Rodents, cockroaches, and flying insects are drawn to the warmth, moisture, and food sources that commercial kitchens provide, especially as Colorado winters drive wildlife indoors. Restaurant owners and managers in Littleton understand that even a single pest sighting can undermine customer trust, damage reputation, and invite health code violations. The stakes are high in the food service industry, making proactive pest management not just a convenience but a critical safeguard for your business.</p><p>Littleton Pest Pros specializes in restaurant exterminator services designed around the unique demands of food safety and commercial kitchen environments. We conduct thorough inspections to identify entry points, harborage areas, and conditions that attract pests, then implement targeted exclusion and treatment strategies tailored to your facility. Our approach respects food preparation areas and operational schedules, minimizing disruption while maximizing protection. We follow up regularly to monitor activity, adjust tactics as needed, and help you maintain the pest-free environment your guests and staff deserve. When you partner with us for food service pest control, you're choosing a local team committed to keeping your restaurant safe and compliant.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:13.162684Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "897e5ec438cae867",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Restaurants Choose Littleton Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Restaurant Specialists",
+          "text": "<p>Our technicians understand food service environments and the unique challenges commercial kitchens face. Every team member is trained to work safely around food preparation areas while delivering thorough pest control solutions.</p>"
+        },
+        {
+          "heading": "Fast Response When It Matters",
+          "text": "<p>Active infestations demand immediate attention. We prioritize urgent calls from restaurant operators across the Littleton area, arriving quickly to assess the problem and begin treatment before service is compromised.</p>"
+        },
+        {
+          "heading": "Ongoing Protection Plans",
+          "text": "<p>Food safety depends on consistent pest prevention. We offer regular monitoring and maintenance schedules designed to keep your commercial kitchen protected year-round, reducing the risk of future problems.</p>"
+        },
+        {
+          "heading": "Colorado's Seasonal Pest Pressure",
+          "text": "<p>Littleton's spring and summer warmth brings increased pest activity into food service spaces. Our local knowledge of regional seasonal cycles helps us anticipate and prevent infestations before they develop in your kitchen.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:16.396158Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "3d85b8267c8606c4",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Restaurant Pest Control Works",
+      "steps_items": [
+        {
+          "heading": "Connect with a Local Restaurant Pest Control Provider",
+          "text": "Tell us about your restaurant's pest concerns—rodents, insects, or seasonal issues common to Colorado's Front Range—and we'll connect you with an independent local pest control provider in Littleton who specializes in food service environments."
+        },
+        {
+          "heading": "Receive a Restaurant-Focused Pest Inspection",
+          "text": "The provider you're matched with will conduct a thorough inspection of your kitchen, storage areas, and dining spaces to identify pest entry points, activity signs, and violations of food safety standards specific to restaurant operations."
+        },
+        {
+          "heading": "Implement a Restaurant Pest Control Plan",
+          "text": "Your local provider will recommend and execute a targeted restaurant pest control strategy—including exclusion work, targeted treatments, and ongoing monitoring—designed to protect your customers, staff, and reputation while keeping your facility compliant."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:34.580554Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "f6db00367cea3e37",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready for restaurant pest control in {city}? Our trained technicians can start fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_moisture}",
+      "it_alt": "{chart_group_moisture_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Restaurant Pest Control Across Littleton",
+      "text": "<p>Littleton's mix of established neighborhoods and newer developments creates distinct pest management challenges for food service operations. Older areas like Historic Littleton often feature mature trees and aging structures—conditions that attract rodents, insects, and wildlife seeking shelter and food sources. These properties may have foundation gaps, weathered entry points, and landscaping that provides pest harborage close to buildings. Newer subdivisions tend to have tighter construction, though young properties still require vigilant food safety pest control because pests are attracted equally to active kitchens regardless of how new the building is.</p><p>Colorado's seasonal cycles intensify pest pressure in food service settings. Warmer months bring increased insect activity, while fall and winter drive rodents indoors seeking warmth and food—making commercial kitchen pest control especially critical as temperatures drop. Littleton's elevation and climate support year-round pest populations that view restaurants as ideal environments. The region's proximity to open space also means wildlife pressure varies by location. A thorough food service exterminator approach accounts for these seasonal swings and property-specific vulnerabilities, protecting your operation's health permits and customer confidence through consistent, proactive monitoring and targeted interventions.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:20.500648Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "6c0e4ae48479cf0e",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
+      "it_caption": "{chart_group_moisture_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Pest Control Guide for Littleton Homeowners",
+      "steps_items": [
+        {
+          "heading": "Spring: Awakening & Entry Points",
+          "text": "<p>As snow melts across Littleton and surrounding areas, dormant pests emerge seeking food and shelter. Ants, spiders, and rodents become active near foundations and entry points. Littleton Pest Pros inspects vulnerable areas—gaps, cracks, and damaged seals—to prevent infestations before they establish indoors.</p>"
+        },
+        {
+          "heading": "Summer: Heat & High Activity",
+          "text": "<p>Colorado's warm, dry summers bring increased pest activity outdoors and pressure to enter homes. Mosquitoes, flies, and carpenter insects thrive in this season. Our team applies targeted treatments around foundations and landscape areas to reduce populations before they become indoor problems.</p>"
+        },
+        {
+          "heading": "Fall: Preparation & Overwintering",
+          "text": "<p>As temperatures drop, pests seek warm shelter inside homes and buildings throughout the region. Rodents, boxelder bugs, and cluster flies congregate near walls and attics. Littleton Pest Pros helps seal entry points and treats key areas so pests don't overwinter in your home.</p>"
+        },
+        {
+          "heading": "Winter: Indoor Survival & Control",
+          "text": "<p>Cold months keep pests sheltered indoors where they reproduce and cause damage. Rodent activity peaks, and hidden infestations grow unnoticed. Our winter inspections and treatments help manage populations that have already found their way inside your Littleton-area home.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:24.823007Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "3ec95f442e8ee196",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Pests We Treat in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Restaurant Pest Control FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What happens during a commercial kitchen pest control visit?",
+          "answer": "<p>A trained technician inspects your kitchen thoroughly—including storage areas, prep surfaces, behind equipment, and entry points—to identify pest activity and conditions that attract them. They'll document findings, discuss treatment options tailored to your space, and explain what will happen next. The actual treatment may involve targeted applications, exclusion work, or monitoring devices, depending on the infestation type and severity.</p>"
+        },
+        {
+          "question": "How many visits does food service pest control typically require?",
+          "answer": "<p>Most active infestations need an initial treatment followed by one or more follow-up visits spaced days or weeks apart, depending on the pest and conditions. We'll outline a clear schedule during your first appointment. Some situations resolve in two visits; others may take longer. Regular monitoring visits afterward help prevent recurrence and keep your kitchen protected year-round.</p>"
+        },
+        {
+          "question": "How quickly can Littleton Pest Pros respond to an active infestation?",
+          "answer": "<p>We understand that a pest problem in your kitchen demands urgent attention. We prioritize commercial accounts and work to schedule service within 24–48 hours of your call. For emergencies, ask about expedited options. The sooner you contact us, the sooner we can stop the infestation from spreading and threatening food safety.</p>"
+        },
+        {
+          "question": "Is the treatment safe for my kitchen and food preparation areas?",
+          "answer": "<p>Yes. All work is performed with food safety as the top priority. We use methods and products approved for food-service environments and apply them only to areas where they won't contact food or prep surfaces. Our technicians are trained in proper application to protect your kitchen, staff, and customers. We'll brief you on any precautions needed after treatment.</p>"
+        },
+        {
+          "question": "What factors affect the cost of commercial kitchen pest control?",
+          "answer": "<p>Costs depend on your kitchen's size, the type and extent of the infestation, how many visits are needed, and whether ongoing prevention service is included. Access to problem areas and your location also play a role. We offer free estimates so you know the investment upfront. Contact us to schedule an inspection—there's no obligation.</p>"
+        },
+        {
+          "question": "When do pest problems peak in Littleton kitchens, and is winter different?",
+          "answer": "<p>Colorado's warmer months—spring through early fall—typically see higher pest activity outdoors, but kitchens remain attractive year-round because they're warm and offer food. Winter can actually increase indoor infestations as pests seek shelter. Littleton's elevation and seasonal shifts mean prevention and monitoring matter every season, not just summer.</p>"
+        },
+        {
+          "question": "Why is professional pest control better than over-the-counter kitchen products?",
+          "answer": "<p>Store-bought sprays and traps rarely resolve commercial infestations because they don't address the root cause—entry points, harborage, or underlying conditions. Professionals identify why pests are there, treat the source, seal vulnerabilities, and use targeted methods unavailable to consumers. DIY approaches often delay the real solution and waste time while the problem worsens.</p>"
+        },
+        {
+          "question": "What's your guarantee if the pest problem returns after treatment?",
+          "answer": "<p>We stand behind our work. If the infestation returns under normal conditions within an agreed timeframe, we'll return to retreat at no additional charge. Guarantees have terms—they depend on your cooperation with prevention steps and ongoing monitoring. We'll explain the full details when we quote your service so there are no surprises.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:35.175264Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "7a9fa93262bca5e6",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Get restaurant pest control for your {city} home or business today.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Restaurant Pest Control in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/restaurant-pest-control-littleton-co/",
+    "meta_description": "Restaurant Pest Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
+    "meta_keywords": "restaurant pest control Littleton CO, commercial kitchen pest control, food service pest control, restaurant exterminator",
+    "og_title": "Restaurant Pest Control in {city_state} | {business}",
+    "og_description": "Professional restaurant pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
+    "og_image": "",
+    "service_name": "Restaurant Pest Control",
+    "service_type": "Restaurant Pest Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional restaurant pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Restaurant Pest Control in Littleton, CO\",\"serviceType\":\"Restaurant Pest Control\",\"description\":\"Professional restaurant pest control services in Littleton, CO for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "restaurant pest control",
+    "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "91d197d918a84acba45036038beebabe"
 }

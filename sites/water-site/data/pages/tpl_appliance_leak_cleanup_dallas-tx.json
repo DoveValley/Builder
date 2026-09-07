@@ -1,0 +1,532 @@
+{
+  "template_id": "tpl_appliance_leak_cleanup",
+  "city_id": "dallas-tx",
+  "slug": "appliance-leak-cleanup-dallas-tx",
+  "title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "lat": "32.776272",
+    "lng": "-96.796856",
+    "industries": [
+      "Financial services",
+      "Technology/telecommunications",
+      "Transportation and logistics",
+      "Healthcare",
+      "Defense and aerospace",
+      "Energy"
+    ],
+    "top_employers": [
+      "American Airlines",
+      "AT&T",
+      "Texas Instruments",
+      "Baylor Scott & White Health",
+      "Bank of America",
+      "JPMorgan Chase",
+      "Southwest Airlines",
+      "UT Southwestern Medical Center",
+      "Parkland Health",
+      "Comerica",
+      "Dallas Independent School District",
+      "City of Dallas"
+    ],
+    "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
+    "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
+    "neighborhoods": [
+      "Uptown",
+      "Deep Ellum",
+      "Bishop Arts District",
+      "Lakewood",
+      "Oak Cliff",
+      "Lake Highlands",
+      "Preston Hollow",
+      "Knox-Henderson",
+      "Downtown Dallas"
+    ],
+    "population": 1302868,
+    "flood_years": [
+      1908,
+      1949,
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      7
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "homes_by_decade": {
+      "Before 1960": 22,
+      "1960-1979": 26,
+      "1980-1999": 26,
+      "2000-2009": 14,
+      "2010 or later": 12
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      25,
+      15,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "humidity_monthly": [
+      68,
+      65,
+      63,
+      62,
+      66,
+      63,
+      60,
+      60,
+      64,
+      65,
+      68,
+      68
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information",
+    "rainfall_monthly": [
+      2.05,
+      2.51,
+      3.13,
+      3.5,
+      5.1,
+      3.51,
+      2.07,
+      1.83,
+      2.87,
+      4.13,
+      2.61,
+      2.53
+    ],
+    "rainfall_annual": 35.85,
+    "rainfall_state_avg": 36.6,
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "nearby_towns": [
+      {
+        "name": "Plano",
+        "miles": 20
+      },
+      {
+        "name": "Irving",
+        "miles": 13
+      },
+      {
+        "name": "Garland",
+        "miles": 18
+      },
+      {
+        "name": "Arlington",
+        "miles": 20
+      },
+      {
+        "name": "Fort Worth",
+        "miles": 32
+      },
+      {
+        "name": "Frisco",
+        "miles": 30
+      },
+      {
+        "name": "McKinney",
+        "miles": 32
+      },
+      {
+        "name": "Richardson",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dallas-area winters bring freeze-thaw cycles and sudden temperature swings that stress pipes and seals, while spring storms and aging appliance lines create overflow risks year-round. When a dishwasher, washing machine, water heater, or supply line fails, appliance leaks can saturate walls, floors, and belongings within hours. Freeman Restoration connects you quickly with independent local restoration providers across the Dallas area—from Uptown to Lakewood—who can assess water damage, begin cleanup and drying, and help document the loss for your insurance claim.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Appliance leak & overflow cleanup in {city_state} by {business}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/appliance-leak-cleanup-worker-moving-box-lufkin-tx.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 1,
+      "_ai_generated_at": "2026-09-07T15:17:57.447616Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "36e97d4ae1568db2"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "24/7 Emergency Response",
+          "icon": ""
+        },
+        {
+          "label": "Fast Local Response",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/water-site/uploads/media/water-damage-repair-baseboard-work-lufkin-tx.webp",
+      "it_alt": "Refrigerator leak in {city_state} by {business}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Leak & Overflow Cleanup Across Dallas",
+      "text": "<p>Dallas property owners face unique water damage risks tied to the region's climate and seasonal patterns. Winter freeze-thaw cycles can rupture supply lines and appliance connections, while spring and summer storms bring heavy rainfall that stresses drainage systems and can cause backups. Washing machines, dishwashers, water heaters, and refrigerators are common sources of leaks and overflows that, if not addressed quickly, lead to structural damage, mold growth, and costly repairs. The longer water sits, the greater the risk to flooring, drywall, and personal belongings. Rapid response and thorough cleanup are essential to prevent secondary damage and protect your home's integrity.</p><p>Freeman Restoration connects Dallas property owners with independent local restoration providers who specialize in appliance leak and overflow cleanup. These professionals assess the extent of water damage, extract standing water, dry affected areas completely, and document the scope of work for insurance purposes. Their approach focuses on stopping the source, removing damaged materials when necessary, and restoring your space to a safe, dry condition. Beyond appliance leaks, they handle a range of water-related emergencies, ensuring you have access to experienced help when you need it most. If your Dallas home has suffered an appliance leak or overflow, reaching out to Freeman Restoration puts you in touch with responsive local providers ready to minimize damage and get your property back on track.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:01.640754Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "dbc6951ee8c1b761"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "fc_heading": "Why Dallas Property Owners Choose Freeman Restoration",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Response to Appliance Leaks",
+          "text": "Water damage from appliance failures spreads quickly. Freeman connects you with local restoration providers ready to respond urgently, minimizing damage to floors, walls, and belongings before mold or structural problems develop."
+        },
+        {
+          "heading": "Trained Technicians, Thorough Cleanup",
+          "text": "Appliance overflows require professional-grade water extraction and drying. The independent providers Freeman connects to are trained in identifying hidden moisture and employing proper equipment to restore affected areas completely and safely."
+        },
+        {
+          "heading": "Accountability and Peace of Mind",
+          "text": "Freeman's network of local restoration providers stands behind their work with guarantees on cleanup and restoration. You get direct access to professionals committed to making your property whole again."
+        },
+        {
+          "heading": "Prepared for Texas Freeze-Thaw Cycles",
+          "text": "Frozen pipes and ice dams pose serious burst-pipe risks across North Texas winters. Freeman connects property owners in areas like Lakewood and Oak Cliff with restoration providers experienced in handling seasonal freeze-thaw water damage and swift recovery."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:05.749199Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "2a73e332003ab4e1"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our {service} Process Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Appliance Leak & Overflow",
+          "text": "Contact Freeman Restoration to report your appliance leak or overflow emergency in Dallas. We'll connect you with a responsive local restoration provider to assess water damage and begin appliance leak cleanup right away."
+        },
+        {
+          "heading": "Local Provider Diagnoses Water Damage",
+          "text": "Your connected restoration provider inspects the appliance leak or overflow source, identifies affected areas, and determines the scope of water extraction and drying needed. Texas freeze-thaw cycles and regional humidity can complicate drying—your provider assesses conditions specific to your situation."
+        },
+        {
+          "heading": "Appliance Leak & Overflow Cleanup Begins",
+          "text": "The local restoration team extracts standing water, removes saturated materials, and begins targeted drying of affected spaces. Follow-up monitoring and communication keep you informed throughout the appliance leak cleanup and water damage recovery process."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:18:08.924558Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "e28a8400de0c4661",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need {service} in {city}? Get fast, professional help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_structure}",
+      "it_alt": "{chart_group_structure_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_it_photo_prechart": "sites/water-site/uploads/media/craftsman-home-exterior-with-flag-lufkin-tx.webp",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "it_caption": "{chart_group_structure_caption}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Leaks Across Dallas's Diverse Neighborhoods",
+      "text": "<p>Dallas's mix of older, established areas and newer subdivisions face distinct water damage challenges tied to the region's climate and building styles. In mature neighborhoods like Lakewood and Oak Cliff, aging plumbing systems and foundation settling from decades of seasonal temperature swings—particularly Texas's freeze-thaw cycles in winter—can increase the risk of pipe failures and appliance overflow incidents. Older homes often have cast-iron or galvanized supply lines more prone to corrosion and leaks, while settled foundations may stress connections further. Newer developments typically feature modern plumbing but can experience rapid water spread across larger, open floor plans and drywall assemblies that absorb moisture quickly.</p><p>North Texas experiences sudden heavy rainfall and occasional ice storms that strain drainage systems and can back up water into homes, compounding appliance failures. Spring and early summer storms, combined with the region's occasional freeze events, create peak risk periods for both visible leaks and hidden moisture intrusion. The independent local restoration providers Freeman Restoration connects you with understand how Dallas's climate patterns and property age affect drying time, material damage, and the urgency of water extraction and cleanup—whether you're in an area with mature trees and settled homes or a newer subdivision with modern construction.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:13.322760Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "e847e2688426bf2c"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "steps_heading": "Seasonal Water Damage: Dallas Appliance & Storm Threats Year-Round",
+      "steps_items": [
+        {
+          "heading": "Spring: Heavy Rain & Flooding",
+          "text": "Spring storms bring intense rainfall and flash flooding to the Dallas area, overwhelming drainage systems and infiltrating basements and ground-level spaces. Appliances like water heaters and washing machines often overflow during heavy use. Freeman Restoration connects you with responsive local restoration providers ready to extract water and begin drying before secondary damage spreads."
+        },
+        {
+          "heading": "Summer: Heat & Humidity Stress",
+          "text": "Extreme heat stresses air conditioning systems, which can leak or fail, while high humidity accelerates mold growth in damp areas. Refrigerators and ice makers frequently malfunction, causing slow leaks that go unnoticed. Freeman Restoration links you to local specialists who address moisture control and water extraction to prevent long-term structural and indoor air quality issues."
+        },
+        {
+          "heading": "Fall: Storm Prep & Leaf Debris",
+          "text": "Early fall storms can damage roofs and gutters, allowing rain to enter walls and attics. Clogged gutters redirect water toward foundations. Aging appliances often fail as seasons change. Freeman Restoration helps you connect with local providers who respond quickly to storm damage and appliance leaks, minimizing water intrusion before conditions worsen."
+        },
+        {
+          "heading": "Winter: Freeze-Thaw & Pipe Breaks",
+          "text": "Winter freezes in North Texas can crack pipes and burst supply lines, flooding walls, crawl spaces, and basements. Ice dams trap meltwater. Water heaters and dishwashers are prone to failure in cold snaps. Freeman Restoration connects property owners with local restoration experts trained to handle emergency water extraction and mitigation during winter weather events."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:19.233283Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "1f8fea26d2c1f66f"
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Water Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Water Damage Repair {city} {SS}",
+          "heading": "Water Damage Repair",
+          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+          "url": "/water-damage-repair-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flood Damage Restoration {city} {SS}",
+          "heading": "Flood Damage Restoration",
+          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm Damage Restoration {city} {SS}",
+          "heading": "Storm Damage Restoration",
+          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Water Mitigation {city} {SS}",
+          "heading": "Water Mitigation",
+          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+          "url": "/water-mitigation-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does appliance leak and overflow cleanup in Dallas involve?",
+          "answer": "<p>Appliance leak and overflow cleanup addresses water damage from failed dishwashers, washing machines, refrigerators, water heaters, and similar household systems. The process includes water extraction, affected material removal, structural drying, and cleaning to prevent mold growth. Freeman Restoration connects you with local providers who assess the extent of damage and restore your property.</p>"
+        },
+        {
+          "question": "How fast can Freeman Restoration connect me with help for appliance leaks in Dallas?",
+          "answer": "<p>Freeman Restoration works to connect you with independent local restoration providers quickly, especially for active water damage emergencies. Response times depend on provider availability in your area, but a local Dallas-based company can typically begin assessment and water removal within hours of your call.</p>"
+        },
+        {
+          "question": "What factors affect the cost of appliance leak cleanup in Dallas?",
+          "answer": "<p>Appliance leak cleanup costs depend on water volume, affected materials (drywall, flooring, insulation), room size, and drying complexity. Additional factors include whether contents were damaged and if mold remediation is needed separately. Freeman Restoration connects you with local providers who can provide estimates based on your specific situation.</p>"
+        },
+        {
+          "question": "What should I do before the appliance cleanup crew arrives in Dallas?",
+          "answer": "<p>Turn off the water source to the appliance and stop using it immediately. Move unaffected items and furniture away from the wet area if safe. Document damage with photos for insurance. Avoid walking through standing water if electrical hazards are present. Your restoration provider will guide you on next steps when they arrive to assess.</p>"
+        },
+        {
+          "question": "How can I prevent appliance leaks and overflows at my Dallas home?",
+          "answer": "<p>Inspect water supply lines regularly for cracks or loose connections, especially on older appliances. Clean washing machine drain hoses and dishwasher filters to prevent backups. Have water heaters and refrigerator ice-maker lines checked annually. Ensure appliances are level and properly installed. Early maintenance reduces the risk of sudden leaks that cause costly water damage.</p>"
+        },
+        {
+          "question": "Do appliance leaks happen more often during winter in Dallas?",
+          "answer": "<p>Texas winters can trigger freezing in exposed water lines and outdoor shut-offs, potentially affecting indoor appliance connections. While Dallas rarely experiences sustained freezing, occasional winter freeze-thaw cycles can stress aging pipes and connections. Spring thaws may also increase pressure in plumbing systems. Year-round vigilance and maintenance help reduce appliance failure risk across all seasons.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 6,
+      "_ai_generated_at": "2026-09-07T15:18:27.424952Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "f5c0818e6929a7f8"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#0d2340",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
+    "canonical_url": "https://freemanrestoration.com/appliance-leak-cleanup-dallas-tx/",
+    "meta_description": "Appliance Leak & Overflow Cleanup in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+    "meta_keywords": "appliance leak & overflow cleanup Dallas TX, refrigerator leak Dallas, washing machine overflow Dallas, dishwasher leak cleanup Dallas",
+    "og_title": "Appliance Leak & Overflow Cleanup in {city_state} | {business}",
+    "og_description": "24/7 appliance leak & overflow cleanup in {city_state}. Fast, professional local response.",
+    "og_image": "sites/water-site/uploads/media/istock-2245358285_7d001c.webp",
+    "service_name": "Appliance Leak & Overflow Cleanup",
+    "service_type": "Appliance Leak & Overflow Cleanup",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Appliance leak & overflow cleanup for homes and businesses in {city_state}, including refrigerator leak, washing machine overflow and dishwasher leak cleanup.",
+    "bc_label": "Appliance Leak & Overflow Cleanup",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Appliance Leak & Overflow Cleanup\",\n    \"name\": \"Appliance Leak & Overflow Cleanup in Dallas, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Dallas\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 appliance leak & overflow cleanup in Dallas, TX — refrigerator leak, washing machine overflow and dishwasher leak cleanup.\"\n}",
+    "primary_keyword": "Appliance Leak & Overflow Cleanup",
+    "secondary_keywords": "refrigerator leak, washing machine overflow, dishwasher leak cleanup"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "ab8e017530795bbe54be494dab9cc0d8"
+}

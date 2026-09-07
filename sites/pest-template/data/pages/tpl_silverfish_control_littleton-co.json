@@ -1,413 +1,539 @@
 {
-    "template_id": "tpl_silverfish_control",
-    "city_id": "littleton-co",
-    "slug": "silverfish-control-littleton-co",
-    "title": "Silverfish Control in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Silverfish Control in {city_state}",
-            "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for silverfish year-round, especially as homes in Littleton seek refuge from seasonal temperature swings. Silverfish thrive in the moisture and paper products found in basements, attics, and storage areas—a common concern for homeowners in established neighborhoods like Historic Littleton and Ken Caryl. Littleton Pest Pros addresses active silverfish infestations with targeted solutions that help protect your home's stored belongings and reduce ongoing pest activity.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Silverfish exterminator treating a {city_state} home",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/silverfish-control-katy-tx_d7b4c5.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:10.075864Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "a6177cb878f62622",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Re-Treat Guarantee",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-silverfish-control-katy_494d56.webp",
-            "it_alt": "{business} technician applying silverfish treatment along a baseboard in a {city_state} home",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Professional Silverfish Control Services in Littleton",
-            "text": "<p>Littleton's cool, dry climate and older home stock create ideal conditions for silverfish infestations. These moisture-loving pests thrive in basements, attics, and crawl spaces where humidity lingers, especially during Colorado's spring snowmelt and summer monsoon seasons. Once silverfish establish themselves in a Littleton home, they reproduce quickly and can damage stored documents, fabrics, and food supplies. Early intervention is critical—the longer an infestation goes unaddressed, the harder it becomes to eliminate. Homeowners across Littleton, from Historic Littleton to Ken Caryl, frequently encounter these fast-moving insects in areas where water intrusion or poor ventilation creates the damp environment they need to survive.</p><p>Littleton Pest Pros brings a thorough, targeted approach to silverfish treatment and removal. Our team conducts a detailed inspection to identify harborage areas, moisture sources, and entry points, then implements a customized treatment plan designed to address your specific infestation. We focus on reducing the conditions that attract silverfish while applying proven methods to get rid of them effectively. Rather than offering a one-time visit, we follow up to ensure the infestation has been controlled and advise on preventive measures to protect your home long-term. Whether you're dealing with an active silverfish problem or concerned about early signs, Littleton Pest Pros is ready to help you reclaim your home.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:14.152190Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "0f41596f4089a114",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Technicians, Thorough Results",
-                    "text": "<p>Our technicians understand silverfish behavior and habitat preferences. We inspect thoroughly, locate hiding spots, and apply targeted silverfish treatment to eliminate the problem at its source, not just the surface.</p>"
-                },
-                {
-                    "heading": "Fast Response, Lasting Peace",
-                    "text": "<p>When silverfish appear in your home, prompt action matters. We respond quickly to calls and use proven removal methods designed to stop infestations before they spread throughout your property.</p>"
-                },
-                {
-                    "heading": "Backed by Our Guarantee",
-                    "text": "<p>We stand behind our silverfish extermination work. Our guarantee gives you confidence that we're committed to solving your pest problem and keeping your home protected.</p>"
-                },
-                {
-                    "heading": "Colorado's Dry Climate, Year-Round Risk",
-                    "text": "<p>Littleton's low humidity and indoor heating create ideal conditions for silverfish indoors, especially in basements and crawl spaces. Our seasonal awareness helps us treat and prevent infestations before they take hold in fall and winter.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:17.277001Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "02d01eb6421fce7a",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Silverfish Treatment Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call Our {city} Team",
-                    "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Inspection & Assessment",
-                    "text": "Your technician inspects the home, identifies the species and where silverfish are harboring, and builds a targeted treatment plan."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Treatment & Follow-Up",
-                    "text": "We treat the areas where silverfish live and get inside, then follow up to confirm the infestation is fully cleared."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Ready to get rid of silverfish in {city}? Our trained technicians can get started fast.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_moisture}",
-            "it_alt": "{chart_group_moisture_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Silverfish Control for Littleton Homes",
-            "text": "<p>Silverfish thrive in the cool, moist conditions common throughout the Denver metro area, and Littleton's climate creates ideal conditions for these pests year-round. Established neighborhoods with mature trees and older homes—like those in Historic Littleton—often present different silverfish challenges than newer construction. Aging basements, crawl spaces, and attics in vintage properties tend to retain moisture and provide abundant hiding spots, while settled foundations may develop cracks that allow silverfish entry. Conversely, newer subdivisions and homes in areas like Ken Caryl typically feature improved moisture barriers, though basements and bathrooms remain vulnerable entry points during Colorado's wetter spring and fall seasons.</p><p>Littleton's seasonal shifts play a crucial role in silverfish activity. As temperatures drop in fall and winter, these moisture-loving insects seek shelter indoors, making silverfish removal increasingly necessary as the cold months approach. The dry Colorado climate inside heated homes creates a paradox—while outdoor air is arid, basements and poorly ventilated spaces become attractive refuges. Professional silverfish treatment addresses these seasonal patterns and structural vulnerabilities specific to your home's age and design. Early intervention, especially when you first notice signs of infestation, prevents populations from establishing in storage areas, libraries, or attics where silverfish cause damage to paper, fabrics, and stored items.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:22.191496Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "faba4ddf5927d43a",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-silverfish-control-katy_180509.webp",
-            "it_caption": "{chart_group_moisture_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Seasonal Silverfish Control in Littleton's Climate",
-            "steps_items": [
-                {
-                    "heading": "Spring: Moisture & Activity Surge",
-                    "text": "<p>Spring snowmelt and increased moisture create ideal conditions for silverfish to emerge from winter hiding spots in Littleton homes. These moisture-loving pests thrive in damp basements and crawl spaces as humidity rises. Littleton Pest Pros identifies entry points and moisture sources early, helping prevent infestations before they expand.</p>"
-                },
-                {
-                    "heading": "Summer: Peak Breeding Season",
-                    "text": "<p>Colorado's summer heat drives silverfish deeper into cool, humid interior spaces like closets, attics, and storage areas. Population growth accelerates during warmer months. Littleton Pest Pros monitors active infestations and implements targeted treatments to manage breeding cycles and reduce colony spread before fall.</p>"
-                },
-                {
-                    "heading": "Fall: Pre-Winter Preparation",
-                    "text": "<p>As temperatures drop, silverfish seek shelter and moisture sources inside walls, basements, and foundation areas throughout the region. Fall is critical for sealing vulnerabilities and addressing existing populations before they settle in for winter. Littleton Pest Pros helps homeowners prepare with thorough inspections and preventive measures.</p>"
-                },
-                {
-                    "heading": "Winter: Indoor Clustering",
-                    "text": "<p>Colorado winters push silverfish indoors in concentrated numbers, clustering in heated spaces with moisture like bathrooms, laundry rooms, and basements. Infestations become more visible during this season. Littleton Pest Pros responds quickly to winter invasions, reducing activity and helping protect stored items from damage.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:26.380856Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "dc71e36b7400339f",
-            "_ai_locked": true
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Other Pest Control Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Silverfish Exterminator FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What are the signs my Littleton home has a silverfish problem?",
-                    "answer": "<p>Look for small, silver-gray insects about half an inch long moving quickly across floors, walls, or in dark corners. Other telltale signs include yellow stains or holes in paper, books, and cardboard; damaged fabric or wallpaper; and a musty odor in affected areas. Silverfish thrive in damp, cool spaces like basements and crawl spaces, so inspect those zones first if you suspect an infestation.</p>"
-                },
-                {
-                    "question": "How quickly can Littleton Pest Pros respond to a silverfish infestation?",
-                    "answer": "<p>We understand that discovering an active infestation is concerning. Littleton Pest Pros prioritizes fast scheduling for pest emergencies. Contact us directly for current availability and response times—we work to fit you in as soon as practical based on your situation and our service calendar.</p>"
-                },
-                {
-                    "question": "What should I do to prepare my home before a silverfish treatment visit?",
-                    "answer": "<p>Clear clutter from the areas we'll be treating, especially basements, storage zones, and under sinks. Remove or seal any food sources like cereal boxes, papers, and cardboard. If possible, reduce humidity by ensuring good ventilation and fixing any water leaks. Our technician will provide specific prep instructions when you schedule—don't hesitate to ask about anything unclear.</p>"
-                },
-                {
-                    "question": "Is silverfish treatment safe for my children and pets?",
-                    "answer": "<p>Professional pest management uses targeted methods designed to minimize risk to your family and animals. Our technicians follow industry-standard safety protocols. We'll discuss your specific household setup—including children's ages and pet locations—during your appointment so we can choose and apply treatments responsibly.</p>"
-                },
-                {
-                    "question": "When is silverfish season in Colorado, and when should I act?",
-                    "answer": "<p>Silverfish are active year-round indoors because homes provide warmth and stable humidity. However, they often become most noticeable in fall and winter when they move deeper into structures seeking moisture and shelter from the dry Colorado climate. If you spot them, don't wait—treatment is most effective when the population is still manageable.</p>"
-                },
-                {
-                    "question": "Why is professional silverfish removal better than DIY products from stores?",
-                    "answer": "<p>DIY sprays and traps may kill visible insects but rarely eliminate the source or hidden populations in walls and crawl spaces. Professional technicians identify entry points, moisture issues, and nesting areas that store-bought solutions miss. This targeted approach provides more lasting results and saves time and frustration in the long run.</p>"
-                },
-                {
-                    "question": "How many visits does silverfish treatment typically require?",
-                    "answer": "<p>Most infestations need follow-up visits to ensure complete control—typically a second treatment 2–4 weeks after the first allows us to target any remaining insects at their most vulnerable stage. The exact plan depends on the severity of your infestation and your home's conditions, which we'll discuss after the initial inspection.</p>"
-                },
-                {
-                    "question": "What happens if silverfish come back after treatment?",
-                    "answer": "<p>Littleton Pest Pros stands behind its work. We offer guarantees on our treatments—if the problem returns within the covered period, we'll return to re-treat at no additional charge. Be sure to discuss warranty details and any conditions (such as addressing moisture issues) when you schedule, so you know exactly what's covered.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:53:37.283350Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "5695bb8ec71dc890",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Dealing with silverfish in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_silverfish_control",
+  "city_id": "littleton-co",
+  "slug": "silverfish-control-littleton-co",
+  "title": "Silverfish Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "Silverfish Control in {city_state} | {business}",
-        "canonical_url": "{website}/silverfish-control-littleton-co/",
-        "meta_description": "Silverfish Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
-        "meta_keywords": "silverfish control Littleton CO, silverfish exterminator, silverfish treatment, silverfish removal",
-        "og_title": "Silverfish Exterminator in {city_state} | Fast, Guaranteed Silverfish Control",
-        "og_description": "Get rid of silverfish fast with a professional silverfish exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
-        "og_image": "",
-        "service_name": "Silverfish Control",
-        "service_type": "Silverfish Control",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Silverfish Exterminator in Littleton, CO\",\n            \"serviceType\": \"Silverfish Extermination\",\n            \"description\": \"Professional silverfish exterminator services in Littleton, CO. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "silverfish control",
-        "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "f5ad086620d5116161d95b2c6d03196a"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Silverfish Control in {city_state}",
+      "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for silverfish year-round, especially as homes in Littleton seek refuge from seasonal temperature swings. Silverfish thrive in the moisture and paper products found in basements, attics, and storage areas—a common concern for homeowners in established neighborhoods like Historic Littleton and Ken Caryl. Littleton Pest Pros addresses active silverfish infestations with targeted solutions that help protect your home's stored belongings and reduce ongoing pest activity.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Silverfish exterminator treating a {city_state} home",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/silverfish-control-katy-tx_d7b4c5.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:10.075864Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "a6177cb878f62622",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Re-Treat Guarantee",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-silverfish-control-katy_494d56.webp",
+      "it_alt": "{business} technician applying silverfish treatment along a baseboard in a {city_state} home",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional Silverfish Control Services in Littleton",
+      "text": "<p>Littleton's cool, dry climate and older home stock create ideal conditions for silverfish infestations. These moisture-loving pests thrive in basements, attics, and crawl spaces where humidity lingers, especially during Colorado's spring snowmelt and summer monsoon seasons. Once silverfish establish themselves in a Littleton home, they reproduce quickly and can damage stored documents, fabrics, and food supplies. Early intervention is critical—the longer an infestation goes unaddressed, the harder it becomes to eliminate. Homeowners across Littleton, from Historic Littleton to Ken Caryl, frequently encounter these fast-moving insects in areas where water intrusion or poor ventilation creates the damp environment they need to survive.</p><p>Littleton Pest Pros brings a thorough, targeted approach to silverfish treatment and removal. Our team conducts a detailed inspection to identify harborage areas, moisture sources, and entry points, then implements a customized treatment plan designed to address your specific infestation. We focus on reducing the conditions that attract silverfish while applying proven methods to get rid of them effectively. Rather than offering a one-time visit, we follow up to ensure the infestation has been controlled and advise on preventive measures to protect your home long-term. Whether you're dealing with an active silverfish problem or concerned about early signs, Littleton Pest Pros is ready to help you reclaim your home.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:14.152190Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "0f41596f4089a114",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Homeowners Trust Littleton Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Thorough Results",
+          "text": "<p>Our technicians understand silverfish behavior and habitat preferences. We inspect thoroughly, locate hiding spots, and apply targeted silverfish treatment to eliminate the problem at its source, not just the surface.</p>"
+        },
+        {
+          "heading": "Fast Response, Lasting Peace",
+          "text": "<p>When silverfish appear in your home, prompt action matters. We respond quickly to calls and use proven removal methods designed to stop infestations before they spread throughout your property.</p>"
+        },
+        {
+          "heading": "Backed by Our Guarantee",
+          "text": "<p>We stand behind our silverfish extermination work. Our guarantee gives you confidence that we're committed to solving your pest problem and keeping your home protected.</p>"
+        },
+        {
+          "heading": "Colorado's Dry Climate, Year-Round Risk",
+          "text": "<p>Littleton's low humidity and indoor heating create ideal conditions for silverfish indoors, especially in basements and crawl spaces. Our seasonal awareness helps us treat and prevent infestations before they take hold in fall and winter.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:17.277001Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "02d01eb6421fce7a",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Silverfish Treatment Works",
+      "steps_items": [
+        {
+          "heading": "Connect with a Local Silverfish Specialist",
+          "text": "Tell us about your silverfish problem, and we'll match you with an independent pest control provider in Littleton who handles silverfish infestations. You'll hear from them quickly to schedule an inspection at your property."
+        },
+        {
+          "heading": "Receive a Silverfish Assessment and Plan",
+          "text": "The provider will inspect your home to identify silverfish activity, moisture levels, and hiding spots—common in Colorado's drier climate but attracted to humid areas. They'll explain their silverfish control approach tailored to your situation."
+        },
+        {
+          "heading": "Execute Silverfish Control and Monitor",
+          "text": "The local provider will apply targeted silverfish control treatments and recommend steps to reduce moisture and food sources that attract them. They'll discuss follow-up visits if needed to ensure the infestation is addressed."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:35.702944Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "6e67c559a1ab2ce4",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready to get rid of silverfish in {city}? Our trained technicians can get started fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_moisture}",
+      "it_alt": "{chart_group_moisture_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Silverfish Control for Littleton Homes",
+      "text": "<p>Silverfish thrive in the cool, moist conditions common throughout the Denver metro area, and Littleton's climate creates ideal conditions for these pests year-round. Established neighborhoods with mature trees and older homes—like those in Historic Littleton—often present different silverfish challenges than newer construction. Aging basements, crawl spaces, and attics in vintage properties tend to retain moisture and provide abundant hiding spots, while settled foundations may develop cracks that allow silverfish entry. Conversely, newer subdivisions and homes in areas like Ken Caryl typically feature improved moisture barriers, though basements and bathrooms remain vulnerable entry points during Colorado's wetter spring and fall seasons.</p><p>Littleton's seasonal shifts play a crucial role in silverfish activity. As temperatures drop in fall and winter, these moisture-loving insects seek shelter indoors, making silverfish removal increasingly necessary as the cold months approach. The dry Colorado climate inside heated homes creates a paradox—while outdoor air is arid, basements and poorly ventilated spaces become attractive refuges. Professional silverfish treatment addresses these seasonal patterns and structural vulnerabilities specific to your home's age and design. Early intervention, especially when you first notice signs of infestation, prevents populations from establishing in storage areas, libraries, or attics where silverfish cause damage to paper, fabrics, and stored items.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:22.191496Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "faba4ddf5927d43a",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-silverfish-control-katy_180509.webp",
+      "it_caption": "{chart_group_moisture_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Seasonal Silverfish Control in Littleton's Climate",
+      "steps_items": [
+        {
+          "heading": "Spring: Moisture & Activity Surge",
+          "text": "<p>Spring snowmelt and increased moisture create ideal conditions for silverfish to emerge from winter hiding spots in Littleton homes. These moisture-loving pests thrive in damp basements and crawl spaces as humidity rises. Littleton Pest Pros identifies entry points and moisture sources early, helping prevent infestations before they expand.</p>"
+        },
+        {
+          "heading": "Summer: Peak Breeding Season",
+          "text": "<p>Colorado's summer heat drives silverfish deeper into cool, humid interior spaces like closets, attics, and storage areas. Population growth accelerates during warmer months. Littleton Pest Pros monitors active infestations and implements targeted treatments to manage breeding cycles and reduce colony spread before fall.</p>"
+        },
+        {
+          "heading": "Fall: Pre-Winter Preparation",
+          "text": "<p>As temperatures drop, silverfish seek shelter and moisture sources inside walls, basements, and foundation areas throughout the region. Fall is critical for sealing vulnerabilities and addressing existing populations before they settle in for winter. Littleton Pest Pros helps homeowners prepare with thorough inspections and preventive measures.</p>"
+        },
+        {
+          "heading": "Winter: Indoor Clustering",
+          "text": "<p>Colorado winters push silverfish indoors in concentrated numbers, clustering in heated spaces with moisture like bathrooms, laundry rooms, and basements. Infestations become more visible during this season. Littleton Pest Pros responds quickly to winter invasions, reducing activity and helping protect stored items from damage.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:26.380856Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "dc71e36b7400339f",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Pest Control Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Silverfish Exterminator FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the signs my Littleton home has a silverfish problem?",
+          "answer": "<p>Look for small, silver-gray insects about half an inch long moving quickly across floors, walls, or in dark corners. Other telltale signs include yellow stains or holes in paper, books, and cardboard; damaged fabric or wallpaper; and a musty odor in affected areas. Silverfish thrive in damp, cool spaces like basements and crawl spaces, so inspect those zones first if you suspect an infestation.</p>"
+        },
+        {
+          "question": "How quickly can Littleton Pest Pros respond to a silverfish infestation?",
+          "answer": "<p>We understand that discovering an active infestation is concerning. Littleton Pest Pros prioritizes fast scheduling for pest emergencies. Contact us directly for current availability and response times—we work to fit you in as soon as practical based on your situation and our service calendar.</p>"
+        },
+        {
+          "question": "What should I do to prepare my home before a silverfish treatment visit?",
+          "answer": "<p>Clear clutter from the areas we'll be treating, especially basements, storage zones, and under sinks. Remove or seal any food sources like cereal boxes, papers, and cardboard. If possible, reduce humidity by ensuring good ventilation and fixing any water leaks. Our technician will provide specific prep instructions when you schedule—don't hesitate to ask about anything unclear.</p>"
+        },
+        {
+          "question": "Is silverfish treatment safe for my children and pets?",
+          "answer": "<p>Professional pest management uses targeted methods designed to minimize risk to your family and animals. Our technicians follow industry-standard safety protocols. We'll discuss your specific household setup—including children's ages and pet locations—during your appointment so we can choose and apply treatments responsibly.</p>"
+        },
+        {
+          "question": "When is silverfish season in Colorado, and when should I act?",
+          "answer": "<p>Silverfish are active year-round indoors because homes provide warmth and stable humidity. However, they often become most noticeable in fall and winter when they move deeper into structures seeking moisture and shelter from the dry Colorado climate. If you spot them, don't wait—treatment is most effective when the population is still manageable.</p>"
+        },
+        {
+          "question": "Why is professional silverfish removal better than DIY products from stores?",
+          "answer": "<p>DIY sprays and traps may kill visible insects but rarely eliminate the source or hidden populations in walls and crawl spaces. Professional technicians identify entry points, moisture issues, and nesting areas that store-bought solutions miss. This targeted approach provides more lasting results and saves time and frustration in the long run.</p>"
+        },
+        {
+          "question": "How many visits does silverfish treatment typically require?",
+          "answer": "<p>Most infestations need follow-up visits to ensure complete control—typically a second treatment 2–4 weeks after the first allows us to target any remaining insects at their most vulnerable stage. The exact plan depends on the severity of your infestation and your home's conditions, which we'll discuss after the initial inspection.</p>"
+        },
+        {
+          "question": "What happens if silverfish come back after treatment?",
+          "answer": "<p>Littleton Pest Pros stands behind its work. We offer guarantees on our treatments—if the problem returns within the covered period, we'll return to re-treat at no additional charge. Be sure to discuss warranty details and any conditions (such as addressing moisture issues) when you schedule, so you know exactly what's covered.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:53:37.283350Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5695bb8ec71dc890",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Dealing with silverfish in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Silverfish Control in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/silverfish-control-littleton-co/",
+    "meta_description": "Silverfish Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
+    "meta_keywords": "silverfish control Littleton CO, silverfish exterminator, silverfish treatment, silverfish removal",
+    "og_title": "Silverfish Exterminator in {city_state} | Fast, Guaranteed Silverfish Control",
+    "og_description": "Get rid of silverfish fast with a professional silverfish exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+    "og_image": "",
+    "service_name": "Silverfish Control",
+    "service_type": "Silverfish Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Silverfish Exterminator in Littleton, CO\",\"serviceType\":\"Silverfish Extermination\",\"description\":\"Professional silverfish exterminator services in Littleton, CO. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "silverfish control",
+    "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "a3a81cd77e821897c82fbd85f720b485"
 }

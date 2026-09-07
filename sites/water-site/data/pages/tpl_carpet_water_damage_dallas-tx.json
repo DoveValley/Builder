@@ -1,0 +1,532 @@
+{
+  "template_id": "tpl_carpet_water_damage",
+  "city_id": "dallas-tx",
+  "slug": "carpet-water-damage-dallas-tx",
+  "title": "Carpet Water Damage in {city_state} | {business}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "lat": "32.776272",
+    "lng": "-96.796856",
+    "industries": [
+      "Financial services",
+      "Technology/telecommunications",
+      "Transportation and logistics",
+      "Healthcare",
+      "Defense and aerospace",
+      "Energy"
+    ],
+    "top_employers": [
+      "American Airlines",
+      "AT&T",
+      "Texas Instruments",
+      "Baylor Scott & White Health",
+      "Bank of America",
+      "JPMorgan Chase",
+      "Southwest Airlines",
+      "UT Southwestern Medical Center",
+      "Parkland Health",
+      "Comerica",
+      "Dallas Independent School District",
+      "City of Dallas"
+    ],
+    "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
+    "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
+    "neighborhoods": [
+      "Uptown",
+      "Deep Ellum",
+      "Bishop Arts District",
+      "Lakewood",
+      "Oak Cliff",
+      "Lake Highlands",
+      "Preston Hollow",
+      "Knox-Henderson",
+      "Downtown Dallas"
+    ],
+    "population": 1302868,
+    "flood_years": [
+      1908,
+      1949,
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      7
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "homes_by_decade": {
+      "Before 1960": 22,
+      "1960-1979": 26,
+      "1980-1999": 26,
+      "2000-2009": 14,
+      "2010 or later": 12
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      25,
+      15,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "humidity_monthly": [
+      68,
+      65,
+      63,
+      62,
+      66,
+      63,
+      60,
+      60,
+      64,
+      65,
+      68,
+      68
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information",
+    "rainfall_monthly": [
+      2.05,
+      2.51,
+      3.13,
+      3.5,
+      5.1,
+      3.51,
+      2.07,
+      1.83,
+      2.87,
+      4.13,
+      2.61,
+      2.53
+    ],
+    "rainfall_annual": 35.85,
+    "rainfall_state_avg": 36.6,
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "nearby_towns": [
+      {
+        "name": "Plano",
+        "miles": 20
+      },
+      {
+        "name": "Irving",
+        "miles": 13
+      },
+      {
+        "name": "Garland",
+        "miles": 18
+      },
+      {
+        "name": "Arlington",
+        "miles": 20
+      },
+      {
+        "name": "Fort Worth",
+        "miles": 32
+      },
+      {
+        "name": "Frisco",
+        "miles": 30
+      },
+      {
+        "name": "McKinney",
+        "miles": 32
+      },
+      {
+        "name": "Richardson",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dallas-area homes face seasonal risks from heavy spring and summer storms, freeze-thaw cycles, and flash flooding that can saturate carpets and flooring within hours. When carpet water damage occurs, rapid response from local restoration providers is critical to prevent mold growth and permanent material loss. Freeman Restoration connects property owners across the region—from Uptown to Oak Cliff—with independent local providers who can assess and begin restoration work quickly, helping protect your home and contents.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Carpet water damage in {city_state} by {business}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/carpet-water-damage-drying-fan-lufkin-tx.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 1,
+      "_ai_generated_at": "2026-09-07T15:17:57.080963Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "c380560e6ba52e4f"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "24/7 Emergency Response",
+          "icon": ""
+        },
+        {
+          "label": "Fast Local Response",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/water-site/uploads/media/hallway-drying-fans-equipment-lufkin-tx.webp",
+      "it_alt": "Water damaged carpet in {city_state} by {business}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Dallas Carpet Water Damage: Storm and Flood Recovery",
+      "text": "<p>Dallas and the surrounding region experience weather patterns that put carpets and flooring at serious risk year-round. Spring storms bring heavy rainfall and potential flooding, while the occasional winter freeze followed by rapid thaw can cause pipes to burst inside homes and businesses. Older neighborhoods like Oak Cliff and Lakewood, as well as newer developments across Dallas, are equally vulnerable to water intrusion from severe weather, plumbing failures, and foundation seepage. When water saturates carpet, the clock starts immediately—mold and bacterial growth accelerate within 24 to 48 hours, and structural damage worsens the longer moisture remains trapped beneath the surface. Property owners who act quickly have a far better chance of salvaging carpet and preventing secondary damage to subflooring and walls.</p><p>Freeman Restoration connects Dallas property owners with independent local restoration providers who understand the urgency of carpet water damage and respond with comprehensive extraction, drying, and remediation services. These providers assess the extent of saturation, remove standing water, deploy industrial-grade equipment to dry affected areas, and work with you to determine whether carpet can be cleaned and restored or needs replacement. Beyond carpet, they address water damage throughout your property—though each situation is unique and outcomes depend on factors like water source, timing, and structural exposure. If you're facing active water damage, contacting a local provider through Freeman Restoration puts experienced help within reach quickly, so you can move forward with recovery and peace of mind.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:01.959369Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "0f4104e20eb230d8"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "fc_heading": "Why Dallas Property Owners Trust Freeman Restoration",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Carpet Water Response",
+          "text": "<p>Water damage spreads quickly. Freeman Restoration connects you with independent local providers who respond fast to carpet emergencies, minimizing mold risk and secondary damage to your Dallas-area home or business.</p>"
+        },
+        {
+          "heading": "Trained Restoration Technicians",
+          "text": "<p>Carpet water damage demands expertise. The independent providers in Freeman's network bring trained knowledge of proper water extraction, carpet drying methods, and restoration techniques to protect your property.</p>"
+        },
+        {
+          "heading": "Thorough Drying and Treatment",
+          "text": "<p>Incomplete drying traps moisture and invites further problems. Freeman connects you with local providers who use thorough carpet treatment and structural drying to address water damage comprehensively, not just surface symptoms.</p>"
+        },
+        {
+          "heading": "Storm Ready in North Texas Seasons",
+          "text": "<p>Heavy spring storms and winter freeze-thaw cycles in the Dallas region create pipe burst and flooding risk year-round. Freeman's network of local providers offers quick access when weather-related carpet water damage strikes your property.</p>"
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:05.972831Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "ebc0d45431bef2bd"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our {service} Process Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Carpet Water Damage",
+          "text": "Contact Freeman Restoration and describe your carpet water damage situation—whether from burst pipes, heavy rainfall, or storm flooding common to the Dallas area. We'll connect you with a responsive local restoration provider who can assess your carpet urgently."
+        },
+        {
+          "heading": "Local Provider Inspects Carpet",
+          "text": "A connected restoration provider visits your Dallas property to evaluate carpet saturation, water source, and damage scope. They'll determine whether carpet water damage can be dried and restored in place or requires removal and specialized treatment."
+        },
+        {
+          "heading": "Carpet Water Damage Restoration Begins",
+          "text": "Your local provider removes standing water from carpet, applies extraction and drying equipment, and begins carpet water damage restoration. They'll coordinate with your insurance if needed and keep you informed throughout the carpet recovery process."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:18:09.648533Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "d62f93f9023258ff",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need {service} in {city}? Get fast, professional help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_seasonal}",
+      "it_alt": "{chart_group_seasonal_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_it_photo_prechart": "sites/water-site/uploads/media/restoration-technician-homeowner-handshake-lufkin-tx.webp",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "it_caption": "{chart_group_seasonal_caption}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Water Damage Restoration Across the Dallas Area",
+      "text": "<p>Dallas and surrounding TX communities experience distinct seasonal water risks that affect homes differently depending on age and construction. Established neighborhoods with mature trees face heightened risks during spring storms, when heavy rainfall combines with saturated soil and aging drainage systems—older properties in areas like Lakewood and Preston Hollow may have outdated plumbing or foundation concerns that increase vulnerability to carpet water damage. Newer subdivisions, while built to current codes, can still experience rapid pooling and saturation during the region's intense storm season, particularly when heavy downpours exceed local drainage capacity.</p><p>Winter freeze-thaw cycles present another challenge across the Dallas region. Aging pipes in established homes are especially prone to rupture when temperatures drop suddenly, while even newer construction can experience line breaks if protective measures fail. Spring storms bring the highest risk of both exterior flooding and interior water intrusion, making rapid response critical. Whether damage results from burst pipes, storm surge, plumbing failure, or roof compromise, connecting with local independent restoration providers quickly can help minimize carpet saturation and secondary damage. Freeman Restoration helps property owners reach experienced local providers ready to assess and address water damage before conditions worsen.</p>",
+      "_ai_generated_at": "2026-09-07T15:18:14.145854Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "5e537542f735a58c"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "steps_heading": "Seasonal Carpet Water Damage in Dallas Throughout the Year",
+      "steps_items": [
+        {
+          "heading": "Spring: Heavy Rains & Flooding",
+          "text": "Spring thunderstorms bring heavy rainfall and flash flooding to the Dallas region, affecting carpets in basements, ground floors, and low-lying areas. Freeman Restoration connects you with local water damage specialists who respond quickly to extract standing water and begin drying before mold and odors develop."
+        },
+        {
+          "heading": "Summer: Heat & Humidity Challenges",
+          "text": "Summer heat and humidity slow carpet drying and create ideal conditions for mold and mildew growth after any water intrusion. Freeman Restoration links property owners to experienced providers who use proper ventilation and dehumidification to address moisture trapped in carpet fibers and padding."
+        },
+        {
+          "heading": "Fall: Storm Season Returns",
+          "text": "Fall brings another wave of severe thunderstorms and potential flooding across the Dallas area, putting carpets at risk again. Freeman Restoration helps you connect with local restoration providers who can assess storm and water damage quickly and coordinate with your insurance company on next steps."
+        },
+        {
+          "heading": "Winter: Freeze-Thaw Damage",
+          "text": "Winter freeze-thaw cycles in Texas can crack pipes and cause sudden water release into homes and businesses, saturating carpets unexpectedly. Freeman Restoration provides fast access to local providers who handle emergency water extraction and moisture management to minimize carpet loss and secondary damage."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:18:18.754467Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "cc3b73a0169595c6"
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Water Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Water Damage Repair {city} {SS}",
+          "heading": "Water Damage Repair",
+          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+          "url": "/water-damage-repair-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flood Damage Restoration {city} {SS}",
+          "heading": "Flood Damage Restoration",
+          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm Damage Restoration {city} {SS}",
+          "heading": "Storm Damage Restoration",
+          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Water Mitigation {city} {SS}",
+          "heading": "Water Mitigation",
+          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+          "url": "/water-mitigation-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What exactly happens during carpet water damage restoration in Dallas?",
+          "answer": "<p>Carpet water damage restoration involves removing standing water, extracting moisture from carpet fibers and padding, drying the affected area thoroughly, and assessing whether the carpet can be salvaged or needs replacement. The providers Freeman Restoration connects you with evaluate carpet condition, pad integrity, and subfloor damage to determine the best course of action for your home.</p>"
+        },
+        {
+          "question": "How quickly can Freeman Restoration connect me with a Dallas carpet water damage provider?",
+          "answer": "<p>Freeman Restoration works to connect Dallas property owners with responsive local restoration providers as quickly as possible during water emergencies. Time is critical when carpet is wet—the faster extraction and drying begin, the better the chance of preventing mold and permanent damage. Contact Freeman Restoration immediately after discovering carpet water damage.</p>"
+        },
+        {
+          "question": "What factors affect the cost of carpet water damage repair in Dallas?",
+          "answer": "<p>Carpet water damage costs depend on the affected area's size, water source (clean, gray, or contaminated), carpet type and age, padding condition, subfloor damage, and how quickly drying begins. Local Dallas restoration providers will assess your specific situation to estimate labor, equipment, and material costs during an initial inspection.</p>"
+        },
+        {
+          "question": "How should I prepare my Dallas home before carpet water damage restoration arrives?",
+          "answer": "<p>Before the restoration team arrives, turn off electricity to the affected room if safe, remove furniture and loose items from the wet area, open windows and doors for ventilation if weather permits, and avoid walking on the wet carpet. The providers Freeman Restoration connects you with will give you specific pre-arrival instructions based on your situation.</p>"
+        },
+        {
+          "question": "Can carpet water damage be prevented in Dallas homes during heavy rain?",
+          "answer": "<p>Preventive steps include maintaining gutters and downspouts, grading soil away from foundations, sealing basement cracks, installing sump pumps or backflow preventers, and elevating carpet in flood-prone areas. Regular maintenance and proper drainage reduce risk, but severe storms and burst pipes can still cause water damage despite precautions.</p>"
+        },
+        {
+          "question": "Is carpet water damage more common in Dallas during certain seasons?",
+          "answer": "<p>Spring thunderstorms and heavy rainfall increase carpet water damage risk across the Dallas area, while winter freezes can cause pipe bursts leading to indoor water damage. Late spring through early summer brings the most intense storm activity to North Texas. Year-round vigilance and prompt response are essential whenever water damage occurs.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 6,
+      "_ai_generated_at": "2026-09-07T15:18:26.443653Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "5f6e8a1260f66853"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#0d2340",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Carpet Water Damage in {city_state} | {business}",
+    "canonical_url": "https://freemanrestoration.com/carpet-water-damage-dallas-tx/",
+    "meta_description": "Carpet Water Damage in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+    "meta_keywords": "carpet water damage Dallas TX, water damaged carpet Dallas, carpet water extraction Dallas, carpet flood damage Dallas",
+    "og_title": "Carpet Water Damage in {city_state} | {business}",
+    "og_description": "24/7 carpet water damage in {city_state}. Fast, professional local response.",
+    "og_image": "sites/water-site/uploads/media/istock-469661120_56992d.webp",
+    "service_name": "Carpet Water Damage",
+    "service_type": "Carpet Water Damage",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Carpet water damage for homes and businesses in {city_state}, including water damaged carpet, carpet water extraction and carpet flood damage.",
+    "bc_label": "Carpet Water Damage",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in Dallas, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Dallas\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 carpet water damage in Dallas, TX — water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
+    "primary_keyword": "Carpet Water Damage",
+    "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "2f2a6e1266fbc8a069a35995682ccdb9"
+}

@@ -1,0 +1,532 @@
+{
+  "template_id": "tpl_water_mitigation",
+  "city_id": "dallas-tx",
+  "slug": "water-mitigation-dallas-tx",
+  "title": "Water Mitigation in {city_state} | {business}",
+  "city_vars": {
+    "id": "dallas-tx",
+    "city": "Dallas",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "dallas-tx",
+    "lat": "32.776272",
+    "lng": "-96.796856",
+    "industries": [
+      "Financial services",
+      "Technology/telecommunications",
+      "Transportation and logistics",
+      "Healthcare",
+      "Defense and aerospace",
+      "Energy"
+    ],
+    "top_employers": [
+      "American Airlines",
+      "AT&T",
+      "Texas Instruments",
+      "Baylor Scott & White Health",
+      "Bank of America",
+      "JPMorgan Chase",
+      "Southwest Airlines",
+      "UT Southwestern Medical Center",
+      "Parkland Health",
+      "Comerica",
+      "Dallas Independent School District",
+      "City of Dallas"
+    ],
+    "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
+    "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
+    "neighborhoods": [
+      "Uptown",
+      "Deep Ellum",
+      "Bishop Arts District",
+      "Lakewood",
+      "Oak Cliff",
+      "Lake Highlands",
+      "Preston Hollow",
+      "Knox-Henderson",
+      "Downtown Dallas"
+    ],
+    "population": 1302868,
+    "flood_years": [
+      1908,
+      1949,
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      7
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "homes_by_decade": {
+      "Before 1960": 22,
+      "1960-1979": 26,
+      "1980-1999": 26,
+      "2000-2009": 14,
+      "2010 or later": 12
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      25,
+      15,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "humidity_monthly": [
+      68,
+      65,
+      63,
+      62,
+      66,
+      63,
+      60,
+      60,
+      64,
+      65,
+      68,
+      68
+    ],
+    "humidity_source": "NOAA National Centers for Environmental Information",
+    "rainfall_monthly": [
+      2.05,
+      2.51,
+      3.13,
+      3.5,
+      5.1,
+      3.51,
+      2.07,
+      1.83,
+      2.87,
+      4.13,
+      2.61,
+      2.53
+    ],
+    "rainfall_annual": 35.85,
+    "rainfall_state_avg": 36.6,
+    "rainfall_source": "NOAA 1991-2020 Climate Normals, DFW Airport",
+    "nearby_towns": [
+      {
+        "name": "Plano",
+        "miles": 20
+      },
+      {
+        "name": "Irving",
+        "miles": 13
+      },
+      {
+        "name": "Garland",
+        "miles": 18
+      },
+      {
+        "name": "Arlington",
+        "miles": 20
+      },
+      {
+        "name": "Fort Worth",
+        "miles": 32
+      },
+      {
+        "name": "Frisco",
+        "miles": 30
+      },
+      {
+        "name": "McKinney",
+        "miles": 32
+      },
+      {
+        "name": "Richardson",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "{primary_keyword} in {city_state}",
+      "hs_subtext": "<p>Dallas-area property owners face recurring water damage risks from spring and summer storms, aging infrastructure, and occasional winter freeze-thaw cycles that compromise foundations and plumbing. Freeman Restoration connects you directly with independent local restoration providers who respond to water mitigation emergencies—addressing standing water, moisture extraction, and structural drying to prevent secondary damage. This network approach puts qualified restoration professionals within reach when minutes matter, so you can focus on protecting your property rather than searching for help.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Water mitigation in {city_state} by {business}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#eef4fb",
+      "hs_photo": "sites/water-site/uploads/media/water-mitigation-baseboard-drying-lufkin-tx.webp",
+      "hs_bg_photo": "",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 1,
+      "_ai_generated_at": "2026-09-07T15:20:07.107581Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "d4a21a62a90f098a"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Specialists",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "24/7 Emergency Response",
+          "icon": ""
+        },
+        {
+          "label": "Fast Local Response",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/water-site/uploads/media/hardwood-floor-water-damage-buckled-boards-lufkin-tx.webp",
+      "it_alt": "Water mitigation in progress — water extraction in {city_state} by {business}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Water Mitigation in Dallas: Urgent Protection Matters",
+      "text": "<p>Dallas property owners face distinct seasonal and weather-related water damage risks that make mitigation a critical priority. The region experiences heavy spring and summer thunderstorms capable of overwhelming drainage systems, saturating foundations, and breaching walls and roofs. Winter freeze-thaw cycles create additional hazards: frozen pipes can rupture as temperatures fluctuate, and melting ice dams redirect water into attics and interior spaces. Even moderate rainfall, when coupled with aging infrastructure or poor grading, can lead to basement flooding or crawlspace saturation. Standing water in basements, crawlspaces, and wall cavities not only threatens structural integrity but also creates conditions for secondary damage if not addressed promptly.</p><p>Freeman Restoration connects Dallas property owners with independent local water mitigation providers who respond quickly to active water events and follow a thorough, methodical approach. These specialists focus on extracting standing water, identifying the source of intrusion, assessing moisture penetration into walls and flooring, and deploying targeted drying strategies to prevent long-term structural and material failure. They document conditions carefully, work alongside your insurance adjuster when applicable, and follow up to ensure moisture levels return to safe baselines. Whether the emergency stems from storm damage, pipe failure, or seasonal weather stress, having rapid access to experienced local providers means the difference between contained damage and compounded loss.</p>",
+      "_ai_generated_at": "2026-09-07T15:20:11.557862Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "66873267c9089c14"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "fc_heading": "Why Dallas Property Owners Trust Freeman Restoration",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Fast Local Response",
+          "text": "Water damage spreads quickly. Freeman connects you with independent restoration providers in the Dallas area ready to respond immediately, minimizing further damage and protecting your property when every hour counts."
+        },
+        {
+          "heading": "Trained Restoration Specialists",
+          "text": "The independent providers in Freeman's network bring trained expertise in water extraction, structural drying, and damage assessment. Professional handling reduces the risk of secondary issues like warping and mold growth."
+        },
+        {
+          "heading": "Thorough Water Mitigation",
+          "text": "Effective restoration goes beyond visible cleanup. Freeman-connected providers use systematic drying techniques, moisture detection, and comprehensive treatment to address hidden water that can compromise your home's integrity."
+        },
+        {
+          "heading": "Storm and Freeze Ready",
+          "text": "Texas weather brings intense spring storms, burst pipes from winter freeze-thaw cycles, and flash flooding. Freeman connects Dallas-area property owners with providers experienced in responding to the region's unpredictable severe weather and seasonal water damage threats."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:20:15.323595Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "0b5d5c4a5f023c05"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our {service} Process Works",
+      "steps_items": [
+        {
+          "heading": "Report Water Damage Immediately",
+          "text": "Contact Freeman Restoration as soon as water intrusion occurs—whether from burst pipes, roof leaks, or storm runoff common to North Texas weather. We'll connect you with a responsive local water mitigation provider who can begin assessment and water removal right away."
+        },
+        {
+          "heading": "On-Site Water Mitigation Assessment",
+          "text": "A local restoration provider inspects affected areas, identifies standing water and moisture sources, and documents water mitigation needs for your insurance claim. They'll assess drying and extraction requirements specific to your property's materials and the extent of water intrusion."
+        },
+        {
+          "heading": "Water Extraction and Drying",
+          "text": "The local provider removes standing water, deploys air movement and dehumidification equipment for water mitigation, and monitors moisture levels throughout your property. Follow-up visits ensure affected areas are properly dried and stabilized."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:20:18.613378Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "4effef161aca028e",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need {service} in {city}? Get fast, professional help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#2563eb",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_seasonal}",
+      "it_alt": "{chart_group_seasonal_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_it_photo_prechart": "sites/water-site/uploads/media/stone-mansion-home-exterior-lufkin-tx.webp",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "it_caption": "{chart_group_seasonal_caption}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Water Damage Restoration Across the Dallas Area",
+      "text": "<p>Water mitigation needs in the Dallas region vary significantly based on property age and location. Established neighborhoods with mature tree canopies and older construction face distinct challenges during heavy spring storms and occasional winter freeze-thaw cycles—root systems can compromise drainage, aging roofing and foundations may be more vulnerable to infiltration, and interior materials like plaster and wood absorb moisture differently than modern alternatives. Conversely, newer subdivisions often feature updated building standards and drainage systems, though rapid urban runoff from increased impervious surfaces can still overwhelm local grading during severe weather events.</p><p>The Dallas area's climate creates a compressed but intense weather window, particularly from spring through early summer, when thunderstorms can dump significant rainfall in short periods. Winter precipitation, though less frequent, poses freeze-thaw risks that weaken seals and create delayed water entry as ice melts. Whether a property is in an older, tree-lined neighborhood or a newer development, rapid response to standing water, dampness, and saturation is essential to prevent secondary damage. Freeman Restoration connects property owners with independent local water mitigation providers who understand these regional patterns and can assess your specific situation promptly.</p>",
+      "_ai_generated_at": "2026-09-07T15:20:22.737403Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "c7fa160da768cb23"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "skin": "light",
+      "steps_heading": "Seasonal Water Damage Risks Across Dallas Year-Round",
+      "steps_items": [
+        {
+          "heading": "Spring: Storm and Flood Season",
+          "text": "Spring brings severe thunderstorms and heavy rainfall to the Dallas region, increasing risks of roof leaks, foundation seepage, and localized flooding. Rapidly saturated soil can overwhelm drainage systems. Freeman Restoration connects property owners with responsive local water damage providers who assess storm impact and begin mitigation quickly to prevent secondary damage."
+        },
+        {
+          "heading": "Summer: Heat and Humidity Challenges",
+          "text": "Summer heat intensifies moisture-related problems in crawl spaces, attics, and basements, creating conditions favorable for secondary issues. Air conditioning failures or plumbing breaks can release significant water. Freeman Restoration helps you reach local restoration providers experienced in managing water emergencies during high-demand months when fast response matters most."
+        },
+        {
+          "heading": "Fall: Drainage and Debris Buildup",
+          "text": "Fall leaf debris clogs gutters and downspouts across the Dallas area, directing water toward foundations and causing pooling around structures. Cooler temperatures begin overnight, and wet conditions persist longer. Freeman Restoration connects you with local providers who respond to water intrusion calls and help address drainage-related moisture before winter arrives."
+        },
+        {
+          "heading": "Winter: Freeze-Thaw and Pipe Risk",
+          "text": "Winter freezes in Texas can crack pipes and create sudden interior flooding when thaw occurs. Ice damming and condensation problems also emerge. Freeman Restoration links property owners to local water damage specialists who handle emergency pipe breaks and water extraction during cold-weather events, minimizing damage during peak winter months."
+        }
+      ],
+      "_ai_generated_at": "2026-09-07T15:20:28.472505Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "5ec0b38ca05d8955"
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Other Water Restoration Services in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "",
+          "alt": "Water Damage Repair {city} {SS}",
+          "heading": "Water Damage Repair",
+          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+          "url": "/water-damage-repair-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Flood Damage Restoration {city} {SS}",
+          "heading": "Flood Damage Restoration",
+          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+          "url": "/flood-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Storm Damage Restoration {city} {SS}",
+          "heading": "Storm Damage Restoration",
+          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+          "url": "/storm-damage-restoration-{city_slug}"
+        },
+        {
+          "icon": "",
+          "alt": "Sewage Cleanup {city} {SS}",
+          "heading": "Sewage Cleanup",
+          "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
+          "url": "/sewage-cleanup-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "{primary_keyword} FAQs — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What exactly does water mitigation involve after a Dallas water damage event?",
+          "answer": "<p>Water mitigation focuses on stopping active water intrusion and removing standing water to prevent further damage and mold growth. The local providers Freeman connects you to assess affected areas, extract water using specialized equipment, dry materials and spaces, and document the damage for insurance purposes. The goal is to stabilize your property quickly and protect what can be saved.</p>"
+        },
+        {
+          "question": "How fast can Freeman Restoration connect me with a water mitigation provider in Dallas?",
+          "answer": "<p>Freeman connects Dallas property owners to independent local water mitigation providers on a referral basis. Response times depend on the provider's current workload and availability, especially during peak storm season. For active water emergencies, Freeman prioritizes urgent referrals to help you reach a responsive local provider as quickly as possible.</p>"
+        },
+        {
+          "question": "What factors affect the cost of water mitigation services in Dallas, TX?",
+          "answer": "<p>Water mitigation pricing typically depends on the volume of water to remove, the size and number of affected areas, how long water has sat, whether contents need drying, and accessibility of affected spaces. The local providers Freeman refers can assess your specific situation and discuss cost factors with you. Many property owners' insurance policies cover mitigation work—your provider can help document for your claim.</p>"
+        },
+        {
+          "question": "What should I expect during the water mitigation process at my Dallas home?",
+          "answer": "<p>Expect the provider to extract standing water, set up industrial drying equipment, monitor moisture levels, remove saturated materials if necessary, and ventilate affected areas. You may notice equipment running continuously and should limit access to work zones for safety. The provider will explain each step and timeline so you understand what's happening and how long the process typically takes.</p>"
+        },
+        {
+          "question": "How can I prevent water mitigation emergencies in Dallas and surrounding areas?",
+          "answer": "<p>Maintain gutters and downspouts to direct roof water away from foundations, check foundation seals and caulking, ensure proper grading around your home, inspect and maintain sump pumps if you have them, and consider a water detection system for early warnings. Regular plumbing inspections also catch leaks before they spread. After heavy rains or storms, check crawl spaces and attics for moisture early.</p>"
+        },
+        {
+          "question": "When is water damage and mitigation most common in the Dallas region?",
+          "answer": "<p>North Texas experiences peak water damage risk during spring storms and occasional summer severe weather that bring heavy rainfall and potential flooding. Winter freeze-thaw cycles can also damage pipes and create water intrusion. Older homes in areas like Oak Cliff and Lakewood may face additional risks from aging plumbing and roof systems. Year-round vigilance and quick action after any weather event help minimize damage.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_injected_count": 6,
+      "_ai_generated_at": "2026-09-07T15:20:36.934017Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "8f27669fbe693700"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call Now — {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#0d2340",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Water Mitigation in {city_state} | {business}",
+    "canonical_url": "https://freemanrestoration.com/water-mitigation-dallas-tx/",
+    "meta_description": "Water Mitigation in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+    "meta_keywords": "water mitigation Dallas TX, water extraction Dallas, water removal Dallas, emergency water extraction Dallas",
+    "og_title": "Water Mitigation in {city_state} | {business}",
+    "og_description": "24/7 water mitigation in {city_state}. Fast, professional local response.",
+    "og_image": "sites/water-site/uploads/media/water-mitigation-2_33abf8.webp",
+    "service_name": "Water Mitigation",
+    "service_type": "Water Mitigation",
+    "service_area": "{city_state} and surrounding areas",
+    "service_description": "Water mitigation for homes and businesses in {city_state}, including water extraction, water removal and emergency water extraction.",
+    "bc_label": "Water Mitigation",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Mitigation\",\n    \"name\": \"Water Mitigation in Dallas, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Dallas\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 water mitigation in Dallas, TX — water extraction, water removal and emergency water extraction.\"\n}",
+    "primary_keyword": "Water Mitigation",
+    "secondary_keywords": "water extraction, water removal, emergency water extraction, structural drying, dehumidification, water mitigation services"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "4796259ea505964e11b753d58991a01c"
+}

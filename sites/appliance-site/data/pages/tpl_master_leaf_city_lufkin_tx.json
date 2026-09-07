@@ -1,0 +1,428 @@
+{
+  "template_id": "tpl_master_leaf",
+  "city_id": "city_lufkin_tx",
+  "slug": "brand-appliance-repair-lufkin-tx",
+  "title": "{Brand} {Appliance} Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [],
+    "market_blurb": "Lufkin, Texas serves as a key economic hub for East Texas, historically anchored by the timber and forestry industry due to its location in the Pineywoods region. The city's economy has diversified over time to include manufacturing—particularly oilfield equipment through companies like Lufkin Industries—along with healthcare and retail trade serving surrounding rural counties. As the largest city in Angelina County, Lufkin functions as a regional commercial and medical center.",
+    "local_note": "Lufkin's water supply, drawn largely from groundwater sources, tends to be moderately hard, which can contribute to mineral buildup in water heaters, dishwashers, and washing machines over time. The region experiences frequent severe thunderstorms and occasional tropical storm remnants from the Gulf, leading to periodic power surges and outages that can stress appliance electronics and compressors.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth"
+    ],
+    "population": 33935,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Retail and regional trade",
+      "Education",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "Lufkin Industries",
+      "CHI St. Luke's Health Memorial",
+      "Woodland Heights Medical Center",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Georgia-Pacific",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 25,
+      "1960-1979": 30,
+      "1980-1999": 25,
+      "2000-2009": 10,
+      "2010 or later": 10
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      1,
+      6,
+      18,
+      27,
+      28,
+      16,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "humidity_monthly": [
+      75,
+      72,
+      68,
+      68,
+      72,
+      73,
+      73,
+      73,
+      75,
+      73,
+      75,
+      76
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Hudson",
+        "miles": 7
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Appliance Repair",
+      "hs_subtext": "<p>In Lufkin and surrounding areas, independent local technicians can typically reach homes quickly to diagnose and repair common appliance issues. When your refrigerator, dishwasher, or washing machine stops working, Wells Appliance Repair connects you with responsive repair providers in your area who service the brands you rely on daily. A fast local connection means less downtime for your household and more certainty that your appliance will be back in service soon.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "",
+      "hs_photo_alt": "Appliance Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_injected_count": 1,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:08.332445Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "ba93f1a918437c28",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": [
+        {
+          "label": "Factory-Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        },
+        {
+          "label": "Upfront Pricing",
+          "icon": ""
+        },
+        {
+          "label": "Warranty on Repairs",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair in Lufkin When You Need It Most",
+      "text": "<p>Homeowners in Lufkin depend on their appliances year-round, and when a refrigerator, washing machine, or oven stops working, the inconvenience can quickly become urgent. Because Lufkin and its surrounding areas span a manageable geographic footprint, independent local repair providers can typically reach your home without delay—a real advantage when food is spoiling or laundry is piling up. Most households in the region rely on common appliance brands, and experienced local technicians know how to diagnose and repair them efficiently.</p><p>Wells Appliance Repair connects Lufkin property owners with independent local providers who approach each job with care and attention to detail. Rather than guessing at the problem, these professionals diagnose the root cause, explain what needs to be fixed, and complete the work thoroughly. Follow-up and clarity matter too—you're not left wondering whether the repair will hold or what to expect next. While we also help connect customers with providers for other household needs, appliance repair remains our core focus, and we're committed to making that connection fast and straightforward so you can get your home back to normal.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:12.504941Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "359a77e33cc5a9a2",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Refrigerator Not Cooling",
+          "text": "A warm fridge often stems from a faulty compressor, clogged condenser coils, or failed thermostat. Our Lufkin technicians diagnose the root cause and restore proper cooling to keep your food fresh."
+        },
+        {
+          "heading": "Dishwasher Won't Drain",
+          "text": "Standing water after a cycle typically indicates a blocked drain hose, clogged filter, or pump failure. Wells Appliance Repair clears blockages and repairs drainage systems to get your dishwasher working again."
+        },
+        {
+          "heading": "Washing Machine Leaking",
+          "text": "Leaks often come from worn door seals, cracked hoses, or pump damage. Our experienced technicians identify the source and repair or replace the faulty component promptly."
+        },
+        {
+          "heading": "Oven Not Heating",
+          "text": "An oven that won't reach temperature may have a defective heating element, broken igniter, or thermostat issue. We diagnose and repair the problem so you can cook with confidence again."
+        },
+        {
+          "heading": "Dryer Won't Tumble",
+          "text": "When your dryer drum stops turning, the culprit is often a worn belt, broken idler pulley, or motor malfunction. Wells Appliance Repair replaces worn parts and restores your dryer's function."
+        },
+        {
+          "heading": "Microwave Not Heating",
+          "text": "A microwave that runs but doesn't heat typically has a faulty magnetron or high-voltage diode. Our technicians test and repair the heating components to restore full microwave performance."
+        }
+      ],
+      "fc_heading": "Common Appliance Repair Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:17.645459Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "01c1842d28959c84",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Choose Wells Appliance Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Local Technicians, Fast Response",
+          "text": "Wells connects you with independent repair providers right in your area. Because they're based locally—whether you're in Downtown Lufkin or nearby—response times are often quick, so your broken appliance doesn't sit idle for days."
+        },
+        {
+          "heading": "Trained Pros, Quality Work",
+          "text": "The independent technicians in our network bring hands-on experience across all major appliance types. They diagnose problems thoroughly and handle repairs with care, so you know the job is done right the first time."
+        },
+        {
+          "heading": "Guarantees You Can Trust",
+          "text": "Reputable local providers stand behind their work with service guarantees and warranty coverage on repairs. You get peace of mind knowing that if something goes wrong, you have recourse and support."
+        },
+        {
+          "heading": "Common Brands, Nearby Help",
+          "text": "East Texas homes rely on appliances from major manufacturers—Whirlpool, LG, GE, and others. Local providers know these brands inside and out and can usually reach you quickly to get them working again."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:21.178702Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "07933a58af350daa",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "heading": "Contact Us About Your Appliance",
+          "text": "Tell Wells Appliance Repair which appliance needs service and describe the problem. We'll connect you with a responsive local repair provider in the Lufkin area who can schedule a prompt assessment at your home."
+        },
+        {
+          "heading": "Technician Diagnoses the Issue",
+          "text": "An independent local technician visits to inspect your appliance, identify what's wrong, and explain repair options and costs. They'll have the knowledge to work on common brands found throughout East Texas homes."
+        },
+        {
+          "heading": "Repair Completion and Confirmation",
+          "text": "Once you approve, the technician performs the appliance repair and tests it to confirm it's working. You'll receive follow-up information so you know how to maintain your appliance going forward."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:23.818460Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "656d17c9c6872a03",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_water}",
+      "it_alt": "{chart_group_water_alt}",
+      "_it_photo_prechart": "",
+      "it_caption": "{chart_group_water_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across Lufkin and Surrounding Areas",
+      "text": "<p>Lufkin's mix of established neighborhoods and newer residential developments shapes how quickly local repair providers can respond to urgent appliance issues. In older, tree-lined areas like Downtown Lufkin, technicians often navigate mature landscaping and street parking, which can add a few minutes to arrival times—but the proximity of these central locations to service bases typically keeps response manageable. Newer subdivisions tend to offer easier access and more straightforward routing, helping providers reach you promptly when an oven or washing machine stops working.</p><p>The age and condition of homes throughout the area also influence which appliance brands are most common. Established neighborhoods often have a mix of older and mid-range models that have served families well over time, while newer construction typically features current-generation appliances from mainstream manufacturers. Local providers stay familiar with both, so whether your home is in a historic part of town or a newer development, connecting you with someone experienced in your specific situation is straightforward. Weather patterns in East Texas—summer heat and occasional storms—can stress cooling and electrical components alike, making reliable repair access important year-round.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:28.073945Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "8b20207926b3cca4",
+      "_ai_locked": true
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What does appliance repair in Lufkin typically involve?",
+          "answer": "<p>Appliance repair addresses broken or malfunctioning refrigerators, washers, dryers, ovens, dishwashers, and other household appliances. A technician diagnoses the problem, identifies faulty parts, and makes repairs or replaces components. Wells Appliance Repair connects you with local independent providers who handle the full diagnostic and repair process at your home.</p>"
+        },
+        {
+          "question": "How quickly can I get an appliance repair technician in Lufkin?",
+          "answer": "<p>Response times vary by technician availability and current demand. Wells Appliance Repair works to connect you with local providers who can often schedule repairs within a few days. Urgent issues—like a non-working refrigerator in summer—may be prioritized. Contact us with your situation to see what local technicians have available in the Lufkin area.</p>"
+        },
+        {
+          "question": "What factors affect the cost of appliance repair?",
+          "answer": "<p>Repair costs depend on the appliance type, the specific malfunction, replacement parts needed, and labor involved. A simple adjustment costs less than replacing a compressor or control board. Independent providers in the Lufkin area will assess your appliance and provide pricing before work begins, so you know the cost upfront.</p>"
+        },
+        {
+          "question": "How should I prepare my home before an appliance repair visit?",
+          "answer": "<p>Clear the area around the appliance and make sure the technician can access it safely. Have the appliance model and serial number ready if you have them. Describe what the appliance is doing wrong and when the problem started. These details help the repair provider diagnose faster and complete the work efficiently.</p>"
+        },
+        {
+          "question": "Can I prevent common appliance problems from happening again?",
+          "answer": "<p>Regular maintenance helps. Clean lint traps in dryers, avoid overloading washers, keep refrigerator coils clear, and don't block dishwasher spray arms. Follow manufacturer guidelines in your manual. After repair, ask the technician for tips specific to your appliance. Preventive care reduces the chance of repeat failures and extends appliance life.</p>"
+        },
+        {
+          "question": "Does the hot Texas summer affect appliance repair needs in Lufkin?",
+          "answer": "<p>Yes. Heat and humidity in East TX summers put extra strain on refrigerators, air conditioning components in some appliances, and outdoor condenser units. Appliance repair demand often peaks in summer. Winter is typically less urgent for most repair needs. Scheduling maintenance before peak season helps avoid delays if your appliance breaks down.</p>"
+        }
+      ],
+      "_ai_injected_count": 6,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:21:36.105693Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "b3f46265847dd88c",
+      "_ai_locked": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "services",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "{Brand} {Appliance} Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/brand-appliance-repair-lufkin-tx/",
+    "meta_description": "Factory-trained appliance repair in {city_state} from {business}. Upfront pricing, same-day service, warranty. Call {phone}.",
+    "meta_keywords": "appliance repair Lufkin TX",
+    "og_title": "{Brand} {Appliance} Repair in {city_state} | {business}",
+    "og_description": "Factory-trained appliance repair in {city_state} from {business}. Upfront pricing, same-day service, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "Appliance Repair",
+    "service_type": "Appliance Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Factory-trained appliance repair in {city_state} from {business}. Upfront pricing, same-day service, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "appliance repair {city} {SS}",
+    "secondary_keywords": "",
+    "brand": "",
+    "appliance_type": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in Lufkin, TX\",\"serviceType\":\"Appliance Repair\",\"description\":\"Factory-trained appliance repair in Lufkin, TX from Wells Appliance Repair. Upfront pricing, same-day service, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "a6e029321be71434de31113220c82956"
+}

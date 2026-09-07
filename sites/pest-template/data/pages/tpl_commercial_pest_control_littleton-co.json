@@ -1,413 +1,539 @@
 {
-    "template_id": "tpl_commercial_pest_control",
-    "city_id": "littleton-co",
-    "slug": "commercial-pest-control-littleton-co",
-    "title": "Commercial Pest Control in {city_state} | {business}",
-    "city_vars": {
-        "id": "littleton-co",
-        "city": "Littleton",
-        "state": "Colorado",
-        "SS": "CO",
-        "city_slug": "littleton-co",
-        "zip": "76092",
-        "address": "1179 East Dove Rd",
-        "lat": "",
-        "lng": "",
-        "tags": [],
-        "industries": [
-            "Aerospace & Defense",
-            "Healthcare",
-            "Government & Public Administration",
-            "Retail Trade",
-            "Education",
-            "Professional & Technical Services"
-        ],
-        "top_employers": [
-            "Lockheed Martin Space Systems",
-            "Littleton Public Schools",
-            "City of Littleton",
-            "Arapahoe County Government",
-            "Littleton Adventist Hospital (Centura Health)",
-            "Arapahoe Community College",
-            "Swedish Medical Center",
-            "Sky Ridge Medical Center"
-        ],
-        "salary_note": "",
-        "market_blurb": "Littleton, Colorado's economy is anchored by a major Lockheed Martin Space Systems campus, giving the city a strong aerospace and defense employment base. As the seat of Arapahoe County, Littleton also hosts significant government, healthcare, and education employment, complemented by a mix of retail and small professional service businesses along its historic downtown corridor.",
-        "neighborhoods": [
-            "Downtown Littleton",
-            "Historic Littleton",
-            "Columbine",
-            "Ken Caryl",
-            "Southbridge",
-            "Governor's Ranch",
-            "Bow Mar",
-            "Chatfield"
-        ],
-        "population": 45652,
-        "neighborhoods_auto": 0,
-        "local_note": "Littleton's mix of older homes near the South Platte River and Lee Gulch, combined with foothill-adjacent open space and mature tree canopy, creates conditions favorable to seasonal ant, spider, and rodent pressure for local pest control providers.",
-        "_researched": 1,
-        "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "Commercial Pest Control in {city_state}",
-            "hs_subtext": "<p>Colorado's Front Range climate creates year-round conditions where commercial properties in areas like Ken Caryl and Historic Littleton face persistent pest pressures, particularly as seasons shift and structures become entry points. Littleton Pest Pros addresses commercial infestations with targeted, professional management that protects your business operations and customer experience without disruption. A properly managed pest control program reduces liability, maintains health standards, and gives you the confidence that your commercial space remains protected.</p>",
-            "hs_btn_text": "{phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo_alt": "Commercial Pest Control in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control-katy-tx_bfd495.webp",
-            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
-            "hs_mobile_order": "text_first",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:10.023314Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "4ad7c1cb85952609",
-            "_ai_locked": true
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_items": [
-                {
-                    "label": "Free Estimates",
-                    "icon": ""
-                },
-                {
-                    "label": "Re-Treat Guarantee",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar",
-            "tb_show_icons": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control-katy_2dcbb3.webp",
-            "it_alt": "Commercial Pest Control in a {city_state} property",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Commercial Pest Control Solutions for Littleton Businesses",
-            "text": "<p>Littleton's location in the Colorado Front Range creates a dynamic seasonal environment where pests thrive during warmer months and seek shelter indoors when temperatures drop. From spring through fall, rodents, insects, and other wildlife become increasingly active around commercial properties, warehouses, and office buildings throughout the area. The region's proximity to natural spaces means businesses in Littleton face ongoing pressure from pest populations looking for food, water, and warmth—particularly as seasons shift. Without a proactive pest management strategy, infestations can develop quickly, compromising sanitation standards, damaging inventory, and creating liability concerns for any commercial operation.</p><p>Littleton Pest Pros approaches commercial pest control with the thoroughness that modern businesses demand. Rather than applying one-size-fits-all treatments, our team conducts detailed inspections of your facility to identify entry points, conducive conditions, and active pest activity. We develop customized pest control plans tailored to your specific business needs, whether you operate an office, warehouse, or retail space, then implement targeted solutions and establish regular follow-up schedules to maintain protection year-round. Our commitment to detail and ongoing communication means you can focus on running your business while we manage the pest concerns that could otherwise disrupt operations or damage your reputation in the community.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:14.541892Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "b42a94f9663bdcd8",
-            "_ai_locked": true
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "fc_heading": "Why Littleton Businesses Choose Littleton Pest Pros",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Trained Technicians, Fast Response",
-                    "text": "<p>Our trained pest control specialists arrive promptly to assess infestations and implement targeted treatment plans. Quick response minimizes disruption to your business operations and prevents pest populations from spreading further throughout your facility.</p>"
-                },
-                {
-                    "heading": "Thorough Treatment Plans",
-                    "text": "<p>We conduct detailed inspections to identify entry points, harborage areas, and conditions attracting pests. Comprehensive commercial exterminator service addresses root causes, not just visible activity, protecting your reputation and compliance standing.</p>"
-                },
-                {
-                    "heading": "Reliable Guarantees and Support",
-                    "text": "<p>Our office and warehouse pest control services include clear agreements and ongoing monitoring. We stand behind our work with follow-up visits and adjustments, giving you confidence in your pest management program.</p>"
-                },
-                {
-                    "heading": "Year-Round Colorado Seasonal Prep",
-                    "text": "<p>Littleton's cold winters drive pests indoors seeking warmth and shelter. We help businesses prepare before seasonal surges and maintain preventive measures throughout spring and fall transitions, keeping your facility protected across all seasons.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:18.318133Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "8af4a896db953a48",
-            "_ai_locked": true
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Commercial Pest Control Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call Our {city} Team",
-                    "text": "Tell us what you're dealing with. We work to get you scheduled quickly, often the same day for active problems."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Inspection & Assessment",
-                    "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Treatment & Ongoing Protection",
-                    "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Ready for commercial pest control in {city}? Our trained technicians can start fast.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_bg_custom": "#120575",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_structure}",
-            "it_alt": "{chart_group_structure_alt}",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Pest Control Solutions Tailored to Littleton's Properties",
-            "text": "<p>Littleton's diverse mix of older, established neighborhoods and newer developments creates distinct pest management challenges. Mature trees and aging construction in historic areas like Downtown Littleton and Ken Caryl can harbor rodents, carpenter ants, and other wood-damaging pests, while settled landscapes offer more harborage points for seasonal invaders. Newer subdivisions, by contrast, often feature tighter construction but may lack established integrated pest management practices. Colorado's semi-arid climate and dramatic seasonal shifts—warm summers attracting outdoor pests and cold winters driving them indoors—mean commercial properties across all Littleton neighborhoods face overlapping pest pressure throughout the year.</p><p>Whether you operate an office, warehouse, or retail establishment, understanding your property's vulnerability is key to effective pest control. Businesses in older structures may need more frequent monitoring for entry points and conducive conditions, while newer commercial facilities benefit from preventative strategies that address early warning signs. Our approach to business pest control accounts for these local variations, the region's pest cycles, and the specific layout of your property—ensuring your commercial space remains protected year-round without disrupting daily operations.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:22.195275Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "a4f67aa33e710b04",
-            "_ai_locked": true,
-            "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
-            "it_caption": "{chart_group_structure_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "seasonal_calendar",
-            "ai_mode": "standalone",
-            "ai_render_as": "steps",
-            "ai_inject_target": null,
-            "ai_inject_field": null,
-            "ai_inject_mode": null,
-            "ai_prompt_override": "",
-            "skin": "light",
-            "steps_heading": "Year-Round Pest Control for Littleton Homeowners",
-            "steps_items": [
-                {
-                    "heading": "Spring Awakening",
-                    "text": "<p>As snow melts and temperatures rise across the Front Range, dormant pests emerge seeking food and shelter. Homeowners in Historic Littleton and surrounding areas often encounter increased ant activity, spider infestations, and carpenter bee emergence. Littleton Pest Pros conducts thorough inspections to identify entry points and active nests before populations explode.</p>"
-                },
-                {
-                    "heading": "Summer Activity Peak",
-                    "text": "<p>Colorado's warm, dry summers create ideal conditions for mosquitoes, wasps, and outdoor-dwelling pests. Properties near Chatfield and similar areas experience heightened pest pressure. Littleton Pest Pros implements targeted treatments and prevention strategies to protect your family's outdoor enjoyment and reduce breeding grounds around your property.</p>"
-                },
-                {
-                    "heading": "Fall Preparation",
-                    "text": "<p>As autumn arrives, pests seek warmth indoors, and rodent activity increases in preparation for winter. Littleton-area homes face greater risk of mice and rat entry through foundation cracks and gaps. Our team seals vulnerabilities and establishes barriers to keep unwanted invaders out before cold months arrive.</p>"
-                },
-                {
-                    "heading": "Winter Persistence",
-                    "text": "<p>Colorado's freezing winters don't eliminate indoor pest problems—they intensify them as rodents and insects shelter inside walls and attics. Littleton Pest Pros monitors and treats active winter infestations, ensuring your home remains protected during months when pests cluster in hidden areas seeking heat.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:26.616794Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "e872970d85bc7e4d",
-            "_ai_locked": true
-        },
-        {
-            "type": "service_cards",
-            "anchor": "related_services",
-            "sc_badge": "",
-            "sc_heading": "Pests We Treat in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#f4f6f8",
-            "sc_items": [
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
-                    "alt": "Ant exterminator in {city}",
-                    "heading": "Ant Pest Control",
-                    "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
-                    "url": "/ant-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
-                    "alt": "Bed bug treatment in {city}",
-                    "heading": "Bed Bug Control",
-                    "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
-                    "url": "/bed-bug-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
-                    "alt": "Flea control in {city}",
-                    "heading": "Flea Pest Control",
-                    "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
-                    "url": "/flea-pest-control-{city_slug}"
-                },
-                {
-                    "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
-                    "alt": "Rodent control in {city}",
-                    "heading": "Rat Exterminator",
-                    "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
-                    "url": "/rat-exterminator-{city_slug}"
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Commercial Pest Control FAQ — {city_state}",
-            "fq_bg_color": "#ffffff",
-            "fq_item_bg": "#d9d9d9",
-            "fq_head_color": "header",
-            "fq_icon_bg": "accent",
-            "fq_head_color_custom": "#120575",
-            "fq_icon_bg_custom": "#fd783b",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What is the typical process when Littleton Pest Pros treats a business infestation?",
-                    "answer": "<p>We begin with a thorough inspection of your commercial space to identify the pest species, entry points, and conditions attracting them. Based on findings, we develop a customized treatment plan using targeted methods suited to your business type—whether warehouse, office, or retail. We then apply appropriate treatments, set monitoring devices, and schedule follow-up visits to ensure the problem is resolved. You'll receive a detailed report and recommendations to prevent recurrence.</p>"
-                },
-                {
-                    "question": "How many visits does commercial pest control typically require?",
-                    "answer": "<p>Most active infestations require an initial treatment followed by 2–4 follow-up visits spaced 1–3 weeks apart, depending on the pest type and severity. Once controlled, many businesses benefit from ongoing monthly or quarterly maintenance visits to prevent reinfestation. We'll recommend the right schedule during your inspection and adjust it based on progress and your facility's needs.</p>"
-                },
-                {
-                    "question": "Can you respond quickly if my business has a pest emergency?",
-                    "answer": "<p>Yes. Littleton Pest Pros prioritizes rapid response for active infestations that threaten your operations or reputation. We offer same-day or next-day appointments for urgent situations. Contact us as soon as you spot a problem so we can schedule the fastest available time and minimize disruption to your business.</p>"
-                },
-                {
-                    "question": "Is pest control treatment safe around employees and customers?",
-                    "answer": "<p>Safety is our priority. We use treatment methods and products appropriate for occupied commercial spaces and follow all label directions and industry standards. We'll brief you on any precautions—such as temporary area closure or ventilation needs—before we arrive. Let us know if employees, customers, or anyone on-site has sensitivities so we can adjust our approach accordingly.</p>"
-                },
-                {
-                    "question": "What factors affect the cost of treating a business pest problem?",
-                    "answer": "<p>Cost depends on your facility's size and layout, the type and extent of infestation, treatment method required, and how many visits the problem needs. Seasonal demand and local conditions also play a role. We offer free inspections and estimates so you know the full scope and investment before committing. Contact us for a no-obligation quote tailored to your situation.</p>"
-                },
-                {
-                    "question": "When do pests become most active around Littleton businesses?",
-                    "answer": "<p>In Colorado's Front Range region, spring and fall are peak seasons for pest activity. Warmer months bring increased insect populations, while fall triggers rodent entry as outdoor food sources decline and temperatures drop. Summer heat can spike certain pest problems indoors. Year-round monitoring is wise, but heightened vigilance in spring and fall helps catch infestations early before they grow.</p>"
-                },
-                {
-                    "question": "What are warning signs my business needs professional pest control?",
-                    "answer": "<p>Look for droppings, unusual odors, gnaw marks, or dead insects in work areas or storage. Customers or staff reporting sightings, unexplained damage to products or packaging, and grease marks along walls are also red flags. Even one pest sighting warrants an inspection—early intervention prevents a minor issue from becoming a costly infestation that damages your reputation.</p>"
-                },
-                {
-                    "question": "Why is professional pest control better than DIY products for businesses?",
-                    "answer": "<p>Commercial infestations often hide in walls, equipment, and inaccessible areas where store-bought products cannot reach. Professionals have access to stronger, targeted tools and the training to apply them safely in occupied spaces. We also identify root causes—entry points, sanitation gaps, conducive conditions—that DIY approaches miss. This expertise prevents the problem from returning and protects your business legally and operationally.</p>"
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:52:38.166029Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "491ab777b406a47c",
-            "_ai_locked": true,
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Get commercial pest control for your {city} home or business today.",
-            "cb_subtext": "",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_bg_custom": "#fd783b",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#120575",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_commercial_pest_control",
+  "city_id": "littleton-co",
+  "slug": "commercial-pest-control-littleton-co",
+  "title": "Commercial Pest Control in {city_state} | {business}",
+  "city_vars": {
+    "id": "littleton-co",
+    "city": "Littleton",
+    "state": "Colorado",
+    "SS": "CO",
+    "city_slug": "littleton-co",
+    "zip": "76092",
+    "address": "1179 East Dove Rd",
+    "lat": "",
+    "lng": "",
+    "tags": [],
+    "salary_note": "",
+    "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
+    "neighborhoods": [
+      "Downtown Littleton",
+      "Ken Caryl",
+      "Columbine",
+      "Southbridge",
+      "Governor's Ranch",
+      "Grant Ranch",
+      "Chatfield"
     ],
-    "seo": {
-        "seo_title": "Commercial Pest Control in {city_state} | {business}",
-        "canonical_url": "{website}/commercial-pest-control-littleton-co/",
-        "meta_description": "Commercial Pest Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
-        "meta_keywords": "commercial pest control Littleton CO, commercial exterminator, business pest control, office pest control",
-        "og_title": "Commercial Pest Control in {city_state} | {business}",
-        "og_description": "Professional commercial pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-        "og_image": "",
-        "service_name": "Commercial Pest Control",
-        "service_type": "Commercial Pest Control",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional commercial pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Pest Control in Littleton, CO\",\n            \"serviceType\": \"Commercial Pest Control\",\n            \"description\": \"Professional commercial pest control services in Littleton, CO for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Littleton\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}",
-        "primary_keyword": "commercial pest control",
-        "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control"
+    "population": 46333,
+    "neighborhoods_auto": 0,
+    "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
+    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
+    "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
+    "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:West_Main_St_2015-06_864.jpg",
+    "industries": [
+      "Aerospace & Defense",
+      "Healthcare",
+      "Technology",
+      "Government/Public Administration",
+      "Retail & Tourism",
+      "Education"
+    ],
+    "top_employers": [
+      "Lockheed Martin Space",
+      "Littleton Public Schools",
+      "Centura Health - Littleton Adventist Hospital",
+      "City of Littleton",
+      "Arapahoe County Government",
+      "Arapahoe Community College",
+      "Trulite Glass & Aluminum Solutions",
+      "Charter Communications",
+      "Sysco Denver",
+      "Cornerstone Building Brands"
+    ],
+    "_researched": 1,
+    "freeze_days_monthly": [
+      27,
+      23,
+      20,
+      8,
+      1,
+      0,
+      0,
+      0,
+      2,
+      10,
+      21,
+      27
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "heavy_rain_days_monthly": [
+      0.1,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.5,
+      0.5,
+      0.4,
+      0.3,
+      0.2,
+      0.1,
+      0.1
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "homes_by_decade": {
+      "Before 1960": 15,
+      "1960-1979": 35,
+      "1980-1999": 30,
+      "2000-2009": 12,
+      "2010 or later": 8
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-19T01:03:15+00:00",
-    "template_version": "4803f59df315343d2ae3ebabe2c19dff"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      8,
+      14,
+      12,
+      4,
+      0,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "humidity_monthly": [
+      60,
+      58,
+      55,
+      50,
+      52,
+      48,
+      45,
+      47,
+      48,
+      52,
+      58,
+      61
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "rainfall_monthly": [
+      0.5,
+      0.6,
+      1.5,
+      1.9,
+      2.4,
+      1.8,
+      2,
+      1.6,
+      1.2,
+      1,
+      0.8,
+      0.5
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Denver, CO station)",
+    "frost_free_days": 157,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Englewood",
+        "miles": 5
+      },
+      {
+        "name": "Sheridan",
+        "miles": 5
+      },
+      {
+        "name": "Centennial",
+        "miles": 8
+      },
+      {
+        "name": "Highlands Ranch",
+        "miles": 7
+      },
+      {
+        "name": "Lone Tree",
+        "miles": 10
+      },
+      {
+        "name": "Columbine Valley",
+        "miles": 3
+      },
+      {
+        "name": "Bow Mar",
+        "miles": 4
+      },
+      {
+        "name": "Denver",
+        "miles": 10
+      }
+    ],
+    "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "Commercial Pest Control in {city_state}",
+      "hs_subtext": "<p>Colorado's Front Range climate creates year-round conditions where commercial properties in areas like Ken Caryl and Historic Littleton face persistent pest pressures, particularly as seasons shift and structures become entry points. Littleton Pest Pros addresses commercial infestations with targeted, professional management that protects your business operations and customer experience without disruption. A properly managed pest control program reduces liability, maintains health standards, and gives you the confidence that your commercial space remains protected.</p>",
+      "hs_btn_text": "{phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo_alt": "Commercial Pest Control in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control-katy-tx_bfd495.webp",
+      "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-katy.webp",
+      "hs_mobile_order": "text_first",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:10.023314Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "4ad7c1cb85952609",
+      "_ai_locked": true
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_items": [
+        {
+          "label": "Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Free Estimates",
+          "icon": ""
+        },
+        {
+          "label": "Re-Treat Guarantee",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control-katy_2dcbb3.webp",
+      "it_alt": "Commercial Pest Control in a {city_state} property",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Commercial Pest Control Solutions for Littleton Businesses",
+      "text": "<p>Littleton's location in the Colorado Front Range creates a dynamic seasonal environment where pests thrive during warmer months and seek shelter indoors when temperatures drop. From spring through fall, rodents, insects, and other wildlife become increasingly active around commercial properties, warehouses, and office buildings throughout the area. The region's proximity to natural spaces means businesses in Littleton face ongoing pressure from pest populations looking for food, water, and warmth—particularly as seasons shift. Without a proactive pest management strategy, infestations can develop quickly, compromising sanitation standards, damaging inventory, and creating liability concerns for any commercial operation.</p><p>Littleton Pest Pros approaches commercial pest control with the thoroughness that modern businesses demand. Rather than applying one-size-fits-all treatments, our team conducts detailed inspections of your facility to identify entry points, conducive conditions, and active pest activity. We develop customized pest control plans tailored to your specific business needs, whether you operate an office, warehouse, or retail space, then implement targeted solutions and establish regular follow-up schedules to maintain protection year-round. Our commitment to detail and ongoing communication means you can focus on running your business while we manage the pest concerns that could otherwise disrupt operations or damage your reputation in the community.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:14.541892Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "b42a94f9663bdcd8",
+      "_ai_locked": true
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "fc_heading": "Why Littleton Businesses Choose Littleton Pest Pros",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Trained Technicians, Fast Response",
+          "text": "<p>Our trained pest control specialists arrive promptly to assess infestations and implement targeted treatment plans. Quick response minimizes disruption to your business operations and prevents pest populations from spreading further throughout your facility.</p>"
+        },
+        {
+          "heading": "Thorough Treatment Plans",
+          "text": "<p>We conduct detailed inspections to identify entry points, harborage areas, and conditions attracting pests. Comprehensive commercial exterminator service addresses root causes, not just visible activity, protecting your reputation and compliance standing.</p>"
+        },
+        {
+          "heading": "Reliable Guarantees and Support",
+          "text": "<p>Our office and warehouse pest control services include clear agreements and ongoing monitoring. We stand behind our work with follow-up visits and adjustments, giving you confidence in your pest management program.</p>"
+        },
+        {
+          "heading": "Year-Round Colorado Seasonal Prep",
+          "text": "<p>Littleton's cold winters drive pests indoors seeking warmth and shelter. We help businesses prepare before seasonal surges and maintain preventive measures throughout spring and fall transitions, keeping your facility protected across all seasons.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:18.318133Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "8af4a896db953a48",
+      "_ai_locked": true
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Commercial Pest Control Works",
+      "steps_items": [
+        {
+          "heading": "Report Your Commercial Pest Problem",
+          "text": "Contact Littleton Pest Pros to describe the pest activity at your commercial property. We connect you directly with local pest control providers in Littleton who respond quickly to schedule an initial commercial pest control inspection."
+        },
+        {
+          "heading": "On-Site Commercial Pest Assessment",
+          "text": "A local provider inspects your property to identify pest species, entry points, and conducive conditions—critical steps in Colorado's variable climate where rodents and insects behave differently across seasons. They develop a targeted commercial pest control strategy based on findings."
+        },
+        {
+          "heading": "Execute & Monitor Commercial Treatment",
+          "text": "The provider implements the commercial pest control plan and schedules follow-up visits to monitor activity and adjust methods as needed. You'll receive guidance on preventing reinfestation and maintaining a pest-free commercial environment."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:17:28.897675Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "195c6342c2b33967",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Ready for commercial pest control in {city}? Our trained technicians can start fast.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_bg_custom": "#120575",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_structure}",
+      "it_alt": "{chart_group_structure_alt}",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Pest Control Solutions Tailored to Littleton's Properties",
+      "text": "<p>Littleton's diverse mix of older, established neighborhoods and newer developments creates distinct pest management challenges. Mature trees and aging construction in historic areas like Downtown Littleton and Ken Caryl can harbor rodents, carpenter ants, and other wood-damaging pests, while settled landscapes offer more harborage points for seasonal invaders. Newer subdivisions, by contrast, often feature tighter construction but may lack established integrated pest management practices. Colorado's semi-arid climate and dramatic seasonal shifts—warm summers attracting outdoor pests and cold winters driving them indoors—mean commercial properties across all Littleton neighborhoods face overlapping pest pressure throughout the year.</p><p>Whether you operate an office, warehouse, or retail establishment, understanding your property's vulnerability is key to effective pest control. Businesses in older structures may need more frequent monitoring for entry points and conducive conditions, while newer commercial facilities benefit from preventative strategies that address early warning signs. Our approach to business pest control accounts for these local variations, the region's pest cycles, and the specific layout of your property—ensuring your commercial space remains protected year-round without disrupting daily operations.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:22.195275Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "a4f67aa33e710b04",
+      "_ai_locked": true,
+      "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
+      "it_caption": "{chart_group_structure_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "seasonal_calendar",
+      "ai_mode": "standalone",
+      "ai_render_as": "steps",
+      "ai_inject_target": null,
+      "ai_inject_field": null,
+      "ai_inject_mode": null,
+      "ai_prompt_override": "",
+      "skin": "light",
+      "steps_heading": "Year-Round Pest Control for Littleton Homeowners",
+      "steps_items": [
+        {
+          "heading": "Spring Awakening",
+          "text": "<p>As snow melts and temperatures rise across the Front Range, dormant pests emerge seeking food and shelter. Homeowners in Historic Littleton and surrounding areas often encounter increased ant activity, spider infestations, and carpenter bee emergence. Littleton Pest Pros conducts thorough inspections to identify entry points and active nests before populations explode.</p>"
+        },
+        {
+          "heading": "Summer Activity Peak",
+          "text": "<p>Colorado's warm, dry summers create ideal conditions for mosquitoes, wasps, and outdoor-dwelling pests. Properties near Chatfield and similar areas experience heightened pest pressure. Littleton Pest Pros implements targeted treatments and prevention strategies to protect your family's outdoor enjoyment and reduce breeding grounds around your property.</p>"
+        },
+        {
+          "heading": "Fall Preparation",
+          "text": "<p>As autumn arrives, pests seek warmth indoors, and rodent activity increases in preparation for winter. Littleton-area homes face greater risk of mice and rat entry through foundation cracks and gaps. Our team seals vulnerabilities and establishes barriers to keep unwanted invaders out before cold months arrive.</p>"
+        },
+        {
+          "heading": "Winter Persistence",
+          "text": "<p>Colorado's freezing winters don't eliminate indoor pest problems—they intensify them as rodents and insects shelter inside walls and attics. Littleton Pest Pros monitors and treats active winter infestations, ensuring your home remains protected during months when pests cluster in hidden areas seeking heat.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:26.616794Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "seasonal_calendar",
+      "_ai_input_hash": "e872970d85bc7e4d",
+      "_ai_locked": true
+    },
+    {
+      "type": "service_cards",
+      "anchor": "related_services",
+      "sc_badge": "",
+      "sc_heading": "Pests We Treat in {city_state}",
+      "sc_cols": 4,
+      "sc_badge_bg": "accent",
+      "sc_head_color": "header",
+      "sc_badge_bg_custom": "#fd783b",
+      "sc_head_color_custom": "#120575",
+      "sc_icon_bg": "#f4f6f8",
+      "sc_items": [
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-ant.svg",
+          "alt": "Ant exterminator in {city}",
+          "heading": "Ant Pest Control",
+          "text": "Trailing ants in the kitchen or bath? Our technicians find the colony and treat the entry points for lasting control.",
+          "url": "/ant-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-bedbug.svg",
+          "alt": "Bed bug treatment in {city}",
+          "heading": "Bed Bug Control",
+          "text": "Waking up with bites? We treat mattresses, cracks, and harborage areas to clear bed bugs completely.",
+          "url": "/bed-bug-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-flea.svg",
+          "alt": "Flea control in {city}",
+          "heading": "Flea Pest Control",
+          "text": "Fleas from pets or wildlife? We treat indoors and out to break the life cycle and stop the itching.",
+          "url": "/flea-pest-control-{city_slug}"
+        },
+        {
+          "icon": "sites/pest-template/uploads/media/icon-pest-rodent.svg",
+          "alt": "Rodent control in {city}",
+          "heading": "Rat Exterminator",
+          "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
+          "url": "/rat-exterminator-{city_slug}"
+        }
+      ]
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Commercial Pest Control FAQ — {city_state}",
+      "fq_bg_color": "#ffffff",
+      "fq_item_bg": "#d9d9d9",
+      "fq_head_color": "header",
+      "fq_icon_bg": "accent",
+      "fq_head_color_custom": "#120575",
+      "fq_icon_bg_custom": "#fd783b",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What is the typical process when Littleton Pest Pros treats a business infestation?",
+          "answer": "<p>We begin with a thorough inspection of your commercial space to identify the pest species, entry points, and conditions attracting them. Based on findings, we develop a customized treatment plan using targeted methods suited to your business type—whether warehouse, office, or retail. We then apply appropriate treatments, set monitoring devices, and schedule follow-up visits to ensure the problem is resolved. You'll receive a detailed report and recommendations to prevent recurrence.</p>"
+        },
+        {
+          "question": "How many visits does commercial pest control typically require?",
+          "answer": "<p>Most active infestations require an initial treatment followed by 2–4 follow-up visits spaced 1–3 weeks apart, depending on the pest type and severity. Once controlled, many businesses benefit from ongoing monthly or quarterly maintenance visits to prevent reinfestation. We'll recommend the right schedule during your inspection and adjust it based on progress and your facility's needs.</p>"
+        },
+        {
+          "question": "Can you respond quickly if my business has a pest emergency?",
+          "answer": "<p>Yes. Littleton Pest Pros prioritizes rapid response for active infestations that threaten your operations or reputation. We offer same-day or next-day appointments for urgent situations. Contact us as soon as you spot a problem so we can schedule the fastest available time and minimize disruption to your business.</p>"
+        },
+        {
+          "question": "Is pest control treatment safe around employees and customers?",
+          "answer": "<p>Safety is our priority. We use treatment methods and products appropriate for occupied commercial spaces and follow all label directions and industry standards. We'll brief you on any precautions—such as temporary area closure or ventilation needs—before we arrive. Let us know if employees, customers, or anyone on-site has sensitivities so we can adjust our approach accordingly.</p>"
+        },
+        {
+          "question": "What factors affect the cost of treating a business pest problem?",
+          "answer": "<p>Cost depends on your facility's size and layout, the type and extent of infestation, treatment method required, and how many visits the problem needs. Seasonal demand and local conditions also play a role. We offer free inspections and estimates so you know the full scope and investment before committing. Contact us for a no-obligation quote tailored to your situation.</p>"
+        },
+        {
+          "question": "When do pests become most active around Littleton businesses?",
+          "answer": "<p>In Colorado's Front Range region, spring and fall are peak seasons for pest activity. Warmer months bring increased insect populations, while fall triggers rodent entry as outdoor food sources decline and temperatures drop. Summer heat can spike certain pest problems indoors. Year-round monitoring is wise, but heightened vigilance in spring and fall helps catch infestations early before they grow.</p>"
+        },
+        {
+          "question": "What are warning signs my business needs professional pest control?",
+          "answer": "<p>Look for droppings, unusual odors, gnaw marks, or dead insects in work areas or storage. Customers or staff reporting sightings, unexplained damage to products or packaging, and grease marks along walls are also red flags. Even one pest sighting warrants an inspection—early intervention prevents a minor issue from becoming a costly infestation that damages your reputation.</p>"
+        },
+        {
+          "question": "Why is professional pest control better than DIY products for businesses?",
+          "answer": "<p>Commercial infestations often hide in walls, equipment, and inaccessible areas where store-bought products cannot reach. Professionals have access to stronger, targeted tools and the training to apply them safely in occupied spaces. We also identify root causes—entry points, sanitation gaps, conducive conditions—that DIY approaches miss. This expertise prevents the problem from returning and protects your business legally and operationally.</p>"
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-08-23T15:52:38.166029Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "491ab777b406a47c",
+      "_ai_locked": true,
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Get commercial pest control for your {city} home or business today.",
+      "cb_subtext": "",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_bg_custom": "#fd783b",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#120575",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "Commercial Pest Control in {city_state} | {business}",
+    "canonical_url": "https://p.q111.xyz/commercial-pest-control-littleton-co/",
+    "meta_description": "Commercial Pest Control in {city_state} — {business} offers fast, guaranteed treatments. Call {phone}.",
+    "meta_keywords": "commercial pest control Littleton CO, commercial exterminator, business pest control, office pest control",
+    "og_title": "Commercial Pest Control in {city_state} | {business}",
+    "og_description": "Professional commercial pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
+    "og_image": "",
+    "service_name": "Commercial Pest Control",
+    "service_type": "Commercial Pest Control",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional commercial pest control in {city_state} from {business}. Trained technicians, thorough treatment, and recurring options to keep pests away. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Commercial Pest Control in Littleton, CO\",\"serviceType\":\"Commercial Pest Control\",\"description\":\"Professional commercial pest control services in Littleton, CO for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
+    "primary_keyword": "commercial pest control",
+    "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "e4e17d0863667fa24e08944c6b9c9d5a"
 }

@@ -1,0 +1,185 @@
+{
+    "template_id": "rec_state_company",
+    "city_id": "city_lufkin_tx",
+    "slug": "texas-company",
+    "title": "Best Rehabs Accepting {company} in {state}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "phone": "(281) 888-8888",
+        "tel": "+12818888888",
+        "website": "https://elkpestpros.com",
+        "tags": [],
+        "industries": [
+            "Forestry and timber/wood products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Education",
+            "Retail and distribution",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "CHI St. Luke's Health Memorial",
+            "Lufkin Industries (Baker Hughes)",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "Georgia-Pacific",
+            "Temple-Inland",
+            "Brookshire Brothers",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart Supercenter",
+            "Diboll Healthcare System",
+            "Southern Plastics"
+        ],
+        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
+        "local_note": "Lufkin's humid subtropical climate, dense pine forests, and proximity to national forest land create year-round pressure from termites, mosquitoes, and wood-destroying insects that local pest control operators must address.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Kurth"
+        ],
+        "population": 34187,
+        "_researched": 1,
+        "city_spotlight": "Tucked deep in the Piney Woods, Lufkin, Texas stands as the commercial anchor of Deep East Texas, its identity shaped by generations of timber harvesting and wood products manufacturing. That forestry heritage still runs through the local economy, joined today by oil field equipment production, healthcare, and education as steady employment pillars. As the Angelina County seat, Lufkin also carries a solid base of retail, distribution, and government work, giving the city a balanced, self-sufficient economic footing rather than reliance on any single industry.\n\nHome to roughly 34,000 residents, Lufkin feels like a true regional hub rather than a small town passing through. Around Downtown Lufkin and out toward Crown Colony, the city blends working neighborhoods with a slower, tree-shaded pace that reflects its forested surroundings and long-standing community roots.",
+        "neighborhoods_source": "verified"
+    },
+    "content_blocks": [
+        {
+            "type": "custom_html",
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {state} that takes {company}? {business} helps {state} residents find treatment centers that accept {company} — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+        },
+        {
+            "type": "text",
+            "heading_level": "h2",
+            "heading_text": "Rehabs in {state} That Accept {company}",
+            "text": "<p>{business} helps you find drug and alcohol rehabs that accept {company}. We verify your benefits for free and connect you with covered treatment — confidential, no obligation.</p>",
+            "ai_fill": "intro",
+            "photo": "",
+            "photo_ratio": "landscape",
+            "photo_position": "center",
+            "photo_alt": ""
+        },
+        {
+            "type": "text",
+            "heading_level": "h2",
+            "heading_text": "Using Your {company} Benefits for Rehab in {state}",
+            "text": "<p>{business} helps {state} residents find rehabs that accept their insurance — detox, inpatient, and outpatient — across the state.</p>",
+            "ai_fill": "intro2",
+            "photo": "",
+            "photo_ratio": "landscape",
+            "photo_position": "center",
+            "photo_alt": ""
+        },
+        {
+            "type": "feature_columns",
+            "fc_heading": "What {company} Covers at {state} Rehabs",
+            "fc_subheading": "Coverage depends on your {company} plan. {state} centers that accept {company} commonly offer:",
+            "fc_heading_level": "h2",
+            "fc_num_cols": 4,
+            "fc_bg_color": "#ffffff",
+            "columns": [
+                {
+                    "icon": "",
+                    "image": "",
+                    "alt": "{company} detox rehab {state}",
+                    "heading": "Medical Detox",
+                    "text": "Supervised detox is commonly covered when medically necessary."
+                },
+                {
+                    "icon": "",
+                    "image": "",
+                    "alt": "{company} inpatient rehab {state}",
+                    "heading": "Inpatient & Residential",
+                    "text": "Many {company} plans in {state} include residential rehab."
+                },
+                {
+                    "icon": "",
+                    "image": "",
+                    "alt": "{company} outpatient rehab {state}",
+                    "heading": "Outpatient (PHP & IOP)",
+                    "text": "Day programs and intensive outpatient are frequently covered."
+                },
+                {
+                    "icon": "",
+                    "image": "",
+                    "alt": "{company} MAT {state}",
+                    "heading": "MAT & Dual Diagnosis",
+                    "text": "Medication-assisted treatment and mental-health care may be included."
+                }
+            ],
+            "ai_fill": "features"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{company} Rehabs in {state} — FAQs",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#f1f5f9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_items": [
+                {
+                    "question": "What rehabs in {state} accept {company}?",
+                    "answer": "Many {state} drug and alcohol rehabs accept {company}. The centers available depend on your plan — we can check for free."
+                },
+                {
+                    "question": "Does {company} cover rehab in {state}?",
+                    "answer": "In most cases {company} plans in {state} include coverage for addiction treatment. Exact benefits depend on your plan."
+                },
+                {
+                    "question": "How do I use my {company} benefits in {state}?",
+                    "answer": "Call for a free benefits check. We confirm your {company} coverage and connect you with {state} rehabs that accept it."
+                }
+            ],
+            "ai_fill": "faq"
+        },
+        {
+            "type": "text",
+            "heading_level": "h2",
+            "heading_text": "",
+            "text": "Disclaimer: {business} is a free informational and referral service, not a treatment provider or insurance company. {company} is a trademark of its owner, and {business} is not affiliated with or endorsed by {company}. Coverage and admission depend on your plan and the facility — always verify your own benefits. If you are in crisis, call or text 988.",
+            "photo": "",
+            "photo_ratio": "landscape",
+            "photo_position": "center",
+            "photo_alt": ""
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "closing_cta",
+            "cb_text": "Find the best rehabs accepting {company} in {state}.",
+            "cb_subtext": "",
+            "cb_btn_text": "Find a Covered Rehab",
+            "cb_btn_url": "#featured-rehabs",
+            "cb_bg": "header",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{state} Area Map",
+            "mi_map_embed": "<iframe title=\"Map of {state}\" src=\"https://maps.google.com/maps?q={state}&z=6&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_info_heading": "{company} Rehabs in {state}",
+            "mi_info_text": "<p>{business} helps {state} residents find drug and alcohol rehabs that accept {company} — detox, inpatient, and outpatient. We verify your {company} benefits for free and connect you with covered treatment across {state}. Get a free, confidential coverage check — no obligation.</p>",
+            "mi_info_photo": "",
+            "mi_info_alt": "",
+            "mi_info_credit": "",
+            "mi_head_color": "header",
+            "mi_map_side": "left",
+            "ai_fill": "local"
+        }
+    ],
+    "seo": {
+        "seo_title": "Best Rehabs Accepting {company} in {state} | {business}",
+        "meta_description": "Find the best drug & alcohol rehabs in {state} that accept {company}. {business} matches {state} residents with {company} treatment — free & confidential.",
+        "canonical_url": "https://recoverydawn.com/texas-company/",
+        "schema": "{\"@context\": \"https://schema.org\", \"@graph\": [{\"@type\": \"Organization\", \"@id\": \"https://elkpestpros.com/#organization\", \"name\": \"Recovery Dawn\", \"url\": \"https://elkpestpros.com\", \"description\": \"Recovery Dawn is a free service that helps people find drug and alcohol rehabs and treatment centers that accept their health insurance.\", \"logo\": \"https://elkpestpros.com/uploads/logo-recovery-dawn.png\", \"areaServed\": \"US\"}, {\"@type\": \"WebSite\", \"@id\": \"https://elkpestpros.com/#website\", \"url\": \"https://elkpestpros.com\", \"name\": \"Recovery Dawn\", \"publisher\": {\"@id\": \"https://elkpestpros.com/#organization\"}, \"inLanguage\": \"en-US\"}, {\"@type\": \"MedicalWebPage\", \"@id\": \"__CANONICAL__#webpage\", \"url\": \"__CANONICAL__\", \"name\": \"Best Rehabs Accepting {company} in Texas | Recovery Dawn\", \"description\": \"Find the best drug & alcohol rehabs in Texas that accept {company}. Recovery Dawn matches Texas residents with {company} treatment — free & confidential.\", \"isPartOf\": {\"@id\": \"https://elkpestpros.com/#website\"}, \"about\": {\"@id\": \"https://elkpestpros.com/#organization\"}, \"inLanguage\": \"en-US\", \"medicalAudience\": {\"@type\": \"MedicalAudience\", \"audienceType\": \"Patient\"}}]}"
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-09-07T15:17:15+00:00",
+    "template_version": "3be5aa0a818fabbd41e65ba4bd0610aa"
+}

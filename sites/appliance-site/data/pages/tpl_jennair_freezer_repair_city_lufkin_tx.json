@@ -1,368 +1,436 @@
 {
-    "template_id": "tpl_jennair_freezer_repair",
-    "city_id": "city_lufkin_tx",
-    "slug": "jennair-freezer-repair-lufkin-tx",
-    "title": "JennAir Freezer Repair in {city_state} | {business}",
-    "city_vars": {
-        "id": "city_lufkin_tx",
-        "city": "Lufkin",
-        "SS": "TX",
-        "state": "Texas",
-        "city_slug": "lufkin-tx",
-        "zip": "75901",
-        "phone": "936-867-4787",
-        "tel": "+19368674787",
-        "website": "https://a.q111.xyz",
-        "tags": [],
-        "industries": [
-            "Forestry and timber/wood products manufacturing",
-            "Healthcare",
-            "Oil and gas equipment manufacturing",
-            "Education",
-            "Retail and distribution",
-            "Government/public administration"
-        ],
-        "top_employers": [
-            "CHI St. Luke's Health Memorial",
-            "Lufkin Industries (Baker Hughes)",
-            "Angelina College",
-            "Lufkin Independent School District",
-            "Georgia-Pacific",
-            "Temple-Inland",
-            "Brookshire Brothers",
-            "City of Lufkin",
-            "Angelina County",
-            "Walmart Supercenter",
-            "Diboll Healthcare System",
-            "Southern Plastics"
-        ],
-        "market_blurb": "Lufkin, Texas serves as the economic hub of Deep East Texas, historically anchored by the timber and forestry industry given its location in the Piney Woods region. The city also has a strong manufacturing base tied to oil field equipment production through Lufkin Industries, alongside significant healthcare and education sectors. Retail, distribution, and government services further diversify Lufkin's economy as the Angelina County seat.",
-        "local_note": "Lufkin's humid climate and hard well water in outlying areas put extra wear on refrigerators, washing machines, and water heaters, keeping demand for both routine and emergency appliance repair steady year-round.",
-        "neighborhoods": [
-            "Downtown Lufkin",
-            "Crown Colony",
-            "Fuller Springs",
-            "Kurth",
-            "Copeland Springs",
-            "Brentwood"
-        ],
-        "population": 34187,
-        "_researched": 1,
-        "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub."
-    },
-    "content_blocks": [
-        {
-            "type": "hero_split",
-            "hs_heading": "JennAir Freezer Repair in {city_state}",
-            "hs_subtext": "<p>In Lufkin, a broken freezer quickly becomes a household crisis—spoiled food, wasted money, and the stress of finding reliable help. Wells Appliance Repair specializes in JennAir Freezer Repair, addressing the exact problem keeping your kitchen from functioning. Our factory-trained technicians arrive promptly to restore your unit, backed by warranty protection so you can trust the work.</p>",
-            "hs_btn_text": "Call {phone}",
-            "hs_btn_url": "tel:{tel}",
-            "hs_caption1": "",
-            "hs_caption2": "",
-            "hs_photo": "sites/appliance-site/uploads/media/appliance-freezer.webp",
-            "hs_photo_alt": "JennAir Freezer Repair in {city_state}",
-            "hs_image_side": "right",
-            "hs_bg_color": "#f3f6f7",
-            "ai_type_id": "hero_subtext",
-            "ai_inject_field": "hs_subtext",
-            "ai_inject_mode": "replace",
-            "_ai_locked": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T02:22:06.580307Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "hero_subtext",
-            "_ai_input_hash": "1df3902a252cc275"
-        },
-        {
-            "type": "trust_bar",
-            "tb_bg": "accent",
-            "tb_bg_custom": "#f3f6f7",
-            "tb_show_icons": true,
-            "tb_items": [
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                },
-                {
-                    "label": "Upfront Pricing",
-                    "icon": ""
-                },
-                {
-                    "label": "Warranty on Repairs",
-                    "icon": ""
-                }
-            ],
-            "anchor": "trust_bar"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "sites/appliance-site/uploads/media/tech-4.webp",
-            "it_alt": "Appliance repair technician in {city_state}",
-            "_ai_locked": true,
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Professional JennAir Freezer Repair in Lufkin, TX",
-            "text": "<p>A malfunctioning JennAir freezer can disrupt your household quickly, threatening food safety and creating unexpected expense. When your freezer stops freezing properly or fails to maintain temperature, the cost of spoiled groceries and the inconvenience of lost storage space add up fast. In Lufkin, homeowners depend on their freezers—whether chest freezer or upright models—to preserve meals and manage household budgets. A broken unit demands prompt, professional attention. Delaying repair risks not only food waste but also potential damage to the appliance itself, making timely service essential to protect your investment and restore peace of mind.</p><p>Wells Appliance Repair specializes in JennAir freezer repair with factory-trained technicians who understand the unique engineering of premium JennAir units. We arrive prepared to diagnose the root cause accurately, whether it's a refrigerant issue, compressor problem, or thermostat malfunction, and we source quality replacement parts to restore your freezer to full function. Our upfront pricing and warranty-backed workmanship mean you know exactly what to expect before we begin. We serve Lufkin and the surrounding area with the same commitment to excellence, handling JennAir freezer repair alongside other appliance brands and models. When your freezer needs repair, count on Wells to get it running again—professionally and promptly.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T01:55:35.773688Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "city_intro",
-            "_ai_input_hash": "cce012b4f9d5e357"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "common_problems",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "fc_num_cols": 3,
-            "_ai_locked": true,
-            "skin": "light",
-            "columns": [
-                {
-                    "heading": "Freezer Not Freezing",
-                    "text": "If your JennAir freezer isn't maintaining cold temperatures, the issue often stems from a faulty thermostat, sealed system leak, or compressor failure. Wells Appliance Repair technicians diagnose the root cause and restore proper freezing performance."
-                },
-                {
-                    "heading": "Ice Buildup Inside",
-                    "text": "Excessive frost and ice accumulation typically result from a defrost cycle malfunction or damaged door gasket allowing warm air infiltration. Our technicians inspect and repair the defrost system to eliminate buildup and restore efficiency."
-                },
-                {
-                    "heading": "Freezer Won't Start",
-                    "text": "When your freezer fails to power on, the problem may involve a faulty start relay, defective compressor, or electrical control issue. Wells Appliance Repair diagnoses electrical and mechanical components to get your unit running again."
-                },
-                {
-                    "heading": "Loud or Unusual Noises",
-                    "text": "Strange sounds—grinding, rattling, or humming—often indicate worn fan bearings, loose components, or compressor strain in your JennAir freezer. Our technicians identify the noise source and perform the necessary repair or component replacement."
-                },
-                {
-                    "heading": "Water Leaking Inside",
-                    "text": "Interior water pooling or leaking commonly results from a clogged or frozen defrost drain, cracked drain pan, or seal failure. Wells Appliance Repair clears drainage paths and repairs damaged components to prevent further water damage."
-                },
-                {
-                    "heading": "Door Seal Not Closing Properly",
-                    "text": "A loose or deteriorated door gasket compromises your upright freezer's ability to hold cold air, causing temperature fluctuations and energy waste. Our technicians replace worn seals to restore an airtight closure and peak performance."
-                }
-            ],
-            "fc_heading": "Common JennAir Freezer Problems We Fix",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T01:55:40.576715Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "common_problems",
-            "_ai_input_hash": "8675374c2f815012"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "feature_columns_local",
-            "ai_mode": "standalone",
-            "ai_render_as": "feature_columns",
-            "_ai_locked": true,
-            "skin": "light",
-            "fc_heading": "Why Lufkin Homeowners Trust Us With JennAir Freezer Repair",
-            "fc_num_cols": 4,
-            "columns": [
-                {
-                    "heading": "Factory-Trained JennAir Expertise",
-                    "text": "Our technicians are trained on JennAir freezer systems and understand their unique engineering. We accurately diagnose why your freezer isn't freezing and repair it right the first time."
-                },
-                {
-                    "heading": "Genuine JennAir Parts In Stock",
-                    "text": "We keep authentic JennAir freezer components on hand for fast repairs. Genuine parts ensure your unit performs reliably and maintains its warranty protection."
-                },
-                {
-                    "heading": "Upfront Pricing, Warranty Protection",
-                    "text": "We provide free estimates with transparent pricing before any work begins. All JennAir freezer repairs are backed by our warranty, so you have peace of mind."
-                },
-                {
-                    "heading": "Fast Response Across Lufkin",
-                    "text": "We serve the entire Lufkin area with same-day and next-day appointments for freezer repair. Quick, local response means your food stays safe and your home stays comfortable."
-                }
-            ],
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T01:55:43.326396Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "729841d4d10325dd"
-        },
-        {
-            "type": "steps",
-            "steps_heading": "How Our Repair Service Works",
-            "steps_items": [
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Call or Book Online",
-                    "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Diagnose & Quote",
-                    "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
-                },
-                {
-                    "image": "",
-                    "alt": "",
-                    "heading": "Repair & Warranty",
-                    "text": "We complete the repair with quality parts and back the work with a warranty."
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
-            "type": "cta_banner",
-            "anchor": "mid_cta",
-            "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "header",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "local_relevance",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "right",
-            "it_photo": "{chart_group_cooling}",
-            "it_alt": "{chart_group_cooling_alt}",
-            "_ai_locked": true,
-            "skin": "light",
-            "heading_level": "h2",
-            "heading_text": "Appliance Repair Across the Lufkin Area",
-            "text": "<p>Lufkin's neighborhoods blend established, mature communities with newer residential developments, creating a diverse landscape of appliance ages and brands throughout the region. Whether you're in a long-standing neighborhood like Crown Colony or a newer area such as Copeland Springs, homes here rely on refrigerators, freezers, washers, dryers, and ranges of varying makes and models—some decades old, others recently installed. When your freezer stops freezing or any major appliance breaks down, you need a repair company that understands this variety and responds quickly with the expertise to handle it all.</p><p>Wells Appliance Repair serves homes across the greater Lufkin area with factory-trained technicians who carry the right parts and diagnostic knowledge for nearly any appliance you own. We understand that a broken freezer or malfunctioning range disrupts your household, which is why we prioritize fast service and clear communication from your initial call through completion. Our local presence means we can reach you promptly, and our training ensures we can address common and complex repairs alike, whether you need freezer repair near your home or service for another essential appliance.</p>",
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T01:55:47.052991Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "local_relevance",
-            "_ai_input_hash": "4f3718d8f7457a2e",
-            "_it_photo_prechart": "sites/appliance-site/uploads/media/home-4.webp",
-            "it_caption": "{chart_group_cooling_caption}",
-            "it_ratio": "auto",
-            "it_layout": "stacked"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "Appliance Repair FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [
-                {
-                    "question": "What are the most common JennAir freezer problems that need professional repair?",
-                    "answer": "<p>Common issues include freezer not reaching or maintaining the correct temperature, frost buildup, ice maker failure, compressor noise, and door seal problems. You might notice frost accumulation, food thawing unexpectedly, or the unit running constantly. These symptoms often point to refrigerant leaks, thermostat failure, or compressor trouble—problems requiring professional diagnosis and repair rather than DIY fixes.</p>"
-                },
-                {
-                    "question": "How quickly can Wells Appliance Repair come out for JennAir freezer service in Lufkin?",
-                    "answer": "<p>We understand a broken freezer is urgent. Contact us to discuss your situation and we'll work to schedule service promptly. Same-day or next-day availability depends on current demand and the nature of your repair. Call ahead so we can prioritize your JennAir freezer and get you back to normal operation as fast as possible.</p>"
-                },
-                {
-                    "question": "Should I repair my JennAir freezer or buy a new one?",
-                    "answer": "<p>That depends on the freezer's age, the specific repair needed, and its current condition. Our technician can diagnose the problem and discuss whether repair or replacement makes sense for your situation. Many JennAir freezer repairs are cost-effective and extend the appliance's useful life, but we'll give you honest guidance to help you decide.</p>"
-                },
-                {
-                    "question": "What should I do to prepare before the JennAir freezer repair technician arrives?",
-                    "answer": "<p>Clear the area around your freezer so the technician can access it easily. If possible, note when the problem started and what symptoms you've noticed—this helps with diagnosis. Remove any items blocking vents or the back of the unit. If your freezer is in a garage or difficult-to-reach space, let us know when you schedule so we're prepared with the right tools.</p>"
-                },
-                {
-                    "question": "Are Wells Appliance Repair technicians trained to work on JennAir freezers?",
-                    "answer": "<p>Yes. Our technicians are trained to diagnose and repair JennAir freezers and understand the brand's specific systems and components. We stay current with JennAir designs so we can service your appliance correctly and reliably, whether it's an upright or chest model.</p>"
-                },
-                {
-                    "question": "Does the JennAir freezer repair come with a warranty or guarantee?",
-                    "answer": "<p>We stand behind our work. Repairs and parts are backed by our warranty, giving you confidence in the service. Warranty terms vary based on the repair and parts used, so we'll explain the coverage when we complete your JennAir freezer repair.</p>"
-                },
-                {
-                    "question": "What does a JennAir freezer repair visit involve and what should I expect?",
-                    "answer": "<p>The technician will inspect your freezer, run diagnostics to identify the problem, and explain what needs to be repaired. Once you approve, they'll perform the repair on-site when possible, test the unit thoroughly, and walk you through the fix. The visit length depends on the issue—some repairs take an hour, others longer if parts must be ordered.</p>"
-                },
-                {
-                    "question": "Do you offer free estimates or diagnostics for JennAir freezer repair?",
-                    "answer": "<p>We offer diagnostic service to identify what's wrong with your JennAir freezer. Once we know the problem, we'll discuss repair options and costs so you can make an informed decision before committing to the work. This upfront approach helps you understand what the repair will involve.</p>"
-                }
-            ],
-            "_ai_locked": true,
-            "_ai_generated": true,
-            "_ai_generated_at": "2026-07-10T01:29:26.260556Z",
-            "_ai_model": "claude-haiku-4-5-20251001",
-            "_ai_type": "faq_local",
-            "_ai_input_hash": "9f1de23becf503bc",
-            "skin": "dark",
-            "fq_open": true
-        },
-        {
-            "type": "testimonials",
-            "anchor": "reviews",
-            "tm_label": "Reviews",
-            "tm_main_heading": "What {city} Homeowners Say About {business}",
-            "tm_subtext": "",
-            "tm_cols": 3,
-            "tm_items": [],
-            "skin": "light"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "services",
-            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
-        },
-        {
-            "type": "cta_banner",
-            "cb_text": "Book your {city} appliance repair today.",
-            "cb_btn_text": "Call {phone}",
-            "cb_btn_url": "tel:{tel}",
-            "cb_bg": "accent",
-            "cb_text_color": "#ffffff",
-            "cb_padding": "compact",
-            "skin": "accent"
-        },
-        {
-            "type": "custom_html",
-            "anchor": "pest_services",
-            "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
-        },
-        {
-            "type": "map_info",
-            "mi_map_heading": "Areas We Serve in {city}, {state}",
-            "mi_info_heading": "{city_state} Information",
-            "mi_info_text": "{city_spotlight}",
-            "mi_info_alt": "{city_image_alt}",
-            "mi_info_credit": "{city_image_credit}",
-            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
-            "mi_head_color": "header",
-            "mi_head_color_custom": "#65a30d",
-            "mi_info_photo": "{city_image}",
-            "mi_map_side": "top",
-            "skin": "light",
-            "mi_map_caption": "{city_map_caption}"
-        }
+  "template_id": "tpl_jennair_freezer_repair",
+  "city_id": "city_lufkin_tx",
+  "slug": "jennair-freezer-repair-lufkin-tx",
+  "title": "JennAir Freezer Repair in {city_state} | {business}",
+  "city_vars": {
+    "id": "city_lufkin_tx",
+    "city": "Lufkin",
+    "SS": "TX",
+    "state": "Texas",
+    "city_slug": "lufkin-tx",
+    "zip": "75901",
+    "phone": "936-867-4787",
+    "tel": "+19368674787",
+    "tags": [],
+    "market_blurb": "Lufkin, Texas serves as a key economic hub for East Texas, historically anchored by the timber and forestry industry due to its location in the Pineywoods region. The city's economy has diversified over time to include manufacturing—particularly oilfield equipment through companies like Lufkin Industries—along with healthcare and retail trade serving surrounding rural counties. As the largest city in Angelina County, Lufkin functions as a regional commercial and medical center.",
+    "local_note": "Lufkin's water supply, drawn largely from groundwater sources, tends to be moderately hard, which can contribute to mineral buildup in water heaters, dishwashers, and washing machines over time. The region experiences frequent severe thunderstorms and occasional tropical storm remnants from the Gulf, leading to periodic power surges and outages that can stress appliance electronics and compressors.",
+    "neighborhoods": [
+      "Downtown Lufkin",
+      "Kurth"
     ],
-    "seo": {
-        "seo_title": "JennAir Freezer Repair in {city_state} | {business}",
-        "canonical_url": "{website}/jennair-freezer-repair-lufkin-tx/",
-        "meta_description": "Professional jennair freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "meta_keywords": "jennair freezer repair Lufkin TX, freezer not freezing, upright freezer repair",
-        "og_title": "JennAir Freezer Repair in {city_state} | {business}",
-        "og_description": "Professional jennair freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "og_image": "",
-        "service_name": "JennAir Freezer Repair",
-        "service_type": "JennAir Freezer Repair",
-        "service_area": "{city}, {SS}",
-        "service_description": "Professional jennair freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
-        "bc_label": "",
-        "bc_mid_label": "",
-        "bc_mid_url": "",
-        "primary_keyword": "jennair freezer repair",
-        "secondary_keywords": "freezer not freezing, chest freezer repair {city}, upright freezer repair, freezer repair near me",
-        "brand": "JennAir",
-        "appliance_type": "Freezer",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Freezer Repair in Lufkin, TX\",\n            \"serviceType\": \"JennAir Freezer Repair\",\n            \"description\": \"Professional jennair freezer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\",\n                \"address\": {\n                    \"@type\": \"PostalAddress\",\n                    \"addressLocality\": \"{city}\",\n                    \"addressRegion\": \"{SS}\",\n                    \"postalCode\": \"{zip}\",\n                    \"addressCountry\": \"US\"\n                }\n            }\n        }\n    ]\n}"
+    "population": 33935,
+    "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+    "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
+    "city_image_alt": "Downtown Lufkin, TX",
+    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+    "industries": [
+      "Timber and forestry products",
+      "Healthcare",
+      "Manufacturing (oilfield equipment)",
+      "Retail and regional trade",
+      "Education",
+      "Government/public administration"
+    ],
+    "top_employers": [
+      "Lufkin Industries",
+      "CHI St. Luke's Health Memorial",
+      "Woodland Heights Medical Center",
+      "Angelina College",
+      "Lufkin Independent School District",
+      "City of Lufkin",
+      "Angelina County",
+      "Walmart",
+      "Georgia-Pacific",
+      "Brookshire Brothers"
+    ],
+    "_researched": 1,
+    "homes_by_decade": {
+      "Before 1960": 25,
+      "1960-1979": 30,
+      "1980-1999": 25,
+      "2000-2009": 10,
+      "2010 or later": 10
     },
-    "locked_blocks": [],
-    "generated_at": "2026-07-10T00:03:32+00:00",
-    "template_version": "592f2c390ada2834e862df3352632431"
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      1,
+      6,
+      18,
+      27,
+      28,
+      16,
+      3,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "humidity_monthly": [
+      75,
+      72,
+      68,
+      68,
+      72,
+      73,
+      73,
+      73,
+      75,
+      73,
+      75,
+      76
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (estimated from regional station data)",
+    "nearby_towns": [
+      {
+        "name": "Diboll",
+        "miles": 10
+      },
+      {
+        "name": "Hudson",
+        "miles": 7
+      },
+      {
+        "name": "Huntington",
+        "miles": 12
+      },
+      {
+        "name": "Nacogdoches",
+        "miles": 20
+      },
+      {
+        "name": "Zavalla",
+        "miles": 20
+      },
+      {
+        "name": "Pollok",
+        "miles": 15
+      }
+    ],
+    "_research_declined": {
+      "water_hardness_gpg": 1
+    },
+    "water_hardness_gpg": 4.5,
+    "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+    "neighborhoods_source": "verified"
+  },
+  "content_blocks": [
+    {
+      "type": "hero_split",
+      "hs_heading": "JennAir Freezer Repair in {city_state}",
+      "hs_subtext": "<p>In Lufkin, a broken freezer quickly becomes a household crisis—spoiled food, wasted money, and the stress of finding reliable help. Wells Appliance Repair specializes in JennAir Freezer Repair, addressing the exact problem keeping your kitchen from functioning. Our factory-trained technicians arrive promptly to restore your unit, backed by warranty protection so you can trust the work.</p>",
+      "hs_btn_text": "Call {phone}",
+      "hs_btn_url": "tel:{tel}",
+      "hs_caption1": "",
+      "hs_caption2": "",
+      "hs_photo": "sites/appliance-site/uploads/media/appliance-freezer.webp",
+      "hs_photo_alt": "JennAir Freezer Repair in {city_state}",
+      "hs_image_side": "right",
+      "hs_bg_color": "#f3f6f7",
+      "ai_type_id": "hero_subtext",
+      "ai_inject_field": "hs_subtext",
+      "ai_inject_mode": "replace",
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T02:22:06.580307Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "hero_subtext",
+      "_ai_input_hash": "1df3902a252cc275"
+    },
+    {
+      "type": "trust_bar",
+      "tb_bg": "subtle",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": false,
+      "tb_items": [
+        {
+          "label": "Factory-Trained Technicians",
+          "icon": ""
+        },
+        {
+          "label": "Same-Day Service",
+          "icon": ""
+        },
+        {
+          "label": "Upfront Pricing",
+          "icon": ""
+        },
+        {
+          "label": "Warranty on Repairs",
+          "icon": ""
+        }
+      ],
+      "anchor": "trust_bar"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "city_intro",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "left",
+      "it_photo": "sites/appliance-site/uploads/media/tech-4.webp",
+      "it_alt": "Appliance repair technician in {city_state}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Professional JennAir Freezer Repair in Lufkin, TX",
+      "text": "<p>A malfunctioning JennAir freezer can disrupt your household quickly, threatening food safety and creating unexpected expense. When your freezer stops freezing properly or fails to maintain temperature, the cost of spoiled groceries and the inconvenience of lost storage space add up fast. In Lufkin, homeowners depend on their freezers—whether chest freezer or upright models—to preserve meals and manage household budgets. A broken unit demands prompt, professional attention. Delaying repair risks not only food waste but also potential damage to the appliance itself, making timely service essential to protect your investment and restore peace of mind.</p><p>Wells Appliance Repair specializes in JennAir freezer repair with factory-trained technicians who understand the unique engineering of premium JennAir units. We arrive prepared to diagnose the root cause accurately, whether it's a refrigerant issue, compressor problem, or thermostat malfunction, and we source quality replacement parts to restore your freezer to full function. Our upfront pricing and warranty-backed workmanship mean you know exactly what to expect before we begin. We serve Lufkin and the surrounding area with the same commitment to excellence, handling JennAir freezer repair alongside other appliance brands and models. When your freezer needs repair, count on Wells to get it running again—professionally and promptly.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:35.773688Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "city_intro",
+      "_ai_input_hash": "cce012b4f9d5e357"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "common_problems",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "fc_num_cols": 3,
+      "_ai_locked": true,
+      "skin": "light",
+      "columns": [
+        {
+          "heading": "Freezer Not Freezing",
+          "text": "If your JennAir freezer isn't maintaining cold temperatures, the issue often stems from a faulty thermostat, sealed system leak, or compressor failure. Wells Appliance Repair technicians diagnose the root cause and restore proper freezing performance."
+        },
+        {
+          "heading": "Ice Buildup Inside",
+          "text": "Excessive frost and ice accumulation typically result from a defrost cycle malfunction or damaged door gasket allowing warm air infiltration. Our technicians inspect and repair the defrost system to eliminate buildup and restore efficiency."
+        },
+        {
+          "heading": "Freezer Won't Start",
+          "text": "When your freezer fails to power on, the problem may involve a faulty start relay, defective compressor, or electrical control issue. Wells Appliance Repair diagnoses electrical and mechanical components to get your unit running again."
+        },
+        {
+          "heading": "Loud or Unusual Noises",
+          "text": "Strange sounds—grinding, rattling, or humming—often indicate worn fan bearings, loose components, or compressor strain in your JennAir freezer. Our technicians identify the noise source and perform the necessary repair or component replacement."
+        },
+        {
+          "heading": "Water Leaking Inside",
+          "text": "Interior water pooling or leaking commonly results from a clogged or frozen defrost drain, cracked drain pan, or seal failure. Wells Appliance Repair clears drainage paths and repairs damaged components to prevent further water damage."
+        },
+        {
+          "heading": "Door Seal Not Closing Properly",
+          "text": "A loose or deteriorated door gasket compromises your upright freezer's ability to hold cold air, causing temperature fluctuations and energy waste. Our technicians replace worn seals to restore an airtight closure and peak performance."
+        }
+      ],
+      "fc_heading": "Common JennAir Freezer Problems We Fix",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:40.576715Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "common_problems",
+      "_ai_input_hash": "8675374c2f815012"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "feature_columns_local",
+      "ai_mode": "standalone",
+      "ai_render_as": "feature_columns",
+      "_ai_locked": true,
+      "skin": "light",
+      "fc_heading": "Why Lufkin Homeowners Trust Us With JennAir Freezer Repair",
+      "fc_num_cols": 4,
+      "columns": [
+        {
+          "heading": "Factory-Trained JennAir Expertise",
+          "text": "Our technicians are trained on JennAir freezer systems and understand their unique engineering. We accurately diagnose why your freezer isn't freezing and repair it right the first time."
+        },
+        {
+          "heading": "Genuine JennAir Parts In Stock",
+          "text": "We keep authentic JennAir freezer components on hand for fast repairs. Genuine parts ensure your unit performs reliably and maintains its warranty protection."
+        },
+        {
+          "heading": "Upfront Pricing, Warranty Protection",
+          "text": "We provide free estimates with transparent pricing before any work begins. All JennAir freezer repairs are backed by our warranty, so you have peace of mind."
+        },
+        {
+          "heading": "Fast Response Across Lufkin",
+          "text": "We serve the entire Lufkin area with same-day and next-day appointments for freezer repair. Quick, local response means your food stays safe and your home stays comfortable."
+        }
+      ],
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:43.326396Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "feature_columns_local",
+      "_ai_input_hash": "729841d4d10325dd"
+    },
+    {
+      "type": "steps",
+      "steps_heading": "How Our Repair Service Works",
+      "steps_items": [
+        {
+          "heading": "Schedule Your JennAir Freezer Repair Visit",
+          "text": "Contact Wells Appliance Repair to describe your JennAir freezer issue—whether it's not freezing, running too cold, or making unusual sounds. We'll connect you with a local independent repair provider in the Lufkin area who can often reach your home quickly."
+        },
+        {
+          "heading": "Local Technician Diagnoses the Problem",
+          "text": "A JennAir freezer specialist from our network will inspect your unit, test its cooling system and components, and identify what's causing the malfunction. They'll explain the issue and discuss repair options specific to your JennAir model before proceeding."
+        },
+        {
+          "heading": "Complete the JennAir Freezer Repair",
+          "text": "Once you approve the work, the technician will perform the repair using appropriate parts and methods for your JennAir freezer. After the repair is finished, they'll verify the unit is working properly and answer any questions you have about maintenance or operation."
+        }
+      ],
+      "ai_type_id": "steps_local",
+      "_ai_injected_count": 3,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-09-07T15:20:58.909327Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "steps_local",
+      "_ai_input_hash": "1e2ce3a6234096a6",
+      "_ai_locked": true
+    },
+    {
+      "type": "cta_banner",
+      "anchor": "mid_cta",
+      "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "header",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "ai_block",
+      "ai_type_id": "local_relevance",
+      "ai_mode": "standalone",
+      "ai_render_as": "image_text",
+      "it_image_side": "right",
+      "it_photo": "{chart_group_cooling}",
+      "it_alt": "{chart_group_cooling_alt}",
+      "_ai_locked": true,
+      "skin": "light",
+      "heading_level": "h2",
+      "heading_text": "Appliance Repair Across the Lufkin Area",
+      "text": "<p>Lufkin's neighborhoods blend established, mature communities with newer residential developments, creating a diverse landscape of appliance ages and brands throughout the region. Whether you're in a long-standing neighborhood like Crown Colony or a newer area such as Copeland Springs, homes here rely on refrigerators, freezers, washers, dryers, and ranges of varying makes and models—some decades old, others recently installed. When your freezer stops freezing or any major appliance breaks down, you need a repair company that understands this variety and responds quickly with the expertise to handle it all.</p><p>Wells Appliance Repair serves homes across the greater Lufkin area with factory-trained technicians who carry the right parts and diagnostic knowledge for nearly any appliance you own. We understand that a broken freezer or malfunctioning range disrupts your household, which is why we prioritize fast service and clear communication from your initial call through completion. Our local presence means we can reach you promptly, and our training ensures we can address common and complex repairs alike, whether you need freezer repair near your home or service for another essential appliance.</p>",
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:55:47.052991Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "local_relevance",
+      "_ai_input_hash": "4f3718d8f7457a2e",
+      "_it_photo_prechart": "sites/appliance-site/uploads/media/home-4.webp",
+      "it_caption": "{chart_group_cooling_caption}",
+      "it_ratio": "auto",
+      "it_layout": "stacked"
+    },
+    {
+      "type": "faq_two_col",
+      "fq_heading": "Appliance Repair FAQ — {city_state}",
+      "ai_type_id": "faq_local",
+      "ai_inject_field": "fq_items",
+      "ai_inject_mode": "replace",
+      "fq_items": [
+        {
+          "question": "What are the most common JennAir freezer problems that need professional repair?",
+          "answer": "<p>Common issues include freezer not reaching or maintaining the correct temperature, frost buildup, ice maker failure, compressor noise, and door seal problems. You might notice frost accumulation, food thawing unexpectedly, or the unit running constantly. These symptoms often point to refrigerant leaks, thermostat failure, or compressor trouble—problems requiring professional diagnosis and repair rather than DIY fixes.</p>"
+        },
+        {
+          "question": "How quickly can Wells Appliance Repair come out for JennAir freezer service in Lufkin?",
+          "answer": "<p>We understand a broken freezer is urgent. Contact us to discuss your situation and we'll work to schedule service promptly. Same-day or next-day availability depends on current demand and the nature of your repair. Call ahead so we can prioritize your JennAir freezer and get you back to normal operation as fast as possible.</p>"
+        },
+        {
+          "question": "Should I repair my JennAir freezer or buy a new one?",
+          "answer": "<p>That depends on the freezer's age, the specific repair needed, and its current condition. Our technician can diagnose the problem and discuss whether repair or replacement makes sense for your situation. Many JennAir freezer repairs are cost-effective and extend the appliance's useful life, but we'll give you honest guidance to help you decide.</p>"
+        },
+        {
+          "question": "What should I do to prepare before the JennAir freezer repair technician arrives?",
+          "answer": "<p>Clear the area around your freezer so the technician can access it easily. If possible, note when the problem started and what symptoms you've noticed—this helps with diagnosis. Remove any items blocking vents or the back of the unit. If your freezer is in a garage or difficult-to-reach space, let us know when you schedule so we're prepared with the right tools.</p>"
+        },
+        {
+          "question": "Are Wells Appliance Repair technicians trained to work on JennAir freezers?",
+          "answer": "<p>Yes. Our technicians are trained to diagnose and repair JennAir freezers and understand the brand's specific systems and components. We stay current with JennAir designs so we can service your appliance correctly and reliably, whether it's an upright or chest model.</p>"
+        },
+        {
+          "question": "Does the JennAir freezer repair come with a warranty or guarantee?",
+          "answer": "<p>We stand behind our work. Repairs and parts are backed by our warranty, giving you confidence in the service. Warranty terms vary based on the repair and parts used, so we'll explain the coverage when we complete your JennAir freezer repair.</p>"
+        },
+        {
+          "question": "What does a JennAir freezer repair visit involve and what should I expect?",
+          "answer": "<p>The technician will inspect your freezer, run diagnostics to identify the problem, and explain what needs to be repaired. Once you approve, they'll perform the repair on-site when possible, test the unit thoroughly, and walk you through the fix. The visit length depends on the issue—some repairs take an hour, others longer if parts must be ordered.</p>"
+        },
+        {
+          "question": "Do you offer free estimates or diagnostics for JennAir freezer repair?",
+          "answer": "<p>We offer diagnostic service to identify what's wrong with your JennAir freezer. Once we know the problem, we'll discuss repair options and costs so you can make an informed decision before committing to the work. This upfront approach helps you understand what the repair will involve.</p>"
+        }
+      ],
+      "_ai_locked": true,
+      "_ai_generated": true,
+      "_ai_generated_at": "2026-07-10T01:29:26.260556Z",
+      "_ai_model": "claude-haiku-4-5-20251001",
+      "_ai_type": "faq_local",
+      "_ai_input_hash": "9f1de23becf503bc",
+      "skin": "dark",
+      "fq_open": true
+    },
+    {
+      "type": "testimonials",
+      "anchor": "reviews",
+      "tm_label": "Reviews",
+      "tm_main_heading": "What {city} Homeowners Say About {business}",
+      "tm_subtext": "",
+      "tm_cols": 3,
+      "tm_items": []
+    },
+    {
+      "type": "custom_html",
+      "anchor": "services",
+      "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]"
+    },
+    {
+      "type": "cta_banner",
+      "cb_text": "Book your {city} appliance repair today.",
+      "cb_btn_text": "Call {phone}",
+      "cb_btn_url": "tel:{tel}",
+      "cb_bg": "accent",
+      "cb_text_color": "#ffffff",
+      "cb_padding": "compact"
+    },
+    {
+      "type": "custom_html",
+      "anchor": "pest_services",
+      "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]"
+    },
+    {
+      "type": "map_info",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_info_credit": "{city_image_credit}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "mi_map_side": "top",
+      "mi_map_caption": "{city_map_caption}"
+    }
+  ],
+  "seo": {
+    "seo_title": "JennAir Freezer Repair in {city_state} | {business}",
+    "canonical_url": "https://a.q111.xyz/jennair-freezer-repair-lufkin-tx/",
+    "meta_description": "Professional jennair freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "meta_keywords": "jennair freezer repair Lufkin TX",
+    "og_title": "JennAir Freezer Repair in {city_state} | {business}",
+    "og_description": "Professional jennair freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "og_image": "",
+    "service_name": "JennAir Freezer Repair",
+    "service_type": "JennAir Freezer Repair",
+    "service_area": "{city}, {SS}",
+    "service_description": "Professional jennair freezer repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+    "bc_label": "",
+    "bc_mid_label": "",
+    "bc_mid_url": "",
+    "primary_keyword": "jennair freezer repair",
+    "secondary_keywords": "",
+    "brand": "JennAir",
+    "appliance_type": "Freezer",
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Freezer Repair in Lufkin, TX\",\"serviceType\":\"JennAir Freezer Repair\",\"description\":\"Professional jennair freezer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+  },
+  "locked_blocks": [],
+  "generated_at": "2026-09-07T15:17:15+00:00",
+  "template_version": "78dfd2c77f00a44f2b34aeaf9a8da586"
 }
