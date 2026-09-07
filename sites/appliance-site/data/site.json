@@ -1129,13 +1129,30 @@
             "page_type": "other",
             "content_blocks": [
                 {
-                    "type": "text",
-                    "heading_level": "h1",
-                    "text": "Contact Us\n<p>Need fast, reliable appliance repair in {city_state}? Give {business} a call or send us an email and our factory-trained technicians will get your appliance back up and running.</p><p style=\"margin-top:24px;\"><a href=\"tel:{tel}\" class=\"cta-btn\">Call {phone}</a></p><p>Email: <a href=\"mailto:{email}\">{email}</a></p>",
-                    "photo": "",
-                    "photo_ratio": "landscape",
-                    "photo_position": "center",
-                    "photo_alt": ""
+                    "type": "hero_split",
+                    "hs_heading": "Contact Us",
+                    "hs_subtext": "",
+                    "hs_btn_text": "",
+                    "hs_btn_url": "#",
+                    "hs_photo": "{city_image}",
+                    "hs_photo_alt": "{city} home",
+                    "hs_caption1": "",
+                    "hs_caption2": "",
+                    "hs_bg_color": "footer",
+                    "hs_bg_photo": "",
+                    "hs_image_side": "right",
+                    "hs_mobile_order": "",
+                    "hs_tagline": "",
+                    "hs_btn2_text": "",
+                    "hs_btn2_url": "#",
+                    "anchor": "contact-hero"
+                },
+                {
+                    "type": "contact_form",
+                    "cf_heading": "Get in Touch",
+                    "cf_subtext": "",
+                    "cf_btn_text": "Send Message",
+                    "cf_show_phone": true
                 },
                 {
                     "type": "service_cards",
