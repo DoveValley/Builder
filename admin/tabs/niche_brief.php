@@ -17,7 +17,7 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
 }
 ?>
 <div class="tab-content" style="<?= $tab === 'niche_brief' ? '' : 'display:none;' ?>">
-<?php tab_header('Niche Brief', 'The domain vocabulary for this master site\'s vertical. Fill it in, then Compile to (re)generate the AI Block Registry from the shared, read-only archetypes. Each master site is one niche.', 'tab-niche-brief'); ?>
+<?php tab_header('Niche Brief', 'The domain vocabulary for this master site\'s vertical. Saving always compiles it into the AI Block Registry from the shared, read-only archetypes. Each master site is one niche.', 'tab-niche-brief'); ?>
 
 <?php
 // The Niche ID is the most consequential field on this tab and it does not look like it: a
@@ -149,8 +149,7 @@ $nbAll    = function_exists('city_chart_niches') ? city_chart_niches() : [];
     </div>
 
     <div style="display:flex;gap:10px;align-items:center;margin-top:16px;">
-        <button type="submit" class="btn">Save Brief</button>
-        <button type="submit" class="btn" name="then_compile" value="1" style="background:#059669;">Save &amp; Compile</button>
+        <button type="submit" class="btn" style="background:#059669;">Save Brief</button>
         <a href="?tab=ai_blocks" class="btn btn-secondary">View Block Registry &rarr;</a>
     </div>
 </form>
@@ -159,7 +158,8 @@ $nbAll    = function_exists('city_chart_niches') ? city_chart_niches() : [];
     <h3 style="margin-top:0;margin-bottom:6px;">Compile</h3>
     <p class="hint" style="margin-top:0;">
         Merges the read-only archetypes with the saved brief and <strong>overwrites</strong> this site's
-        <code>ai_block_types.json</code>.
+        <code>ai_block_types.json</code>. Saving the brief above already does this — use this button
+        only to recompile without editing the brief (e.g. after a shared archetype template changes).
         <?php if ($registryCount): ?>
             Current registry: <strong><?= $registryCount ?></strong> block type(s).
         <?php else: ?>

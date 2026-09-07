@@ -206,6 +206,29 @@ function ms_scrub_master_content(string $workingDir): array {
 }
 
 /**
+ * Re-apply the archetype's CURRENT `default_fields` on top of an injected cached value.
+ *
+ * A standalone block's cached value is "whole block minus config/meta" (ms_ai_block_value),
+ * which includes whatever default_fields (e.g. heading_level, skin) were true when that
+ * content was ORIGINALLY generated — baked in, not re-derived. If the shared archetype's
+ * default_fields are later corrected (e.g. a wrong heading_level fixed via the Niche Brief
+ * compile step), every domain whose cache predates the fix keeps shipping the old value
+ * forever, because a cache hit never re-runs generate.py's own default_fields merge. This
+ * silently un-does the exact class of bug the compile-on-save fix closed one layer up.
+ *
+ * default_fields are structural config, not AI-authored content, so the CURRENT registry
+ * should always win for them — the AI-authored fields (heading_text, text, …) still come
+ * from cache untouched, since they aren't in default_fields at all.
+ */
+function ms_ai_reapply_current_defaults(array &$b, array $registry): void {
+    if (($b['type'] ?? '') !== 'ai_block') return;   // enrich blocks own their real fields already
+    $typeId = $b['ai_type_id'] ?? '';
+    foreach (($registry[$typeId]['default_fields'] ?? []) as $k => $v) {
+        $b[$k] = $v;
+    }
+}
+
+/**
  * Offer cached copy to the working site BEFORE generate.py: inject each cached block's
  * value plus the hash it was generated under (`_ai_cache_hash`), WITHOUT locking. Whether
  * to reuse is decided by generate.py (resolved-prompt hash), so this file computes nothing.
@@ -220,13 +243,14 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
     $entries = $cache['fields'] ?? [];
 
     $candidates = 0;
-    ms_ai_walk_site($site, function (array &$b) use ($entries, &$candidates) {
+    ms_ai_walk_site($site, function (array &$b) use ($entries, &$candidates, $registry) {
         $id = $b['id'] ?? '';
         if ($id === '' || !isset($entries[$id])) return;
         foreach (($entries[$id]['value'] ?? []) as $k => $v) {
             if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;   // pre-existing caches carry these
             $b[$k] = $v;
         }
+        ms_ai_reapply_current_defaults($b, $registry);
         $b['_ai_cache_hash'] = $entries[$id]['input_hash'] ?? '';
         $candidates++;
     });
@@ -241,13 +265,14 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
         if (!is_array($page)) continue;
         $base = basename($pf, '.json');
         $pageHits = 0;
-        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $base, &$candidates, &$pageHits) {
+        ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $base, &$candidates, &$pageHits, $registry) {
             $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
             if (!isset($entries[$key])) return;
             foreach (($entries[$key]['value'] ?? []) as $k => $v) {
                 if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;   // pre-existing caches carry these
                 $b[$k] = $v;
             }
+            ms_ai_reapply_current_defaults($b, $registry);
             $b['_ai_cache_hash'] = $entries[$key]['input_hash'] ?? '';
             $candidates++; $pageHits++;
         });

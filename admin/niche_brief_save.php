@@ -76,14 +76,13 @@ if (!$brief['enabled_archetypes'])  _nb_redirect('error', 'Enable at least one a
 
 if (!_nb_write($briefFile, $brief)) _nb_redirect('error', 'Could not write the niche brief file.');
 
-// Save + compile in one click when requested.
-if (($_POST['then_compile'] ?? '') === '1') {
-    require_once BASE_DIR . '/multisite/ai/compile.php';
-    $res = ms_ai_compile_master(BASE_DIR, ACTIVE_SITE_ID);
-    if (!empty($res['ok'])) {
-        _nb_redirect('success', 'Brief saved and compiled ' . count($res['written']) . ' block type(s).');
-    }
-    _nb_redirect('error', 'Brief saved, but compile failed: ' . implode('; ', $res['errors'] ?: ['unknown']));
+// A saved brief that isn't compiled is a stale registry generate.py never sees — always
+// compile right behind the save so the two can never drift apart (see the standalone
+// "compile" action above for recompiling without a brief edit, e.g. after a shared
+// archetypes.json change).
+require_once BASE_DIR . '/multisite/ai/compile.php';
+$res = ms_ai_compile_master(BASE_DIR, ACTIVE_SITE_ID);
+if (!empty($res['ok'])) {
+    _nb_redirect('success', 'Brief saved and compiled ' . count($res['written']) . ' block type(s).');
 }
-
-_nb_redirect('success', 'Niche brief saved. Click Compile to regenerate the registry.');
+_nb_redirect('error', 'Brief saved, but compile failed: ' . implode('; ', $res['errors'] ?: ['unknown']));
