@@ -1,7 +1,7 @@
 <?php
 /* ============================================================
    SHORTCODE SYSTEM
-   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {lb_logo} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit} {built_at}
+   Tokens: {city} {state} {SS} {city_state} {city_slug} {business} {phone} {email} {zip} {website} {business_domain} {rating} {review_count} {lb_logo} {primary_keyword} {service} {city_image} {city_image_alt} {city_image_credit} {built_at} {neighborhoods}
    Values stored in $data['site_vars']. Applied at render time.
    {city_image}* tokens are populated by the City Image plugin (plugins/city-image).
    {primary_keyword}/{service} are PER-PAGE — read from $GLOBALS['_page_primary_keyword'],
@@ -23,6 +23,30 @@ function site_default_title(array $data): string
     $name = trim((string) ($data['header']['site_name'] ?? ''));
     if ($name !== '' && strpos($name, '{') === false) return $name;
     return defined('SITE_TITLE') ? SITE_TITLE : '';
+}
+
+/**
+ * Comma-joined neighborhood names for the domain's own primary city (site_vars.city_slug),
+ * looked up from cities.json — not denormalized into site_vars like {city}/{state} are,
+ * since neighborhoods is a per-city array a build already researches and caches there.
+ * Statically cached per process: this can be called once per resolve_shortcodes() call
+ * across many blocks on a page, and cities.json doesn't change mid-build.
+ */
+function site_primary_neighborhoods(string $city_slug): string {
+    static $cache = [];
+    if ($city_slug === '' || !defined('CITIES_FILE') || !is_file(CITIES_FILE)) return '';
+    if (array_key_exists($city_slug, $cache)) return $cache[$city_slug];
+    $rows = json_decode((string) @file_get_contents(CITIES_FILE), true);
+    $out = '';
+    if (is_array($rows)) {
+        foreach ($rows as $row) {
+            if (($row['city_slug'] ?? $row['id'] ?? '') !== $city_slug) continue;
+            $names = array_filter(array_map('trim', (array) ($row['neighborhoods'] ?? [])));
+            $out = implode(', ', $names);
+            break;
+        }
+    }
+    return $cache[$city_slug] = $out;
 }
 
 function resolve_shortcodes(string $text): string {
@@ -79,6 +103,7 @@ function resolve_shortcodes(string $text): string {
         '{lb_logo}' => $lb_logo,
         '{lat}' => $lat, '{lng}' => $lng, '{primary_keyword}' => $primary_keyword, '{service}' => $primary_keyword,
         '{city_spotlight}' => $city_spotlight, '{built_at}' => $built_at,
+        '{neighborhoods}' => site_primary_neighborhoods($city_slug),
     ];
     // Plugins may contribute their own tokens (e.g. City Image plugin adds {city_image}*).
     // Guard on hook presence so the hot path pays nothing when no plugin registers tokens.

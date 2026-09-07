@@ -87,6 +87,11 @@ $masterId = $params['master_id'] ?? '';
 $domain   = $params['domain'] ?? '';
 if ($masterId === '' || $domain === '') { fwrite(STDERR, "master_id and domain are required\n"); exit(2); }
 
+// Every domain's email is always info@{its own bare domain} — computed once here so
+// both inject_params_into_working_dir() (site_vars.email) and ms_differentiate_working_dir()
+// (rewriting the master's own placeholder email wherever it appears) agree on the same value.
+$params['email'] = 'info@' . preg_replace('#^https?://#i', '', rtrim($domain, '/'));
+
 // Blank lat/lng in the CSV? Pull the geocoded city-center coords from the master's
 // cities.json (filled by the Research cities step) so the schema still gets geo.
 $params = ms_fill_coords_from_cities($params, $masterId);

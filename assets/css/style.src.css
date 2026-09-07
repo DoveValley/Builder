@@ -2124,7 +2124,7 @@ body { padding-bottom: 70px; }
 }
 .footer-contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     margin-bottom: 12px;
     font-size: 1rem;
@@ -2134,11 +2134,32 @@ body { padding-bottom: 70px; }
     flex-shrink: 0;
     width: 32px;
     height: 32px;
-    background: rgba(255,255,255,0.1);
+    /* The dark palette color, not the accent — deliberately --color-footer-bg,
+       not --color-header-bg: site-template.php overwrites the header_bg CSS var
+       with the resolved nav-bar color whenever a preset sets nav_bg=accent (every
+       niche preset here does — "option A", site-template.php ~line 49), so
+       --color-header-bg is actually gold on these sites, not dark. footer_bg is
+       untouched by that override and is the true dark anchor color (every preset
+       sets footer_bg = header_bg identically in theme_presets.json) — meaning
+       this is the SAME color as the footer background itself. The border is
+       what keeps the badge visible against that identically-colored background,
+       not a second color. */
+    background: var(--color-footer-bg, #1a1464);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.35);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: filter 0.15s;
+}
+/* Phone/email rows are links — the icon hints at that with a brightness pop on
+   hover, same affordance as the Quick Links/Services chevrons below. Not a color
+   swap: the icon is already themed at rest (a plain SVG on currentColor, not an
+   emoji, so every icon in this column shares one color instead of each carrying
+   its own fixed, unthemed emoji color). */
+.footer-contact-item:has(a):hover .contact-icon {
+    filter: brightness(1.15);
 }
 .footer-column-text p {
     font-size: 0.9rem;
@@ -2198,6 +2219,20 @@ body { padding-bottom: 70px; }
     transition: opacity 0.15s;
 }
 .footer-col-links li a:hover { opacity: 1; }
+/* Chevron icon in front of each link — its own hover color change (independent of
+   the text's opacity fade above) is the interactive cue that this row is clickable. */
+.footer-col-links li a::before {
+    content: "\00bb";
+    display: inline-block;
+    margin-right: 6px;
+    color: var(--color-footer-text, #fff);
+    opacity: 0.6;
+    transition: color 0.15s;
+}
+.footer-col-links li a:hover::before {
+    color: var(--color-accent, #fd783b);
+    opacity: 1;
+}
 
 /* Logo below a footer column — white box so the logo's own colors (built for
    a light background) stay legible against a dark footer background. */
@@ -2218,9 +2253,9 @@ body { padding-bottom: 70px; }
 .footer-col-logo-only .footer-col-logo-box {
     margin-top: 0;
 }
-.footer-col-logo-only .footer-col-logo {
-    max-height: 72px;
-}
+/* No max-height rule here — the logo's height is per-site (header.logo_max_height,
+   same value as the header logo), applied inline in site-template.php so this one
+   footer logo matches whatever height that particular site's header logo uses. */
 .footer-col-tagline {
     font-size: 0.95rem;
     line-height: 1.6;

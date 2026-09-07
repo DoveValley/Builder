@@ -21,6 +21,8 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
     $sv = $data['site_vars'] ?? [];
 
     // Direct site_vars mappings — only overwrite when the param is a non-empty string.
+    // 'email' is included here too — build_one.php computes it as info@{bare-domain}
+    // before this runs, so every domain gets a working address with no per-row data entry.
     foreach (['business', 'phone', 'tel', 'email', 'city', 'state', 'SS', 'zip', 'address'] as $k) {
         if (isset($params[$k]) && is_string($params[$k]) && $params[$k] !== '') {
             $sv[$k] = $params[$k];

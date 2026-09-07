@@ -420,22 +420,40 @@ if ($firstBlockHero) {
 
                 <?php elseif ($colType === 'contact'): ?>
                     <ul class="footer-contact-list">
-                        <?php if (!empty($footer['phone'])): ?>
-                            <li class="footer-contact-item">
-                                <span class="contact-icon contact-icon-phone">📞</span>
-                                <a href="tel:<?= h($telHref) ?>"><?= h($footer['phone']) ?></a>
-                            </li>
-                        <?php endif; ?>
+                        <?php
+                        // Plain currentColor SVGs, not emoji — an emoji carries its own fixed
+                        // colors no CSS can touch, so phone/pin/envelope each looked like a
+                        // different, unthemed color next to each other. These pick up the
+                        // site's own accent color from .contact-icon, like every other icon
+                        // badge on the page (e.g. the sticky bar's phone icon, same path below).
+                        $svgPhone = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C7.61 21 1 14.39 1 6c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>';
+                        $svgPin   = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>';
+                        $svgMail  = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>';
+                        ?>
                         <?php
                         // City for the contact column comes from site_vars (the real source).
                         // Previously read header.city, but that key is now migrated/cleared into
                         // the header info items, so it's always empty here.
                         $footerCity = !empty($data['site_vars']['city']) ? trim(resolve_shortcodes('{city_state}')) : '';
+                        $footerNeighborhoods = trim(resolve_shortcodes('{neighborhoods}'));
                         ?>
                         <?php if ($footerCity !== '' && strpos($footerCity, '{') === false): ?>
+                            <li class="footer-contact-item footer-contact-service-area">
+                                <span class="contact-icon contact-icon-city"><?= $svgPin ?></span>
+                                <span>Serving <?= h($footerCity) ?><?= $footerNeighborhoods !== '' ? ' including ' . h($footerNeighborhoods) . ' and nearby neighborhoods.' : '.' ?></span>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!empty($footer['phone'])): ?>
                             <li class="footer-contact-item">
-                                <span class="contact-icon contact-icon-city">🌐</span>
-                                <span><?= h($footerCity) ?></span>
+                                <span class="contact-icon contact-icon-phone"><?= $svgPhone ?></span>
+                                <a href="tel:<?= h($telHref) ?>"><?= h($footer['phone']) ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php $footerEmail = trim($data['site_vars']['email'] ?? ''); ?>
+                        <?php if ($footerEmail !== '' && strpos($footerEmail, '{') === false): ?>
+                            <li class="footer-contact-item">
+                                <span class="contact-icon contact-icon-email"><?= $svgMail ?></span>
+                                <a href="mailto:<?= h($footerEmail) ?>"><?= h($footerEmail) ?></a>
                             </li>
                         <?php endif; ?>
                         <?php foreach (($column['contact_extras'] ?? []) as $extra): ?>
@@ -459,7 +477,7 @@ if ($firstBlockHero) {
                 <?php elseif ($colType === 'logo'): ?>
                     <?php if (!empty($footer['logo'])): ?>
                         <div class="footer-col-logo-box">
-                            <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], 72) ?>>
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], (int) $logoHeight) ?>style="max-height:<?= (int) $logoHeight ?>px;height:auto;width:auto;max-width:100%;display:block;">
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($footer['tagline'])): ?>
