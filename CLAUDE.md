@@ -7,7 +7,9 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 
 | read when | file |
 |---|---|
-| Building or rebuilding a client site into `site.json` | `docs/site-building.md` |
+| Building or rebuilding a single bespoke client site into `site.json` | `docs/site-building.md` |
+| Standing up a new niche vertical's page set: keyword map, templates, bulk-generate, deploy | `docs/landing-page-build-process-V1-20260709.md` |
+| Configuring a niche's AI content, per-city research, or charts (`niche_brief.json`, archetypes) | `docs/niche-brief-and-research.md` |
 | A block must go edge-to-edge, or a full-width block leaves a gap above the footer | `docs/content-blocks.md` |
 | Course data, the two schedule widgets, or the Schedule tab | `docs/course-schedule.md` |
 

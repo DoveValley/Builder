@@ -233,6 +233,7 @@
     $bulkBase   = $bulk['base']   ?? '';
     $bulkRows   = $bulk['rows']   ?? '';
     $bulkReport = $bulk['report'] ?? [];
+    $bulkAiRewrite = !empty($bulk['ai_rewrite']);
     $mediaFiles = [];
     $mdir = rtrim(UPLOAD_DIR, '/') . '/media';
     if (is_dir($mdir)) {
@@ -272,6 +273,13 @@
                     Images are bare filenames from this site's media library (or a full path); blank keeps the base's image. Lines starting with <code>#</code> are skipped.
                 </span>
             </div>
+            <div class="form-group">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                    <input type="checkbox" name="ai_rewrite" value="1" style="width:auto;" <?= $bulkAiRewrite ? 'checked' : '' ?>>
+                    AI-rewrite the static content for uniqueness <span class="hint" style="font-weight:400;">(one real Claude call per row, not per city)</span>
+                </label>
+                <span class="hint">Off = find/replace only (word-swap, e.g. "roach"&rarr;"termite" &mdash; the surrounding sentences stay the base's). On = genuinely rewrites the static prose for the new service, grounded in this niche's brief (business descriptor, tone, guardrails), keyed to the row's primary keyword. Runs once per row here, not once per city &mdash; Pass A clones the result into every city for free afterward, same as find/replace output does today.</span>
+            </div>
             <div style="display:flex;gap:10px;">
                 <button type="submit" name="mode" value="preview" class="btn" style="background:#64748b;">Preview (dry run)</button>
                 <button type="submit" name="mode" value="commit" class="btn"
@@ -309,6 +317,16 @@
                                 <?php endif; ?>
                                 <?php if ($r['leftover'] === 0 && empty($r['img_missing'])): ?>
                                     <span style="color:#16a34a;">✓ clean</span>
+                                <?php endif; ?>
+                                <?php $rw = $r['ai_rewrite'] ?? null; if ($rw !== null): ?>
+                                    <br><?php if (!empty($rw['ok'])): ?>
+                                        <span style="color:#16a34a;">&#10003; AI-rewrote <?= (int)$rw['rewritten'] ?> field(s)</span>
+                                        <?php if (!empty($rw['reverted'])): ?>
+                                            <span style="color:#b45309;">(<?= (int)$rw['reverted'] ?> kept original &mdash; a {token} would've been lost)</span>
+                                        <?php endif; ?>
+                                    <?php else: ?>
+                                        <span style="color:#dc2626;">&#10007; AI rewrite failed &mdash; kept find/replace output: <?= h($rw['error'] ?? 'unknown error') ?></span>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </td>
                         </tr>

@@ -66,19 +66,6 @@ if (!isset($csrfToken)) return;
     <div id="ms-titles-preview"><p class="hint">Loading&hellip;</p></div>
 </div>
 
-<?php if (!empty($researchOn)): ?>
-<!-- ===== RESEARCH CARD ===== -->
-<div class="card" id="ms-research-card">
-    <h3 style="margin-top:0;">Research cities <span class="hint" style="font-weight:400;">(local market data)</span></h3>
-    <p class="hint">The master's niche brief has research on. This seeds <code>cities.json</code> with every city in this batch's target list, then looks up real local facts for each new city (using the <a href="index.php?tab=niche_brief">Niche Brief</a>'s research prompt). Run it once before a batch &mdash; results persist and are reused free; already-researched cities are skipped. Do a <strong>dry run</strong> first to preview without API cost.</p>
-    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
-        <button type="button" class="btn" id="ms-research-dry" onclick="msResearch(true)">Dry run (no API)</button>
-        <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch(false)">Research cities</button>
-    </div>
-    <pre id="ms-research-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
-</div>
-<?php endif; ?>
-
 <?php include __DIR__ . '/_batch_servers.php'; ?>
 
 <?php include __DIR__ . '/_batch_hosts.php'; ?>
@@ -201,44 +188,35 @@ if (!isset($csrfToken)) return;
         </div>
     </dialog>
 
+    <?php if (!empty($researchOn)): ?>
     <!--
-        Test server (FTP) — one fixed, reusable deploy target OUTSIDE the fleet: a real
-        host + real domain + real HTTPS you already own, so "deploy to test server" next
-        to each result row can push a build there with deploy_site(), the exact same
-        code "5. Upload sites" uses. Every deploy overwrites this same slot on purpose —
-        it's meant to be reused across totally different sites, not kept per-site.
+        Nested here rather than a standalone card — Generate already runs this
+        automatically first, for every city it needs (see the AI content note in the
+        step list below). This action exists only to preview the data, or top it up,
+        before committing to a full run.
     -->
-    <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;">
-        <summary style="cursor:pointer;padding:10px 16px;font-size:.86rem;font-weight:600;color:#1e3a5f;">&#9881;&#65039; Test server (FTP)</summary>
+    <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;" id="ms-research-card">
+        <summary style="cursor:pointer;padding:10px 16px;font-size:.86rem;font-weight:600;color:#1e3a5f;">&#128269; Research cities (local market data)</summary>
         <div style="padding:2px 16px 14px;">
-            <p class="hint" style="margin:0 0 10px;">
-                A deploy target you already control — not one of the fleet boxes. "Deploy to test server"
-                next to each result below pushes that build here over FTP/SFTP, overwriting whatever was
-                here before. View it at the URL below, with real HTTPS, exactly like a live site.
-            </p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px 12px;max-width:820px;">
-                <label class="hint">Host<br><input type="text" id="td-host" style="width:100%;"></label>
-                <label class="hint">Protocol<br>
-                    <select id="td-protocol" style="width:100%;">
-                        <option value="ftp">FTP</option>
-                        <option value="sftp">SFTP</option>
-                    </select>
-                </label>
-                <label class="hint">Port (blank = default)<br><input type="text" id="td-port" style="width:100%;"></label>
-                <label class="hint">Username<br><input type="text" id="td-user" style="width:100%;"></label>
-                <label class="hint">Password<br><input type="password" id="td-pass" placeholder="leave blank to keep" style="width:100%;"></label>
-                <label class="hint">Remote path (blank = auto-detect)<br><input type="text" id="td-path" style="width:100%;"></label>
-                <label class="hint">View URL<br><input type="text" id="td-view-url" placeholder="https://preview2.example.com/" style="width:100%;"></label>
-                <label class="hint" style="display:flex;align-items:center;gap:6px;margin-top:18px;">
-                    <input type="checkbox" id="td-passive" checked> Passive FTP
-                </label>
+            <p class="hint" style="margin:0 0 6px;"><strong>Three things this does, in order:</strong></p>
+            <ol class="hint" style="margin:0 0 10px 18px;padding:0;">
+                <li>Seeds <code>cities.json</code> with every city in this batch's target list.</li>
+                <li>Geocodes any city missing lat/lng, from OpenStreetMap — free, and runs regardless of niche.</li>
+                <li>Looks up real local facts per city with Claude — industries, employers, neighborhoods, population, plus whatever charts, plugins, and this niche's own custom research fields ask for (see the <a href="index.php?tab=niche_brief">Niche Brief &amp; Research</a> tab).</li>
+            </ol>
+            <p class="hint" style="margin:0 0 10px;"><strong>Generate sites below already runs all three automatically first</strong> — use this button only to preview the data, or top it up, ahead of a full run.</p>
+            <p class="hint" style="margin:0 0 10px;">By default, step 3 only spends money where something's actually missing: a city already fully researched is skipped; a city missing just one field (say, you just added a new custom research field) is asked for only that field, not re-researched from scratch; a field the model has come back empty on twice is left alone for good rather than re-billed forever. The whole step — including the free geocoding — only skips outright when a run turns off both AI content and Images.</p>
+            <p class="hint" style="margin:0 0 10px;"><strong>Force</strong> ignores all of that and re-asks every declared field, for every matched city, treating the answer as a fresh record rather than a top-up — use it after rewriting the research prompt, or when facts on file are believed stale or wrong. It still won't accept a figure with no source, or let a shorter re-ask shrink a list that's already longer; force only bypasses the "don't bother, this is already fine" decision, not the checks on what comes back. Tick <strong>Dry run</strong> together with it to preview a full forced pass with no API cost.</p>
+            <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center;">
+                <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-dry" style="width:auto;"> Dry run (preview only, no API)</label>
+                <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-force" style="width:auto;"> Force (re-research every city, ignore what's already on file)</label>
+                <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch()">Research cities</button>
             </div>
-            <p style="margin:10px 0 0;">
-                <button type="button" class="btn btn-primary" id="td-save-btn" onclick="msTestDeploySave()">Save</button>
-                <span id="td-save-msg" class="hint" style="margin-left:10px;"></span>
-            </p>
+            <p class="hint" style="margin:6px 0 0;">Research already runs on its own, automatically, every time you generate sites — this button is only a manual trigger to run that same check now. With neither box ticked, it decides on its own, city by city and field by field, what actually needs asking — it never blindly redoes work that's already correct, so clicking it again later is free if nothing's missing. Tick <strong>Dry run</strong> to preview with no API cost, or <strong>Force</strong> to override that self-deciding behavior and redo every city from scratch.</p>
+            <pre id="ms-research-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
         </div>
     </details>
+    <?php endif; ?>
 
     <!-- The steps come FIRST: what a run does is decided before how fast it goes. -->
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:16px;">
@@ -283,11 +261,11 @@ if (!isset($csrfToken)) return;
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
              'groups' => [
                 ['key' => 'ai', 'label' => 'AI content', 'status' => 'live',
-                 'note' => 'Not a toggle here — <strong>Generate sites now runs research itself, automatically, first</strong>, for every city this run needs. Every item below has its own checkpoint deciding whether it actually re-runs or reuses what\'s already on file — <strong>none of them re-does work that\'s already correct</strong>. You can still run the "Research cities" card further down this page ahead of time if you want to see the data before generating.',
+                 'note' => 'Not a toggle here — <strong>Generate sites now runs research itself, automatically, first</strong>, for every city this run needs. Every item below has its own checkpoint deciding whether it actually re-runs or reuses what\'s already on file — <strong>none of them re-does work that\'s already correct</strong>. You can still open "Research cities" above to preview the data, or top it up, ahead of a run.',
                  'subs' => [
                     ['Research — per-city facts: industries, employers, market blurb, foundation/climate note, population, plus this niche\'s own chart figures (flood years, rainfall, etc.) &mdash; <em>checkpoint: skipped per FIELD, not per city — an already-researched city is only re-asked for whatever field is still missing or too short; a field the model can\'t find twice is left alone rather than re-billed forever</em>', 'auto'],
                     ['Neighborhood names — asked for in the same research call, with an explicit "only names you\'re sure are real, never invent" instruction &mdash; <em>checkpoint: same per-field top-up/decline rule as Research above</em>', 'auto'],
-                    ['Neighborhood name verification against OpenStreetMap — fully written (<code>osm_neighborhoods()</code>, <code>verify_neighborhoods()</code>) but <strong>has no caller anywhere in the pipeline</strong> — no CLI flag reaches it. Today\'s only check is the model\'s own "don\'t invent" instruction above, not an independent real-world check.', 'off'],
+                    ['Neighborhood name verification against OpenStreetMap, plus a "what actually is this place" Claude check for anything OSM doesn\'t have &mdash; runs automatically after every research pass &mdash; <em>checkpoint: a city already verified is skipped for free on every later run</em>', 'auto'],
                     ['City Spotlight — one AI-written city profile, reused on every page for that city &mdash; <em>checkpoint: per-city cache in cities.json; a locked/inherited copy from the master can no longer leak into a different city\'s page (fixed this session)</em>', 'auto'],
                     ['City photo — one photo per city from Wikimedia; no AI cost, a lookup+cache &mdash; <em>checkpoint: per-city cache, free after the first fetch</em>', 'auto'],
                     ['Content scrub — runs right before the two items below, every time, no exceptions: clears any of the master\'s own content this clone must not inherit as-is (a locked block, the master\'s own City Spotlight) &mdash; <em>checkpoint: none — this is what enforces the checkpoints above are actually checking THIS city\'s data, not leftovers from the master\'s</em>', 'auto'],
@@ -697,6 +675,45 @@ if (!isset($csrfToken)) return;
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
+
+    <!--
+        Test server (FTP) — one fixed, reusable deploy target OUTSIDE the fleet: a real
+        host + real domain + real HTTPS you already own, so "deploy to test server" next
+        to each result row can push a build there with deploy_site(), the exact same
+        code "5. Upload sites" uses. Every deploy overwrites this same slot on purpose —
+        it's meant to be reused across totally different sites, not kept per-site.
+    -->
+    <details style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-top:24px;">
+        <summary style="cursor:pointer;padding:10px 16px;font-size:.86rem;font-weight:600;color:#1e3a5f;">&#9881;&#65039; Test server (FTP)</summary>
+        <div style="padding:2px 16px 14px;">
+            <p class="hint" style="margin:0 0 10px;">
+                A deploy target you already control — not one of the fleet boxes. "Deploy to test server"
+                next to each result below pushes that build here over FTP/SFTP, overwriting whatever was
+                here before. View it at the URL below, with real HTTPS, exactly like a live site.
+            </p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px 12px;max-width:820px;">
+                <label class="hint">Host<br><input type="text" id="td-host" style="width:100%;"></label>
+                <label class="hint">Protocol<br>
+                    <select id="td-protocol" style="width:100%;">
+                        <option value="ftp">FTP</option>
+                        <option value="sftp">SFTP</option>
+                    </select>
+                </label>
+                <label class="hint">Port (blank = default)<br><input type="text" id="td-port" style="width:100%;"></label>
+                <label class="hint">Username<br><input type="text" id="td-user" style="width:100%;"></label>
+                <label class="hint">Password<br><input type="password" id="td-pass" placeholder="leave blank to keep" style="width:100%;"></label>
+                <label class="hint">Remote path (blank = auto-detect)<br><input type="text" id="td-path" style="width:100%;"></label>
+                <label class="hint">View URL<br><input type="text" id="td-view-url" placeholder="https://preview2.example.com/" style="width:100%;"></label>
+                <label class="hint" style="display:flex;align-items:center;gap:6px;margin-top:18px;">
+                    <input type="checkbox" id="td-passive" checked> Passive FTP
+                </label>
+            </div>
+            <p style="margin:10px 0 0;">
+                <button type="button" class="btn btn-primary" id="td-save-btn" onclick="msTestDeploySave()">Save</button>
+                <span id="td-save-msg" class="hint" style="margin-left:10px;"></span>
+            </p>
+        </div>
+    </details>
 </div>
 
 <?php include __DIR__ . '/_batch_upload.php'; ?>
@@ -1140,47 +1157,57 @@ if (!isset($csrfToken)) return;
                 out.scrollTop = out.scrollHeight;
                 if (d.done) {
                     if (msResearchTimer) clearInterval(msResearchTimer);
-                    document.getElementById('ms-research-dry').disabled = false;
-                    document.getElementById('ms-research-btn').disabled = false;
+                    msResearchSetDisabled(false);
                     out.textContent += (d.exit === 0 ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + d.exit + '.');
                 }
             })
             .catch(() => {
-                // A persistent failure used to leave both research buttons disabled
+                // A persistent failure used to leave the research controls disabled
                 // forever with zero feedback while the job may have finished or died
                 // server-side. Give up after a run of misses instead of hanging silently.
                 if (++msResearchMisses < 5) return;
                 if (msResearchTimer) clearInterval(msResearchTimer);
-                document.getElementById('ms-research-dry').disabled = false;
-                document.getElementById('ms-research-btn').disabled = false;
+                msResearchSetDisabled(false);
                 var out = document.getElementById('ms-research-out');
                 if (out) out.textContent += '\n\n✗ Lost contact with the server — the job may still be running; reload to check.';
             });
     }
-    window.msResearch = function (dry) {
-        var dryBtn = document.getElementById('ms-research-dry');
-        var runBtn = document.getElementById('ms-research-btn');
-        var out = document.getElementById('ms-research-out');
+    function msResearchSetDisabled(disabled) {
+        document.getElementById('ms-research-dry').disabled = disabled;
+        document.getElementById('ms-research-force').disabled = disabled;
+        document.getElementById('ms-research-btn').disabled = disabled;
+    }
+    window.msResearch = function () {
+        var dry   = document.getElementById('ms-research-dry').checked;
+        var force = document.getElementById('ms-research-force').checked;
+        var out   = document.getElementById('ms-research-out');
+        // Force re-researches every matched city regardless of what's already on file — real
+        // API cost across the whole master, not just gaps. A dry run previews that cost-free,
+        // so only the live (non-dry) combination is worth pausing on.
+        if (force && !dry && !confirm('Force will re-research EVERY city on this master, even ones already complete — full API cost, not just gaps. Continue?')) {
+            return;
+        }
         var fd = new FormData();
         fd.append('csrf_token', csrfToken);
-        if (dry) fd.append('dry_run', '1');
-        dryBtn.disabled = true; runBtn.disabled = true;
+        if (dry)   fd.append('dry_run', '1');
+        if (force) fd.append('force', '1');
+        msResearchSetDisabled(true);
         out.style.display = 'block';
-        out.textContent = 'Starting ' + (dry ? 'dry run' : 'research') + '…';
+        out.textContent = 'Starting ' + (dry ? 'dry run' : 'research') + (force ? ' (forced)' : '') + '…';
         fetch('multisite_api.php?action=research', { method: 'POST', body: fd })
             .then(r => r.json())
             .then(d => {
                 if (d.error) {
                     out.textContent = d.error;
                     // "Research is already running" carries the live run_id — resume
-                    // watching it instead of just re-enabling the buttons and leaving
+                    // watching it instead of just re-enabling the controls and leaving
                     // the operator to guess whether anything is actually happening.
                     if (d.run_id) {
                         if (msResearchTimer) clearInterval(msResearchTimer);
                         msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
                         msPollResearch(d.run_id);
                     } else {
-                        dryBtn.disabled = false; runBtn.disabled = false;
+                        msResearchSetDisabled(false);
                     }
                     return;
                 }
@@ -1188,7 +1215,7 @@ if (!isset($csrfToken)) return;
                 msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
                 msPollResearch(d.run_id);
             })
-            .catch(() => { dryBtn.disabled = false; runBtn.disabled = false; });
+            .catch(() => { msResearchSetDisabled(false); });
     };
 
     // ── Title preview (read-only — resolves the master's real page titles) ────
@@ -1233,8 +1260,7 @@ if (!isset($csrfToken)) return;
         if (!d || d.none || d.error) return;
         document.getElementById('ms-research-out').style.display = 'block';
         if (!d.done) {
-            document.getElementById('ms-research-dry').disabled = true;
-            document.getElementById('ms-research-btn').disabled = true;
+            msResearchSetDisabled(true);
             if (msResearchTimer) clearInterval(msResearchTimer);
             msResearchTimer = setInterval(() => msPollResearch(d.run_id), 2000);
         }

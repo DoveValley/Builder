@@ -298,13 +298,31 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         'mission_statement':  site_vars.get('mission_statement', ''),
     }
 
+    # Any OTHER city_data field — chiefly a niche's own custom_research_fields, gathered under
+    # whatever key it declared — passes through under that same key automatically, so a prompt
+    # can reference {field_key} the moment it's researched, with no change here. Internal
+    # bookkeeping (_researched, _research_declined, …) and anything already named above are
+    # excluded — the former is never meant for a prompt, the latter already has its own
+    # (possibly differently-formatted) entry.
+    for k, v in city_data.items():
+        if k in ctx or k.startswith('_'):
+            continue
+        ctx[k] = ', '.join(str(x) for x in v) if isinstance(v, list) else ('' if v is None else str(v))
+
     if page_data:
         seo     = page_data.get('seo', {})
         title   = page_data.get('title', '')
         service = seo.get('service_name', '') or _strip_city(title, ctx['city'])
         keyword = seo.get('seo_title', '') or f"{service} {ctx['city']}".strip()
         ctx['service'] = service
-        ctx['keyword'] = keyword
+        # A landing page's seo_title arrives here already token-resolved (Pass A resolves
+        # {city}/{SS}/etc. before the page file even exists), so this was previously a no-op
+        # for landing pages and harmless. The homepage has no such pre-resolution step —
+        # site.json's seo_title can still carry literal {city}/{business} tokens at this
+        # point — so without this pass, any prompt referencing {keyword} on the homepage
+        # would embed those tokens as literal text instead of real values. Same fix
+        # secondary_keywords already gets, just applied to keyword too.
+        ctx['keyword'] = substitute_vars(keyword, ctx)
         # Variant phrasings for this page, from the keyword map (seo.secondary_keywords).
         # Prompts should weave these in naturally where they fit — never keyword-stuff.
         # Resolve any {city}/{SS}/etc. tokens inside the list so city-agnostic
@@ -1164,7 +1182,7 @@ def verify_neighborhoods(city, state, candidates, api_key, dry_run=False):
     return out
 
 
-def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None):
+def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None, tag_ids=None):
     """
     Rebuild every city's neighbourhood list from names that can actually be stood behind.
 
@@ -1185,7 +1203,15 @@ def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None)
             continue
         if city_filter and city_filter.lower() not in f"{c.get('id','')} {name} {c.get('city_slug','')}".lower():
             continue
-        if c.get('neighborhoods_source') == 'OpenStreetMap':
+        if tag_ids is not None and c.get('id') not in tag_ids:
+            continue
+        # Matches what this function itself writes below ('OpenStreetMap + verified' or
+        # 'verified') — checking for the bare string 'OpenStreetMap' here never matched
+        # either, so every run re-verified every city from scratch, forever, re-billing a
+        # Claude call per non-OSM name each time. Caught before this was ever wired up to
+        # anything, so it never actually cost anyone money — but it would have the moment
+        # it did.
+        if c.get('neighborhoods_source') in ('OpenStreetMap + verified', 'verified'):
             _log(f'  {name} — already verified, skipping')
             continue
         had = list(c.get('neighborhoods') or [])
@@ -1322,12 +1348,41 @@ def plugin_research_fields():
     return out
 
 
+def niche_research_fields(brief):
+    """
+    Extra facts a niche's OWN Niche Brief declares directly — no chart required.
+
+    Charts (chart_research_fields) force a fact to pretend to be an image just to get
+    researched; plugins (plugin_research_fields) are niche-blind by design, so a field there
+    reaches every niche whether it applies or not. Neither fits "this one niche also needs one
+    plain fact, never charted" (e.g. average treatment cost for pest, typical response time for
+    plumbing). The brief's own `custom_research_fields` — each {"key", "ask"}, edited on the
+    Niche Brief tab — fills that gap: scoped to this niche, no chart, no code.
+
+    Returns [(data_key, source_key, ask, source_ask, min_items)] — same shape as the chart/
+    plugin sources, so research_fields() and everything downstream (top-up, decline-tracking,
+    build_context's prompt passthrough) treats all three identically.
+    """
+    out, seen = [], set()
+    for f in (brief.get('custom_research_fields') or []):
+        if not isinstance(f, dict):
+            continue
+        key = (f.get('key') or '').strip()
+        ask = (f.get('ask') or '').strip()
+        if not key or not ask or key in seen:
+            continue
+        seen.add(key)
+        out.append((key, '', ask, '', 0))
+    return out
+
+
 def research_fields(brief):
     """Everything the research should gather beyond the niche prompt's own fields: the charts'
-    figures for this niche, plus whatever the installed plugins ask for. One list, so the
-    top-up and declined-tracking logic treats both the same way."""
+    figures for this niche, whatever the installed plugins ask for, and any extra facts this
+    niche's own brief declares directly (no chart required). One list, so the top-up and
+    declined-tracking logic treats all three the same way."""
     fields, seen = [], set()
-    for f in list(chart_research_fields(brief)) + list(plugin_research_fields()):
+    for f in list(chart_research_fields(brief)) + list(plugin_research_fields()) + list(niche_research_fields(brief)):
         if f[0] in seen:
             continue
         seen.add(f[0])
@@ -1467,10 +1522,17 @@ def _missing_research_fields(city_data, chart_fields):
         missing.append(key)
     return missing
 
-def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=None):
+def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=None, force=False):
     """
     For every city in cities.json that lacks research fields, call Claude to fill them.
     Writes results back to cities.json.  Returns number of cities researched.
+
+    force=True re-researches every matched city regardless of what it already has — for a
+    rewritten research prompt, or facts believed stale/wrong. It skips the "already have this,
+    skip" and "top-up only fills the gap" gates, so a forced call is treated like a first-time
+    pass (the model's full answer replaces the record). The per-figure guards below — no source,
+    no figure; a shorter re-ask can't shrink what's already held — still apply even under force,
+    since those protect against a single bad roll, not against asking again on purpose.
     """
     _log('\n── Research Step ────────────────────────────────────')
 
@@ -1502,11 +1564,13 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
             continue
 
         missing = _missing_research_fields(city, chart_fields)
-        if not _needs_research(city, chart_fields):
+        if not force and not _needs_research(city, chart_fields):
             _log(f'  {city_name} — research data present, skipping')
             continue
 
-        if city.get('_researched') and missing:
+        if force:
+            _log(f'  {city_name}, {city.get("SS","?")} — forcing full re-research...')
+        elif city.get('_researched') and missing:
             _log(f'  {city_name}, {city.get("SS","?")} — topping up: ' + ', '.join(missing))
         else:
             _log(f'  {city_name}, {city.get("SS","?")} — researching...')
@@ -1567,7 +1631,9 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
             # an unrelated chart figure. Silent, and invisible unless you diff the row.
             #
             # A first-time research pass still takes everything; only a top-up is restricted.
-            if city.get('_researched'):
+            # A forced pass is deliberately treated as a first-time pass too — the whole point
+            # of forcing is to let a fresh answer replace what's on file, not just plug a gap.
+            if not force and city.get('_researched'):
                 allowed = set(missing) | {'_research_declined'}
                 for key, skey, _a, _s, _m in (chart_fields or []):
                     if key in missing and skey:
@@ -1618,6 +1684,142 @@ def _insert_ai_block_at_natural_position(blocks: list, ai_block: dict) -> list:
     else:
         result.append(ai_block)
     return result
+
+
+# ── Template rewrite (Tier 2) ──────────────────────────────────────────────────
+#
+# bulk_generate's find/replace only swaps specific words ("roach"->"termite") — the
+# surrounding sentences are the base service's, unchanged. This runs ONCE PER SERVICE
+# (not per city — Pass A clones the result into every city for free afterward, same
+# as find/replace output does today) to genuinely rewrite that static prose for the
+# new service, grounded in the niche brief, instead of leaving a word-swapped clone.
+
+REWRITE_MODEL = 'claude-sonnet-5'  # one-time-per-service cost — worth a stronger model
+                                    # than the per-city default, since it's cloned into
+                                    # every city under this service afterward.
+
+# Keys never rewritten: structural, asset, slug/id, or already-AI-owned fields. A
+# blind LLM rewrite is riskier than find/replace's literal substitution — it could
+# corrupt a filename, a slug, or an ai_type_id — so this is a strict allowlist-by-
+# exclusion, tighter than bulk_generate's own unscoped find/replace walk.
+_REWRITE_SKIP_KEYS = {
+    'type', 'photo', 'image', 'bg_photo', 'icon', 'src', 'anchor', 'heading_level',
+    'ratio', 'position', 'align', 'style', 'layout', 'side', 'skin', 'id', 'slug',
+    'slug_pattern', 'service', 'service_name', 'service_type', 'primary_keyword',
+    'alt', 'canonical_url',
+}
+
+def _rewrite_collect(node, path, out):
+    """Recursively collect (path, current_text) for rewritable string fields."""
+    if isinstance(node, dict):
+        for k, v in node.items():
+            if not isinstance(k, str):
+                continue
+            if (k in _REWRITE_SKIP_KEYS or k.startswith('ai_') or k.startswith('_ai_')
+                    or k.startswith('_') or k.endswith('_url')):
+                continue
+            if isinstance(v, str) and v.strip():
+                out.append((path + [k], v))
+            elif isinstance(v, (dict, list)):
+                _rewrite_collect(v, path + [k], out)
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            _rewrite_collect(v, path + [i], out)
+
+def _rewrite_get(node, path):
+    for k in path:
+        node = node[k]
+    return node
+
+def _rewrite_set(node, path, value):
+    for k in path[:-1]:
+        node = node[k]
+    node[path[-1]] = value
+
+def _rewrite_path_label(path):
+    return '.'.join(str(p) for p in path)
+
+def _rewrite_tokens(text):
+    """Every {shortcode}-style token in a string — must survive a rewrite unchanged."""
+    return set(re.findall(r'\{[a-zA-Z_]+\}', text))
+
+def rewrite_template_for_service(template, brief, service, keyword, base_service, api_key, dry_run=False):
+    """
+    One-time, per-service AI rewrite of a cloned template's static prose (Tier 2).
+
+    Returns (template, stats). `template` is mutated in place for convenience but also
+    returned. A field whose rewrite drops or alters a {token} is reverted to its
+    original text rather than risking a broken page — never worth the uniqueness gain.
+    """
+    fields = []
+    _rewrite_collect(template.get('content_blocks', []), ['content_blocks'], fields)
+    _rewrite_collect(template.get('seo', {}), ['seo'], fields)
+    if not fields:
+        return template, {'rewritten': 0, 'reverted': 0, 'field_count': 0}
+
+    # One call per CHUNK, not one call for the whole field set. A service template
+    # (~90 fields) fits in a single call; a homepage (~200 fields — many more block
+    # types, each with several list items) does not: the model's response gets cut off
+    # mid-JSON by the output token cap, which silently looked like "the API failed" the
+    # first time this ran against a real homepage. Chunking keeps every call comfortably
+    # inside that cap regardless of how large the source page is.
+    CHUNK_SIZE = 50
+    guardrails = (brief.get('guardrails') or '').strip()
+    tone       = (brief.get('tone') or '').strip()
+    stats = {'rewritten': 0, 'reverted': 0, 'field_count': len(fields)}
+
+    if dry_run:
+        n_chunks = (len(fields) + CHUNK_SIZE - 1) // CHUNK_SIZE
+        _log(f'    [dry-run] Would rewrite {len(fields)} field(s) for "{service}" across {n_chunks} call(s)')
+        stats['dry_run'] = True
+        return template, stats
+
+    for start in range(0, len(fields), CHUNK_SIZE):
+        chunk = fields[start:start + CHUNK_SIZE]
+        path_map, payload = {}, {}
+        for i, (path, text) in enumerate(chunk):
+            key = f'f{i}'
+            path_map[key] = path
+            payload[key] = text
+
+        prompt = (
+            f'You are rewriting static website copy for {brief.get("business_descriptor") or "a local business"}, '
+            f'originally written for "{base_service}", so it reads as genuinely written for a DIFFERENT '
+            f'service: "{service}".\n\n'
+            f'Target keyword for this page: "{keyword}" — the rewritten copy should support ranking for it, '
+            f'with "{service}" reading as the clear subject throughout. Do not keyword-stuff.\n\n'
+            'Below is a JSON object of {field_id: current_text}. Rewrite EVERY value so it is genuinely about '
+            f'"{service}" instead of "{base_service}" — an actual rewrite in fresh wording, not a word-swap. '
+            'Keep each field roughly the same length and purpose as the original. Preserve every {token}-style '
+            'placeholder (e.g. {city}, {business}, {phone}) EXACTLY as written wherever one appears in the '
+            'original — never translate, remove, or alter them.\n\n'
+            + (f'Guardrails: {guardrails}\n\n' if guardrails else '')
+            + (f'Tone: {tone}\n\n' if tone else '')
+            + 'Never invent statistics, prices, ratings, guarantees, or credentials not already present in the '
+              'original text.\n\n'
+            f'Fields:\n{json.dumps(payload, ensure_ascii=False)}\n\n'
+            'Return JSON only, the same keys, with rewritten values: {"f0": "...", "f1": "...", ...}'
+        )
+
+        result = call_claude(prompt, REWRITE_MODEL, api_key, dry_run=False)
+        if not result or not isinstance(result, dict):
+            _warn(f'    Rewrite chunk {start}-{start+len(chunk)} for "{service}" failed — '
+                  f'keeping original text for these {len(chunk)} field(s)')
+            continue
+
+        for key, path in path_map.items():
+            new_text = result.get(key)
+            if not isinstance(new_text, str) or not new_text.strip():
+                continue
+            original = payload[key]
+            if _rewrite_tokens(new_text) != _rewrite_tokens(original):
+                _warn(f'    {_rewrite_path_label(path)}: dropped/altered a {{token}} in the rewrite — kept original text')
+                stats['reverted'] += 1
+                continue
+            _rewrite_set(template, path, new_text)
+            stats['rewritten'] += 1
+
+    return template, stats
 
 
 def sync_templates(paths, dry_run=False) -> dict:
@@ -1757,8 +1959,21 @@ def main():
     ap.add_argument('--research',        action='store_true', help='Research missing city data before generating content')
     ap.add_argument('--research-only',   action='store_true', dest='research_only',
                     help='Only run the research step — do not generate content blocks')
+    ap.add_argument('--research-force',  action='store_true', dest='research_force',
+                    help='Re-research every matched city regardless of what it already has '
+                         '(a rewritten research prompt, or facts believed stale/wrong). '
+                         'Only affects the research step, not content/image generation.')
     ap.add_argument('--sync-templates',  action='store_true', dest='sync_templates',
                     help='Insert missing ai_blocks from templates.json into existing page files, then exit')
+    ap.add_argument('--rewrite-template', dest='rewrite_template', default=None,
+                    help='Path to a cloned template JSON to AI-rewrite in place (Tier 2, bulk_generate). '
+                         'Requires --service, --base-service, --keyword, and --rewrite-out.')
+    ap.add_argument('--rewrite-out',     dest='rewrite_out', default=None,
+                    help='Output path for the rewritten template JSON (--rewrite-template)')
+    ap.add_argument('--service',         default=None, help='New service name/context (--rewrite-template)')
+    ap.add_argument('--base-service',    dest='base_service', default=None,
+                    help='The base template\'s own service, being rewritten away from (--rewrite-template)')
+    ap.add_argument('--keyword',         default=None, help='Primary keyword for this page (--rewrite-template)')
     ap.add_argument('--dry-run',         action='store_true', dest='dry_run',
                     help='Preview without calling API or writing files')
     ap.add_argument('--model',           default=None,
@@ -1815,6 +2030,25 @@ def main():
         _err('ANTHROPIC_API_KEY environment variable not set')
         sys.exit(1)
 
+    # ── Template rewrite (Tier 2, no page/city processing) ────────────────────
+    if args.rewrite_template:
+        if not (args.rewrite_out and args.service and args.base_service):
+            _err('--rewrite-template requires --rewrite-out, --service, and --base-service')
+            sys.exit(2)
+        tpl = load_json(args.rewrite_template)
+        if not tpl:
+            _err(f'Could not read template: {args.rewrite_template}')
+            sys.exit(1)
+        brief = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
+        tpl, stats = rewrite_template_for_service(
+            tpl, brief, args.service, args.keyword or args.service, args.base_service,
+            api_key, dry_run=args.dry_run,
+        )
+        save_json(args.rewrite_out, tpl)
+        stats['estimated_cost_usd'] = _estimated_cost_usd()
+        print(json.dumps(stats))
+        return
+
     registry  = load_registry(paths)
     site_data = load_json(paths['site_json'])
 
@@ -1830,7 +2064,14 @@ def main():
 
     # ── Step 1: Research (fills cities.json research fields) ──────────────────
     if args.research:
-        researched = run_research_step(paths, api_key, dry_run=args.dry_run, city_filter=args.file, tag_ids=tag_ids)
+        researched = run_research_step(paths, api_key, dry_run=args.dry_run, city_filter=args.file,
+                                        tag_ids=tag_ids, force=args.research_force)
+        # The research prompt's own "only real, verified names" instruction is the ONLY
+        # check a neighborhood name gets unless this runs — it was written, tested, and
+        # then never actually wired to anything. Self-deciding same as everything else
+        # here: a city already verified is skipped for free, so re-running this costs
+        # nothing once every city has been through it once.
+        sync_osm_neighborhoods(paths, api_key=api_key, dry_run=args.dry_run, city_filter=args.file, tag_ids=tag_ids)
         if args.research_only:
             _log(f'\n{"═"*54}')
             _ok(f'Research complete: {researched} city/cities enriched')

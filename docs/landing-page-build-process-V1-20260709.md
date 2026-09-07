@@ -9,6 +9,12 @@ full validated page set — and the final deploy step (held pending site config)
 It is **niche-agnostic**: swap the keyword map + master template + AI prompts and
 the same steps produce another niche's pages.
 
+**This doc predates, and doesn't mention, `niche_brief.json` / archetypes / per-city research /
+charts** — a separate configuration layer added later that decides what a niche's AI content and
+per-city facts actually are. Read `docs/niche-brief-and-research.md` alongside this one; they're
+complementary, not competing — this doc gets the pages built and structured, that one decides
+what they say. See also the different single-client-site track in `docs/site-building.md`.
+
 ---
 
 ## The mental model
@@ -230,6 +236,11 @@ Generated city pages are kept **uncommitted as artifacts** (regenerable per real
 ---
 
 ## Repeatable checklist for a NEW niche
+
+> This checklist covers the templates/keyword/deploy mechanics only. It does not cover
+> `niche_brief.json`, archetypes, per-city research, or charts — see
+> `docs/niche-brief-and-research.md` for that layer, and the **New Niche/Site** admin tab
+> (`?tab=new_niche`) for the full combined checklist across both.
 
 1. Build the **keyword map** on the Keywords tab (primary + slug + secondaries, by section).
 2. Build/adapt the **master template(s)** — one per archetype the niche needs.

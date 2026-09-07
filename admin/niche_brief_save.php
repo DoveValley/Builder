@@ -56,6 +56,19 @@ $archAll = json_decode((string)@file_get_contents(BASE_DIR . '/multisite/ai/arch
 $validArch = array_values(array_filter(array_keys($archAll), fn($k) => is_string($k) && $k !== '' && $k[0] !== '_'));
 $enabled = array_values(array_intersect($validArch, (array)($_POST['enabled_archetypes'] ?? [])));
 
+// Extra per-niche research facts — "key: question" per line, no chart required. Keyed by
+// field name so a repeated key in the textarea overwrites rather than duplicates; generate.py
+// reads this straight off the brief (niche_research_fields()), same as chart/plugin fields.
+$customFields = [];
+foreach (preg_split('/\r\n|\r|\n/', $_POST['custom_research_fields'] ?? '') as $line) {
+    $line = trim($line);
+    if ($line === '' || strpos($line, ':') === false) continue;
+    [$fk, $fask] = array_map('trim', explode(':', $line, 2));
+    $fk = trim((string)preg_replace('/[^a-z0-9]+/i', '_', strtolower($fk)), '_');
+    if ($fk === '' || $fask === '' || !preg_match('/^[a-z][a-z0-9_]*$/', $fk)) continue;
+    $customFields[$fk] = ['key' => $fk, 'ask' => $fask];
+}
+
 $brief = [
     'niche'               => trim($_POST['niche'] ?? ''),
     'master_site'         => ACTIVE_SITE_ID,
@@ -68,6 +81,7 @@ $brief = [
     'guardrails'          => trim($_POST['guardrails'] ?? ''),
     'uses_research_fields' => !empty($_POST['uses_research_fields']),
     'research_prompt'     => trim($_POST['research_prompt'] ?? ''),
+    'custom_research_fields' => array_values($customFields),
     'enabled_archetypes'  => $enabled,
 ];
 

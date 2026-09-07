@@ -7,6 +7,10 @@
 $b  = $nicheBrief ?: [];
 $bv = fn(string $k) => h($b[$k] ?? '');
 $offeringsText = implode("\n", (array)($b['offerings'] ?? []));
+$customResearchText = implode("\n", array_map(
+    fn($f) => trim(($f['key'] ?? '') . ': ' . ($f['ask'] ?? '')),
+    array_filter((array)($b['custom_research_fields'] ?? []), 'is_array')
+));
 $enabled = (array)($b['enabled_archetypes'] ?? []);
 
 // Compiled-registry status
@@ -17,7 +21,7 @@ if (defined('AI_REGISTRY_FILE') && file_exists(AI_REGISTRY_FILE)) {
 }
 ?>
 <div class="tab-content" style="<?= $tab === 'niche_brief' ? '' : 'display:none;' ?>">
-<?php tab_header('Niche Brief', 'The domain vocabulary for this master site\'s vertical. Saving always compiles it into the AI Block Registry from the shared, read-only archetypes. Each master site is one niche.', 'tab-niche-brief'); ?>
+<?php tab_header('Niche Brief & Research', 'The domain vocabulary for this master site\'s vertical, plus what gets researched per city. Saving always compiles the brief into the AI Block Registry from the shared, read-only archetypes. Each master site is one niche.', 'tab-niche-brief'); ?>
 
 <?php
 // The Niche ID is the most consequential field on this tab and it does not look like it: a
@@ -123,6 +127,12 @@ $nbAll    = function_exists('city_chart_niches') ? city_chart_niches() : [];
             <label for="research_prompt">Research prompt <span class="hint" style="font-weight:400;">(only used when research is on)</span></label>
             <textarea id="research_prompt" name="research_prompt" rows="8" style="font-family:monospace;font-size:0.85rem;"><?= $bv('research_prompt') ?></textarea>
             <span class="hint">What to research per city. Tokens: <code>{city}</code> <code>{state}</code> <code>{SS}</code> (per city) · <code>{business_descriptor}</code> <code>{service_noun}</code> (from this brief). Must ask Claude to return JSON. <strong>Leave blank</strong> for a generic local-market default. The field names you request should match the ones your archetypes reference.</span>
+        </div>
+
+        <div class="form-group" style="margin-top:14px;margin-bottom:0;">
+            <label for="custom_research_fields">Extra research facts <span class="hint" style="font-weight:400;">(niche-specific, no chart required)</span></label>
+            <textarea id="custom_research_fields" name="custom_research_fields" rows="4" style="font-family:monospace;font-size:0.85rem;" placeholder="average_treatment_cost: What is the average cost of a professional termite treatment in {city}, {state}?"><?= h($customResearchText) ?></textarea>
+            <span class="hint">One per line: <code>field_key: the question to ask</code>. For a fact this niche needs that isn't tied to any chart — a chart definition already gets its own figure researched automatically, and a global plugin (e.g. Area Map) asks for its own fields on every niche; this is the third case, for a plain fact only THIS niche cares about. Only fires when &ldquo;Uses research fields&rdquo; above is on. Once a city has been researched, the field is usable in any AI prompt as <code>{field_key}</code> &mdash; same as <code>{industries}</code> or <code>{market_blurb}</code>.</span>
         </div>
     </div>
 

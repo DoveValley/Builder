@@ -62,6 +62,22 @@
         "requires_research": false,
         "prompt_skeleton": "You are writing feature columns for {business}, [[brief.business_descriptor]], for a {city}, {state} page.\n\nfc_heading: 6-10 words, city-aware and benefit-focused (e.g. \"Why {city} [[brief.customer_noun]] Choose {business}\").\n\nWrite exactly 4 columns:\n- Columns 1-3: core benefits of {business}'s {service} - things like experience, responsiveness, guarantees, thorough treatment, and trained technicians. Do NOT list other pest types.\n- Column 4: a {city}-specific benefit grounded in [[brief.local_angle]].\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nLOCAL AREAS - the real, verified {city} neighborhoods you ARE permitted to name (pick only a few, not all): {neighborhoods}\nThese provided names are the ONE exception to the accuracy rules above about not naming neighborhoods. If that line lists actual names, you MUST choose ONLY 2 OR 3 of them - never 4 or more, even though more are listed - and name those BY NAME as natural in-sentence examples - always woven into prose, NEVER a bulleted or \"we serve X, Y, Z\" list, and never add any name not on that line. If that line is blank or still shows the literal token {neighborhoods}, name NO specific neighborhoods, streets, or ZIP codes and speak only in general terms about area types. Wrap paragraphs in <p>...</p>.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
     },
+    "steps_local": {
+        "label": "Process Steps (Inject)",
+        "description": "Injects 3 city-specific process steps into a steps block's steps_items field, replacing generic word-swapped text with real per-city, per-service copy focused on the primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "steps_items",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "steps_items": "array"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing the \"how it works\" process steps for {business}, [[brief.business_descriptor]], for a page targeting {city}, {state}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject of every step; do not drift into generic multi-service language.\n\nWrite exactly 3 steps, in chronological order (initial contact → assessment/diagnosis → resolution/follow-up):\n- \"heading\": 2-5 words, action-focused (e.g. \"Schedule Your {service} Visit\").\n- \"text\": 1-2 sentences (20-35 words) describing what actually happens at that step, specific to {service} — not filler that could describe any service. Where it fits naturally, ground one step in {city} or [[brief.local_angle]].\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON: {\"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}. JSON only, no markdown fences."
+    },
     "faq_local": {
         "label": "FAQ - Local (Inject)",
         "description": "Appends 2 city-specific FAQ items to the next faq_two_col block's fq_items array.",
@@ -138,5 +154,53 @@
         },
         "requires_research": false,
         "prompt_skeleton": "You are writing the About Us page for {business}, [[brief.business_descriptor]], based in {city}, {state}.\n\nOperator-provided facts you may draw on (this is the ONLY source of history/credibility claims - do not use any fact not listed here):\n- Years in business: {years_in_business}\n- Mission / positioning, in the operator's own words: {mission_statement}\n\nWrite the About Us page content:\n1. heading_text (H2): 5-9 words about the company's story or mission - not a generic label like \"About Us\".\n2. text: 2-3 paragraphs (180-260 words total), original wording:\n   - Open with who {business} is; if a years-in-business fact is given, work it into a natural sentence (do not just restate the raw fact string).\n   - Explain the mission by paraphrasing and expanding the mission fact above in your own words - do not quote it verbatim.\n   - Close on what [[brief.customer_noun]] in {city} and the surrounding area can expect when they work with {business}.\n   - If years_in_business or mission_statement is blank, write naturally around the gap - never mention that a fact is missing, and never invent a number or story to fill it.\n\nDo not invent any additional years, dates, employee counts, awards, certifications, or credentials beyond what is explicitly given above. Do not fabricate review counts or ratings.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
+    },
+    "homepage_feature_intro": {
+        "label": "Homepage Feature Intro (Inject)",
+        "description": "Injects the homepage's feature_split intro paragraph (fs_subtext), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "fs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "fs_subtext": "string"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing the homepage intro paragraph for {business}, [[brief.business_descriptor]], serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\" — this page exists to rank for it. {service} must read as the clear subject; do not drift into generic multi-service language.\n\nWrite 1-2 sentences (30-50 words) introducing why {city} residents need {service}, grounded in [[brief.local_angle]]. This sits above a list of specific offerings, so end in a way that leads naturally into that list rather than repeating it.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON: {\"fs_subtext\": \"...\"}. JSON only, no markdown fences."
+    },
+    "homepage_grid_intro": {
+        "label": "Homepage Grid Body (Inject)",
+        "description": "Injects the homepage's hero_grid body paragraph (hg_body), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "hg_body",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "hg_body": "string"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing homepage body copy for {business}, [[brief.business_descriptor]], serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nWrite 1 short paragraph (40-60 words), wrapped in <p>...</p>, explaining how {business} approaches {service} for {city} customers — thoroughness, responsiveness, and fit to the customer's specific situation. Do not list every service offered; stay focused on the approach.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON: {\"hg_body\": \"<p>...</p>\"}. JSON only, no markdown fences."
+    },
+    "homepage_service_area": {
+        "label": "Homepage Service Area Statement (Inject)",
+        "description": "Injects the homepage's split_cta service-area paragraph (sc_left_text), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "sc_left_text",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "sc_left_text": "string"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing the \"who we serve\" statement for {business}, [[brief.business_descriptor]], serving {city}, {state}.\n\nTarget keyword: \"{service} {city}\" — keep {service} and {city} as the clear focus.\n\nWrite 1-2 sentences (25-40 words) describing the range of [[brief.customer_noun]]s {business} serves in {city} for {service}, and what working with them is like (communication, pricing clarity, quality) — without inventing guarantees or credentials not already established.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON: {\"sc_left_text\": \"...\"}. JSON only, no markdown fences."
     }
 }

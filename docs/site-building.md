@@ -3,6 +3,12 @@
 **Read this before building or rebuilding a client site.** Not needed for panel/infra work — that is
 why it lives here rather than in `CLAUDE.md`.
 
+**This is the single-client-site track — a different, separate process from the niche/multisite
+factory.** If the task is standing up a new niche vertical (many programmatically-built city
+sites off one master), read `docs/landing-page-build-process-V1-20260709.md` and
+`docs/niche-brief-and-research.md` instead — this doc's phases don't apply there (no
+`niche_brief.json`, no per-city research, no keyword map).
+
 Do it in phases, slowly and verifiably. Never generate all content at once — it produces
 placeholder-filled, structurally wrong output that takes longer to fix than to build correctly from
 the start.

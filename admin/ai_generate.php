@@ -60,6 +60,7 @@ $scope         = in_array($_POST['scope'] ?? '', ['homepage', 'landing', 'core',
 $research      = !empty($_POST['research']);
 $refresh       = !empty($_POST['refresh']);
 $dryRun        = !empty($_POST['dry_run']);
+$force         = !empty($_POST['force']);
 $modelOverride = '';
 $_mo = trim($_POST['model_override'] ?? '');
 if (model_is_valid($_mo)) {
@@ -107,6 +108,9 @@ switch ($action) {
         if ($cityId) { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
         if ($tag)    { $parts[] = '--tag';  $parts[] = escapeshellarg($tag); }
         if ($dryRun) $parts[] = '--dry-run';
+        // Same --research-force generate.py flag the multisite Batch tab's Force checkbox
+        // uses — re-researches even a city already fully on file, instead of only filling gaps.
+        if ($force)  $parts[] = '--research-force';
         break;
 
     default: // generate

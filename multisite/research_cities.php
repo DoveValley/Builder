@@ -5,10 +5,13 @@
  * each city gets real local facts before a batch generates copy. Research is stored
  * ONCE in the persistent cities.json (not per ephemeral build), so it's reused + free.
  *
- *   php multisite/research_cities.php <master_id> [--dry-run]
+ *   php multisite/research_cities.php <master_id> [--dry-run] [--force]
  *
  * No-op (exit 0) if the niche brief has uses_research_fields=false — that niche localizes
  * through its own angle + shortcodes and needs no per-city lookup.
+ *
+ * --force re-researches every city regardless of what it already has (a rewritten research
+ * prompt, or facts believed stale/wrong) — see generate.py's --research-force.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "research_cities.php is CLI only\n"); exit(2); }
 
@@ -20,12 +23,13 @@ require __DIR__ . '/../includes/multisite/batch.php';
 
 $args     = array_slice($argv, 1);
 $dry      = in_array('--dry-run', $args, true);
+$force    = in_array('--force', $args, true);
 $batchArg = '';
 foreach ($args as $a) { if (str_starts_with($a, '--batch=')) $batchArg = substr($a, 8); }
 $pos      = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
 $masterId = $pos[0] ?? '';
 if ($masterId === '' || !is_dir(BASE_DIR . '/sites/' . $masterId)) {
-    fwrite(STDERR, "usage: research_cities.php <master_id> [--batch=bN] [--dry-run]\n");
+    fwrite(STDERR, "usage: research_cities.php <master_id> [--batch=bN] [--dry-run] [--force]\n");
     exit(2);
 }
 
@@ -84,11 +88,11 @@ if (empty($brief['uses_research_fields'])) {
     exit(0);
 }
 
-// ── Run the niche-aware research (fills only cities lacking data) ──────────────
+// ── Run the niche-aware research (fills only cities lacking data, unless --force) ──
 if (defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== '') putenv('ANTHROPIC_API_KEY=' . ANTHROPIC_API_KEY);
 $cmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
      . ' --site-dir ' . escapeshellarg($masterDir) . ' --research-only'
-     . ($dry ? ' --dry-run' : '') . ' 2>&1';
-echo "Running research (" . ($dry ? 'dry-run' : 'live') . ")…\n";
+     . ($dry ? ' --dry-run' : '') . ($force ? ' --research-force' : '') . ' 2>&1';
+echo "Running research (" . ($dry ? 'dry-run' : 'live') . ($force ? ', FORCED — every matched city' : '') . ")…\n";
 passthru($cmd, $code);
 exit((int)$code);

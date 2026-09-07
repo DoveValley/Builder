@@ -775,6 +775,7 @@ switch ($action) {
         if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
         $rArgs = [$masterId, '--batch=' . $batchId];
         if (!empty($_POST['dry_run'])) $rArgs[] = '--dry-run';
+        if (!empty($_POST['force']))   $rArgs[] = '--force';
         echo json_encode(ms_launch_job($batchDir . '/research', '__MS_RESEARCH_DONE__', 'Research is already running.',
             BASE_DIR . '/multisite/research_cities.php', $rArgs));
         break;

@@ -44,7 +44,7 @@ $blogSettings = $data['blog_settings'];
 $tab = $_GET['tab'] ?? 'header';
 // 'theme' is kept in this list only so the legacy redirect below can see it — same
 // reason 'schedule'/'popups' are still here. It is no longer a tab.
-if (!in_array($tab, ['header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'genmod', 'picdrop', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
+if (!in_array($tab, ['new_niche', 'header', 'theme', 'genvisual', 'content', 'pages', 'templates', 'keywords', 'cities', 'citypages', 'genimage', 'genmod', 'picdrop', 'blog', 'footer', 'popups', 'media', 'seo', 'schedule', 'plugins', 'deploy', 'starters', 'ai', 'ai_review', 'ai_blocks', 'niche_brief', 'multisite'], true)) {
     $tab = 'header';
 }
 // Blog tab is unavailable on sites where blog_settings.enabled is off — same gate
@@ -278,6 +278,8 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- Tabs -->
     <div class="tabs">
+        <a class="tab-link <?= $tab === 'new_niche' ? 'active' : '' ?>" href="?tab=new_niche">&#127793; New Niche/Site</a>
+        <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'header' ? 'active' : '' ?>" href="?tab=header">Header</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>
         <?php if (!empty($blogSettings['enabled'])): ?>
@@ -302,9 +304,12 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
         <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
-        <a class="tab-link <?= $tab === 'niche_brief' ? 'active' : '' ?>" href="?tab=niche_brief">&#129534; Niche Brief</a>
+        <a class="tab-link <?= $tab === 'niche_brief' ? 'active' : '' ?>" href="?tab=niche_brief">&#129534; Niche Brief &amp; Research</a>
         <a class="tab-link <?= $tab === 'deploy' ? 'active' : '' ?>" href="?tab=deploy">&#128640; Deploy</a>
     </div>
+
+    <!-- ================= NEW NICHE TAB ================= -->
+    <?php require __DIR__ . '/tabs/new_niche.php'; ?>
 
     <!-- ================= HEADER TAB ================= -->
     <?php require __DIR__ . '/tabs/header.php'; ?>

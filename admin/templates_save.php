@@ -459,10 +459,14 @@ if ($action === 'registry_delete') {
 // clean metadata (id/title/slug/service + seo service fields). Reusable for any
 // niche — pick that niche's base template and paste that niche's rows.
 if ($action === 'bulk_generate') {
-    $mode    = (($_POST['mode'] ?? 'preview') === 'commit') ? 'commit' : 'preview';
-    $baseId  = trim($_POST['base_id'] ?? '');
-    $rawRows = (string)($_POST['rows'] ?? '');
-    $projRoot = dirname(__DIR__);
+    $mode      = (($_POST['mode'] ?? 'preview') === 'commit') ? 'commit' : 'preview';
+    $baseId    = trim($_POST['base_id'] ?? '');
+    $rawRows   = (string)($_POST['rows'] ?? '');
+    $aiRewrite = !empty($_POST['ai_rewrite']);
+    $projRoot  = dirname(__DIR__);
+    // Several rows each mean a real Claude call when AI rewrite is on — a handful of
+    // rows can take longer than the default PHP time limit.
+    if ($aiRewrite) set_time_limit(0);
 
     $templates = _tpl_load();
     $base = null;
@@ -483,11 +487,20 @@ if ($action === 'bulk_generate') {
             return $repl;
         }, $s);
     };
-    $applyReplace = function (&$node, array $pairs) use (&$applyReplace, $caseReplace) {
+    // Walks every string in the cloned block tree — but skips structural/internal keys
+    // (block type, and any ai_*/_ai_* bookkeeping field) so a find/replace pair can never
+    // corrupt AI wiring by coincidence. Real content fields (heading, text, alt, an item's
+    // own url/slug) are still fully in scope — only the fields a human never types into
+    // are excluded. This was a real, if never-triggered, gap: nothing today happens to
+    // put a swap word inside one of those fields, but nothing stopped it either.
+    $applyReplace = function (&$node, array $pairs, string $key = '') use (&$applyReplace, $caseReplace) {
         if (is_array($node)) {
-            foreach ($node as &$v) $applyReplace($v, $pairs);
+            foreach ($node as $k => &$v) $applyReplace($v, $pairs, (string)$k);
             unset($v);
         } elseif (is_string($node)) {
+            if ($key === 'type' || str_starts_with($key, 'ai_') || str_starts_with($key, '_')) {
+                return;
+            }
             foreach ($pairs as [$f, $r]) $node = $caseReplace($node, $f, $r);
         }
     };
@@ -523,6 +536,53 @@ if ($action === 'bulk_generate') {
         return 'sites/' . ACTIVE_SITE_ID . '/uploads/media/' . $file;
     };
 
+    // Tier 2: one-time, per-service AI rewrite of the row's static prose, replacing
+    // find/replace's word-swap with an actual rewrite grounded in the niche brief.
+    // Field-scoped and token-checked inside generate.py — never touches structure,
+    // never drops a {shortcode}. Runs here (once per row) rather than per city, since
+    // Pass A clones whatever this saves into every city for free afterward, same as
+    // find/replace output does today.
+    $aiRewriteRow = function (array $tpl, string $service, string $keyword, string $baseService): array {
+        $in  = tempnam(sys_get_temp_dir(), 'tplrw_in_');
+        $out = tempnam(sys_get_temp_dir(), 'tplrw_out_');
+        file_put_contents($in, json_encode($tpl, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+        $cmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
+             . ' --site ' . escapeshellarg(ACTIVE_SITE_ID)
+             . ' --rewrite-template ' . escapeshellarg($in)
+             . ' --rewrite-out ' . escapeshellarg($out)
+             . ' --service ' . escapeshellarg($service)
+             . ' --base-service ' . escapeshellarg($baseService)
+             . ' --keyword ' . escapeshellarg($keyword)
+             . ' 2>&1';
+        $env = 'ANTHROPIC_API_KEY=' . escapeshellarg(ANTHROPIC_API_KEY) . ' ';
+        $stdout = shell_exec($env . $cmd);
+        $result = ['ok' => false, 'rewritten' => 0, 'reverted' => 0, 'field_count' => 0, 'error' => ''];
+        $wroteValidFile = false;
+        if (is_file($out)) {
+            $rewritten = json_decode((string)file_get_contents($out), true);
+            if (is_array($rewritten)) { $tpl = $rewritten; $wroteValidFile = true; }
+        }
+        // The stats line is the LAST line of stdout (generate.py's banner precedes it).
+        $lines = array_filter(array_map('trim', explode("\n", (string)$stdout)));
+        $statsLine = end($lines) ?: '';
+        $stats = json_decode($statsLine, true);
+        if (is_array($stats)) {
+            $result['rewritten']   = (int)($stats['rewritten'] ?? 0);
+            $result['reverted']    = (int)($stats['reverted']  ?? 0);
+            $result['field_count'] = (int)($stats['field_count'] ?? 0);
+        }
+        // "ok" means an actual rewrite happened — a run that produced valid output but
+        // rewrote nothing (a transient API failure, a rate limit exhausting all retries)
+        // must NOT read as success just because the process didn't crash; it silently
+        // fell back to the find/replace text, and that's worth a visible warning.
+        $result['ok'] = $wroteValidFile && ($result['rewritten'] > 0 || $result['field_count'] === 0);
+        if (!$result['ok']) {
+            $result['error'] = trim((string)$stdout) ?: 'Rewrite step produced no output.';
+        }
+        @unlink($in); @unlink($out);
+        return [$tpl, $result];
+    };
+
     $report = [];
     foreach (preg_split('/\r\n|\r|\n/', $rawRows) as $line) {
         $line = trim($line);
@@ -550,6 +610,11 @@ if ($action === 'bulk_generate') {
         $applyReplace($tpl['content_blocks'], $pairs);
         $applyReplace($tpl['seo'], $pairs);
         $imgDone = $assignImages($tpl['content_blocks'], $heroImg, $introImg, $localImg);
+
+        $rewriteResult = null;
+        if ($aiRewrite) {
+            [$tpl, $rewriteResult] = $aiRewriteRow($tpl, $service, $keyword, (string)($base['service'] ?? $baseId));
+        }
 
         $newId = _tpl_make_id($service, $templates);
         $tpl['id']            = $newId;
@@ -583,6 +648,7 @@ if ($action === 'bulk_generate') {
             'id' => $newId, 'title' => $title, 'slug' => $tpl['slug_pattern'], 'service' => $service,
             'images' => ['hero' => $heroImg, 'intro' => $introImg, 'local' => $localImg],
             'img_slots' => $imgDone, 'img_missing' => $imgMissing, 'leftover' => $leftover,
+            'ai_rewrite' => $rewriteResult,
         ];
         $templates[] = $tpl;    // keeps _tpl_make_id unique across the batch
     }
@@ -592,7 +658,7 @@ if ($action === 'bulk_generate') {
     }
 
     if ($mode === 'preview') {
-        $_SESSION['tpl_bulk'] = ['base' => $baseId, 'rows' => $rawRows, 'report' => $report];
+        $_SESSION['tpl_bulk'] = ['base' => $baseId, 'rows' => $rawRows, 'report' => $report, 'ai_rewrite' => $aiRewrite];
         header('Location: index.php?tab=templates#bulkgen'); exit;
     }
 

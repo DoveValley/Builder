@@ -69,6 +69,7 @@ function _render_city_fields(array $city = [], string $prefix = '', string $city
     <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #e5e7eb;padding-top:16px;margin-top:20px;margin-bottom:4px;flex-wrap:wrap;">
         <h3 style="margin:0;font-size:.9rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">AI Research Context</h3>
         <?php if ($cityId): ?>
+        <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:400;text-transform:none;letter-spacing:normal;margin:0;"><input type="checkbox" id="city-research-force" style="width:auto;"> Force (redo even if already researched)</label>
         <button type="button" class="ai-run-btn" id="city-research-btn"
                 style="font-size:.75rem;padding:5px 12px;"
                 onclick="cityResearch(<?= h(json_encode($cityId)) ?>)">&#128269; Research with AI</button>
@@ -76,7 +77,7 @@ function _render_city_fields(array $city = [], string $prefix = '', string $city
         <span id="city-research-status" style="font-size:.78rem;color:#6b7280;"></span>
         <?php endif; ?>
     </div>
-    <p class="hint" style="margin-bottom:12px;">Used by <code>generate.py</code> to write city-specific content. One item per line.</p>
+    <p class="hint" style="margin-bottom:12px;">Used by <code>generate.py</code> to write city-specific content. One item per line. With Force unticked, an already-researched city is skipped — this only fills in what's actually missing. <strong>Works exactly the same way as the multisite Batch tab's "Research cities" step</strong> — same engine, same self-deciding logic, same Force override.</p>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;">
         <div class="form-group">
@@ -220,24 +221,30 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
     <!-- City list -->
     <div class="card">
         <?php
-        // Same "needs research" test generate.py's _needs_research() uses, so the
-        // count shown here always matches what a no-filter research run will do.
-        $citiesNeedingResearch = array_filter($cities, function ($c) {
-            if (!empty($c['_researched'])) return false;
-            return empty($c['industries']) && empty($c['top_employers']);
-        });
-        $needResearchCount = count($citiesNeedingResearch);
+        // Rough, informational count only — a quick eyeball of cities that have never been
+        // researched at all. NOT used to decide whether the button shows: generate.py's real
+        // _needs_research() also re-opens an already-researched city when a chart, plugin, or
+        // custom research field it should have is still missing, which this simple PHP check
+        // has no way to replicate without duplicating that logic a second place to drift from.
+        // So the button is never hidden — the engine decides what's actually left to do, same
+        // as the multisite Batch tab's "Research cities" step.
+        $neverResearchedCount = count(array_filter($cities, fn($c) =>
+            empty($c['_researched']) && empty($c['industries']) && empty($c['top_employers'])));
         ?>
         <h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
             <span>Cities <span style="font-weight:400;font-size:0.85em;color:#888;">(<?= count($cities) ?>)</span></span>
-            <?php if ($needResearchCount > 0): ?>
+            <?php if (!empty($cities)): ?>
+            <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:400;margin:0;"><input type="checkbox" id="city-research-all-force" style="width:auto;"> Force (redo every city, ignore what's already on file)</label>
             <button type="button" class="ai-run-btn" id="city-research-all-btn"
                     style="font-size:.75rem;padding:5px 12px;"
-                    onclick="cityResearchAll()">&#128269; Research All Missing (<?= $needResearchCount ?>)</button>
+                    onclick="cityResearchAll()">&#128269; Research cities<?= $neverResearchedCount > 0 ? ' (' . $neverResearchedCount . ' never researched)' : '' ?></button>
             <div class="ai-spinner" id="city-research-all-spinner"></div>
             <span id="city-research-all-status" style="font-size:.78rem;font-weight:400;color:#6b7280;"></span>
             <?php endif; ?>
         </h2>
+        <?php if (!empty($cities)): ?>
+        <p class="hint" style="margin-top:6px;">With Force unticked, this decides on its own, city by city and field by field, what actually needs asking — an already-researched city is skipped unless something it needs (a chart figure, a custom research field, …) is still missing. <strong>Works exactly the same way as the multisite Batch tab's "Research cities" step</strong> — same engine, same self-deciding logic, same Force override.</p>
+        <?php endif; ?>
         <?php if (empty($cities)): ?>
             <p class="hint">No cities yet. Add one above or import from CSV.</p>
         <?php else: ?>
@@ -305,15 +312,19 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
         <?php endif; ?>
     </div>
 
-    <?php if ($needResearchCount > 0): ?>
+    <?php if (!empty($cities)): ?>
     <script>
     window.cityResearchAll = function () {
         var btn     = document.getElementById('city-research-all-btn');
         var spinner = document.getElementById('city-research-all-spinner');
         var status  = document.getElementById('city-research-all-status');
+        var force   = document.getElementById('city-research-all-force').checked;
         if (!btn) return;
-        if (!confirm('Research <?= $needResearchCount ?> ' + '<?= $needResearchCount === 1 ? "city" : "cities" ?>'
-            + ' with AI? Cities that already have research data are skipped automatically.')) return;
+        var msg = force
+            ? 'Force will re-research ALL <?= count($cities) ?> cities on this site, even ones already complete — full API cost, not just whatever is actually missing. Continue?'
+            : 'Research this site\'s <?= count($cities) ?> ' + '<?= count($cities) === 1 ? "city" : "cities" ?>'
+              + ' with AI? It decides on its own what\'s actually missing — a city already fully researched is skipped automatically.';
+        if (!confirm(msg)) return;
 
         btn.disabled = true;
         spinner.classList.add('on');
@@ -328,9 +339,10 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
         var fd = new FormData();
         fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
         fd.append('action', 'research');
+        if (force) fd.append('force', '1');
         // No city_id — generate.py's --research-only runs with no --file filter,
         // which processes every city in cities.json still missing research data
-        // (skipping ones that already have it), in one pass.
+        // (skipping ones that already have it, unless Force is ticked), in one pass.
 
         function handleLine(raw) {
             var msg;
@@ -420,7 +432,9 @@ window.cityResearch = function (cityId) {
     var btn     = document.getElementById('city-research-btn');
     var spinner = document.getElementById('city-research-spinner');
     var status  = document.getElementById('city-research-status');
+    var force   = document.getElementById('city-research-force').checked;
     if (!btn) return;
+    if (force && !confirm('Force will re-research this city from scratch, even though it may already have data. Continue?')) return;
 
     btn.disabled = true;
     spinner.classList.add('on');
@@ -436,6 +450,7 @@ window.cityResearch = function (cityId) {
     fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
     fd.append('action', 'research');
     fd.append('city_id', cityId);
+    if (force) fd.append('force', '1');
 
     function handleLine(raw) {
         var msg;
