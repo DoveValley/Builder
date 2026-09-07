@@ -442,6 +442,7 @@ function addMenuRow() {
     card.className = 'menu-item-card';
     card.dataset.menuIndex = mi;
     card.innerHTML = `
+        <input type="hidden" name="menu_children_dynamic[]" value="0">
         <div class="menu-item-top repeat-row">
             <input type="text" name="menu_label[]" placeholder="Label (e.g. Home)">
             <input type="text" name="menu_url[]" placeholder="Link (e.g. / or #about)">

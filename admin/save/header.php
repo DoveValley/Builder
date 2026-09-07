@@ -31,19 +31,29 @@
         $data['header']['topbar_text'] = trim($_POST['topbar_text'] ?? '');
         // Only allow safe URL schemes: https, http, tel, mailto — block javascript: etc.
         $data['header']['topbar_link'] = sanitize_url($_POST['topbar_link'] ?? '');
-        $labels = $_POST['menu_label'] ?? [];
-        $urls   = $_POST['menu_url']   ?? [];
+        $labels        = $_POST['menu_label'] ?? [];
+        $urls          = $_POST['menu_url']   ?? [];
+        $dynamicFlags  = $_POST['menu_children_dynamic'] ?? [];
         $menu   = [];
         foreach ($labels as $i => $label) {
             $label = trim($label); $url = sanitize_url($urls[$i] ?? '');
             if ($label === '' && $url === '') continue;
-            $childLabels = $_POST['menu_child_label'][$i] ?? [];
-            $childUrls   = $_POST['menu_child_url'][$i]   ?? [];
-            $children = [];
-            foreach ($childLabels as $ci => $cl) {
-                $cl = trim($cl); $cu = sanitize_url($childUrls[$ci] ?? '');
-                if ($cl === '' && $cu === '') continue;
-                $children[] = ['label' => $cl, 'url' => $cu !== '' ? $cu : '#'];
+            // '@services_links' is a sentinel (see admin/tabs/header.php) meaning "auto-populate
+            // from this site's full service list at render time" — not editable here, so it
+            // isn't rebuilt from menu_child_label/url like a normal item's children would be.
+            // Without this check, saving ANY header field would silently reset it to [] and
+            // turn off the live services dropdown.
+            if (($dynamicFlags[$i] ?? '0') === '1') {
+                $children = '@services_links';
+            } else {
+                $childLabels = $_POST['menu_child_label'][$i] ?? [];
+                $childUrls   = $_POST['menu_child_url'][$i]   ?? [];
+                $children = [];
+                foreach ($childLabels as $ci => $cl) {
+                    $cl = trim($cl); $cu = sanitize_url($childUrls[$ci] ?? '');
+                    if ($cl === '' && $cu === '') continue;
+                    $children[] = ['label' => $cl, 'url' => $cu !== '' ? $cu : '#'];
+                }
             }
             $menu[] = ['label' => $label, 'url' => $url !== '' ? $url : '#', 'children' => $children];
         }

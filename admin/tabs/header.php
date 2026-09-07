@@ -206,17 +206,34 @@
                     <?php
                     $menu = $header['menu'] ?: [['label'=>'','url'=>'','children'=>[]]];
                     foreach ($menu as $mi => $item):
-                        $children = $item['children'] ?? [];
+                        // 'children' can be the string '@services_links' — a sentinel meaning
+                        // "auto-populate from this site's full service list at render time"
+                        // (see plugins/services_links/plugin.php) instead of a hand-kept array.
+                        // Editing that list here doesn't make sense (it isn't stored per-item),
+                        // so render it read-only and carry the sentinel through save via a
+                        // hidden field — otherwise saving ANY header field would silently
+                        // rebuild this as an empty array and turn off the live dropdown.
+                        $childrenRaw = $item['children'] ?? [];
+                        $isDynamic   = ($childrenRaw === '@services_links');
+                        $children    = $isDynamic ? [] : (is_array($childrenRaw) ? $childrenRaw : []);
                     ?>
                     <div class="menu-item-card" data-menu-index="<?= $mi ?>">
+                        <input type="hidden" name="menu_children_dynamic[]" value="<?= $isDynamic ? '1' : '0' ?>">
                         <div class="menu-item-top repeat-row">
                             <input type="text" name="menu_label[]" placeholder="Label (e.g. Home)" value="<?= h($item['label'] ?? '') ?>">
                             <input type="text" name="menu_url[]" placeholder="Link (e.g. / or #about)" value="<?= h($item['url'] ?? '') ?>">
-                            <button type="button" class="btn btn-secondary btn-small" onclick="toggleDropdown(this)" style="white-space:nowrap;">
-                                + Sub-menu (<?= count($children) ?>)
-                            </button>
+                            <?php if ($isDynamic): ?>
+                                <button type="button" class="btn btn-secondary btn-small" disabled title="This item's dropdown lists every service automatically — set in the Services Links plugin, not editable here." style="white-space:nowrap;">
+                                    Auto: full service list
+                                </button>
+                            <?php else: ?>
+                                <button type="button" class="btn btn-secondary btn-small" onclick="toggleDropdown(this)" style="white-space:nowrap;">
+                                    + Sub-menu (<?= count($children) ?>)
+                                </button>
+                            <?php endif; ?>
                             <button type="button" class="remove-row" onclick="removeMenuItem(this)">&times;</button>
                         </div>
+                        <?php if (!$isDynamic): ?>
                         <div class="menu-dropdown-editor <?= empty($children) ? 'is-hidden' : '' ?>">
                             <p class="hint" style="margin:6px 0 8px 0;">Sub-menu links — shown in a dropdown under this item.</p>
                             <div class="dropdown-links">
@@ -230,6 +247,7 @@
                             </div>
                             <button type="button" class="btn btn-secondary btn-small" onclick="addDropdownLink(this, <?= $mi ?>)" style="margin-top:6px;">+ Add sub-link</button>
                         </div>
+                        <?php endif; ?>
                     </div>
                     <?php endforeach; ?>
                 </div>

@@ -68,13 +68,18 @@ if (isset($seo['meta_keywords']))    $seo['meta_keywords']    = resolve_shortcod
 if (isset($seo['og_title']))         $seo['og_title']         = resolve_shortcodes($seo['og_title']);
 if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcodes($seo['og_description']);
 // OG image fallback: hero block photo → global site og_image
+// $contentBlocks here is still pre-shortcode-resolution (apply_shortcodes_to_block() runs
+// later, per-block, in the main render loop below) — a literal uploaded path has no braces
+// so this was never visibly wrong before, but a bare-token photo value (e.g. hs_photo set to
+// "{city_image}", which the Contact Us page's hero_split uses) was captured unresolved and
+// never touched again, shipping the literal "{city_image}" in <meta property="og:image">.
 if (empty($seo['og_image'])) {
     foreach ($contentBlocks as $_b) {
         $_t = $_b['type'] ?? '';
-        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $seo['og_image'] = $_b['hs_photo'];      break; }
-        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $seo['og_image'] = $_b['hero_bg_image']; break; }
-        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $seo['og_image'] = $_b['hg_photo'];      break; }
-        if ($_t === 'post_meta'  && !empty($_b['featured_image'])){ $seo['og_image'] = $_b['featured_image']; break; }
+        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $seo['og_image'] = resolve_shortcodes($_b['hs_photo']);      break; }
+        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $seo['og_image'] = resolve_shortcodes($_b['hero_bg_image']); break; }
+        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $seo['og_image'] = resolve_shortcodes($_b['hg_photo']);      break; }
+        if ($_t === 'post_meta'  && !empty($_b['featured_image'])){ $seo['og_image'] = resolve_shortcodes($_b['featured_image']); break; }
     }
     if (empty($seo['og_image'])) $seo['og_image'] = $data['seo']['og_image'] ?? '';
 }
@@ -85,12 +90,15 @@ if (empty($seo['og_image'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
+    // Same pre-shortcode-resolution gap as the og:image fallback below: $contentBlocks here
+    // hasn't been through apply_shortcodes_to_block() yet, so a bare-token photo value (e.g.
+    // "{city_image}") must be resolved explicitly or it ships literally in the preload href.
     $heroPreloadSrc = null;
     foreach ($contentBlocks as $_b) {
         $_t = $_b['type'] ?? '';
-        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $heroPreloadSrc = $_b['hero_bg_image']; break; }
-        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $heroPreloadSrc = $_b['hs_photo'];      break; }
-        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $heroPreloadSrc = $_b['hg_photo'];      break; }
+        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $heroPreloadSrc = resolve_shortcodes($_b['hero_bg_image']); break; }
+        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $heroPreloadSrc = resolve_shortcodes($_b['hs_photo']);      break; }
+        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $heroPreloadSrc = resolve_shortcodes($_b['hg_photo']);      break; }
     }
     if ($heroPreloadSrc && !str_starts_with($heroPreloadSrc, 'http') && !str_starts_with($heroPreloadSrc, '//')) {
         $heroPreloadSrc = ($assetPathPrefix ?? '/') . $heroPreloadSrc;
@@ -682,10 +690,18 @@ if ($firstBlockHero) {
         }
     });
 
-    // Dropdown toggle: mobile = click accordion; desktop = click closes others, Esc closes
-    nav.querySelectorAll('li.has-dropdown > a').forEach(function(a) {
+    // Dropdown toggle: mobile = click accordion; desktop = click closes others, Esc closes.
+    // Selected by [aria-haspopup="true"], NOT a "has-dropdown" class — the anti-fingerprint
+    // class-vocabulary rename pass (includes/multisite/class_vocab.php) only spares a class
+    // name if it detects the class referenced from JS, via specific regex shapes ('.class',
+    // classList.x('class'), className===). "li.has-dropdown > a" doesn't match any of those
+    // (the dot isn't at the very start of the quoted string), so on every real deployed
+    // domain the pass silently renamed the class in the HTML while this selector kept
+    // looking for the old name — the mobile accordion opened for nobody. aria-haspopup is a
+    // plain attribute, never touched by that pass, so this can't regress the same way.
+    nav.querySelectorAll('a[aria-haspopup="true"]').forEach(function(a) {
         a.addEventListener('click', function(e) {
-            var li = a.closest('li.has-dropdown');
+            var li = a.closest('li');
             if (window.innerWidth <= 768) {
                 e.preventDefault();
                 var isOpen = li.classList.toggle('open');
@@ -701,19 +717,19 @@ if ($firstBlockHero) {
     // Close all dropdowns when clicking outside the nav
     document.addEventListener('click', function(e) {
         if (!nav.contains(e.target)) {
-            nav.querySelectorAll('li.has-dropdown').forEach(function(li) { li.classList.remove('open'); });
+            nav.querySelectorAll('a[aria-haspopup="true"]').forEach(function(a) { a.closest('li').classList.remove('open'); });
         }
     });
 
     // Esc key closes all dropdowns
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            nav.querySelectorAll('li.has-dropdown').forEach(function(li) { li.classList.remove('open'); });
+            nav.querySelectorAll('a[aria-haspopup="true"]').forEach(function(a) { a.closest('li').classList.remove('open'); });
         }
     });
 
     // Close everything when a leaf link is clicked
-    nav.querySelectorAll('a:not(.has-dropdown > a)').forEach(function(a) {
+    nav.querySelectorAll('a:not([aria-haspopup="true"])').forEach(function(a) {
         a.addEventListener('click', function() {
             nav.classList.remove('is-open');
             toggle.classList.remove('is-open');
