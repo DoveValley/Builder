@@ -330,6 +330,24 @@ function generate_city_pages(array $options = []): array {
                 }
             }
 
+            // The H1 is FORCED to the page's own primary keyword, not left to whatever
+            // static text a template's hero block happens to carry. Runs AFTER the
+            // locked-block restore above, and deliberately overrides even a restored,
+            // _ai_locked hero block — that lock exists to protect the AI-written
+            // hs_subtext from being clobbered by a re-run, not to let the heading (a
+            // mechanical, keyword-driven field, not authored content) go stale. A
+            // hand-typed heading can agree with seo_title/primary_keyword on the day
+            // someone writes it and silently drift the next time either is edited alone;
+            // this closes that off by construction instead of relying on an editor's
+            // care every time (see feedback_seo_primary_keyword_focus). Everything else
+            // on the block — subtext, photo, the lock flag itself — is untouched.
+            $heroHeadingField = ['hero' => 'hero_heading', 'hero_split' => 'hs_heading', 'hero_grid' => 'hg_heading'];
+            $firstBlockType   = $page['content_blocks'][0]['type'] ?? '';
+            $primaryKw        = trim((string) ($page['seo']['primary_keyword'] ?? ''));
+            if ($primaryKw !== '' && isset($heroHeadingField[$firstBlockType])) {
+                $page['content_blocks'][0][$heroHeadingField[$firstBlockType]] = '{primary_keyword} in {city_state}';
+            }
+
             // ── FAQPage schema is derived at RENDER time ─────────────────────
             // (schema_apply_faqpage in includes/schema.php), from the page's current
             // FAQ blocks — so it's never stale relative to AI-filled FAQ content.
