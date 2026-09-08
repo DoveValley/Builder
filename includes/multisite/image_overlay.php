@@ -833,6 +833,14 @@ function ms_strip_uploads_metadata(string $workingDir): array
     $res = ['scanned' => 0, 'stripped' => 0, 'failed' => 0, 'remaining' => 0];
     $dir = $workingDir . '/uploads';
     if (!is_dir($dir)) return $res;
+    // uploads/ is a symlink into the run's SHARED snapshot until materialized into a
+    // private hardlink farm — ms_differentiate_site_images() normally does that, but
+    // skips it whenever ms_convert_bin() finds no image-conversion binary on this box
+    // (early return, before materializing). Without this call, is_dir() below still
+    // follows the symlink and every write/rename lands in the shared snapshot's real
+    // uploads dir instead of this row's own copy — visible to every other domain in
+    // the batch, and racy across parallel workers on top of that.
+    ms_materialize_uploads($workingDir);
 
     $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
     foreach ($it as $file) {
@@ -851,7 +859,11 @@ function ms_strip_uploads_metadata(string $workingDir): array
         if ($clean === null) continue;                          // nothing to remove
 
         // A truncated write would corrupt the image, so write beside it and rename.
-        $tmp = $path . '.strip';
+        // PID-suffixed like every other tmp-then-rename in this codebase (clone.php,
+        // ai_cache.php, …) — without it, two parallel workers (--jobs>1) touching the
+        // same shared file (see the materialize call above) would race on this exact
+        // path if materialization was ever skipped for either of them.
+        $tmp = $path . '.strip.' . getmypid();
         if (@file_put_contents($tmp, $clean) === false) { $res['failed']++; continue; }
         if (!@rename($tmp, $path)) { @unlink($tmp); $res['failed']++; continue; }
         $res['stripped']++;

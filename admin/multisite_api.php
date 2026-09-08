@@ -90,9 +90,26 @@ function ms_test_deploy_config(): array {
 // ms_pid_alive() / ms_latest_run_file() / ms_read_run() / ms_active_run() live in
 // includes/multisite/batch.php — the home panel reads runs too, so they are shared.
 
+/**
+ * Prune runs/ to the newest $keep run-id pairs (.json + .out) — mirrors
+ * ms_snapshot_params_version()'s cap on params_versions/, which this directory never
+ * had: every run/retry ever launched left a permanent .json+.out pair with nothing
+ * bounding growth over a batch's life.
+ */
+function ms_prune_runs(string $runsDir, int $keep = 30): void {
+    $files = glob($runsDir . '/*.json') ?: [];
+    if (count($files) <= $keep) return;
+    rsort($files); // timestamp-prefixed names sort chronologically
+    foreach (array_slice($files, $keep) as $old) {
+        @unlink($old);
+        @unlink(preg_replace('/\.json$/', '.out', $old));
+    }
+}
+
 /** Launch run_campaign for one batch as a detached background process. Returns the run_id. */
 function ms_launch_campaign(string $masterId, string $batchId, string $runsDir, string $flags): string {
     if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
+    ms_prune_runs($runsDir);
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $out   = $runsDir . '/' . $runId . '.out';
     $cmd = 'setsid ' . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg(BASE_DIR . '/multisite/run_campaign.php')
@@ -316,7 +333,8 @@ switch ($action) {
         $n = ['ready' => 0, 'no_build' => 0, 'no_creds' => 0];
         foreach ($rows as $r) {
             $d = strtolower(trim((string) ($r['domain'] ?? ''))); if ($d === '') continue;
-            $slug = trim(preg_replace('/[^a-z0-9]+/', '_', $d), '_');
+            // Must match ms_batch_output_dir()'s own derivation (ms_domain_slug()).
+            $slug = ms_domain_slug($d);
             if (!isset($built[$slug]))                          { $n['no_build']++; continue; }
             if (trim((string) ($r['ftp_host'] ?? '')) === ''
                 || trim((string) ($r['ftp_user'] ?? '')) === '') { $n['no_creds']++; continue; }
@@ -726,6 +744,16 @@ switch ($action) {
             ? $runsDir . '/' . $rid . '.json'
             : ms_latest_run_file($runsDir);
         $d = $file ? ms_read_run($file) : null;
+        // Add each result's folder/manifest slug so the panel's "public preview" link
+        // can use the real slug instead of recomputing it client-side in JS — JS has
+        // no built-in MD5, and ms_domain_slug() includes one specifically so two
+        // distinct domains can't collide onto the same folder (see its docblock).
+        if (is_array($d['results'] ?? null)) {
+            foreach ($d['results'] as &$r) {
+                if (!empty($r['domain'])) $r['slug'] = ms_domain_slug($r['domain']);
+            }
+            unset($r);
+        }
         echo json_encode($d ?: ['none' => true]);
         break;
 

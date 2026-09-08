@@ -31,7 +31,6 @@ if (!isset($csrfToken)) return;
         </div>
         <button type="submit" class="btn btn-primary" id="ms-upload-btn">Upload &amp; Validate</button>
         <button type="button" class="btn" id="ms-test-csv-btn" onclick="msLoadTestCsv()">Preview test</button>
-        <a class="btn" href="multisite_api.php?action=download_csv" target="_blank" rel="noopener">Download CSV</a>
         <span id="ms-upload-msg" class="hint" style="margin-left:10px;"></span>
     </form>
     <p class="hint" style="margin-top:10px;">The table is stored only when every row is error-free. Rows with warnings are kept (they build, but a row without FTP credentials won't deploy). Fix any errors and re-upload.</p>
@@ -287,7 +286,13 @@ if (!isset($csrfToken)) return;
                     ['Font — 6 in rotation, picked per domain independently of the palette', 'control', 'visual.font'],
                     ['Palette jitter — every colour nudged a few points per domain, so no two sites share a hex. Contrast-gated: a colour that would drop below WCAG AA reverts', 'control', 'visual.jitter'],
                  ]],
-                ['key' => 'visual', 'label' => 'Logo &amp; favicon', 'status' => 'live',
+                // key=null (like the SEO gate row below), not 'visual': this card's own
+                // sub-items are 'auto'/'off', not 'control' — there's nothing of ITS OWN
+                // for a checkbox here to toggle. It used to share the literal key
+                // 'visual' with the "Colours & fonts" card above, so unticking either one
+                // pushed skip=visual and silently skipped BOTH — including palette/font/
+                // jitter, which this card's own checkbox never claimed to touch.
+                ['key' => null, 'label' => 'Logo &amp; favicon', 'status' => 'live',
                  'subs' => [
                     ['Logo wordmark, drawn per site', 'auto'],
                     ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
@@ -1009,10 +1014,11 @@ if (!isset($csrfToken)) return;
                           '" target="_blank" rel="noopener">view</a>'
                         : '';
                     // Public preview — same output, no login, reachable by Google's own tools.
-                    // Slug must match ms_batch_output_dir()'s folder-naming exactly (lowercase,
-                    // any run of non a-z0-9 becomes one underscore, no leading/trailing underscore).
-                    const slug = r.status === 'ok' && r.domain
-                        ? r.domain.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '') : '';
+                    // Slug comes from the server (r.slug, set by the run_status action) rather
+                    // than being recomputed here — ms_domain_slug() folds the readable part the
+                    // same way but also appends an md5-based suffix so two distinct domains
+                    // can't collide onto the same folder, and JS has no built-in MD5 to match it.
+                    const slug = r.status === 'ok' && r.domain ? (r.slug || '') : '';
                     const publicLink = slug
                         ? ' &nbsp;·&nbsp; <a href="http://' + bpMasterId + '--' + bpBatchId + '--' + slug +
                           '.preview.q111.xyz/" target="_blank" rel="noopener">public preview</a>'
@@ -1106,6 +1112,14 @@ if (!isset($csrfToken)) return;
     }
 
     window.msRun = function () {
+        // Force refreshes AI content across every domain in the batch (build_one.php's
+        // --refresh, driven straight from this flag) — the same class of real, whole-
+        // master API cost the research Force checkbox already confirms before running;
+        // this sibling control didn't.
+        if (document.getElementById('ms-force').checked
+            && !confirm('Force will refresh AI content and rebuild EVERY domain in this batch, even ones already complete — real API cost, not just gaps. Continue?')) {
+            return;
+        }
         const btn = document.getElementById('ms-run-btn');
         const fd = new FormData();
         fd.append('csrf_token', csrfToken);

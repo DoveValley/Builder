@@ -278,10 +278,11 @@ function infra_pipeline_row(array $rec, array $stored = []): array
  * to draw one column is the filesystem version of the mistake this console already
  * made over the network.
  *
- * The slug rule (dots and dashes to underscores) is ms_batch_output_dir()'s, in
- * includes/multisite/batch.php. It is restated here rather than required, because
- * admin/infra/lib/* is deliberately self-contained — if that rule ever changes, this
- * line has to change with it.
+ * The slug rule is ms_domain_slug()'s, in includes/multisite/batch.php. It is
+ * restated here rather than required, because admin/infra/lib/* is deliberately
+ * self-contained — if that rule ever changes, this line has to change with it (it
+ * already did once: a lossy dots/dashes-to-underscore fold could collide two
+ * distinct valid domains onto the same slug — see ms_domain_slug()'s docblock).
  *
  * @return array<string,array{dir:string,at:int,has_index:bool}> keyed by slug
  */
@@ -300,10 +301,12 @@ function infra_pipeline_built_index(): array
     return $out;
 }
 
-/** A domain as ms_batch_output_dir() names its folder. */
+/** A domain as ms_batch_output_dir() names its folder (mirrors ms_domain_slug()). */
 function infra_pipeline_slug(string $domain): string
 {
-    return trim(preg_replace('/[^a-z0-9]+/', '_', strtolower(trim($domain))), '_');
+    $domain = strtolower(trim($domain));
+    $base   = trim(preg_replace('/[^a-z0-9]+/', '_', $domain), '_');
+    return ($base !== '' ? $base . '_' : '') . substr(md5($domain), 0, 8);
 }
 
 /**

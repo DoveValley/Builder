@@ -401,10 +401,30 @@ function ms_php_cli(): string
  * uploading are two acts now, and the second needs the first to have left something
  * behind. A re-generate overwrites in place, so the disk cost is one copy per domain.
  */
+/**
+ * A collision-safe, filesystem-safe slug for one domain — used for its build output
+ * directory AND its deploy manifest filename (multisite/upload_sites.php), so the two
+ * MUST stay derived the same way.
+ *
+ * Folding every run of non-alphanumeric characters to a single "_" is lossy: two
+ * entirely distinct, individually valid domains (e.g. "east-side.com" and
+ * "east.side.com", or "a-b.com" and "a--b.com" — both allowed by ms_valid_domain()'s
+ * regex) collapse to the identical slug. Two rows in the same batch that collide this
+ * way land in/overwrite the SAME build output directory and read/write the SAME
+ * deploy manifest — domain B's content and upload state can end up deployed to
+ * domain A's real, live FTP target with no error at any step. The trailing hash makes
+ * that collision require an actual md5 collision on top of the readable collision.
+ */
+function ms_domain_slug(string $domain): string
+{
+    $domain = strtolower(trim($domain));
+    $base   = trim(preg_replace('/[^a-z0-9]+/', '_', $domain), '_');
+    return ($base !== '' ? $base . '_' : '') . substr(md5($domain), 0, 8);
+}
+
 function ms_batch_output_dir(string $masterId, string $batchId, string $domain): string
 {
-    $slug = preg_replace('/[^a-z0-9]+/', '_', strtolower(trim($domain)));
-    return ms_batch_dir($masterId, $batchId) . '/output/' . trim($slug, '_');
+    return ms_batch_dir($masterId, $batchId) . '/output/' . ms_domain_slug($domain);
 }
 
 /** Every domain that currently has generated output waiting, newest first. */

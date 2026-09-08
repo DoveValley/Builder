@@ -26,8 +26,6 @@ const MS_SOFT_COLS = ['email'];
 /** Columns needed to actually deploy (warning if missing → row builds but won't deploy). */
 const MS_FTP_COLS = ['ftp_host', 'ftp_user', 'ftp_pass'];
 
-/** Columns that materially improve AI/identity quality (warning if missing). */
-const MS_RECOMMENDED_COLS = [];
 
 /** All recognized columns (anything else is reported as "unknown column"). */
 const MS_KNOWN_COLS = [
@@ -149,10 +147,6 @@ function ms_validate_rows(array $rows, array $header = []): array {
         } elseif (count($ftpPresent) === 0) {
             $warnings[] = 'no FTP credentials — will build but not deploy';
         }
-        // Recommended.
-        foreach (MS_RECOMMENDED_COLS as $c) {
-            if (($r[$c] ?? '') === '') $warnings[] = "missing recommended '{$c}'";
-        }
         // lat/lng sanity if provided.
         foreach (['lat', 'lng'] as $c) {
             if (($r[$c] ?? '') !== '' && !is_numeric($r[$c])) $errors[] = "non-numeric '{$c}'";
@@ -237,10 +231,19 @@ function ms_store_params_csv(string $dir, string $srcCsvPath): string {
     // that just launched) calling ms_parse_csv($dest) mid-copy could otherwise see
     // a truncated file and report a spurious parse error or an incomplete row set.
     $tmp = $dest . '.' . bin2hex(random_bytes(6)) . '.tmp';
-    if (@copy($srcCsvPath, $tmp) && @rename($tmp, $dest)) {
-        // ok
-    } else {
+    $wroteLive = @copy($srcCsvPath, $tmp) && @rename($tmp, $dest);
+    if (!$wroteLive) {
         @unlink($tmp);
+        // Previously fell through to snapshot+repoint params.version unconditionally —
+        // a version snapshot (a separate copy, into params_versions/) could succeed
+        // even when the write onto the LIVE params.csv above just failed (disk full,
+        // permissions, source vanished mid-copy). That left params.version claiming a
+        // version was current while params.csv on disk was stale or missing, with every
+        // caller (upload_csv, restore_version, …) reporting success regardless. Skip
+        // the snapshot/pointer update entirely when the live write didn't happen, and
+        // at least make the failure discoverable.
+        error_log("homepage-builder: ms_store_params_csv failed to write {$dest} from {$srcCsvPath}");
+        return $dest;
     }
     $ver = ms_snapshot_params_version($dir, $srcCsvPath);
     if ($ver !== '') @file_put_contents($dir . '/params.version', $ver);   // pointer to the current version

@@ -251,7 +251,14 @@ function ms_ftp_parse_list_entry(string $item): ?array {
  */
 function ms_ftp_delete_tree($conn, callable $log, int &$deleted, int &$failed): void {
     $raw = @ftp_rawlist($conn, '.');
-    if (!is_array($raw)) return;
+    if (!is_array($raw)) {
+        // ms_sftp_delete_tree()'s twin counts this as a failure and logs it — this one
+        // silently returned, under-reporting $failed back to the caller (ms_wipe_remote(),
+        // and from there the "did the wipe actually succeed" gate in upload_sites.php).
+        $failed++;
+        $log('Failed to list ' . (@ftp_pwd($conn) ?: '.') . ' — rawlist failed.', 'warn');
+        return;
+    }
 
     $entries = [];
     foreach ($raw as $item) {
@@ -267,7 +274,11 @@ function ms_ftp_delete_tree($conn, callable $log, int &$deleted, int &$failed): 
             if (@ftp_chdir($conn, $name)) {
                 ms_ftp_delete_tree($conn, $log, $deleted, $failed);
                 @ftp_chdir($conn, '..');
-                @ftp_rmdir($conn, $name);
+                // The SFTP twin counts+logs a failed rmdir; this one silently dropped it.
+                if (!@ftp_rmdir($conn, $name)) {
+                    $failed++;
+                    $log('Failed to remove dir: ' . (@ftp_pwd($conn) ?: '') . "/{$name}", 'warn');
+                }
             } else {
                 $failed++;
                 $log('Failed to enter dir: ' . (@ftp_pwd($conn) ?: '') . "/{$name}", 'warn');

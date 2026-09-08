@@ -82,7 +82,9 @@ foreach ($parsed['rows'] as $r) {
     $domain = strtolower(trim((string) ($r['domain'] ?? '')));
     if ($domain === '') continue;
     if ($onlyList && !in_array($domain, $onlyList, true)) continue;
-    $slug = trim(preg_replace('/[^a-z0-9]+/', '_', $domain), '_');
+    // Must match ms_batch_output_dir()'s own derivation (ms_domain_slug()) — ms_batch_built()
+    // keys its results by the actual directory name on disk.
+    $slug = ms_domain_slug($domain);
 
     if (!isset($built[$slug]))                         { $noBuild[] = $domain; continue; }
     if (trim((string) ($r['ftp_host'] ?? '')) === ''
@@ -118,13 +120,23 @@ foreach ($ready as $t) {
         'ftp_path'     => $r['ftp_path'] ?? '',
         'ftp_passive'  => $r['ftp_passive'] ?? true,
     ];
-    $slug     = trim(preg_replace('/[^a-z0-9]+/', '_', $t['domain']), '_');
+    // Must derive the same way as ms_batch_output_dir() (includes/multisite/batch.php)
+    // — see ms_domain_slug()'s own docblock for why a lossy fold here is a real
+    // cross-domain-deploy risk, not just a cosmetic mismatch.
+    $slug     = ms_domain_slug($t['domain']);
     $manifest = $manifestDir . '/' . $slug . '.json';
 
     if ($wipe) {
         printf("  %-34s wiping remote files … ", $t['domain']);
         $wiped = ms_wipe_remote($ftp);
-        if (($wiped['status'] ?? '') === 'fatal') {
+        // ms_wipe_remote() reports status 'done' even when some files/dirs failed to
+        // delete (permission error, mid-sweep disconnect) — it only distinguishes that
+        // in the 'failed' count and a lower log level, not in 'status'. Checking only
+        // for 'fatal' here meant a partial wipe still printed a checkmark and fell
+        // straight through to uploading fresh content on top of a remote that may
+        // still hold stale files — on a REAL client domain, not just the disposable
+        // test slot.
+        if (($wiped['status'] ?? '') === 'fatal' || (int)($wiped['failed'] ?? 0) > 0) {
             $fail++;
             printf("✗ %s\n", $wiped['msg'] ?? 'wipe failed');
             continue;   // don't upload into a host we couldn't confirm is now empty

@@ -308,9 +308,21 @@ if ($noAi) {
         }
         fclose($gpipes[1]);
         $genCode = proc_close($gp);
-        if ($genCode !== 0) { progress_log("AI generation exited with code {$genCode}", 'warn'); }
+        // A non-zero exit here previously only logged a warning and fell straight
+        // through to build + deploy anyway — same as full success. That let a row
+        // report "ok" and deploy to a real live domain with empty/partial/stale
+        // content, after already having spent whatever API cost the failed attempt
+        // made. Treat it the same way the render-worker failure just below already
+        // does: fatal, stop before anything gets built or deployed.
+        if ($genCode !== 0) {
+            progress_log("AI generation failed (exit code {$genCode}) — not building or deploying this row.", 'fatal');
+            $cleanup();
+            exit(1);
+        }
     } else {
-        progress_log('Could not launch generate.py — skipping AI content.', 'warn');
+        progress_log('Could not launch generate.py — not building or deploying this row.', 'fatal');
+        $cleanup();
+        exit(1);
     }
 
     // Persist all generated copy to the per-domain cache for future rebuilds.
