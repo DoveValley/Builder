@@ -2,7 +2,7 @@
   "template_id": "tpl_master_brand_hub",
   "city_id": "city_lufkin_tx",
   "slug": "brand-appliance-repair-hub-lufkin-tx",
-  "title": "{Brand} Appliance Repair in {city_state} | {business}",
+  "title": "Appliance Repair by Brand in {city_state} | {business}",
   "city_vars": {
     "id": "city_lufkin_tx",
     "city": "Lufkin",
@@ -192,7 +192,7 @@
     {
       "type": "custom_html",
       "anchor": "services",
-      "html": "[services_links brand=\"self\" heading=\"{Brand} Appliances We Repair in {city_state}\" cols=\"4\"]"
+      "html": "[services_links brand=\"self\" heading=\"Appliance Brands We Repair in {city_state}\" cols=\"4\"]"
     },
     {
       "type": "ai_block",
@@ -271,7 +271,7 @@
     {
       "type": "cta_banner",
       "anchor": "mid_cta",
-      "cb_text": "Need {brand} appliance repair in {city}? Our technicians know your brand.",
+      "cb_text": "Need appliance repair in {city}? Our technicians know your brand.",
       "cb_btn_text": "Call {phone}",
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "header",
@@ -348,7 +348,7 @@
     },
     {
       "type": "cta_banner",
-      "cb_text": "Book your {city} {brand} repair today.",
+      "cb_text": "Book your {city} appliance repair today.",
       "cb_btn_text": "Call {phone}",
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "accent",
@@ -357,17 +357,17 @@
     }
   ],
   "seo": {
-    "seo_title": "{Brand} Appliance Repair in {city_state} | {business}",
+    "seo_title": "Appliance Repair by Brand in {city_state} | {business}",
     "canonical_url": "https://a.q111.xyz/brand-appliance-repair-hub-lufkin-tx/",
-    "meta_description": "Factory-trained {brand} appliance repair in {city_state} from {business}. Same-day service, warranty. Call {phone}.",
+    "meta_description": "Appliance repair in {city_state} from {business}, matched to your appliance's brand. Same-day service, warranty. Call {phone}.",
     "meta_keywords": "appliance repair Lufkin TX",
-    "og_title": "{Brand} Appliance Repair in {city_state} | {business}",
-    "og_description": "Factory-trained {brand} appliance repair in {city_state} from {business}. Same-day service, warranty. Call {phone}.",
+    "og_title": "Appliance Repair by Brand in {city_state} | {business}",
+    "og_description": "Appliance repair in {city_state} from {business}, matched to your appliance's brand. Same-day service, warranty. Call {phone}.",
     "og_image": "",
     "service_name": "Appliance Repair",
     "service_type": "Appliance Repair",
     "service_area": "{city}, {SS}",
-    "service_description": "Factory-trained {brand} appliance repair in {city_state} from {business}. Same-day service, warranty. Call {phone}.",
+    "service_description": "Appliance repair in {city_state} from {business}, matched to your appliance's brand. Same-day service, warranty. Call {phone}.",
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
@@ -375,7 +375,7 @@
     "secondary_keywords": "",
     "brand": "",
     "appliance_type": "",
-    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in Lufkin, TX\",\"serviceType\":\"Appliance Repair\",\"description\":\"Factory-trained {brand} appliance repair in Lufkin, TX from Wells Appliance Repair. Same-day service, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+    "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in Lufkin, TX\",\"serviceType\":\"Appliance Repair\",\"description\":\"Appliance repair in Lufkin, TX from Wells Appliance Repair, matched to your appliance's brand. Same-day service, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
   "generated_at": "2026-09-07T15:17:15+00:00",
