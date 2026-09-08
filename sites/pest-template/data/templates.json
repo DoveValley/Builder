@@ -28,7 +28,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -52,7 +53,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -65,7 +67,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -75,7 +78,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -100,7 +104,8 @@
             "text": "We treat the areas where cockroaches live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -112,7 +117,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -129,7 +135,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/cockroach-control-family-home.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -139,7 +146,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -181,7 +189,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -195,7 +204,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -206,12 +216,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -225,7 +237,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -247,7 +260,55 @@
       "primary_keyword": "Cockroach Exterminator",
       "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
     },
-    "base_role": "Extermination"
+    "base_role": "Extermination",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_ant_exterminator",
@@ -277,7 +338,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -301,7 +363,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -314,7 +377,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -324,7 +388,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -349,7 +414,8 @@
             "text": "We treat the areas where ants live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -361,7 +427,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -378,7 +445,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-ant-exterminator-katy_3ee145.webp",
         "it_caption": "{chart_group_displace_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -388,7 +456,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -430,7 +499,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -444,7 +514,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -455,12 +526,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -474,7 +547,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -495,7 +569,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ant Pest Control in {city_state}\",\"serviceType\":\"Ant Pest Control\",\"description\":\"Professional ant pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Ant Pest Control",
       "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_fire_ant_control",
@@ -525,7 +647,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -549,7 +672,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -562,7 +686,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -572,7 +697,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -597,7 +723,8 @@
             "text": "We treat the areas where fire ants live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -609,7 +736,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -626,7 +754,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/ants-katy_f0c30b.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -636,7 +765,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -678,7 +808,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -692,7 +823,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -703,12 +835,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -722,7 +856,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -743,7 +878,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Fire ant Exterminator in {city_state}\",\"serviceType\":\"Fire ant Extermination\",\"description\":\"Professional fire ant exterminator services in {city_state}. Targeted fire ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Fire Ant Control",
       "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_carpenter_ant_control",
@@ -773,7 +956,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -797,7 +981,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -810,7 +995,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -820,7 +1006,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -845,7 +1032,8 @@
             "text": "We treat the areas where carpenter ants live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -857,7 +1045,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -874,7 +1063,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/carpenter-ants-katy_2fe626.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -884,7 +1074,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -926,7 +1117,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -940,7 +1132,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -951,12 +1144,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -970,7 +1165,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -991,7 +1187,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Carpenter ant Exterminator in {city_state}\",\"serviceType\":\"Carpenter ant Extermination\",\"description\":\"Professional carpenter ant exterminator services in {city_state}. Targeted carpenter ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Carpenter Ant Control",
       "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_bed_bug_exterminator",
@@ -1021,7 +1265,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1045,7 +1290,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1058,7 +1304,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1068,7 +1315,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1093,7 +1341,8 @@
             "text": "We treat the areas where bed bugs live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1105,7 +1354,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1122,7 +1372,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-bed-bug-exterminator-katy_970238.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1132,7 +1383,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1174,7 +1426,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1188,7 +1441,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1199,12 +1453,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1218,7 +1474,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1239,7 +1496,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bed Bug Control in {city_state}\",\"serviceType\":\"Bed Bug Control\",\"description\":\"Professional bed bug control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Bed Bug Control",
       "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_termite_treatment",
@@ -1269,7 +1574,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1293,7 +1599,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1306,7 +1613,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1316,7 +1624,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1341,7 +1650,8 @@
             "text": "We treat the areas where termites live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1353,7 +1663,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1370,7 +1681,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-termite-treatment-katy_c5a5b5.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1380,7 +1692,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1422,7 +1735,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1436,7 +1750,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1447,12 +1762,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1466,7 +1783,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1487,7 +1805,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Exterminator in {city_state}\",\"serviceType\":\"Termite Extermination\",\"description\":\"Professional termite exterminator services in {city_state}. Targeted termite control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Termite Treatment",
       "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mosquito_control",
@@ -1517,7 +1883,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1541,7 +1908,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1554,7 +1922,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1564,7 +1933,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1589,7 +1959,8 @@
             "text": "We treat the areas where mosquitoes live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1601,7 +1972,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1618,7 +1990,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-mosquito-control-katy_44af32.webp",
         "it_caption": "{chart_group_displace_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1628,7 +2001,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1670,7 +2044,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1684,7 +2059,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1695,12 +2071,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1714,7 +2092,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1735,7 +2114,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Mosquito Exterminator in {city_state}\",\"serviceType\":\"Mosquito Extermination\",\"description\":\"Professional mosquito exterminator services in {city_state}. Targeted mosquito control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Mosquito Control",
       "secondary_keywords": "mosquito treatment, mosquito exterminator, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito yard treatment"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_flea_exterminator",
@@ -1765,7 +2192,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1789,7 +2217,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1802,7 +2231,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1812,7 +2242,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1837,7 +2268,8 @@
             "text": "We treat the areas where fleas live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1849,7 +2281,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1866,7 +2299,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-flea-exterminator-katy_5a0eb0.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1876,7 +2310,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1918,7 +2353,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1932,7 +2368,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1943,12 +2380,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1962,7 +2401,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1983,7 +2423,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Flea Pest Control in {city_state}\",\"serviceType\":\"Flea Pest Control\",\"description\":\"Professional flea pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Flea Pest Control",
       "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_tick_control",
@@ -2013,7 +2501,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2037,7 +2526,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2050,7 +2540,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2060,7 +2551,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2085,7 +2577,8 @@
             "text": "We treat the areas where ticks live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2097,7 +2590,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2114,7 +2608,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-tick-control-katy_468411.webp",
         "it_caption": "{chart_group_season_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2124,7 +2619,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2166,7 +2662,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2180,7 +2677,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2191,12 +2689,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2210,7 +2710,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2231,7 +2732,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Tick Treatment in {city_state}\",\"serviceType\":\"Tick Treatment\",\"description\":\"Professional tick treatment services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Tick Treatment",
       "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_rat_exterminator",
@@ -2261,7 +2810,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2285,7 +2835,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2298,7 +2849,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2308,7 +2860,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2333,7 +2886,8 @@
             "text": "We treat the areas where rats live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2345,7 +2899,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2362,7 +2917,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-rat-exterminator-katy_11641d.webp",
         "it_caption": "{chart_group_cold_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2372,7 +2928,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2414,7 +2971,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2428,7 +2986,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2439,12 +2998,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2458,7 +3019,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2479,7 +3041,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Rat Exterminator in {city_state}\",\"serviceType\":\"Rat Extermination\",\"description\":\"Professional rat exterminator services in {city_state}. Targeted rat control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Rat Exterminator",
       "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mouse_exterminator",
@@ -2509,7 +3119,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2533,7 +3144,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2546,7 +3158,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2556,7 +3169,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2581,7 +3195,8 @@
             "text": "We treat the areas where mice live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2593,7 +3208,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2610,7 +3226,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-mouse-exterminator-katy_701267.webp",
         "it_caption": "{chart_group_cold_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2620,7 +3237,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2662,7 +3280,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2676,7 +3295,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2687,12 +3307,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2706,7 +3328,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2727,7 +3350,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Mouse Exterminator in {city_state}\",\"serviceType\":\"Mouse Extermination\",\"description\":\"Professional mouse exterminator services in {city_state}. Targeted mouse control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Mouse Exterminator",
       "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_spider_control",
@@ -2757,7 +3428,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2781,7 +3453,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2794,7 +3467,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2804,7 +3478,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2829,7 +3504,8 @@
             "text": "We treat the areas where spiders live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2841,7 +3517,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2858,7 +3535,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-spider-exterminator-katy_c031b7.webp",
         "it_caption": "{chart_group_cold_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2868,7 +3546,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2910,7 +3589,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2924,7 +3604,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2935,12 +3616,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2954,7 +3637,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2975,7 +3659,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Spider Pest Control in {city_state}\",\"serviceType\":\"Spider Pest Control\",\"description\":\"Professional spider pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Spider Pest Control",
       "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_scorpion_control",
@@ -3005,7 +3737,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3029,7 +3762,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3042,7 +3776,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3052,7 +3787,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3077,7 +3813,8 @@
             "text": "We treat the areas where scorpions live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3089,7 +3826,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3106,7 +3844,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3116,7 +3855,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3158,7 +3898,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3172,7 +3913,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3183,12 +3925,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3202,7 +3946,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3223,7 +3968,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Scorpion Pest Control in {city_state}\",\"serviceType\":\"Scorpion Pest Control\",\"description\":\"Professional scorpion pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Scorpion Pest Control",
       "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_wasp_exterminator",
@@ -3253,7 +4046,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3277,7 +4071,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3290,7 +4085,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3300,7 +4096,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3325,7 +4122,8 @@
             "text": "We treat the areas where wasps live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3337,7 +4135,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3354,7 +4153,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-wasp-exterminator-katy_953241.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3364,7 +4164,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3406,7 +4207,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3420,7 +4222,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3431,12 +4234,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3450,7 +4255,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3471,7 +4277,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in {city_state}\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Wasp Exterminator",
       "secondary_keywords": "wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_yellow_jacket_control",
@@ -3501,7 +4355,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3525,7 +4380,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3538,7 +4394,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3548,7 +4405,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3573,7 +4431,8 @@
             "text": "We treat the areas where yellow jackets live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3585,7 +4444,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3602,7 +4462,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-yellow-jacket-exterminator-katy_05d941.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3612,7 +4473,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3654,7 +4516,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3668,7 +4531,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3679,12 +4543,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3698,7 +4564,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3719,7 +4586,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Yellow jacket Exterminator in {city_state}\",\"serviceType\":\"Yellow jacket Extermination\",\"description\":\"Professional yellow jacket exterminator services in {city_state}. Targeted yellow jacket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Yellow Jacket Control",
       "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_silverfish_control",
@@ -3749,7 +4664,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3773,7 +4689,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3786,7 +4703,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3796,7 +4714,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3821,7 +4740,8 @@
             "text": "We treat the areas where silverfish live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3833,7 +4753,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3850,7 +4771,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-silverfish-control-katy_180509.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3860,7 +4782,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3902,7 +4825,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3916,7 +4840,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3927,12 +4852,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3946,7 +4873,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3967,7 +4895,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Silverfish Exterminator in {city_state}\",\"serviceType\":\"Silverfish Extermination\",\"description\":\"Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Silverfish Control",
       "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_centipede_control",
@@ -3997,7 +4973,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4021,7 +4998,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4034,7 +5012,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4044,7 +5023,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4069,7 +5049,8 @@
             "text": "We treat the areas where centipedes live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4081,7 +5062,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4098,7 +5080,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/centipedes-katy_d74ba0.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4108,7 +5091,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4150,7 +5134,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4164,7 +5149,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4175,12 +5161,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4194,7 +5182,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4215,7 +5204,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Centipede Exterminator in {city_state}\",\"serviceType\":\"Centipede Extermination\",\"description\":\"Professional centipede exterminator services in {city_state}. Targeted centipede control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Centipede Control",
       "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_cricket_control",
@@ -4245,7 +5282,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4269,7 +5307,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4282,7 +5321,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4292,7 +5332,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4317,7 +5358,8 @@
             "text": "We treat the areas where crickets live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4329,7 +5371,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4346,7 +5389,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
         "it_caption": "{chart_group_cold_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4356,7 +5400,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4398,7 +5443,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4412,7 +5458,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4423,12 +5470,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4442,7 +5491,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4463,7 +5513,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cricket Exterminator in {city_state}\",\"serviceType\":\"Cricket Extermination\",\"description\":\"Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Cricket Control",
       "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_stink_bug_control",
@@ -4493,7 +5591,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4517,7 +5616,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4530,7 +5630,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4540,7 +5641,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4565,7 +5667,8 @@
             "text": "We treat the areas where stink bugs live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4577,7 +5680,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4594,7 +5698,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
         "it_caption": "{chart_group_cold_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4604,7 +5709,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4646,7 +5752,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4660,7 +5767,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4671,12 +5779,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4690,7 +5800,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4711,7 +5822,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Stink bug Exterminator in {city_state}\",\"serviceType\":\"Stink bug Extermination\",\"description\":\"Professional stink bug exterminator services in {city_state}. Targeted stink bug control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Stink Bug Control",
       "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests, get rid of stink bugs"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_wasp_nest_removal",
@@ -4741,7 +5900,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4765,7 +5925,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4778,7 +5939,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4788,7 +5950,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4813,7 +5976,8 @@
             "text": "We treat the areas where wasps live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4825,7 +5989,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4842,7 +6007,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4852,7 +6018,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4894,7 +6061,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4908,7 +6076,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4919,12 +6088,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4938,7 +6109,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4959,7 +6131,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in {city_state}\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Wasp Nest Removal",
       "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_hornet_removal",
@@ -4989,7 +6209,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5013,7 +6234,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5026,7 +6248,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5036,7 +6259,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5061,7 +6285,8 @@
             "text": "We treat the areas where hornets live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5073,7 +6298,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5090,7 +6316,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/wasp-hornet-and-spider-control-katy_4ba358.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -5100,7 +6327,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -5142,7 +6370,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5156,7 +6385,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5167,12 +6397,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5186,7 +6418,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5207,7 +6440,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Hornet Exterminator in {city_state}\",\"serviceType\":\"Hornet Extermination\",\"description\":\"Professional hornet exterminator services in {city_state}. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Hornet Removal",
       "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_bee_removal",
@@ -5237,7 +6518,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5261,7 +6543,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5274,7 +6557,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5284,7 +6568,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5309,7 +6594,8 @@
             "text": "We treat the areas where bees live and get inside, then follow up to confirm the infestation is fully cleared."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5321,7 +6607,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5338,7 +6625,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-exterminator-katy_fc071c.webp",
         "it_caption": "{chart_group_season_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -5348,7 +6636,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -5390,7 +6679,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5404,7 +6694,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5415,12 +6706,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5434,7 +6727,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5455,7 +6749,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bee Exterminator in {city_state}\",\"serviceType\":\"Bee Extermination\",\"description\":\"Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Bee Removal",
       "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_termite_inspection",
@@ -5486,7 +6828,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5510,7 +6853,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5523,7 +6867,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5533,7 +6878,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5558,7 +6904,8 @@
             "text": "You receive a clear, written report of findings, with photos where relevant, plus straightforward recommendations and next steps."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5570,7 +6917,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5587,7 +6935,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-termite-inspection-katy_347d82.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "feature_columns",
@@ -5624,7 +6973,8 @@
             "heading": "Interior & Exterior",
             "text": "Both the interior and the perimeter are assessed, including crawl spaces and garages where accessible."
           }
-        ]
+        ],
+        "id": "feature_columns_1"
       },
       {
         "type": "service_cards",
@@ -5666,7 +7016,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5680,7 +7031,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5691,12 +7043,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5710,7 +7064,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5732,7 +7087,55 @@
       "primary_keyword": "Termite Inspection",
       "secondary_keywords": "termite inspection cost, free termite inspection, termite inspection near me, real estate termite inspection"
     },
-    "base_role": "Inspection"
+    "base_role": "Inspection",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "feature_columns_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "feature_columns_1",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "feature_columns_1",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_pest_inspection",
@@ -5762,7 +7165,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5786,7 +7190,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5799,7 +7204,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5809,7 +7215,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5834,7 +7241,8 @@
             "text": "You receive a clear, written report of findings, with photos where relevant, plus straightforward recommendations and next steps."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5846,7 +7254,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5863,7 +7272,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-pest-inspection-katy_05bb4d.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "feature_columns",
@@ -5900,7 +7310,8 @@
             "heading": "Evidence & Activity",
             "text": "Inspectors document droppings, nests, trails, and other evidence to identify active infestations."
           }
-        ]
+        ],
+        "id": "feature_columns_1"
       },
       {
         "type": "service_cards",
@@ -5942,7 +7353,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5956,7 +7368,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5967,12 +7380,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5986,7 +7401,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6007,7 +7423,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Inspection in {city_state}\",\"serviceType\":\"Pest Inspection\",\"description\":\"Professional pest inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Pest Inspection",
       "secondary_keywords": "home pest inspection, pest control inspection, pest inspection near me, pest inspection cost"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "feature_columns_1",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "feature_columns_1",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "feature_columns_1",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_wdi_inspection",
@@ -6037,7 +7501,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6061,7 +7526,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6074,7 +7540,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6084,7 +7551,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6109,7 +7577,8 @@
             "text": "You receive a clear, written report of findings, with photos where relevant, plus straightforward recommendations and next steps."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6121,7 +7590,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6138,7 +7608,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-wdi-inspection-katy_8574ff.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "feature_columns",
@@ -6175,7 +7646,8 @@
             "heading": "Official WDI Report",
             "text": "You receive a completed report suitable for real estate transactions and lenders where required."
           }
-        ]
+        ],
+        "id": "feature_columns_1"
       },
       {
         "type": "service_cards",
@@ -6217,7 +7689,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6231,7 +7704,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6242,12 +7716,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -6261,7 +7737,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6282,7 +7759,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"WDI Inspection in {city_state}\",\"serviceType\":\"WDI Inspection\",\"description\":\"Professional wdi inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "WDI Inspection",
       "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "feature_columns_1",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "feature_columns_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "feature_columns_1",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_residential_pest_control",
@@ -6313,7 +7838,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6337,7 +7863,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6350,7 +7877,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6360,7 +7888,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6385,7 +7914,8 @@
             "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6397,7 +7927,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6414,7 +7945,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-residential-pest-katy_4f1621.webp",
         "it_caption": "{chart_group_season_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6424,7 +7956,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -6466,7 +7999,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6480,7 +8014,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6491,12 +8026,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -6510,7 +8047,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6532,7 +8070,55 @@
       "primary_keyword": "Residential Pest Control",
       "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
     },
-    "base_role": "Category"
+    "base_role": "Category",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_commercial_pest_control",
@@ -6562,7 +8148,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6586,7 +8173,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6599,7 +8187,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6609,7 +8198,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6634,7 +8224,8 @@
             "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6646,7 +8237,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6663,7 +8255,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6673,7 +8266,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -6715,7 +8309,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6729,7 +8324,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6740,12 +8336,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -6759,7 +8357,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6780,7 +8379,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Commercial Pest Control in {city_state}\",\"serviceType\":\"Commercial Pest Control\",\"description\":\"Professional commercial pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Commercial Pest Control",
       "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_emergency_pest_control",
@@ -6810,7 +8457,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6834,7 +8482,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6847,7 +8496,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6857,7 +8507,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6882,7 +8533,8 @@
             "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6894,7 +8546,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6911,7 +8564,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-emergency-exterminator-katy_2d2726.webp",
         "it_caption": "{chart_group_displace_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6921,7 +8575,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -6963,7 +8618,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6977,7 +8633,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6988,12 +8645,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -7007,7 +8666,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -7028,7 +8688,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Emergency Pest Control in {city_state}\",\"serviceType\":\"Emergency Pest Control\",\"description\":\"Professional emergency pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Emergency Pest Control",
       "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_restaurant_pest_control",
@@ -7058,7 +8766,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -7082,7 +8791,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -7095,7 +8805,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -7105,7 +8816,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -7130,7 +8842,8 @@
             "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -7142,7 +8855,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -7159,7 +8873,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/best-commercial-pest-control-katy_f146f8.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -7169,7 +8884,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -7211,7 +8927,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -7225,7 +8942,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -7236,12 +8954,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -7255,7 +8975,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -7276,7 +8997,55 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Restaurant Pest Control in {city_state}\",\"serviceType\":\"Restaurant Pest Control\",\"description\":\"Professional restaurant pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Restaurant Pest Control",
       "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_pest_control_plans",
@@ -7306,7 +9075,8 @@
         "hs_mobile_order": "text_first",
         "ai_type_id": "hero_subtext",
         "ai_inject_field": "hs_subtext",
-        "ai_inject_mode": "replace"
+        "ai_inject_mode": "replace",
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -7330,7 +9100,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -7343,7 +9114,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -7353,7 +9125,8 @@
         "ai_inject_target": null,
         "ai_inject_field": null,
         "ai_inject_mode": null,
-        "ai_prompt_override": ""
+        "ai_prompt_override": "",
+        "id": "ai_block_2"
       },
       {
         "type": "pricing_cards",
@@ -7391,7 +9164,8 @@
             "btn_text": "Call {phone}",
             "btn_url": "tel:{tel}"
           }
-        ]
+        ],
+        "id": "pricing_cards_1"
       },
       {
         "type": "steps",
@@ -7416,7 +9190,8 @@
             "text": "We treat the problem at the source and can set up recurring service to keep pests from coming back."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -7428,7 +9203,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#120575",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -7445,7 +9221,8 @@
         "_it_photo_prechart": "sites/pest-template/uploads/media/effective-pest-treatments-katy_4e74f6.webp",
         "it_caption": "{chart_group_season_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "service_cards",
@@ -7487,7 +9264,8 @@
             "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
             "url": "/rat-exterminator-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -7501,7 +9279,8 @@
         "ai_type_id": "faq_local",
         "ai_inject_field": "fq_items",
         "ai_inject_mode": "replace",
-        "fq_items": []
+        "fq_items": [],
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -7512,12 +9291,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#fd783b",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -7531,7 +9312,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -7552,6 +9334,54 @@
       "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Control Plans in {city_state}\",\"serviceType\":\"Pest Control Plans\",\"description\":\"Professional pest control plans services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
       "primary_keyword": "Pest Control Plans",
       "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control, recurring pest control, pest control service plans"
-    }
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "pricing_cards_1",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "pricing_cards_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "pricing_cards_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   }
 ]

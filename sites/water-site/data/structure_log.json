@@ -874,5 +874,45 @@
         "pages_skipped": 0,
         "pages_backed_up": 52,
         "errors": []
+    },
+    {
+        "run_id": "dd9b826a4f3c6221",
+        "started_at": "2026-09-08T04:30:05+00:00",
+        "finished_at": "2026-09-08T04:30:05+00:00",
+        "duration_ms": 29,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "city_lufkin_tx",
+                "dallas-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 52,
+        "pages_skipped": 0,
+        "pages_backed_up": 52,
+        "errors": []
+    },
+    {
+        "run_id": "f872701a1ba881b8",
+        "started_at": "2026-09-08T04:32:49+00:00",
+        "finished_at": "2026-09-08T04:32:49+00:00",
+        "duration_ms": 32,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": [
+                "city_lufkin_tx",
+                "dallas-tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 52,
+        "pages_skipped": 0,
+        "pages_backed_up": 52,
+        "errors": []
     }
 ]

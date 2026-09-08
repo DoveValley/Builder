@@ -236,7 +236,8 @@
           "icon": ""
         }
       ],
-      "anchor": "trust_bar"
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
     },
     {
       "type": "ai_block",
@@ -334,7 +335,8 @@
       "cb_bg": "header",
       "cb_bg_custom": "#2563eb",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
     },
     {
       "type": "ai_block",
@@ -439,7 +441,8 @@
           "text": "Professional Water Mitigation for {city_state} homes and businesses.",
           "url": "/water-mitigation-{city_slug}"
         }
-      ]
+      ],
+      "id": "service_cards_1"
     },
     {
       "type": "faq_two_col",
@@ -496,12 +499,14 @@
       "cb_bg": "accent",
       "cb_bg_custom": "#0d2340",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
     },
     {
       "type": "custom_html",
       "anchor": "pest_services",
-      "html": "[services_links]"
+      "html": "[services_links]",
+      "id": "custom_html_1"
     },
     {
       "type": "map_info",
@@ -515,7 +520,8 @@
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
       "mi_map_side": "top",
-      "mi_map_caption": "{city_map_caption}"
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
     }
   ],
   "seo": {
@@ -537,7 +543,55 @@
     "primary_keyword": "Winter Storm Damage",
     "secondary_keywords": "ice damage restoration, ice dam water damage"
   },
+  "layout_enabled": true,
+  "layout_variants": [
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_1",
+      "ai_block_2",
+      "steps_1",
+      "cta_banner_1",
+      "ai_block_3",
+      "service_cards_1",
+      "ai_block_4",
+      "cta_banner_2",
+      "faq_two_col_1",
+      "custom_html_1",
+      "map_info_1"
+    ],
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_1",
+      "ai_block_2",
+      "steps_1",
+      "cta_banner_1",
+      "ai_block_4",
+      "ai_block_3",
+      "faq_two_col_1",
+      "service_cards_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ],
+    [
+      "hero_split_1",
+      "custom_html_1",
+      "ai_block_1",
+      "ai_block_2",
+      "steps_1",
+      "cta_banner_1",
+      "ai_block_3",
+      "ai_block_4",
+      "service_cards_1",
+      "cta_banner_2",
+      "faq_two_col_1",
+      "trust_bar_1",
+      "map_info_1"
+    ]
+  ],
   "locked_blocks": [],
-  "generated_at": "2026-09-08T04:11:58+00:00",
-  "template_version": "110ab76d945607bac7c1a84b263589aa"
+  "generated_at": "2026-09-08T04:32:49+00:00",
+  "template_version": "38ec1278732353a0fd8318111d3d16fd"
 }

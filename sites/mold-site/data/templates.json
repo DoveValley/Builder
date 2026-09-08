@@ -30,7 +30,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -54,7 +55,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -69,7 +71,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -81,7 +84,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -112,7 +116,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -124,7 +129,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -143,7 +149,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
         "it_caption": "{chart_group_whyhere_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -155,7 +162,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -211,7 +219,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -227,7 +236,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -238,12 +248,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -257,7 +269,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -279,7 +292,55 @@
       "primary_keyword": "Mold Removal",
       "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, bathroom mold removal, shower mold removal, mold smell removal, musty odor removal"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mold_damage_restoration",
@@ -312,7 +373,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -336,7 +398,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -351,7 +414,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -363,7 +427,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -394,7 +459,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -406,7 +472,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -425,7 +492,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
         "it_caption": "{chart_group_intrusion_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -437,7 +505,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -493,7 +562,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -509,7 +579,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -520,12 +591,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -539,7 +612,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -561,7 +635,55 @@
       "primary_keyword": "Mold Damage Restoration",
       "secondary_keywords": "mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mold_inspection",
@@ -594,7 +716,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -618,7 +741,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -633,7 +757,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -645,7 +770,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -676,7 +802,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -688,7 +815,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -707,7 +835,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -719,7 +848,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -775,7 +905,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -791,7 +922,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -802,12 +934,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -821,7 +955,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -843,7 +978,55 @@
       "primary_keyword": "Mold Inspection",
       "secondary_keywords": "mold inspection and testing, home mold inspection, mold inspection near me, mold assessment"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_black_mold_removal",
@@ -876,7 +1059,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -900,7 +1084,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -915,7 +1100,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -927,7 +1113,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -958,7 +1145,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -970,7 +1158,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -989,7 +1178,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
         "it_caption": "{chart_group_whyhere_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1001,7 +1191,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1057,7 +1248,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1073,7 +1265,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1084,12 +1277,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1103,7 +1298,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1125,7 +1321,55 @@
       "primary_keyword": "Black Mold Removal",
       "secondary_keywords": "black mold clean up, black mold mitigation, black mold remediation, toxic mold removal, black mold in shower, black mold removal near me"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mold_testing",
@@ -1158,7 +1402,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1182,7 +1427,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1197,7 +1443,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1209,7 +1456,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1240,7 +1488,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1252,7 +1501,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1271,7 +1521,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/about.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1283,7 +1534,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1339,7 +1591,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1355,7 +1608,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1366,12 +1620,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1385,7 +1641,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1407,7 +1664,55 @@
       "primary_keyword": "Mold Testing",
       "secondary_keywords": "mold testing services, mold spore testing, mold sampling, mold lab testing"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_commercial_mold_remediation",
@@ -1440,7 +1745,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1464,7 +1770,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1479,7 +1786,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1491,7 +1799,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1522,7 +1831,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1534,7 +1844,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1553,7 +1864,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
         "it_caption": "{chart_group_intrusion_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1565,7 +1877,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1621,7 +1934,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1637,7 +1951,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1648,12 +1963,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1667,7 +1984,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1689,7 +2007,55 @@
       "primary_keyword": "Commercial Mold Remediation",
       "secondary_keywords": "commercial mold removal, business mold remediation, office mold removal, commercial mold removal near me"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mold_mitigation",
@@ -1722,7 +2088,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1746,7 +2113,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1761,7 +2129,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1773,7 +2142,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1804,7 +2174,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1816,7 +2187,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1835,7 +2207,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
         "it_caption": "{chart_group_whyhere_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1847,7 +2220,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1903,7 +2277,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1919,7 +2294,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1930,12 +2306,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1949,7 +2327,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1971,7 +2350,55 @@
       "primary_keyword": "Mold Mitigation",
       "secondary_keywords": "mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_crawl_space_mold_removal",
@@ -2004,7 +2431,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2028,7 +2456,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2043,7 +2472,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2055,7 +2485,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2086,7 +2517,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2098,7 +2530,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2117,7 +2550,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2129,7 +2563,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2185,7 +2620,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2201,7 +2637,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2212,12 +2649,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2231,7 +2670,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2253,7 +2693,55 @@
       "primary_keyword": "Crawl Space Mold Removal",
       "secondary_keywords": "crawl space mold remediation, mold in crawl space, crawl space mold removal near me"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_attic_mold_removal",
@@ -2286,7 +2774,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2310,7 +2799,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2325,7 +2815,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2337,7 +2828,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2368,7 +2860,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2380,7 +2873,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2399,7 +2893,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2411,7 +2906,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2467,7 +2963,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2483,7 +2980,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2494,12 +2992,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2513,7 +3013,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2535,7 +3036,55 @@
       "primary_keyword": "Attic Mold Removal",
       "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_basement_mold_removal",
@@ -2568,7 +3117,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2592,7 +3142,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2607,7 +3158,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2619,7 +3171,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2650,7 +3203,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2662,7 +3216,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2681,7 +3236,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/bright-living-room-after-mold-removal-and-cleanup.webp",
         "it_caption": "{chart_group_moisture_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2693,7 +3249,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2749,7 +3306,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2765,7 +3323,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2776,12 +3335,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2795,7 +3356,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2817,7 +3379,55 @@
       "primary_keyword": "Basement Mold Removal",
       "secondary_keywords": "basement mold remediation, basement mold treatment, mold in basement, basement mold removal near me"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_air_conditioner_mold_removal",
@@ -2850,7 +3460,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2874,7 +3485,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2889,7 +3501,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2901,7 +3514,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2932,7 +3546,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2944,7 +3559,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2963,7 +3579,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
         "it_caption": "{chart_group_heat_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2975,7 +3592,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3031,7 +3649,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3047,7 +3666,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3058,12 +3678,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3077,7 +3699,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3099,7 +3722,55 @@
       "primary_keyword": "Air Conditioner Mold Removal",
       "secondary_keywords": "ac mold removal, hvac mold removal, mold in air vents, air duct mold removal, ac mold removal near me"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_mold_prevention",
@@ -3132,7 +3803,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3156,7 +3828,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3171,7 +3844,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3183,7 +3857,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3214,7 +3889,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3226,7 +3902,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3245,7 +3922,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/mold-remediation-completed-homeowners-outside-house.webp",
         "it_caption": "{chart_group_intrusion_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3257,7 +3935,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3313,7 +3992,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3329,7 +4009,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3340,12 +4021,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3359,7 +4042,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3381,7 +4065,55 @@
       "primary_keyword": "Mold Prevention",
       "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_air_quality_testing",
@@ -3414,7 +4146,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3438,7 +4171,8 @@
             "label": "Fast Local Response"
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3453,7 +4187,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3465,7 +4200,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3496,7 +4232,8 @@
             "text": "Cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3508,7 +4245,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3527,7 +4265,8 @@
         "_it_photo_prechart": "sites/mold-site/uploads/media/about.webp",
         "it_caption": "{chart_group_structure_caption}",
         "it_ratio": "auto",
-        "it_layout": "stacked"
+        "it_layout": "stacked",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3539,7 +4278,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3595,7 +4335,8 @@
             "text": "Professional Crawl Space Mold Removal for {city_state} homes and businesses.",
             "url": "/crawl-space-mold-removal-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3611,7 +4352,8 @@
         "ai_inject_mode": "replace",
         "fq_items": [],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3622,12 +4364,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3641,7 +4385,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3663,6 +4408,54 @@
       "primary_keyword": "Indoor Air Quality Testing",
       "secondary_keywords": "air quality inspection, indoor air quality mold"
     },
-    "base_role": "Remediation"
+    "base_role": "Remediation",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   }
 ]

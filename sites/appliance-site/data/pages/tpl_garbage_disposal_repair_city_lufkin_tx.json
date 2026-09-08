@@ -163,7 +163,8 @@
           "icon": ""
         }
       ],
-      "anchor": "trust_bar"
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
     },
     {
       "type": "ai_block",
@@ -191,7 +192,8 @@
     {
       "type": "custom_html",
       "anchor": "services",
-      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]"
+      "html": "[services_links appliance_type=\"self\" heading=\"Repair by Brand in {city_state}\" cols=\"4\"]",
+      "id": "custom_html_1"
     },
     {
       "type": "ai_block",
@@ -275,7 +277,8 @@
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "header",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
     },
     {
       "type": "faq_two_col",
@@ -333,12 +336,14 @@
       "tm_main_heading": "What {city} Homeowners Say About {business}",
       "tm_subtext": "",
       "tm_cols": 3,
-      "tm_items": []
+      "tm_items": [],
+      "id": "testimonials_1"
     },
     {
       "type": "custom_html",
       "anchor": "other_types",
-      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]"
+      "html": "[services_links role=\"type_hub\" heading=\"Other Appliances We Repair\"]",
+      "id": "custom_html_2"
     },
     {
       "type": "map_info",
@@ -352,7 +357,8 @@
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
       "mi_map_side": "top",
-      "mi_map_caption": "{city_map_caption}"
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
     },
     {
       "type": "cta_banner",
@@ -361,7 +367,8 @@
       "cb_btn_url": "tel:{tel}",
       "cb_bg": "accent",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
     }
   ],
   "seo": {
@@ -385,7 +392,52 @@
     "appliance_type": "Garbage Disposal",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Garbage Disposal Repair in Lufkin, TX\",\"serviceType\":\"Garbage Disposal Repair\",\"description\":\"Professional garbage disposal repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
+  "layout_enabled": true,
+  "layout_variants": [
+    [
+      "hero_split_1",
+      "ai_block_1",
+      "trust_bar_1",
+      "custom_html_1",
+      "ai_block_2",
+      "ai_block_3",
+      "cta_banner_1",
+      "faq_two_col_1",
+      "testimonials_1",
+      "map_info_1",
+      "custom_html_2",
+      "cta_banner_2"
+    ],
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "custom_html_1",
+      "ai_block_1",
+      "ai_block_3",
+      "ai_block_2",
+      "cta_banner_1",
+      "faq_two_col_1",
+      "testimonials_1",
+      "custom_html_2",
+      "map_info_1",
+      "cta_banner_2"
+    ],
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_1",
+      "custom_html_1",
+      "ai_block_2",
+      "cta_banner_1",
+      "ai_block_3",
+      "testimonials_1",
+      "faq_two_col_1",
+      "custom_html_2",
+      "map_info_1",
+      "cta_banner_2"
+    ]
+  ],
   "locked_blocks": [],
-  "generated_at": "2026-09-08T04:12:05+00:00",
-  "template_version": "7847cfa97b992d36519ee3008ff7d364"
+  "generated_at": "2026-09-08T04:32:49+00:00",
+  "template_version": "42ff98f060fefccccf67680e68fdbd16"
 }

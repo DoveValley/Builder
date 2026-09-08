@@ -30,7 +30,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -54,7 +55,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -69,7 +71,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -81,7 +84,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -112,7 +116,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -124,7 +129,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -143,7 +149,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/restoration-consultation-clipboard-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_flood_caption}"
+        "it_caption": "{chart_group_flood_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -155,7 +162,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -197,7 +205,8 @@
             "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
             "url": "/sewage-cleanup-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -230,7 +239,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -241,12 +251,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -260,7 +272,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -282,7 +295,55 @@
       "primary_keyword": "Flood Damage Restoration",
       "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_storm_damage_restoration",
@@ -315,7 +376,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -339,7 +401,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -354,7 +417,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -366,7 +430,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -397,7 +462,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -409,7 +475,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -428,7 +495,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_flood_caption}"
+        "it_caption": "{chart_group_flood_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -440,7 +508,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -482,7 +551,8 @@
             "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
             "url": "/sewage-cleanup-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -515,7 +585,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -526,12 +597,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -545,7 +618,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -567,7 +641,55 @@
       "primary_keyword": "Storm Damage Restoration",
       "secondary_keywords": "weather damage, storm damage repair, storm damage cleanup, storm restoration, catastrophic storm response"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_water_damage_repair",
@@ -600,7 +722,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -624,7 +747,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -639,7 +763,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -651,7 +776,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -682,7 +808,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -694,7 +821,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -713,7 +841,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/cottage-home-exterior-garden-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -725,7 +854,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -767,7 +897,8 @@
             "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
             "url": "/sewage-cleanup-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -800,7 +931,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -811,12 +943,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -830,7 +964,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -852,7 +987,55 @@
       "primary_keyword": "Water Damage Repair",
       "secondary_keywords": "repair water damage, home water damage repair, water damage repair services"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_water_mitigation",
@@ -885,7 +1068,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -909,7 +1093,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -924,7 +1109,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -936,7 +1122,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -967,7 +1154,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -979,7 +1167,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -998,7 +1187,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/stone-mansion-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1010,7 +1200,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1052,7 +1243,8 @@
             "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
             "url": "/sewage-cleanup-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1085,7 +1277,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1096,12 +1289,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1115,7 +1310,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1137,7 +1333,55 @@
       "primary_keyword": "Water Mitigation",
       "secondary_keywords": "water extraction, water removal, emergency water extraction, structural drying, dehumidification, water mitigation services"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_emergency_water_damage",
@@ -1170,7 +1414,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1194,7 +1439,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1209,7 +1455,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1221,7 +1468,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1252,7 +1500,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1264,7 +1513,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1283,7 +1533,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/cottage-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_flood_caption}"
+        "it_caption": "{chart_group_flood_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1295,7 +1546,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1337,7 +1589,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1370,7 +1623,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1381,12 +1635,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1400,7 +1656,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1422,7 +1679,55 @@
       "primary_keyword": "24-Hour Emergency Water Damage",
       "secondary_keywords": "emergency water damage cleanup, 24 hour water damage restoration, emergency water restoration, 24/7 restoration"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_sewage_cleanup",
@@ -1455,7 +1760,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1479,7 +1785,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1494,7 +1801,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1506,7 +1814,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1537,7 +1846,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1549,7 +1859,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1568,7 +1879,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/yellow-house-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1580,7 +1892,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1622,7 +1935,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1655,7 +1969,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1666,12 +1981,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1685,7 +2002,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1707,7 +2025,55 @@
       "primary_keyword": "Sewage Cleanup",
       "secondary_keywords": "sewage backup cleanup, sewage removal, black water cleanup, sewage damage cleanup"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_flooded_basement_cleanup",
@@ -1740,7 +2106,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -1764,7 +2131,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -1779,7 +2147,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -1791,7 +2160,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -1822,7 +2192,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -1834,7 +2205,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -1853,7 +2225,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/blue-house-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_flood_caption}"
+        "it_caption": "{chart_group_flood_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -1865,7 +2238,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -1907,7 +2281,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -1940,7 +2315,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -1951,12 +2327,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -1970,7 +2348,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -1992,7 +2371,55 @@
       "primary_keyword": "Flooded Basement Cleanup",
       "secondary_keywords": "basement flood clean up, flooded basement water removal, basement water damage, wet basement cleanup, crawl space water damage, crawl space water removal"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_commercial_water_damage_restoration",
@@ -2025,7 +2452,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2049,7 +2477,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2064,7 +2493,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2076,7 +2506,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2107,7 +2538,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2119,7 +2551,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2138,7 +2571,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/commercial-building-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2150,7 +2584,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2192,7 +2627,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2225,7 +2661,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2236,12 +2673,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2255,7 +2694,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2277,7 +2717,55 @@
       "primary_keyword": "Commercial Water Damage Restoration",
       "secondary_keywords": "commercial water damage, commercial flood cleanup, business water damage restoration, commercial water damage cleanup"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_burst_pipe_water_damage",
@@ -2310,7 +2798,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2334,7 +2823,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2349,7 +2839,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2361,7 +2852,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2392,7 +2884,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2404,7 +2897,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2423,7 +2917,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/traditional-home-exterior-brick-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_cold_caption}"
+        "it_caption": "{chart_group_cold_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2435,7 +2930,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2477,7 +2973,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2510,7 +3007,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2521,12 +3019,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2540,7 +3040,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2562,7 +3063,55 @@
       "primary_keyword": "Burst Pipe Water Damage",
       "secondary_keywords": "burst pipe cleanup, water line break, frozen pipe water damage, broken pipe water damage"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_ceiling_water_damage",
@@ -2595,7 +3144,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2619,7 +3169,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2634,7 +3185,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2646,7 +3198,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2677,7 +3230,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2689,7 +3243,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2708,7 +3263,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/ceiling-water-damage-repair-worker-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_envelope_caption}"
+        "it_caption": "{chart_group_envelope_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -2720,7 +3276,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -2762,7 +3319,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -2795,7 +3353,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -2806,12 +3365,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -2825,7 +3386,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -2847,7 +3409,55 @@
       "primary_keyword": "Ceiling Water Damage",
       "secondary_keywords": "ceiling water damage repair, water stained ceiling, ceiling leak repair"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_hardwood_floor_water_damage",
@@ -2880,7 +3490,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -2904,7 +3515,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -2919,7 +3531,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -2931,7 +3544,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -2962,7 +3576,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -2974,7 +3589,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -2993,7 +3609,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/craftsman-home-with-flowers-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3005,7 +3622,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3047,7 +3665,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3080,7 +3699,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3091,12 +3711,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3110,7 +3732,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3132,7 +3755,55 @@
       "primary_keyword": "Hardwood Floor Water Damage",
       "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_carpet_water_damage",
@@ -3165,7 +3836,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3189,7 +3861,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3204,7 +3877,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3216,7 +3890,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3247,7 +3922,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3259,7 +3935,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3278,7 +3955,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/restoration-technician-homeowner-handshake-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3290,7 +3968,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3332,7 +4011,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3365,7 +4045,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3376,12 +4057,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3395,7 +4078,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3417,7 +4101,55 @@
       "primary_keyword": "Carpet Water Damage",
       "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_roof_leak_water_damage",
@@ -3450,7 +4182,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3474,7 +4207,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3489,7 +4223,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3501,7 +4236,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3532,7 +4268,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3544,7 +4281,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3563,7 +4301,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_envelope_caption}"
+        "it_caption": "{chart_group_envelope_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3575,7 +4314,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3617,7 +4357,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3650,7 +4391,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3661,12 +4403,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3680,7 +4424,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3702,7 +4447,55 @@
       "primary_keyword": "Roof Leak Water Damage",
       "secondary_keywords": "water damage from roof leak, ceiling leak from roof, roof leak water damage repair"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_attic_water_damage",
@@ -3735,7 +4528,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -3759,7 +4553,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -3774,7 +4569,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -3786,7 +4582,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -3817,7 +4614,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -3829,7 +4627,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -3848,7 +4647,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/attic-water-damage-drywall-repair-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_envelope_caption}"
+        "it_caption": "{chart_group_envelope_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -3860,7 +4660,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -3902,7 +4703,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -3935,7 +4737,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -3946,12 +4749,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -3965,7 +4770,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -3987,7 +4793,55 @@
       "primary_keyword": "Attic Water Damage",
       "secondary_keywords": "attic water damage repair, wet attic insulation"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_drywall_water_damage_repair",
@@ -4020,7 +4874,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4044,7 +4899,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4059,7 +4915,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4071,7 +4928,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4102,7 +4960,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4114,7 +4973,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4133,7 +4993,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/drywall-repair-window-trim-painting-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4145,7 +5006,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4187,7 +5049,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4220,7 +5083,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4231,12 +5095,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4250,7 +5116,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4272,7 +5139,55 @@
       "primary_keyword": "Drywall Water Damage Repair",
       "secondary_keywords": "fixing water damaged drywall, water damaged drywall, sheetrock water damage repair, wet drywall repair"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_toilet_overflow_cleanup",
@@ -4305,7 +5220,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4329,7 +5245,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4344,7 +5261,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4356,7 +5274,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4387,7 +5306,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4399,7 +5319,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4418,7 +5339,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_structure_caption}"
+        "it_caption": "{chart_group_structure_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4430,7 +5352,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4472,7 +5395,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4505,7 +5429,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4516,12 +5441,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4535,7 +5462,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4557,7 +5485,55 @@
       "primary_keyword": "Toilet Overflow Cleanup",
       "secondary_keywords": "toilet overflow water damage, overflowing toilet cleanup, toilet flood cleanup"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_emergency_board_up",
@@ -4590,7 +5566,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4614,7 +5591,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4629,7 +5607,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4641,7 +5620,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4672,7 +5652,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4684,7 +5665,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4703,7 +5685,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/restoration-consultation-clipboard-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_flood_caption}"
+        "it_caption": "{chart_group_flood_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -4715,7 +5698,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -4757,7 +5741,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -4790,7 +5775,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -4801,12 +5787,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -4820,7 +5808,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -4842,7 +5831,55 @@
       "primary_keyword": "Emergency Board-Up",
       "secondary_keywords": "board up services, emergency board up services, window board up"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_roof_tarping",
@@ -4875,7 +5912,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -4899,7 +5937,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -4914,7 +5953,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -4926,7 +5966,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -4957,7 +5998,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -4969,7 +6011,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -4988,7 +6031,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/restoration-consultation-clipboard-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_envelope_caption}"
+        "it_caption": "{chart_group_envelope_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -5000,7 +6044,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -5042,7 +6087,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5075,7 +6121,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5086,12 +6133,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5105,7 +6154,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5127,7 +6177,55 @@
       "primary_keyword": "Roof Tarping",
       "secondary_keywords": "emergency roof tarping, roof tarp service, temporary roof tarp"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_hurricane_damage_restoration",
@@ -5160,7 +6258,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5184,7 +6283,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5199,7 +6299,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5211,7 +6312,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5242,7 +6344,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5254,7 +6357,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5273,7 +6377,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/roof-tarping-aerial-drone-view-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_flood_caption}"
+        "it_caption": "{chart_group_flood_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -5285,7 +6390,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -5327,7 +6433,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5360,7 +6467,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5371,12 +6479,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5390,7 +6500,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5412,7 +6523,55 @@
       "primary_keyword": "Hurricane Damage Restoration",
       "secondary_keywords": "hurricane damage cleanup, hurricane damage repair"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "steps_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_water_heater_leak",
@@ -5445,7 +6604,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5469,7 +6629,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5484,7 +6645,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5496,7 +6658,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5527,7 +6690,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5539,7 +6703,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5558,7 +6723,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_structure_caption}"
+        "it_caption": "{chart_group_structure_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -5570,7 +6736,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -5612,7 +6779,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5645,7 +6813,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5656,12 +6825,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5675,7 +6846,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5697,7 +6869,55 @@
       "primary_keyword": "Water Heater Leak",
       "secondary_keywords": "water heater leak cleanup, burst water heater, water heater flood"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_appliance_leak_cleanup",
@@ -5730,7 +6950,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -5754,7 +6975,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -5769,7 +6991,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -5781,7 +7004,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -5812,7 +7036,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -5824,7 +7049,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -5843,7 +7069,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/craftsman-home-exterior-with-flag-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_structure_caption}"
+        "it_caption": "{chart_group_structure_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -5855,7 +7082,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -5897,7 +7125,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -5930,7 +7159,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -5941,12 +7171,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -5960,7 +7192,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -5982,7 +7215,55 @@
       "primary_keyword": "Appliance Leak & Overflow Cleanup",
       "secondary_keywords": "refrigerator leak, washing machine overflow, dishwasher leak cleanup"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_flooded_bathroom_cleanup",
@@ -6015,7 +7296,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6039,7 +7321,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6054,7 +7337,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6066,7 +7350,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6097,7 +7382,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6109,7 +7395,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6128,7 +7415,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/modern-bathroom-marble-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_structure_caption}"
+        "it_caption": "{chart_group_structure_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6140,7 +7428,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -6182,7 +7471,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6215,7 +7505,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6226,12 +7517,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -6245,7 +7538,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6267,7 +7561,55 @@
       "primary_keyword": "Flooded Bathroom Cleanup",
       "secondary_keywords": "bathroom water damage, overflowing tub cleanup, shower overflow cleanup"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "ai_block_1",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "ai_block_1",
+        "trust_bar_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "ai_block_3",
+        "cta_banner_1",
+        "service_cards_1",
+        "ai_block_4",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_water_damage_inspection",
@@ -6300,7 +7642,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6324,7 +7667,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6339,7 +7683,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6351,7 +7696,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6382,7 +7728,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6394,7 +7741,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6413,7 +7761,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/traditional-two-story-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_structure_caption}"
+        "it_caption": "{chart_group_structure_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6425,7 +7774,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -6467,7 +7817,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6500,7 +7851,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6511,12 +7863,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -6530,7 +7884,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6552,7 +7907,55 @@
       "primary_keyword": "Water Damage Inspection & Assessment",
       "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_water_damage_reconstruction",
@@ -6585,7 +7988,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6609,7 +8013,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6624,7 +8029,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6636,7 +8042,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6667,7 +8074,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6679,7 +8087,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6698,7 +8107,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/modern-craftsman-home-garage-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6710,7 +8120,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -6752,7 +8163,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -6785,7 +8197,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -6796,12 +8209,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -6815,7 +8230,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -6837,7 +8253,55 @@
       "primary_keyword": "Water Damage Reconstruction",
       "secondary_keywords": "water damage rebuild, rebuild after water damage, post water damage reconstruction"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "faq_two_col_1",
+        "service_cards_1",
+        "custom_html_1",
+        "cta_banner_2",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_contents_restoration",
@@ -6870,7 +8334,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -6894,7 +8359,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -6909,7 +8375,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -6921,7 +8388,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -6952,7 +8420,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -6964,7 +8433,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -6983,7 +8453,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/gray-cottage-home-exterior-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_seasonal_caption}"
+        "it_caption": "{chart_group_seasonal_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -6995,7 +8466,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -7037,7 +8509,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -7070,7 +8543,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -7081,12 +8555,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -7100,7 +8576,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -7122,7 +8599,55 @@
       "primary_keyword": "Contents Restoration & Pack-Out",
       "secondary_keywords": "pack out services, contents pack out"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "steps_1",
+        "ai_block_2",
+        "ai_block_3",
+        "cta_banner_1",
+        "ai_block_4",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   },
   {
     "id": "tpl_winter_storm_damage",
@@ -7155,7 +8680,8 @@
         "ai_inject_field": "hs_subtext",
         "ai_inject_mode": "replace",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "hero_split_1"
       },
       {
         "type": "trust_bar",
@@ -7179,7 +8705,8 @@
             "icon": ""
           }
         ],
-        "anchor": "trust_bar"
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
       },
       {
         "type": "ai_block",
@@ -7194,7 +8721,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_1"
       },
       {
         "type": "ai_block",
@@ -7206,7 +8734,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_2"
       },
       {
         "type": "steps",
@@ -7237,7 +8766,8 @@
             "text": "Your provider completes cleaning, sanitizing, and repairs to return your property to normal."
           }
         ],
-        "ai_type_id": "steps_local"
+        "ai_type_id": "steps_local",
+        "id": "steps_1"
       },
       {
         "type": "cta_banner",
@@ -7249,7 +8779,8 @@
         "cb_bg": "header",
         "cb_bg_custom": "#2563eb",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
       },
       {
         "type": "ai_block",
@@ -7268,7 +8799,8 @@
         "_it_photo_prechart": "sites/water-site/uploads/media/hurricane-damage-restoration-consultation-lufkin-tx.webp",
         "it_ratio": "auto",
         "it_layout": "stacked",
-        "it_caption": "{chart_group_cold_caption}"
+        "it_caption": "{chart_group_cold_caption}",
+        "id": "ai_block_3"
       },
       {
         "type": "ai_block",
@@ -7280,7 +8812,8 @@
         "ai_inject_mode": null,
         "ai_prompt_override": "",
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "ai_block_4"
       },
       {
         "type": "service_cards",
@@ -7322,7 +8855,8 @@
             "text": "Professional Water Mitigation for {city_state} homes and businesses.",
             "url": "/water-mitigation-{city_slug}"
           }
-        ]
+        ],
+        "id": "service_cards_1"
       },
       {
         "type": "faq_two_col",
@@ -7355,7 +8889,8 @@
           }
         ],
         "_ai_locked": false,
-        "_ai_generated": false
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
       },
       {
         "type": "cta_banner",
@@ -7366,12 +8901,14 @@
         "cb_bg": "accent",
         "cb_bg_custom": "#0d2340",
         "cb_text_color": "#ffffff",
-        "cb_padding": "compact"
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
       },
       {
         "type": "custom_html",
         "anchor": "pest_services",
-        "html": "[services_links]"
+        "html": "[services_links]",
+        "id": "custom_html_1"
       },
       {
         "type": "map_info",
@@ -7385,7 +8922,8 @@
         "mi_head_color_custom": "#120575",
         "mi_info_photo": "{city_image}",
         "mi_map_side": "top",
-        "mi_map_caption": "{city_map_caption}"
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
       }
     ],
     "seo": {
@@ -7407,6 +8945,54 @@
       "primary_keyword": "Winter Storm Damage",
       "secondary_keywords": "ice damage restoration, ice dam water damage"
     },
-    "base_role": "Restoration"
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "custom_html_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "ai_block_4",
+        "service_cards_1",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "trust_bar_1",
+        "map_info_1"
+      ]
+    ]
   }
 ]

@@ -223,7 +223,8 @@
           "icon": ""
         }
       ],
-      "anchor": "trust_bar"
+      "anchor": "trust_bar",
+      "id": "trust_bar_1"
     },
     {
       "type": "ai_block",
@@ -321,7 +322,8 @@
       "cb_bg": "header",
       "cb_bg_custom": "#120575",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "id": "cta_banner_1"
     },
     {
       "type": "ai_block",
@@ -426,7 +428,8 @@
           "text": "Scratching in the walls? We trap, seal entry points, and keep mice and rats from coming back.",
           "url": "/rat-exterminator-{city_slug}"
         }
-      ]
+      ],
+      "id": "service_cards_1"
     },
     {
       "type": "faq_two_col",
@@ -492,12 +495,14 @@
       "cb_bg": "accent",
       "cb_bg_custom": "#fd783b",
       "cb_text_color": "#ffffff",
-      "cb_padding": "compact"
+      "cb_padding": "compact",
+      "id": "cta_banner_2"
     },
     {
       "type": "custom_html",
       "anchor": "pest_services",
-      "html": "[services_links]"
+      "html": "[services_links]",
+      "id": "custom_html_1"
     },
     {
       "type": "map_info",
@@ -511,7 +516,8 @@
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
       "mi_map_side": "top",
-      "mi_map_caption": "{city_map_caption}"
+      "mi_map_caption": "{city_map_caption}",
+      "id": "map_info_1"
     }
   ],
   "seo": {
@@ -533,7 +539,55 @@
     "primary_keyword": "Residential Pest Control",
     "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
   },
+  "layout_enabled": true,
+  "layout_variants": [
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_1",
+      "ai_block_2",
+      "cta_banner_1",
+      "steps_1",
+      "ai_block_4",
+      "ai_block_3",
+      "service_cards_1",
+      "faq_two_col_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ],
+    [
+      "hero_split_1",
+      "ai_block_1",
+      "trust_bar_1",
+      "steps_1",
+      "ai_block_2",
+      "cta_banner_1",
+      "ai_block_3",
+      "ai_block_4",
+      "service_cards_1",
+      "faq_two_col_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ],
+    [
+      "hero_split_1",
+      "trust_bar_1",
+      "ai_block_1",
+      "ai_block_2",
+      "steps_1",
+      "cta_banner_1",
+      "ai_block_4",
+      "ai_block_3",
+      "faq_two_col_1",
+      "service_cards_1",
+      "cta_banner_2",
+      "custom_html_1",
+      "map_info_1"
+    ]
+  ],
   "locked_blocks": [],
-  "generated_at": "2026-09-08T04:12:05+00:00",
-  "template_version": "7d8ce2f30bf57e0f59f2efb311c4e202"
+  "generated_at": "2026-09-08T04:32:49+00:00",
+  "template_version": "a8ed18d4930810ec9a790cc15034624f"
 }

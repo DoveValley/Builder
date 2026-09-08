@@ -262,6 +262,17 @@ function generate_city_pages(array $options = []): array {
                 'city_vars'        => $city,
                 'content_blocks'   => $varyLayout ? $tplBlocksIded : ($tpl['content_blocks'] ?? []),
                 'seo'              => $tpl['seo']             ?? [],
+                // Carried through so the MULTISITE per-domain build (differentiate.php's
+                // "5b. Landing pages" step) has something to find. Without this, a
+                // template could have real layout_variants saved and every generated
+                // page would still show layout_enabled:null — the field was simply
+                // never copied, so structure.landing was a no-op for every master
+                // regardless of whether variant data existed. This is a SEPARATE axis
+                // from $varyLayout above (that one bakes ONE city-level choice directly
+                // into content_blocks at generation time; this is domain-level, applied
+                // later, once per real clone).
+                'layout_enabled'   => $tpl['layout_enabled']  ?? false,
+                'layout_variants'  => $tpl['layout_variants'] ?? [],
                 'locked_blocks'    => [],
                 'generated_at'     => date('c'),
                 'template_version' => $tplVersion,
