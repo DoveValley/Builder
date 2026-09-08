@@ -242,6 +242,37 @@
         }
     }
     sort($mediaFiles);
+
+    // Keyword map's landing-page rows, for the "Prefill from Keyword Map" button below.
+    // Service/slug/Primary keyword used to only ever get INTO a template by a human
+    // retyping the keyword map's own primary+slug into this textarea by hand — with
+    // nothing to stop the retyped copy drifting from what the map actually says (see
+    // feedback_seo_primary_keyword_focus). find=repl pairs, images and Title still need
+    // a human's judgment (the map has no data for any of them), so those stay blank.
+    $kwFile = dirname(TEMPLATES_FILE) . '/keyword_map.json';
+    $kwMap  = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) ?: []) : [];
+    $kwLandingRows = [];
+    foreach (($kwMap['services'] ?? []) as $s) {
+        $sec = $s['section'] ?? 'landing';
+        if ($sec !== 'landing') continue;
+        $primary = trim($s['primary'] ?? '');
+        if ($primary === '') continue;
+        // The Keyword Map always bakes " {city}, {ST}" onto the end of primary (every
+        // real map on this fleet does, checked) — but a template's own primary_keyword
+        // is stored bare, with the city added by the surrounding H1/title pattern
+        // instead (see the H1-by-construction fix, project_current_state v124). Copying
+        // the map's primary verbatim would double up the city reference the moment a
+        // page is generated. Strip the one suffix the map always adds.
+        $primary = preg_replace('/\s*\{city\},\s*\{ST\}$/', '', $primary);
+        // The map also stores primary lowercase (every real map does) — but the H1 is
+        // forced to whatever's in primary_keyword verbatim (v124), with zero
+        // capitalization of its own. Title-case it here so a page built through this
+        // button starts out matching every already-fixed template's own casing,
+        // instead of reintroducing the exact lowercase-H1 problem that round just
+        // fixed, for anything created from now on.
+        $primary = ucwords($primary);
+        $kwLandingRows[] = ['primary' => $primary, 'slug' => trim($s['slug'] ?? '')];
+    }
     ?>
     <div class="card" id="bulkgen">
         <h2>Bulk Template Generator</h2>
@@ -263,7 +294,14 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Rows <span class="hint">(one template per line, pipe-delimited)</span></label>
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+                    <label style="margin:0;">Rows <span class="hint">(one template per line, pipe-delimited)</span></label>
+                    <?php if ($kwLandingRows): ?>
+                    <button type="button" class="btn" style="flex:none;padding:3px 10px;font-size:.8rem;" onclick="tplPrefillFromKeywordMap()">
+                        &#11015; Prefill Service/slug/Primary keyword from Keyword Map (<?= count($kwLandingRows) ?>)
+                    </button>
+                    <?php endif; ?>
+                </div>
                 <textarea name="rows" rows="9" style="font-family:monospace;font-size:0.82rem;"
                     placeholder="Mosquito Control | mosquito-control | Mosquito Control | cockroach=mosquito;roach=mosquito;roaches=mosquitoes | mosquito-katy_aa45f9.webp | about-mosquito-control-katy_68697d.webp | best-mosquito-control-katy_44af32.webp"><?= h($bulkRows) ?></textarea>
                 <span class="hint" style="display:block;margin-top:6px;">
@@ -271,6 +309,7 @@
                     Only <strong>Service</strong> is required. <strong>find=repl</strong> swaps the base's subject words — whole-word &amp; case-aware, so
                     <code>cockroach=mosquito</code> also fixes <code>Cockroach</code>/<code>COCKROACH</code> (plurals need their own pair, e.g. <code>roaches=mosquitoes</code>).
                     Images are bare filenames from this site's media library (or a full path); blank keeps the base's image. Lines starting with <code>#</code> are skipped.
+                    <?php if ($kwLandingRows): ?>The prefill button fills only Service/slug/Primary keyword from the <a href="?tab=keywords">Keyword Map</a> — find=repl, images and Title are per-base-template and still need your own entry.<?php endif; ?>
                 </span>
             </div>
             <div class="form-group">
@@ -349,6 +388,25 @@
             </div>
         </details>
     </div>
+    <?php if ($kwLandingRows): ?>
+    <script>
+    var TPL_KW_LANDING_ROWS = <?= json_encode($kwLandingRows) ?>;
+    // Fills Service/slug/Primary keyword straight from the Keyword Map (the ONE place
+    // primary+slug should be typed at all) — find=repl/images/Title are per-base-
+    // template judgment calls the map has no data for, so those columns stay blank
+    // for the admin to fill in same as before.
+    function tplPrefillFromKeywordMap(){
+        var ta = document.querySelector('textarea[name="rows"]');
+        if (ta.value.trim() !== '' && !confirm('Replace the current Rows text with ' + TPL_KW_LANDING_ROWS.length + ' row(s) from the Keyword Map?')) return;
+        var lines = TPL_KW_LANDING_ROWS.map(function(s){
+            var primary = s.primary || '';
+            var slug    = s.slug || '';
+            return primary + ' | ' + slug + ' | ' + primary + ' | | | | |';
+        });
+        ta.value = lines.join('\n');
+    }
+    </script>
+    <?php endif; ?>
 
     <!-- ── Master Template (base masters) ─────────────────────────────── -->
     <div class="card">
