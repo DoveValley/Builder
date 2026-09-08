@@ -1,0 +1,24 @@
+{
+    "_about": "Appliance-repair-only archetype additions, merged over the shared multisite/ai/archetypes.json by compile.php (ms_ai_compile_master). An id not already in the shared file is added outright, not merged field-by-field. Kept here rather than in the shared file because it uses {brand}/{appliance_type} tokens no other niche has.",
+    "common_problems": {
+        "label": "Common Problems (brand + appliance)",
+        "description": "Grid of the common faults for this specific brand/appliance. Captures symptom long-tails and differentiates near-duplicate pages.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_num_cols": 3,
+            "columns": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a \"common problems we fix\" section for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nfc_heading: 5-9 words. If {brand} and {appliance_type} are given, use them, e.g. \"Common {brand} {appliance_type} Problems We Fix\"; otherwise \"{service} Problems We Fix\".\n\nWrite exactly 6 columns, each a REAL, common fault a homeowner would actually experience with a {brand} {appliance_type} (or with {service} in general if brand/appliance are blank):\n- heading: the symptom in the homeowner's own words, 2-5 words (e.g. \"Not Cooling\", \"Won't Drain\", \"Leaking Water\", \"Not Heating\", \"Loud or Vibrating\", \"Won't Start\", \"Not Spinning\", \"Error Code on Display\").\n- text: 18-30 words naming the likely causes in plain language, noting that the local provider {business} connects you with diagnoses and repairs it. Keep each column about a DIFFERENT failure.\n\nChoose problems genuinely typical for that brand and appliance. Do NOT invent specific model numbers, exact error codes, or statistics.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, ... exactly 6 objects ...]}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy — never keyword-stuff; skip any that don't fit."
+    }
+}

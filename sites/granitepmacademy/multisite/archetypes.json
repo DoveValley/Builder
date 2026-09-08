@@ -1,0 +1,249 @@
+{
+    "_about": "Granite PM Academy per-master prompt overrides. Merged over multisite/ai/archetypes.json by compile.php, then compiled to data/ai_block_types.json. PM-flavored + SEO-tuned: angle-variation, entity-richness (real employers/projects from research), search-intent matching. Tokens available from generate.py build_context: {business} {city} {SS} {state} {service} {keyword} {secondary_keywords} {industries} {top_employers} {salary_note} {market_blurb} {notable_projects} {credential_demand} {website} {phone}. Brief tokens: [[brief.business_descriptor]] [[brief.local_angle]] [[brief.customer_noun]] [[brief.guardrails]] [[shared.tone_line]]. Neighborhood block intentionally omitted (granite trains live-virtual/nationwide; no neighborhood data).",
+    "hero_subtext": {
+        "label": "Hero Subtext (Inject)",
+        "description": "2-3 sentence hero subtext, opens on the city's PM market, centers on the page's credential.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "text": "string"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing hero subtext for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for a page targeting \"{service}\" in {city}, {state}.\n\nWrite 2-3 sentences, 40-60 words total, wrapped in a single <p>...</p>:\n- Open on something specific to {city}'s project-management market — its dominant industry or a major local employer type — so this opening is not interchangeable with any other city.\n- Center on {service}: what {business} delivers on this page (live-virtual, instructor-led, satisfies PMI's contact-hour education requirement for this credential). Do NOT list the other certifications offered.\n- Close with a concrete career value for [[brief.customer_noun]] in {city}.\n\nNo bullets, no exclamation marks.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"text\": \"<p>...</p>\"}"
+    },
+    "city_market_intro": {
+        "label": "City Market Intro (Standalone)",
+        "description": "SEO intro: H2 + 2 paragraphs on why this credential matters in the target city and how the academy delivers it.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "requires_research": true,
+        "prompt_skeleton": "You are writing the SEO intro section for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the page targeting \"{keyword}\".\n\nCity: {city}, {state}. Local market context you may draw on (use only what is given, never invent): industries = {industries}; major employers = {top_employers}; market note = {market_blurb}.\n\n1. heading_text (H2): 6-10 words, includes \"{city}\" and references {service} or local demand for project managers.\n2. text: exactly 2 paragraphs, 160-200 words total, each wrapped in <p>...</p>.\n   - Para 1: Why {service} matters for professionals in {city} specifically. LEAD with the single most distinctive sector or employer in this city's PM market (from the context above) — do not open the same way you would for any other city.\n   - Para 2: How {business} delivers {service} — PMI-authorized, live-virtual and instructor-led, satisfies the contact-hour requirement for this credential, taught by active certified practitioners. End forward-looking toward the reader's certification.\n\nUse \"{city}\" 2-3 times naturally. No bullets, no sub-headings inside text.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
+    },
+    "feature_columns_local": {
+        "label": "Feature Columns — Local (Standalone)",
+        "description": "4 benefit columns: 3 core academy differentiators + 1 city-specific column grounded in local employer demand.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "requires_research": true,
+        "prompt_skeleton": "You are writing feature columns for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the \"{service}\" page targeting {city}, {state}.\n\nLocal context (use only what is given): industries = {industries}; major employers = {top_employers}.\n\nfc_heading: 6-10 words, city-aware and benefit-focused (vary the phrasing — do not reuse a stock heading).\n\nWrite exactly 4 columns:\n- Columns 1-3: real differentiators of {business}'s {service} — PMI Authorized Training Partner status, live-virtual instructor-led format satisfying the contact-hour requirement for this credential, instructors who are active certified practitioners, and exam-preparation support. Choose three distinct angles; do not repeat the same idea.\n- Column 4: a {city}-specific benefit — tie the credential to demand among local employers or industries above, grounded in [[brief.local_angle]].\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete and non-generic.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    },
+    "local_relevance": {
+        "label": "Local Career Relevance (Standalone)",
+        "description": "Entity-rich section: which local employers/projects hire certified PMs, salary/demand context — the anti-doorway block.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "requires_research": true,
+        "prompt_skeleton": "You are writing a local career-relevance section for {business}, [[brief.business_descriptor]], for the \"{service}\" page targeting {city}, {state}. This is the most city-specific section on the page — it must not read like it could describe any other city.\n\nUse ONLY these researched facts (never invent employers, projects, or numbers): major employers = {top_employers}; notable local projects/initiatives = {notable_projects}; compensation note = {salary_note}; credential demand = {credential_demand}; industries = {industries}.\n\nheading_text (H2): 5-9 words about project-management careers in {city}.\n\ntext: 2 paragraphs, 150-190 words total, each wrapped in <p>...</p>:\n- Para 1: Who hires certified project managers in {city}. Name 2-4 of the real employers above and, where it fits, reference a real local project/initiative from the list — as concrete illustrations of local PM demand.\n- Para 2: Why the credential is worth it here — weave in the compensation/demand context qualitatively (never state a fabricated figure), and connect completing {service} with {business} to advancing in the {city} market.\n\nNo bullets. If a fact above is blank, simply omit it — do not fill the gap with an invented specific.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
+    },
+    "pmp_pathway": {
+        "label": "Certification Pathway (Standalone, steps)",
+        "description": "5-step path to the credential (eligibility → contact hours → application → exam → maintenance), framed for the target city.",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "steps_heading": "string",
+            "steps_items": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "steps_heading": "",
+            "steps_items": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a step-by-step certification pathway for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the \"{service}\" page targeting {city}, {state}.\n\nsteps_heading: 5-9 words, references the path to {service} for {city} professionals.\n\nWrite exactly 5 steps that reflect the real PMI process for this credential:\n1. Confirm eligibility (the education + project-experience requirements PMI sets for this credential).\n2. Complete the required 35 contact hours of formal education — delivered by {business}'s live-virtual, instructor-led course.\n3. Submit the PMI application and pay the exam fee.\n4. Prepare and sit for the exam — with {business}'s exam-preparation support.\n5. Maintain the credential (earning PDUs across the standard 3-year renewal cycle).\n\nEach step: heading 3-6 words; text 25-40 words, practical and specific to the reader's next action. You may only state well-established PMI facts (e.g. the 35 contact-hour requirement, the 3-year renewal cycle). Do not invent exam fees, pass rates, or timelines.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"steps_heading\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    },
+    "faq_local": {
+        "label": "FAQ — Local (Inject, append)",
+        "description": "Appends 4 city-specific FAQ items to the next faq_two_col block, alongside the real factual FAQs kept in the template.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "append",
+        "ai_output_schema": {
+            "items": "array"
+        },
+        "default_fields": [],
+        "requires_research": true,
+        "prompt_skeleton": "You are writing city-specific FAQ items for {business}, [[brief.business_descriptor]], for the \"{service}\" page targeting {city}, {state}. These are ADDED to existing general FAQs, so ask only questions a {city} professional would search that are specific to their local market — do NOT repeat generic eligibility/format/pricing questions.\n\nLocal context (use only what is given): major employers = {top_employers}; compensation note = {salary_note}; credential demand = {credential_demand}; industries = {industries}.\n\nWrite exactly 4 FAQ items. Suggested angles (pick 4 distinct ones): is {service} worth it for careers in {city}; which {city} employers or industries value the credential; what project managers in {city} typically earn (qualitative only); whether {city} professionals can attend the live-virtual course from where they work; how the local job market affects certification timing.\n\nEach item:\n- question: specific and searchable, 8-15 words; at least half naturally include \"{city}\".\n- answer: 40-70 words, grounded in the real context above, wrapped in <p>...</p>. Never fabricate a salary figure, pass rate, price, or employer.\n\nOptionally, at most ONE question may naturally use a long-tail variant phrasing if it genuinely fits — never force it, never list them, and keep the primary focus intact: {secondary_keywords}.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"<p>...</p>\"}, ... 4 items total]}"
+    },
+    "city_spotlight": {
+        "label": "City Spotlight (map_info text)",
+        "description": "Short map-panel blurb spotlighting the city as a project-management hub; distinct from the longer local-relevance section.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "mi_info_text": "string"
+        },
+        "default_fields": {},
+        "requires_research": true,
+        "prompt_skeleton": "You are writing a short spotlight blurb for the map panel on {business}'s \"{service}\" page targeting {city}, {state}. Keep it distinct from any longer local section — this is a tight, map-adjacent caption.\n\nUse only these researched facts: market note = {market_blurb}; major employers = {top_employers}; notable projects = {notable_projects}; industries = {industries}.\n\nWrite 2-3 sentences, 60-90 words total, wrapped in <p>...</p>, spotlighting {city} as a place where project managers are in demand — reference one concrete local sector, employer, or project from the context. Close by noting {business} serves {city} professionals with live-virtual {service}.\n\nDo not invent facts; omit anything not provided.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"mi_info_text\": \"<p>...</p>\"}"
+    },
+    "capm_pathway": {
+        "label": "CAPM Certification Pathway (Standalone, steps)",
+        "description": "5-step path to the CAPM (eligibility w/ no experience → 23 contact hours → application → exam → maintenance), framed for the target city.",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "steps_heading": "string",
+            "steps_items": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "steps_heading": "",
+            "steps_items": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a step-by-step CAPM certification pathway for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the \"{service}\" page targeting {city}, {state}.\n\nsteps_heading: 5-9 words, references the path to CAPM certification for {city} professionals.\n\nWrite exactly 5 steps that reflect the real PMI process for the CAPM credential:\n1. Confirm eligibility — the CAPM requires a secondary degree (high school diploma, associate, or global equivalent) and 23 hours of project management education. Emphasize that NO prior work experience is required, which makes CAPM ideal for those newer to project management.\n2. Complete the required 23 contact hours of education — delivered by {business}'s live-virtual, instructor-led course (an intensive boot-camp-style format).\n3. Submit the PMI application and pay the exam fee.\n4. Prepare and sit for the CAPM exam — with {business}'s exam-preparation support.\n5. Maintain the credential — earn professional development units (PDUs) across the standard three-year renewal cycle.\n\nEach step: heading 3-6 words; text 25-40 words, practical and specific to the reader's next action. You may only state well-established PMI facts (e.g. the 23 contact-hour requirement, no experience required, the three-year renewal cycle). Do not invent exam fees, pass rates, or timelines.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"steps_heading\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    },
+    "national_hero_subtext": {
+        "label": "National Hero Subtext (Inject)",
+        "description": "2-3 sentence hero subtext for a national hub page; no city.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "ai_output_schema": {
+            "text": "string"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing hero subtext for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the NATIONWIDE page targeting \"{keyword}\". Do NOT reference any specific city.\n\nWrite 2-3 sentences, 40-60 words, in a single <p>...</p>:\n- Open on the professional value/recognition of {service} for project managers across the U.S.\n- Center on what {business} delivers: live-virtual, instructor-led, satisfies PMI's contact-hour education requirement for this credential.\n- Close with a concrete career value.\nNo bullets, no exclamation marks.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"text\": \"<p>...</p>\"}"
+    },
+    "national_intro": {
+        "label": "National Intro (Standalone)",
+        "description": "Authoritative national SEO intro: H2 + 2 paragraphs on the credential and how the academy delivers it.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing the national SEO intro for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the page targeting \"{keyword}\". Nationwide page — do NOT name any city.\n\n1. heading_text (H2): 6-10 words, includes the page focus ({service}).\n2. text: exactly 2 paragraphs, 180-220 words total, each wrapped in <p>...</p>.\n   - Para 1: What {service} involves and why the credential is in demand across U.S. industries — the PMP is the globally recognized standard for project managers and project management is a growing profession. Authoritative and specific, not fluffy.\n   - Para 2: How {business} delivers {service} — PMI Authorized Training Partner, live-virtual and instructor-led, satisfies the contact-hour education requirement, taught by active certified practitioners, with exam preparation. End forward-looking toward certification.\nUse \"{service}\" 2-3 times naturally. No bullets, no sub-headings.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
+    },
+    "national_features": {
+        "label": "National Feature Columns (Standalone)",
+        "description": "4 benefit columns of real academy differentiators; national, no city.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing feature columns for {business}, [[brief.business_descriptor]] (a PMI Authorized Training Partner), for the nationwide \"{service}\" page. No city names.\n\nfc_heading: 6-10 words, benefit-focused (vary the phrasing).\nWrite exactly 4 columns, each a real differentiator of {business}'s {service}:\n1. PMI Authorized Training Partner status — curriculum rigor and PMI-accepted contact hours.\n2. Live-virtual, instructor-led format that satisfies the contact-hour education requirement — attend from anywhere in the U.S.\n3. Instructors who are active certified practitioners.\n4. Exam-preparation support and the pass guarantee.\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete and non-generic.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    },
+    "national_value": {
+        "label": "National Career Value (Standalone)",
+        "description": "H2 + 2 paragraphs on the professional value/ROI of the credential; national, qualitative on pay, no fabricated numbers.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a career-value section for {business}, [[brief.business_descriptor]], for the nationwide \"{service}\" page. Do NOT name specific cities or employers.\n\nheading_text (H2): 5-9 words about the professional value of the credential.\ntext: 2 paragraphs, 150-190 words, each wrapped in <p>...</p>:\n   - Para 1: Why the credential matters professionally across the U.S. — recognized across industries such as IT, healthcare, construction, finance, and government; it signals standardized project-management competence and is frequently preferred or required in project-manager job postings. You may note certified project managers generally command stronger earning power (QUALITATIVE ONLY — never a specific salary figure or percentage).\n   - Para 2: Who benefits and the ROI — career advancement, credibility, readiness for larger projects. Connect completing {service} with {business} to advancing a PM career.\nNo bullets. Do not fabricate statistics, salary figures, or percentages.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p><p>...</p>\"}"
+    },
+    "national_faq": {
+        "label": "National FAQ (Inject, append)",
+        "description": "Appends national FAQ items to reach a full set; secondaries woven lightly.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": "next",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "append",
+        "ai_output_schema": {
+            "items": "array"
+        },
+        "default_fields": [],
+        "requires_research": false,
+        "prompt_skeleton": "You are writing FAQ items for {business}, [[brief.business_descriptor]], for the nationwide \"{service}\" page. These are ADDED to existing FAQs — ask questions likely NOT already covered, that a nationwide {service} searcher would ask. Do NOT reference a city.\n\nWrite exactly 7 FAQ items. Cover a MIX: eligibility, the exam, how long certification takes, cost/ROI, the online/live-virtual format, PMP vs other credentials, and whether it is worth it.\nEach item:\n- question: specific and searchable, 8-15 words.\n- answer: 40-70 words, accurate, wrapped in <p>...</p>. Never fabricate prices, pass rates, or timelines.\n\nAcross the set you MAY naturally echo one or two of these searcher phrasings where they genuinely fit a question or answer — never force or list them, keep the primary keyword the focus: {secondary_keywords}.\n\nACCURACY: [[brief.guardrails]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"items\": [{\"question\": \"...\", \"answer\": \"<p>...</p>\"}, ... 7 items total]}"
+    }
+}

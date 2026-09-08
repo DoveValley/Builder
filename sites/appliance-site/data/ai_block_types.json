@@ -1,40 +1,4 @@
 {
-    "common_problems": {
-        "label": "Common Problems (brand + appliance)",
-        "description": "Grid of the common faults for this specific brand/appliance. Captures symptom long-tails and differentiates near-duplicate pages.",
-        "ai_mode": "standalone",
-        "ai_render_as": "feature_columns",
-        "ai_model": "claude-haiku-4-5-20251001",
-        "ai_inject_target": null,
-        "ai_inject_field": null,
-        "ai_inject_mode": null,
-        "ai_prompt": "You are writing a \"common problems we fix\" section for {business}, an appliance repair company, on a {city}, {state} page about {service}.\n\nfc_heading: 5-9 words. If {brand} and {appliance_type} are given, use them, e.g. \"Common {brand} {appliance_type} Problems We Fix\"; otherwise \"{service} Problems We Fix\".\n\nWrite exactly 6 columns, each a REAL, common fault a homeowner would actually experience with a {brand} {appliance_type} (or with {service} in general if brand/appliance are blank):\n- heading: the symptom in the homeowner's own words, 2-5 words (e.g. \"Not Cooling\", \"Won't Drain\", \"Leaking Water\", \"Not Heating\", \"Loud or Vibrating\", \"Won't Start\", \"Not Spinning\", \"Error Code on Display\").\n- text: 18-30 words naming the likely causes in plain language and noting that {business}'s technicians diagnose and repair it. Keep each column about a DIFFERENT failure.\n\nChoose problems genuinely typical for that brand and appliance. Do NOT invent specific model numbers, exact error codes, or statistics.\n\nACCURACY RULES (critical): Use only well-established general knowledge. Do NOT invent statistics, prices, part costs, error codes you are unsure of, specific model numbers, review counts, or any detail you are not confident is true. Never quote specific prices/part costs, never guarantee a repair outcome or that a unit is repairable. Write in original wording; do not copy competitor phrasing.\nTone: reassuring, professional, prompt.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, ... exactly 6 objects ...]}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy — never keyword-stuff; skip any that don't fit.",
-        "ai_output_schema": {
-            "fc_heading": "string",
-            "columns": "array"
-        },
-        "default_fields": {
-            "skin": "light",
-            "fc_num_cols": 3,
-            "columns": []
-        },
-        "_niche": "appliance repair"
-    },
-    "city_spotlight": {
-        "label": "City Spotlight (map_info text)",
-        "description": "AI-written city profile for the map_info block's info panel, grounded in researched city facts (market_blurb, employers, industries, population, neighborhoods). Enrich type — fills mi_info_text in place; attach to a map_info block by setting its ai_type_id to city_spotlight.",
-        "ai_mode": "inject",
-        "ai_render_as": null,
-        "ai_model": "claude-sonnet-5",
-        "ai_inject_target": null,
-        "ai_inject_field": "mi_info_text",
-        "ai_inject_mode": "replace",
-        "ai_prompt": "You are writing the \"City Information\" panel that appears beside a map of {city}, {state} on the website of {business}. This is a short, engaging, factual profile of {city} as a place — NOT a sales pitch for the business.\n\nWrite 1-2 short paragraphs, 90-140 words total, that give a visitor a vivid, accurate feel for {city}, {state}: its regional setting, what the local economy is built on, and a little local character. Tone: warm, confident, professional. Use fully original wording — do NOT copy encyclopedia phrasing or read like a Wikipedia entry.\n\nGROUND EVERY SPECIFIC CLAIM ONLY IN THIS VERIFIED RESEARCH about {city} (do not introduce specifics beyond it):\n- Regional / economic context: {market_blurb}\n- Major employers: {top_employers}\n- Key industries: {industries}\n- Approximate population: {population}\n- Verified local areas you MAY name (pick at most TWO, woven naturally into a sentence — never a \"we serve X, Y, Z\" list): {neighborhoods}\n\nACCURACY RULES (critical): Rely only on the verified facts above plus well-established general knowledge about {city}'s broader region and {state}. Do NOT invent or state as fact: statistics beyond the population above, distances or drive times, highway or route numbers, founding dates, named landmarks, climate figures, or any detail not supported by the research above. If a provided value is blank, simply omit that angle. If unsure about a specific detail for {city}, describe the broader region instead of inventing specifics. Use the standard two-letter abbreviation for {state} where it reads naturally. Mention {business} at most once and lightly, or not at all — keep the focus on the city.\n\nReturn JSON only, no markdown fences: {\"mi_info_text\": \"the paragraph text; separate two paragraphs with a single blank line; plain text, NO HTML tags\"}",
-        "ai_output_schema": {
-            "mi_info_text": "string"
-        },
-        "default_fields": []
-    },
     "city_intro": {
         "label": "City Intro",
         "description": "Standalone SEO intro (H2 + 2 paragraphs, 160-190 words) about the service in the target city.",
@@ -192,6 +156,45 @@
         },
         "default_fields": [],
         "_compiled_from": "steps_local",
+        "_niche": "appliance repair"
+    },
+    "common_problems": {
+        "label": "Common Problems (brand + appliance)",
+        "description": "Grid of the common faults for this specific brand/appliance. Captures symptom long-tails and differentiates near-duplicate pages.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a \"common problems we fix\" section for {business}, a referral service that connects property owners with independent local appliance repair providers, on a {city}, {state} page about {service}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nfc_heading: 5-9 words. If {brand} and {appliance_type} are given, use them, e.g. \"Common {brand} {appliance_type} Problems We Fix\"; otherwise \"{service} Problems We Fix\".\n\nWrite exactly 6 columns, each a REAL, common fault a homeowner would actually experience with a {brand} {appliance_type} (or with {service} in general if brand/appliance are blank):\n- heading: the symptom in the homeowner's own words, 2-5 words (e.g. \"Not Cooling\", \"Won't Drain\", \"Leaking Water\", \"Not Heating\", \"Loud or Vibrating\", \"Won't Start\", \"Not Spinning\", \"Error Code on Display\").\n- text: 18-30 words naming the likely causes in plain language, noting that the local provider {business} connects you with diagnoses and repairs it. Keep each column about a DIFFERENT failure.\n\nChoose problems genuinely typical for that brand and appliance. Do NOT invent specific model numbers, exact error codes, or statistics.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Never claim to be factory authorized, manufacturer certified, or an approved warranty servicer. Do not quote prices, call-out fees, or parts availability. Do not promise same-day or next-day service as a guarantee — describe it as often available, never certain. Do not name a brand as serviced unless it appears in the site's own brand pages. Never state how long a repair will take or how long a part will last.\nTone: practical and reassuring — a dead fridge is urgent, but the repair itself is routine work. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, ... exactly 6 objects ...]}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy — never keyword-stuff; skip any that don't fit.",
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_num_cols": 3,
+            "columns": []
+        },
+        "_compiled_from": "common_problems",
+        "_niche": "appliance repair"
+    },
+    "city_spotlight": {
+        "label": "City Spotlight (map_info text)",
+        "description": "AI-written city profile for the map_info block's info panel, grounded in researched city facts (market_blurb, employers, industries, population, neighborhoods). Enrich type — fills mi_info_text in place; attach to a map_info block by setting its ai_type_id to city_spotlight.",
+        "ai_mode": "inject",
+        "ai_render_as": null,
+        "ai_model": "claude-sonnet-5",
+        "ai_inject_target": null,
+        "ai_inject_field": "mi_info_text",
+        "ai_inject_mode": "replace",
+        "ai_prompt": "You are writing the \"City Information\" panel that appears beside a map of {city}, {state} on the website of {business}. This is a short, engaging, factual profile of {city} as a place — NOT a sales pitch for the business.\n\nWrite 1-2 short paragraphs, 90-140 words total, that give a visitor a vivid, accurate feel for {city}, {state}: its regional setting, what the local economy is built on, and a little local character. Tone: warm, confident, professional. Use fully original wording — do NOT copy encyclopedia phrasing or read like a Wikipedia entry.\n\nGROUND EVERY SPECIFIC CLAIM ONLY IN THIS VERIFIED RESEARCH about {city} (do not introduce specifics beyond it):\n- Regional / economic context: {market_blurb}\n- Major employers: {top_employers}\n- Key industries: {industries}\n- Approximate population: {population}\n- Verified local areas you MAY name (pick at most TWO, woven naturally into a sentence — never a \"we serve X, Y, Z\" list): {neighborhoods}\n\nACCURACY RULES (critical): Rely only on the verified facts above plus well-established general knowledge about {city}'s broader region and {state}. Do NOT invent or state as fact: statistics beyond the population above, distances or drive times, highway or route numbers, founding dates, named landmarks, climate figures, or any detail not supported by the research above. If a provided value is blank, simply omit that angle. If unsure about a specific detail for {city}, describe the broader region instead of inventing specifics. Use the standard two-letter abbreviation for {state} where it reads naturally. Mention {business} at most once and lightly, or not at all — keep the focus on the city.\n\nThis business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact — describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Never claim to be factory authorized, manufacturer certified, or an approved warranty servicer. Do not quote prices, call-out fees, or parts availability. Do not promise same-day or next-day service as a guarantee — describe it as often available, never certain. Do not name a brand as serviced unless it appears in the site's own brand pages. Never state how long a repair will take or how long a part will last.\n\nReturn JSON only, no markdown fences: {\"mi_info_text\": \"the paragraph text; separate two paragraphs with a single blank line; plain text, NO HTML tags\"}",
+        "ai_output_schema": {
+            "mi_info_text": "string"
+        },
+        "default_fields": [],
+        "_compiled_from": "city_spotlight",
         "_niche": "appliance repair"
     }
 }

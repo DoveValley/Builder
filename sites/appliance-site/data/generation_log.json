@@ -797,5 +797,55 @@
     "output_tokens": 976,
     "api_calls": 2,
     "estimated_cost_usd": 0.006425
+  },
+  {
+    "run_id": "5a7482ca-45d1-4e9c-810d-16b2c646ca73",
+    "started_at": "2026-09-08T23:45:50.807536Z",
+    "finished_at": "2026-09-08T23:46:15.732127Z",
+    "duration_ms": 24924,
+    "dry_run": false,
+    "options": {
+      "site": "appliance-site",
+      "page": "landing",
+      "all": false,
+      "file": "amana_appliance_repair_city_lufkin_tx",
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 5,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 5,
+    "cities_researched": 0,
+    "input_tokens": 4355,
+    "output_tokens": 1958,
+    "api_calls": 5,
+    "estimated_cost_usd": 0.014145
+  },
+  {
+    "run_id": "15df4cf2-5979-42ae-8a83-a6c37b1939fc",
+    "started_at": "2026-09-08T23:48:07.814016Z",
+    "finished_at": "2026-09-08T23:49:58.203713Z",
+    "duration_ms": 110389,
+    "dry_run": false,
+    "options": {
+      "site": "appliance-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": false
+    },
+    "pages_written": 156,
+    "pages_skipped": 866,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 156,
+    "cities_researched": 0,
+    "input_tokens": 127544,
+    "output_tokens": 73843,
+    "api_calls": 156,
+    "estimated_cost_usd": 0.496759
   }
 ]

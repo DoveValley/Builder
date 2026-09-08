@@ -18,6 +18,11 @@ sites/*/multisite/*
 # prompt. pest-template's copy was already tracked; water/mold/appliance's were
 # not, purely by omission, which left real config edits with no git history at all.
 !sites/*/multisite/niche_brief.json
+# archetypes.json (per-master prompt overrides/additions, compiled by
+# multisite/ai/compile.php alongside niche_brief.json) is the same story — prompt
+# text, no secrets — but had no exception carved out at all, so appliance-site's
+# and granitepmacademy's copies existed on disk with zero git history.
+!sites/*/multisite/archetypes.json
 
 # Multisite batch data — params.csv carries ftp_pass in plaintext, plus run logs.
 # Same fail-safe rule: the whole dir, so nothing added later can leak either.
