@@ -30,9 +30,17 @@ function infra_fleet_summary(): array
             if (isset($out[$k])) $out[$k] = $n;
         }
 
+        // 'owned' is a sticky receipt column ('yes'|''), separate from the lifecycle
+        // 'status' column (begin→ready→owned→staged→…→live) — a domain keeps owned='yes'
+        // long after its status has moved past the literal string 'owned'. Filtering on
+        // status here undercounted both figures to just the domains still sitting at
+        // that one early lifecycle step, dropping every domain that has since staged,
+        // queued or gone live out of the front-page renewal-risk warning.
+        $out['owned'] = (int) $db->query("SELECT COUNT(*) FROM domains WHERE owned = 'yes'")->fetchColumn();
+
         // Owned domains whose auto-renew we have not positively confirmed as "yes".
         // These are the ones that can quietly expire, so they get the warning line.
-        $q = $db->query("SELECT COUNT(*) FROM domains WHERE status = 'owned' AND COALESCE(auto_renew, '') <> 'yes'");
+        $q = $db->query("SELECT COUNT(*) FROM domains WHERE owned = 'yes' AND COALESCE(auto_renew, '') <> 'yes'");
         $out['renew_unconfirmed'] = (int) $q->fetchColumn();
 
         $out['ok'] = true;

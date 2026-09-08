@@ -103,8 +103,8 @@ function infra_cf_accounts_for_server(string $serverId): array
             'counted' => $n >= 0,
         ];
     }
-    usort($out, fn($x, $y) => [(int) ($x['order'] ?? 0), (string) $x['label']]
-                         <=> [(int) ($y['order'] ?? 0), (string) $y['label']]);
+    usort($out, fn($x, $y) => [(int) ($x['order'] ?? 0), (string) ($x['label'] ?? '')]
+                         <=> [(int) ($y['order'] ?? 0), (string) ($y['label'] ?? '')]);
     return $out;
 }
 

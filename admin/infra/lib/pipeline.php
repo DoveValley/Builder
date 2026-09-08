@@ -340,6 +340,25 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
     if ($only !== '') {
         $only = strtolower(trim($only));
         $rows = array_values(array_filter($rows, fn($r) => $r['domain'] === $only));
+        // infra_pipeline_rows() deliberately excludes any domain still in
+        // infra_is_acquiring() status when $batch === '' — that filter exists to
+        // declutter the GRID's list view (an unclaimed row isn't "in flight" yet),
+        // not to gate whether one just-acted-on domain's own result gets recorded.
+        // A freshly-claimed row (belongs to a batch, but has no box/zone yet — the
+        // normal state right after step 1) was being silently excluded here too:
+        // infra_pipeline_do() would perform the real action (e.g. assign a box)
+        // successfully, then call this SAME filtered lookup to record the result,
+        // find no row, and report INFRA_STEP_TODO — a false failure that also never
+        // stamps the step as done, permanently blocking every later step's
+        // prerequisite check for that domain. Build the row directly, bypassing the
+        // list filter, whenever the single domain being checked wasn't found in it.
+        if (!$rows) {
+            $rec = infra_state_get_domain($only);
+            if ($rec) {
+                $stored = infra_pipeline_stored([$only]);
+                $rows = [infra_pipeline_row($rec, $stored[$only] ?? [])];
+            }
+        }
     }
     if (!$rows) return $out;
 
@@ -825,8 +844,13 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
     }
 
     // THE CHECK HAS THE LAST WORD. Whatever the action said, this is what goes in.
+    // $batch (this function's own parameter) was hardcoded to '' here — silently
+    // dropped rather than unused-and-removed. infra_pipeline_refresh() now has its
+    // own fallback for a domain the batch/acquisition filter excludes (see its own
+    // comment), so this no longer strictly needs $batch to be correct — but passing
+    // it through is still the more direct, less surprising path when it's known.
     infra_cache_force(true);
-    $after = infra_pipeline_refresh($step, '', $domain);
+    $after = infra_pipeline_refresh($step, $batch, $domain);
     infra_cache_force(false);
 
     $state = $after['ok'] > 0 ? INFRA_STEP_OK : ($after['fail'] > 0 ? INFRA_STEP_FAIL : INFRA_STEP_TODO);

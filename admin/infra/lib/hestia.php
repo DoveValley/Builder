@@ -485,15 +485,22 @@ function hestia_create_site(array $server, string $domain, string $ftpUser, stri
     //    at once should pass $restart=false and call hestia_restart_web() once at
     //    the end; restarting the web server 500 times is both slow and a series of
     //    small blips for every site already live on the box.
-    $restarted = '';
+    $restarted  = '';
+    $restartOk  = true;              // true (not false) when $restart=false: nothing was asked of it, so nothing failed
     if ($restart) {
         $w = hestia_restart_web($server);
+        $restartOk = $w['ok'];
         $restarted = $w['ok'] ? ', web restarted' : ', BUT the web restart failed (' . $w['message']
                               . ') — the site will serve the default page until it is restarted';
     }
 
     return [
-        'ok'       => true,
+        'ok'          => true,
+        // A restart failure does not mean the site wasn't created — it means it
+        // isn't SERVING yet. Kept as its own field, not just folded into 'message',
+        // because a caller branching only on 'ok' (as provision.php did) reported
+        // "Host: ✓" for a vhost that still answered with Hestia's default page.
+        'restart_ok'  => $restartOk,
         'id'       => null,                              // Hestia has no numeric site id
         'ftp_user' => $user . '_' . $ftpUser,            // the LOGIN, not the argument
         'ftp_pass' => $ftpPass,

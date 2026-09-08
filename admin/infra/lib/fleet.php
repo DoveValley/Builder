@@ -229,7 +229,7 @@ function infra_host_domain_index(): array
         if (!$disc || empty($disc['ok'])) continue;
         foreach ($disc['sites'] as $d) {
             $name = strtolower($d['name'] ?? '');
-            if ($name === '') continue;
+            if ($name === '' || hestia_is_infra_vhost($name, $s)) continue;
             $idx[$name] = [
                 'server_id'    => $s['id'] ?? '',
                 'server_label' => $s['label'] ?? ($s['id'] ?? ''),

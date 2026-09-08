@@ -10,6 +10,7 @@
 require_once __DIR__ . '/state.php';
 require_once __DIR__ . '/registrar.php';
 require_once __DIR__ . '/cache.php';
+require_once __DIR__ . '/pipeline.php'; // infra_pipeline_lock() — same mutex infra_domain_buy() uses
 
 const INFRA_OWNED_INDEX_TTL = 1800;   // our own registrar holdings change rarely
 
@@ -186,11 +187,21 @@ function infra_avail_write_results(array $domains, array $results, array $mine, 
  *   4. availability RE-CHECKED right now          (a "ready" flag from last week is not evidence)
  *   5. on failure: status=buy-failed + the reason, and NOTHING retries on its own
  *
+ * Rail 1 alone does not stop two near-simultaneous requests for the SAME domain —
+ * both a double-click and two tabs open on the same row are real, since both
+ * domain_buy.php and domain_manage.php's 'buy' case explicitly release the PHP
+ * session lock before calling this, specifically so one slow purchase doesn't queue
+ * every other request. Both concurrent calls would read owned=no, both would pass
+ * every rail, and both would call the registrar's real, money-spending register
+ * endpoint. Locked with infra_pipeline_lock() — the same primitive already used to
+ * stop the identical race for host/zone provisioning and go-live NS switches.
+ *
  * @return array{ok:bool, message:string}
  */
 function infra_domain_buy(string $domain, array $opts = []): array
 {
     $domain = strtolower(trim($domain));
+    return infra_pipeline_lock($domain, 'buy', function () use ($domain, $opts) {
     $rec    = infra_state_get_domain($domain);
     $fail   = function (string $m, bool $record = false) use ($domain) {
         if ($record) infra_state_upsert_domain(['domain' => $domain, 'status' => 'buy-failed', 'buy_error' => $m]);
@@ -299,6 +310,7 @@ function infra_domain_buy(string $domain, array $opts = []): array
         'buy_error'  => '',
     ]);
     return ['ok' => true, 'message' => $buy['message'] ?? "bought {$domain}"];
+    });
 }
 
 /**

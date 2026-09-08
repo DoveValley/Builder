@@ -80,22 +80,9 @@ if ($action === 'select') {
     foreach (array_filter(array_map('strval', $ids)) as $id) {
         infra_cn_select($niche, $id) ? $added++ : $dupe++;
     }
-    // The browse table carries an Ahrefs figure per row. It is research, recorded
-    // against any city whether or not it is picked — that is the point of having
-    // it while browsing. Saving a figure never selects the city.
-    $scored = 0;
-    $known  = infra_cn_all($niche);
-    foreach ((array) ($_POST['ahrefs'] ?? []) as $id => $v) {
-        $id = (string) $id;
-        $v  = trim((string) $v);
-        if ($v === ($known[$id]['ahrefs'] ?? '')) continue;
-        if (infra_cn_note_metric($niche, $id, ['ahrefs' => $v]) === '') $scored++;
-    }
-
-    infra_set_flash($added || $scored ? 'ok' : 'warn',
+    infra_set_flash($added ? 'ok' : 'warn',
         $added . ' city selection' . ($added === 1 ? '' : 's') . ' added to ' . $niche
-        . ($dupe ? ' — ' . $dupe . ' already selected, left alone' : '')
-        . ($scored ? ' · ' . $scored . ' Ahrefs figure' . ($scored === 1 ? '' : 's') . ' recorded' : '') . '.');
+        . ($dupe ? ' — ' . $dupe . ' already selected, left alone' : '') . '.');
     header('Location: ' . $back); exit;
 }
 
@@ -268,7 +255,16 @@ if ($action === 'fetch') {
         foreach ($byPhrase as $phrase => $cityIds) {
             foreach ($cityIds as $cityId) {
                 if (isset($r['rows'][$phrase])) { infra_cn_store_metrics($niche, $cityId, $r['rows'][$phrase], $type); $done++; }
-                elseif ($err === '') { $miss++; }
+                elseif ($err === '') {
+                    // No row back is a normal answer (too small to register), not a
+                    // failure — but it still has to be STAMPED as checked. Without
+                    // this, {type}_at stays blank forever, and infra_cn_needs_metrics()
+                    // treats a blank _at as "never fetched" regardless of staleness
+                    // window — so every miss re-entered every future sweep and got
+                    // re-billed against the provider forever.
+                    infra_cn_store_metrics($niche, $cityId, [], $type);
+                    $miss++;
+                }
             }
         }
         if ($err !== '') break;

@@ -45,6 +45,17 @@ switch ($action) {
         // One cell. Runs the step, then RE-CHECKS it — the message says what the action
         // claimed and, after the dash, what going back and looking found.
         [$step, $dom] = array_pad(explode(':', $cell, 2), 2, '');
+        // 'golive' (the nameserver switch — the one outward-facing action on this
+        // page) is deliberately excluded from the grid's own cell buttons so it can
+        // only be fired through the dedicated 'release' action above, which forces
+        // its own confirmation/override flow. That exclusion was UI-only — nothing
+        // stopped a direct POST of do=golive:domain from reaching here and firing it
+        // with no confirmation at all. Reject it the same way 'release' is the only
+        // door for it.
+        if ($step === 'golive') {
+            infra_set_flash('err', 'Use the row\'s own "Go live" button for that step — not available here.');
+            break;
+        }
         $r = infra_pipeline_do($step, $dom, $batch);
         infra_set_flash($r['ok'] ? 'ok' : ($r['state'] === INFRA_STEP_FAIL ? 'err' : 'warn'),
             $dom . ' — ' . (infra_pipeline_actions()[$step] ?? $step) . ': ' . $r['msg']);

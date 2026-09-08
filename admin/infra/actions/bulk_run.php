@@ -66,7 +66,8 @@ bulk_emit("Bulk provisioning {$total} domain(s) — staged only, idempotent{$mod
 bulk_emit(str_repeat('─', 48));
 
 $okCount = 0; $failCount = 0;
-$touched = [];   // server id => server, for the single restart at the end
+$touched = [];         // server id => server, for the single restart at the end
+$touchedDomains = [];  // server id => domains counted ok there, in case its restart fails
 foreach ($domains as $i => $dom) {
     $n = $i + 1;
     bulk_emit("");
@@ -95,10 +96,19 @@ foreach ($domains as $i => $dom) {
         bulk_emit('  [assigned] server=' . ($server['id'] ?? '—') . '  cf=' . ($account['id'] ?? '—') . '  registrar=' . ($regName ?: '—'));
     }
     $res = infra_provision_locked($dom, $server, $account, $opts);
-    if ($optsBase['site'] && $server) $touched[$server['id'] ?? ''] = $server;
+    $sid = $server['id'] ?? '';
+    if ($optsBase['site'] && $server) $touched[$sid] = $server;
     foreach ($res['lines'] as $line) bulk_emit('  ' . $line);
-    if ($res['ok']) { $okCount++; bulk_emit('  → staged ✓'); }
-    else            { $failCount++; bulk_emit('  → partial/failed'); }
+    if ($res['ok']) {
+        $okCount++; bulk_emit('  → staged ✓');
+        // Its vhost isn't actually SERVING until this box's shared restart below
+        // succeeds — tracked per box so a failed restart there can move exactly
+        // these domains to failed, not just add a flat +1 regardless of how many
+        // were behind it.
+        if ($optsBase['site'] && $server) $touchedDomains[$sid][] = $dom;
+    } else {
+        $failCount++; bulk_emit('  → partial/failed');
+    }
 }
 
 /* The restart, once per server that was written to.
@@ -114,12 +124,20 @@ foreach ($domains as $i => $dom) {
 if ($touched) {
     bulk_emit("");
     bulk_emit('Restarting the web server so the new sites are actually served…');
-    foreach ($touched as $srv) {
+    foreach ($touched as $sid => $srv) {
         $w = hestia_restart_web($srv);
         bulk_emit('  ' . ($srv['label'] ?? $srv['id'] ?? '?') . ': '
             . ($w['ok'] ? '✓ restarted' : '✗ ' . $w['message']
                . ' — the sites exist but will serve the default page until this succeeds'));
-        if (!$w['ok']) $failCount++;
+        if (!$w['ok']) {
+            // Move every domain staged on THIS box out of "staged ✓" and into
+            // "failed" — not a flat +1, or a box with fifty domains behind a
+            // failed restart reported as one failure and forty-nine successes.
+            $affected = $touchedDomains[$sid] ?? [];
+            $okCount -= count($affected);
+            $failCount += count($affected);
+            if ($affected) bulk_emit('    ✗ not yet served: ' . implode(', ', $affected));
+        }
     }
 }
 

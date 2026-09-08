@@ -973,7 +973,11 @@ function infra_reg_xml_list($v): array
     if ($v === null || $v === '') return [];
     if (is_string($v)) return [$v];
     if (is_array($v)) {
+        if (!$v) return [];
         // A single associative record (has string keys) vs a list of records.
+        // range(0, count($v)-1) breaks for an empty array — range(0,-1) counts
+        // DOWN and returns [0,-1], not [] — which made this treat "no records"
+        // as one bare associative record instead; hence the guard above.
         return array_keys($v) !== range(0, count($v) - 1) ? [$v] : $v;
     }
     return [];
@@ -1195,6 +1199,15 @@ function infra_reg_namesilo_set_ns(string $domain, array $ns, array $cfg): array
     ];
 }
 
+/** NameSilo's real auto-renew state for a domain, or null if unreadable. */
+function infra_reg_namesilo_autorenew(array $cfg, string $domain): ?bool
+{
+    $r = infra_reg_namesilo_call($cfg, 'getDomainInfo', ['domain' => $domain]);
+    if (!$r['ok']) return null;
+    $v = $r['reply']['auto_renew'] ?? null;
+    return $v === null ? null : ((string) $v === '1' || strtolower((string) $v) === 'yes');
+}
+
 /**
  * Register a domain (free WHOIS privacy on). Optional NS at purchase.
  *
@@ -1209,11 +1222,22 @@ function infra_reg_namesilo_register(string $domain, int $years, array $cfg, arr
     foreach (array_slice(array_values(array_filter($ns)), 0, 13) as $i => $n) $params['ns' . ($i + 1)] = $n;
 
     $r = infra_reg_namesilo_call($cfg, 'registerDomain', $params);
-    return ['ok' => $r['ok'], 'code' => $r['code'],
-            'message' => $r['ok']
-                ? "NameSilo: registered {$domain} for {$params['years']}yr, auto-renew "
-                  . ($autoRenew ? 'ON' : 'OFF') . ', WHOIS privacy on'
-                : "NameSilo error {$r['code']}: {$r['detail']}"];
+    if (!$r['ok']) {
+        return ['ok' => false, 'code' => $r['code'], 'message' => "NameSilo error {$r['code']}: {$r['detail']}"];
+    }
+
+    $msg = "NameSilo: registered {$domain} for {$params['years']}yr, WHOIS privacy on";
+    // REPORT WHAT IS TRUE, NOT WHAT WAS REQUESTED — same principle as Dynadot's and
+    // Namecheap's registration above. This used to echo back the requested flag
+    // unconditionally, the one NameSilo path in this file that never confirmed it.
+    $actual = infra_reg_namesilo_autorenew($cfg, $domain);
+    if ($actual === null) {
+        $msg .= ', auto-renew set but UNVERIFIED — check the dashboard';
+    } else {
+        $msg .= ', auto-renew ' . ($actual ? 'ON' : 'OFF') . ' (verified)';
+        if ($actual !== (bool) $autoRenew) $msg .= ' — NOT what was asked for; change it in the dashboard';
+    }
+    return ['ok' => true, 'code' => $r['code'], 'message' => $msg];
 }
 
 

@@ -77,6 +77,17 @@ if ($action === 'bind' || $action === 'unbind') {
         infra_set_flash('err', 'That box is not in the registry.');
         header('Location: ' . $back); exit;
     }
+    // Zones themselves never move — Cloudflare has no API for that, and nothing
+    // here tries. But the account's OWN zone count is what the rest of the console
+    // (cf_alloc.php's per-box fill order and capacity math) reads to decide where
+    // new zones go, so re-pointing an account that already carries a real zone
+    // count at a different box is worth a number in the confirmation, not silence.
+    $oldSrv    = (string) ($cfg['accounts'][$idx]['server_id'] ?? '');
+    $zoneCount = null;
+    if ($srv !== $oldSrv) {
+        $counts    = infra_cf_zone_counts();
+        $zoneCount = $counts[$id] ?? null;
+    }
     $cfg['accounts'][$idx]['server_id'] = $srv;
     $cfg['accounts'][$idx]['order']  = max(0, (int) ($_POST['order'] ?? 0));
     // OPEN or CLOSED, not a number. Placement reads this and nothing else — no counts,
@@ -97,7 +108,11 @@ if ($action === 'bind' || $action === 'unbind') {
         ? '"' . $lbl . '" is no longer bound to a box. Its existing zones are untouched.'
         : '"' . $lbl . '" is bound to ' . $box . ' and is '
           . ($shut ? 'CLOSED — it will not take new zones' : 'taking new zones for it')
-          . '. Zones already in it are untouched — Cloudflare cannot move a zone between accounts.');
+          . '. Zones already in it are untouched — Cloudflare cannot move a zone between accounts.'
+          . ($zoneCount !== null && $zoneCount > 0
+             ? ' Note: it already carries ' . $zoneCount . ' zone(s) from its previous box — only NEW zones go to '
+               . $box . '; the existing ' . $zoneCount . ' still serve wherever they were created.'
+             : ''));
     header('Location: ' . $back); exit;
 }
 
@@ -209,9 +224,13 @@ if ($action === 'save') {
     infra_cache_forget('cf_zones:' . $candidate['id']);
 
     $probe = cf_probe($candidate);
+    // $probe already carries the account name when Cloudflare could confirm it —
+    // same as the test action above; a second cf_account_name() call here was an
+    // extra round-trip to ask the same question cf_probe() just answered.
+    $nm = (string) ($probe['name'] ?? '') !== '' ? $probe['name'] : cf_account_name($candidate);
     infra_set_flash(!empty($probe['ok']) ? 'ok' : 'warn',
         !empty($probe['ok'])
-            ? 'Saved "' . $label . '" — connected to ' . (($nm = cf_account_name($candidate)) !== '' ? '"' . $nm . '"' : 'that account') . ' at Cloudflare.'
+            ? 'Saved "' . $label . '" — connected to ' . ($nm !== '' ? '"' . $nm . '"' : 'that account') . ' at Cloudflare.'
             : 'Saved "' . $label . '", but Cloudflare would not confirm that account: '
               . ($probe['error'] ?: 'no reply')
               . ' — either the account ID is wrong or this token cannot see it.');

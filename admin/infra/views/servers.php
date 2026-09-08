@@ -12,7 +12,11 @@
              real one is the progressive bar below. -->
         <!-- One call per host area, so it is a button and not something every page
              load pays for. Fleet-wide because eight boxes is eight clicks otherwise. -->
-        <a class="btn sec" href="index.php?view=servers&amp;content=all">Check every server for files</a>
+        <form method="post" action="actions/servers_check.php" style="display:inline">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="content" value="all">
+            <button class="btn sec" type="submit">Check every server for files</button>
+        </form>
     </div>
 
     <!-- How a site gets onto a box. Written out because the order is not
@@ -187,37 +191,9 @@
     $hEditId  = (string) ($_GET['hedit'] ?? '');
     $hServers = infra_hestia_servers();
 
-    // Deliberately on demand: one outbound request per site, so a box with 40 on it
-    // should ask when you press the button, not on every page load.
-    // Read what is actually in each host area's folder. On demand: one API call per
-    // host area, so it is asked for, not paid for on every page load.
-    $contentId = (string) ($_GET['content'] ?? '');
-    if ($contentId !== '') {
-        $tot = ['checked' => 0, 'with_files' => 0, 'empty' => 0];
-        foreach (infra_hestia_servers() as $srv) {
-            if ($contentId !== 'all' && ($srv['id'] ?? '') !== $contentId) continue;
-            $r = infra_hestia_content_run($srv);
-            foreach (['checked', 'with_files', 'empty'] as $k) $tot[$k] += $r[$k];
-        }
-        infra_set_flash($tot['empty'] > 0 ? 'warn' : 'ok',
-            $tot['checked'] === 0 ? 'No host areas to check.'
-            : ($tot['with_files'] . ' of ' . $tot['checked'] . ' host area(s) contain a site'
-               . ($tot['empty'] > 0 ? ' — ' . $tot['empty'] . ' still hold only the placeholder, so nothing has been uploaded into them.' : '.')));
-        header('Location: index.php?view=servers#hestia'); exit;
-    }
-
-    $hCheckId = (string) ($_GET['hcheck'] ?? '');
-    if ($hCheckId !== '') {
-        $n = 0;
-        foreach ($hServers as $srv) {
-            if (($srv['id'] ?? '') !== $hCheckId) continue;
-            foreach (infra_discover_hestia($srv)['sites'] as $s) {
-                if (($s['name'] ?? '') !== '') { infra_site_check_run($s['name']); $n++; }
-            }
-        }
-        infra_set_flash('ok', 'Checked ' . $n . ' website' . ($n === 1 ? '' : 's') . ' on the Hestia box.');
-        header('Location: index.php?view=servers#hestia'); exit;
-    }
+    // Both "check for files" actions make real outbound calls against one or every
+    // Hestia box, so they're POST+CSRF through actions/servers_check.php now, not
+    // plain GET links — see that file's docblock for why.
 
     // One shared reader rather than this page's own loop — it is the same discovery,
     // and the derived numbers stay consistent with the dashboard by construction.
@@ -477,10 +453,16 @@
             <div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
                 <h2 style="font-size:15px;margin:0">Websites on this server (<?= count($d['sites']) ?>)</h2>
                 <?php if ($d['sites']): ?>
-                <a class="btn sec" style="padding:3px 10px;font-size:12px"
-                   href="index.php?view=servers&amp;hcheck=<?= ih($srv['id'] ?? '') ?>">Check if they're up</a>
-                <a class="btn sec" style="padding:3px 10px;font-size:12px"
-                   href="index.php?view=servers&amp;content=<?= ih($srv['id'] ?? '') ?>">Check for files</a>
+                <form method="post" action="actions/servers_check.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                    <input type="hidden" name="hcheck" value="<?= ih($srv['id'] ?? '') ?>">
+                    <button class="btn sec" style="padding:3px 10px;font-size:12px" type="submit">Check if they're up</button>
+                </form>
+                <form method="post" action="actions/servers_check.php" style="display:inline">
+                    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                    <input type="hidden" name="content" value="<?= ih($srv['id'] ?? '') ?>">
+                    <button class="btn sec" style="padding:3px 10px;font-size:12px" type="submit">Check for files</button>
+                </form>
                 <?php endif; ?>
             </div>
             <?php if (!$d['sites']): ?>
