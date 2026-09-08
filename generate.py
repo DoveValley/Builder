@@ -313,15 +313,23 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         seo     = page_data.get('seo', {})
         title   = page_data.get('title', '')
         service = seo.get('service_name', '') or _strip_city(title, ctx['city'])
-        keyword = seo.get('seo_title', '') or f"{service} {ctx['city']}".strip()
         ctx['service'] = service
-        # A landing page's seo_title arrives here already token-resolved (Pass A resolves
-        # {city}/{SS}/etc. before the page file even exists), so this was previously a no-op
-        # for landing pages and harmless. The homepage has no such pre-resolution step —
-        # site.json's seo_title can still carry literal {city}/{business} tokens at this
-        # point — so without this pass, any prompt referencing {keyword} on the homepage
-        # would embed those tokens as literal text instead of real values. Same fix
-        # secondary_keywords already gets, just applied to keyword too.
+        # Prefer the page's own primary_keyword (bare, e.g. "GE Appliance Repair") built
+        # up into a clean "<keyword> in <city>, <ST>" phrase — NOT seo_title verbatim.
+        # seo_title is formatted "<Keyword> in {city_state} | {business}" fleet-wide, and
+        # {city_state} is a PHP-render-only shortcode this file has never resolved (no
+        # such ctx key exists) — so the old `keyword = seo.get('seo_title', ...)` handed
+        # every prompt referencing {keyword} a string with a literal, unresolved
+        # "{city_state}" token and the site's own business name still sitting in the
+        # middle of what's supposed to read as a clean target phrase. Every archetype
+        # using {keyword} today (steps_local) has been showing Claude that broken string
+        # on every real page in the fleet. Falls back to the old seo_title-based
+        # derivation only for a page with no primary_keyword set at all.
+        primary_kw = seo.get('primary_keyword', '').strip()
+        if primary_kw:
+            keyword = f"{primary_kw} in {ctx['city']}, {ctx['SS']}" if ctx['city'] else primary_kw
+        else:
+            keyword = seo.get('seo_title', '') or f"{service} {ctx['city']}".strip()
         ctx['keyword'] = substitute_vars(keyword, ctx)
         # Variant phrasings for this page, from the keyword map (seo.secondary_keywords).
         # Prompts should weave these in naturally where they fit — never keyword-stuff.
