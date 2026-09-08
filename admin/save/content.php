@@ -108,3 +108,31 @@
             $data['seo'] = $seoData;
             $data['last_modified'] = date('Y-m-d');
         }
+
+        // Non-blocking keyword-centrality check (landing pages + homepage only — a blog
+        // post has no single "primary keyword to rank for" in the same sense). The
+        // multisite build has had this exact check for a while (includes/multisite/
+        // seo_gate.php) but only ever runs it on a MultiSite clone's build output —
+        // there was no gate at all on the ordinary single-site edit every real site
+        // actually goes through, so a hand-edited H1 that drifted from the page's own
+        // primary keyword shipped with no feedback whatsoever. Warns, does not block —
+        // same reasoning as that file's own docblock: a check that refuses to save is
+        // worse than the drift it catches until it has been quiet across real edits for
+        // a while. Only runs when nothing more important already has the message slot.
+        if (!$isPost && $message === '') {
+            require_once BASE_DIR . '/includes/multisite/seo_gate.php';
+            $primaryKw    = trim($seoData['primary_keyword'] ?? '');
+            $headingField = block_heading_field($blocks[0]['type'] ?? '');
+            if ($primaryKw !== '' && $headingField !== null && isset($blocks[0][$headingField])) {
+                // resolve_shortcodes() reads global $data + $_page_primary_keyword, exactly
+                // as the renderer does — so a heading that literally stores the
+                // {primary_keyword} shortcode (the multisite by-construction pattern) is
+                // checked against its real resolved value, not the raw token text.
+                $GLOBALS['_page_primary_keyword'] = $primaryKw;
+                $keyword = resolve_shortcodes($primaryKw);
+                $heading = resolve_shortcodes((string) $blocks[0][$headingField]);
+                if ($keyword !== '' && !ms_seo_heading_has_keyword($heading, $keyword)) {
+                    $message = 'warning:Saved — but the H1 doesn\'t carry the primary keyword ("' . $keyword . '"). Consider updating the heading to include it.';
+                }
+            }
+        }

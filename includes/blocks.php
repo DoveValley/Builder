@@ -95,6 +95,17 @@ function get_focal_point(string $url): string {
     return round($item['focal_x'], 1) . '% ' . round($item['focal_y'], 1) . '%';
 }
 
+/**
+ * The field name that holds a hero-family block type's H1, or null for any other
+ * type. One shared lookup so "which field is the H1" has a single answer —
+ * used both by the multisite page-generation engine (which forces this field to
+ * track the page's primary keyword) and by the single-site save path (which
+ * checks it did).
+ */
+function block_heading_field(string $type): ?string {
+    return ['hero' => 'hero_heading', 'hero_split' => 'hs_heading', 'hero_grid' => 'hg_heading'][$type] ?? null;
+}
+
 /* ============================================================
    BLOCK TYPES
    ============================================================ */

@@ -341,11 +341,10 @@ function generate_city_pages(array $options = []): array {
             // this closes that off by construction instead of relying on an editor's
             // care every time (see feedback_seo_primary_keyword_focus). Everything else
             // on the block — subtext, photo, the lock flag itself — is untouched.
-            $heroHeadingField = ['hero' => 'hero_heading', 'hero_split' => 'hs_heading', 'hero_grid' => 'hg_heading'];
-            $firstBlockType   = $page['content_blocks'][0]['type'] ?? '';
-            $primaryKw        = trim((string) ($page['seo']['primary_keyword'] ?? ''));
-            if ($primaryKw !== '' && isset($heroHeadingField[$firstBlockType])) {
-                $page['content_blocks'][0][$heroHeadingField[$firstBlockType]] = '{primary_keyword} in {city_state}';
+            $headingField = block_heading_field($page['content_blocks'][0]['type'] ?? '');
+            $primaryKw    = trim((string) ($page['seo']['primary_keyword'] ?? ''));
+            if ($primaryKw !== '' && $headingField !== null) {
+                $page['content_blocks'][0][$headingField] = '{primary_keyword} in {city_state}';
             }
 
             // ── FAQPage schema is derived at RENDER time ─────────────────────
