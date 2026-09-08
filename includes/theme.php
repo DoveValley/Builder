@@ -70,12 +70,33 @@ function theme_css_vars($theme) {
         'subtle' => ['bg' => '#f8fafc', 'heading' => '#1a2e5a',  'text' => '#555e6d'],
     ];
     $skins = $theme['skins'] ?? [];
+    // Which skin properties track a main brand color automatically, same as
+    // accent.bg already did, instead of sitting in the JSON as an independent value
+    // nothing keeps in sync. Real, live bug: pest/water/appliance all rebranded
+    // heading_color at some point but skins.light/subtle.heading were never
+    // updated, so whole sections kept showing an old, unrelated heading color next
+    // to the current brand color. Auto-deriving these closes the gap by
+    // construction — there is no second copy of the color left to forget to update.
+    //
+    // dark.bg deliberately does NOT auto-track header_bg the way this reasoning
+    // would suggest: the $theme passed in here may already have header_bg
+    // OVERWRITTEN to follow the header bar's own nav_bg color (see
+    // site-template.php's "header-bg follows nav-bg" logic, itself intentional)
+    // — when nav_bg tracks the accent color, that would make the Dark skin
+    // (meant to be a dramatic, usually-dark section) equal the Accent skin.
+    // Confirmed live: pest-template's dark.bg came out amber, identical to
+    // accent.bg, the instant this was tried. Left as an independently-set value.
+    $autoTrack = [
+        'accent' => ['bg' => $theme['accent_color']  ?? '#fd783b'],
+        'light'  => ['heading' => $theme['heading_color'] ?? '#1a2e5a'],
+        'subtle' => ['heading' => $theme['heading_color'] ?? '#1a2e5a'],
+    ];
     foreach ($skinDefaults as $name => $defaults) {
         $s = $skins[$name] ?? [];
         foreach (['bg', 'heading', 'text'] as $prop) {
-            // Accent skin background tracks the primary accent color automatically
-            if ($name === 'accent' && $prop === 'bg') {
-                $css .= "    --skin-accent-bg: var(--color-accent);\n";
+            if (isset($autoTrack[$name][$prop])) {
+                $safe = preg_replace('/[^#a-zA-Z0-9(),.%\s\-_]/', '', $autoTrack[$name][$prop]);
+                $css .= "    --skin-{$name}-{$prop}: {$safe};\n";
                 continue;
             }
             $val = $s[$prop] ?? $defaults[$prop];
@@ -89,25 +110,29 @@ function theme_css_vars($theme) {
 
 /* Resolve a color setting ('accent'|'header'|'custom') to a concrete hex value */
 function resolve_color($which, $custom = '#333333') {
-    static $themeCache = null;
-    if ($themeCache === null) {
-        // Try to load theme from the global $data variable or data file
-        global $data;
-        $themeCache = $data['theme'] ?? [];
-        if (empty($themeCache)) {
-            $file = __DIR__ . '/../data/site.json';
-            if (file_exists($file)) {
-                $d = json_decode(file_get_contents($file), true);
-                $themeCache = $d['theme'] ?? [];
-            }
+    // Read $data['theme'] fresh on every call — do NOT cache it in a `static` across calls.
+    // A multisite build (run_campaign.php/build_one.php/render_site.php) renders many pages,
+    // and sometimes many different sites, in ONE continuous PHP process; a `static` cache
+    // freezes whatever $data['theme'] was at the very FIRST call for the rest of that
+    // process's lifetime. This was a real, live bug: pest-template's hero_grid tiles kept
+    // rendering the hardcoded '#120575' fallback (an old, pre-rebrand navy) site-wide even
+    // though the theme's real header_bg was green — some earlier resolve_color() call in the
+    // same build had cached an empty/stale theme before this page's $data was in scope.
+    global $data;
+    $theme = $data['theme'] ?? [];
+    if (empty($theme)) {
+        $file = __DIR__ . '/../data/site.json';
+        if (file_exists($file)) {
+            $d = json_decode(file_get_contents($file), true);
+            $theme = $d['theme'] ?? [];
         }
     }
-    if ($which === 'accent')    return $themeCache['accent_color']  ?? '#fd783b';
+    if ($which === 'accent')    return $theme['accent_color']  ?? '#fd783b';
     if ($which === 'highlight') return 'var(--color-highlight)';
     if ($which === 'heading')   return 'var(--color-heading)';
     if ($which === 'dark')      return 'var(--skin-dark-bg)';
-    if ($which === 'header')   return $themeCache['header_bg']    ?? '#120575';
-    if ($which === 'footer')   return $themeCache['footer_bg']    ?? '#120575';
+    if ($which === 'header')   return $theme['header_bg']    ?? '#120575';
+    if ($which === 'footer')   return $theme['footer_bg']    ?? '#120575';
     return $custom ?: '#333333';
 }
 

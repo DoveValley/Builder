@@ -47,8 +47,8 @@ function default_data() {
             'cta_url'         => '',
             'sticky'          => true,
             'info_items'      => [
-                ['icon' => '🌐', 'text' => ''],
-                ['icon' => '🇺🇸', 'text' => 'Proudly American'],
+                ['icon' => '🌐', 'text' => '', 'label' => 'Location:'],
+                ['icon' => '🇺🇸', 'text' => 'American', 'label' => 'Proudly'],
                 ['icon' => '',   'text' => 'Call for Great Service!'],
             ],
             'topbar_text'     => '',

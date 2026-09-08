@@ -332,19 +332,31 @@
             <div id="header-info-items-card" style="<?= ($currentLayout === 'single_row') ? 'display:none;' : '' ?>">
             <div class="card">
                 <h2>Header Info Items</h2>
-                <p class="hint" style="margin-bottom:14px;">Small icon + text items shown in the top row beside the logo (e.g. 🌐 "Your City, ST", 🇺🇸 "Proudly American", "Call for Great Service!"). Leave text blank to hide an item.</p>
+                <p class="hint" style="margin-bottom:14px;">Small icon + text items shown in the top row beside the logo (e.g. 🌐 "Your City, ST", 🇺🇸 "Proudly American", "Call for Great Service!"). Leave text blank to hide an item. Two independent styles are available per item — use whichever fits: <strong>Label</strong> shows a small line above Text (e.g. "Location:" above the city). <strong>Prefix</strong> shows bigger text beside a two-line Text / Line 2 stack (e.g. "24/7" beside "Emergency" / "Response"). Leave Prefix blank to use the Label style instead.</p>
                 <?php
-                $infoItems = $header['info_items'] ?? [['icon'=>'','text'=>''],['icon'=>'','text'=>''],['icon'=>'','text'=>'']];
+                $infoItems = $header['info_items'] ?? [['icon'=>'','text'=>'','label'=>'','prefix'=>'','text2'=>''],['icon'=>'','text'=>'','label'=>'','prefix'=>'','text2'=>''],['icon'=>'','text'=>'','label'=>'','prefix'=>'','text2'=>'']];
                 foreach ($infoItems as $ii => $infoItem):
                 ?>
-                <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
-                    <div class="form-group" style="flex:0 0 80px;margin:0;">
+                <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #e5e7eb;">
+                    <div class="form-group" style="flex:0 0 70px;margin:0;">
                         <label>Icon/emoji</label>
                         <input type="text" name="info_icon[]" value="<?= h($infoItem['icon'] ?? '') ?>" placeholder="🇺🇸" style="font-size:1.2rem;">
                     </div>
-                    <div class="form-group" style="flex:1;margin:0;">
+                    <div class="form-group" style="flex:0 0 120px;margin:0;">
+                        <label>Label</label>
+                        <input type="text" name="info_label[]" value="<?= h($infoItem['label'] ?? '') ?>" placeholder="e.g. Location:">
+                    </div>
+                    <div class="form-group" style="flex:1 1 160px;margin:0;">
                         <label>Text</label>
                         <input type="text" name="info_text[]" value="<?= h($infoItem['text'] ?? '') ?>" placeholder="e.g. Proudly American">
+                    </div>
+                    <div class="form-group" style="flex:0 0 90px;margin:0;">
+                        <label>Prefix (big)</label>
+                        <input type="text" name="info_prefix[]" value="<?= h($infoItem['prefix'] ?? '') ?>" placeholder="e.g. 24/7">
+                    </div>
+                    <div class="form-group" style="flex:1 1 120px;margin:0;">
+                        <label>Line 2</label>
+                        <input type="text" name="info_text2[]" value="<?= h($infoItem['text2'] ?? '') ?>" placeholder="e.g. Response">
                     </div>
                 </div>
                 <?php endforeach; ?>

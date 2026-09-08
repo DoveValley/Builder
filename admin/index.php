@@ -422,13 +422,25 @@ function addInfoItem() {
     const row = document.createElement('div');
     row.style = 'display:flex;gap:10px;align-items:center;margin-bottom:10px;';
     row.innerHTML = `
-        <div class="form-group" style="flex:0 0 80px;margin:0;">
+        <div class="form-group" style="flex:0 0 70px;margin:0;">
             <label>Icon/emoji</label>
             <input type="text" name="info_icon[]" placeholder="🌐" style="font-size:1.2rem;">
         </div>
-        <div class="form-group" style="flex:1;margin:0;">
+        <div class="form-group" style="flex:0 0 120px;margin:0;">
+            <label>Label</label>
+            <input type="text" name="info_label[]" placeholder="e.g. Location:">
+        </div>
+        <div class="form-group" style="flex:1 1 160px;margin:0;">
             <label>Text</label>
             <input type="text" name="info_text[]" placeholder="e.g. Call for Great Service!">
+        </div>
+        <div class="form-group" style="flex:0 0 90px;margin:0;">
+            <label>Prefix (big)</label>
+            <input type="text" name="info_prefix[]" placeholder="e.g. 24/7">
+        </div>
+        <div class="form-group" style="flex:1 1 120px;margin:0;">
+            <label>Line 2</label>
+            <input type="text" name="info_text2[]" placeholder="e.g. Response">
         </div>
         <button type="button" class="remove-row" onclick="this.parentElement.remove()" style="margin-top:20px;">&times;</button>
     `;

@@ -1071,7 +1071,16 @@ function render_content_block($block, $pathPrefix = '') {
 
             $badgeBgStyle = resolve_color($badgeBg, $badgeBgC);
 
-            $bgColor    = $block['wb_bg_color'] ?? '';
+            // 'custom' (the default, for backward compatibility with blocks saved before
+            // wb_bg_mode existed) uses wb_bg_color literally, same as always. Any other mode
+            // tracks the theme via resolve_color(), same as the badge above — otherwise a
+            // block set to look like a "dark themed" banner freezes at whatever the theme's
+            // dark color happened to be on the day it was picked, and visibly clashes the
+            // next time the theme changes (this was a real, live bug: pest-template and
+            // water-site both had this literal hex frozen from an old navy-blue theme, still
+            // showing navy after both sites switched to a green/blue theme).
+            $bgMode  = $block['wb_bg_mode']  ?? 'custom';
+            $bgColor = ($bgMode !== 'custom') ? resolve_color($bgMode, $block['wb_bg_color'] ?? '') : ($block['wb_bg_color'] ?? '');
 
             $photoSrc = '';
             if ($photo) {
@@ -1180,13 +1189,16 @@ function render_content_block($block, $pathPrefix = '') {
             $color2     = $block['hg_color2']     ?? 'header';   // even tiles
             $color2c    = $block['hg_color2_custom'] ?? '#120575';
 
-            $resolveColor = function($which, $custom) {
-                if ($which === 'accent')  return 'var(--color-accent,#fd783b)';
-                if ($which === 'header')  return 'var(--color-header-bg,#120575)';
-                return h($custom);
-            };
-            $c1 = $resolveColor($color1, $color1c);
-            $c2 = $resolveColor($color2, $color2c);
+            // Was a private inline closure emitting var(--color-header-bg, #120575) instead
+            // of calling the shared resolve_color() every other mode-based color field uses.
+            // Real, live bug: pest-template's header CSS var actually resolves to amber (its
+            // nav bar tracks the theme's accent color, which overrides --color-header-bg —
+            // see site-template.php's "header-bg follows nav-bg" logic), but these tiles
+            // still showed old-palette navy — meaning the var wasn't reaching this element as
+            // expected and the hardcoded #120575 fallback was winning instead. resolve_color()
+            // computes the real hex server-side, so there's no CSS-var/fallback chain to break.
+            $c1 = h(resolve_color($color1, $color1c));
+            $c2 = h(resolve_color($color2, $color2c));
 
             $photoSrc = '';
             if ($photo) {

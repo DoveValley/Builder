@@ -26,22 +26,22 @@
         "skins": {
             "light": {
                 "bg": "#ffffff",
-                "heading": "#1a2e5a",
+                "heading": "#35597A",
                 "text": "#555e6d"
             },
             "dark": {
-                "bg": "#0c2a4a",
+                "bg": "#35597A",
                 "heading": "#ffffff",
                 "text": "#e2e8f0"
             },
             "accent": {
-                "bg": "#2563eb",
+                "bg": "#FFC800",
                 "heading": "#ffffff",
                 "text": "#eff9ff"
             },
             "subtle": {
                 "bg": "#f2f8fc",
-                "heading": "#1a2e5a",
+                "heading": "#35597A",
                 "text": "#555e6d"
             }
         },
@@ -85,15 +85,19 @@
         "info_items": [
             {
                 "icon": "🌐",
-                "text": "{city_state}"
+                "text": "{city_state}",
+                "label": "Location:"
             },
             {
                 "icon": "🇺🇸",
-                "text": "Proudly American"
+                "text": "American",
+                "label": "Proudly"
             },
             {
                 "icon": "",
-                "text": "24/7 Emergency Response"
+                "text": "Emergency",
+                "prefix": "24/7",
+                "text2": "Response"
             }
         ],
         "logo_max_height": 56,
@@ -440,7 +444,8 @@
             "wb_badge_bg": "accent",
             "wb_badge_bg_custom": "#2563eb",
             "wb_photo": "sites/water-site/uploads/media/cozy-living-room-interior-lufkin-tx.webp",
-            "id": "wide_banner_1"
+            "id": "wide_banner_1",
+            "wb_bg_mode": "header"
         },
         {
             "type": "image_features",

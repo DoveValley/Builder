@@ -20,12 +20,18 @@
         $data['header']['cta_url']        = sanitize_url($_POST['cta_url'] ?? '');
         $data['header']['sticky']         = !empty($_POST['sticky']);
         // Info items
-        $infoIcons = $_POST['info_icon'] ?? [];
-        $infoTexts = $_POST['info_text'] ?? [];
+        $infoIcons   = $_POST['info_icon']   ?? [];
+        $infoTexts   = $_POST['info_text']   ?? [];
+        $infoLabels  = $_POST['info_label']  ?? [];
+        $infoPrefixes = $_POST['info_prefix'] ?? [];
+        $infoText2s   = $_POST['info_text2']  ?? [];
         $infoItems = [];
         foreach ($infoIcons as $ii => $icon) {
-            $text = trim($infoTexts[$ii] ?? '');
-            $infoItems[] = ['icon' => trim($icon), 'text' => $text];
+            $text   = trim($infoTexts[$ii] ?? '');
+            $label  = trim($infoLabels[$ii] ?? '');
+            $prefix = trim($infoPrefixes[$ii] ?? '');
+            $text2  = trim($infoText2s[$ii] ?? '');
+            $infoItems[] = ['icon' => trim($icon), 'text' => $text, 'label' => $label, 'prefix' => $prefix, 'text2' => $text2];
         }
         $data['header']['info_items'] = $infoItems;
         $data['header']['topbar_text'] = trim($_POST['topbar_text'] ?? '');

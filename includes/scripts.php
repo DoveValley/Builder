@@ -658,8 +658,9 @@ function content_editor_scripts() {
                 </div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Solid background color</label>
-                        <input type="color" name="wb_bg_color[]" value="#1a1a2e">
-                        <span class="hint">Used when no image is set.</span>
+                        <?= color_mode_select('wb_bg_mode', '', 'custom') ?>
+                        <input type="color" name="wb_bg_color[]" value="#1a1a2e" style="margin-top:4px;">
+                        <span class="hint">Used when no image is set. "Custom" uses the color picker; the others track the theme.</span>
                     </div>
                     <div class="form-group" style="flex:1 1 160px;padding-top:22px;">
                         <label><input type="checkbox" name="wb_centered[]" value="1"> Center all text</label>

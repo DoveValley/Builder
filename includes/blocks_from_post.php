@@ -430,7 +430,8 @@ function parse_blocks_from_post(): array {
                 $block['wb_overlay']   = number_format(max(0, min(0.9, (float)($_POST['wb_overlay'][$i] ?? 0.55))), 2);
                 $wbBgCol = trim($_POST['wb_bg_color'][$i] ?? '#1a1a2e');
                 $block['wb_bg_color']  = preg_match('/^#[0-9a-fA-F]{3,6}$/', $wbBgCol) ? $wbBgCol : '#1a1a2e';
-                $wbBg = in_array($_POST['wb_badge_bg'][$i] ?? '', ['accent','header','custom']) ? $_POST['wb_badge_bg'][$i] : 'accent';
+                $block['wb_bg_mode'] = in_array($_POST['wb_bg_mode'][$i] ?? '', ['accent','header','footer','custom']) ? $_POST['wb_bg_mode'][$i] : 'custom';
+                $wbBg = in_array($_POST['wb_badge_bg'][$i] ?? '', ['accent','header','footer','custom']) ? $_POST['wb_badge_bg'][$i] : 'accent';
                 $block['wb_badge_bg'] = $wbBg;
                 $wbc = trim($_POST['wb_badge_bg_custom'][$i] ?? '#fd783b');
                 $block['wb_badge_bg_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $wbc) ? $wbc : '#fd783b';

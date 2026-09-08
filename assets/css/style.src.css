@@ -1765,12 +1765,59 @@ body.has-fixed-header main {
 .header-info-item {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
     font-size: 0.88rem;
     color: #333333; /* always dark — top row is always white/light */
 }
+/* Badge size/border color and the label/value type sizes below are matched to the
+   reference site's own computed styles (measured directly, not eyeballed from the
+   screenshot): 45px circle, 1px #e3a200 ring, 14px/400 label + 18px/500 value. */
 .info-icon {
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #e3a200;
+    overflow: hidden;
+    line-height: 1;
+}
+.info-icon svg {
+    width: 89%;
+    height: 89%;
+}
+/* The globe is a stroked outline icon — needs more inset than the flag's solid
+   graphic or its circle visually crowds the badge ring. */
+.info-icon svg[stroke] { width: 62%; height: 62%; color: #000000; }
+.header-info-item-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+.header-info-item-label,
+.header-info-item-value {
+    font-family: "Google Sans", sans-serif;
+}
+.header-info-item-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+}
+.header-info-item-value {
+    font-size: 18px;
+    font-weight: 500;
+    color: #0b0c0c;
+}
+/* Big lead word (e.g. "24/7") beside a stacked two-line block (e.g. "Emergency" /
+   "Response") — a different shape than the label-above-value items, used when
+   'prefix' is set instead of 'label'. */
+.header-info-item-prefix {
+    font-family: "Google Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #1f2937;
     line-height: 1;
 }
 

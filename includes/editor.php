@@ -1168,8 +1168,9 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Solid background color (if no image)</label>
-                            <input type="color" name="wb_bg_color[]" value="<?= h($block['wb_bg_color'] ?? '#1a1a2e') ?>">
-                            <span class="hint">Used when no background image is set.</span>
+                            <?= color_mode_select('wb_bg_mode', $block['wb_bg_mode'] ?? 'custom', 'custom') ?>
+                            <input type="color" name="wb_bg_color[]" value="<?= h($block['wb_bg_color'] ?? '#1a1a2e') ?>" style="margin-top:4px;">
+                            <span class="hint">Used when no background image is set. "Custom" uses the color picker; the others track the theme.</span>
                         </div>
                         <div class="form-group" style="flex:1 1 160px;padding-top:22px;">
                             <label><input type="checkbox" name="wb_centered[]" value="1" <?= !empty($block['wb_centered']) ? 'checked' : '' ?>> Center all text</label>

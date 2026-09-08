@@ -399,11 +399,18 @@
             </div>
             <?php
             $skinDefs = [
-                'light'  => ['Light',  'White background — standard content sections. Its heading color = your site-wide heading color.', ['bg'=>'#ffffff','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
-                'subtle' => ['Subtle', 'Off-white — soft alternating sections.',              ['bg'=>'#f8fafc','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','heading','text']],
+                'light'  => ['Light',  'White background — standard content sections. Its heading color = your site-wide heading color.', ['bg'=>'#ffffff','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','text']],
+                'subtle' => ['Subtle', 'Off-white — soft alternating sections.',              ['bg'=>'#f8fafc','heading'=>'#1a2e5a','text'=>'#555e6d'], ['bg','text']],
                 'accent' => ['Accent', 'Brand color background — CTA and featured sections.', ['bg'=>'#2563eb','heading'=>'#ffffff', 'text'=>'#dbeafe'], ['heading','text']],
                 'dark'   => ['Dark',   'Dark background — hero and dramatic sections.',        ['bg'=>'#0d1f3c','heading'=>'#ffffff', 'text'=>'#e2e8f0'], ['bg','heading','text']],
             ];
+            // 'heading' removed from editableProps above for light/subtle: it now auto-tracks
+            // the site-wide heading color the same way accent's bg already tracked Primary
+            // accent — see includes/theme.php's theme_css_vars(). Real bug this fixes: nothing
+            // kept these in sync with a rebrand before, so pest/water/appliance all had
+            // sections still showing an old, unrelated heading color long after the brand
+            // colors changed. Dark.bg stays independently editable (see theme.php's comment
+            // on why it can't safely auto-track header_bg the same way).
             $skinFieldLabels = ['bg'=>'Background','heading'=>'Heading text','text'=>'Body text'];
             foreach ($skinDefs as $skinKey => [$skinLabel, $skinHint, $skinDefaults, $editableProps]):
                 $skinData = $theme['skins'][$skinKey] ?? $skinDefaults;
@@ -413,6 +420,8 @@
                 <p class="hint" style="margin-bottom:14px;"><?= $skinHint ?> Pick this block skin on any block from the <strong>Block skin</strong> picker.</p>
                 <?php if ($skinKey === 'accent'): ?>
                 <p class="hint" style="margin-bottom:14px;color:#2563eb;">Background automatically follows <strong>Primary accent</strong> above — no separate field needed.</p>
+                <?php elseif ($skinKey === 'light' || $skinKey === 'subtle'): ?>
+                <p class="hint" style="margin-bottom:14px;color:#2563eb;">Heading text automatically follows the site-wide heading color — no separate field needed.</p>
                 <?php endif; ?>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
                     <div class="skin-swatch skin-swatch-<?= $skinKey ?>" style="width:56px;height:56px;border-radius:8px;border:1px solid rgba(0,0,0,.12);flex-shrink:0;margin-top:4px;"></div>

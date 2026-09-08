@@ -46,10 +46,12 @@
         // Button radius
         $radius = (int)($_POST['button_radius'] ?? 4);
         $data['theme']['button_radius'] = max(0, min(50, $radius));
-        // Skin colors — accent bg is derived from primary accent, not saved separately
+        // Skin colors — accent.bg, dark.bg, and light/subtle.heading are all derived from a
+        // main brand color at render time (theme_css_vars()), not saved separately, so they
+        // can no longer drift from the theme the way they used to (see genvisual.php's tab).
         $skinProps = [
-            'light'  => ['bg','heading','text'],
-            'subtle' => ['bg','heading','text'],
+            'light'  => ['bg','text'],
+            'subtle' => ['bg','text'],
             'accent' => ['heading','text'],
             'dark'   => ['bg','heading','text'],
         ];
@@ -62,14 +64,11 @@
                 }
             }
         }
-        // Keep theme.heading_color in sync with the Light skin's heading (the tab's
-        // "site-wide heading color"). The CSS cascades --color-heading from the skin, but
-        // the generated wordmark logo reads theme.heading_color — without this the logo's
-        // dark color would stay the #000000 default instead of the chosen heading color.
-        if (isset($data['theme']['skins']['light']['heading']) &&
-            preg_match('/^#[0-9a-fA-F]{6}$/', $data['theme']['skins']['light']['heading'])) {
-            $data['theme']['heading_color'] = $data['theme']['skins']['light']['heading'];
-        }
+        // theme.heading_color used to be synced FROM skins.light.heading here — backwards
+        // now that light/subtle.heading are themselves derived FROM heading_color at render
+        // time (theme_css_vars()). heading_color has no dedicated admin field of its own (it
+        // never did); it's read by the generated wordmark logo and otherwise just needs to
+        // stay whatever it was last set to (matches header_bg on every real site currently).
         // Analytics snippets — stored as-is (admin only, trusted input)
         $data['theme']['analytics_head']  = $_POST['analytics_head']  ?? '';
         $data['theme']['facebook_pixel']  = $_POST['facebook_pixel']  ?? '';

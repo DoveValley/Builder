@@ -26,22 +26,22 @@
         "skins": {
             "light": {
                 "bg": "#ffffff",
-                "heading": "#1a2e5a",
+                "heading": "#14532D",
                 "text": "#555e6d"
             },
             "dark": {
-                "bg": "#120575",
+                "bg": "#14532D",
                 "heading": "#ffffff",
                 "text": "#e2e8f0"
             },
             "accent": {
-                "bg": "#2563eb",
+                "bg": "#FFB100",
                 "heading": "#ffffff",
                 "text": "#fff5ec"
             },
             "subtle": {
                 "bg": "#faf6f3",
-                "heading": "#1a2e5a",
+                "heading": "#14532D",
                 "text": "#555e6d"
             }
         },
@@ -418,7 +418,8 @@
             "wb_badge_bg": "accent",
             "wb_badge_bg_custom": "#fd783b",
             "wb_photo": "sites/pest-template/uploads/media/bg-4-katy_home.webp",
-            "skin": "dark"
+            "skin": "dark",
+            "wb_bg_mode": "header"
         },
         {
             "type": "image_features",

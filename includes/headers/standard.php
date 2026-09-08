@@ -34,8 +34,33 @@
                 <?php foreach ($infoItems as $item): ?>
                     <?php if (empty($item['text'])) continue; ?>
                     <div class="header-info-item">
-                        <?php if (!empty($item['icon'])): ?><span class="info-icon"><?= h($item['icon']) ?></span><?php endif; ?>
-                        <span><?= h($item['text']) ?></span>
+                        <?php if (!empty($item['icon'])): ?>
+                            <span class="info-icon">
+                                <?php if ($item['icon'] === '🌐'): ?>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 4 6 4 9s-1.5 6.3-4 9c-2.5-2.7-4-6-4-9s1.5-6.3 4-9Z"/></svg>
+                                <?php elseif ($item['icon'] === '🇺🇸'): ?>
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><clipPath id="usflag-circle"><circle cx="12" cy="12" r="12"/></clipPath><g clip-path="url(#usflag-circle)"><rect width="24" height="24" fill="#B31942"/><rect y="1.85" width="24" height="1.85" fill="#fff"/><rect y="5.54" width="24" height="1.85" fill="#fff"/><rect y="9.23" width="24" height="1.85" fill="#fff"/><rect y="12.92" width="24" height="1.85" fill="#fff"/><rect y="16.6" width="24" height="1.85" fill="#fff"/><rect y="20.3" width="24" height="1.85" fill="#fff"/><rect width="11" height="12.92" fill="#0A3161"/></g>
+                                <?php else: ?>
+                                    <?= h($item['icon']) ?>
+                                <?php endif; ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if (!empty($item['prefix'])): ?>
+                            <span class="header-info-item-prefix"><?= h($item['prefix']) ?></span>
+                            <span class="header-info-item-text">
+                                <span class="header-info-item-value"><?= h($item['text']) ?></span>
+                                <?php if (!empty($item['text2'])): ?>
+                                    <span class="header-info-item-value"><?= h($item['text2']) ?></span>
+                                <?php endif; ?>
+                            </span>
+                        <?php elseif (!empty($item['label'])): ?>
+                            <span class="header-info-item-text">
+                                <span class="header-info-item-label"><?= h($item['label']) ?></span>
+                                <span class="header-info-item-value"><?= h($item['text']) ?></span>
+                            </span>
+                        <?php else: ?>
+                            <span><?= h($item['text']) ?></span>
+                        <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
             </div>
