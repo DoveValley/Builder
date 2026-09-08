@@ -338,6 +338,14 @@ if (!isset($csrfToken)) return;
                     ['Built from the master\'s landing templates', 'auto'],
                     ['Reuses the master\'s city research, not re-fetched per domain', 'auto'],
                  ]],
+                ['key' => 'pagepool', 'label' => 'Page pool', 'status' => 'live',
+                 'note' => 'Fewer pages per site instead of every site shipping the master\'s full list — cuts doorway-page risk and stops the fleet looking like identical clones. Which pages are pinned, rotating, or skipped (and how many a site can land on) is set in the <strong>Keywords</strong> tab. <button type="button" onclick="document.getElementById(\'ms-pagepool-why\').showModal()" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:2px 10px;font-weight:600;font-size:.74rem;cursor:pointer;">How this works &rarr;</button>',
+                 'subs' => [
+                    ['Pinned pages — always included on every site', 'auto'],
+                    ['Remaining slots filled from the rotation pool, picked by a hash of the domain — same site always gets the same fill on a rebuild', 'auto'],
+                    ['Pages marked Skip are never built for anyone', 'auto'],
+                    ['A domain\'s selection locks in on its first build — later changes to pool settings never move a page under an already-built site', 'auto'],
+                 ]],
              ]],
             // Not a peer of 1-3. Those are categories of what makes a site separate; this is
             // the constraint over all of them, and it runs last because it checks their output.
@@ -425,6 +433,70 @@ if (!isset($csrfToken)) return;
             </div>
         </div>
         <?php endforeach; ?>
+
+        <!-- Page pool explainer — same native <dialog> pattern as "Why these axes?" above,
+             costs nothing until opened. -->
+        <dialog id="ms-pagepool-why" style="max-width:720px;border:1px solid #cbd5e1;border-radius:12px;padding:0;">
+            <div style="padding:20px 24px;">
+                <h3 style="margin:0 0 4px;color:#1e3a5f;">Page pool — how this works</h3>
+                <p class="hint" style="margin:0 0 14px;">
+                    Reduces each site to a smaller page count instead of every site shipping the
+                    same full list — cuts doorway-page risk and stops the fleet looking like
+                    identical clones.
+                </p>
+
+                <div style="display:grid;gap:12px;font-size:.86rem;line-height:1.5;">
+                    <div><strong style="color:#1e3a5f;">Where it's set up — the Keywords tab</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>Every service page already carries a value tier. Each one now also gets a
+                                <strong>Pinned / Rotate / Skip</strong> setting, defaulted from that tier
+                                but editable per page.</li>
+                            <li><strong>Pinned</strong> — always built, on every site. <strong>Rotate</strong>
+                                — eligible, but not guaranteed; this is the pool sites draw the rest of
+                                their pages from. <strong>Skip</strong> — never built for anyone.</li>
+                            <li>A "Pages per site" setting holds a small handful of possible totals
+                                (e.g. 10 / 12 / 14) a site can land on — never one fixed number, same
+                                reasoning as the colour-palette and font pools below.</li>
+                        </ul></div>
+
+                    <div><strong style="color:#1e3a5f;">What happens when a site builds</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>The system picks one of the possible totals for that domain, by a hash of
+                                its name — random-looking across the fleet, stable on a rebuild.</li>
+                            <li>Every Pinned page is included. Remaining slots are filled by randomly
+                                drawing from the Rotate pool, seeded the same way.</li>
+                            <li>Only those selected pages are built. Two sites share the Pinned pages but
+                                differ on the rest — not an identical inventory fleet-wide.</li>
+                        </ul></div>
+
+                    <div><strong style="color:#1e3a5f;">What changes on the pages themselves</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>The old "Other Services" cross-link box (hardcoded to a fixed page list)
+                                is removed from the templates — it would break the moment sites stop
+                                having a fixed list of pages.</li>
+                            <li>The top navigation menu's Services dropdown needs no new work — it
+                                already drops any link to a page that wasn't built for that particular
+                                site (built earlier for a different site that only builds some of its
+                                pages).</li>
+                        </ul></div>
+
+                    <div><strong style="color:#92400e;">The rule that protects an already-live site</strong>
+                        <ul style="margin:4px 0 0 18px;padding:0;">
+                            <li>A domain's page selection is recorded on its <strong>first</strong> build
+                                and reused on every rebuild after — routine maintenance never silently
+                                drops or adds a page just because the pool settings changed later.</li>
+                            <li>Changing which pages an already-built site carries is a deliberate,
+                                separate action, never a side effect of editing the Keywords tab.</li>
+                        </ul></div>
+                </div>
+
+                <div style="text-align:right;margin-top:16px;">
+                    <button type="button" onclick="document.getElementById('ms-pagepool-why').close()"
+                            style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:6px 16px;font-weight:600;font-size:.82rem;cursor:pointer;">Close</button>
+                </div>
+            </div>
+        </dialog>
+
         <script>
         // Parent off -> every switch under it goes off and greys out. Parent back on ->
         // they return to what they were, rather than all springing back to ticked.

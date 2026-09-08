@@ -65,7 +65,7 @@
             },
             {
                 "label": "Services",
-                "url": "/#water_services",
+                "url": "/",
                 "children": "@services_links"
             }
         ],
@@ -350,84 +350,6 @@
             "_ai_locked": true
         },
         {
-            "type": "service_cards",
-            "skin": "subtle",
-            "sc_badge": "PROFESSIONAL {city}, {SS} RESTORATION",
-            "sc_heading": "Our Full Range of Restoration Services in {city_state}",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#2563eb",
-            "sc_head_color_custom": "#0d2340",
-            "sc_icon_bg": "#eef4fb",
-            "sc_items": [
-                {
-                    "icon": "",
-                    "alt": "Flood damage restoration {city} {SS}",
-                    "heading": "Flood Damage Restoration in {city_state}",
-                    "text": "Rapid response to flooding — water removal, cleanup, and full drying to protect your property.",
-                    "url": "/flood-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Storm damage restoration {city} {SS}",
-                    "heading": "Storm Damage Restoration in {city_state}",
-                    "text": "Cleanup and restoration after storms, from water intrusion to wind and weather damage.",
-                    "url": "/storm-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Water mitigation {city} {SS}",
-                    "heading": "Water Mitigation & Drying in {city_state}",
-                    "text": "Emergency extraction, structural drying, and dehumidification to stop damage from spreading.",
-                    "url": "/water-mitigation-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Sewage cleanup {city} {SS}",
-                    "heading": "Sewage Cleanup in {city_state}",
-                    "text": "Safe removal and disinfection of sewage backups and contaminated black water.",
-                    "url": "/sewage-cleanup-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Flooded basement cleanup {city} {SS}",
-                    "heading": "Flooded Basement Cleanup in {city_state}",
-                    "text": "Pump-outs, drying, and cleanup for flooded basements and below-grade water.",
-                    "url": "/flooded-basement-cleanup-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Burst pipe water damage {city} {SS}",
-                    "heading": "Burst Pipe Water Damage in {city_state}",
-                    "text": "Fast cleanup after burst and frozen pipes, from extraction to wall and floor drying.",
-                    "url": "/burst-pipe-water-damage-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Emergency water damage {city} {SS}",
-                    "heading": "24/7 Emergency Water Damage in {city_state}",
-                    "text": "Around-the-clock emergency response — help arrives fast, day or night.",
-                    "url": "/emergency-water-damage-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Commercial water damage {city} {SS}",
-                    "heading": "Commercial Water Damage in {city_state}",
-                    "text": "Restoration for offices, retail, and multi-unit properties with minimal downtime.",
-                    "url": "/commercial-water-damage-restoration-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Ceiling water damage {city} {SS}",
-                    "heading": "Ceiling & Drywall Water Damage in {city_state}",
-                    "text": "Repair of water-stained ceilings and damaged drywall after leaks and storms.",
-                    "url": "/ceiling-water-damage-{city_slug}"
-                }
-            ],
-            "id": "service_cards_1"
-        },
-        {
             "type": "wide_banner",
             "skin": "dark",
             "wb_badge": "{city}, {SS} SPECIALISTS",
@@ -563,12 +485,6 @@
             "cb_text_color": "#ffffff",
             "cb_padding": "normal",
             "id": "cta_banner_1"
-        },
-        {
-            "type": "custom_html",
-            "skin": "",
-            "html": "[services_links]",
-            "id": "custom_html_1"
         },
         {
             "type": "cta_card",

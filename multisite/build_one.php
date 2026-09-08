@@ -31,6 +31,7 @@ require __DIR__ . '/../includes/multisite/inject.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
 require __DIR__ . '/../includes/multisite/ai_cache.php';
 require __DIR__ . '/../includes/multisite/differentiate.php';
+require __DIR__ . '/../includes/multisite/page_pool.php';
 require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
 require __DIR__ . '/../includes/multisite/geocode.php';
@@ -65,7 +66,7 @@ foreach (array_slice($argv, 1) as $a) {
  * feature: it rewrites the master's own domain, email, phone and business name out of
  * every clone, so it has no switch. What can be turned off there is the tagging.
  */
-$skippable = ['landing', 'visual', 'ai', 'images', 'tags', 'structure'];
+$skippable = ['landing', 'visual', 'ai', 'images', 'tags', 'structure', 'pagepool'];
 // Two shapes: a whole step ("images"), or one piece inside it ("images.metadata"). The parent
 // must be a real step either way. This filter is the SECOND whitelist — multisite_api.php has
 // one too — and it silently dropped every dotted key until this was fixed, which made the
@@ -225,6 +226,28 @@ if ($landingCities && $skipped('landing')) {
         }
     } else {
         progress_log('  Could not launch generate_landing.php — deploy will have no landing pages.', 'warn');
+    }
+}
+
+// Page pool: reduce this domain's landing pages to a smaller, per-domain subset instead
+// of every site shipping the master's full page list — doorway-page risk, and every site
+// in the fleet looking like an identical clone of every other one. Runs after landing
+// pages exist (it prunes, it doesn't generate) and before differentiate/build, so the
+// nav's Services dropdown, the SEO gate, and the render never see a pruned page.
+if ($landingCities) {
+    if ($skipped('pagepool')) {
+        progress_log('Page pool: skipped — turned off for this run (all eligible pages built).', 'warn');
+    } else {
+        ms_step_begin('pagepool');
+        $poolRes = ms_page_pool_apply_to_working_dir($workingDir, $masterId, $domainSlug, $domain);
+        if (!empty($poolRes['applied'])) {
+            progress_log('Page pool: kept ' . $poolRes['kept'] . " of {$poolRes['available']} eligible pages"
+                . ($poolRes['pruned'] > 0 ? " (removed {$poolRes['pruned']})" : '')
+                . ' — ' . ($poolRes['reused'] ? 're-used the selection locked in on a previous build.' : 'newly selected for this domain.'));
+            if ($poolRes['footer_fixed'] > 0) {
+                progress_log("Page pool: removed {$poolRes['footer_fixed']} footer link(s) to a page not in this domain's selection.");
+            }
+        }
     }
 }
 

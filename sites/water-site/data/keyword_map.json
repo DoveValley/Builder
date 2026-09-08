@@ -28,7 +28,8 @@
                 "flood damage repair",
                 "flood damage cleanup",
                 "flood restoration services"
-            ]
+            ],
+            "pool": "pinned"
         },
         {
             "primary": "storm damage restoration {city}, {ST}",
@@ -41,7 +42,8 @@
                 "storm damage cleanup",
                 "storm restoration",
                 "catastrophic storm response"
-            ]
+            ],
+            "pool": "pinned"
         },
         {
             "primary": "water damage repair {city}, {ST}",
@@ -52,7 +54,8 @@
                 "repair water damage",
                 "home water damage repair",
                 "water damage repair services"
-            ]
+            ],
+            "pool": "pinned"
         },
         {
             "primary": "water mitigation {city}, {ST}",
@@ -66,7 +69,8 @@
                 "structural drying",
                 "dehumidification",
                 "water mitigation services"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "24-hour emergency water damage {city}, {ST}",
@@ -78,7 +82,8 @@
                 "24 hour water damage restoration",
                 "emergency water restoration",
                 "24/7 restoration"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "sewage cleanup {city}, {ST}",
@@ -90,7 +95,8 @@
                 "sewage removal",
                 "black water cleanup",
                 "sewage damage cleanup"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "flooded basement cleanup {city}, {ST}",
@@ -104,7 +110,8 @@
                 "wet basement cleanup",
                 "crawl space water damage",
                 "crawl space water removal"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "commercial water damage restoration {city}, {ST}",
@@ -116,7 +123,8 @@
                 "commercial flood cleanup",
                 "business water damage restoration",
                 "commercial water damage cleanup"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "burst pipe water damage {city}, {ST}",
@@ -128,7 +136,8 @@
                 "water line break",
                 "frozen pipe water damage",
                 "broken pipe water damage"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "ceiling water damage {city}, {ST}",
@@ -139,7 +148,8 @@
                 "ceiling water damage repair",
                 "water stained ceiling",
                 "ceiling leak repair"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "hardwood floor water damage {city}, {ST}",
@@ -151,7 +161,8 @@
                 "water damaged hardwood floors",
                 "hardwood floor water damage repair",
                 "wet wood floor"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "carpet water damage {city}, {ST}",
@@ -162,7 +173,8 @@
                 "water damaged carpet",
                 "carpet water extraction",
                 "carpet flood damage"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "roof leak water damage {city}, {ST}",
@@ -173,7 +185,8 @@
                 "water damage from roof leak",
                 "ceiling leak from roof",
                 "roof leak water damage repair"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "attic water damage {city}, {ST}",
@@ -183,7 +196,8 @@
             "secondary": [
                 "attic water damage repair",
                 "wet attic insulation"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "drywall water damage repair {city}, {ST}",
@@ -195,7 +209,8 @@
                 "water damaged drywall",
                 "sheetrock water damage repair",
                 "wet drywall repair"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "toilet overflow cleanup {city}, {ST}",
@@ -206,7 +221,8 @@
                 "toilet overflow water damage",
                 "overflowing toilet cleanup",
                 "toilet flood cleanup"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "emergency board-up {city}, {ST}",
@@ -217,7 +233,8 @@
                 "board up services",
                 "emergency board up services",
                 "window board up"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "roof tarping {city}, {ST}",
@@ -228,7 +245,8 @@
                 "emergency roof tarping",
                 "roof tarp service",
                 "temporary roof tarp"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "hurricane damage restoration {city}, {ST}",
@@ -238,7 +256,8 @@
             "secondary": [
                 "hurricane damage cleanup",
                 "hurricane damage repair"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "water heater leak {city}, {ST}",
@@ -249,7 +268,8 @@
                 "water heater leak cleanup",
                 "burst water heater",
                 "water heater flood"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "appliance leak & overflow cleanup {city}, {ST}",
@@ -260,7 +280,8 @@
                 "refrigerator leak",
                 "washing machine overflow",
                 "dishwasher leak cleanup"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "flooded bathroom cleanup {city}, {ST}",
@@ -271,7 +292,8 @@
                 "bathroom water damage",
                 "overflowing tub cleanup",
                 "shower overflow cleanup"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "water damage inspection & assessment {city}, {ST}",
@@ -283,7 +305,8 @@
                 "moisture inspection",
                 "water damage evaluation",
                 "water damage estimate"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "water damage reconstruction {city}, {ST}",
@@ -294,7 +317,8 @@
                 "water damage rebuild",
                 "rebuild after water damage",
                 "post water damage reconstruction"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "contents restoration & pack-out {city}, {ST}",
@@ -304,7 +328,8 @@
             "secondary": [
                 "pack out services",
                 "contents pack out"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "winter storm damage {city}, {ST}",
@@ -314,8 +339,17 @@
             "secondary": [
                 "ice damage restoration",
                 "ice dam water damage"
-            ]
+            ],
+            "pool": "skip"
         }
     ],
-    "updated_at": "2026-07-12T00:06:08+00:00"
+    "updated_at": "2026-07-12T00:06:08+00:00",
+    "page_pool": {
+        "counts": [
+            10,
+            12,
+            14
+        ],
+        "enabled": true
+    }
 }

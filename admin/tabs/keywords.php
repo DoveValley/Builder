@@ -10,8 +10,12 @@ $kwFile = dirname(TEMPLATES_FILE) . '/keyword_map.json';
 $kwMap  = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) ?: []) : [];
 $services = $kwMap['services'] ?? [];
 $niche    = trim($kwMap['niche'] ?? '');
+$ppCounts = $kwMap['page_pool']['counts'] ?? [];
 
 require_once __DIR__ . '/../../includes/keyword_roles.php';
+require_once __DIR__ . '/../../includes/multisite/page_pool.php';
+if (!is_array($ppCounts) || !$ppCounts) $ppCounts = MS_PAGE_POOL_DEFAULT_COUNTS;
+$ppCounts = array_values($ppCounts);
 $roleInfo = keyword_map_roles($kwMap);   // page-role derivation for the structure summary + badges
 
 $tierOpts = [
@@ -21,6 +25,10 @@ $tierOpts = [
 ];
 // Priority rank for sorting (higher = sorts to top on High→Low). Untiered = 0.
 $tierRank = ['high-1'=>9,'high-2'=>8,'high-3'=>7,'medium-1'=>6,'medium-2'=>5,'medium-3'=>4,'low-1'=>3,'low-2'=>2,'low-3'=>1];
+
+// Page pool — which landing pages a domain can build (see includes/multisite/page_pool.php).
+// Landing rows only; home/core have no concept of "which pages get built for a domain".
+$poolOpts = ['pinned' => 'Pinned — always built', 'rotate' => 'Rotate — eligible', 'skip' => 'Skip — never built'];
 
 // Page-role sections. Every service row belongs to exactly one.
 $sectionDefs = [
@@ -40,9 +48,10 @@ $lbl = 'display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 
 // Render the saved keywords for one section, one stacked .kw-item block per keyword.
 // Each block emits exactly one of every kw_* field so the POST arrays stay index-aligned.
 $numStyle = 'flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;';
-$renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $numStyle, $roleInfo) {
+$renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts, $lbl, $numStyle, $roleInfo) {
     foreach ($rows as $idx => $s):
         $nm = $s['primary'] ?? ''; $sl = $s['slug'] ?? ''; $ti = $s['tier'] ?? '';
+        $po = $s['pool'] ?? ms_page_pool_default_for_tier($ti);
         $secStr = implode(', ', array_map('trim', (array)($s['secondary'] ?? [])));
         $roleLab = $roleInfo['roles'][$sl]['label'] ?? '';
     ?>
@@ -53,6 +62,13 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
                     <span class="kw-num" style="<?= $numStyle ?>"><?= $idx + 1 ?></span>
                     <input type="text" name="kw_primary[]" value="<?= h($nm) ?>" style="flex:1;min-width:0;">
                     <select name="kw_tier[]" style="width:120px;flex:none;" title="Tier / priority"><option value="">Tier…</option><?php foreach ($tierOpts as $v=>$l): ?><option value="<?= $v ?>" <?= $ti===$v?'selected':'' ?>><?= $l ?></option><?php endforeach; ?></select>
+                    <?php if ($section === 'landing'): ?>
+                    <select name="kw_pool[]" style="width:170px;flex:none;" title="Which sites build this page">
+                        <?php foreach ($poolOpts as $v=>$l): ?><option value="<?= $v ?>" <?= $po===$v?'selected':'' ?>><?= h($l) ?></option><?php endforeach; ?>
+                    </select>
+                    <?php else: ?>
+                    <input type="hidden" name="kw_pool[]" value="">
+                    <?php endif; ?>
                     <input type="hidden" name="kw_section[]" value="<?= h($section) ?>">
                     <button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>
                     <button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,1)" title="Move down">&darr;</button>
@@ -196,6 +212,18 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
                 <?php endif; ?>
             </div>
             <p class="hint" style="margin:0 0 12px;"><?= $def['hint'] ?></p>
+            <?php if ($key === 'landing'): ?>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;">
+                <label style="<?= $lbl ?>">Pages per site &mdash; a domain lands on ONE of these totals (picked per domain, not the same for every site)</label>
+                <div style="display:flex;gap:8px;align-items:center;">
+                    <?php for ($ci = 0; $ci < 3; $ci++): ?>
+                        <input type="number" name="pp_counts[]" min="1" step="1"
+                               value="<?= h((string)($ppCounts[$ci] ?? '')) ?>" style="width:80px;">
+                    <?php endfor; ?>
+                    <span class="hint">Pinned pages count toward this total; the rest fill from Rotate.</span>
+                </div>
+            </div>
+            <?php endif; ?>
             <div id="kw-rows-<?= h($key) ?>">
                 <?php $renderItems($bySection[$key], $key); ?>
             </div>
@@ -209,16 +237,27 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $lbl, $nu
     <script>
     var KW_TIERS = <?= json_encode($tierOpts) ?>;
     var KW_TIER_RANK = <?= json_encode($tierRank) ?>;
+    var KW_POOLS = <?= json_encode($poolOpts) ?>;
     function kwEsc(v){ return (v==null?'':(''+v)).replace(/"/g,'&quot;'); }
     function kwText(v){ return (v==null?'':(''+v)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-    function kwItemHtml(section, primary, slug, tier, secondary){
+    function kwItemHtml(section, primary, slug, tier, secondary, pool){
         var t='<option value="">Tier…</option>'; for(var k in KW_TIERS){ t+='<option value="'+k+'"'+(tier===k?' selected':'')+'>'+KW_TIERS[k]+'</option>'; }
+        var poolField;
+        if(section==='landing'){
+            var pv = pool || 'rotate';
+            var p='';
+            for(var pk in KW_POOLS){ p+='<option value="'+pk+'"'+(pv===pk?' selected':'')+'>'+KW_POOLS[pk]+'</option>'; }
+            poolField = '<select name="kw_pool[]" style="width:170px;flex:none;" title="Which sites build this page">'+p+'</select>';
+        } else {
+            poolField = '<input type="hidden" name="kw_pool[]" value="">';
+        }
         return '<div style="margin-bottom:8px;">'+
                  '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Primary keyword</label>'+
                  '<div style="display:flex;gap:8px;align-items:center;">'+
                    '<span class="kw-num" style="flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;"></span>'+
                    '<input type="text" name="kw_primary[]" value="'+kwEsc(primary)+'" style="flex:1;min-width:0;">'+
                    '<select name="kw_tier[]" style="width:120px;flex:none;" title="Tier / priority">'+t+'</select>'+
+                   poolField+
                    '<input type="hidden" name="kw_section[]" value="'+kwEsc(section)+'">'+
                    '<button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>'+
                    '<button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,1)" title="Move down">&darr;</button>'+

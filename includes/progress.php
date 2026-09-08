@@ -92,12 +92,23 @@ if (!function_exists('progress_set_sink')) {
         flush();
     }
 
-    /** Sink for CLI workers: one JSON object per line on stdout. */
+    /**
+     * Sink for CLI workers: one JSON object per line on stdout.
+     *
+     * Writes via fwrite(STDOUT, …), NOT echo. The render worker builds each page's HTML
+     * inside ob_start()/ob_get_clean() (static_build.php) to capture it as a string before
+     * writing the file — an echo from ANY nested call while that buffer is open (e.g. a
+     * shortcode plugin's own diagnostic progress_log(), which page_pool.php's pruning now
+     * triggers routinely via plugins/services_links/plugin.php) is captured into the page
+     * body instead of reaching the real process stdout. fwrite(STDOUT, …) writes straight
+     * to the OS file descriptor, bypassing PHP's userspace output buffers entirely, so it
+     * can never leak into a page regardless of what's buffering at the time.
+     */
     function progress_jsonlines_sink(): callable
     {
         return function (array $payload): void {
-            echo json_encode($payload) . "\n";
-            @flush();
+            fwrite(STDOUT, json_encode($payload) . "\n");
+            @fflush(STDOUT);
         };
     }
 }
