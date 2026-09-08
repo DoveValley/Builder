@@ -512,7 +512,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -540,6 +540,6 @@
     "secondary_keywords": "bathroom water damage, overflowing tub cleanup, shower overflow cleanup"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "d4aeceb9f33952f8894acb61037efa72"
+  "generated_at": "2026-09-08T04:11:58+00:00",
+  "template_version": "239c50c9c4a55e0dcb9dc94cf52f0aed"
 }

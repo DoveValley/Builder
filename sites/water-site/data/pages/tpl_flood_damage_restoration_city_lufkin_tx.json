@@ -512,7 +512,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -540,6 +540,6 @@
     "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "73fdebaeea6f075a70954be9ca1787fe"
+  "generated_at": "2026-09-08T04:11:58+00:00",
+  "template_version": "0dfc5ca7c3059eadbfa736c733a6b015"
 }

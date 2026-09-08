@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "GE Monogram Oven Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin, a functioning kitchen is central to daily family life, and when a GE Monogram oven fails, it disrupts mealtimes and routines quickly. Wells Appliance Repair specializes in GE Monogram oven repair, with factory-trained technicians who understand these premium units inside and out. We're committed to fast, reliable service backed by warranty protection, so your oven gets you back to cooking without unnecessary delay.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "ge monogram oven repair",
+    "primary_keyword": "GE Monogram Oven Repair",
     "secondary_keywords": "",
     "brand": "GE Monogram",
     "appliance_type": "Oven",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Monogram Oven Repair in Lufkin, TX\",\"serviceType\":\"GE Monogram Oven Repair\",\"description\":\"Professional ge monogram oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "55e67c10672402b120c0a190675a05e0"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "a387c4ca4d64164babef281aa89dc616"
 }

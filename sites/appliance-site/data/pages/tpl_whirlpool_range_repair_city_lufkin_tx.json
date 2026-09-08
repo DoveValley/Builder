@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Whirlpool Range Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin households, a Whirlpool range is often central to daily routines, and when it stops working, meal preparation comes to a halt. Wells Appliance Repair provides factory-trained service focused specifically on Whirlpool range repair, addressing issues from heating elements to ignition problems with the expertise your appliance demands. You'll benefit from prompt, warranty-backed service that gets your range back in operation without unnecessary delay.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "whirlpool range repair",
+    "primary_keyword": "Whirlpool Range Repair",
     "secondary_keywords": "",
     "brand": "Whirlpool",
     "appliance_type": "Range",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Range Repair in Lufkin, TX\",\"serviceType\":\"Whirlpool Range Repair\",\"description\":\"Professional whirlpool range repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "ec564a8149b05c510959d69ef47df66a"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "7e4355d67109b74ab4d6a7b0b53d3d8e"
 }

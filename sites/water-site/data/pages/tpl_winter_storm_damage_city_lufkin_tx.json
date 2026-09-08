@@ -512,7 +512,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -540,6 +540,6 @@
     "secondary_keywords": "ice damage restoration, ice dam water damage"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "5e4c3cf6443a282729f694f9329ce884"
+  "generated_at": "2026-09-08T04:11:58+00:00",
+  "template_version": "110ab76d945607bac7c1a84b263589aa"
 }

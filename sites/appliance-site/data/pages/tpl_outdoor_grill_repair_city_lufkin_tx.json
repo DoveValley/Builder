@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Outdoor Grill Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin, a working outdoor grill is central to how families and neighbors gather, and when it stops performing reliably, it disrupts those plans quickly. Wells Appliance Repair handles outdoor grill repair with factory-trained service, getting your unit back in working order with prompt, warranty-backed work. You can count on professional repairs that restore your grill without the wait.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -347,7 +347,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -379,13 +379,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "outdoor grill repair",
+    "primary_keyword": "Outdoor Grill Repair",
     "secondary_keywords": "",
     "brand": "",
     "appliance_type": "Outdoor Grill",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Outdoor Grill Repair in Lufkin, TX\",\"serviceType\":\"Outdoor Grill Repair\",\"description\":\"Professional outdoor grill repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "c97e06031e7403ad9988558f211f8481"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "f4277b2e9d7c5d222bc12b35a77a3e02"
 }

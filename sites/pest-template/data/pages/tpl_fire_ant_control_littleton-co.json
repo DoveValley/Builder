@@ -179,7 +179,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Fire Ant Control in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for fire ant colonies to establish and spread during warmer months, posing a genuine threat to Littleton-area properties. Littleton Pest Pros specializes in targeted fire ant control that addresses active infestations and helps protect your yard from future activity. Our local expertise means we understand the seasonal patterns specific to this region and can develop a management approach suited to your home's needs.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
@@ -506,7 +506,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -530,10 +530,10 @@
     "bc_mid_label": "",
     "bc_mid_url": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Fire ant Exterminator in Littleton, CO\",\"serviceType\":\"Fire ant Extermination\",\"description\":\"Professional fire ant exterminator services in Littleton, CO. Targeted fire ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
-    "primary_keyword": "fire ant control",
+    "primary_keyword": "Fire Ant Control",
     "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "c229f829642cb865811e5b723866a735"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "6761ed948ad7019d66baf58126370928"
 }

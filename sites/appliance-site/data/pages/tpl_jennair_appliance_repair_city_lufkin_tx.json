@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "JennAir Appliance Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "In Lufkin, a broken JennAir appliance disrupts more than just your kitchen routine—it affects your daily comfort and meal planning. Wells Appliance Repair specializes in factory-trained JennAir service, addressing everything from cooling and cooking issues to specialized features that set premium appliances apart. We prioritize fast turnaround and warranty-backed work to get your JennAir running reliably again.",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -347,7 +347,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -379,13 +379,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "jennair appliance repair",
+    "primary_keyword": "JennAir Appliance Repair",
     "secondary_keywords": "",
     "brand": "JennAir",
     "appliance_type": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Appliance Repair in Lufkin, TX\",\"serviceType\":\"JennAir Appliance Repair\",\"description\":\"Professional jennair appliance repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "27e9e3fd7ab4a62e4b0aabdbd83983b6"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "08aeecc12f53b118dc8155494a2bb889"
 }

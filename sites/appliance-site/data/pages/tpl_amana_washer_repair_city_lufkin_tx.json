@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Amana Washer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin, a broken washer disrupts your household routine and creates immediate stress for families managing laundry needs. Wells Appliance Repair specializes in Amana washer repairs, addressing everything from drum issues to control problems with factory-trained technicians. We're committed to prompt service and stand behind our work with warranty protection, so your appliance gets back to running reliably.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "amana washer repair",
+    "primary_keyword": "Amana Washer Repair",
     "secondary_keywords": "",
     "brand": "Amana",
     "appliance_type": "Washer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Washer Repair in Lufkin, TX\",\"serviceType\":\"Amana Washer Repair\",\"description\":\"Professional amana washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "9d9e57d6fe117051d64babd85205f66e"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "6e93438b8b491d5400d78f420395959c"
 }

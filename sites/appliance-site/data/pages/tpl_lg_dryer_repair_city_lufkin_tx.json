@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "LG Dryer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin households, a broken dryer quickly becomes a major inconvenience, disrupting daily routines and laundry schedules. Wells Appliance Repair specializes in LG dryer repair, addressing everything from heating issues to drum failures with factory-trained technicians who understand your specific model. We stand behind our work with warranty-backed repairs and aim to restore your appliance and your routine as quickly as possible.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "lg dryer repair",
+    "primary_keyword": "LG Dryer Repair",
     "secondary_keywords": "",
     "brand": "LG",
     "appliance_type": "Dryer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Dryer Repair in Lufkin, TX\",\"serviceType\":\"LG Dryer Repair\",\"description\":\"Professional lg dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "fe1f71121e71cb5c6bab15b6347bb04e"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "62c444a9214f0f87cb1b19428c0d0b8d"
 }

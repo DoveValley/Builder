@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Miele Refrigerator Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In the Lufkin area, a refrigerator that stops working creates an immediate problem—perishable food, disrupted routines, and the stress of finding a reliable repair. Wells Appliance Repair specializes in Miele refrigerator repairs, addressing cooling issues, temperature control problems, and component failures with factory-trained expertise. We prioritize fast service to get your appliance running again, backed by our warranty and commitment to quality work.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "miele refrigerator repair",
+    "primary_keyword": "Miele Refrigerator Repair",
     "secondary_keywords": "",
     "brand": "Miele",
     "appliance_type": "Refrigerator",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Miele Refrigerator Repair\",\"description\":\"Professional miele refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "0a6bea1f13251cb2f4eff885c0e85d04"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "bba61bdb3209b4a18a11e5b506cf821c"
 }

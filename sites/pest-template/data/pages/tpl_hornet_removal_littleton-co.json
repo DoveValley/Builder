@@ -179,7 +179,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Hornet Removal in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for hornets during warmer months, and Littleton homeowners often encounter aggressive nests in late summer and early fall. Littleton Pest Pros specializes in safe hornet removal, addressing active nests before they pose a threat to your family and outdoor spaces. Professional removal protects both your property and the technician handling the work, giving you peace of mind without the risk of DIY intervention.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
@@ -506,7 +506,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -530,10 +530,10 @@
     "bc_mid_label": "",
     "bc_mid_url": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Hornet Exterminator in Littleton, CO\",\"serviceType\":\"Hornet Extermination\",\"description\":\"Professional hornet exterminator services in Littleton, CO. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
-    "primary_keyword": "hornet removal",
+    "primary_keyword": "Hornet Removal",
     "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "10966073bef450d4e74cf4b53cbf1cf5"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "b684cc6cb21f33f0932448679e5067fa"
 }

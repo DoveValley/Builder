@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Amana Oven Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin, a functioning kitchen oven is essential to daily life, and when one stops working, it disrupts meals and routines quickly. Wells Appliance Repair specializes in Amana oven repair, addressing both heating issues and mechanical problems that keep your unit from performing. Our factory-trained technicians work promptly to restore your oven, backed by service warranties for your peace of mind.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "amana oven repair",
+    "primary_keyword": "Amana Oven Repair",
     "secondary_keywords": "",
     "brand": "Amana",
     "appliance_type": "Oven",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Oven Repair in Lufkin, TX\",\"serviceType\":\"Amana Oven Repair\",\"description\":\"Professional amana oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "b3cf02fcec80ccf7fd28ba0369f7a18c"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "db3649b156d0909ff9e0c1e173e8504c"
 }

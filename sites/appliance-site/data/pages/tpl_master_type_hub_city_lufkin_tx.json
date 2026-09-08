@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Appliance Repair",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin and surrounding East Texas communities, local appliance repair technicians can typically reach homes quickly to address common brands found in regional kitchens and laundry rooms. Wells Appliance Repair connects property owners with independent local providers who handle everything from refrigerator and dishwasher repairs to washing machine and oven service. This direct link to vetted local professionals means your broken appliance gets attention without the runaround of calling around town.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -339,7 +339,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -371,13 +371,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "appliance repair {city} {SS}",
+    "primary_keyword": "Appliance Repair by Type",
     "secondary_keywords": "",
     "brand": "",
     "appliance_type": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in Lufkin, TX\",\"serviceType\":\"Appliance Repair\",\"description\":\"Expert appliance repair in Lufkin, TX from Wells Appliance Repair. All major brands, same-day service, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "cf8a9de945b56c4db9794e98df9393f0"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "ad18ded511ea79ebb514041168f512ea"
 }

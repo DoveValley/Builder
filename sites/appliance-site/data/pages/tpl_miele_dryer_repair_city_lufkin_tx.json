@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Miele Dryer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin homes, a dryer that won't run or dry properly disrupts daily routines and leaves households scrambling for solutions. Wells Appliance Repair specializes in Miele dryer repair, addressing mechanical and electrical issues with factory-trained expertise. We're committed to fast, reliable service backed by warranty, so your laundry routine gets back on track promptly.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "miele dryer repair",
+    "primary_keyword": "Miele Dryer Repair",
     "secondary_keywords": "",
     "brand": "Miele",
     "appliance_type": "Dryer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Dryer Repair in Lufkin, TX\",\"serviceType\":\"Miele Dryer Repair\",\"description\":\"Professional miele dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "90bf56a7353f59f89ac7be1ff118a0b9"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "e65217f577853dad5bf981a6ce0397a5"
 }

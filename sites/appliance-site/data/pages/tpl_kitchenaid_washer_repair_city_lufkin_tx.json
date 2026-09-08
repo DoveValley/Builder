@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "KitchenAid Washer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "In Lufkin households, a broken KitchenAid washer disrupts your routine and leaves laundry piling up fast. Wells Appliance Repair handles KitchenAid washer repairs with factory-trained technicians who understand these machines inside and out. We offer prompt service backed by warranty protection, so you can get back to normal without prolonged downtime.",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "kitchenaid washer repair",
+    "primary_keyword": "KitchenAid Washer Repair",
     "secondary_keywords": "",
     "brand": "KitchenAid",
     "appliance_type": "Washer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Washer Repair in Lufkin, TX\",\"serviceType\":\"KitchenAid Washer Repair\",\"description\":\"Professional kitchenaid washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "fcf16e42460f8fa5875ea190bb574e6a"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "0a16a67dffc8f9787cb3421998e84a09"
 }

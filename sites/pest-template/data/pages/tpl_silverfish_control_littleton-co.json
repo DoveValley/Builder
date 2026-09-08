@@ -179,7 +179,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Silverfish Control in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>Colorado's Front Range climate creates ideal conditions for silverfish year-round, especially as homes in Littleton seek refuge from seasonal temperature swings. Silverfish thrive in the moisture and paper products found in basements, attics, and storage areas—a common concern for homeowners in established neighborhoods like Historic Littleton and Ken Caryl. Littleton Pest Pros addresses active silverfish infestations with targeted solutions that help protect your home's stored belongings and reduce ongoing pest activity.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
@@ -506,7 +506,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -530,10 +530,10 @@
     "bc_mid_label": "",
     "bc_mid_url": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Silverfish Exterminator in Littleton, CO\",\"serviceType\":\"Silverfish Extermination\",\"description\":\"Professional silverfish exterminator services in Littleton, CO. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
-    "primary_keyword": "silverfish control",
+    "primary_keyword": "Silverfish Control",
     "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "a3a81cd77e821897c82fbd85f720b485"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "60c282caeb8e8a147a90a33e345bf450"
 }

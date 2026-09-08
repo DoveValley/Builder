@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Maytag Oven Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin homes, a functioning oven is essential to daily life, and when one stops working, meal preparation grinds to a halt. Wells Appliance Repair specializes in Maytag oven repair, addressing everything from heating issues to control problems with factory-trained expertise. We understand the urgency of a broken oven and stand behind our work with service you can rely on.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "maytag oven repair",
+    "primary_keyword": "Maytag Oven Repair",
     "secondary_keywords": "",
     "brand": "Maytag",
     "appliance_type": "Oven",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Oven Repair in Lufkin, TX\",\"serviceType\":\"Maytag Oven Repair\",\"description\":\"Professional maytag oven repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "2c704bd1ea2cd6dd95e2bddfe8947035"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "dfef32d320f66849d32343367edca6dd"
 }

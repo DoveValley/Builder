@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Kenmore Washer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin homes, a washing machine breakdown disrupts daily routines and quickly becomes urgent. Wells Appliance Repair specializes in Kenmore Washer repairs, diagnosing and fixing common issues that keep your laundry on hold. Our factory-trained technicians deliver prompt service backed by warranty protection, so you can rely on your appliance again.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "kenmore washer repair",
+    "primary_keyword": "Kenmore Washer Repair",
     "secondary_keywords": "",
     "brand": "Kenmore",
     "appliance_type": "Washer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Washer Repair in Lufkin, TX\",\"serviceType\":\"Kenmore Washer Repair\",\"description\":\"Professional kenmore washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "25f67060a9324c5d7f54c381bc471dde"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "8ca1d0ca00fb618714895dc7f01cc743"
 }

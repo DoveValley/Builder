@@ -512,7 +512,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -540,6 +540,6 @@
     "secondary_keywords": "hurricane damage cleanup, hurricane damage repair"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "4b4f2a6eccdc414388dff7fe1c5e7579"
+  "generated_at": "2026-09-08T04:11:58+00:00",
+  "template_version": "8931d3467097ce2e40c19f7f67751092"
 }

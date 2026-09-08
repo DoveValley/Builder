@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Whirlpool Appliance Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin households, a broken Whirlpool washer or dryer quickly disrupts daily routines and adds stress to an already busy schedule. Wells Appliance Repair specializes in restoring these essential appliances, with factory-trained technicians who understand Whirlpool systems inside and out. We're committed to prompt service backed by warranty protection, so you can depend on your appliances again.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -343,7 +343,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -375,13 +375,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "whirlpool appliance repair",
+    "primary_keyword": "Whirlpool Appliance Repair",
     "secondary_keywords": "",
     "brand": "Whirlpool",
     "appliance_type": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Appliance Repair in Lufkin, TX\",\"serviceType\":\"Whirlpool Appliance Repair\",\"description\":\"Factory-trained Whirlpool appliance repair in Lufkin, TX from Wells Appliance Repair. Same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "a1a5e655ba7422c14c0afbd84d15657e"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "75f74ce779ae2b00aabe7c10f93d043f"
 }

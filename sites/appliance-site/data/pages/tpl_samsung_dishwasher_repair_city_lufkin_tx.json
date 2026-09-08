@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Samsung Dishwasher Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin homes, a dishwasher breakdown means more than dirty dishes piling up—it disrupts your daily routine and strains your household. Wells Appliance Repair specializes in Samsung dishwasher repairs, diagnosing and fixing issues so your kitchen runs smoothly again. Our factory-trained technicians work quickly and back their repairs with a warranty, getting your appliance back in service without unnecessary delay.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "samsung dishwasher repair",
+    "primary_keyword": "Samsung Dishwasher Repair",
     "secondary_keywords": "",
     "brand": "Samsung",
     "appliance_type": "Dishwasher",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Dishwasher Repair in Lufkin, TX\",\"serviceType\":\"Samsung Dishwasher Repair\",\"description\":\"Professional samsung dishwasher repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "eb09b094bfe7eac5f4d3ed9e87593aff"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "b250f22e7ebb8e2b45e4dc1b8cd9fd1d"
 }

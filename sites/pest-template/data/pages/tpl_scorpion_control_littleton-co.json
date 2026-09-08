@@ -179,7 +179,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Scorpion Pest Control in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>Colorado's semi-arid foothills create ideal conditions for scorpions, particularly during warmer months when they become more active around Littleton homes and properties. Littleton Pest Pros specializes in scorpion control, identifying entry points and treating infested areas to reduce their presence on your property. Addressing a scorpion problem promptly helps protect your family and restores peace of mind in your home.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
@@ -506,7 +506,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -530,10 +530,10 @@
     "bc_mid_label": "",
     "bc_mid_url": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Scorpion Pest Control in Littleton, CO\",\"serviceType\":\"Scorpion Pest Control\",\"description\":\"Professional scorpion pest control services in Littleton, CO for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
-    "primary_keyword": "scorpion pest control",
+    "primary_keyword": "Scorpion Pest Control",
     "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "888e007e0e58423d112a7e73cff2790b"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "bfbaf11fdafb4ab57ed43d187f376d6e"
 }

@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Amana Cooktop Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin homes, a working cooktop is essential to daily routines, and when an Amana cooktop stops heating or responding properly, meal preparation comes to a halt. Wells Appliance Repair provides factory-trained service for Amana cooktop repair, diagnosing and resolving issues efficiently to restore functionality to your kitchen. We back our work with warranty coverage and prioritize prompt turnaround, so your family can return to normal routines.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "amana cooktop repair",
+    "primary_keyword": "Amana Cooktop Repair",
     "secondary_keywords": "",
     "brand": "Amana",
     "appliance_type": "Cooktop",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Cooktop Repair in Lufkin, TX\",\"serviceType\":\"Amana Cooktop Repair\",\"description\":\"Professional amana cooktop repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "25d9ddbd4ac276f6d250ac00d0c4ebb2"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "d4b6df54d93def1b1cfcc84598e2ea75"
 }

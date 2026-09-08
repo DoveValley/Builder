@@ -179,7 +179,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Spider Pest Control in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>Colorado's dry climate and seasonal temperature swings create ideal conditions for spiders to seek shelter in Littleton homes, particularly as cooler months approach. Littleton Pest Pros addresses spider infestations with targeted, locally informed pest control that reduces populations in and around your home. A managed spider presence means fewer webs, fewer encounters, and greater peace of mind for your household.</p>",
       "hs_btn_text": "{phone}",
       "hs_btn_url": "tel:{tel}",
@@ -506,7 +506,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -530,10 +530,10 @@
     "bc_mid_label": "",
     "bc_mid_url": "",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Spider Pest Control in Littleton, CO\",\"serviceType\":\"Spider Pest Control\",\"description\":\"Professional spider pest control services in Littleton, CO for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Littleton\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://p.q111.xyz/#localbusiness\",\"name\":\"Littleton Pest Pros\",\"telephone\":\"+17202015555\",\"url\":\"https://p.q111.xyz\"}}]}",
-    "primary_keyword": "spider pest control",
+    "primary_keyword": "Spider Pest Control",
     "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "366cefddef61b057c41a65bdef9c1cfc"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "c60e7ea088d0510efb428f70ec605e85"
 }

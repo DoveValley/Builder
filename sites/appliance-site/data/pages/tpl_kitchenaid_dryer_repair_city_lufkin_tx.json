@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "KitchenAid Dryer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin households, a broken dryer quickly disrupts daily routines and creates a backlog of laundry that can't wait. Wells Appliance Repair specializes in KitchenAid dryer repair, diagnosing and fixing issues with the care and precision your appliance deserves. Our factory-trained technicians work to restore your dryer promptly, backed by our warranty and commitment to keeping your home running smoothly.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "kitchenaid dryer repair",
+    "primary_keyword": "KitchenAid Dryer Repair",
     "secondary_keywords": "",
     "brand": "KitchenAid",
     "appliance_type": "Dryer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Dryer Repair in Lufkin, TX\",\"serviceType\":\"KitchenAid Dryer Repair\",\"description\":\"Professional kitchenaid dryer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "7a583ac64c0a092392903706cceb2e38"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "e09fea8ff0962ca500d1c3d769051ad4"
 }

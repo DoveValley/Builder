@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Maytag Refrigerator Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>When a Maytag refrigerator stops working in a Lufkin home, the impact is immediate—food spoils, routines derail, and the urgency becomes real. Wells Appliance Repair specializes in Maytag refrigerator repair, bringing factory-trained expertise to diagnose and restore your unit promptly. We back our work with warranty coverage, so you can rely on your appliance again.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "maytag refrigerator repair",
+    "primary_keyword": "Maytag Refrigerator Repair",
     "secondary_keywords": "",
     "brand": "Maytag",
     "appliance_type": "Refrigerator",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Maytag Refrigerator Repair\",\"description\":\"Professional maytag refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "221834535e30b6b2dada5e3b60f1f6be"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "c771d7c8814393c5ee69ad8a8a194408"
 }

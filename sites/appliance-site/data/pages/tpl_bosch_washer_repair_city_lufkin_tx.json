@@ -120,7 +120,7 @@
   "content_blocks": [
     {
       "type": "hero_split",
-      "hs_heading": "Bosch Washer Repair in {city_state}",
+      "hs_heading": "{primary_keyword} in {city_state}",
       "hs_subtext": "<p>In Lufkin households, a washing machine isn't a luxury—it's essential to keeping daily life on track, and a breakdown creates immediate stress and disruption. Wells Appliance Repair specializes in Bosch washer repair, handling everything from mechanical failures to electrical issues with factory-trained expertise. We understand the urgency of a non-functioning washer and stand behind our work with warranty-backed repairs and prompt service you can count on.</p>",
       "hs_btn_text": "Call {phone}",
       "hs_btn_url": "tel:{tel}",
@@ -401,7 +401,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#65a30d",
       "mi_info_photo": "{city_image}",
@@ -424,13 +424,13 @@
     "bc_label": "",
     "bc_mid_label": "",
     "bc_mid_url": "",
-    "primary_keyword": "bosch washer repair",
+    "primary_keyword": "Bosch Washer Repair",
     "secondary_keywords": "",
     "brand": "Bosch",
     "appliance_type": "Washer",
     "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Washer Repair in Lufkin, TX\",\"serviceType\":\"Bosch Washer Repair\",\"description\":\"Professional bosch washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "ad6a18448473554e11b6cabb93a9911a"
+  "generated_at": "2026-09-08T04:12:05+00:00",
+  "template_version": "e35f50d20276c8d23dcb678c561672a2"
 }

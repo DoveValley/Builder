@@ -36,9 +36,15 @@
     "market_blurb": "Dallas anchors one of the largest metro economies in the U.S., driven by financial services, telecommunications, transportation/logistics, and corporate headquarters activity. The city's central location and major airports (DFW and Love Field) make it a hub for corporate relocations and distribution operations. Healthcare and defense/aerospace also contribute significantly to the local economy.",
     "local_note": "Most Dallas homes are built on slab-on-grade foundations due to the region's clay-rich soil, though some older neighborhoods have pier-and-beam construction. The dominant water-damage risk is flash flooding from intense seasonal thunderstorms, particularly in spring, along with occasional slab foundation issues from soil expansion and contraction.",
     "neighborhoods": [
-      "Uptown",
-      "Deep Ellum",
+      "Addison Circle",
+      "Arts District",
+      "Asian Trade District",
       "Bishop Arts District",
+      "Bonton",
+      "Cypress Waters",
+      "Deep Ellum",
+      "Design District",
+      "Uptown",
       "Lakewood",
       "Oak Cliff",
       "Lake Highlands",
@@ -175,7 +181,12 @@
       }
     ],
     "_researched": 1,
-    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth."
+    "city_spotlight": "Dallas sits at the heart of North Texas, a sprawling, sun-bright city that has grown into one of the country's most significant economic engines. With DFW International and Love Field feeding a steady stream of business travel and cargo, the city has become a natural home for corporate headquarters, banking, and logistics, alongside strong footholds in technology, healthcare, and aerospace. Names like American Airlines, AT&T, Texas Instruments, and UT Southwestern reflect a local economy that's as diversified as its skyline is tall.\n\nHome to well over a million residents, Dallas carries itself with a confident, big-city energy while still feeling like a patchwork of distinct neighborhoods. Spend an afternoon wandering the galleries and shops of Bishop Arts District or the leafy streets of Lakewood, and you'll see a city that balances ambition with genuine neighborhood warmth.",
+    "city_image": "sites/water-site/uploads/media/city-scenic-dallas-tx.webp",
+    "city_image_alt": "Dallas Texas skyline from Reunion Tower September 2025, TX",
+    "city_image_credit": "Photo: IcedCowboyCoffee, CC0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Dallas_Texas_skyline_from_Reunion_Tower_September_2025_(cropped).png",
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   "content_blocks": [
     {
@@ -499,7 +510,7 @@
       "mi_info_text": "{city_spotlight}",
       "mi_info_alt": "{city_image_alt}",
       "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\">",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
       "mi_head_color": "header",
       "mi_head_color_custom": "#120575",
       "mi_info_photo": "{city_image}",
@@ -527,6 +538,6 @@
     "secondary_keywords": "water damage from roof leak, ceiling leak from roof, roof leak water damage repair"
   },
   "locked_blocks": [],
-  "generated_at": "2026-09-07T15:17:15+00:00",
-  "template_version": "4b9ddf2a02d98285256a2ddfda100aff"
+  "generated_at": "2026-09-08T04:11:58+00:00",
+  "template_version": "5a495a530929999594a25534bcfc29ce"
 }
