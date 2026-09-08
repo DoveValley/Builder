@@ -793,6 +793,12 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     border: 1px solid #fecaca;
 }
 
+.alert-warning {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
 /* Login page */
 .login-wrapper {
     min-height: 100vh;

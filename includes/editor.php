@@ -127,11 +127,11 @@ function render_content_blocks_editor($blocks) {
 
                 <?php /* ---- TEXT ONLY FIELDS ---- */ ?>
                 <div class="block-fields block-fields-text <?= $type !== 'text' ? 'is-hidden' : '' ?>">
-                    <input type="hidden" name="block_photo_alt[]" value="">
-                    <input type="hidden" name="block_existing_photo[]" value="">
-                    <input type="hidden" name="block_photo_ratio[]" value="landscape">
-                    <input type="hidden" name="block_photo_position[]" value="center">
-                    <input type="checkbox" name="block_remove_photo[]" value="1" style="display:none;">
+                    <input type="hidden" name="block_photo_alt[<?= $i ?>]" value="">
+                    <input type="hidden" name="block_existing_photo[<?= $i ?>]" value="">
+                    <input type="hidden" name="block_photo_ratio[<?= $i ?>]" value="landscape">
+                    <input type="hidden" name="block_photo_position[<?= $i ?>]" value="center">
+                    <input type="checkbox" name="block_remove_photo[<?= $i ?>]" value="1" style="display:none;">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
                         <div class="form-group" style="flex:1 1 200px;">
                             <label>Heading text (optional)</label>
@@ -1207,11 +1207,11 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Section heading</label>
-                        <input type="text" name="sc_heading[]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Local Experts in Katy, TX">
+                        <input type="text" name="sc_heading[<?= $i ?>]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Local Experts in Katy, TX">
                     </div>
                     <div class="form-group">
                         <label>Number of columns</label>
-                        <select name="sc_cols[]">
+                        <select name="sc_cols[<?= $i ?>]">
                             <?php foreach ([2,3,4] as $n): ?>
                                 <option value="<?= $n ?>" <?= ($block['sc_cols'] ?? 3) == $n ? 'selected' : '' ?>><?= $n ?> columns</option>
                             <?php endforeach; ?>
@@ -2082,7 +2082,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:2 1 220px;">
                             <label>Main heading</label>
-                            <input type="text" name="sc_heading[]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Every stage of your career.">
+                            <input type="text" name="sc_heading[<?= $i ?>]" value="<?= h($block['sc_heading'] ?? '') ?>" placeholder="e.g. Every stage of your career.">
                         </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
@@ -2092,7 +2092,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:0 0 80px;">
                             <label>Columns</label>
-                            <select name="sc_cols[]">
+                            <select name="sc_cols[<?= $i ?>]">
                                 <?php foreach ([2,3,4,5] as $n): ?>
                                 <option value="<?= $n ?>" <?= ($block['sc_cols'] ?? 4) == $n ? 'selected' : '' ?>><?= $n ?></option>
                                 <?php endforeach; ?>
@@ -2430,7 +2430,7 @@ function render_photo_upload_fields($fieldBaseName, $existingPhoto, $ratio, $pos
     ?>
     <div class="form-group">
         <label>Image alt text (SEO)</label>
-        <input type="text" name="block_photo_alt[]" value="<?= h($alt) ?>" placeholder="Describe the image">
+        <input type="text" name="block_photo_alt[<?= $index ?>]" value="<?= h($alt) ?>" placeholder="Describe the image">
     </div>
     <div class="current-image" id="preview_<?= h($uid) ?>">
         <?php if (!empty($existingPhoto)): ?>
@@ -2443,23 +2443,23 @@ function render_photo_upload_fields($fieldBaseName, $existingPhoto, $ratio, $pos
         <label style="margin:0;">Upload image</label>
         <button type="button" class="btn btn-small btn-secondary" onclick="openImgPicker(function(url,alt){setBlockPhoto('<?= h($uid) ?>',url,alt)})">📷 Pick from Library</button>
     </div>
-    <input type="file" name="<?= $fieldBaseName ?>[]" accept="image/png,image/jpeg,image/gif,image/webp">
-    <input type="hidden" id="existing_<?= h($uid) ?>" name="block_existing_photo[]" value="<?= h($existingPhoto) ?>">
+    <input type="file" name="<?= $fieldBaseName ?>[<?= $index ?>]" accept="image/png,image/jpeg,image/gif,image/webp">
+    <input type="hidden" id="existing_<?= h($uid) ?>" name="block_existing_photo[<?= $index ?>]" value="<?= h($existingPhoto) ?>">
     <?php if (!empty($existingPhoto)): ?>
         <label style="margin-top:8px;font-weight:400;">
-            <input type="checkbox" name="block_remove_photo[]" value="1"> Remove current image
+            <input type="checkbox" name="block_remove_photo[<?= $index ?>]" value="1"> Remove current image
         </label>
     <?php else: ?>
-        <input type="checkbox" name="block_remove_photo[]" value="1" style="display:none;">
+        <input type="checkbox" name="block_remove_photo[<?= $index ?>]" value="1" style="display:none;">
     <?php endif; ?>
     <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
         <div style="flex:1 1 160px;">
             <label>Picture shape</label>
-            <select name="block_photo_ratio[]"><?= photo_ratio_options_html($ratio) ?></select>
+            <select name="block_photo_ratio[<?= $index ?>]"><?= photo_ratio_options_html($ratio) ?></select>
         </div>
         <div style="flex:1 1 160px;">
             <label>Crop focus</label>
-            <select name="block_photo_position[]"><?= photo_position_options_html($position) ?></select>
+            <select name="block_photo_position[<?= $index ?>]"><?= photo_position_options_html($position) ?></select>
         </div>
     </div>
     <?php

@@ -196,7 +196,7 @@ if (!empty($_GET['msg'])) {
     $raw = $_GET['msg'];
     if (strpos($raw, ':') !== false) {
         [$type, $text] = explode(':', $raw, 2);
-        if (in_array($type, ['success', 'error'], true)) {
+        if (in_array($type, ['success', 'error', 'warning'], true)) {
             $alert = ['type' => $type, 'text' => $text];
         }
     }
@@ -522,6 +522,14 @@ function switchColType(select) {
     card.querySelectorAll('.col-type-panel').forEach(p => p.classList.add('is-hidden'));
     const panel = card.querySelector('.col-type-' + select.value);
     if (panel) panel.classList.remove('is-hidden');
+    // A logo column shows no title at render time — hide/disable the shared heading
+    // field so it can't be typed into looking like it will do something, and so it
+    // isn't submitted (a disabled input never POSTs).
+    const titleInput = card.querySelector('.column-title-input');
+    if (titleInput) {
+        titleInput.style.display = select.value === 'logo' ? 'none' : '';
+        titleInput.disabled = select.value === 'logo';
+    }
 }
 
 function addContactExtra(btn) {

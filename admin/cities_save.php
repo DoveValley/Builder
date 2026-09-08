@@ -254,11 +254,18 @@ if ($action === 'import_csv') {
 
         $tags = array_values(array_filter(array_map('trim', preg_split('/[\s,|]+/', $data['tags'] ?? ''))));
 
-        // Skip rows whose base ID already existed before this import started
+        // Skip rows whose base ID already existed before this import started, OR that
+        // duplicate an earlier row in this SAME file (e.g. "Dallas, TX" pasted twice) —
+        // $existing was only a snapshot taken once before this loop, so without adding
+        // each new id back into it, two identical rows in one CSV both slipped through,
+        // got distinct ids (dallas-tx, dallas-tx-2) via _city_make_id() but the SAME
+        // derived city_slug, and both got researched (billed) separately while the
+        // second page silently failed to index and became permanently unreachable.
         $baseId = trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($city . '-' . $SS)), '-');
         if ($baseId !== '' && in_array($baseId, $existing, true)) { $skipped++; continue; }
 
         $id = _city_make_id($city, $SS, $cities);
+        if ($baseId !== '') $existing[] = $baseId;
 
         $cities[] = [
             'id'        => $id,

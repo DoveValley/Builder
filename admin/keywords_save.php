@@ -31,12 +31,20 @@ if ($action === 'save_primaries') {
 
     $services = [];
     $seen = [];
+    $droppedDupes = [];
     for ($i = 0; $i < count($names); $i++) {
         $primary = trim((string)($names[$i] ?? ''));
         if ($primary === '') continue;
         $slug = trim((string)($slugs[$i] ?? '')) ?: $slugify($primary);
         $slug = $slugify($slug);
-        if ($slug === '' || isset($seen[$slug])) continue;
+        if ($slug === '') continue;
+        if (isset($seen[$slug])) {
+            // Two different-looking primaries can slugify identically (e.g. "AC Repair"
+            // vs "A/C Repair") — silently keeping only the first with no feedback meant
+            // there was no way to tell a row had been dropped, or which one.
+            $droppedDupes[] = $primary;
+            continue;
+        }
         $seen[$slug] = true;
         $tier    = in_array($tiers[$i] ?? '', $validTier, true)    ? ($tiers[$i] ?? '') : '';
         $section = in_array($sects[$i] ?? '', $validSection, true) ? ($sects[$i] ?? 'landing') : 'landing';
@@ -64,7 +72,15 @@ if ($action === 'save_primaries') {
     if (file_put_contents($tmp, $content) === false || !rename($tmp, $kwFile)) {
         header('Location: index.php?tab=keywords&msg=error:Could+not+save+keyword+map'); exit;
     }
-    header('Location: index.php?tab=keywords&msg=success:Keyword+map+saved+(' . count($services) . '+keyword' . (count($services) === 1 ? '' : 's') . ').'); exit;
+    $msg = 'Keyword map saved (' . count($services) . '+keyword' . (count($services) === 1 ? '' : 's') . ').';
+    if (!empty($droppedDupes)) {
+        $msg = 'warning:' . $msg . ' Dropped ' . count($droppedDupes) . ' duplicate-slug row(s): '
+             . implode(', ', array_slice($droppedDupes, 0, 10))
+             . (count($droppedDupes) > 10 ? ', ...' : '') . '.';
+    } else {
+        $msg = 'success:' . $msg;
+    }
+    header('Location: index.php?tab=keywords&msg=' . urlencode($msg)); exit;
 }
 
 header('Location: index.php?tab=keywords');

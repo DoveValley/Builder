@@ -93,11 +93,6 @@ switch ($section) {
         require __DIR__ . '/save/footer.php';
         break;
 
-    /* ---- POPUPS ---- */
-    case 'popups':
-        require __DIR__ . '/save/popups.php';
-        break;
-
     /* ---- LOCAL BUSINESS ---- */
     case 'local_business':
         require __DIR__ . '/save/local_business.php';

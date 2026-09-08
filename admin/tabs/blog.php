@@ -140,6 +140,12 @@
                     <button type="submit" class="btn">Save Post</button>
                     <a href="../blog.php?slug=<?= h($editingPost['slug']) ?>" target="_blank" class="btn btn-secondary">Preview Post &rarr;</a>
                 </div>
+                <!-- Last fields in the form — see admin/save/content.php's form_complete check:
+                     if the browser only sent a truncated multipart body, these never arrive
+                     and the save is refused instead of silently overwriting a full post with
+                     a partial one. -->
+                <input type="hidden" name="expected_blocks" value="<?= (int) count($editingPost['content_blocks'] ?? []) ?>">
+                <input type="hidden" name="form_complete" value="1">
             </form>
 
             <form action="save.php" method="post" style="margin-top:12px;" onsubmit="return confirm('Delete this post? This cannot be undone.');">

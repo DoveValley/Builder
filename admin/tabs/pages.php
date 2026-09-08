@@ -204,6 +204,12 @@
                     <a href="../page.php?slug=<?= h($editingPage['slug']) ?>&show_blocks=1" target="_blank" class="btn btn-secondary">Preview Blocks &rarr;</a>
                     <a href="../page.php?slug=<?= h($editingPage['slug']) ?>" target="_blank" class="btn btn-secondary">Preview Page &rarr;</a>
                 </div>
+                <!-- Last fields in the form — see admin/save/content.php's form_complete check:
+                     if the browser only sent a truncated multipart body, these never arrive
+                     and the save is refused instead of silently overwriting a full page with
+                     a partial one. -->
+                <input type="hidden" name="expected_blocks" value="<?= (int) count($editingPage['content_blocks'] ?? []) ?>">
+                <input type="hidden" name="form_complete" value="1">
             </form>
 
             <form action="save.php" method="post" style="margin-top:12px;" onsubmit="return confirm('Delete this landing page? This cannot be undone.');">

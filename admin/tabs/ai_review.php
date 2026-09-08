@@ -240,6 +240,9 @@ $isResearched = !empty($city['industries']) || !empty($city['top_employers']);
     };
 
     window.reviewRegen = function (cityId) {
+        // This calls the real AI generator (real API cost) same as the AI Generation
+        // tab's Run button, which already confirms before firing — this one didn't.
+        if (!confirm('Regenerate this city\'s content? This calls the AI generator and may incur real API cost.')) return;
         var btn       = document.getElementById('review-regen-btn');
         var spinner   = document.getElementById('review-spinner');
         var resultBar = document.getElementById('review-result-bar');

@@ -74,8 +74,11 @@ $ctx = [
     'city'          => $city['city']          ?? '',
     'SS'            => $city['SS']            ?? '',
     'service'       => $service ?: '(service — set via template seo.service_name)',
-    'industries'    => implode(', ', $city['industries']    ?? []) ?: '(none)',
-    'top_employers' => implode(', ', $city['top_employers'] ?? []) ?: '(none)',
+    // generate.py can write a non-list value here when the model's JSON reply doesn't
+    // come back as an array (it defensively str()s that case on its own side) — mirror
+    // that guard so a bad research result 500s a preview instead of just reading oddly.
+    'industries'    => implode(', ', (array) ($city['industries']    ?? [])) ?: '(none)',
+    'top_employers' => implode(', ', (array) ($city['top_employers'] ?? [])) ?: '(none)',
     'salary_note'   => $city['salary_note']   ?? '',
     'market_blurb'  => $city['market_blurb']  ?? '',
 ];

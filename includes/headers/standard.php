@@ -154,11 +154,18 @@
                         <?php endif; ?>
                     </div>
                     <?php endif; ?>
+                    <?php
+                    // 'plain' was missing here — single_row.php already handles all three
+                    // options this same field offers in the editor, but this layout (the
+                    // default) only ever branched outline-vs-filled, so picking "Plain" in
+                    // the Header tab silently rendered as Filled for the majority of sites.
+                    if ($btnStyle === 'outline')   { $phoneBtnClass = 'header-phone-btn-outline'; $phoneBtnInline = 'border-color:'.h($navText).';color:'.h($navText).';'; }
+                    elseif ($btnStyle === 'plain') { $phoneBtnClass = 'header-phone-btn-plain';   $phoneBtnInline = 'color:'.h($navText).';'; }
+                    else                            { $phoneBtnClass = 'header-phone-btn-filled';  $phoneBtnInline = 'background:'.h($navBg).';color:'.h($navText).';'; }
+                    ?>
                     <a href="tel:<?= h($telHref) ?>"
-                       class="header-phone-btn <?= $btnStyle === 'outline' ? 'header-phone-btn-outline' : 'header-phone-btn-filled' ?>"
-                       style="<?= $btnStyle === 'outline'
-                           ? 'border-color:'.h($navText).';color:'.h($navText).';'
-                           : 'background:'.h($navBg).';color:'.h($navText).';' ?>">
+                       class="header-phone-btn <?= $phoneBtnClass ?>"
+                       style="<?= $phoneBtnInline ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0;">
                             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C7.61 21 1 14.39 1 6c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                         </svg>

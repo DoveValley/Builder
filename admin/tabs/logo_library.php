@@ -233,6 +233,9 @@ function llAdd(){
 }
 function llRemove(i){
     if (LL.length<=1){ alert('Keep at least one logo config.'); return; }
+    var name = LL[i].name || 'this logo config';
+    var extra = (LL_SINGLE === i) ? ' It is currently this site\'s applied logo.' : '';
+    if (!confirm('Remove "'+name+'"? This cannot be undone.'+extra)) return;
     LL.splice(i,1);
     if (LL_SINGLE === i) LL_SINGLE = -1; else if (LL_SINGLE > i) LL_SINGLE--;
     llRender();

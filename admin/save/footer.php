@@ -49,7 +49,7 @@
                         'url'   => sanitize_url(trim($extra['url'] ?? '')),
                     ];
                 }
-                if ($title === '') continue;
+                if ($title === '' && empty($extras)) continue;
                 $columns[] = ['type' => 'contact', 'title' => $title, 'contact_extras' => $extras];
 
             } elseif ($colType === 'logo') {

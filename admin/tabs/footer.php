@@ -9,7 +9,7 @@
                 <div class="form-group">
                     <div class="current-image">
                         <?php if (!empty($footer['logo'])): ?>
-                            <img src="../<?= h($footer['logo']) ?>" alt="Footer logo">
+                            <img src="<?= h(admin_upload_url($footer['logo'])) ?>" alt="Footer logo">
                         <?php else: ?>
                             <span class="none">No logo uploaded yet.</span>
                         <?php endif; ?>
@@ -83,9 +83,10 @@
                     ?>
                         <div class="column-card" data-col-index="<?= (int) $ci ?>" data-next-link-index="<?= $columnNextLinkIndex[$ci] ?? 0 ?>">
                             <div class="column-card-header" style="gap:8px;">
-                                <input type="text" name="footer_columns[<?= (int) $ci ?>][title]"
+                                <input type="text" class="column-title-input" name="footer_columns[<?= (int) $ci ?>][title]"
                                        value="<?= h($column['title'] ?? '') ?>"
-                                       placeholder="Column heading (e.g. Quick Links)">
+                                       placeholder="Column heading (e.g. Quick Links)"
+                                       <?= $colType === 'logo' ? 'style="display:none;" disabled' : '' ?>>
                                 <select name="footer_columns[<?= (int) $ci ?>][type]"
                                         onchange="switchColType(this)"
                                         style="flex:0 0 140px;padding:8px 10px;border:1px solid #e5e7eb;border-radius:6px;font-size:0.88rem;">

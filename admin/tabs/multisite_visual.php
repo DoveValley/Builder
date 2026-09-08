@@ -234,6 +234,9 @@ function msvAdd(){
 }
 function msvRemove(i){
     if (MSV.length<=1){ alert('Keep at least one preset.'); return; }
+    var name = MSV[i].name || 'this preset';
+    var extra = (MSV_SINGLE === i) ? ' It is currently this site\'s applied preset.' : '';
+    if (!confirm('Remove "'+name+'"? This cannot be undone.'+extra)) return;
     MSV.splice(i,1);
     if (MSV_SINGLE === i) MSV_SINGLE = -1; else if (MSV_SINGLE > i) MSV_SINGLE--;
     msvRender();
@@ -299,6 +302,12 @@ msvRender();
         Deterministic, so a rebuild gives a site the same font. Kept deliberately common:
         a distinctive face shared across fifty sites is a <em>stronger</em> fingerprint than a familiar one.
     </p>
+    <p class="hint" style="margin:0 0 14px;max-width:820px;">
+        "Mark as default" only records this site's default for future multisite clones —
+        unlike the preset/logo libraries above, it does <strong>not</strong> change this
+        site's live font. To change what's live right now, set it directly on the
+        <strong>Theme</strong> tab.
+    </p>
     <div id="msf-list" style="display:flex;flex-direction:column;gap:8px;"></div>
     <button type="button" class="btn btn-secondary" style="margin-top:12px;" onclick="msfAdd()">+ Add font</button>
 </div>
@@ -316,8 +325,8 @@ function msfRender(){
            +   '<input type="text" class="msf-f" data-i="' + i + '" data-k="name"  value="' + msvEsc(f.name)  + '" style="flex:0 0 150px;" placeholder="Name">'
            +   '<input type="text" class="msf-f" data-i="' + i + '" data-k="stack" value="' + msvEsc(f.stack) + '" style="flex:1;min-width:190px;font-family:monospace;font-size:.82rem;" placeholder="Inter, sans-serif">'
            +   (isSingle
-                 ? '<span style="font-size:.85rem;color:#2563eb;font-weight:700;white-space:nowrap;">&#9733; This site</span>'
-                 : '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;white-space:nowrap;" onclick="msfUse(' + i + ')">Use for this site</button>')
+                 ? '<span style="font-size:.85rem;color:#2563eb;font-weight:700;white-space:nowrap;">&#9733; Default</span>'
+                 : '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;white-space:nowrap;" onclick="msfUse(' + i + ')" title="Marks this as the default font for future clones — does not change this site\'s live font. Set the live font on the Theme tab.">Mark as default</button>')
            +   '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:6px;cursor:pointer;font-size:.88rem;white-space:nowrap;">'
            +     '<input type="checkbox" class="msf-rot" data-i="' + i + '"' + (f.in_rotation !== false ? ' checked' : '') + '> In multisite rotation</label>'
            +   '<button type="button" class="btn btn-secondary" style="padding:4px 9px;font-size:.8rem;" onclick="msfRemove(' + i + ')" title="Remove">&times;</button>'
