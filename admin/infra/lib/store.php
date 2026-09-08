@@ -40,7 +40,15 @@ function infra_save_json(string $path, array $data): bool
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     if ($json === false) return false;
     $tmp = $path . '.tmp';
-    if (file_put_contents($tmp, $json . "\n", LOCK_EX) === false) return false;
-    @chmod($tmp, 0600);
+    // These registries hold API tokens/secrets (Cloudflare, registrars). Creating
+    // the temp file first and chmod-ing it 0600 on the NEXT line leaves it briefly
+    // at the process's default umask — restricting the umask for the one call that
+    // creates it means the file is born 0600, with no window where it existed at a
+    // wider mode.
+    $oldUmask = umask(0177);
+    $written  = file_put_contents($tmp, $json . "\n", LOCK_EX);
+    umask($oldUmask);
+    if ($written === false) return false;
+    @chmod($tmp, 0600);   // belt and suspenders: covers a tmp file left by an old umask, e.g. after a crash
     return rename($tmp, $path);
 }

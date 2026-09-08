@@ -53,6 +53,21 @@ function hestia_server_configured(array $server): bool
 }
 
 /**
+ * The one shape for "no key pair — nothing was ever going to be asked."
+ *
+ * Was two hand-written copies of the same array literal (infra_discover_hestia()
+ * and infra_hestia_cached()) — harmless while they agreed, but a future third copy
+ * (or an edit to one that forgot the other) could drift 'at'/'unconfigured' out of
+ * sync with what infra_hestia_shape()'s 'never' flag expects, with nothing to catch
+ * it. One function, so there is only one place this shape can be wrong.
+ */
+function infra_hestia_unconfigured_bundle(): array
+{
+    return ['ok' => false, 'error' => '', 'unconfigured' => true, 'info' => null,
+            'sites' => [], 'users' => [], 'calls' => 0, 'ms' => 0, 'at' => date('c')];
+}
+
+/**
  * Everything the Servers tab shows about one Hestia box, cached.
  * Key hestia:{id} — a separate namespace from the Plesk `server:{id}` keys, so
  * ?refresh=1 and cache invalidation on one side never touch the other.
@@ -65,8 +80,7 @@ function infra_discover_hestia(array $server, int $ttl = INFRA_HESTIA_TTL): arra
     // spending a request, and without caching it: the moment the keys are pasted
     // in, the next page load should try for real rather than serve this back.
     if (!hestia_server_configured($server)) {
-        return ['ok' => false, 'error' => '', 'unconfigured' => true, 'info' => null,
-                'sites' => [], 'users' => [], 'calls' => 0, 'ms' => 0, 'at' => date('c')];
+        return infra_hestia_unconfigured_bundle();
     }
 
     $key = 'hestia:' . ($server['id'] ?? md5((string) json_encode($server)));
@@ -204,8 +218,7 @@ function infra_hestia_cached(array $server): ?array
     // No key pair — nothing was ever going to be asked, so there is a definite
     // answer without a cache entry.
     if (!hestia_server_configured($server)) {
-        return ['ok' => false, 'error' => '', 'unconfigured' => true, 'info' => null,
-                'sites' => [], 'users' => [], 'calls' => 0, 'ms' => 0, 'at' => date('c')];
+        return infra_hestia_unconfigured_bundle();
     }
     $wasFresh = infra_cache_fresh();
     if ($wasFresh) infra_cache_force(false);
