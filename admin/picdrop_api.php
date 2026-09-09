@@ -269,7 +269,7 @@ if ($action === 'adjust') {
 }
 
 // ── PLACE AN IMAGE (from an upload, an AI generation, or the existing library) ────
-if (!in_array($action, ['place', 'generate', 'place_media'], true)) pd_fail('Unknown action.');
+if (!in_array($action, ['place', 'generate', 'place_media', 'set_active'], true)) pd_fail('Unknown action.');
 
 // The slot decides the output size: match whatever is in it now. Every slot already
 // holds a correctly-sized image, so this is self-configuring — no per-field size table
@@ -284,6 +284,97 @@ if ($slot === null) pd_fail('That slot no longer exists — reload the tab.');
 if (!empty($slot['token'])) {
     pd_fail('This slot is filled per city from ' . $slot['value']
         . '. Replacing it with one file would pin every city to the same picture.');
+}
+
+/**
+ * Writes $newValue into the page (plus propagate/template/og follows, unchanged from
+ * before this was factored out), and answers with the same JSON shape every source
+ * has always returned. $destForCleanup is only non-null when this call just finished
+ * processing a brand new file — set_active is re-pointing at a file that's already
+ * live elsewhere, so a write failure there must not delete it.
+ */
+function pd_commit(
+    array $parts, array $slot, string $key, string $newValue,
+    ?int $nw, ?int $nh, ?string $note, ?string $screened, string $prompt, ?float $cost,
+    ?string $destForCleanup
+): never {
+    if ($nw === null || $nh === null) {
+        $resolved = picdrop_resolve($newValue);
+        [$nw, $nh] = $resolved !== null ? (@getimagesize($resolved) ?: [0, 0]) : [0, 0];
+    }
+
+    $edits = [[
+        'scope' => $parts['scope'], 'id' => $parts['id'],
+        'block' => $parts['block'], 'field' => $parts['field'], 'value' => $newValue,
+    ]];
+
+    $propagated = 0;
+    $templates  = 0;
+    if (!empty($_POST['propagate'])) {
+        foreach (picdrop_matching_slots($key, $slot['value'], picdrop_leaf($parts['field'])) as $m) {
+            $edits[] = [
+                'scope' => $m['scope'], 'id' => $m['page_id'],
+                'block' => $m['block'], 'field' => $m['field'], 'value' => $newValue,
+            ];
+            $propagated++;
+        }
+        // Also fix the landing templates these pages are generated from. Without this the
+        // next regen puts the old picture straight back, which reads as "Pic Drop did not
+        // save" long after the drop.
+        foreach (picdrop_template_matches($slot['value'], picdrop_leaf($parts['field'])) as $t) {
+            $edits[] = $t + ['value' => $newValue];
+            $templates++;
+        }
+    }
+
+    // seo.og_image follows the picture wherever it was pointing at this exact file. Not
+    // gated on propagate: if THIS page's social image was the picture just replaced, it
+    // should follow regardless.
+    $ogUpdated = 0;
+    foreach (picdrop_og_matches($slot['value']) as $og) {
+        $edits[] = $og + ['value' => $newValue];
+        $ogUpdated++;
+    }
+
+    $res = picdrop_apply_edits($edits);
+    if ($res['ok'] === 0) {
+        if ($destForCleanup !== null) @unlink($destForCleanup);
+        pd_fail($res['errors'][0] ?? 'The image was processed but nothing could be written.');
+    }
+
+    echo json_encode([
+        'success'    => true,
+        'url'        => $newValue,
+        'filename'   => basename($newValue),
+        'width'      => (int) $nw,
+        'height'     => (int) $nh,
+        'note'       => $note ?? '',
+        'screened'   => $screened,
+        'prompt'     => $prompt,
+        'cost'       => $cost,
+        'propagated' => $propagated,
+        'templates'  => $templates,
+        'og_updated' => $ogUpdated,
+        'errors'     => $res['errors'],
+        // So the tab can redraw the Real/AI thumbnail pair without a reload — this is
+        // the same record picdrop_slots_for_blocks() would hand back on next page load.
+        'pair'       => picdrop_pairs_get($key),
+    ]);
+    exit;
+}
+
+// Switching which already-saved side (real/AI) is live — no new file, no reprocessing,
+// just repointing the page at whichever one you asked for.
+if ($action === 'set_active') {
+    $which = (string) ($_POST['which'] ?? '');
+    if ($which !== 'real' && $which !== 'ai') pd_fail('Choose real or ai.');
+    $pair   = picdrop_pairs_get($key);
+    $target = $pair[$which] ?? null;
+    if ($target === null || $target === '') {
+        pd_fail('There is no ' . ($which === 'ai' ? 'AI' : 'real') . ' photo saved for this slot yet.');
+    }
+    picdrop_pairs_activate($key, $which);
+    pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null);
 }
 
 $screened   = null;
@@ -441,59 +532,10 @@ if ($action === 'generate') {
 
 $newValue = UPLOAD_URL . 'media/' . $filename;
 
-// Build the edit list: this slot, plus every other slot holding the same image in the
-// same kind of field when propagate is on.
-$edits = [[
-    'scope' => $parts['scope'], 'id' => $parts['id'],
-    'block' => $parts['block'], 'field' => $parts['field'], 'value' => $newValue,
-]];
+// A fresh upload is always the "real" side; a library pick defaults to "real" too
+// (you already saw it — it's an ordinary photo) unless the caller says otherwise, which
+// is how "Use this photo" on an AI candidate reuses this exact same action as "ai".
+$as = $action === 'place' ? 'real' : (($_POST['as'] ?? 'real') === 'ai' ? 'ai' : 'real');
+picdrop_pairs_set($key, $as, $newValue);
 
-$propagated = 0;
-$templates  = 0;
-if (!empty($_POST['propagate'])) {
-    foreach (picdrop_matching_slots($key, $slot['value'], picdrop_leaf($parts['field'])) as $m) {
-        $edits[] = [
-            'scope' => $m['scope'], 'id' => $m['page_id'],
-            'block' => $m['block'], 'field' => $m['field'], 'value' => $newValue,
-        ];
-        $propagated++;
-    }
-    // Also fix the landing templates these pages are generated from. Without this the
-    // next regen puts the old picture straight back, which reads as "Pic Drop did not
-    // save" long after the drop.
-    foreach (picdrop_template_matches($slot['value'], picdrop_leaf($parts['field'])) as $t) {
-        $edits[] = $t + ['value' => $newValue];
-        $templates++;
-    }
-}
-
-// seo.og_image follows the picture wherever it was pointing at this exact file. Not
-// gated on propagate: if THIS page's social image was the picture just replaced, it
-// should follow regardless.
-$ogUpdated = 0;
-foreach (picdrop_og_matches($slot['value']) as $og) {
-    $edits[] = $og + ['value' => $newValue];
-    $ogUpdated++;
-}
-
-$res = picdrop_apply_edits($edits);
-if ($res['ok'] === 0) {
-    @unlink($dest);
-    pd_fail($res['errors'][0] ?? 'The image was processed but nothing could be written.');
-}
-
-echo json_encode([
-    'success'    => true,
-    'url'        => $newValue,
-    'filename'   => $filename,
-    'width'      => (int) $nw,
-    'height'     => (int) $nh,
-    'note'       => $note,
-    'screened'   => $screened,
-    'prompt'     => $prompt,
-    'cost'       => $cost,
-    'propagated' => $propagated,
-    'templates'  => $templates,
-    'og_updated' => $ogUpdated,
-    'errors'     => $res['errors'],
-]);
+pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest);

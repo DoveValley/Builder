@@ -20,6 +20,68 @@
 require_once __DIR__ . '/../config.php';
 
 /**
+ * Per-slot "real photo" vs "AI photo" memory — a sidecar file, not part of site.json,
+ * because the render side (site-template.php) only ever needs ONE value per field
+ * (whichever is active) and must never learn this structure exists.
+ *
+ * One entry per slot key: {real: path|null, ai: path|null, active: 'real'|'ai'}.
+ * Dropping a file always writes+activates 'real'; using a generated image always
+ * writes+activates 'ai'; switching without a new drop/generate just flips 'active'.
+ * Whichever side has never been filled is simply absent from the row, so a slot
+ * that has only ever had a real photo costs nothing extra to render.
+ */
+function picdrop_pairs_file(): string {
+    return (ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR) . '/data/picdrop_pairs.json';
+}
+
+function picdrop_pairs_load(): array {
+    $f = picdrop_pairs_file();
+    if (!file_exists($f)) return [];
+    $d = json_decode((string) file_get_contents($f), true);
+    return is_array($d) ? $d : [];
+}
+
+function picdrop_pairs_save(array $data): void {
+    $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    $tmp  = picdrop_pairs_file() . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, $json) !== false) {
+        rename($tmp, picdrop_pairs_file());
+    } else {
+        @unlink($tmp);
+    }
+}
+
+/** @return array{real:?string,ai:?string,active:string} */
+function picdrop_pairs_get(string $key): array {
+    $row = picdrop_pairs_load()[$key] ?? [];
+    return [
+        'real'   => $row['real']   ?? null,
+        'ai'     => $row['ai']     ?? null,
+        'active' => $row['active'] ?? 'real',
+    ];
+}
+
+/** Records $value on side $which ('real'|'ai') for $key and makes it the active side. */
+function picdrop_pairs_set(string $key, string $which, string $value): void {
+    if ($which !== 'real' && $which !== 'ai') return;
+    $all = picdrop_pairs_load();
+    $row = $all[$key] ?? ['real' => null, 'ai' => null, 'active' => 'real'];
+    $row[$which]  = $value;
+    $row['active'] = $which;
+    $all[$key] = $row;
+    picdrop_pairs_save($all);
+}
+
+/** Switches which side is active WITHOUT changing either stored path. */
+function picdrop_pairs_activate(string $key, string $which): void {
+    if ($which !== 'real' && $which !== 'ai') return;
+    $all = picdrop_pairs_load();
+    if (!isset($all[$key])) return;
+    $all[$key]['active'] = $which;
+    picdrop_pairs_save($all);
+}
+
+/**
  * The image fields Pic Drop manages, and the alt field each one pairs with.
  *
  * This is a WHITELIST, deliberately. A blacklist would silently pick up every new
@@ -187,8 +249,9 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
             $altPath = picdrop_alt_path($path, $spec['alt']);
             $altVal  = $altPath !== null ? (string) (picdrop_get($block, $altPath) ?? '') : '';
 
+            $slotKey = "$scope:$id:$bi:$path";
             $slots[] = [
-                'key'        => "$scope:$id:$bi:$path",
+                'key'        => $slotKey,
                 'scope'      => $scope,
                 'page_id'    => $id,
                 'block'      => $bi,
@@ -205,6 +268,7 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
                 'bytes'      => $bytes,
                 'alt_field'  => $altPath,
                 'alt'        => $altVal,
+                'pair'       => $isToken ? null : picdrop_pairs_get($slotKey),
             ];
         }
     }

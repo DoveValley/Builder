@@ -109,15 +109,41 @@
                                 ?>
                                 <div class="pd-slot" style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #f1f5f9;">
                                     <div id="<?= $sid ?>_prev" style="flex-shrink:0;width:132px;">
+                                        <?php
+                                        $pair = $s['pair'] ?? ['real' => null, 'ai' => null, 'active' => 'real'];
+                                        // A slot untouched by this feature still has its one real photo sitting in
+                                        // the block field itself — show it in the Real space rather than telling you
+                                        // "no real photo" about a slot that plainly has one. Guarded against also
+                                        // being the AI path so the two spaces never show the same file after an
+                                        // AI photo has been used on a slot pairs.json never saw a real drop for.
+                                        $realPath = $pair['real'] ?: (($s['value'] !== '' && $s['value'] !== $pair['ai']) ? $s['value'] : null);
+                                        $aiPath   = $pair['ai'];
+                                        $active   = $pair['active'];
+                                        // A cell renderer, not a function, so it can close over $sid/h() without a
+                                        // parameter list — this block is the only caller and always will be.
+                                        $cell = function (?string $path, string $labelText, bool $isActive, string $which) use ($sid, $s) {
+                                            echo '<div style="display:inline-block;width:63px;vertical-align:top;">';
+                                            if ($path === null) {
+                                                echo '<div style="width:63px;height:63px;border-radius:5px;background:#f8fafc;border:1px dashed #cbd5e1;"></div>';
+                                                echo '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:#cbd5e1;">no ' . $labelText . '</div>';
+                                            } else {
+                                                $activeStyle = $isActive ? 'border:2px solid #2563eb;' : 'border:2px solid transparent;opacity:.75;';
+                                                echo '<img src="/' . h($path) . '" data-full="/' . h($path) . '" data-name="' . h(basename($path)) . '" alt="" title="Click to view full size"'
+                                                   . ' style="width:63px;height:63px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;' . $activeStyle . '"'
+                                                   . ' onerror="this.style.display=\'none\'">';
+                                                echo '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:' . ($isActive ? '#2563eb;font-weight:600;' : '#94a3b8;') . '">';
+                                                if ($isActive) { echo $labelText . ' &#10003;'; }
+                                                else { echo '<a href="#" class="pd-set-active" data-sid="' . $sid . '" data-key="' . h($s['key']) . '" data-which="' . $which . '" style="color:#6b7280;text-decoration:underline;">use ' . $labelText . '</a>'; }
+                                                echo '</div>';
+                                            }
+                                            echo '</div>';
+                                        };
+                                        ?>
                                         <?php if ($s['token']): ?>
                                             <div style="width:132px;height:88px;border-radius:5px;background:#f8fafc;border:1px dashed #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#94a3b8;">&#127961;</div>
-                                        <?php elseif ($s['value'] !== ''): ?>
-                                            <img data-src="/<?= h($s['value']) ?>" data-full="/<?= h($s['value']) ?>"
-                                                 data-name="<?= h(basename($s['value'])) ?>" alt="" title="Click to view full size"
-                                                 style="width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;"
-                                                 onerror="this.style.display='none'">
                                         <?php else: ?>
-                                            <div style="width:132px;height:88px;border-radius:5px;background:#f8fafc;border:1px dashed #cbd5e1;"></div>
+                                            <?php $cell($realPath, 'Real', $active === 'real' && $realPath !== null, 'real'); ?>
+                                            <?php $cell($aiPath, 'AI', $active === 'ai' && $aiPath !== null, 'ai'); ?>
                                         <?php endif; ?>
                                     </div>
 
@@ -390,21 +416,42 @@
                 // links, and a result line. Keeping this in one place is what let the AI and
                 // library paths ride the same result-handling as an upload, instead of each
                 // reimplementing "how a slot looks once it's filled."
-                function applyResult(sid, d, extraMsg) {
+                // One thumbnail cell — mirrors the PHP $cell() renderer in the tab's
+                // markup exactly, so a live update after a click looks identical to
+                // what a page reload would have rendered.
+                function pairCell(sid, key, path, labelText, isActive, which) {
+                    if (!path) {
+                        return '<div style="display:inline-block;width:63px;vertical-align:top;">'
+                            + '<div style="width:63px;height:63px;border-radius:5px;background:#f8fafc;border:1px dashed #cbd5e1;"></div>'
+                            + '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:#cbd5e1;">no ' + labelText + '</div></div>';
+                    }
+                    var activeStyle = isActive ? 'border:2px solid #2563eb;' : 'border:2px solid transparent;opacity:.75;';
+                    var img = '<img src="/' + path + '?t=' + Date.now() + '" data-full="/' + path + '" data-name="' + path.split('/').pop() + '" alt="" title="Click to view full size"'
+                        + ' style="width:63px;height:63px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;' + activeStyle + '">';
+                    var label = isActive
+                        ? labelText + ' &#10003;'
+                        : '<a href="#" class="pd-set-active" data-sid="' + sid + '" data-key="' + key + '" data-which="' + which + '" style="color:#6b7280;text-decoration:underline;">use ' + labelText + '</a>';
+                    return '<div style="display:inline-block;width:63px;vertical-align:top;">' + img
+                        + '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:' + (isActive ? '#2563eb;font-weight:600;' : '#94a3b8;') + '">' + label + '</div></div>';
+                }
+
+                // Redraws the left-hand Real/AI spaces for a slot from a pair record.
+                // Both spaces are always drawn — an empty one just shows its "no Real"/
+                // "no AI" placeholder — so the two-space layout never appears or
+                // disappears depending on how many sides happen to be filled.
+                function renderPrev(sid, key, pair) {
+                    pair = pair || { real: null, ai: null, active: 'real' };
+                    var prev = document.getElementById(sid + '_prev');
+                    prev.innerHTML =
+                        pairCell(sid, key, pair.real, 'Real', pair.active === 'real' && !!pair.real, 'real') +
+                        pairCell(sid, key, pair.ai, 'AI', pair.active === 'ai' && !!pair.ai, 'ai');
+                    return true;
+                }
+
+                function applyResult(sid, key, d, extraMsg) {
                     if (!d || !d.success) return false;
 
-                    // Cache-bust the thumbnail only. data-full stays clean so the
-                    // viewer and the download link keep a tidy filename.
-                    var prev = document.getElementById(sid + '_prev');
-                    prev.innerHTML = '';
-                    var img = document.createElement('img');
-                    img.src = '/' + d.url + '?t=' + Date.now();
-                    img.setAttribute('data-full', '/' + d.url);
-                    img.setAttribute('data-name', d.filename);
-                    img.alt = '';
-                    img.title = 'Click to view full size';
-                    img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;';
-                    prev.appendChild(img);
+                    renderPrev(sid, key, d.pair);
 
                     // The row may not have had View/Download links yet (empty slot).
                     var acts = document.getElementById(sid + '_acts');
@@ -451,7 +498,7 @@
                         .catch(function () { return { error: 'The server did not return a valid response.' }; })
                         .then(function (d) {
                             zone.style.borderColor = '#d1d5db';
-                            if (!applyResult(sid, d)) {
+                            if (!applyResult(sid, zone.getAttribute('data-key'), d)) {
                                 setMeta(sid, (d && d.error) || 'Upload failed.', '#b91c1c');
                             }
                         });
@@ -465,6 +512,32 @@
                     var sid = openLink.getAttribute('data-sid');
                     var panel = document.getElementById(sid + '_ai');
                     panel.style.display = panel.style.display === 'none' ? '' : 'none';
+                });
+
+                // ── Switch which side (real/AI) is live, no new file involved ───────
+                document.addEventListener('click', function (e) {
+                    var link = e.target.closest ? e.target.closest('a.pd-set-active') : null;
+                    if (!link) return;
+                    e.preventDefault();
+                    var sid = link.getAttribute('data-sid');
+                    var key = link.getAttribute('data-key');
+                    var which = link.getAttribute('data-which');
+
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', 'set_active');
+                    fd.append('key', key);
+                    fd.append('which', which);
+
+                    setMeta(sid, 'Switching…', '#2563eb');
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            if (!applyResult(sid, key, d)) {
+                                setMeta(sid, (d && d.error) || 'Could not switch.', '#b91c1c');
+                            }
+                        });
                 });
 
                 // Generating never touches the live page — it produces a candidate you
@@ -551,13 +624,14 @@
                     fd.append('action', 'place_media');
                     fd.append('key', key);
                     fd.append('media', filename);
+                    fd.append('as', 'ai');
                     if (prop && prop.checked) fd.append('propagate', '1');
 
                     fetch('picdrop_api.php', { method: 'POST', body: fd })
                         .then(function (r) { return r.json(); })
                         .catch(function () { return { error: 'The server did not return a valid response.' }; })
                         .then(function (d) {
-                            if (!applyResult(sid, d)) {
+                            if (!applyResult(sid, key, d)) {
                                 status.textContent = (d && d.error) || 'Could not place that image.';
                                 status.style.color = '#b91c1c';
                                 return;
@@ -615,13 +689,14 @@
                     fd.append('action', 'place_media');
                     fd.append('key', key);
                     fd.append('media', filename);
+                    fd.append('as', 'real');
                     if (prop && prop.checked) fd.append('propagate', '1');
 
                     fetch('picdrop_api.php', { method: 'POST', body: fd })
                         .then(function (r) { return r.json(); })
                         .catch(function () { return { error: 'The server did not return a valid response.' }; })
                         .then(function (d) {
-                            if (!applyResult(sid, d)) {
+                            if (!applyResult(sid, key, d)) {
                                 setMeta(sid, (d && d.error) || 'Could not place that image.', '#b91c1c');
                             }
                         });
