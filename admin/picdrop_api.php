@@ -268,50 +268,13 @@ if ($action === 'adjust') {
     exit;
 }
 
-// ── PLACE AN IMAGE ───────────────────────────────────────────────────────────────
-if ($action !== 'place') pd_fail('Unknown action.');
-
-if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-    // A body over post_max_size arrives with $_POST and $_FILES both empty, so the
-    // generic "upload error" would be actively misleading here.
-    $err = $_FILES['file']['error'] ?? UPLOAD_ERR_NO_FILE;
-    pd_fail(match ($err) {
-        UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => 'That file is over the server upload limit.',
-        UPLOAD_ERR_PARTIAL                        => 'The upload was cut off before it finished.',
-        UPLOAD_ERR_NO_FILE                        => 'No file arrived.',
-        default                                   => 'Upload failed (code ' . $err . ').',
-    });
-}
-
-$tmpFile = $_FILES['file']['tmp_name'];
-// Only ever read a path PHP itself created for this request — never a path that
-// merely arrived in the request.
-if (!is_uploaded_file($tmpFile)) pd_fail('That upload did not come from this form.');
-
-$finfo   = new finfo(FILEINFO_MIME_TYPE);
-$mime    = (string) $finfo->file($tmpFile);
-if (!in_array($mime, ['image/jpeg', 'image/png', 'image/gif', 'image/webp'], true)) {
-    pd_fail('That is not a JPG, PNG, GIF or WebP.');
-}
-if ($_FILES['file']['size'] > 20 * 1024 * 1024) pd_fail('File too large (max 20 MB).');
-
-// Optional burn-in screen, before anything is written anywhere.
-$screened = null;
-if (!empty($_POST['screen'])) {
-    $words = pd_burnin_words($tmpFile);
-    if ($words === null) {
-        $screened = 'skipped — tesseract not available on this box';
-    } elseif ($words) {
-        pd_fail('Looks like this image has text burned into it ("'
-            . implode('", "', array_slice($words, 0, 4)) . '"). Not placed.');
-    } else {
-        $screened = 'no burned-in text detected';
-    }
-}
+// ── PLACE AN IMAGE (from an upload, an AI generation, or the existing library) ────
+if (!in_array($action, ['place', 'generate', 'place_media'], true)) pd_fail('Unknown action.');
 
 // The slot decides the output size: match whatever is in it now. Every slot already
 // holds a correctly-sized image, so this is self-configuring — no per-field size table
-// to write, and none to keep in sync when a template changes.
+// to write, and none to keep in sync when a template changes. Looked up first (before
+// spending anything on a paid AI call) so a stale/locked key fails fast.
 $groups  = picdrop_groups();
 $slot    = null;
 foreach ($groups as $g) {
@@ -323,14 +286,103 @@ if (!empty($slot['token'])) {
         . '. Replacing it with one file would pin every city to the same picture.');
 }
 
+$screened   = null;
+$prompt     = '';
+$cost       = null;
+$cleanupTmp = false;
+$baseName   = 'image';
+
+if ($action === 'place') {
+    if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+        // A body over post_max_size arrives with $_POST and $_FILES both empty, so the
+        // generic "upload error" would be actively misleading here.
+        $err = $_FILES['file']['error'] ?? UPLOAD_ERR_NO_FILE;
+        pd_fail(match ($err) {
+            UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE => 'That file is over the server upload limit.',
+            UPLOAD_ERR_PARTIAL                        => 'The upload was cut off before it finished.',
+            UPLOAD_ERR_NO_FILE                        => 'No file arrived.',
+            default                                   => 'Upload failed (code ' . $err . ').',
+        });
+    }
+
+    $tmpFile = $_FILES['file']['tmp_name'];
+    // Only ever read a path PHP itself created for this request — never a path that
+    // merely arrived in the request.
+    if (!is_uploaded_file($tmpFile)) pd_fail('That upload did not come from this form.');
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime  = (string) $finfo->file($tmpFile);
+    if (!in_array($mime, ['image/jpeg', 'image/png', 'image/gif', 'image/webp'], true)) {
+        pd_fail('That is not a JPG, PNG, GIF or WebP.');
+    }
+    if ($_FILES['file']['size'] > 20 * 1024 * 1024) pd_fail('File too large (max 20 MB).');
+    $baseName = pathinfo((string) $_FILES['file']['name'], PATHINFO_FILENAME);
+
+    // Optional burn-in screen, before anything is written anywhere.
+    if (!empty($_POST['screen'])) {
+        $words = pd_burnin_words($tmpFile);
+        if ($words === null) {
+            $screened = 'skipped — tesseract not available on this box';
+        } elseif ($words) {
+            pd_fail('Looks like this image has text burned into it ("'
+                . implode('", "', array_slice($words, 0, 4)) . '"). Not placed.');
+        } else {
+            $screened = 'no burned-in text detected';
+        }
+    }
+} elseif ($action === 'generate') {
+    require_once __DIR__ . '/../includes/openai_images.php';
+    $prompt = trim($_POST['prompt'] ?? '');
+    if ($prompt === '' || mb_strlen($prompt) > 2000) pd_fail('Enter a prompt (1-2000 chars).');
+    $ready = openai_images_ready();
+    if (!$ready['ok']) pd_fail($ready['error']);
+
+    $tw = (int) $slot['w']; $th = (int) $slot['h'];
+    $size = ($tw > 0 && $th > 0)
+        ? ($tw >= $th * 1.2 ? '1536x1024' : ($th >= $tw * 1.2 ? '1024x1536' : '1024x1024'))
+        : '1024x1024';
+
+    if (!empty($_POST['use_reference'])) {
+        $refPath = (!$slot['token'] && $slot['value'] !== '') ? picdrop_resolve($slot['value']) : null;
+        if ($refPath === null) {
+            pd_fail('This slot has no existing photo to use as a reference yet — generate or drop one first, or uncheck "Use current photo as reference."');
+        }
+        $r = openai_images_edit($prompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
+    } else {
+        $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
+    }
+    if (!$r['ok']) pd_fail('AI generation failed: ' . $r['error']);
+
+    $tmpFile    = tempnam(sys_get_temp_dir(), 'pdai');
+    file_put_contents($tmpFile, $r['bytes']);
+    $mime       = 'image/webp';
+    $cleanupTmp = true;
+    $cost       = openai_images_estimate_cost($size, 'medium');
+    $baseName   = 'ai';
+} else { // place_media — an existing file already in this site's media library
+    $mediaBase = basename((string) ($_POST['media'] ?? ''));
+    $candidate = MEDIA_DIR . $mediaBase;
+    // basename() above already strips any ../ traversal; is_file() then confirms it
+    // is a real file that actually lives in MEDIA_DIR, not merely named plausibly.
+    if ($mediaBase === '' || !is_file($candidate)) pd_fail('That library image could not be found.');
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime  = (string) $finfo->file($candidate);
+    if (!in_array($mime, ['image/jpeg', 'image/png', 'image/gif', 'image/webp'], true)) {
+        pd_fail('That library file is not a supported image type.');
+    }
+    $tmpFile  = $candidate;
+    $baseName = pathinfo($mediaBase, PATHINFO_FILENAME);
+}
+
 if (!is_dir(MEDIA_DIR)) mkdir(MEDIA_DIR, 0775, true);
 
-$base     = pathinfo((string) $_FILES['file']['name'], PATHINFO_FILENAME);
-$base     = strtolower(preg_replace('/[^a-z0-9_-]/i', '-', $base)) ?: 'image';
+$base     = strtolower(preg_replace('/[^a-z0-9_-]/i', '-', $baseName)) ?: 'image';
 $filename = $base . '_' . substr(md5(uniqid('', true)), 0, 6) . '.webp';
 $dest     = MEDIA_DIR . $filename;
 
 [$ok, $note] = img_fit_to($tmpFile, $dest, $mime, (int) $slot['w'], (int) $slot['h']);
+if ($cleanupTmp) @unlink($tmpFile);
 if (!$ok) pd_fail('Could not process that image.');
 
 /* Keep the full-size original so the picture can be re-cropped later. The slot file
@@ -362,6 +414,9 @@ media_register([
     // snapping back to centre.
     'origin'     => $origName,
     'adjust'     => ['zoom' => 1.0, 'fx' => 0.5, 'fy' => 0.5],
+    // Remembered so a future regenerate starts from the wording that was actually
+    // approved here, instead of a blank box.
+    'prompt'     => $prompt,
 ]);
 
 $newValue = UPLOAD_URL . 'media/' . $filename;
@@ -415,6 +470,8 @@ echo json_encode([
     'height'     => (int) $nh,
     'note'       => $note,
     'screened'   => $screened,
+    'prompt'     => $prompt,
+    'cost'       => $cost,
     'propagated' => $propagated,
     'templates'  => $templates,
     'og_updated' => $ogUpdated,

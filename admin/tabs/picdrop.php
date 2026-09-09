@@ -177,9 +177,32 @@
                                             &#128274; Set per city<br><span style="font-size:.72rem;">City Image plugin</span>
                                         </div>
                                     <?php else: ?>
-                                        <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
-                                             style="flex-shrink:0;width:210px;border:2px dashed #d1d5db;border-radius:7px;padding:14px 10px;text-align:center;cursor:pointer;font-size:.8rem;color:#6b7280;transition:border-color .15s,background .15s;">
-                                            Drop an image here<br><span style="font-size:.75rem;">or click to choose</span>
+                                        <?php $aiDefault = 'Photorealistic photo for: ' . $s['block_label'] . ' — ' . $s['label'] . '. Natural daylight, documentary photography style, no visible text or logos.'; ?>
+                                        <div style="flex-shrink:0;width:210px;">
+                                            <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
+                                                 style="border:2px dashed #d1d5db;border-radius:7px;padding:14px 10px;text-align:center;cursor:pointer;font-size:.8rem;color:#6b7280;transition:border-color .15s,background .15s;">
+                                                Drop an image here<br><span style="font-size:.75rem;">or click to choose</span>
+                                            </div>
+                                            <div style="display:flex;gap:12px;justify-content:center;margin-top:6px;font-size:.75rem;">
+                                                <a href="#" class="pd-lib-open" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>" style="color:#2563eb;text-decoration:none;">&#128193; Library</a>
+                                                <a href="#" class="pd-ai-open" data-sid="<?= $sid ?>" style="color:#2563eb;text-decoration:none;">&#10024; AI generate</a>
+                                            </div>
+                                            <div id="<?= $sid ?>_ai" style="display:none;margin-top:8px;">
+                                                <textarea id="<?= $sid ?>_ai_prompt" rows="4"
+                                                          style="width:100%;font-size:.74rem;padding:6px 7px;border:1px solid #d1d5db;border-radius:5px;box-sizing:border-box;resize:vertical;"><?= h($aiDefault) ?></textarea>
+                                                <?php if ($s['value'] !== '' && $s['exists']): ?>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:5px;font-size:.7rem;">
+                                                    <input type="checkbox" id="<?= $sid ?>_ai_ref">
+                                                    Use current photo as reference (same subject/style, apply the prompt as a change)
+                                                </label>
+                                                <?php endif; ?>
+                                                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
+                                                    <span class="hint" style="font-size:.7rem;">est. ~$0.04/try</span>
+                                                    <button type="button" class="btn btn-secondary" style="font-size:.72rem;padding:4px 12px;"
+                                                            onclick="pdGenerate('<?= h($s['key']) ?>','<?= $sid ?>')">Generate</button>
+                                                </div>
+                                                <div id="<?= $sid ?>_ai_status" class="hint" style="font-size:.72rem;margin-top:5px;"></div>
+                                            </div>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -242,6 +265,16 @@
                         <a id="pd-lb-dl" href="" download="" style="color:#93c5fd;text-decoration:none;">&#11015; Download</a>
                         <button type="button" id="pd-lb-close" style="background:none;border:1px solid #64748b;color:#e2e8f0;border-radius:5px;padding:3px 10px;cursor:pointer;font-size:.78rem;">Close (Esc)</button>
                     </div>
+                </div>
+            </div>
+
+            <div id="pd-lib" style="display:none;position:fixed;inset:0;z-index:9050;background:rgba(15,23,42,.85);align-items:center;justify-content:center;padding:24px;">
+                <div style="background:#fff;border-radius:10px;padding:18px;max-width:min(92vw,760px);width:100%;max-height:85vh;display:flex;flex-direction:column;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                        <div style="font-weight:700;color:#1e3a5f;">Choose from the media library</div>
+                        <button type="button" id="pd-lib-close" class="btn btn-secondary" style="font-size:.78rem;padding:4px 12px;">Close</button>
+                    </div>
+                    <div id="pd-lib-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;overflow-y:auto;"></div>
                 </div>
             </div>
 
@@ -351,6 +384,51 @@
                     if (el) { el.innerHTML = ''; el.textContent = text; el.style.color = colour || ''; }
                 }
 
+                // Shared by upload / AI-generate / library-pick — whichever source produced the
+                // final image, the slot updates the same way: new thumbnail, view/download
+                // links, and a result line. Keeping this in one place is what let the AI and
+                // library paths ride the same result-handling as an upload, instead of each
+                // reimplementing "how a slot looks once it's filled."
+                function applyResult(sid, d, extraMsg) {
+                    if (!d || !d.success) return false;
+
+                    // Cache-bust the thumbnail only. data-full stays clean so the
+                    // viewer and the download link keep a tidy filename.
+                    var prev = document.getElementById(sid + '_prev');
+                    prev.innerHTML = '';
+                    var img = document.createElement('img');
+                    img.src = '/' + d.url + '?t=' + Date.now();
+                    img.setAttribute('data-full', '/' + d.url);
+                    img.setAttribute('data-name', d.filename);
+                    img.alt = '';
+                    img.title = 'Click to view full size';
+                    img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;';
+                    prev.appendChild(img);
+
+                    // The row may not have had View/Download links yet (empty slot).
+                    var acts = document.getElementById(sid + '_acts');
+                    if (!acts) {
+                        acts = document.createElement('div');
+                        acts.id = sid + '_acts';
+                        acts.style.cssText = 'margin-top:5px;display:flex;gap:10px;font-size:.76rem;';
+                        var meta = document.getElementById(sid + '_meta');
+                        meta.parentNode.insertBefore(acts, meta.nextSibling);
+                    }
+                    acts.innerHTML =
+                        '<a href="#" data-view="/' + d.url + '" data-name="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>' +
+                        '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>';
+
+                    var msg = d.width + '×' + d.height + ' · ' + d.note + (extraMsg ? ' · ' + extraMsg : '');
+                    if (d.propagated) msg += ' · also applied to ' + d.propagated + ' other page' + (d.propagated === 1 ? '' : 's');
+                    if (d.templates)  msg += ' · ' + d.templates + ' landing template' + (d.templates === 1 ? '' : 's') + ' updated so a regen keeps it';
+                    if (d.og_updated) msg += ' · social image followed on ' + d.og_updated;
+                    if (d.screened)   msg += ' · ' + d.screened;
+                    if (d.errors && d.errors.length) msg += ' · ' + d.errors.length + ' write error(s): ' + d.errors[0];
+                    setMeta(sid, msg, d.errors && d.errors.length ? '#b45309' : '#15803d');
+                    markDirty();
+                    return true;
+                }
+
                 function upload(zone, file) {
                     var sid = zone.getAttribute('data-sid');
                     var slot = zone.closest('.pd-slot');
@@ -372,46 +450,119 @@
                         .catch(function () { return { error: 'The server did not return a valid response.' }; })
                         .then(function (d) {
                             zone.style.borderColor = '#d1d5db';
-                            if (!d || !d.success) {
+                            if (!applyResult(sid, d)) {
                                 setMeta(sid, (d && d.error) || 'Upload failed.', '#b91c1c');
-                                return;
                             }
-                            // Cache-bust the thumbnail only. data-full stays clean so the
-                            // viewer and the download link keep a tidy filename.
-                            var prev = document.getElementById(sid + '_prev');
-                            prev.innerHTML = '';
-                            var img = document.createElement('img');
-                            img.src = '/' + d.url + '?t=' + Date.now();
-                            img.setAttribute('data-full', '/' + d.url);
-                            img.setAttribute('data-name', d.filename);
-                            img.alt = '';
-                            img.title = 'Click to view full size';
-                            img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;';
-                            prev.appendChild(img);
-
-                            // The row may not have had View/Download links yet (empty slot).
-                            var acts = document.getElementById(sid + '_acts');
-                            if (!acts) {
-                                acts = document.createElement('div');
-                                acts.id = sid + '_acts';
-                                acts.style.cssText = 'margin-top:5px;display:flex;gap:10px;font-size:.76rem;';
-                                var meta = document.getElementById(sid + '_meta');
-                                meta.parentNode.insertBefore(acts, meta.nextSibling);
-                            }
-                            acts.innerHTML =
-                                '<a href="#" data-view="/' + d.url + '" data-name="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>' +
-                                '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>';
-
-                            var msg = d.width + '×' + d.height + ' · ' + d.note;
-                            if (d.propagated) msg += ' · also applied to ' + d.propagated + ' other page' + (d.propagated === 1 ? '' : 's');
-                            if (d.templates)  msg += ' · ' + d.templates + ' landing template' + (d.templates === 1 ? '' : 's') + ' updated so a regen keeps it';
-                            if (d.og_updated) msg += ' · social image followed on ' + d.og_updated;
-                            if (d.screened)   msg += ' · ' + d.screened;
-                            if (d.errors && d.errors.length) msg += ' · ' + d.errors.length + ' write error(s): ' + d.errors[0];
-                            setMeta(sid, msg, d.errors && d.errors.length ? '#b45309' : '#15803d');
-                            markDirty();
                         });
                 }
+
+                // ── AI generate ────────────────────────────────────────────────────
+                document.addEventListener('click', function (e) {
+                    var openLink = e.target.closest ? e.target.closest('a.pd-ai-open') : null;
+                    if (!openLink) return;
+                    e.preventDefault();
+                    var sid = openLink.getAttribute('data-sid');
+                    var panel = document.getElementById(sid + '_ai');
+                    panel.style.display = panel.style.display === 'none' ? '' : 'none';
+                });
+
+                window.pdGenerate = function (key, sid) {
+                    var promptBox = document.getElementById(sid + '_ai_prompt');
+                    var status    = document.getElementById(sid + '_ai_status');
+                    var prompt    = promptBox.value.trim();
+                    if (!prompt) { status.textContent = 'Enter a prompt first.'; status.style.color = '#b91c1c'; return; }
+
+                    var slot = promptBox.closest('.pd-slot');
+                    var prop = slot ? slot.querySelector('.pd-prop') : null;
+                    var ref  = document.getElementById(sid + '_ai_ref');
+
+                    status.textContent = 'Generating… (10-30s, real cost)';
+                    status.style.color = '#2563eb';
+
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', 'generate');
+                    fd.append('key', key);
+                    fd.append('prompt', prompt);
+                    if (prop && prop.checked) fd.append('propagate', '1');
+                    if (ref && ref.checked) fd.append('use_reference', '1');
+
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            if (!d || !d.success) {
+                                status.textContent = (d && d.error) || 'Generation failed.';
+                                status.style.color = '#b91c1c';
+                                return;
+                            }
+                            var costMsg = typeof d.cost === 'number' ? ('cost ~$' + d.cost.toFixed(3)) : '';
+                            applyResult(sid, d, costMsg);
+                            status.textContent = 'Placed. Not right? Edit the prompt above and generate again.';
+                            status.style.color = '#15803d';
+                        });
+                };
+
+                // ── Pick from the existing media library ────────────────────────────
+                var libModal = document.getElementById('pd-lib');
+                var libGrid  = document.getElementById('pd-lib-grid');
+                var libKey = null, libSid = null;
+
+                document.addEventListener('click', function (e) {
+                    var openLink = e.target.closest ? e.target.closest('a.pd-lib-open') : null;
+                    if (!openLink) return;
+                    e.preventDefault();
+                    libKey = openLink.getAttribute('data-key');
+                    libSid = openLink.getAttribute('data-sid');
+                    libGrid.innerHTML = '<p class="hint">Loading…</p>';
+                    libModal.style.display = 'flex';
+                    fetch('media_api.php?action=list')
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return []; })
+                        .then(function (items) {
+                            if (!Array.isArray(items) || !items.length) {
+                                libGrid.innerHTML = '<p class="hint">No images in the media library yet.</p>';
+                                return;
+                            }
+                            libGrid.innerHTML = '';
+                            items.forEach(function (it) {
+                                var cell = document.createElement('div');
+                                cell.style.cssText = 'cursor:pointer;border:1px solid #e5e7eb;border-radius:6px;overflow:hidden;';
+                                cell.innerHTML = '<img src="/' + it.url + '" style="width:100%;height:90px;object-fit:cover;display:block;">'
+                                    + '<div style="font-size:.68rem;color:#6b7280;padding:3px 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">' + it.filename + '</div>';
+                                cell.addEventListener('click', function () { pdPlaceMedia(it.filename); });
+                                libGrid.appendChild(cell);
+                            });
+                        });
+                });
+
+                function pdPlaceMedia(filename) {
+                    var key = libKey, sid = libSid;
+                    libModal.style.display = 'none';
+                    setMeta(sid, 'Placing…', '#2563eb');
+
+                    var slot = document.getElementById(sid + '_meta').closest('.pd-slot');
+                    var prop = slot ? slot.querySelector('.pd-prop') : null;
+
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', 'place_media');
+                    fd.append('key', key);
+                    fd.append('media', filename);
+                    if (prop && prop.checked) fd.append('propagate', '1');
+
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            if (!applyResult(sid, d)) {
+                                setMeta(sid, (d && d.error) || 'Could not place that image.', '#b91c1c');
+                            }
+                        });
+                }
+
+                document.getElementById('pd-lib-close').addEventListener('click', function () { libModal.style.display = 'none'; });
+                libModal.addEventListener('click', function (e) { if (e.target === libModal) libModal.style.display = 'none'; });
 
                 // ── Adjust view: zoom + pan ───────────────────────────────────────
                 // The rectangle worked out here is the SAME one img_source_rect() cuts

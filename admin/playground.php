@@ -476,6 +476,10 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
         };
         </script>
 
+        <h3 style="margin:24px 0 8px;">Reference: gpt-image-2, "happy technician" test</h3>
+        <a href="_labshots/happy_tech_test.webp" target="_blank"><img src="_labshots/happy_tech_test.webp" alt="gpt-image-2 happy technician test" style="max-width:480px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:8px;">Prompt: "Photorealistic photo of a happy, smiling technician in a plain uniform giving a thumbs up in front of a home water heater, natural daylight, documentary photography style, no visible text or logos, warm friendly expression, looking at the camera." Generated via this page's own module (medium quality, 1024×1024) — real hands, real smile, no visible logos. Kept here as the answer to "does it do happy technicians well."</p>
+
         <h3 style="margin:24px 0 8px;">Reference: FLUX.2 Realism LoRA — public demo output</h3>
         <a href="_labshots/ai_image_example_flux_realism.png" target="_blank"><img src="_labshots/ai_image_example_flux_realism.png" alt="FLUX.2 Realism LoRA example portrait" style="max-width:480px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
         <p class="note" style="margin-top:8px;">Prompt: "A portrait of a woman with natural lighting." Source: <a href="https://fal.ai/models/fal-ai/flux-2-lora-gallery/realism" target="_blank" rel="noopener">fal.ai/models/fal-ai/flux-2-lora-gallery/realism</a>. Kept here as a quality benchmark from a different provider (FLUX), for comparison against whatever OpenAI's module produces above.</p>
