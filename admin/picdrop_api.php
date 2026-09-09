@@ -419,6 +419,26 @@ media_register([
     'prompt'     => $prompt,
 ]);
 
+// An AI generation is not committed to the page yet — it stops here and hands back a
+// preview. The file is real and already in the media library (so "Use this" below is
+// just a place_media call), but nothing on the actual page changes until you say so.
+// Upload and library-pick stay immediate, same as always: you already saw that photo
+// before you chose it, so there's nothing new to review.
+if ($action === 'generate') {
+    echo json_encode([
+        'success'  => true,
+        'preview'  => true,
+        'url'      => UPLOAD_URL . 'media/' . $filename,
+        'filename' => $filename,
+        'width'    => (int) $nw,
+        'height'   => (int) $nh,
+        'note'     => $note,
+        'prompt'   => $prompt,
+        'cost'     => $cost,
+    ]);
+    exit;
+}
+
 $newValue = UPLOAD_URL . 'media/' . $filename;
 
 // Build the edit list: this slot, plus every other slot holding the same image in the

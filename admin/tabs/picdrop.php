@@ -196,12 +196,13 @@
                                                     Use current photo as reference (same subject/style, apply the prompt as a change)
                                                 </label>
                                                 <?php endif; ?>
-                                                <div style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
+                                                <div id="<?= $sid ?>_ai_btnrow" style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
                                                     <span class="hint" style="font-size:.7rem;">est. ~$0.04/try</span>
                                                     <button type="button" class="btn btn-secondary" style="font-size:.72rem;padding:4px 12px;"
                                                             onclick="pdGenerate('<?= h($s['key']) ?>','<?= $sid ?>')">Generate</button>
                                                 </div>
                                                 <div id="<?= $sid ?>_ai_status" class="hint" style="font-size:.72rem;margin-top:5px;"></div>
+                                                <div id="<?= $sid ?>_ai_preview" style="display:none;margin-top:8px;"></div>
                                             </div>
                                         </div>
                                     <?php endif; ?>
@@ -466,17 +467,24 @@
                     panel.style.display = panel.style.display === 'none' ? '' : 'none';
                 });
 
+                // Generating never touches the live page — it produces a candidate you
+                // review here first. Nothing is "placed" until you click Use this photo,
+                // so a bad result costs a re-roll, not a page that silently changed.
                 window.pdGenerate = function (key, sid) {
                     var promptBox = document.getElementById(sid + '_ai_prompt');
                     var status    = document.getElementById(sid + '_ai_status');
+                    var preview   = document.getElementById(sid + '_ai_preview');
+                    var btn       = document.getElementById(sid + '_ai_btnrow').querySelector('button');
                     var prompt    = promptBox.value.trim();
                     if (!prompt) { status.textContent = 'Enter a prompt first.'; status.style.color = '#b91c1c'; return; }
 
                     var slot = promptBox.closest('.pd-slot');
-                    var prop = slot ? slot.querySelector('.pd-prop') : null;
                     var ref  = document.getElementById(sid + '_ai_ref');
 
-                    status.textContent = 'Generating… (10-30s, real cost)';
+                    btn.disabled = true;
+                    preview.style.display = 'none';
+                    preview.innerHTML = '';
+                    status.textContent = 'Generating… (usually 10-60s, real cost)';
                     status.style.color = '#2563eb';
 
                     var fd = new FormData();
@@ -484,22 +492,80 @@
                     fd.append('action', 'generate');
                     fd.append('key', key);
                     fd.append('prompt', prompt);
-                    if (prop && prop.checked) fd.append('propagate', '1');
                     if (ref && ref.checked) fd.append('use_reference', '1');
 
                     fetch('picdrop_api.php', { method: 'POST', body: fd })
                         .then(function (r) { return r.json(); })
                         .catch(function () { return { error: 'The server did not return a valid response.' }; })
                         .then(function (d) {
+                            btn.disabled = false;
                             if (!d || !d.success) {
                                 status.textContent = (d && d.error) || 'Generation failed.';
                                 status.style.color = '#b91c1c';
                                 return;
                             }
                             var costMsg = typeof d.cost === 'number' ? ('cost ~$' + d.cost.toFixed(3)) : '';
-                            applyResult(sid, d, costMsg);
-                            status.textContent = 'Placed. Not right? Edit the prompt above and generate again.';
+                            status.textContent = 'Here\'s what came back' + (costMsg ? ' (' + costMsg + ')' : '') + ' — use it, or tweak the prompt and try again.';
+                            status.style.color = '#374151';
+
+                            var img = document.createElement('img');
+                            img.src = '/' + d.url + '?t=' + Date.now();
+                            img.style.cssText = 'width:100%;max-height:220px;object-fit:cover;border-radius:6px;border:1px solid #d1d5db;display:block;';
+                            var row = document.createElement('div');
+                            row.style.cssText = 'display:flex;gap:8px;margin-top:6px;';
+                            var useBtn = document.createElement('button');
+                            useBtn.type = 'button'; useBtn.className = 'btn btn-primary';
+                            useBtn.style.cssText = 'font-size:.72rem;padding:4px 12px;flex:1;';
+                            useBtn.textContent = '✓ Use this photo';
+                            useBtn.onclick = function () { pdUseGenerated(key, sid, d.filename); };
+                            var discardBtn = document.createElement('button');
+                            discardBtn.type = 'button'; discardBtn.className = 'btn btn-secondary';
+                            discardBtn.style.cssText = 'font-size:.72rem;padding:4px 12px;';
+                            discardBtn.textContent = 'Discard';
+                            discardBtn.onclick = function () {
+                                preview.style.display = 'none';
+                                preview.innerHTML = '';
+                                status.textContent = 'Discarded — edit the prompt and try again whenever you like.';
+                                status.style.color = '#6b7280';
+                            };
+                            row.appendChild(useBtn); row.appendChild(discardBtn);
+                            preview.appendChild(img); preview.appendChild(row);
+                            preview.style.display = '';
+                        });
+                };
+
+                // The candidate is already a real file in the media library (generate()
+                // saved it there) — using it is exactly the same call as picking one from
+                // the library, just skipping the picker grid.
+                window.pdUseGenerated = function (key, sid, filename) {
+                    var status  = document.getElementById(sid + '_ai_status');
+                    var preview = document.getElementById(sid + '_ai_preview');
+                    var slot    = document.getElementById(sid + '_ai').closest('.pd-slot');
+                    var prop    = slot ? slot.querySelector('.pd-prop') : null;
+
+                    status.textContent = 'Placing…';
+                    status.style.color = '#2563eb';
+
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', 'place_media');
+                    fd.append('key', key);
+                    fd.append('media', filename);
+                    if (prop && prop.checked) fd.append('propagate', '1');
+
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            if (!applyResult(sid, d)) {
+                                status.textContent = (d && d.error) || 'Could not place that image.';
+                                status.style.color = '#b91c1c';
+                                return;
+                            }
+                            status.textContent = 'Placed — see the picture on the left.';
                             status.style.color = '#15803d';
+                            preview.style.display = 'none';
+                            preview.innerHTML = '';
                         });
                 };
 
