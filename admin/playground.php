@@ -112,6 +112,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a href="#downloads-scott" style="color:#fcd34d;font-weight:700;">⬇ Downloads for Scott</a>
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
     <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
+    <a class="back" href="#ai-image-examples" style="color:#fd783b;">↓ AI image examples</a>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
     <a class="back" href="#logo-gen" style="color:#fd783b;">↓ Logo generator</a>
     <a class="back" href="#bug-icons" style="color:#fd783b;">↓ Bug icons</a>
@@ -364,6 +365,120 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
             });
         });
         </script>
+    </section>
+
+    <section id="ai-image-examples" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>AI image examples <span class="pill" style="background:#fef3c7;color:#92400e;border-color:#fde68a;">image-generation module wired up · not used in any build yet</span></h1>
+        <p class="sub">Evaluating whether AI-generated photos are a viable replacement for the fleet's shared stock-photo hero images — the idea being a genuinely unique image per domain instead of picking from a small rotating pool, the same reasoning that already made the map/chart images work.</p>
+
+        <?php $oaiKeyOk = defined('OPENAI_API_KEY') && OPENAI_API_KEY !== ''; ?>
+        <div style="display:flex;align-items:center;gap:8px;margin:16px 0;padding:12px 14px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;flex-wrap:wrap;">
+            <label style="font-size:.8rem;font-weight:600;color:#374151;white-space:nowrap;">OpenAI API Key</label>
+            <input type="password" id="oai-key-input" autocomplete="off" spellcheck="false"
+                   value="<?= $oaiKeyOk ? '••••••••••••••••••••••••' : '' ?>"
+                   placeholder="sk-…"
+                   style="flex:1;min-width:220px;padding:7px 10px;border:1px solid <?= $oaiKeyOk ? '#86efac' : '#fca5a5' ?>;border-radius:6px;font-size:.83rem;font-family:monospace;background:<?= $oaiKeyOk ? '#f0fdf4' : '#fff' ?>;">
+            <button type="button" onclick="oaiKeySave()" class="btn btn-secondary" style="font-size:.78rem;padding:6px 14px;white-space:nowrap;">Save Key</button>
+            <span id="oai-key-status" style="font-size:.78rem;color:#6b7280;"></span>
+            <?php if ($oaiKeyOk): ?>
+            <span style="font-size:.75rem;color:#16a34a;font-weight:600;">&#10003; Configured</span>
+            <?php else: ?>
+            <span style="font-size:.75rem;color:#dc2626;font-weight:600;">Not configured</span>
+            <?php endif; ?>
+        </div>
+
+        <h3 style="margin:16px 0 8px;">Generate a real sample</h3>
+        <p class="note" style="margin:0 0 10px;">Calls <code>includes/openai_images.php</code> → <code>admin/openai_image_generate.php</code> for real — this is a live paid API call, not a mock. Saved under <code>admin/_labshots/</code>, never into any site's <code>uploads/</code>.</p>
+        <form id="oai-gen-form" onsubmit="return oaiGenerate(event)" <?= $oaiKeyOk ? '' : 'style="opacity:.5;pointer-events:none;"' ?>>
+            <div class="form-group">
+                <label for="oai-prompt">Prompt</label>
+                <textarea id="oai-prompt" rows="3" style="width:100%;font-size:.85rem;padding:8px;border:1px solid #d1d5db;border-radius:6px;">Photorealistic photo of a technician in a plain uniform diagnosing a front-load washing machine in a home laundry room, kneeling at the open door, natural window light, documentary photography style, no visible text or logos, no brand names on the appliance, shot from the side so the face is not the focus.</textarea>
+            </div>
+            <div class="ai-trigger-row" style="display:flex;gap:12px;margin:10px 0;flex-wrap:wrap;">
+                <div class="form-group">
+                    <label for="oai-size">Size</label>
+                    <select id="oai-size">
+                        <option value="auto">auto</option>
+                        <option value="1536x1024" selected>1536×1024 (wide / hero)</option>
+                        <option value="1024x1536">1024×1536 (tall)</option>
+                        <option value="1024x1024">1024×1024 (square)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="oai-quality">Quality</label>
+                    <select id="oai-quality">
+                        <option value="auto">auto</option>
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="high" selected>high</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" id="oai-gen-btn" class="btn btn-primary" style="font-size:.85rem;">Generate image</button>
+            <span id="oai-gen-status" style="margin-left:10px;font-size:.8rem;color:#6b7280;"></span>
+        </form>
+        <div id="oai-gen-result" style="margin-top:14px;"></div>
+
+        <script>
+        window.oaiKeySave = function () {
+            var input  = document.getElementById('oai-key-input');
+            var status = document.getElementById('oai-key-status');
+            var key    = input.value.trim();
+            if (key === '••••••••••••••••••••••••') { status.textContent = 'No change.'; return; }
+            status.textContent = 'Saving…';
+            var fd = new FormData();
+            fd.append('csrf_token', <?= json_encode($csrf) ?>);
+            fd.append('api_key', key);
+            fetch('openai_key_save.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+                if (res.success) { status.textContent = 'Saved — reloading…'; setTimeout(function () { location.reload(); }, 800); }
+                else { status.textContent = res.error || 'Save failed.'; status.style.color = '#dc2626'; }
+            })
+            .catch(function (err) { status.textContent = 'Request failed: ' + err.message; status.style.color = '#dc2626'; });
+        };
+
+        window.oaiGenerate = function (ev) {
+            ev.preventDefault();
+            var btn    = document.getElementById('oai-gen-btn');
+            var status = document.getElementById('oai-gen-status');
+            var result = document.getElementById('oai-gen-result');
+            btn.disabled = true;
+            status.textContent = 'Generating… (can take 10-30s)';
+            result.innerHTML = '';
+
+            var fd = new FormData();
+            fd.append('csrf_token', <?= json_encode($csrf) ?>);
+            fd.append('prompt', document.getElementById('oai-prompt').value);
+            fd.append('size', document.getElementById('oai-size').value);
+            fd.append('quality', document.getElementById('oai-quality').value);
+
+            fetch('openai_image_generate.php', { method: 'POST', body: fd, credentials: 'same-origin' })
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+                btn.disabled = false;
+                if (res.success) {
+                    status.textContent = 'Done.';
+                    var revised = res.revised_prompt ? '<p class="note" style="margin-top:8px;"><strong>Model-revised prompt:</strong> ' + res.revised_prompt.replace(/</g, '&lt;') + '</p>' : '';
+                    result.innerHTML = '<a href="' + res.url + '" target="_blank"><img src="' + res.url + '?t=' + Date.now() + '" style="max-width:480px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>' + revised;
+                } else {
+                    status.textContent = '';
+                    status.style.color = '#dc2626';
+                    result.innerHTML = '<p class="note" style="color:#dc2626;">' + (res.error || 'Generation failed.').replace(/</g, '&lt;') + '</p>';
+                }
+            })
+            .catch(function (err) {
+                btn.disabled = false;
+                status.textContent = '';
+                result.innerHTML = '<p class="note" style="color:#dc2626;">Request failed: ' + err.message + '</p>';
+            });
+            return false;
+        };
+        </script>
+
+        <h3 style="margin:24px 0 8px;">Reference: FLUX.2 Realism LoRA — public demo output</h3>
+        <a href="_labshots/ai_image_example_flux_realism.png" target="_blank"><img src="_labshots/ai_image_example_flux_realism.png" alt="FLUX.2 Realism LoRA example portrait" style="max-width:480px;width:100%;border:1px solid #e5e7eb;border-radius:8px;display:block;"></a>
+        <p class="note" style="margin-top:8px;">Prompt: "A portrait of a woman with natural lighting." Source: <a href="https://fal.ai/models/fal-ai/flux-2-lora-gallery/realism" target="_blank" rel="noopener">fal.ai/models/fal-ai/flux-2-lora-gallery/realism</a>. Kept here as a quality benchmark from a different provider (FLUX), for comparison against whatever OpenAI's module produces above.</p>
     </section>
 
     <section id="preset-check" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">

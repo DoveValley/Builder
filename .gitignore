@@ -68,6 +68,12 @@ __pycache__/
 
 # Anthropic API key (secret — never commit)
 .ai_key
+
+# OpenAI API key (secret — never commit)
+.openai_key
+
+# Test Lab AI-image-generator output — throwaway, paid-API artifacts, not curated examples
+admin/_labshots/ai_generated_*
 config/plesk.json
 admin/infra/state/
 

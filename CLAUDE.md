@@ -161,6 +161,8 @@ write the module — do not inline "just this once".
 | Shared HTTP + call counting | `admin/infra/lib/http.php` |
 | FTP/SFTP upload | `includes/multisite/deploy.php` |
 | Geocoding | `includes/multisite/geocode.php` |
+| Anthropic (AI text content) | `includes/anthropic.php` |
+| OpenAI (AI image generation) | `includes/openai_images.php` |
 
 **Why, from this codebase.** Five places each ran their own "list the boxes, discover each, dig out
 the facts" loop and dug slightly differently — one counted the panel's own hostname vhost as a

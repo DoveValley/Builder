@@ -117,3 +117,11 @@ $_aiKey = file_exists($_aiKeyFile) ? trim(file_get_contents($_aiKeyFile)) : '';
 if ($_aiKey === '') $_aiKey = getenv('ANTHROPIC_API_KEY') ?: '';
 define('ANTHROPIC_API_KEY', $_aiKey);
 unset($_aiKey, $_aiKeyFile);
+
+// OpenAI API key (images.php module — AI-generated photo experiments). Same
+// file-then-env priority as the Anthropic key above, same reasoning.
+$_oaiKeyFile = __DIR__ . '/.openai_key';
+$_oaiKey = file_exists($_oaiKeyFile) ? trim(file_get_contents($_oaiKeyFile)) : '';
+if ($_oaiKey === '') $_oaiKey = getenv('OPENAI_API_KEY') ?: '';
+define('OPENAI_API_KEY', $_oaiKey);
+unset($_oaiKey, $_oaiKeyFile);
