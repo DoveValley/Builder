@@ -9,6 +9,7 @@
  * Expects: $csrfToken, $researchOn, $masterId
  */
 if (!isset($csrfToken)) return;
+require_once __DIR__ . '/../includes/multisite/page_pool.php';
 ?>
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
@@ -256,6 +257,28 @@ if (!isset($csrfToken)) return;
          * and uploads/downloads/site-network-five-facets.md, so the card and the write-up can't
          * describe the same work in two different vocabularies.
          */
+        // Real numbers for THIS master, not generic copy — same reasoning as every other
+        // card here ("checked against the master's own data, not assumed"). Degrades to a
+        // plain not-set-up line when a master hasn't adopted page pooling yet.
+        $ppCfg   = isset($masterId) ? ms_page_pool_config(BASE_DIR . '/sites/' . $masterId . '/data/keyword_map.json') : null;
+        $ppNote  = 'Fewer pages per site instead of every site shipping the master\'s full list — cuts doorway-page risk and stops the fleet looking like identical clones. Which pages are pinned, rotating, or skipped (and how many a site can land on) is set in the <strong>Keywords</strong> tab. <button type="button" onclick="document.getElementById(\'ms-pagepool-why\').showModal()" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:2px 10px;font-weight:600;font-size:.74rem;cursor:pointer;">How this works &rarr;</button>';
+        if ($ppCfg !== null) {
+            $ppPinned = count($ppCfg['pinned']);
+            $ppRotate = count($ppCfg['rotate']);
+            $ppSkip   = count($ppCfg['skip']);
+            $ppCounts = implode(' / ', $ppCfg['counts']);
+            $ppSubs = [
+                ["<strong>{$ppPinned}</strong> page(s) pinned — always included on every site", 'auto'],
+                ["<strong>{$ppRotate}</strong> page(s) in the rotation pool — remaining slots filled from these, picked by a hash of the domain", 'auto'],
+                ["<strong>{$ppSkip}</strong> page(s) skipped — never built for anyone", 'auto'],
+                ["Each site lands on <strong>{$ppCounts}</strong> pages total", 'auto'],
+                ["A domain's selection locks in on its first build — later changes to these numbers never move a page under an already-built site", 'auto'],
+            ];
+        } else {
+            $ppSubs = [
+                ['Not set up for this master yet — no page_pool.enabled flag in its keyword_map.json', 'todo'],
+            ];
+        }
         $msTree = [
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
              'groups' => [
@@ -339,13 +362,8 @@ if (!isset($csrfToken)) return;
                     ['Reuses the master\'s city research, not re-fetched per domain', 'auto'],
                  ]],
                 ['key' => 'pagepool', 'label' => 'Page pool', 'status' => 'live',
-                 'note' => 'Fewer pages per site instead of every site shipping the master\'s full list — cuts doorway-page risk and stops the fleet looking like identical clones. Which pages are pinned, rotating, or skipped (and how many a site can land on) is set in the <strong>Keywords</strong> tab. <button type="button" onclick="document.getElementById(\'ms-pagepool-why\').showModal()" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:2px 10px;font-weight:600;font-size:.74rem;cursor:pointer;">How this works &rarr;</button>',
-                 'subs' => [
-                    ['Pinned pages — always included on every site', 'auto'],
-                    ['Remaining slots filled from the rotation pool, picked by a hash of the domain — same site always gets the same fill on a rebuild', 'auto'],
-                    ['Pages marked Skip are never built for anyone', 'auto'],
-                    ['A domain\'s selection locks in on its first build — later changes to pool settings never move a page under an already-built site', 'auto'],
-                 ]],
+                 'note' => $ppNote,
+                 'subs' => $ppSubs],
              ]],
             // Not a peer of 1-3. Those are categories of what makes a site separate; this is
             // the constraint over all of them, and it runs last because it checks their output.

@@ -29,7 +29,8 @@
                 "shower mold removal",
                 "mold smell removal",
                 "musty odor removal"
-            ]
+            ],
+            "pool": "pinned"
         },
         {
             "primary": "mold damage restoration {city}, {ST}",
@@ -43,7 +44,8 @@
                 "structural drying",
                 "water damage mold",
                 "mold after water damage"
-            ]
+            ],
+            "pool": "pinned"
         },
         {
             "primary": "mold inspection {city}, {ST}",
@@ -55,7 +57,8 @@
                 "home mold inspection",
                 "mold inspection near me",
                 "mold assessment"
-            ]
+            ],
+            "pool": "pinned"
         },
         {
             "primary": "black mold removal {city}, {ST}",
@@ -69,7 +72,8 @@
                 "toxic mold removal",
                 "black mold in shower",
                 "black mold removal near me"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "mold testing {city}, {ST}",
@@ -81,7 +85,8 @@
                 "mold spore testing",
                 "mold sampling",
                 "mold lab testing"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "commercial mold remediation {city}, {ST}",
@@ -93,7 +98,8 @@
                 "business mold remediation",
                 "office mold removal",
                 "commercial mold removal near me"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "mold mitigation {city}, {ST}",
@@ -106,7 +112,8 @@
                 "emergency mold mitigation",
                 "mold containment",
                 "mold remediation vs mitigation"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "crawl space mold removal {city}, {ST}",
@@ -117,7 +124,8 @@
                 "crawl space mold remediation",
                 "mold in crawl space",
                 "crawl space mold removal near me"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "attic mold removal {city}, {ST}",
@@ -129,7 +137,8 @@
                 "attic mold treatment",
                 "mold in attic",
                 "attic mold removal near me"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "basement mold removal {city}, {ST}",
@@ -141,7 +150,8 @@
                 "basement mold treatment",
                 "mold in basement",
                 "basement mold removal near me"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "air conditioner mold removal {city}, {ST}",
@@ -154,7 +164,8 @@
                 "mold in air vents",
                 "air duct mold removal",
                 "ac mold removal near me"
-            ]
+            ],
+            "pool": "rotate"
         },
         {
             "primary": "mold prevention {city}, {ST}",
@@ -166,7 +177,8 @@
                 "moisture control",
                 "moisture detection",
                 "mold proofing"
-            ]
+            ],
+            "pool": "skip"
         },
         {
             "primary": "indoor air quality testing {city}, {ST}",
@@ -176,8 +188,17 @@
             "secondary": [
                 "air quality inspection",
                 "indoor air quality mold"
-            ]
+            ],
+            "pool": "skip"
         }
     ],
-    "updated_at": "2026-07-12T04:19:04+00:00"
+    "updated_at": "2026-07-12T04:19:04+00:00",
+    "page_pool": {
+        "enabled": true,
+        "counts": [
+            8,
+            10,
+            11
+        ]
+    }
 }

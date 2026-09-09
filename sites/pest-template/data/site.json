@@ -327,83 +327,6 @@
             "_ai_locked": true
         },
         {
-            "type": "service_cards",
-            "sc_badge": "PROFESSIONAL {city}, {SS} COMPANY",
-            "sc_heading": "",
-            "sc_cols": 4,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_badge_bg_custom": "#fd783b",
-            "sc_head_color_custom": "#120575",
-            "sc_icon_bg": "#fef0e7",
-            "sc_items": [
-                {
-                    "icon": "",
-                    "alt": "Roach control {city} {SS}",
-                    "heading": "Roach Control & Extermination in {city_state}",
-                    "text": "Cockroaches are stubborn invaders. Our experts use gel baiting, perimeter sprays, and entry-point sealing to eliminate them safely and effectively.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Ant control {city} {SS}",
-                    "heading": "Ant Control & Removal Solutions in {city_state}",
-                    "text": "We identify ant colonies and use proven baiting and barrier methods for lasting protection against fire ants, carpenter ants, and more.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Termite treatment {city} {SS}",
-                    "heading": "Termite Treatment & Prevention in {city_state}",
-                    "text": "Our termite specialists provide detailed inspections, baiting systems, and barrier applications to stop damage and prevent future infestations.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Rodent control {city} {SS}",
-                    "heading": "Rodent Control for Homes & Businesses in {city_state}",
-                    "text": "We offer trapping, exclusion, and sanitation to remove mice and rats, protecting your property and health from costly and unsafe damage.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Mosquito control {city} {SS}",
-                    "heading": "Mosquito Reduction Services in {city_state}",
-                    "text": "Using barrier sprays and larvicide treatments, we target breeding areas to cut mosquito populations and improve outdoor comfort.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Bed bug treatment {city} {SS}",
-                    "heading": "Bed Bug Inspection & Treatment in {city_state}",
-                    "text": "Our team uses heat and chemical treatments to completely remove bed bugs, ensuring your home is pest-free and your rest uninterrupted.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Flea tick control {city} {SS}",
-                    "heading": "Flea & Tick Removal Services in {city_state}",
-                    "text": "We apply indoor and outdoor treatments to eliminate fleas and ticks, keeping your pets and family safe all year long.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Wasp spider control {city} {SS}",
-                    "heading": "Wasp, Hornet & Spider Control in {city_state}",
-                    "text": "Our trained professionals remove nests and seal entry points to protect your home from stinging insects and venomous spiders.",
-                    "url": ""
-                },
-                {
-                    "icon": "",
-                    "alt": "Wildlife removal {city} {SS}",
-                    "heading": "Wildlife Removal & Exclusion in {city_state}",
-                    "text": "We humanely remove raccoons, opossums, and other wildlife, repairing and sealing entry areas to prevent their return.",
-                    "url": ""
-                }
-            ],
-            "skin": "subtle"
-        },
-        {
             "type": "wide_banner",
             "wb_badge": "{city}, {state}'S SPECIALISTS",
             "wb_heading": "Treated Once, Monitored After — Not a One-Off Spray",
@@ -673,8 +596,8 @@
                         "url": "/mosquito-control-{city_slug}"
                     },
                     {
-                        "label": "Bed Bug Treatment",
-                        "url": "/bed-bug-treatment-{city_slug}"
+                        "label": "Bed Bug Control",
+                        "url": "/bed-bug-control-{city_slug}"
                     },
                     {
                         "label": "Rat Exterminator",
