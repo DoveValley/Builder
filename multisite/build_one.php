@@ -36,6 +36,7 @@ require __DIR__ . '/../includes/multisite/visual.php';
 require __DIR__ . '/../includes/multisite/landing.php';
 require __DIR__ . '/../includes/multisite/geocode.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php';
+require_once __DIR__ . '/../includes/multisite/image_ai.php';
 require_once __DIR__ . '/../includes/multisite/seo_gate.php';
 require_once __DIR__ . '/../includes/multisite/class_vocab.php';
 require_once __DIR__ . '/../includes/multisite/cache_bust.php';
@@ -411,6 +412,22 @@ if ($skipped('images')) {
     // be impossible, so say it loudly rather than letting it pass as a normal run.
     if ($metaRes['remaining'] > 0) {
         progress_log("Images: {$metaRes['remaining']} image(s) STILL carry metadata after stripping — investigate before deploying.", 'warn');
+    }
+
+    // AI photo per domain — its own switch under Images, same reasoning as the metadata
+    // strip above: untick Images and this stops too. Only runs for slots that have a
+    // locked prompt (approved in Pic Drop); a master with none configured costs nothing.
+    // Real cost otherwise — a live paid call per slot per domain, cached after the first.
+    $aiImgRes = ['generated' => 0, 'cached' => 0, 'failed' => 0];
+    if ($skipped('images.ai_photos')) {
+        progress_log('Images: AI photo skipped — turned off for this run.', 'warn');
+    } else {
+        $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir);
+        if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
+            progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
+                . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',
+                $aiImgRes['failed'] ? 'warn' : 'info');
+        }
     }
 }
 

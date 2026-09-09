@@ -10,6 +10,7 @@
  */
 if (!isset($csrfToken)) return;
 require_once __DIR__ . '/../includes/multisite/page_pool.php';
+require_once __DIR__ . '/../includes/multisite/image_ai.php';
 ?>
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
@@ -279,6 +280,17 @@ require_once __DIR__ . '/../includes/multisite/page_pool.php';
                 ['Not set up for this master yet — no page_pool.enabled flag in its keyword_map.json', 'todo'],
             ];
         }
+        // Same "real numbers for THIS master" rule as page pool above. Cost shown up
+        // front rather than discovered on a bill: each locked slot is one real paid
+        // call PER DOMAIN the first time it's built, free on every rebuild after.
+        $aiImgMasterDir = isset($masterId) ? BASE_DIR . '/sites/' . $masterId : '';
+        $aiImgPrompts   = $aiImgMasterDir !== '' ? ms_image_ai_prompts_load($aiImgMasterDir) : [];
+        $aiImgCount     = count($aiImgPrompts);
+        $aiImgLabel = $aiImgCount > 0
+            ? "AI photo per domain — <strong>{$aiImgCount}</strong> slot(s) with an approved prompt from Pic Drop, ~\$0.04 each the first time a domain is built, free on every rebuild after"
+            : 'AI photo per domain — no prompts approved yet; go to Pic Drop, generate + confirm an AI photo for a home-page slot, and it appears here automatically';
+        $aiImgMode = $aiImgCount > 0 ? 'control' : 'todo';
+
         $msTree = [
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
              'groups' => [
@@ -345,6 +357,7 @@ require_once __DIR__ . '/../includes/multisite/page_pool.php';
                     ['Data charts from the research figures — 8 water restoration &middot; 7 pest &middot; 7 mold &middot; 4 appliance', 'auto'],
                     ['Caption under each graphic, phrasing varied per domain', 'auto'],
                     ['Chart rotation — which chart a page gets is picked per domain from its topic group', 'auto'],
+                    $aiImgMode === 'control' ? [$aiImgLabel, 'control', 'images.ai_photos'] : [$aiImgLabel, 'todo'],
                  ]],
              ]],
             ['section' => '3 &middot; Identity &amp; setup', 'facet' => 'Who the business is &mdash; already solved &mdash; plus what the run builds',

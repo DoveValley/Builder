@@ -368,11 +368,12 @@ if ($action === 'set_active') {
     pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null);
 }
 
-$screened   = null;
-$prompt     = '';
-$cost       = null;
-$cleanupTmp = false;
-$baseName   = 'image';
+$screened     = null;
+$prompt       = '';
+$sourcePrompt = '';
+$cost         = null;
+$cleanupTmp   = false;
+$baseName     = 'image';
 
 if ($action === 'place') {
     if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
@@ -455,6 +456,10 @@ if ($action === 'place') {
     }
     $tmpFile  = $candidate;
     $baseName = pathinfo($mediaBase, PATHINFO_FILENAME);
+    // The prompt lives on THIS file's media entry — place_media always re-crops into a
+    // new filename below, and that fresh copy has no prompt of its own to inherit it
+    // from, so it has to be read here, before the source is superseded.
+    $sourcePrompt = (string) (pd_media_for($mediaBase)['prompt'] ?? '');
 }
 
 if (!is_dir(MEDIA_DIR)) mkdir(MEDIA_DIR, 0775, true);
@@ -542,5 +547,17 @@ $pairsRow[$as]      = $newValue;
 $pairsRow['active'] = $as;
 $pairsAll[$key]     = $pairsRow;
 picdrop_pairs_save($pairsAll);
+
+// The moment an AI photo is confirmed, its prompt becomes this slot's standing
+// template for batch — see includes/multisite/image_ai.php. media_register() already
+// stored the prompt on the candidate when it was generated, so it's read back here
+// rather than threaded through a second time.
+if ($as === 'ai') {
+    require_once __DIR__ . '/../includes/multisite/image_ai.php';
+    $usedPrompt = $prompt !== '' ? $prompt : $sourcePrompt;
+    if ($usedPrompt !== '' && ACTIVE_SITE_DIR !== '') {
+        ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, $usedPrompt);
+    }
+}
 
 pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest);
