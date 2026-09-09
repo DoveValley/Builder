@@ -61,26 +61,6 @@ function picdrop_pairs_get(string $key): array {
     ];
 }
 
-/** Records $value on side $which ('real'|'ai') for $key and makes it the active side. */
-function picdrop_pairs_set(string $key, string $which, string $value): void {
-    if ($which !== 'real' && $which !== 'ai') return;
-    $all = picdrop_pairs_load();
-    $row = $all[$key] ?? ['real' => null, 'ai' => null, 'active' => 'real'];
-    $row[$which]  = $value;
-    $row['active'] = $which;
-    $all[$key] = $row;
-    picdrop_pairs_save($all);
-}
-
-/** Switches which side is active WITHOUT changing either stored path. */
-function picdrop_pairs_activate(string $key, string $which): void {
-    if ($which !== 'real' && $which !== 'ai') return;
-    $all = picdrop_pairs_load();
-    if (!isset($all[$key])) return;
-    $all[$key]['active'] = $which;
-    picdrop_pairs_save($all);
-}
-
 /**
  * The image fields Pic Drop manages, and the alt field each one pairs with.
  *
@@ -276,10 +256,56 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
 }
 
 /**
+ * One slot, by key — reads only the ONE file that key lives in, not the whole site.
+ *
+ * picdrop_api.php used to answer every single click (place, generate, switch, ...) by
+ * calling picdrop_groups(), which reads site.json AND every landing-page file on disk
+ * — dozens of files, for a site with any real number of pages — just to find the one
+ * slot the click was about. This is what that lookup should have been from the start:
+ * the key already says which scope/page/block/field it is, so go straight there.
+ *
+ * picdrop_groups() still exists for the tab's own page render, which legitimately
+ * needs everything at once to draw the whole list.
+ */
+function picdrop_find_slot(string $key): ?array {
+    $parts = picdrop_parse_key($key);
+    if ($parts === null) return null;
+
+    switch ($parts['scope']) {
+        case 'global':
+            $site = file_exists(DATA_FILE) ? (json_decode((string) file_get_contents(DATA_FILE), true) ?: []) : [];
+            $sl = $site['services_links'] ?? null;
+            $blocks = is_array($sl) ? [$sl + ['type' => 'links_grid']] : [];
+            break;
+        case 'home':
+            $site = file_exists(DATA_FILE) ? (json_decode((string) file_get_contents(DATA_FILE), true) ?: []) : [];
+            $blocks = $site['content_blocks'] ?? [];
+            break;
+        case 'core':
+            $site = file_exists(DATA_FILE) ? (json_decode((string) file_get_contents(DATA_FILE), true) ?: []) : [];
+            $blocks = $site['pages'][$parts['id']]['content_blocks'] ?? [];
+            break;
+        case 'landing':
+            $f = defined('PAGES_DIR') ? PAGES_DIR . basename($parts['id']) : null;
+            $page = $f !== null ? json_decode((string) @file_get_contents($f), true) : null;
+            $blocks = is_array($page) ? ($page['content_blocks'] ?? []) : [];
+            break;
+        default:
+            return null;
+    }
+
+    foreach (picdrop_slots_for_blocks($blocks, $parts['scope'], $parts['id']) as $s) {
+        if ($s['key'] === $key) return $s;
+    }
+    return null;
+}
+
+/**
  * Every page in the site, in display order, each with its picture slots.
  *
  * Order is Site-wide → Home → Core → Landing, which is how they nest conceptually
- * and matches how they are edited elsewhere in the admin.
+ * and matches how they are edited elsewhere in the admin. Used by the tab's own page
+ * render, which needs everything; a single write only ever needs picdrop_find_slot().
  */
 function picdrop_groups(): array {
     $site = file_exists(DATA_FILE)

@@ -39,10 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $gParts  = picdrop_parse_key($gKey);
     if ($gParts === null) pd_fail('Unrecognised slot.');
 
-    $gSlot = null;
-    foreach (picdrop_groups() as $g) {
-        foreach ($g['slots'] as $s) { if ($s['key'] === $gKey) { $gSlot = $s; break 2; } }
-    }
+    $gSlot = picdrop_find_slot($gKey);
     if ($gSlot === null || $gSlot['value'] === '' || !empty($gSlot['token'])) {
         pd_fail('Nothing croppable in that slot.');
     }
@@ -175,10 +172,7 @@ function pd_crop_source(array $slot): array {
 
 // ── ADJUST: RE-CROP AN EXISTING SLOT ─────────────────────────────────────────────
 if ($action === 'adjust') {
-    $slot = null;
-    foreach (picdrop_groups() as $g) {
-        foreach ($g['slots'] as $s) { if ($s['key'] === $key) { $slot = $s; break 2; } }
-    }
+    $slot = picdrop_find_slot($key);
     if ($slot === null)            pd_fail('That slot no longer exists — reload the tab.');
     if (!empty($slot['token']))    pd_fail('This slot is filled per city and cannot be cropped here.');
     if ($slot['value'] === '')     pd_fail('There is no picture in this slot yet.');
@@ -275,11 +269,7 @@ if (!in_array($action, ['place', 'generate', 'place_media', 'set_active'], true)
 // holds a correctly-sized image, so this is self-configuring — no per-field size table
 // to write, and none to keep in sync when a template changes. Looked up first (before
 // spending anything on a paid AI call) so a stale/locked key fails fast.
-$groups  = picdrop_groups();
-$slot    = null;
-foreach ($groups as $g) {
-    foreach ($g['slots'] as $s) { if ($s['key'] === $key) { $slot = $s; break 2; } }
-}
+$slot = picdrop_find_slot($key);
 if ($slot === null) pd_fail('That slot no longer exists — reload the tab.');
 if (!empty($slot['token'])) {
     pd_fail('This slot is filled per city from ' . $slot['value']
@@ -368,12 +358,13 @@ function pd_commit(
 if ($action === 'set_active') {
     $which = (string) ($_POST['which'] ?? '');
     if ($which !== 'real' && $which !== 'ai') pd_fail('Choose real or ai.');
-    $pair   = picdrop_pairs_get($key);
-    $target = $pair[$which] ?? null;
+    $pairsAll = picdrop_pairs_load();
+    $target   = $pairsAll[$key][$which] ?? null;
     if ($target === null || $target === '') {
         pd_fail('There is no ' . ($which === 'ai' ? 'AI' : 'real') . ' photo saved for this slot yet.');
     }
-    picdrop_pairs_activate($key, $which);
+    $pairsAll[$key]['active'] = $which;
+    picdrop_pairs_save($pairsAll);
     pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null);
 }
 
@@ -536,6 +527,20 @@ $newValue = UPLOAD_URL . 'media/' . $filename;
 // (you already saw it — it's an ordinary photo) unless the caller says otherwise, which
 // is how "Use this photo" on an AI candidate reuses this exact same action as "ai".
 $as = $action === 'place' ? 'real' : (($_POST['as'] ?? 'real') === 'ai' ? 'ai' : 'real');
-picdrop_pairs_set($key, $as, $newValue);
+
+$pairsAll = picdrop_pairs_load();
+$pairsRow = $pairsAll[$key] ?? ['real' => null, 'ai' => null, 'active' => 'real'];
+// A slot this feature has never touched still has its one real photo sitting in the
+// block field itself. The first time an AI photo is used on such a slot, capture that
+// existing photo as the Real side BEFORE it gets overwritten below — otherwise the
+// photo that was already there simply disappears, which is exactly backwards from the
+// point of keeping both.
+if ($as === 'ai' && $pairsRow['real'] === null && $slot['value'] !== '' && $slot['value'] !== $newValue) {
+    $pairsRow['real'] = $slot['value'];
+}
+$pairsRow[$as]      = $newValue;
+$pairsRow['active'] = $as;
+$pairsAll[$key]     = $pairsRow;
+picdrop_pairs_save($pairsAll);
 
 pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest);
