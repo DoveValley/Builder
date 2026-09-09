@@ -26,7 +26,7 @@ if (!in_array($size, $allowedSizes, true)) $size = 'auto';
 
 $quality = trim($_POST['quality'] ?? '');
 $allowedQuality = ['auto', 'low', 'medium', 'high'];
-if (!in_array($quality, $allowedQuality, true)) $quality = 'auto';
+if (!in_array($quality, $allowedQuality, true)) $quality = 'medium';
 
 $r = openai_images_generate($prompt, [
     'size'           => $size,

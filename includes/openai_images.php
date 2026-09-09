@@ -10,7 +10,7 @@
 
 if (!defined('OPENAI_IMAGES_API_URL')) define('OPENAI_IMAGES_API_URL', 'https://api.openai.com/v1/images/generations');
 /** Centralized so a model rename is a one-line change here, not a hunt through callers. */
-if (!defined('OPENAI_IMAGE_MODEL')) define('OPENAI_IMAGE_MODEL', 'gpt-image-2.5-sunburst');
+if (!defined('OPENAI_IMAGE_MODEL')) define('OPENAI_IMAGE_MODEL', 'gpt-image-2');
 
 /** The configured key, or '' when the factory has not been given one. */
 function openai_images_key(): string

@@ -409,8 +409,8 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                     <select id="oai-quality">
                         <option value="auto">auto</option>
                         <option value="low">low</option>
-                        <option value="medium">medium</option>
-                        <option value="high" selected>high</option>
+                        <option value="medium" selected>medium</option>
+                        <option value="high">high</option>
                     </select>
                 </div>
             </div>
