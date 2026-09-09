@@ -427,6 +427,9 @@ if ($skipped('images')) {
             progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
                 . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',
                 $aiImgRes['failed'] ? 'warn' : 'info');
+            foreach ($aiImgRes['errors'] ?? [] as $aiImgErr) {
+                progress_log("Images: AI photo — $aiImgErr", 'warn');
+            }
         }
     }
 }

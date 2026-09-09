@@ -23,6 +23,10 @@ sites/*/multisite/*
 # text, no secrets — but had no exception carved out at all, so appliance-site's
 # and granitepmacademy's copies existed on disk with zero git history.
 !sites/*/multisite/archetypes.json
+# image_prompts.json (per-master AI-photo prompt templates, captured automatically from
+# Pic Drop — see includes/multisite/image_ai.php) is the same story again: prompt text,
+# no secrets, real config that would otherwise have zero git history by the same omission.
+!sites/*/multisite/image_prompts.json
 
 # Multisite batch data — params.csv carries ftp_pass in plaintext, plus run logs.
 # Same fail-safe rule: the whole dir, so nothing added later can leak either.
