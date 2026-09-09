@@ -20,5 +20,47 @@
         },
         "requires_research": false,
         "prompt_skeleton": "You are writing a \"common problems we fix\" section for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nfc_heading: 5-9 words. If {brand} and {appliance_type} are given, use them, e.g. \"Common {brand} {appliance_type} Problems We Fix\"; otherwise \"{service} Problems We Fix\".\n\nWrite exactly 6 columns, each a REAL, common fault a homeowner would actually experience with a {brand} {appliance_type} (or with {service} in general if brand/appliance are blank):\n- heading: the symptom in the homeowner's own words, 2-5 words (e.g. \"Not Cooling\", \"Won't Drain\", \"Leaking Water\", \"Not Heating\", \"Loud or Vibrating\", \"Won't Start\", \"Not Spinning\", \"Error Code on Display\").\n- text: 18-30 words naming the likely causes in plain language, noting that the local provider {business} connects you with diagnoses and repairs it. Keep each column about a DIFFERENT failure.\n\nChoose problems genuinely typical for that brand and appliance. Do NOT invent specific model numbers, exact error codes, or statistics.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, ... exactly 6 objects ...]}\n\nRelated search terms for this page: {secondary_keywords}. Where it reads naturally, work a few of these variant phrasings into the copy — never keyword-stuff; skip any that don't fit."
+    },
+    "brand_type_breakdown": {
+        "label": "Brand's Appliance Types (tabbed breakdown)",
+        "description": "Replaces a brand page's old link-grid to now-deleted per-type combination pages. One tab per real appliance type this brand makes (from seo.appliance_types), each with brand-specific repair detail written directly onto this page instead of a separate thin page.",
+        "ai_mode": "standalone",
+        "ai_render_as": "tab_services",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "ts_heading": "string",
+            "ts_tabs": "array"
+        },
+        "default_fields": {
+            "ts_badge1": "",
+            "ts_badge2": "",
+            "ts_active_bg": "header",
+            "ts_tabs": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a tabbed \"appliance types we service\" section for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service} ({brand} appliance repair).\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it.\n\nThe appliance types {brand} makes, which this brand page must cover, ONE TAB EACH, in this exact order, no more, no fewer: {appliance_types}\n\nts_heading: 5-9 words, e.g. \"{brand} Appliances We Service\".\n\nFor each type listed, write one tab:\n- label: just the type name, e.g. \"Refrigerator\", \"Washer\" (title case, 1-2 words).\n- desc: 30-45 words of REAL, brand-relevant detail about {brand} repair specifically FOR THAT TAB'S OWN TYPE — what tends to go wrong on this brand's models of that type, what the local provider {business} connects you with actually checks or fixes. Do not repeat the same sentence structure across tabs, and do not blur two types together in one tab. Plain text only, no HTML tags.\n\nChoose brand-typical detail. Do NOT invent specific model numbers, exact error codes, or statistics.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"ts_heading\": \"...\", \"ts_tabs\": [{\"label\": \"...\", \"desc\": \"...\"}, ... one object per type listed above, same order ...]}"
+    },
+    "type_brands_mention": {
+        "label": "Type Page's Brand Breadth (short mention)",
+        "description": "Replaces a type page's old link-grid to now-deleted per-brand combination pages with a short, plain mention of which brands are serviced — deliberately lighter than brand_type_breakdown, since a repair page's process doesn't actually change by brand.",
+        "ai_mode": "standalone",
+        "ai_render_as": "text",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "heading_text": "string",
+            "text": "html_string"
+        },
+        "default_fields": {
+            "skin": "light",
+            "heading_level": "h2"
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a short \"brands we service\" note for {business}, [[brief.business_descriptor]], on a {city}, {state} page about {service}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must stay the clear subject; this section is a brief mention, not a new topic.\n\nheading_text (H2): 4-8 words, e.g. \"Brands We Service\".\n\ntext: exactly 1 short paragraph, 40-60 words, plainly stating that the local providers {business} connects you with handle {service} across major brands, naming several from this real list: {brands_serviced}. Do not invent brands not on that list. Do not go into brand-specific detail — that's covered elsewhere; this is a brief breadth statement only.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nWrap the paragraph in <p>...</p>.\n\nReturn JSON only: {\"heading_text\": \"...\", \"text\": \"<p>...</p>\"}"
     }
 }

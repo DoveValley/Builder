@@ -111,7 +111,7 @@
             "skin": "",
             "hs_heading": "Appliance Repair in {city_state}",
             "hs_tagline": "",
-            "hs_subtext": "<p>In Lufkin and nearby communities like Crown Colony and Fuller Springs, a broken refrigerator or washer demands quick attention, and our technicians can reach your home promptly to diagnose the problem. We specialize in repairing the major appliances found in most local households, getting them back to working order so your household routines stay on track. Rather than replacing a serviceable unit, a straightforward repair often restores function at a fraction of the cost.</p>",
+            "hs_subtext": "<p>In Lufkin and surrounding East Texas communities, a broken refrigerator or washing machine demands quick attention, and local repair providers in our network can often reach your home within hours to service the major brands found in most regional households. Wells Appliance Repair connects you directly with independent local technicians ready to diagnose and fix the specific problem keeping your appliance down. Getting your refrigerator, oven, dishwasher, or washer back online typically costs less and takes far less time than replacement, and working with a local provider means support from someone who knows the area.</p>",
             "hs_btn_text": "Call {phone}",
             "hs_btn_url": "tel:{tel}",
             "hs_btn2_text": "",
@@ -130,11 +130,12 @@
             "ai_model": "claude-haiku-4-5-20251001",
             "_ai_locked": true,
             "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:14:27.049353Z",
+            "_ai_generated_at": "2026-09-09T00:08:17.163233Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "id": "hero_split_1",
-            "_ai_input_hash": "9f9ffdd8212d4d04"
+            "_ai_input_hash": "8ef5fcec14495715",
+            "_ai_injected_count": 1
         },
         {
             "type": "trust_bar",
@@ -192,134 +193,16 @@
             "ai_inject_target": "previous",
             "ai_inject_field": "",
             "ai_inject_mode": "append",
-            "heading_text": "Serving Lufkin and the Surrounding Communities",
+            "heading_text": "Appliance Repair Across Lufkin and Surrounding Communities",
             "heading_level": "h2",
-            "text": "<p>Lufkin's mix of established neighborhoods and newer residential areas means appliance repair needs vary across town. In older, tree-lined sections like Crown Colony and Fuller Springs, homes often feature vintage construction and mature yards that can add travel time during service calls. Newer subdivisions tend to have wider streets and more predictable layouts, which helps our technicians reach you quickly. Regardless of location, homes throughout the Lufkin area commonly rely on the same major appliance brands, so we're familiar with what's in your kitchen and laundry room.</p><p>East Texas weather—humid summers and occasional freeze cycles—puts particular strain on refrigerators, air-conditioning units, and water heaters. Whether you're calling about a failing dishwasher or an oven that won't heat, we understand the urgency of getting your home back to normal. Our local knowledge of how Lufkin properties are laid out means we can often schedule same-day or next-day home appliance repair visits, though availability depends on current demand. When your appliance needs attention, we're here to handle the work without the hassle.</p>",
+            "text": "<p>Lufkin's mix of established neighborhoods and newer residential areas means appliance repair needs vary by location. Homes in older sections like Downtown Lufkin often feature mature landscaping and vintage construction, which can sometimes add travel time for technicians navigating tree-lined streets and smaller lot layouts. Newer developments tend to have more direct access and shorter service windows. Wells Appliance Repair connects you with independent local providers familiar with both setting types, so response times stay quick whether your home sits in a densely treed pocket or a more open subdivision.</p><p>The East Texas climate—hot summers and occasional freeze cycles—puts consistent wear on refrigeration, HVAC components, and water heaters across all Lufkin neighborhoods. Older homes commonly run established appliance brands that require specialized knowledge, while newer construction may feature different equipment. Local providers in the network understand what typical households in the Lufkin area depend on and can often reach you promptly. When your appliance fails, having access to a nearby independent technician who knows the region makes the repair process straightforward and less disruptive to your home.</p>",
             "_ai_locked": true,
             "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:14:44.619376Z",
+            "_ai_generated_at": "2026-09-09T00:08:21.504731Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "local_relevance",
             "id": "ai_block_3",
-            "_ai_input_hash": "f048b997f542d6da"
-        },
-        {
-            "type": "service_cards",
-            "sc_badge": "APPLIANCE REPAIR IN {city}, {SS}",
-            "sc_heading": "Appliances We Repair in {city_state}",
-            "sc_cols": 3,
-            "sc_badge_bg": "accent",
-            "sc_head_color": "header",
-            "sc_icon_bg": "#eef4fb",
-            "sc_items": [
-                {
-                    "icon": "",
-                    "alt": "Cooktop Repair in {city_state}",
-                    "heading": "Cooktop Repair in {city_state}",
-                    "text": "Cracked glass, dead zones, and induction or gas burners that cut out under load.",
-                    "url": "/cooktop-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Dishwasher Repair in {city_state}",
-                    "heading": "Dishwasher Repair in {city_state}",
-                    "text": "Dishes coming out dirty, water left standing, or a door that won’t latch or seal.",
-                    "url": "/dishwasher-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Dryer Repair in {city_state}",
-                    "heading": "Dryer Repair in {city_state}",
-                    "text": "No heat, long drying times, or a drum that won’t turn — including vent and airflow faults.",
-                    "url": "/dryer-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Freezer Repair in {city_state}",
-                    "heading": "Freezer Repair in {city_state}",
-                    "text": "Frost build-up, warm compartments, and freezers that run without ever reaching temperature.",
-                    "url": "/freezer-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Garbage Disposal Repair in {city_state}",
-                    "heading": "Garbage Disposal Repair in {city_state}",
-                    "text": "Jams, humming without grinding, leaks at the flange, and units that trip out.",
-                    "url": "/garbage-disposal-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Ice Machine Repair in {city_state}",
-                    "heading": "Ice Machine Repair in {city_state}",
-                    "text": "Low output, cloudy or hollow ice, and machines that stop cycling altogether.",
-                    "url": "/ice-machine-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Ice Maker Repair in {city_state}",
-                    "heading": "Ice Maker Repair in {city_state}",
-                    "text": "Refrigerator ice makers that stop producing, overfill, or freeze up in the chute.",
-                    "url": "/ice-maker-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Outdoor Grill Repair in {city_state}",
-                    "heading": "Outdoor Grill Repair in {city_state}",
-                    "text": "Ignition failures, uneven heat and gas supply faults on built-in outdoor grills.",
-                    "url": "/outdoor-grill-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Oven Repair in {city_state}",
-                    "heading": "Oven Repair in {city_state}",
-                    "text": "Uneven baking, a burnt-out element, or an oven that won’t reach temperature.",
-                    "url": "/oven-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Range Repair in {city_state}",
-                    "heading": "Range Repair in {city_state}",
-                    "text": "Burners, elements and controls on gas and electric ranges, including ignition faults.",
-                    "url": "/range-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Refrigerator Repair in {city_state}",
-                    "heading": "Refrigerator Repair in {city_state}",
-                    "text": "Not cooling, leaking, or running constantly — diagnosed and repaired on all major brands.",
-                    "url": "/refrigerator-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Stove Repair in {city_state}",
-                    "heading": "Stove Repair in {city_state}",
-                    "text": "Burners that won’t light, weak flame, or controls that no longer respond.",
-                    "url": "/stove-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Trash Compactor Repair in {city_state}",
-                    "heading": "Trash Compactor Repair in {city_state}",
-                    "text": "Rams that stick, drawers that jam, and compactors that no longer complete a cycle.",
-                    "url": "/trash-compactor-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Washer Repair in {city_state}",
-                    "heading": "Washer Repair in {city_state}",
-                    "text": "Won’t drain, won’t spin, or leaking mid-cycle. Most washer faults are fixed in one visit.",
-                    "url": "/washer-repair-{city_slug}"
-                },
-                {
-                    "icon": "",
-                    "alt": "Wine Cooler Repair in {city_state}",
-                    "heading": "Wine Cooler Repair in {city_state}",
-                    "text": "Temperature drift, compressor faults, and door seals that let the cabinet warm.",
-                    "url": "/wine-cooler-repair-{city_slug}"
-                }
-            ],
-            "skin": "subtle",
-            "anchor": "services"
+            "_ai_input_hash": "934b83ae31905e79"
         },
         {
             "type": "ai_block",
@@ -329,37 +212,38 @@
             "fc_num_cols": 3,
             "columns": [
                 {
-                    "heading": "Not Cooling Properly",
-                    "text": "Refrigerators often lose cooling due to dirty coils, faulty thermostats, or compressor issues. Our Lufkin appliance repair technicians diagnose the root cause and restore your fridge's performance quickly."
+                    "heading": "Refrigerator Not Cooling",
+                    "text": "A warm fridge often stems from a faulty compressor, dirty coils, or a failed thermostat. The local appliance repair providers Wells Appliance Repair connects you with will diagnose the cause and restore proper cooling."
                 },
                 {
-                    "heading": "Won't Drain Water",
-                    "text": "Washers and dishwashers frequently clog from debris or pump failures. Wells Appliance Repair's same-day service clears blockages and repairs drainage systems to get your appliance working again."
+                    "heading": "Washer Won't Drain",
+                    "text": "Standing water in your drum usually means a clogged drain hose, stuck pump, or faulty lid switch. Our network of independent local technicians can clear the blockage or replace the worn part quickly."
                 },
                 {
-                    "heading": "Not Heating Up",
-                    "text": "Electric or gas ovens may fail to reach temperature due to broken heating elements or faulty ignitors. Our experienced technicians identify and replace defective components to restore cooking function."
+                    "heading": "Dishwasher Leaking Water",
+                    "text": "Leaks typically come from a worn door gasket, cracked tub, or loose inlet valve connection. The home appliance repair specialists we connect you with will pinpoint the source and fix it to prevent water damage."
                 },
                 {
-                    "heading": "Leaking Water",
-                    "text": "Water pooling under washers, dishwashers, or refrigerators typically signals worn seals, cracked hoses, or loose connections. We locate leaks and repair them before water damage spreads."
+                    "heading": "Oven Not Heating",
+                    "text": "A cold oven may have a broken heating element, faulty thermostat, or igniter failure. Local appliance repair providers in our network can test and replace components to get your oven baking again."
                 },
                 {
-                    "heading": "Won't Start or Run",
-                    "text": "Appliances that won't power on may have electrical issues, failed door latches, or control board problems. Our home appliance repair service diagnoses electrical faults and gets your unit operational."
+                    "heading": "Dryer Not Spinning",
+                    "text": "A drum that won't turn often indicates a worn belt, broken idler pulley, or motor issue. The independent technicians Wells Appliance Repair connects you with can restore tumble action and even same-day service is often available."
                 },
                 {
-                    "heading": "Making Loud Noises",
-                    "text": "Grinding, squealing, or thumping sounds often indicate worn drums, bearings, or motor issues in washers and dryers. Wells Appliance Repair replaces damaged parts to eliminate noise and prevent further damage."
+                    "heading": "Error Code on Display",
+                    "text": "Control board errors vary widely and require proper diagnosis to avoid unnecessary part replacement. Local appliance repair providers we work with can read fault codes and perform targeted repairs safely and efficiently."
                 }
             ],
             "fc_heading": "Common Appliance Problems We Fix",
             "_ai_generated": true,
-            "_ai_generated_at": "2026-08-23T15:14:49.508466Z",
+            "_ai_generated_at": "2026-09-09T00:06:51.608855Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "common_problems",
-            "_ai_input_hash": "427300fcad380ca6",
-            "_ai_locked": true
+            "_ai_input_hash": "4b962745d052fa2e",
+            "_ai_locked": true,
+            "id": "ai_block_common_problems"
         },
         {
             "type": "steps",
@@ -486,7 +370,7 @@
         "meta_description": "Appliance repair in {city_state} from {business} — all major brands, same-day service, warranty-backed repairs. Call {phone}.",
         "meta_keywords": "appliance repair {city} {SS}, appliance repair near me {city}",
         "og_title": "Appliance Repair in {city_state} | {business}",
-        "og_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. Factory-trained, same-day, warranty. Call {phone}.",
+        "og_description": "Appliance repair in {city_state} from {business}. All major brands and appliances — refrigerators, washers, dryers, ovens, and more. same-day, warranty. Call {phone}.",
         "og_image": "",
         "og_image_alt": "",
         "bc_hide": false,
@@ -499,7 +383,7 @@
         "twitter_handle": "",
         "og_type": "website",
         "robots_noindex": false,
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} provides appliance repair across {city_state} — all major brands and appliances, factory-trained technicians, same-day service, and warranty-backed repairs.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"addressLocality\": \"{city}\",\n                \"addressRegion\": \"{SS}\",\n                \"postalCode\": \"{zip}\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}"
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} provides appliance repair across {city_state} — all major brands and appliances, same-day service, and warranty-backed repairs.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Fr 08:00-18:00, Sa 09:00-13:00\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"addressLocality\": \"{city}\",\n                \"addressRegion\": \"{SS}\",\n                \"postalCode\": \"{zip}\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}"
     },
     "footer": {
         "logo": "uploads/logo_wells-appliance-repair.png",
@@ -706,124 +590,6 @@
                     "photo_ratio": "landscape",
                     "photo_position": "center",
                     "photo_alt": ""
-                },
-                {
-                    "type": "service_cards",
-                    "sc_badge": "APPLIANCE REPAIR IN {city}, {SS}",
-                    "sc_heading": "Appliances We Repair in {city_state}",
-                    "sc_cols": 3,
-                    "sc_badge_bg": "accent",
-                    "sc_head_color": "header",
-                    "sc_icon_bg": "#eef4fb",
-                    "sc_items": [
-                        {
-                            "icon": "",
-                            "alt": "Cooktop Repair in {city_state}",
-                            "heading": "Cooktop Repair in {city_state}",
-                            "text": "Cracked glass, dead zones, and induction or gas burners that cut out under load.",
-                            "url": "/cooktop-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Dishwasher Repair in {city_state}",
-                            "heading": "Dishwasher Repair in {city_state}",
-                            "text": "Dishes coming out dirty, water left standing, or a door that won’t latch or seal.",
-                            "url": "/dishwasher-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Dryer Repair in {city_state}",
-                            "heading": "Dryer Repair in {city_state}",
-                            "text": "No heat, long drying times, or a drum that won’t turn — including vent and airflow faults.",
-                            "url": "/dryer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Freezer Repair in {city_state}",
-                            "heading": "Freezer Repair in {city_state}",
-                            "text": "Frost build-up, warm compartments, and freezers that run without ever reaching temperature.",
-                            "url": "/freezer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Garbage Disposal Repair in {city_state}",
-                            "heading": "Garbage Disposal Repair in {city_state}",
-                            "text": "Jams, humming without grinding, leaks at the flange, and units that trip out.",
-                            "url": "/garbage-disposal-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Ice Machine Repair in {city_state}",
-                            "heading": "Ice Machine Repair in {city_state}",
-                            "text": "Low output, cloudy or hollow ice, and machines that stop cycling altogether.",
-                            "url": "/ice-machine-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Ice Maker Repair in {city_state}",
-                            "heading": "Ice Maker Repair in {city_state}",
-                            "text": "Refrigerator ice makers that stop producing, overfill, or freeze up in the chute.",
-                            "url": "/ice-maker-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Outdoor Grill Repair in {city_state}",
-                            "heading": "Outdoor Grill Repair in {city_state}",
-                            "text": "Ignition failures, uneven heat and gas supply faults on built-in outdoor grills.",
-                            "url": "/outdoor-grill-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Oven Repair in {city_state}",
-                            "heading": "Oven Repair in {city_state}",
-                            "text": "Uneven baking, a burnt-out element, or an oven that won’t reach temperature.",
-                            "url": "/oven-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Range Repair in {city_state}",
-                            "heading": "Range Repair in {city_state}",
-                            "text": "Burners, elements and controls on gas and electric ranges, including ignition faults.",
-                            "url": "/range-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Refrigerator Repair in {city_state}",
-                            "heading": "Refrigerator Repair in {city_state}",
-                            "text": "Not cooling, leaking, or running constantly — diagnosed and repaired on all major brands.",
-                            "url": "/refrigerator-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Stove Repair in {city_state}",
-                            "heading": "Stove Repair in {city_state}",
-                            "text": "Burners that won’t light, weak flame, or controls that no longer respond.",
-                            "url": "/stove-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Trash Compactor Repair in {city_state}",
-                            "heading": "Trash Compactor Repair in {city_state}",
-                            "text": "Rams that stick, drawers that jam, and compactors that no longer complete a cycle.",
-                            "url": "/trash-compactor-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Washer Repair in {city_state}",
-                            "heading": "Washer Repair in {city_state}",
-                            "text": "Won’t drain, won’t spin, or leaking mid-cycle. Most washer faults are fixed in one visit.",
-                            "url": "/washer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Wine Cooler Repair in {city_state}",
-                            "heading": "Wine Cooler Repair in {city_state}",
-                            "text": "Temperature drift, compressor faults, and door seals that let the cabinet warm.",
-                            "url": "/wine-cooler-repair-{city_slug}"
-                        }
-                    ],
-                    "skin": "subtle",
-                    "anchor": "services"
                 }
             ],
             "seo": {
@@ -984,124 +750,6 @@
                     "photo_ratio": "landscape",
                     "photo_position": "center",
                     "photo_alt": ""
-                },
-                {
-                    "type": "service_cards",
-                    "sc_badge": "APPLIANCE REPAIR IN {city}, {SS}",
-                    "sc_heading": "Appliances We Repair in {city_state}",
-                    "sc_cols": 3,
-                    "sc_badge_bg": "accent",
-                    "sc_head_color": "header",
-                    "sc_icon_bg": "#eef4fb",
-                    "sc_items": [
-                        {
-                            "icon": "",
-                            "alt": "Cooktop Repair in {city_state}",
-                            "heading": "Cooktop Repair in {city_state}",
-                            "text": "Cracked glass, dead zones, and induction or gas burners that cut out under load.",
-                            "url": "/cooktop-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Dishwasher Repair in {city_state}",
-                            "heading": "Dishwasher Repair in {city_state}",
-                            "text": "Dishes coming out dirty, water left standing, or a door that won’t latch or seal.",
-                            "url": "/dishwasher-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Dryer Repair in {city_state}",
-                            "heading": "Dryer Repair in {city_state}",
-                            "text": "No heat, long drying times, or a drum that won’t turn — including vent and airflow faults.",
-                            "url": "/dryer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Freezer Repair in {city_state}",
-                            "heading": "Freezer Repair in {city_state}",
-                            "text": "Frost build-up, warm compartments, and freezers that run without ever reaching temperature.",
-                            "url": "/freezer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Garbage Disposal Repair in {city_state}",
-                            "heading": "Garbage Disposal Repair in {city_state}",
-                            "text": "Jams, humming without grinding, leaks at the flange, and units that trip out.",
-                            "url": "/garbage-disposal-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Ice Machine Repair in {city_state}",
-                            "heading": "Ice Machine Repair in {city_state}",
-                            "text": "Low output, cloudy or hollow ice, and machines that stop cycling altogether.",
-                            "url": "/ice-machine-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Ice Maker Repair in {city_state}",
-                            "heading": "Ice Maker Repair in {city_state}",
-                            "text": "Refrigerator ice makers that stop producing, overfill, or freeze up in the chute.",
-                            "url": "/ice-maker-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Outdoor Grill Repair in {city_state}",
-                            "heading": "Outdoor Grill Repair in {city_state}",
-                            "text": "Ignition failures, uneven heat and gas supply faults on built-in outdoor grills.",
-                            "url": "/outdoor-grill-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Oven Repair in {city_state}",
-                            "heading": "Oven Repair in {city_state}",
-                            "text": "Uneven baking, a burnt-out element, or an oven that won’t reach temperature.",
-                            "url": "/oven-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Range Repair in {city_state}",
-                            "heading": "Range Repair in {city_state}",
-                            "text": "Burners, elements and controls on gas and electric ranges, including ignition faults.",
-                            "url": "/range-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Refrigerator Repair in {city_state}",
-                            "heading": "Refrigerator Repair in {city_state}",
-                            "text": "Not cooling, leaking, or running constantly — diagnosed and repaired on all major brands.",
-                            "url": "/refrigerator-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Stove Repair in {city_state}",
-                            "heading": "Stove Repair in {city_state}",
-                            "text": "Burners that won’t light, weak flame, or controls that no longer respond.",
-                            "url": "/stove-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Trash Compactor Repair in {city_state}",
-                            "heading": "Trash Compactor Repair in {city_state}",
-                            "text": "Rams that stick, drawers that jam, and compactors that no longer complete a cycle.",
-                            "url": "/trash-compactor-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Washer Repair in {city_state}",
-                            "heading": "Washer Repair in {city_state}",
-                            "text": "Won’t drain, won’t spin, or leaking mid-cycle. Most washer faults are fixed in one visit.",
-                            "url": "/washer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Wine Cooler Repair in {city_state}",
-                            "heading": "Wine Cooler Repair in {city_state}",
-                            "text": "Temperature drift, compressor faults, and door seals that let the cabinet warm.",
-                            "url": "/wine-cooler-repair-{city_slug}"
-                        }
-                    ],
-                    "skin": "subtle",
-                    "anchor": "services"
                 }
             ],
             "seo": {
@@ -1153,129 +801,11 @@
                     "cf_subtext": "",
                     "cf_btn_text": "Send Message",
                     "cf_show_phone": true
-                },
-                {
-                    "type": "service_cards",
-                    "sc_badge": "APPLIANCE REPAIR IN {city}, {SS}",
-                    "sc_heading": "Appliances We Repair in {city_state}",
-                    "sc_cols": 3,
-                    "sc_badge_bg": "accent",
-                    "sc_head_color": "header",
-                    "sc_icon_bg": "#eef4fb",
-                    "sc_items": [
-                        {
-                            "icon": "",
-                            "alt": "Cooktop Repair in {city_state}",
-                            "heading": "Cooktop Repair in {city_state}",
-                            "text": "Cracked glass, dead zones, and induction or gas burners that cut out under load.",
-                            "url": "/cooktop-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Dishwasher Repair in {city_state}",
-                            "heading": "Dishwasher Repair in {city_state}",
-                            "text": "Dishes coming out dirty, water left standing, or a door that won’t latch or seal.",
-                            "url": "/dishwasher-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Dryer Repair in {city_state}",
-                            "heading": "Dryer Repair in {city_state}",
-                            "text": "No heat, long drying times, or a drum that won’t turn — including vent and airflow faults.",
-                            "url": "/dryer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Freezer Repair in {city_state}",
-                            "heading": "Freezer Repair in {city_state}",
-                            "text": "Frost build-up, warm compartments, and freezers that run without ever reaching temperature.",
-                            "url": "/freezer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Garbage Disposal Repair in {city_state}",
-                            "heading": "Garbage Disposal Repair in {city_state}",
-                            "text": "Jams, humming without grinding, leaks at the flange, and units that trip out.",
-                            "url": "/garbage-disposal-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Ice Machine Repair in {city_state}",
-                            "heading": "Ice Machine Repair in {city_state}",
-                            "text": "Low output, cloudy or hollow ice, and machines that stop cycling altogether.",
-                            "url": "/ice-machine-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Ice Maker Repair in {city_state}",
-                            "heading": "Ice Maker Repair in {city_state}",
-                            "text": "Refrigerator ice makers that stop producing, overfill, or freeze up in the chute.",
-                            "url": "/ice-maker-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Outdoor Grill Repair in {city_state}",
-                            "heading": "Outdoor Grill Repair in {city_state}",
-                            "text": "Ignition failures, uneven heat and gas supply faults on built-in outdoor grills.",
-                            "url": "/outdoor-grill-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Oven Repair in {city_state}",
-                            "heading": "Oven Repair in {city_state}",
-                            "text": "Uneven baking, a burnt-out element, or an oven that won’t reach temperature.",
-                            "url": "/oven-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Range Repair in {city_state}",
-                            "heading": "Range Repair in {city_state}",
-                            "text": "Burners, elements and controls on gas and electric ranges, including ignition faults.",
-                            "url": "/range-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Refrigerator Repair in {city_state}",
-                            "heading": "Refrigerator Repair in {city_state}",
-                            "text": "Not cooling, leaking, or running constantly — diagnosed and repaired on all major brands.",
-                            "url": "/refrigerator-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Stove Repair in {city_state}",
-                            "heading": "Stove Repair in {city_state}",
-                            "text": "Burners that won’t light, weak flame, or controls that no longer respond.",
-                            "url": "/stove-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Trash Compactor Repair in {city_state}",
-                            "heading": "Trash Compactor Repair in {city_state}",
-                            "text": "Rams that stick, drawers that jam, and compactors that no longer complete a cycle.",
-                            "url": "/trash-compactor-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Washer Repair in {city_state}",
-                            "heading": "Washer Repair in {city_state}",
-                            "text": "Won’t drain, won’t spin, or leaking mid-cycle. Most washer faults are fixed in one visit.",
-                            "url": "/washer-repair-{city_slug}"
-                        },
-                        {
-                            "icon": "",
-                            "alt": "Wine Cooler Repair in {city_state}",
-                            "heading": "Wine Cooler Repair in {city_state}",
-                            "text": "Temperature drift, compressor faults, and door seals that let the cabinet warm.",
-                            "url": "/wine-cooler-repair-{city_slug}"
-                        }
-                    ],
-                    "skin": "subtle",
-                    "anchor": "services"
                 }
             ],
             "seo": {
                 "meta_keywords": "",
-                "meta_description": "Contact {business} — call or email to schedule fast, reliable appliance repair in {city_state}. Factory-trained technicians and same-day service.",
+                "meta_description": "Contact {business} — call or email to schedule fast, reliable appliance repair in {city_state}. same-day service.",
                 "og_title": "Contact Us | {business}",
                 "og_description": "Get in touch with {business} — call or email to schedule appliance repair in your area.",
                 "og_image": "",
@@ -1388,6 +918,10 @@
     "services_links": {
         "services": [
             {
+                "name": "Whirlpool Appliance Repair",
+                "url": "/whirlpool-appliance-repair-{city_slug}"
+            },
+            {
                 "name": "Refrigerator Repair",
                 "url": "/refrigerator-repair-{city_slug}"
             },
@@ -1412,10 +946,6 @@
                 "url": "/range-repair-{city_slug}"
             },
             {
-                "name": "Stove Repair",
-                "url": "/stove-repair-{city_slug}"
-            },
-            {
                 "name": "Cooktop Repair",
                 "url": "/cooktop-repair-{city_slug}"
             },
@@ -1424,580 +954,72 @@
                 "url": "/freezer-repair-{city_slug}"
             },
             {
-                "name": "Garbage Disposal Repair",
-                "url": "/garbage-disposal-repair-{city_slug}"
-            },
-            {
-                "name": "Ice Machine Repair",
-                "url": "/ice-machine-repair-{city_slug}"
-            },
-            {
-                "name": "Ice Maker Repair",
-                "url": "/ice-maker-repair-{city_slug}"
-            },
-            {
-                "name": "Wine Cooler Repair",
-                "url": "/wine-cooler-repair-{city_slug}"
-            },
-            {
-                "name": "Outdoor Grill Repair",
-                "url": "/outdoor-grill-repair-{city_slug}"
-            },
-            {
-                "name": "Trash Compactor Repair",
-                "url": "/trash-compactor-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Appliance Repair",
-                "url": "/whirlpool-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Refrigerator Repair",
-                "url": "/whirlpool-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Washer Repair",
-                "url": "/whirlpool-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Dryer Repair",
-                "url": "/whirlpool-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Dishwasher Repair",
-                "url": "/whirlpool-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Oven Repair",
-                "url": "/whirlpool-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Range Repair",
-                "url": "/whirlpool-range-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Cooktop Repair",
-                "url": "/whirlpool-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Whirlpool Freezer Repair",
-                "url": "/whirlpool-freezer-repair-{city_slug}"
-            },
-            {
                 "name": "Maytag Appliance Repair",
                 "url": "/maytag-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Refrigerator Repair",
-                "url": "/maytag-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Washer Repair",
-                "url": "/maytag-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Dryer Repair",
-                "url": "/maytag-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Dishwasher Repair",
-                "url": "/maytag-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Oven Repair",
-                "url": "/maytag-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Range Repair",
-                "url": "/maytag-range-repair-{city_slug}"
-            },
-            {
-                "name": "Maytag Cooktop Repair",
-                "url": "/maytag-cooktop-repair-{city_slug}"
             },
             {
                 "name": "GE Appliance Repair",
                 "url": "/ge-appliance-repair-{city_slug}"
             },
             {
-                "name": "GE Refrigerator Repair",
-                "url": "/ge-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "GE Washer Repair",
-                "url": "/ge-washer-repair-{city_slug}"
-            },
-            {
-                "name": "GE Dryer Repair",
-                "url": "/ge-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "GE Dishwasher Repair",
-                "url": "/ge-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "GE Oven Repair",
-                "url": "/ge-oven-repair-{city_slug}"
-            },
-            {
-                "name": "GE Range Repair",
-                "url": "/ge-range-repair-{city_slug}"
-            },
-            {
-                "name": "GE Stove Repair",
-                "url": "/ge-stove-repair-{city_slug}"
-            },
-            {
-                "name": "GE Cooktop Repair",
-                "url": "/ge-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "GE Freezer Repair",
-                "url": "/ge-freezer-repair-{city_slug}"
-            },
-            {
-                "name": "GE Garbage Disposal Repair",
-                "url": "/ge-garbage-disposal-repair-{city_slug}"
-            },
-            {
-                "name": "GE Ice Machine Repair",
-                "url": "/ge-ice-machine-repair-{city_slug}"
-            },
-            {
                 "name": "GE Monogram Appliance Repair",
                 "url": "/ge-monogram-appliance-repair-{city_slug}"
             },
             {
-                "name": "GE Monogram Refrigerator Repair",
-                "url": "/ge-monogram-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "GE Monogram Dishwasher Repair",
-                "url": "/ge-monogram-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "GE Monogram Oven Repair",
-                "url": "/ge-monogram-oven-repair-{city_slug}"
-            },
-            {
-                "name": "GE Monogram Cooktop Repair",
-                "url": "/ge-monogram-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "GE Monogram Freezer Repair",
-                "url": "/ge-monogram-freezer-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Appliance Repair",
+                "name": "KitchenAid Appliance Repair",
                 "url": "/kitchenaid-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Refrigerator Repair",
-                "url": "/kitchenaid-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Washer Repair",
-                "url": "/kitchenaid-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Dryer Repair",
-                "url": "/kitchenaid-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Dishwasher Repair",
-                "url": "/kitchenaid-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Oven Repair",
-                "url": "/kitchenaid-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Cooktop Repair",
-                "url": "/kitchenaid-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Kitchenaid Freezer Repair",
-                "url": "/kitchenaid-freezer-repair-{city_slug}"
             },
             {
                 "name": "LG Appliance Repair",
                 "url": "/lg-appliance-repair-{city_slug}"
             },
             {
-                "name": "LG Refrigerator Repair",
-                "url": "/lg-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "LG Washer Repair",
-                "url": "/lg-washer-repair-{city_slug}"
-            },
-            {
-                "name": "LG Dryer Repair",
-                "url": "/lg-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "LG Dishwasher Repair",
-                "url": "/lg-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "LG Oven Repair",
-                "url": "/lg-oven-repair-{city_slug}"
-            },
-            {
-                "name": "LG Cooktop Repair",
-                "url": "/lg-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "LG Freezer Repair",
-                "url": "/lg-freezer-repair-{city_slug}"
-            },
-            {
                 "name": "Samsung Appliance Repair",
                 "url": "/samsung-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Refrigerator Repair",
-                "url": "/samsung-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Washer Repair",
-                "url": "/samsung-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Dryer Repair",
-                "url": "/samsung-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Dishwasher Repair",
-                "url": "/samsung-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Oven Repair",
-                "url": "/samsung-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Cooktop Repair",
-                "url": "/samsung-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Samsung Freezer Repair",
-                "url": "/samsung-freezer-repair-{city_slug}"
             },
             {
                 "name": "Frigidaire Appliance Repair",
                 "url": "/frigidaire-appliance-repair-{city_slug}"
             },
             {
-                "name": "Frigidaire Refrigerator Repair",
-                "url": "/frigidaire-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Frigidaire Washer Repair",
-                "url": "/frigidaire-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Frigidaire Dryer Repair",
-                "url": "/frigidaire-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Frigidaire Dishwasher Repair",
-                "url": "/frigidaire-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Frigidaire Oven Repair",
-                "url": "/frigidaire-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Frigidaire Cooktop Repair",
-                "url": "/frigidaire-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Frigidaire Freezer Repair",
-                "url": "/frigidaire-freezer-repair-{city_slug}"
-            },
-            {
                 "name": "Bosch Appliance Repair",
                 "url": "/bosch-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Refrigerator Repair",
-                "url": "/bosch-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Washer Repair",
-                "url": "/bosch-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Dryer Repair",
-                "url": "/bosch-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Dishwasher Repair",
-                "url": "/bosch-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Oven Repair",
-                "url": "/bosch-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Cooktop Repair",
-                "url": "/bosch-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Bosch Freezer Repair",
-                "url": "/bosch-freezer-repair-{city_slug}"
             },
             {
                 "name": "Kenmore Appliance Repair",
                 "url": "/kenmore-appliance-repair-{city_slug}"
             },
             {
-                "name": "Kenmore Refrigerator Repair",
-                "url": "/kenmore-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Kenmore Washer Repair",
-                "url": "/kenmore-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Kenmore Dryer Repair",
-                "url": "/kenmore-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Kenmore Dishwasher Repair",
-                "url": "/kenmore-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Kenmore Oven Repair",
-                "url": "/kenmore-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Kenmore Cooktop Repair",
-                "url": "/kenmore-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Kenmore Freezer Repair",
-                "url": "/kenmore-freezer-repair-{city_slug}"
-            },
-            {
                 "name": "Amana Appliance Repair",
                 "url": "/amana-appliance-repair-{city_slug}"
             },
             {
-                "name": "Amana Refrigerator Repair",
-                "url": "/amana-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Amana Washer Repair",
-                "url": "/amana-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Amana Dryer Repair",
-                "url": "/amana-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Amana Dishwasher Repair",
-                "url": "/amana-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Amana Oven Repair",
-                "url": "/amana-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Amana Cooktop Repair",
-                "url": "/amana-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Amana Freezer Repair",
-                "url": "/amana-freezer-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Appliance Repair",
+                "name": "JennAir Appliance Repair",
                 "url": "/jennair-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Refrigerator Repair",
-                "url": "/jennair-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Dishwasher Repair",
-                "url": "/jennair-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Oven Repair",
-                "url": "/jennair-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Range Repair",
-                "url": "/jennair-range-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Cooktop Repair",
-                "url": "/jennair-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Jennair Freezer Repair",
-                "url": "/jennair-freezer-repair-{city_slug}"
             },
             {
                 "name": "Dacor Appliance Repair",
                 "url": "/dacor-appliance-repair-{city_slug}"
             },
             {
-                "name": "Dacor Refrigerator Repair",
-                "url": "/dacor-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Dacor Dishwasher Repair",
-                "url": "/dacor-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Dacor Oven Repair",
-                "url": "/dacor-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Dacor Range Repair",
-                "url": "/dacor-range-repair-{city_slug}"
-            },
-            {
-                "name": "Dacor Cooktop Repair",
-                "url": "/dacor-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Dacor Freezer Repair",
-                "url": "/dacor-freezer-repair-{city_slug}"
-            },
-            {
-                "name": "Sub Zero Appliance Repair",
+                "name": "Sub-Zero Appliance Repair",
                 "url": "/sub-zero-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Sub Zero Refrigerator Repair",
-                "url": "/sub-zero-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Sub Zero Freezer Repair",
-                "url": "/sub-zero-freezer-repair-{city_slug}"
-            },
-            {
-                "name": "Sub Zero Wine Cooler Repair",
-                "url": "/sub-zero-wine-cooler-repair-{city_slug}"
-            },
-            {
-                "name": "Sub Zero Ice Machine Repair",
-                "url": "/sub-zero-ice-machine-repair-{city_slug}"
             },
             {
                 "name": "Wolf Appliance Repair",
                 "url": "/wolf-appliance-repair-{city_slug}"
             },
             {
-                "name": "Wolf Oven Repair",
-                "url": "/wolf-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Wolf Range Repair",
-                "url": "/wolf-range-repair-{city_slug}"
-            },
-            {
-                "name": "Wolf Cooktop Repair",
-                "url": "/wolf-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Wolf Outdoor Grill Repair",
-                "url": "/wolf-outdoor-grill-repair-{city_slug}"
-            },
-            {
                 "name": "Viking Appliance Repair",
                 "url": "/viking-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Refrigerator Repair",
-                "url": "/viking-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Dishwasher Repair",
-                "url": "/viking-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Oven Repair",
-                "url": "/viking-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Range Repair",
-                "url": "/viking-range-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Cooktop Repair",
-                "url": "/viking-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Freezer Repair",
-                "url": "/viking-freezer-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Ice Machine Repair",
-                "url": "/viking-ice-machine-repair-{city_slug}"
-            },
-            {
-                "name": "Viking Outdoor Grill Repair",
-                "url": "/viking-outdoor-grill-repair-{city_slug}"
             },
             {
                 "name": "Thermador Appliance Repair",
                 "url": "/thermador-appliance-repair-{city_slug}"
             },
             {
-                "name": "Thermador Refrigerator Repair",
-                "url": "/thermador-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Thermador Dishwasher Repair",
-                "url": "/thermador-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Thermador Oven Repair",
-                "url": "/thermador-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Thermador Range Repair",
-                "url": "/thermador-range-repair-{city_slug}"
-            },
-            {
-                "name": "Thermador Cooktop Repair",
-                "url": "/thermador-cooktop-repair-{city_slug}"
-            },
-            {
-                "name": "Thermador Freezer Repair",
-                "url": "/thermador-freezer-repair-{city_slug}"
-            },
-            {
                 "name": "Miele Appliance Repair",
                 "url": "/miele-appliance-repair-{city_slug}"
-            },
-            {
-                "name": "Miele Refrigerator Repair",
-                "url": "/miele-refrigerator-repair-{city_slug}"
-            },
-            {
-                "name": "Miele Washer Repair",
-                "url": "/miele-washer-repair-{city_slug}"
-            },
-            {
-                "name": "Miele Dryer Repair",
-                "url": "/miele-dryer-repair-{city_slug}"
-            },
-            {
-                "name": "Miele Dishwasher Repair",
-                "url": "/miele-dishwasher-repair-{city_slug}"
-            },
-            {
-                "name": "Miele Oven Repair",
-                "url": "/miele-oven-repair-{city_slug}"
-            },
-            {
-                "name": "Miele Freezer Repair",
-                "url": "/miele-freezer-repair-{city_slug}"
             }
         ],
         "url_pattern": "/{service_slug}-{city_slug}",

@@ -341,6 +341,13 @@ def build_context(site_vars, city_data, page_data=None, hood_threshold=DEFAULT_H
         # copy. Empty for niches (e.g. pest) that don't populate them.
         ctx['brand']          = seo.get('brand', '')
         ctx['appliance_type'] = seo.get('appliance_type', '')
+        # A brand page's own appliance-type breadth (comma list, e.g. "Refrigerator,
+        # Washer, Dryer") and a type page's own brand breadth — real, per-template data
+        # derived once from the leaf pages that used to exist, not AI-invented. Empty for
+        # any template that doesn't set it (every non-appliance niche, and appliance's
+        # own leaf/aggregator templates).
+        ctx['appliance_types'] = seo.get('appliance_types', '')
+        ctx['brands_serviced'] = seo.get('brands_serviced', '')
 
     return ctx
 
