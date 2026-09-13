@@ -78,19 +78,63 @@ function ms_variant(string $domain, int $count, string $salt = ''): int {
 }
 
 /**
- * Apply a page's saved layout variation for this domain (mutates $container's content_blocks).
- * Picks one ordering deterministically by domain; index 0 = natural (no change). No-op unless
- * layout_enabled + layout_variants are present.
+ * Generate up to ($total-1) alternate orderings of an arbitrary list (each a full
+ * permutation of $items — not ids, not a page, just "a couple of swaps" applied to
+ * whatever was handed in). Same swap shape as layout_generate_variants(), generalized
+ * so a caller can pre-slice off a fixed head/tail first and only pass the movable
+ * middle. Variant 0 (natural order) is NOT included. Empty if fewer than 2 items.
  */
-function layout_apply_for_domain(array &$container, string $domain): void {
-    if (empty($container['layout_enabled']) || empty($container['layout_variants'])) return;
-    $variants = array_values($container['layout_variants']);
-    $idx = ms_variant($domain, 1 + count($variants), 'layout');   // 0 = natural
-    if ($idx === 0) return;
-    $order = $variants[$idx - 1] ?? null;
-    if (is_array($order) && $order) {
-        $container['content_blocks'] = layout_apply($container['content_blocks'] ?? [], $order);
+function layout_generate_variants_for_list(array $items, int $total = 4): array {
+    $m = count($items);
+    if ($m < 2) return [];
+    $idxVariants = [];
+    $seen = [implode('|', range(0, $m - 1)) => true];   // natural order — never repeat it
+    $primaries = range(0, $m - 2);
+    foreach ($primaries as $i) {
+        if (count($idxVariants) >= $total - 1) break;
+        $cand = range(0, $m - 1);
+        [$cand[$i], $cand[$i + 1]] = [$cand[$i + 1], $cand[$i]];
+        if ($m >= 4) {
+            $j = ($i + 2) % $m; $k = ($j + 1) % $m;
+            if (!in_array($j, [$i, $i + 1], true) && !in_array($k, [$i, $i + 1], true)) {
+                [$cand[$j], $cand[$k]] = [$cand[$k], $cand[$j]];
+            }
+        }
+        $key = implode('|', $cand);
+        if (isset($seen[$key])) continue;
+        $seen[$key] = true;
+        $idxVariants[] = $cand;
     }
+    return array_map(fn($order) => array_map(fn($i) => $items[$i], $order), $idxVariants);
+}
+
+/**
+ * Rotate a block list for one domain: the first $skipTop and last $skipBottom blocks
+ * never move (so a locked opening or a deliberately-placed closing CTA stays put);
+ * whatever's strictly between them is deterministically reordered by a hash of the
+ * domain (same domain always lands on the same ordering — no drift on rebuild).
+ *
+ * Computed live from $blocks every time — nothing pre-authored or saved on the page.
+ * This is the domain-level axis the multisite batch build applies (see
+ * ms_differentiate_working_dir()); it is separate from, and stacks with, the per-CITY
+ * axis engine.php applies at landing-page generation time via the same
+ * layout_generate_variants()/ms_variant() building blocks.
+ */
+function layout_rotate_blocks(array $blocks, string $domain, int $skipTop, int $skipBottom, string $salt): array {
+    $n = count($blocks);
+    $skipTop    = max(0, $skipTop);
+    $skipBottom = max(0, $skipBottom);
+    if ($skipTop + $skipBottom >= $n) return $blocks;   // nothing left that could move
+
+    $top    = array_slice($blocks, 0, $skipTop);
+    $bottom = $skipBottom > 0 ? array_slice($blocks, $n - $skipBottom) : [];
+    $middle = array_slice($blocks, $skipTop, $n - $skipTop - $skipBottom);
+
+    $variants = layout_generate_variants_for_list($middle);
+    if (!$variants) return $blocks;                     // too few movable blocks — natural order
+    $idx = ms_variant($domain, 1 + count($variants), $salt);
+    if ($idx === 0) return $blocks;
+    return array_merge($top, $variants[$idx - 1], $bottom);
 }
 
 /** Reorder blocks to match a variant's id order; blocks not listed keep their place. */
@@ -129,76 +173,25 @@ function ms_layout_variation_settings(array $raw): array {
     return ['variant_count' => $n];
 }
 
-/** Short human label for a block (type + first heading-ish field) — for review/preview UIs. */
-function layout_block_label(array $b): string {
-    $type = (string)($b['type'] ?? 'block');
-    foreach ($b as $k => $v) {
-        if (is_string($v) && $v !== '' && preg_match('/head|title|heading|label|badge/i', $k)) {
-            $t = trim(strip_tags($v));
-            if ($t !== '') return $type . ' — ' . mb_strimwidth($t, 0, 38, '…');
-        }
-    }
-    return $type;
+/**
+ * Defaults for the section-order rotation pin counts (see layout_rotate_blocks()) — 1/1 for
+ * both scopes, the original hardcoded pin behaviour (hero stays first, closing block stays
+ * last). Saved per master in multisite/section_rotation.json (admin/rotation_settings_save.php),
+ * same read/write helpers as Gen-Mod's layout_variation.json — a missing/invalid value always
+ * falls back to these, so a master that's never touched this setting builds exactly as it
+ * always has.
+ */
+function ms_rotation_defaults(): array {
+    return ['home_top' => 1, 'home_bottom' => 1, 'landing_top' => 1, 'landing_bottom' => 1];
 }
 
-/** Admin panel: the per-page "Layout variations" card (Generate/Regenerate → review → Save). */
-function render_layout_variations_editor(string $scope, string $id = '') {
-    global $csrfToken;
-    ?>
-    <div class="card" id="lv-card" data-scope="<?= h($scope) ?>" data-id="<?= h($id) ?>" data-csrf="<?= h($csrfToken) ?>">
-        <h3 style="margin-top:0;">Layout variations <span style="font-weight:400;color:#64748b;font-size:.85em;">(MultiSite)</span></h3>
-        <p class="hint">Alternate section orders used by <strong>MultiSite</strong> when this site is cloned across many cities — each city deterministically gets one, so the sites aren't structurally identical. On this single site the natural order is always used. <em>Landing-page-only generation support is coming.</em></p>
-        <label class="hint" style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:12px;">
-            <input type="checkbox" id="lv-enabled"> Enable layout variations for this page
-        </label>
-        <div style="margin-bottom:12px;">
-            <button type="button" class="btn" onclick="lvGenerate()">✨ Generate / Regenerate</button>
-            <button type="button" class="btn btn-primary" onclick="lvSave()">Save layouts</button>
-            <span id="lv-msg" class="hint" style="margin-left:10px;"></span>
-        </div>
-        <p class="hint" style="margin:0 0 8px;">Reflects the <strong>saved</strong> blocks — save the page first if you just edited them. Regenerate for a different (still subtle) set.</p>
-        <div id="lv-display"></div>
-    </div>
-    <script>
-    (function () {
-        var card = document.getElementById('lv-card');
-        var CSRF = card.getAttribute('data-csrf'), SCOPE = card.getAttribute('data-scope'), PID = card.getAttribute('data-id');
-        var natural = null, variants = [];
-        function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
-        function post(action, extra){
-            var fd = new FormData(); fd.append('csrf_token',CSRF); fd.append('action',action); fd.append('scope',SCOPE); fd.append('id',PID);
-            if (extra) Object.keys(extra).forEach(function(k){ fd.append(k, extra[k]); });
-            return fetch('layout_api.php',{method:'POST',body:fd}).then(function(r){return r.json();});
-        }
-        function listHtml(title, items){
-            return '<div style="margin-bottom:14px;"><strong style="font-size:0.9rem;">'+title+'</strong>'+
-                '<ol style="margin:4px 0 0 20px;font-size:0.85rem;line-height:1.6;color:#334155;">'+
-                items.map(function(it){return '<li>'+esc(it.label)+'</li>';}).join('')+'</ol></div>';
-        }
-        function renderLists(){
-            var el = document.getElementById('lv-display');
-            if (!variants.length) { el.innerHTML = '<p class="hint">No layouts yet — click Generate to create up to 4.</p>'; return; }
-            var html = natural ? listHtml('Layout 1 — natural (this single site always uses this)', natural) : '';
-            variants.forEach(function(v,i){ html += listHtml('Layout '+(i+2), v); });
-            el.innerHTML = html;
-        }
-        window.lvGenerate = function(){
-            var msg=document.getElementById('lv-msg'); msg.textContent='Generating…';
-            post('generate').then(function(d){ msg.textContent=''; if(d.error){alert(d.error);return;} natural=d.natural; variants=d.variants||[]; renderLists(); });
-        };
-        window.lvSave = function(){
-            var msg=document.getElementById('lv-msg'); msg.textContent='Saving…';
-            var ids = variants.map(function(v){ return v.map(function(it){ return it.id; }); });
-            post('save',{ enabled: document.getElementById('lv-enabled').checked?'1':'', variants: JSON.stringify(ids) })
-                .then(function(d){ msg.textContent = d.saved ? ('Saved ✓ ('+d.count+' layouts)') : (d.error||'Error'); });
-        };
-        post('load').then(function(d){
-            if (d.error) return;
-            document.getElementById('lv-enabled').checked = !!d.enabled;
-            variants = d.variants || [];
-            variants.length ? renderLists() : (document.getElementById('lv-display').innerHTML = '<p class="hint">No layouts saved yet — click Generate to create 4.</p>');
-        });
-    })();
-    </script>
-    <?php
+/** Clamp to a sane range and fill in anything missing — same shape as ms_layout_variation_settings(). */
+function ms_rotation_settings(array $raw): array {
+    $d = ms_rotation_defaults();
+    $out = [];
+    foreach ($d as $k => $default) {
+        $out[$k] = is_numeric($raw[$k] ?? null) ? max(0, min(20, (int)$raw[$k])) : $default;
+    }
+    return $out;
 }
+

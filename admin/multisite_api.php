@@ -188,6 +188,18 @@ function ms_run_flags(array $o): string {
         if ($skip) $flags .= ' --skip=' . escapeshellarg(implode(',', $skip));
     }
     if (!empty($o['only']))  $flags .= ' --only=' . escapeshellarg(implode(',', (array)$o['only']));
+    // Section-order rotation pin counts (see build_one.php's --rot-*= parsing and
+    // ms_differentiate_working_dir()'s $rotation param). Clamped 0-20 — a hand-crafted POST
+    // can't ask for a negative count or something absurd; omitted entirely (not even '0') when
+    // blank so build_one.php's own default (1/1) decides, same as never having asked.
+    $rotFlag = function (string $flagName, $val) {
+        if ($val === null || $val === '') return '';
+        return ' --' . $flagName . '=' . max(0, min(20, (int) $val));
+    };
+    $flags .= $rotFlag('rot-home-top',       $o['rot_home_top']       ?? null);
+    $flags .= $rotFlag('rot-home-bottom',    $o['rot_home_bottom']    ?? null);
+    $flags .= $rotFlag('rot-landing-top',    $o['rot_landing_top']    ?? null);
+    $flags .= $rotFlag('rot-landing-bottom', $o['rot_landing_bottom'] ?? null);
     return $flags;
 }
 
@@ -748,13 +760,7 @@ switch ($action) {
             $titles[] = $resolve($pg['seo'] ?? [], $label);
         }
 
-        // Which section layout this sample domain gets (2a), if enabled on the homepage.
-        $layout = null;
-        if (!empty($md['layout_enabled']) && !empty($md['layout_variants']) && function_exists('ms_variant')) {
-            $n = 1 + count($md['layout_variants']);
-            $layout = ['index' => ms_variant($row['domain'] ?? '', $n, 'layout') + 1, 'total' => $n];
-        }
-        echo json_encode(['sample_domain' => $row['domain'] ?? '', 'is_placeholder' => $placeholder, 'titles' => $titles, 'layout' => $layout]);
+        echo json_encode(['sample_domain' => $row['domain'] ?? '', 'is_placeholder' => $placeholder, 'titles' => $titles]);
         break;
 
     // List saved upload versions (last 15), newest first.
@@ -802,6 +808,8 @@ switch ($action) {
                 'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
                 'no_deploy' => !empty($_POST['no_deploy']),
                 'only'  => trim((string) ($_POST['only'] ?? '')),
+                'rot_home_top' => $_POST['rot_home_top'] ?? null, 'rot_home_bottom' => $_POST['rot_home_bottom'] ?? null,
+                'rot_landing_top' => $_POST['rot_landing_top'] ?? null, 'rot_landing_bottom' => $_POST['rot_landing_bottom'] ?? null,
             ]);
             return ['started' => true, 'run_id' => ms_launch_campaign($masterId, $batchId, $runsDir, $flags)];
         });

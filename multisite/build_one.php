@@ -48,6 +48,10 @@ progress_set_sink(progress_jsonlines_sink());
 // ── Parse args ──────────────────────────────────────────────────────────────
 $rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false; $skip = [];
 $noDeploy = false; $outDirArg = null;
+// Section-order rotation pin counts (see ms_differentiate_working_dir()'s $rotation param) —
+// how many leading/trailing blocks never move. Left null when the caller doesn't pass one, so
+// the default (1/1 — hero pinned first, closing block pinned last) is decided in one place.
+$rotHomeTop = null; $rotHomeBottom = null; $rotLandingTop = null; $rotLandingBottom = null;
 foreach (array_slice($argv, 1) as $a) {
     if ($a === '--keep')                       $keep = true;
     elseif ($a === '--force')                  $force = true;
@@ -56,6 +60,10 @@ foreach (array_slice($argv, 1) as $a) {
     elseif (str_starts_with($a, '--out-dir='))  $outDirArg = substr($a, 10);
     elseif (str_starts_with($a, '--skip='))    $skip = array_filter(array_map('trim', explode(',', substr($a, 7))));
     elseif (str_starts_with($a, '--snapshot=')) $snapshotArg = substr($a, 11);
+    elseif (str_starts_with($a, '--rot-home-top='))       $rotHomeTop       = (int) substr($a, 15);
+    elseif (str_starts_with($a, '--rot-home-bottom='))    $rotHomeBottom    = (int) substr($a, 18);
+    elseif (str_starts_with($a, '--rot-landing-top='))    $rotLandingTop    = (int) substr($a, 18);
+    elseif (str_starts_with($a, '--rot-landing-bottom=')) $rotLandingBottom = (int) substr($a, 21);
     elseif ($rowFile === null)                 $rowFile = $a;
 }
 /**
@@ -259,12 +267,18 @@ progress_log($skipped('tags')
 // The scrub always runs; only the analytics + Search Console tags are optional.
 // Section-order switches from the batch card. Unticking the whole step turns off both. There
 // is no 'legal' switch — Privacy/Terms/disclaimer/Contact Us are never structurally reordered
-// (see ms_structure_group() in differentiate.php), so a toggle for it would do nothing.
+// (see the doc comment on ms_differentiate_working_dir() in differentiate.php).
 $structureSkip = [
     'home'    => $skipped('structure') || $skipped('structure.home'),
     'landing' => $skipped('structure') || $skipped('structure.landing'),
 ];
-ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip);
+$rotation = [
+    'home_top'       => $rotHomeTop,
+    'home_bottom'    => $rotHomeBottom,
+    'landing_top'    => $rotLandingTop,
+    'landing_bottom' => $rotLandingBottom,
+];
+ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip, $rotation);
 
 // Coordinated visual identity — Theme Preset (+ logo/favicon next). Runs before the
 // image prune so any generated assets exist and are referenced.

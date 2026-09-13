@@ -125,31 +125,22 @@ function ms_gsc_meta(string $token): string {
  * are safety nets, not features, so they have no switch.
  */
 /**
- * Which section-order group a page belongs to. Privacy/Terms/disclaimer and Contact Us are
- * matched on slug into 'fixed' and are NEVER structurally reordered, regardless of the batch
- * card's toggles — no checkbox re-enables it. Two reasons, not one: (a) these pages' wording is
- * already varied per domain by reword_legal_pages()/'ai.legal_reword', so reordering sections
- * adds nothing that wording-variance doesn't already do; (b) since the 2026-09 merge of Privacy/
- * Terms down to 2 blocks (a locked opening paragraph + everything else merged into one),
- * layout_generate_variants() can no longer produce an ordering for them anyway (it needs >=4
- * blocks total and >=2 movable middle ones) — leaving the toggle live would have offered a
- * control that does nothing for these pages while still risking a stale saved ordering from
- * before the merge being replayed by id match. Substring, not exact, so a master that calls it
- * "privacy"/"privacy-policy"/"contact"/"contact-us" lands in the same bucket either way.
+ * $structureSkip: ['home'=>bool,'landing'=>bool] — the section-order on/off switches from the
+ * batch card. Absent/empty means both vary, which is the old behaviour.
+ *
+ * $rotation: ['home_top'=>int,'home_bottom'=>int,'landing_top'=>int,'landing_bottom'=>int] —
+ * how many leading/trailing blocks stay fixed before the domain-hash rotation picks an ordering
+ * for whatever's left (see layout_rotate_blocks()). Missing keys default to 1/1 — the hero stays
+ * first, the closing block stays last — the same pin behaviour this mechanism always had.
+ *
+ * Only two scopes: the homepage's own blocks, and each landing page. Privacy/Terms/disclaimer/
+ * Contact Us are never in scope — they already get their own per-domain wording variance (see
+ * 'ai.legal_reword') and, since the 2026-09 merge to 2 blocks, are too short to have a movable
+ * middle anyway. About Us (the only other page under data['pages']) is a single AI-generated
+ * block with nothing to rotate either, so "core pages" were dropped from scope entirely rather
+ * than kept as a bucket with nothing real in it.
  */
-function ms_structure_group(string $slug): string {
-    foreach (['privacy', 'terms', 'disclaimer', 'legal', 'contact'] as $needle) {
-        if (str_contains($slug, $needle)) return 'fixed';
-    }
-    return 'home';                     // home + core pages; landing pages are handled separately
-}
-
-/**
- * $structureSkip: ['home'=>bool,'landing'=>bool] — the section-order switches from the batch
- * card. Absent/empty means every switchable group varies, which is the old behaviour. There is
- * no 'legal' entry — the 'fixed' group (see ms_structure_group()) is never switchable.
- */
-function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = []): void {
+function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = [], array $rotation = []): void {
     $sf = $workingDir . '/data/site.json';
     if (!file_exists($sf)) return;
     $data = json_decode(file_get_contents($sf), true);
@@ -245,21 +236,18 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
         $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
     }
 
-    // ── 5. Layout variation (2a) — one ordering per domain ───────────────────
-    // Split into the groups the batch card switches independently: home + core pages, and
-    // landing pages. Privacy/Terms/disclaimer/Contact Us ('fixed', see ms_structure_group())
-    // are skipped unconditionally here — not gated on $structureSkip — so there is no toggle
-    // that can turn structural reordering back on for them. A page that has no stored
-    // orderings is a no-op inside layout_apply_for_domain(), so an un-generated page costs
-    // nothing here.
-    if (function_exists('layout_apply_for_domain')) {
-        if (empty($structureSkip['home'])) layout_apply_for_domain($data, $domain);
-        foreach (($data['pages'] ?? []) as &$pg) {
-            $group = ms_structure_group((string) ($pg['slug'] ?? ''));
-            if ($group === 'fixed') continue;
-            if (empty($structureSkip[$group])) layout_apply_for_domain($pg, $domain);
-        }
-        unset($pg);
+    // ── 5. Section-order rotation — one ordering per domain, computed live ──
+    // Computed fresh from whatever blocks the page currently has — nothing pre-authored or
+    // saved. layout_rotate_blocks() leaves the top/bottom pin counts alone and rotates
+    // whatever's between them; ms_variant()'s domain hash then picks one ordering (0 =
+    // natural), so the same domain always lands on the same choice, forever, until the
+    // blocks themselves change.
+    if (function_exists('layout_rotate_blocks') && empty($structureSkip['home'])) {
+        $data['content_blocks'] = layout_rotate_blocks(
+            $data['content_blocks'] ?? [], $domain,
+            (int) ($rotation['home_top'] ?? 1), (int) ($rotation['home_bottom'] ?? 1),
+            'rotate_home'
+        );
     }
 
     $tmp = $sf . '.tmp.' . getmypid();
@@ -267,14 +255,16 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     rename($tmp, $sf);
 
     // ── 5b. Landing pages ────────────────────────────────────────────────────
-    // They live in their own files, so the loop above never saw them — which is why every
-    // generated site shared the landing pages' section order, and the landing pages are where
-    // the keywords and most of the traffic are. Same function, same per-domain hash.
-    if (empty($structureSkip['landing']) && function_exists('layout_apply_for_domain')) {
+    // Live in their own files, so section 5 above never sees them — and landing pages are
+    // where the keywords and most of the traffic are. Same function, same per-domain hash,
+    // its own top/bottom pin counts.
+    if (function_exists('layout_rotate_blocks') && empty($structureSkip['landing'])) {
+        $lTop    = (int) ($rotation['landing_top'] ?? 1);
+        $lBottom = (int) ($rotation['landing_bottom'] ?? 1);
         foreach (glob($workingDir . '/data/pages/*.json') ?: [] as $pf) {
             $pg = json_decode((string) @file_get_contents($pf), true);
-            if (!is_array($pg) || empty($pg['layout_enabled']) || empty($pg['layout_variants'])) continue;
-            layout_apply_for_domain($pg, $domain);
+            if (!is_array($pg) || empty($pg['content_blocks'])) continue;
+            $pg['content_blocks'] = layout_rotate_blocks($pg['content_blocks'], $domain, $lTop, $lBottom, 'rotate_landing');
             $t = $pf . '.tmp.' . getmypid();
             if (@file_put_contents($t, json_encode($pg, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
                 @rename($t, $pf);

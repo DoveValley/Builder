@@ -333,17 +333,17 @@ function ms_step_readiness(string $masterId, string $batchId): array {
     $withGa   = $countWhere(fn($r) => trim((string) ($r['analytics_id'] ?? '')) !== '');
     $withGsc  = $countWhere(fn($r) => trim((string) ($r['gsc_verification'] ?? '')) !== '');
     $withGeo  = $countWhere(fn($r) => trim((string) ($r['lat'] ?? '')) !== '' && trim((string) ($r['lng'] ?? '')) !== '');
-    $layoutOn = !empty($site['layout_enabled']) && !empty($site['layout_variants']);
-    $variants = count($site['layout_variants'] ?? []);
     $diffItems = [
         ms_item('identity scrub', 'The master\'s own name and domain removed everywhere', 'every row'),
         ms_item('fake ratings',   'Invented review scores stripped from schema', 'every row'),
         ms_item_rows('lat / lng', 'Map coordinates on the LocalBusiness schema', $withGeo, $n, false),
         ms_item_rows('analytics_id', 'A per-site tag — never shared between sites', $withGa, $n, false),
         ms_item_rows('gsc_verification', 'Per-site Search Console tag', $withGsc, $n, false),
-        ms_item('layout variation', 'Block order differs per domain',
-                $layoutOn ? ($variants + 1) . ' orderings' : 'off',
-                $layoutOn ? MS_STEP_OK : MS_STEP_OFF),
+        // Always available, computed fresh per domain from that page's own current blocks —
+        // no per-master saved state to report here. On/off and the top/bottom pin counts are
+        // per-run choices made on the Generate Sites screen itself, not stored on the master.
+        ms_item('section-order rotation', 'Home + landing page blocks reordered per domain',
+                'configured per-run on Generate Sites', MS_STEP_OK),
         // The two anti-fingerprint axes docs.php#ms-variation specifies but nothing builds
         // yet. Reported here, next to the axis that IS live, so "what varies per site" has
         // one answer rather than a table plus a hand-kept list beside it.

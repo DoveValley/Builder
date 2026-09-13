@@ -11,6 +11,12 @@
 if (!isset($csrfToken)) return;
 require_once __DIR__ . '/../includes/multisite/page_pool.php';
 require_once __DIR__ . '/../includes/multisite/image_ai.php';
+require_once __DIR__ . '/../includes/multisite/image_overlay.php'; // ms_image_settings_read() — section-order rotation pin counts
+
+// Section-order rotation pin counts, persisted per master (rotation_settings_save.php) —
+// same read pattern as Gen-Mod's layout_variation.json. Pre-fills the number inputs below;
+// the value actually used for a run is whatever's in the box when Generate sites is clicked.
+$msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 'section_rotation.json'));
 ?>
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
@@ -360,10 +366,14 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
                     ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
                  ]],
                 ['key' => 'structure', 'label' => 'Site structure variance', 'status' => 'live',
-                 'note' => 'Section order: each site gets a different arrangement of the same sections, picked by a hash of its domain so it never changes on a rebuild. The hero stays first and the last block stays last, so no H1 moves. Privacy, Terms, disclaimer and Contact Us are never reordered here regardless of these toggles — their wording already varies per domain (see "AI content" &rarr; Privacy/Terms/Contact Us reword, above), and their opening-paragraph + merged-body structure has too few movable sections for a second ordering to add anything.',
+                 'note' => 'Section order: each site gets a different arrangement of the same sections, computed fresh from the page\'s own current blocks and picked by a hash of its domain, so it never changes on a rebuild. "Don\'t rotate top/bottom" pins that many leading/trailing blocks in place (1/1 by default — the hero stays first, the closing block stays last) and only shuffles what\'s between them. Privacy, Terms, disclaimer and Contact Us are never reordered here regardless of these toggles — their wording already varies per domain (see "AI content" &rarr; Privacy/Terms/Contact Us reword, above), and their opening-paragraph + merged-body structure has too few movable sections for a second ordering to add anything.',
                  'subs' => [
-                    ['Section order — home and core pages', 'control', 'structure.home'],
-                    ['Section order — landing pages', 'control', 'structure.landing'],
+                    ['Section order — Home', 'control', 'structure.home',
+                        ['top_field' => 'rot_home_top', 'bottom_field' => 'rot_home_bottom',
+                         'top_default' => $msRotSettings['home_top'], 'bottom_default' => $msRotSettings['home_bottom']]],
+                    ['Section order — Landing pages', 'control', 'structure.landing',
+                        ['top_field' => 'rot_landing_top', 'bottom_field' => 'rot_landing_bottom',
+                         'top_default' => $msRotSettings['landing_top'], 'bottom_default' => $msRotSettings['landing_bottom']]],
                     ['Class vocabulary — same layout, different class names', 'control', 'structure.classvocab'],
                     ['Schema shape — same facts, different JSON-LD field order', 'control', 'structure.schemashape'],
                     // HTML nesting was built, measured and DELIBERATELY DROPPED — not left
@@ -458,6 +468,7 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
                             $msLabel = $msSub[0];
                             $msMode  = $msSub[1];
                             $msKey   = $msSub[2] ?? null;
+                            $msRot   = $msSub[3] ?? null;
                             if ($msMode === 'control'): ?>
                                 <!-- A real switch: its own skip key, collected by msRun(). -->
                                 <label class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0;color:#334155;">
@@ -465,6 +476,28 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
                                            data-parent="<?= htmlspecialchars($msT['key'] ?? '', ENT_QUOTES) ?>" checked>
                                     <span><?= $msLabel ?></span>
                                 </label>
+                                <?php if ($msRot): ?>
+                                <!-- Rotation pin counts for this scope — read by msRun() alongside the skip list.
+                                     Saved per master on change (rotation_settings_save.php), so a value you set
+                                     survives a reload instead of resetting to 1/1. -->
+                                <div class="hint" style="display:flex;align-items:center;gap:14px;padding:2px 0 6px 22px;">
+                                    <label style="display:flex;align-items:center;gap:5px;">Don't rotate top
+                                        <input type="number" min="0" max="20" step="1" class="ms-rot-opt"
+                                               id="ms-<?= htmlspecialchars($msRot['top_field'], ENT_QUOTES) ?>"
+                                               data-field="<?= htmlspecialchars($msRot['top_field'], ENT_QUOTES) ?>"
+                                               value="<?= (int) $msRot['top_default'] ?>" style="width:56px;"
+                                               onchange="msSaveRotation(this)">
+                                    </label>
+                                    <label style="display:flex;align-items:center;gap:5px;">Don't rotate bottom
+                                        <input type="number" min="0" max="20" step="1" class="ms-rot-opt"
+                                               id="ms-<?= htmlspecialchars($msRot['bottom_field'], ENT_QUOTES) ?>"
+                                               data-field="<?= htmlspecialchars($msRot['bottom_field'], ENT_QUOTES) ?>"
+                                               value="<?= (int) $msRot['bottom_default'] ?>" style="width:56px;"
+                                               onchange="msSaveRotation(this)">
+                                    </label>
+                                    <span class="ms-rot-msg" style="font-weight:700;transition:opacity .3s;"></span>
+                                </div>
+                                <?php endif; ?>
                             <?php elseif ($msMode === 'todo'): ?>
                                 <!-- Not built: nothing to switch, so no checkbox. -->
                                 <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#94a3b8;">
@@ -1270,6 +1303,31 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
         });
     }
 
+    // Persist a rotation pin-count the moment it changes (per master — rotation_settings_save.php),
+    // so it survives a reload instead of resetting to 1/1. Independent of Generate sites/msRun();
+    // that still sends whatever's in the box at click time regardless of whether this save landed.
+    window.msSaveRotation = function (input) {
+        const msg = input.closest('div').querySelector('.ms-rot-msg');
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        Array.from(document.querySelectorAll('.ms-rot-opt')).forEach(inp => fd.append(inp.dataset.field, inp.value));
+        if (msg) { msg.style.color = '#64748b'; msg.style.opacity = '1'; msg.textContent = 'Saving…'; }
+        fetch('rotation_settings_save.php', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (!msg) return;
+                if (d.error) {
+                    // A real problem — stays put (no fade) until the next save attempt.
+                    msg.style.color = '#991b1b'; msg.style.opacity = '1'; msg.textContent = '✗ ' + d.error;
+                    return;
+                }
+                // Brief, unmistakable confirmation, then fade — no button, so this IS the only signal it saved.
+                msg.style.color = '#166534'; msg.style.opacity = '1'; msg.textContent = '✓ Saved';
+                setTimeout(() => { msg.style.opacity = '0'; }, 1800);
+            })
+            .catch(() => { if (msg) { msg.style.color = '#991b1b'; msg.style.opacity = '1'; msg.textContent = '✗ save failed'; } });
+    };
+
     window.msRun = function () {
         // Force refreshes AI content across every domain in the batch (build_one.php's
         // --refresh, driven straight from this flag) — the same class of real, whole-
@@ -1299,6 +1357,11 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
         });
         if (skip.length) fd.append('skip', skip.join(','));
         if (skip.includes('ai')) fd.append('no_ai', '1');
+        // Rotation pin counts — sent regardless of the structure toggles above; the server
+        // side only reads them when its own scope isn't skipped.
+        Array.from(document.querySelectorAll('.ms-rot-opt')).forEach(inp => {
+            fd.append(inp.dataset.field, inp.value);
+        });
         if (document.getElementById('ms-force').checked) fd.append('force', '1');
         const only = document.getElementById('ms-run-only').value.trim();
         if (only) fd.append('only', only);
@@ -1397,9 +1460,6 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
             var el = document.getElementById('ms-titles-preview');
             if (d.error) { el.innerHTML = '<p class="hint" style="color:#991b1b;">' + esc(d.error) + '</p>'; return; }
             var src = d.is_placeholder ? 'an example city (upload your target list to preview real data)' : d.sample_domain;
-            var layoutLine = d.layout
-                ? '<p class="hint" style="margin-top:10px;">Section layout for this site: <strong>Layout ' + d.layout.index + ' of ' + d.layout.total + '</strong> (set per page under Content → Layout variations).</p>'
-                : '';
             var rows = (d.titles || []).map(function (t) {
                 var val = t.has_title
                     ? '<span style="color:#0f172a;font-weight:600;">' + esc(t.resolved) + '</span>'
@@ -1410,7 +1470,7 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
                 '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.9rem;border-collapse:collapse;">' +
                 '<thead><tr><th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Page</th>' +
                 '<th style="text-align:left;padding:5px 10px;border-bottom:1px solid #e2e8f0;">Title tag on a cloned site</th></tr></thead>' +
-                '<tbody>' + rows + '</tbody></table></div>' + layoutLine;
+                '<tbody>' + rows + '</tbody></table></div>';
         }).catch(function () {});
     }
     loadTitlePreview();

@@ -20,6 +20,9 @@
  *     --limit=N       process at most N rows
  *     --no-preflight  skip the FTP reachability pre-check
  *     --verbose       stream each row's raw progress
+ *     --rot-home-top=N / --rot-home-bottom=N       section-order rotation pin counts for the
+ *                     homepage (default 1/1 if omitted — see build_one.php)
+ *     --rot-landing-top=N / --rot-landing-bottom=N same, for landing pages
  *
  * Reads sites/{master}/multisite/params.csv (store it first with params_check.php).
  * Writes a run log to sites/{master}/multisite/runs/{run_id}.json.
@@ -49,6 +52,10 @@ $force     = in_array('--force', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
 $only = ''; $limit = 0; $retries = 0; $jobs = 1; $runIdArg = ''; $batchArg = '';
+// Section-order rotation pin counts, passed straight through to each build_one.php (see its
+// own --rot-*= parsing and ms_differentiate_working_dir()'s $rotation param). Null when the
+// caller didn't pass one, so build_one.php's own default (1/1) decides, not this file.
+$rotHomeTop = null; $rotHomeBottom = null; $rotLandingTop = null; $rotLandingBottom = null;
 foreach ($args as $a) {
     if (str_starts_with($a, '--only='))    $only    = substr($a, 7);
     if (str_starts_with($a, '--limit='))   $limit   = (int)substr($a, 8);
@@ -56,6 +63,10 @@ foreach ($args as $a) {
     if (str_starts_with($a, '--jobs='))    $jobs    = max(1, (int)substr($a, 7));
     if (str_starts_with($a, '--run-id='))  $runIdArg = substr($a, 9);
     if (str_starts_with($a, '--batch='))   $batchArg = substr($a, 8);
+    if (str_starts_with($a, '--rot-home-top='))       $rotHomeTop       = (int)substr($a, 15);
+    if (str_starts_with($a, '--rot-home-bottom='))    $rotHomeBottom    = (int)substr($a, 18);
+    if (str_starts_with($a, '--rot-landing-top='))    $rotLandingTop    = (int)substr($a, 18);
+    if (str_starts_with($a, '--rot-landing-bottom=')) $rotLandingBottom = (int)substr($a, 21);
 }
 $pos = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
 $masterId = $pos[0] ?? '';
@@ -297,7 +308,11 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
 
 // Build the job list (one temp row file + build_one command per row).
 $flagsCommon = ' --snapshot=' . escapeshellarg($snapshotDir) . ($noAi ? ' --no-ai' : '') . ($force ? ' --force' : '')
-             . ($skip !== '' ? ' --skip=' . escapeshellarg($skip) : '');
+             . ($skip !== '' ? ' --skip=' . escapeshellarg($skip) : '')
+             . ($rotHomeTop       !== null ? ' --rot-home-top='       . $rotHomeTop       : '')
+             . ($rotHomeBottom    !== null ? ' --rot-home-bottom='    . $rotHomeBottom    : '')
+             . ($rotLandingTop    !== null ? ' --rot-landing-top='    . $rotLandingTop    : '')
+             . ($rotLandingBottom !== null ? ' --rot-landing-bottom=' . $rotLandingBottom : '');
 $jobList = []; $rowFiles = [];
 foreach ($rows as $r) {
     $domain  = $r['domain'];
