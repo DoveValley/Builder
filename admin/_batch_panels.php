@@ -39,6 +39,33 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
     <p class="hint" style="margin-top:4px;"><strong>Preview test</strong> skips all of that — it stores one single placeholder row (no real business data, no FTP, no <code>landing_cities</code>) so you can jump straight to "4. Generate sites" and use its "view" link. One city only, on purpose: an earlier version paired the placeholder with a second, unrelated city as its landing city, and the result made no sense to look at (a Dallas business "serving" a city 150 miles away, with no link to it anywhere on the site). Overwrites whatever target list is currently stored — use <strong>Download CSV</strong> any time to see exactly what's stored, whether from Preview test or a real upload.</p>
 </div>
 
+<!-- ===== TARGET LIST (per-row editor) ===== -->
+<div class="card" id="ms-rows-card">
+    <h3 style="margin-top:0;">Target list — edit rows directly</h3>
+    <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
+    <div style="overflow-x:auto;">
+        <table id="ms-rows-table" style="width:100%;">
+            <thead><tr>
+                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th>Phone</th><th>City</th><th style="width:50px;">State</th><th style="width:190px;">Actions</th>
+            </tr></thead>
+            <tbody><tr><td colspan="7" class="hint">Loading…</td></tr></tbody>
+        </table>
+    </div>
+    <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
+        <button type="button" class="btn" id="ms-row-add-toggle" onclick="msRowAddToggle()">+ Add domain</button>
+        <div id="ms-row-add-form" style="display:none;margin-top:10px;">
+            <input type="text" id="ms-add-domain" placeholder="domain.com" style="width:160px;">
+            <input type="text" id="ms-add-business" placeholder="Business name" style="width:160px;">
+            <input type="text" id="ms-add-phone" placeholder="Phone" style="width:120px;">
+            <input type="text" id="ms-add-city" placeholder="City" style="width:120px;">
+            <input type="text" id="ms-add-state" placeholder="State (full name)" style="width:140px;">
+            <input type="text" id="ms-add-ss" placeholder="SS" maxlength="2" style="width:40px;">
+            <button type="button" class="btn btn-primary" onclick="msRowAddSave()">Save new row</button>
+            <span id="ms-add-msg" class="hint" style="margin-left:8px;"></span>
+        </div>
+    </div>
+</div>
+
 <!-- ===== RESULTS CARD ===== -->
 <div class="card" id="ms-results-card" style="display:none;">
     <h3 style="margin-top:0;">Validation</h3>
@@ -899,20 +926,46 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
 
     window.msUpload = function (ev) {
         ev.preventDefault();
-        const btn = document.getElementById('ms-upload-btn');
-        const msg = document.getElementById('ms-upload-msg');
         const file = document.getElementById('ms-csv').files[0];
         if (!file) { return false; }
+        msDoUploadCsv(file, false);
+        return false;
+    };
+
+    function msDoUploadCsv(file, confirmDropLive) {
+        const btn = document.getElementById('ms-upload-btn');
+        const msg = document.getElementById('ms-upload-msg');
         const fd = new FormData();
         fd.append('csrf_token', csrfToken);
         fd.append('csv', file);
+        if (confirmDropLive) fd.append('confirm_drop_live', '1');
         btn.disabled = true; msg.textContent = 'Validating…';
         fetch('multisite_api.php?action=upload_csv', { method: 'POST', body: fd })
             .then(r => r.json())
-            .then(d => { btn.disabled = false; msg.textContent = d.stored ? 'Stored.' : (d.error ? '' : 'Reviewed — not stored.'); render(d); if (d.stored) refreshParamsState(); })
+            .then(d => {
+                btn.disabled = false;
+                // A domain fleet.db knows is LIVE would silently vanish from this batch's
+                // target list — refused server-side; ask here instead of failing quietly.
+                if (!d.stored && d.live_domains_dropped && d.live_domains_dropped.length) {
+                    msg.textContent = '';
+                    const names = d.live_domains_dropped.join(', ');
+                    if (confirm('This file would remove ' + d.live_domains_dropped.length
+                        + ' LIVE domain(s) from this batch\'s target list: ' + names
+                        + '.\n\nTheir hosting/DNS is untouched, but this batch will stop managing them '
+                        + '(Generate/Upload will no longer see them). Continue anyway?')) {
+                        msDoUploadCsv(file, true);
+                        return;
+                    }
+                    msg.textContent = 'Not stored — kept the live domain(s) in the target list.';
+                    render(d);
+                    return;
+                }
+                msg.textContent = d.stored ? 'Stored.' : (d.error ? '' : 'Reviewed — not stored.');
+                render(d);
+                if (d.stored) refreshParamsState();
+            })
             .catch(e => { btn.disabled = false; msg.textContent = 'Upload failed.'; });
-        return false;
-    };
+    }
 
     window.msLoadTestCsv = function () {
         const btn = document.getElementById('ms-test-csv-btn');
@@ -1016,6 +1069,10 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
             document.getElementById('ms-download-row').style.display = (d && d.stored) ? '' : 'none';
         }).catch(() => {});
         loadVersions();
+        // Any path that (re)stores params.csv wholesale (upload, restore, preview test)
+        // must refresh the per-row editor too — it caches the last row_list() answer,
+        // and a whole-file replace is exactly the case that invalidates it.
+        msLoadRows();
     }
     window.msRestore = function (id, link) {
         // Guards against a double-click/second click firing a second restore_version
@@ -1383,5 +1440,210 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
         }
         msPollResearch(d.run_id);
     }).catch(() => {});
+
+    // ── Per-row target list editor ──────────────────────────────────────────────
+    // Fields this quick editor touches — matches MS_ROW_EDITABLE_COLS server-side.
+    // Keeping the table's own columns to a readable subset; every other CSV column
+    // (analytics_id, landing_cities, etc.) still round-trips untouched through save.
+    let msRows = {};          // domain -> {fields, status}
+    let msEditingDomain = null;
+    let msUnlockedConfirm = {};   // domain -> the confirm string that unlocked a LIVE row
+
+    function msStatusBadge(status) {
+        if (status === 'live') return '<span style="background:#991b1b;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;">LIVE</span>';
+        if (status) return '<span style="background:#e2e8f0;color:#334155;padding:2px 8px;border-radius:10px;font-size:11px;">' + esc(status) + '</span>';
+        return '<span class="hint">not started</span>';
+    }
+
+    function msRenderRowsTable() {
+        const tbody = document.querySelector('#ms-rows-table tbody');
+        const domains = Object.keys(msRows).sort();
+        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="7" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        tbody.innerHTML = domains.map(msRenderRowPair).join('');
+    }
+
+    function msRenderRowPair(domain) {
+        const r = msRows[domain] || {};
+        const f = r.fields || {};
+        const isLive = r.status === 'live';
+        const editing = msEditingDomain === domain;
+        let cells;
+        if (editing) {
+            cells = '<td>' + msStatusBadge(r.status) + '</td>' +
+                '<td>' + esc(domain) + '</td>' +
+                '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
+                '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
+                '<td><input class="ms-row-input" data-f="city" value="' + esc(f.city || '') + '" style="width:110px;"></td>' +
+                '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
+                '<td><button type="button" class="btn btn-primary" onclick="' + (isLive ? 'msRowSaveCorrect' : 'msRowSave') + "('" + domain.replace(/'/g, "\\'") + "')" + '">' + (isLive ? 'Save &amp; Regenerate' : 'Save') + '</button> ' +
+                '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button></td>';
+        } else {
+            cells = '<td>' + msStatusBadge(r.status) + '</td>' +
+                '<td>' + esc(domain) + '</td>' +
+                '<td>' + esc(f.business || '') + '</td>' +
+                '<td>' + esc(f.phone || '') + '</td>' +
+                '<td>' + esc(f.city || '') + '</td>' +
+                '<td>' + esc(f.SS || '') + '</td>' +
+                '<td>' + (isLive
+                    ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button>'
+                    : '<button type="button" class="btn" onclick="msRowEditStart(\'' + domain.replace(/'/g, "\\'") + '\')">Edit</button> ' +
+                      '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + domain.replace(/'/g, "\\'") + '\')">Delete</button>') +
+                '</td>';
+        }
+        return '<tr data-domain="' + esc(domain) + '">' + cells + '</tr>' +
+            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="7"><div class="ms-row-progress hint"></div></td></tr>';
+    }
+
+    async function msLoadRows() {
+        try {
+            const d = await (await fetch('multisite_api.php?action=row_list')).json();
+            msRows = {};
+            (d.rows || []).forEach(r => { msRows[r.domain] = { fields: r.fields, status: r.status }; });
+        } catch (e) { /* leave whatever was already shown */ }
+        msRenderRowsTable();
+    }
+
+    window.msRowEditStart = function (domain) { msEditingDomain = domain; msRenderRowsTable(); };
+    window.msRowEditCancel = function () { msEditingDomain = null; msRenderRowsTable(); };
+
+    function msRowCollectFields(domain) {
+        const tr = document.querySelector('#ms-rows-table tr[data-domain="' + CSS.escape(domain) + '"]');
+        const out = {};
+        tr.querySelectorAll('.ms-row-input').forEach(inp => { out[inp.dataset.f] = inp.value.trim(); });
+        return out;
+    }
+
+    window.msRowSave = async function (domain) {
+        const fields = msRowCollectFields(domain);
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('domain', domain);
+        Object.keys(fields).forEach(k => fd.append(k, fields[k]));
+        const d = await (await fetch('multisite_api.php?action=row_save', { method: 'POST', body: fd })).json();
+        if (d.error) { alert(d.error); return; }
+        msEditingDomain = null;
+        await msLoadRows();
+    };
+
+    window.msRowDelete = function (domain) {
+        if (!confirm('Remove ' + domain + ' from this batch\'s target list?\n\nAny host/FTP account it already has is untouched — this only removes the row.')) return;
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('domain', domain);
+        fetch('multisite_api.php?action=row_delete', { method: 'POST', body: fd })
+            .then(r => r.json()).then(d => { if (d.error) { alert(d.error); return; } msLoadRows(); });
+    };
+
+    // LIVE rows: typed-domain confirm unlocks editing — lighter than the Infra
+    // console's Danger Zone "+ live" phrase (#4), since this only rewrites fields,
+    // it touches no infrastructure and triggers no build by itself.
+    window.msRowUnlock = function (domain) {
+        const typed = prompt('This domain is LIVE. Type it exactly to unlock its data for correction:\n\n' + domain);
+        if (typed === null) return;
+        if (typed.trim().toLowerCase() !== domain.toLowerCase()) { alert('Did not match — nothing unlocked.'); return; }
+        msUnlockedConfirm[domain] = typed.trim();
+        msEditingDomain = domain;
+        msRenderRowsTable();
+    };
+
+    window.msRowSaveCorrect = async function (domain) {
+        const fields = msRowCollectFields(domain);
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken); fd.append('domain', domain);
+        fd.append('confirm', msUnlockedConfirm[domain] || domain);
+        Object.keys(fields).forEach(k => fd.append(k, fields[k]));
+        const d = await (await fetch('multisite_api.php?action=row_correct', { method: 'POST', body: fd })).json();
+        if (d.error) { alert(d.error); return; }
+        msEditingDomain = null;
+        delete msUnlockedConfirm[domain];
+        await msLoadRows();
+        msRegenerateOne(domain);   // one combined flow: correct, then rebuild + redeploy just this domain
+    };
+
+    function msProgressEl(domain) {
+        const row = document.querySelector('#ms-rows-table tr[data-domain-progress="' + CSS.escape(domain) + '"]');
+        if (row) row.style.display = '';
+        return row ? row.querySelector('.ms-row-progress') : null;
+    }
+
+    async function msRegenerateOne(domain) {
+        const el = msProgressEl(domain);
+        if (el) el.textContent = 'Regenerating ' + domain + '…';
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken); fd.append('only', domain); fd.append('no_deploy', '1');
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=run', { method: 'POST', body: fd })).json(); }
+        catch (e) { if (el) el.textContent = 'Could not reach the server.'; return; }
+        if (d.error) { if (el) el.innerHTML = esc(d.error); return; }
+        msPollRegenRun(domain, d.run_id);
+    }
+
+    function msPollRegenRun(domain, runId) {
+        const el = msProgressEl(domain);
+        const timer = setInterval(async () => {
+            let s;
+            try { s = await (await fetch('multisite_api.php?action=run_status&run_id=' + encodeURIComponent(runId))).json(); }
+            catch (e) { return; }
+            if (!s || !s.state) return;
+            if (el) el.textContent = 'Generating ' + domain + '… ' + (s.state === 'running' ? '(in progress)' : s.state);
+            if (s.state === 'running') return;
+            clearInterval(timer);
+            if (s.state !== 'done' || (s.failed || 0) > 0) {
+                if (el) el.innerHTML = '<span style="color:#991b1b;">Generate failed for ' + esc(domain) + ' — not uploaded. Check the run log above.</span>';
+                return;
+            }
+            msRegenUpload(domain);
+        }, 2500);
+    }
+
+    async function msRegenUpload(domain) {
+        const el = msProgressEl(domain);
+        if (el) el.textContent = 'Uploading ' + domain + '…';
+        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('only', domain);
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=upload', { method: 'POST', body: fd })).json(); }
+        catch (e) { if (el) el.textContent = 'Could not reach the server for upload.'; return; }
+        if (d.error) { if (el) el.innerHTML = esc(d.error); return; }
+        msPollRegenUpload(domain, d.run_id);
+    }
+
+    function msPollRegenUpload(domain, runId) {
+        const el = msProgressEl(domain);
+        const timer = setInterval(async () => {
+            let s;
+            try { s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(runId))).json(); }
+            catch (e) { return; }
+            if (!s) return;
+            if (!s.done) { if (el) el.textContent = 'Uploading ' + domain + '… (in progress)'; return; }
+            clearInterval(timer);
+            const bad = (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
+            if (el) el.innerHTML = bad
+                ? '<span style="color:#991b1b;">Uploaded with failures for ' + esc(domain) + ' — check the log.</span>'
+                : '<span style="color:#166534;">&#10003; Regenerated &amp; redeployed ' + esc(domain) + '.</span>';
+        }, 2000);
+    }
+
+    window.msRowAddToggle = function () {
+        const f = document.getElementById('ms-row-add-form');
+        f.style.display = f.style.display === 'none' ? 'block' : 'none';
+    };
+    window.msRowAddSave = async function () {
+        const domain = document.getElementById('ms-add-domain').value.trim();
+        const msg = document.getElementById('ms-add-msg');
+        if (!domain) { msg.textContent = 'Domain is required.'; msg.style.color = '#991b1b'; return; }
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('domain', domain);
+        fd.append('business', document.getElementById('ms-add-business').value.trim());
+        fd.append('phone', document.getElementById('ms-add-phone').value.trim());
+        fd.append('city', document.getElementById('ms-add-city').value.trim());
+        fd.append('state', document.getElementById('ms-add-state').value.trim());
+        fd.append('SS', document.getElementById('ms-add-ss').value.trim());
+        const d = await (await fetch('multisite_api.php?action=row_add', { method: 'POST', body: fd })).json();
+        if (d.error) { msg.textContent = d.error; msg.style.color = '#991b1b'; return; }
+        msg.textContent = '';
+        ['ms-add-domain', 'ms-add-business', 'ms-add-phone', 'ms-add-city', 'ms-add-state', 'ms-add-ss']
+            .forEach(id => { document.getElementById(id).value = ''; });
+        document.getElementById('ms-row-add-form').style.display = 'none';
+        await msLoadRows();
+    };
+
+    msLoadRows();
 })();
 </script>

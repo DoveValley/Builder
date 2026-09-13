@@ -27,6 +27,15 @@ $masterId = ACTIVE_SITE_ID;
 // Everything except the master-level actions below operates on the open batch.
 const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 'test_deploy_save'];
 
+/** Fields the per-row editor (row_save/row_correct/row_add) may touch. Deliberately
+ *  excludes ftp_* (Create Host's job, not a hand edit) and 'domain' itself (renaming
+ *  a row is delete+add, not an edit — a domain never changes identity in place). */
+const MS_ROW_EDITABLE_COLS = [
+    'business', 'phone', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
+    'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification', 'rating', 'review_count',
+    'landing_cities', 'theme_preset', 'web3forms_key',
+];
+
 $batchId = ''; $batchDir = ''; $paramsPath = ''; $runsDir = '';
 $active  = ms_active_batch();
 if ($active) {
@@ -71,6 +80,37 @@ function ms_validation_payload(array $v): array {
         'unknown_columns' => $v['unknown_columns'],
         'rows'            => ms_rows_for_ui($v),
     ];
+}
+
+/** The batch's stored rows as domain(lower) => full row array. [] if nothing stored yet. */
+function ms_rows_by_domain(string $paramsPath): array {
+    if (!is_file($paramsPath)) return [];
+    $p = ms_parse_csv($paramsPath);
+    if ($p['error']) return [];
+    $out = [];
+    foreach ($p['rows'] as $r) {
+        $d = strtolower(trim((string) ($r['domain'] ?? '')));
+        if ($d !== '') $out[$d] = $r;
+    }
+    return $out;
+}
+
+/**
+ * Write a domain-keyed row map back to the batch's params.csv — used by the per-row
+ * editor so one row's edit never re-derives (or risks dropping) every other row the
+ * way a whole-file re-upload does. Goes through ms_store_params_csv() same as
+ * upload_csv, so version history (params_versions/) stays one single trail.
+ */
+function ms_write_rows_by_domain(string $batchDir, string $paramsPath, array $byDomain): void {
+    $header = MS_KNOWN_COLS;
+    if (is_file($paramsPath)) {
+        $p = ms_parse_csv($paramsPath);
+        if (!$p['error'] && $p['header']) $header = $p['header'];
+    }
+    $tmp = tempnam(sys_get_temp_dir(), 'msrow');
+    ms_write_csv($tmp, $header, array_values($byDomain));
+    ms_store_params_csv($batchDir, $tmp);
+    @unlink($tmp);
 }
 
 // ── Fixed "test server" (card 4) ──────────────────────────────────────────────
@@ -273,6 +313,8 @@ switch ($action) {
         if (!ms_batch_servers($masterId, $batchId)) { echo json_encode(['error' => 'No deployment servers picked — choose them above first.']); break; }
         $hArgs = [$masterId, '--batch=' . $batchId];
         if (!empty($_POST['force'])) $hArgs[] = '--force';
+        $hOnly = trim((string) ($_POST['only'] ?? ''));
+        if ($hOnly !== '') $hArgs[] = '--only=' . $hOnly;
         echo json_encode(ms_launch_job($batchDir . '/hosts', '__MS_HOSTS_DONE__', 'Host creation is already running.',
             BASE_DIR . '/multisite/create_hosts.php', $hArgs));
         break;
@@ -618,7 +660,36 @@ switch ($action) {
         $v = ms_validate_rows($rows, $parsed['header']);
 
         $stored = false;
+        $liveDropped = [];
         if ($v['error'] === 0 && count($v['rows']) > 0) {
+            // A re-upload REPLACES the whole target list — a domain simply absent from
+            // this file just disappears from the batch, business data and all, with no
+            // diff shown. Harmless for a staged/never-built row, but silently dropping a
+            // domain fleet.db knows is LIVE is the same class of gap #2/#4 already closed
+            // for Generate/Upload/Danger-Zone. Blocked unless explicitly confirmed.
+            if (is_file($paramsPath)) {
+                $old = ms_parse_csv($paramsPath);
+                if (!$old['error']) {
+                    $newDomains = array_map(fn($r) => strtolower(trim((string) ($r['domain'] ?? ''))), $v['rows']);
+                    $oldDomains = array_map(fn($r) => strtolower(trim((string) ($r['domain'] ?? ''))), $old['rows']);
+                    $dropped = array_diff(array_filter($oldDomains), $newDomains);
+                    if ($dropped) {
+                        require_once __DIR__ . '/infra/lib/state.php';
+                        foreach ($dropped as $dom) {
+                            $rec = infra_state_get_domain($dom);
+                            if ($rec && ($rec['status'] ?? '') === 'live') $liveDropped[] = $dom;
+                        }
+                    }
+                }
+            }
+            $confirmDropLive = !empty($_POST['confirm_drop_live']);
+            if ($liveDropped && !$confirmDropLive) {
+                echo json_encode(['stored' => false, 'live_domains_dropped' => $liveDropped,
+                    'error' => 'This file would remove ' . count($liveDropped) . ' LIVE domain(s) from this batch: '
+                             . implode(', ', $liveDropped) . '. Confirm to proceed anyway.']
+                             + ms_validation_payload($v));
+                break;
+            }
             $rehydrated = tempnam(sys_get_temp_dir(), 'mscsv');
             ms_write_csv($rehydrated, $parsed['header'], $rows);
             ms_store_params_csv($batchDir, $rehydrated);
@@ -818,6 +889,102 @@ switch ($action) {
     // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).
     case 'lint_master':
         echo json_encode(ms_lint_master($masterId));
+        break;
+
+    // ── Per-row target-list editing — day-to-day edits without a full CSV round-trip.
+    // Every action here reads/writes ONE row via ms_rows_by_domain()/ms_write_rows_by_domain(),
+    // never the whole file, so an edit can never silently drop an unrelated row.
+
+    // List the batch's rows with each domain's live/staged/not-started status from
+    // fleet.db folded in — the one thing the CSV itself can never know.
+    case 'row_list':
+        require_once __DIR__ . '/infra/lib/state.php';
+        $out = [];
+        foreach (ms_rows_by_domain($paramsPath) as $dom => $r) {
+            $rec = infra_state_get_domain($dom);
+            unset($r['ftp_pass'], $r['_line']);
+            $out[] = ['domain' => $dom, 'fields' => $r, 'status' => $rec['status'] ?? ''];
+        }
+        echo json_encode(['rows' => $out]);
+        break;
+
+    // Edit one NON-LIVE row. Refuses a live domain on purpose — row_correct is the
+    // only path for a live row's data, and it requires the typed-domain confirm a
+    // live site's data deserves.
+    case 'row_save':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $byDomain = ms_rows_by_domain($paramsPath);
+        if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
+        $rec = infra_state_get_domain($dom);
+        if ($rec && ($rec['status'] ?? '') === 'live') {
+            echo json_encode(['error' => "{$dom} is LIVE — use Correct & Regenerate for live rows."]);
+            break;
+        }
+        foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
+        $rv = ms_validate_rows([$byDomain[$dom]]);
+        if ($rv['error'] > 0) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $rv['rows'][0]['errors'])]); break; }
+        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        echo json_encode(['saved' => true]);
+        break;
+
+    // Edit a LIVE row's data — the one place a live domain's business data can change
+    // from here. Gated by a typed-domain confirm, lighter than the Danger Zone's
+    // "+ live" phrase (#4) since this only rewrites fields: no infrastructure touched,
+    // no build triggered on its own. The panel chains a Generate+Upload run (scoped
+    // to just this domain, via --only) after a successful save — see batch page JS.
+    case 'row_correct':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        if (strtolower(trim((string) ($_POST['confirm'] ?? ''))) !== $dom) {
+            echo json_encode(['error' => 'Confirmation did not match the domain — nothing changed.']); break;
+        }
+        $byDomain = ms_rows_by_domain($paramsPath);
+        if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
+        $rec = infra_state_get_domain($dom);
+        if (!$rec || ($rec['status'] ?? '') !== 'live') {
+            echo json_encode(['error' => "{$dom} is not live — use the regular row editor instead."]); break;
+        }
+        foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
+        $rv = ms_validate_rows([$byDomain[$dom]]);
+        if ($rv['error'] > 0) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $rv['rows'][0]['errors'])]); break; }
+        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        echo json_encode(['saved' => true]);
+        break;
+
+    // Append ONE new domain — no CSV round-trip for a single addition.
+    case 'row_add':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $byDomain = ms_rows_by_domain($paramsPath);
+        if (isset($byDomain[$dom])) { echo json_encode(['error' => "{$dom} is already in this batch's target list."]); break; }
+        $new = ['domain' => $dom];
+        foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $new[$c] = trim((string) $_POST[$c]);
+        $rv = ms_validate_rows([$new]);
+        if ($rv['error'] > 0) { echo json_encode(['error' => 'Not added — ' . implode('; ', $rv['rows'][0]['errors'])]); break; }
+        $byDomain[$dom] = $new;
+        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        echo json_encode(['added' => true]);
+        break;
+
+    // Remove a NON-LIVE row. A live domain doesn't leave the target list from here —
+    // that's unclaim/teardown in the Infra console, on purpose (see #4 above).
+    case 'row_delete':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $byDomain = ms_rows_by_domain($paramsPath);
+        if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
+        $rec = infra_state_get_domain($dom);
+        if ($rec && ($rec['status'] ?? '') === 'live') {
+            echo json_encode(['error' => "{$dom} is LIVE — remove it via unclaim/teardown in the Infra console instead."]);
+            break;
+        }
+        unset($byDomain[$dom]);
+        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        echo json_encode(['deleted' => true]);
         break;
 
     default:
