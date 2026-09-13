@@ -28,8 +28,10 @@
     <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
         <button type="button" class="btn btn-primary" id="ms-hosts-btn" onclick="msCreateHosts()">Create host areas</button>
         <label class="hint"><input type="checkbox" id="ms-hosts-force"> Force (re-create rows that already have credentials)</label>
+        <label class="hint">Only these domains <input type="text" id="ms-hosts-only" placeholder="comma-separated, optional" style="width:220px;"></label>
         <span id="ms-hosts-msg" class="hint"></span>
     </div>
+    <p class="hint" style="margin-top:8px;">A domain fleet.db already confirms is <strong>LIVE</strong> is skipped automatically &mdash; even with Force checked &mdash; unless you name it above.</p>
 
     <pre id="ms-hosts-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
 </div>
@@ -43,10 +45,24 @@
         const btn = document.getElementById('ms-hosts-btn');
         const msg = document.getElementById('ms-hosts-msg');
         const out = document.getElementById('ms-hosts-out');
+        const forceOn = document.getElementById('ms-hosts-force').checked;
+        const only = document.getElementById('ms-hosts-only').value.trim();
+
+        // Force re-creates an FTP account for every row that already has one — a real,
+        // disruptive action (a fresh account can briefly break an in-flight deploy using
+        // the old one), same class of confirm Generate's own Force checkbox already
+        // requires. Rows fleet.db confirms are LIVE are skipped regardless unless named
+        // in "Only these domains", so this warns about the NON-live rows it will touch.
+        if (forceOn && !confirm('Force will re-create the host/FTP account for every row that already has one'
+            + (only ? ' matching: ' + only : ' in this batch') + '.\n\nAny row fleet.db confirms is LIVE is skipped '
+            + 'unless named above. Continue?')) {
+            return;
+        }
 
         const fd = new FormData();
         fd.append('csrf_token', csrf);
-        if (document.getElementById('ms-hosts-force').checked) fd.append('force', '1');
+        if (forceOn) fd.append('force', '1');
+        if (only) fd.append('only', only);
 
         btn.disabled = true; msg.textContent = 'Starting…'; msg.style.color = '#475569';
         try {

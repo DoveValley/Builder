@@ -2,7 +2,7 @@
 /**
  * Phase 2 — create the host area for every row in a batch, and store what comes back.
  *
- *   php multisite/create_hosts.php <master_id> --batch=bN [--force]
+ *   php multisite/create_hosts.php <master_id> --batch=bN [--force] [--only=DOMAIN[,DOMAIN...]]
  *
  * For each target that has no credentials yet: create the vhost and its folder on the
  * chosen Hestia box, create an FTP account scoped to that folder alone, and write the
@@ -36,9 +36,14 @@ $args     = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
 $batchId  = '';
 $force    = in_array('--force', $args, true);
-foreach ($args as $a) if (str_starts_with($a, '--batch=')) $batchId = substr($a, 8);
+$only     = '';
+foreach ($args as $a) {
+    if (str_starts_with($a, '--batch=')) $batchId = substr($a, 8);
+    if (str_starts_with($a, '--only='))  $only    = strtolower(substr($a, 7));
+}
+$onlyList = $only !== '' ? array_values(array_filter(array_map('trim', explode(',', $only)))) : [];
 
-if ($masterId === '' || $batchId === '') { fwrite(STDERR, "usage: create_hosts.php <master_id> --batch=bN [--force]\n"); exit(2); }
+if ($masterId === '' || $batchId === '') { fwrite(STDERR, "usage: create_hosts.php <master_id> --batch=bN [--force] [--only=DOMAIN[,DOMAIN...]]\n"); exit(2); }
 if (!ms_batch_exists($masterId, $batchId)) { fwrite(STDERR, "No such batch: {$masterId}/{$batchId}\n"); exit(2); }
 
 $csvPath = ms_batch_dir($masterId, $batchId) . '/params.csv';
@@ -70,17 +75,35 @@ foreach (infra_hestia_servers() as $s) $fleet[$s['id'] ?? ''] = $s;
 
 /* Which rows still need a host. A row that already has credentials is left alone
    unless --force, because re-creating it would issue a second FTP account for a site
-   that already has a working one. */
-$todo = [];
+   that already has a working one. A domain fleet.db already confirms LIVE is left
+   alone even under --force unless named explicitly in --only — same rule as
+   Generate/Upload (see run_campaign.php/upload_sites.php): re-provisioning a live
+   site's host resets its FTP account and can interrupt a site that's actually
+   serving traffic, and that should never happen just because it shared a batch with
+   new rows someone meant to force. */
+$todo = []; $liveSkipped = 0;
 foreach ($rows as $i => $r) {
     $domain = strtolower(trim((string) ($r['domain'] ?? '')));
     if ($domain === '') continue;
+    if ($onlyList && !in_array($domain, $onlyList, true)) continue;
     $has = trim((string) ($r['ftp_host'] ?? '')) !== '' && trim((string) ($r['ftp_user'] ?? '')) !== '';
     if ($has && !$force) continue;
+    // A domain not named in --only is left alone if fleet.db confirms it's LIVE, even
+    // under --force — same rule as Generate/Upload. Only checked once we already know
+    // this row would otherwise be touched (has creds + force, or needs one at all).
+    if (!$onlyList) {
+        $rec = infra_state_get_domain($domain);
+        if ($rec && ($rec['status'] ?? '') === 'live') {
+            echo "SKIP (already live) {$domain} — name it in --only to force-recreate its host anyway\n";
+            $liveSkipped++;
+            continue;
+        }
+    }
     $todo[$i] = $domain;
 }
 
-printf("Batch %s/%s — %d target(s), %d needing a host.\n", $masterId, $batchId, count($rows), count($todo));
+printf("Batch %s/%s — %d target(s), %d needing a host%s.\n", $masterId, $batchId, count($rows), count($todo),
+    $liveSkipped > 0 ? ", {$liveSkipped} already-live skipped" : '');
 if (!$todo) {
     echo "Nothing to do — every row already has credentials.\n";
     // Still worth telling the go-live pipeline what is already true, so a batch that
