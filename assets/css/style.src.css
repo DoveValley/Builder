@@ -4427,11 +4427,19 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section.skin-accent { background: var(--skin-accent-bg); color: var(--skin-accent-text); }
 .block-section.skin-subtle { background: var(--skin-subtle-bg); color: var(--skin-subtle-text); }
 
-/* Force the block's own inline background out of the way so the skin shows */
-.block-section.skin-light .content-block,
-.block-section.skin-dark .content-block,
-.block-section.skin-accent .content-block,
-.block-section.skin-subtle .content-block { background: transparent !important; }
+/* Force the block's own inline background out of the way so the skin shows —
+   EXCEPT the block types that paint their own photo as that inline background
+   (hero, hero_split, wide_banner, the photo variant of links_grid). For those,
+   forcing transparent doesn't blend into the skin color, it deletes the photo
+   outright and leaves the section's flat skin color standing in for it. Real,
+   live bug: wide_banner's "Local Crews" band on water-site has both a real
+   photo (wb_photo) and skin:"dark" — the photo silently vanished, replaced by
+   flat var(--skin-dark-bg), because this rule's !important beat its inline
+   background-image. */
+.block-section.skin-light  .content-block:not(.block-hero):not(.block-hero-split):not(.block-wide-banner):not(.block-links-grid),
+.block-section.skin-dark   .content-block:not(.block-hero):not(.block-hero-split):not(.block-wide-banner):not(.block-links-grid),
+.block-section.skin-accent .content-block:not(.block-hero):not(.block-hero-split):not(.block-wide-banner):not(.block-links-grid),
+.block-section.skin-subtle .content-block:not(.block-hero):not(.block-hero-split):not(.block-wide-banner):not(.block-links-grid) { background: transparent !important; }
 
 /* Override inline heading colors set by block renderers */
 .block-section.skin-light  h1,.block-section.skin-light  h2,.block-section.skin-light  h3,.block-section.skin-light  h4 { color: var(--skin-light-heading)  !important; }

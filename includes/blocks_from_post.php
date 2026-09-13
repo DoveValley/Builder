@@ -435,10 +435,11 @@ function parse_blocks_from_post(): array {
                 $block['wb_badge_bg'] = $wbBg;
                 $wbc = trim($_POST['wb_badge_bg_custom'][$i] ?? '#fd783b');
                 $block['wb_badge_bg_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $wbc) ? $wbc : '#fd783b';
-                $block['wb_photo'] = trim($_POST['wb_photo_existing'][$i] ?? '');
+                $wbRemovePhoto = !empty($_POST['wb_photo_remove'][$i]);
+                $block['wb_photo'] = $wbRemovePhoto ? '' : trim($_POST['wb_photo_existing'][$i] ?? '');
                 $up = upload_image_indexed('wb_photo', $i, 'wb_photo');
                 if ($up === false) $uploadError = true;
-                elseif ($up !== null) $block['wb_photo'] = $up;
+                elseif ($up !== null) $block['wb_photo'] = $up; // a fresh upload still wins over "remove"
                 if ($block['wb_heading'] === '' && $block['wb_badge'] === '') continue 2;
                 break;
 

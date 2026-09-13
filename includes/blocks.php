@@ -1259,9 +1259,14 @@ function render_content_block($block, $pathPrefix = '') {
                             $iconOut = '<img src="'.h($iIconSrc).'" alt="'.h($iAlt).'" class="flip-icon-img" '.img_intrinsic_attrs($iIcon).'loading="lazy">';
                         }
                     }
-                    // Checkerboard: even tiles orange->blue, odd tiles blue->orange (flips to the other color)
-                    $fFront = ($gi % 2 === 0) ? 'var(--color-accent)' : 'var(--color-heading)';
-                    $fBack  = ($gi % 2 === 0) ? 'var(--color-heading)' : 'var(--color-accent)';
+                    // Checkerboard, front/back swapped per tile — uses the same $c1/$c2 the
+                    // non-flip layout below resolves from hg_color1/hg_color2 (line ~1273).
+                    // Used to hardcode var(--color-accent)/var(--color-heading) instead: looked
+                    // plausible while heading_color happened to be a dark navy, but ignored
+                    // whatever the block was actually configured with (e.g. hg_color2="header"),
+                    // and broke outright once heading_color was set to true black.
+                    $fFront = ($gi % 2 === 0) ? $c1 : $c2;
+                    $fBack  = ($gi % 2 === 0) ? $c2 : $c1;
                     echo '<div class="hg-tile flip-card">';
                     echo '<div class="flip-inner">';
                     echo '<div class="flip-front" style="background:'.$fFront.';">'.$iconOut.'<span class="flip-label">'.h($iLabel).'</span></div>';

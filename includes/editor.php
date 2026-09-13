@@ -1184,6 +1184,16 @@ function render_content_blocks_editor($blocks) {
                         <input type="file" name="wb_photo[]" accept="image/png,image/jpeg,image/gif,image/webp">
                         <input type="hidden" id="wb_photo_existing_<?= $i ?>" name="wb_photo_existing[]" value="<?= h($block['wb_photo'] ?? '') ?>">
                         <?php photo_picker_btn('wb_photo_existing[]', '', 'wb_photo_existing_' . $i); ?>
+                        <?php // Explicit [<?=$i?>] index, not [] — a checkbox submits nothing at all when
+                        // unchecked, so plain [] (fine for the text/color fields around it, which always
+                        // submit something for every block row) would silently renumber and misalign
+                        // once more than one block on the page has this field. Same fix already used by
+                        // render_photo_upload_fields()'s "Remove current image" checkbox below. ?>
+                        <?php if (!empty($block['wb_photo'])): ?>
+                        <label style="margin-top:8px;font-weight:400;display:block;">
+                            <input type="checkbox" name="wb_photo_remove[<?= $i ?>]" value="1"> Remove current image (fall back to solid color above)
+                        </label>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group">
                         <label>Image alt text</label>
