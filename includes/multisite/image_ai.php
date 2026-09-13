@@ -99,8 +99,16 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
     $cacheDir = $masterDir . '/multisite/cache';
     if (!is_dir($cacheDir)) mkdir($cacheDir, 0775, true);
     $domainSlug = preg_replace('/[^a-z0-9]+/i', '-', strtolower(preg_replace('#^https?://#i', '', rtrim($domain, '/'))));
-    $cacheFile  = $cacheDir . '/' . trim((string) $domainSlug, '-') . '.image_ai.json';
+    $domainSlug = trim((string) $domainSlug, '-');
+    $cacheFile  = $cacheDir . '/' . $domainSlug . '.image_ai.json';
     $cache = file_exists($cacheFile) ? (json_decode((string) file_get_contents($cacheFile), true) ?: []) : [];
+
+    // Generated photos are persisted HERE, outside the working dir — build_one.php
+    // deletes the working dir after every run, so a cache check against a path inside
+    // it (the old bug) could never hit on a later, separate build; it would silently
+    // regenerate and re-bill every single rebuild. This directory is the actual
+    // cross-build memory. $cacheFile above is now just bookkeeping (prompt/timestamp).
+    $persistDir = $cacheDir . '/images/' . $domainSlug;
 
     $mediaDir = $workingDir . '/uploads/media/';
     $dirty    = false;
@@ -116,11 +124,6 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         $parts = picdrop_parse_key($slotKey);
         if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) continue;
 
-        if (!empty($cache[$slotKey]['url']) && is_file($workingDir . '/' . $cache[$slotKey]['url'])) {
-            $out['cached']++;
-            continue;
-        }
-
         // Resolve the block + field this key points at, directly in this domain's own
         // site.json. NOT by the block INDEX the key carries — the homepage's own section
         // order (structure.home) can and does reorder content_blocks per domain, so
@@ -129,7 +132,10 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // failing with "field not present" until this was fixed to match by TYPE + field
         // name instead — the same field name won't collide across an unrelated block
         // type, and this is the same field-name-is-block-specific assumption
-        // picdrop_fields() already relies on.
+        // picdrop_fields() already relies on. Resolved BEFORE the cache check below —
+        // even a cache hit must still write the cached photo into THIS build's
+        // site.json, since a fresh clone's block field holds the master's placeholder,
+        // not last time's generated photo, until that write happens.
         if ($parts['scope'] === 'global') {
             if (!isset($site['services_links']) || !is_array($site['services_links'])) {
                 $out['failed']++; $out['errors'][] = "$slotKey: no services_links block in this domain's site.json"; continue;
@@ -165,6 +171,29 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         if (!array_key_exists($field, $block)) {
             $out['failed']++; $out['errors'][] = "$slotKey: field '$field' not present on that block"; continue;
         }
+
+        // Filename is keyed by slot + the MASTER TEMPLATE prompt (not the per-domain
+        // filled-in one, which always differs by city/business) — same convention the
+        // AI text cache already uses. A domain never changes filename on rebuild, but
+        // editing the prompt in Pic Drop changes this hash, so it regenerates once
+        // rather than silently reusing a photo made from a prompt Scott has since
+        // replaced.
+        $filename    = 'ai_' . substr(md5($slotKey . '|' . $basePrompt), 0, 10) . '.webp';
+        $persistFile = $persistDir . '/' . $filename;
+        $url         = 'uploads/media/' . $filename;
+
+        if (is_file($persistFile)) {
+            if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
+            if (!copy($persistFile, $mediaDir . $filename)) {
+                $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but could not be copied into this build"; continue;
+            }
+            $block[$field]   = $url;
+            $cache[$slotKey] = ($cache[$slotKey] ?? []) + ['url' => $url];
+            $dirty = true;
+            $out['cached']++;
+            continue;
+        }
+
         $currentValue = (string) $block[$field];
         if (str_contains($currentValue, '{')) {
             $out['failed']++; $out['errors'][] = "$slotKey: current value is a locked {token}, not ours to touch"; continue;
@@ -190,7 +219,6 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         $tmpFile = tempnam(sys_get_temp_dir(), 'msai');
         file_put_contents($tmpFile, $r['bytes']);
         if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
-        $filename = 'ai_' . substr(md5($slotKey), 0, 6) . '_' . substr(md5(uniqid('', true)), 0, 6) . '.webp';
         $dest = $mediaDir . $filename;
         [$fitOk] = img_fit_to($tmpFile, $dest, 'image/webp', $tw, $th);
         @unlink($tmpFile);
@@ -198,7 +226,11 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             $out['failed']++; $out['errors'][] = "$slotKey: img_fit_to() could not process the generated image"; continue;
         }
 
-        $url = 'uploads/media/' . $filename;
+        // Persist OUTSIDE the working dir so the next, separate build of this same
+        // domain hits cache instead of re-billing OpenAI — see the note by $persistDir.
+        if (!is_dir($persistDir)) mkdir($persistDir, 0775, true);
+        copy($dest, $persistFile);
+
         $block[$field]   = $url;
         $cache[$slotKey] = ['url' => $url, 'prompt' => $prompt, 'generated_at' => date('Y-m-d H:i:s')];
         $dirty = true;
