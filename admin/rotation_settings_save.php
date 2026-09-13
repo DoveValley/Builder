@@ -19,11 +19,18 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
     http_response_code(403); echo json_encode(['error' => 'Invalid security token.']); exit;
 }
 
+// Field names here are what the panel's JS actually sends (msSaveRotation() — data-field
+// values match the top_field/bottom_field keys in admin/_batch_panels.php's tuples, which
+// also match build_one.php's --rot-*= CLI flag names). ms_rotation_settings()'s own schema
+// keys (home_top, etc.) are an internal detail of section_rotation.json — do not conflate
+// the two; a mismatch here silently falls back to the default every time (found exactly
+// this bug via real browser testing 2026-09-13 — the direct-PHP round-trip test that
+// verified ms_rotation_settings()/ms_image_settings_write() never exercised this mapping).
 $settings = ms_rotation_settings([
-    'home_top'       => $_POST['home_top']       ?? null,
-    'home_bottom'    => $_POST['home_bottom']    ?? null,
-    'landing_top'    => $_POST['landing_top']    ?? null,
-    'landing_bottom' => $_POST['landing_bottom'] ?? null,
+    'home_top'       => $_POST['rot_home_top']       ?? null,
+    'home_bottom'    => $_POST['rot_home_bottom']    ?? null,
+    'landing_top'    => $_POST['rot_landing_top']    ?? null,
+    'landing_bottom' => $_POST['rot_landing_bottom'] ?? null,
 ]);
 
 $res = ms_image_settings_write(ACTIVE_SITE_DIR, 'section_rotation.json', $settings);
