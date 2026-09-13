@@ -402,7 +402,14 @@ if ($skipped('images')) {
     $imgRes = ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
 } else {
     ms_step_begin('images');
-    $imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle, $imageVariation);
+    // Hero text stamp (keyword + "City, ST") — its own switches under Images, one per scope,
+    // same reasoning as the metadata strip below: untick Images and both stop too. Photo
+    // differentiation/renaming is NOT gated by these — only the text overlay itself turns off.
+    $stampHome    = !$skipped('images.stamp_home');
+    $stampLanding = !$skipped('images.stamp_landing');
+    if (!$stampHome)    progress_log('Images: hero text stamp (Home) skipped — turned off for this run.', 'warn');
+    if (!$stampLanding) progress_log('Images: hero text stamp (Landing pages) skipped — turned off for this run.', 'warn');
+    $imgRes = ms_differentiate_site_images($workingDir, $params, $masterCitySlug, $heroStyle, $imageVariation, $stampHome, $stampLanding);
     if ($imgRes['stamped'] > 0 || $imgRes['varied'] > 0 || ($imgRes['pruned'] ?? 0) > 0) {
         progress_log("Images: stamped {$imgRes['stamped']} hero(s), differentiated {$imgRes['varied']} photo(s), pruned " . ($imgRes['pruned'] ?? 0) . " unreferenced.");
     }

@@ -12,11 +12,16 @@ if (!isset($csrfToken)) return;
 require_once __DIR__ . '/../includes/multisite/page_pool.php';
 require_once __DIR__ . '/../includes/multisite/image_ai.php';
 require_once __DIR__ . '/../includes/multisite/image_overlay.php'; // ms_image_settings_read() — section-order rotation pin counts
+require_once __DIR__ . '/../includes/multisite/batch_options.php'; // ms_batch_options_settings() — every checkbox's persisted default
 
 // Section-order rotation pin counts, persisted per master (rotation_settings_save.php) —
 // same read pattern as Gen-Mod's layout_variation.json. Pre-fills the number inputs below;
 // the value actually used for a run is whatever's in the box when Generate sites is clicked.
 $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 'section_rotation.json'));
+// Every checkbox's persisted default (7 parent steps + every sub-switch), per master
+// (batch_options_save.php). Same "purely pre-fills the UI" rule as the rotation numbers above
+// — build_one.php never reads this file; only what's checked at click time matters for a run.
+$msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 'batch_options.json'));
 ?>
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
@@ -388,6 +393,8 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
                  'subs' => [
                     ['Per-city photo differentiation', 'auto'],
                     ['Unique filename per site', 'auto'],
+                    ['Hero image text stamp — Home (keyword + city, state)', 'control', 'images.stamp_home'],
+                    ['Hero image text stamp — Landing pages (keyword + city, state)', 'control', 'images.stamp_landing'],
                     ['Metadata strip — EXIF, XMP, GPS', 'control', 'images.metadata'],
                     ['Area map — the city and the surrounding towns it serves, any niche', 'auto'],
                     ['Data charts from the research figures — 8 water restoration &middot; 7 pest &middot; 7 mold &middot; 4 appliance', 'auto'],
@@ -438,6 +445,8 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
             'todo' => ['&#128679;', '#64748b', '#f1f5f9', 'not built yet'],
         ];
         ?>
+        <p class="hint" style="margin:0 0 8px;">Every checkbox below is saved for this site the moment you change it
+            <span id="ms-opts-msg" style="font-weight:700;transition:opacity .3s;margin-left:6px;"></span></p>
         <?php foreach ($msTree as $msSec): ?>
         <div style="margin-bottom:12px;">
             <div style="display:flex;align-items:baseline;gap:9px;margin-bottom:5px;">
@@ -451,7 +460,8 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
                     <summary style="cursor:pointer;padding:7px 11px;display:flex;align-items:center;gap:9px;font-size:.86rem;">
                         <?php if ($msT['key'] !== null): ?>
                             <!-- onclick stops the tick from also opening/closing the row -->
-                            <input type="checkbox" class="ms-step-opt" value="<?= $msT['key'] ?>" checked
+                            <input type="checkbox" class="ms-step-opt" value="<?= $msT['key'] ?>"
+                                   <?= ($msBatchOptions['steps'][$msT['key']] ?? true) ? 'checked' : '' ?>
                                    onclick="event.stopPropagation()">
                         <?php else: ?>
                             <input type="checkbox" disabled onclick="event.stopPropagation()">
@@ -465,15 +475,19 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
                             <p class="hint" style="margin:0 0 6px;color:#94a3b8;"><?= $msT['note'] ?></p>
                         <?php endif; ?>
                         <?php foreach ($msT['subs'] as $msSub):
-                            $msLabel = $msSub[0];
-                            $msMode  = $msSub[1];
-                            $msKey   = $msSub[2] ?? null;
-                            $msRot   = $msSub[3] ?? null;
+                            $msLabel   = $msSub[0];
+                            $msMode    = $msSub[1];
+                            $msKey     = $msSub[2] ?? null;
+                            $msRot     = $msSub[3] ?? null;
+                            $msChecked = $msMode === 'control' ? ($msBatchOptions['subs'][$msKey] ?? true) : true;
                             if ($msMode === 'control'): ?>
-                                <!-- A real switch: its own skip key, collected by msRun(). -->
+                                <!-- A real switch: its own skip key, collected by msRun(). Its checked state
+                                     also auto-saves per master on change (see msSaveBatchOptions() below) —
+                                     purely what it's pre-checked to next load, never what a live run does. -->
                                 <label class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0;color:#334155;">
                                     <input type="checkbox" class="ms-sub-opt" value="<?= htmlspecialchars($msKey, ENT_QUOTES) ?>"
-                                           data-parent="<?= htmlspecialchars($msT['key'] ?? '', ENT_QUOTES) ?>" checked>
+                                           data-parent="<?= htmlspecialchars($msT['key'] ?? '', ENT_QUOTES) ?>"
+                                           <?= $msChecked ? 'checked' : '' ?>>
                                     <span><?= $msLabel ?></span>
                                 </label>
                                 <?php if ($msRot): ?>
@@ -605,15 +619,23 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
                     cb.closest('label').style.opacity = on ? '1' : '.45';
                 });
             }
+            // Auto-save is wired here (not at setup time — sync(p) below runs once per parent
+            // on page load and must NOT trigger a save) and defined later in this file
+            // (msSaveBatchOptions, near msRun) — safe, since it's only CALLED once a user
+            // actually changes something, by which point the whole page has parsed.
             document.querySelectorAll('.ms-step-opt').forEach(function (p) {
-                p.addEventListener('change', function () { sync(p); });
+                p.addEventListener('change', function () { sync(p); window.msSaveBatchOptions(); });
                 sync(p);
+            });
+            document.querySelectorAll('.ms-sub-opt').forEach(function (cb) {
+                cb.addEventListener('change', function () { window.msSaveBatchOptions(); });
             });
 
             // "Select all" / "Unselect all" — sets every step AND every sub-switch, then
             // re-runs sync() per parent so the disabled/greyed state matches. Clearing
             // data-was first stops sync() from restoring an older per-sub state instead of
-            // the all-on/all-off state this just set.
+            // the all-on/all-off state this just set. Direct .checked assignment fires no
+            // native 'change' event, so this saves once at the end itself.
             window.msSetAllSteps = function (on) {
                 document.querySelectorAll('.ms-step-opt').forEach(function (p) { p.checked = on; });
                 document.querySelectorAll('.ms-sub-opt').forEach(function (cb) {
@@ -621,6 +643,7 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
                     cb.checked = on;
                 });
                 document.querySelectorAll('.ms-step-opt').forEach(function (p) { sync(p); });
+                window.msSaveBatchOptions();
             };
         })();
         </script>
@@ -1322,6 +1345,34 @@ $msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 's
                     return;
                 }
                 // Brief, unmistakable confirmation, then fade — no button, so this IS the only signal it saved.
+                msg.style.color = '#166534'; msg.style.opacity = '1'; msg.textContent = '✓ Saved';
+                setTimeout(() => { msg.style.opacity = '0'; }, 1800);
+            })
+            .catch(() => { if (msg) { msg.style.color = '#991b1b'; msg.style.opacity = '1'; msg.textContent = '✗ save failed'; } });
+    };
+
+    // Persist EVERY checkbox's current state the moment any one of them changes (per master —
+    // batch_options_save.php): the 7 parent steps plus every sub-switch beneath them. Sends
+    // the whole set every time (not just the one that changed) so the file is always a
+    // complete, consistent snapshot. Purely what the panel is pre-checked to on next load —
+    // msRun() below still reads the live DOM at click time for what an actual run does.
+    window.msSaveBatchOptions = function () {
+        const msg = document.getElementById('ms-opts-msg');
+        const options = { steps: {}, subs: {} };
+        document.querySelectorAll('.ms-step-opt').forEach(p => { options.steps[p.value] = p.checked; });
+        document.querySelectorAll('.ms-sub-opt').forEach(cb => { options.subs[cb.value] = cb.checked; });
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('options', JSON.stringify(options));
+        if (msg) { msg.style.color = '#64748b'; msg.style.opacity = '1'; msg.textContent = 'Saving…'; }
+        fetch('batch_options_save.php', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => {
+                if (!msg) return;
+                if (d.error) {
+                    msg.style.color = '#991b1b'; msg.style.opacity = '1'; msg.textContent = '✗ ' + d.error;
+                    return;
+                }
                 msg.style.color = '#166534'; msg.style.opacity = '1'; msg.textContent = '✓ Saved';
                 setTimeout(() => { msg.style.opacity = '0'; }, 1800);
             })

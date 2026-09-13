@@ -663,7 +663,7 @@ function ms_vary_raw_image_refs(string $file, string $baseDir, string $seed, str
  * city_vars). Runs the reusable per-block core, then a raw-text sweep for
  * HTML-embedded refs, then prunes unreferenced files. Returns totals.
  */
-function ms_differentiate_site_images(string $workingDir, array $params, string $masterCitySlug = '', array $style = [], array $ranges = []): array {
+function ms_differentiate_site_images(string $workingDir, array $params, string $masterCitySlug = '', array $style = [], array $ranges = [], bool $stampHome = true, bool $stampLanding = true): array {
     if (ms_convert_bin() === null) return ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
     if (!ms_materialize_uploads($workingDir)) return ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
 
@@ -674,15 +674,19 @@ function ms_differentiate_site_images(string $workingDir, array $params, string 
     $tot    = ['stamped' => 0, 'varied' => 0, 'pruned' => 0];
 
     // One file = one city (site.json uses the site's city; a landing page its own).
-    $processFile = function (string $file, string $fcity, string $fss) use ($workingDir, $seed, $masterCitySlug, $style, $ranges, &$tot) {
+    // $stampHero is per-scope (site.json = home + core pages, vs. each landing page file) —
+    // the batch panel's "Hero text stamp — Home" / "…Landing pages" toggles. Photo
+    // differentiation/renaming (the 'varied' counter) is NOT gated by it — that keeps running
+    // either way; only the keyword+city text overlay turns off.
+    $processFile = function (string $file, string $fcity, string $fss, bool $stampHero) use ($workingDir, $seed, $masterCitySlug, $style, $ranges, &$tot) {
         $data = json_decode((string)@file_get_contents($file), true);
         if (!is_array($data)) return;
         $stamped = [];
-        $run = function (array &$blocks, string $keyword, string $pageKey) use ($workingDir, $seed, $fcity, $fss, $masterCitySlug, $style, $ranges, &$tot, &$stamped) {
+        $run = function (array &$blocks, string $keyword, string $pageKey) use ($workingDir, $seed, $fcity, $fss, $masterCitySlug, $style, $ranges, $stampHero, &$tot, &$stamped) {
             $r = ms_process_blocks_images($blocks, [
                 'site_dir' => $workingDir, 'seed' => $seed, 'city' => $fcity, 'ss' => $fss,
                 'keyword' => $keyword, 'master_city_slug' => $masterCitySlug, 'style' => $style,
-                'ranges' => $ranges, 'page_key' => $pageKey,
+                'ranges' => $ranges, 'page_key' => $pageKey, 'stamp_hero' => $stampHero,
             ]);
             $tot['stamped'] += count($r['stamped']);
             $tot['varied']  += $r['varied'];
@@ -712,10 +716,10 @@ function ms_differentiate_site_images(string $workingDir, array $params, string 
         $tot['varied'] += ms_vary_raw_image_refs($file, $workingDir, $seed, ms_slug_city($fcity, $fss), $masterCitySlug, $skip, $ranges);
     };
 
-    $processFile($workingDir . '/data/site.json', $city, $ss);
+    $processFile($workingDir . '/data/site.json', $city, $ss, $stampHome);
     foreach (glob($workingDir . '/data/pages/*.json') ?: [] as $pf) {
         $cv = (json_decode((string)@file_get_contents($pf), true)['city_vars'] ?? []);
-        $processFile($pf, trim($cv['city'] ?? $city), trim($cv['SS'] ?? $ss));
+        $processFile($pf, trim($cv['city'] ?? $city), trim($cv['SS'] ?? $ss), $stampLanding);
     }
 
     // Drop every image no page references — the master-named originals we replaced
