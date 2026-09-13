@@ -509,7 +509,13 @@ function ms_jitter_color(string $hex, string $domain, string $key): string {
 
     $seed = crc32('jitter|' . $key . '|' . strtolower(trim($domain)));
     $sat0 = $sat; $v0 = $v;
-    $h   = fmod($h + (($seed % 21) - 10) + 360, 360);          // +/- 10 degrees
+    // Accent carries the brand, so its hue swing is tighter than the other jittered keys:
+    // +/-10 degrees on a real accent (e.g. #FFC800) ranged as far as #FFA200-#FFD500 across
+    // domains — different-looking colors side by side, not a subtle nudge. +/-4 keeps the
+    // same site-to-site variation (still defeats an exact-hex comparison) without crossing
+    // into a visibly different hue.
+    $hueRange = ($key === 'accent_color') ? 4 : 10;
+    $h   = fmod($h + (($seed % (2 * $hueRange + 1)) - $hueRange) + 360, 360);
     $sat = min(max($sat + ((($seed >> 8) % 11) - 5) / 100, 0), 1);   // +/- 5%
     $v   = min(max($v   + ((($seed >> 16) % 7) - 3) / 100, 0), 1);   // +/- 3%
 
