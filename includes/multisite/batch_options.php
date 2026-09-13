@@ -7,13 +7,15 @@
  * whatever is checked in the browser at the moment "Generate sites" is clicked (msRun()
  * reads the live DOM and posts the skip list, exactly as before this file existed).
  * This file only controls what those checkboxes are PRE-CHECKED TO the next time the
- * panel loads, so a master's usual choices survive a reload instead of resetting to
+ * panel loads, so a batch's usual choices survive a reload instead of resetting to
  * "everything on" every time. build_one.php / multisite_api.php never read this file.
  *
- * Saved per master in multisite/batch_options.json (admin/batch_options_save.php), same
- * ms_image_settings_read/write() helpers every other per-master setting in this panel uses.
- * Separate from section_rotation.json (the four rotation pin-count NUMBERS) — this file is
- * booleans only.
+ * Saved per BATCH (not per master — two batches off the same master can want different
+ * defaults, e.g. a "test" batch vs. the real one) in
+ * sites/{master}/batches/{batch}/batch_options.json (admin/batch_options_save.php), via
+ * ms_batch_file_read()/ms_batch_file_write() in includes/multisite/batch.php. Separate from
+ * section_rotation.json (the four rotation pin-count NUMBERS, same per-batch scope) — this
+ * file is booleans only.
  */
 
 /**

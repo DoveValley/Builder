@@ -61,6 +61,34 @@ function ms_batch_exists(string $masterId, string $batchId): bool {
         && is_file(ms_batch_dir($masterId, $batchId) . '/batch.json');
 }
 
+/**
+ * Small per-BATCH settings files (batch panel checkbox/number state) — the batch panel's own
+ * choices, unique to this one target list and run history, deliberately NOT shared with any
+ * other batch off the same master (that shared stuff — hero_style.json, niche_brief.json,
+ * etc. — belongs in ms_master_dir(), per the file-level doc comment above). Read returns []
+ * on anything missing or invalid; the caller's own *_settings() function fills defaults, same
+ * shape as ms_image_settings_read()/write() for master-level settings.
+ */
+function ms_batch_file_read(string $masterId, string $batchId, string $name): array {
+    if (!ms_batch_exists($masterId, $batchId)) return [];
+    $f = ms_batch_dir($masterId, $batchId) . '/' . basename($name);
+    if (!is_file($f)) return [];
+    return json_decode((string) @file_get_contents($f), true) ?: [];
+}
+
+/** Write a settings file into a batch's own folder, atomically. */
+function ms_batch_file_write(string $masterId, string $batchId, string $name, array $payload): array {
+    if (!ms_batch_exists($masterId, $batchId)) return ['ok' => false, 'error' => 'Batch not found.'];
+    $f = ms_batch_dir($masterId, $batchId) . '/' . basename($name);
+    $tmp = $f . '.tmp.' . getmypid();
+    $json = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+    if ($json === false || @file_put_contents($tmp, $json) === false || !@rename($tmp, $f)) {
+        @unlink($tmp);
+        return ['ok' => false, 'error' => 'Could not write ' . basename($name) . '.'];
+    }
+    return ['ok' => true, 'error' => ''];
+}
+
 // ── The batch record ──────────────────────────────────────────────────────────
 
 function ms_batch_meta(string $masterId, string $batchId): ?array {

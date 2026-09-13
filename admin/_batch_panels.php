@@ -6,22 +6,26 @@
  * (session), via multisite_api.php. Master-level setup (niche brief, theme presets,
  * icons, master health check) deliberately lives with the SITE, not here.
  *
- * Expects: $csrfToken, $researchOn, $masterId
+ * Expects: $csrfToken, $researchOn, $masterId, $batchId
  */
 if (!isset($csrfToken)) return;
 require_once __DIR__ . '/../includes/multisite/page_pool.php';
 require_once __DIR__ . '/../includes/multisite/image_ai.php';
-require_once __DIR__ . '/../includes/multisite/image_overlay.php'; // ms_image_settings_read() — section-order rotation pin counts
+require_once __DIR__ . '/../includes/multisite/image_overlay.php'; // ms_image_settings_read() — other per-master settings this file reads
+require_once __DIR__ . '/../includes/multisite/batch.php'; // ms_batch_file_read() — per-BATCH settings (rotation pins, checkbox defaults)
 require_once __DIR__ . '/../includes/multisite/batch_options.php'; // ms_batch_options_settings() — every checkbox's persisted default
 
-// Section-order rotation pin counts, persisted per master (rotation_settings_save.php) —
-// same read pattern as Gen-Mod's layout_variation.json. Pre-fills the number inputs below;
-// the value actually used for a run is whatever's in the box when Generate sites is clicked.
-$msRotSettings = ms_rotation_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 'section_rotation.json'));
-// Every checkbox's persisted default (7 parent steps + every sub-switch), per master
-// (batch_options_save.php). Same "purely pre-fills the UI" rule as the rotation numbers above
-// — build_one.php never reads this file; only what's checked at click time matters for a run.
-$msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_DIR, 'batch_options.json'));
+// Section-order rotation pin counts, persisted per BATCH (rotation_settings_save.php) — this
+// batch's own choice, not shared with any other batch off the same master. Pre-fills the
+// number inputs below; the value actually used for a run is whatever's in the box when
+// Generate sites is clicked.
+$msRotSettings = ms_rotation_settings(ms_batch_file_read($masterId, $batchId, 'section_rotation.json'));
+// Every checkbox's persisted default (7 parent steps + every sub-switch), per BATCH
+// (batch_options_save.php) — same reasoning: two batches off the same master can genuinely
+// want different defaults (e.g. a "test" batch vs. the real one). Same "purely pre-fills the
+// UI" rule as the rotation numbers above — build_one.php never reads this file; only what's
+// checked at click time matters for a run.
+$msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batchId, 'batch_options.json'));
 ?>
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
@@ -445,7 +449,7 @@ $msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_D
             'todo' => ['&#128679;', '#64748b', '#f1f5f9', 'not built yet'],
         ];
         ?>
-        <p class="hint" style="margin:0 0 8px;">Every checkbox below is saved for this site the moment you change it
+        <p class="hint" style="margin:0 0 8px;">Every checkbox below is saved for this batch the moment you change it
             <span id="ms-opts-msg" style="font-weight:700;transition:opacity .3s;margin-left:6px;"></span></p>
         <?php foreach ($msTree as $msSec): ?>
         <div style="margin-bottom:12px;">
@@ -482,7 +486,7 @@ $msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_D
                             $msChecked = $msMode === 'control' ? ($msBatchOptions['subs'][$msKey] ?? true) : true;
                             if ($msMode === 'control'): ?>
                                 <!-- A real switch: its own skip key, collected by msRun(). Its checked state
-                                     also auto-saves per master on change (see msSaveBatchOptions() below) —
+                                     also auto-saves per BATCH on change (see msSaveBatchOptions() below) —
                                      purely what it's pre-checked to next load, never what a live run does. -->
                                 <label class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0;color:#334155;">
                                     <input type="checkbox" class="ms-sub-opt" value="<?= htmlspecialchars($msKey, ENT_QUOTES) ?>"
@@ -492,7 +496,7 @@ $msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_D
                                 </label>
                                 <?php if ($msRot): ?>
                                 <!-- Rotation pin counts for this scope — read by msRun() alongside the skip list.
-                                     Saved per master on change (rotation_settings_save.php), so a value you set
+                                     Saved per BATCH on change (rotation_settings_save.php), so a value you set
                                      survives a reload instead of resetting to 1/1. -->
                                 <div class="hint" style="display:flex;align-items:center;gap:14px;padding:2px 0 6px 22px;">
                                     <label style="display:flex;align-items:center;gap:5px;">Don't rotate top
@@ -1326,7 +1330,7 @@ $msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_D
         });
     }
 
-    // Persist a rotation pin-count the moment it changes (per master — rotation_settings_save.php),
+    // Persist a rotation pin-count the moment it changes (per batch — rotation_settings_save.php),
     // so it survives a reload instead of resetting to 1/1. Independent of Generate sites/msRun();
     // that still sends whatever's in the box at click time regardless of whether this save landed.
     window.msSaveRotation = function (input) {
@@ -1351,7 +1355,7 @@ $msBatchOptions = ms_batch_options_settings(ms_image_settings_read(ACTIVE_SITE_D
             .catch(() => { if (msg) { msg.style.color = '#991b1b'; msg.style.opacity = '1'; msg.textContent = '✗ save failed'; } });
     };
 
-    // Persist EVERY checkbox's current state the moment any one of them changes (per master —
+    // Persist EVERY checkbox's current state the moment any one of them changes (per batch —
     // batch_options_save.php): the 7 parent steps plus every sub-switch beneath them. Sends
     // the whole set every time (not just the one that changed) so the file is always a
     // complete, consistent snapshot. Purely what the panel is pre-checked to on next load —
