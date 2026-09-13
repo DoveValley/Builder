@@ -63,10 +63,10 @@ $sitesExist = !empty($sites);
 ms_migrate_all_legacy_batches();
 
 $batches   = ms_all_batches();
-// Displayed by batch number, not last-touched — this page's own default; other
-// callers of ms_all_batches() (e.g. the D.Buy "Claim for Batch" picker) are
+// Displayed by batch number, newest (highest #) first — this page's own default;
+// other callers of ms_all_batches() (e.g. the D.Buy "Claim for Batch" picker) are
 // untouched by this and keep whatever order they already had.
-usort($batches, fn($a, $b) => ((int) ($a['seq'] ?? PHP_INT_MAX)) <=> ((int) ($b['seq'] ?? PHP_INT_MAX)));
+usort($batches, fn($a, $b) => ((int) ($b['seq'] ?? 0)) <=> ((int) ($a['seq'] ?? 0)));
 $siteNames = array_column($sites, 'name', 'id');
 
 // How many batches each site owns — deleting a site takes its batches with it, so the
@@ -333,23 +333,65 @@ function fmt_date(string $iso): string {
         <?php endforeach; ?>
         </div>
         <div id="batch-empty-search" class="sm-empty-sm" style="display:none">No batches match that search.</div>
+        <div id="batch-pagination" style="display:flex;gap:6px;align-items:center;margin-top:14px;flex-wrap:wrap"></div>
         <?php endif; ?>
     </div>
     <script>
     (function () {
-        var sortAsc = true;   // page already renders in ascending # order; this is what the next click flips
+        var PAGE_SIZE = 10;
+        var sortAsc = false;  // page already renders newest-first (descending #); this is what the next click flips
+        var page = 1;
+
+        function visibleRows() {
+            // "visible" = passes the search filter, independent of which page is currently shown
+            return Array.prototype.filter.call(
+                document.querySelectorAll('#batch-list .batch-row'),
+                function (r) { return r.dataset.searchHit !== '0'; }
+            );
+        }
+
+        function renderPage() {
+            var rows = Array.prototype.slice.call(document.querySelectorAll('#batch-list .batch-row'));
+            var matches = visibleRows();
+            var totalPages = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
+            if (page > totalPages) page = totalPages;
+            var start = (page - 1) * PAGE_SIZE, end = start + PAGE_SIZE;
+            rows.forEach(function (r) {
+                if (r.dataset.searchHit === '0') { r.style.display = 'none'; return; }
+                var i = matches.indexOf(r);
+                r.style.display = (i >= start && i < end) ? '' : 'none';
+            });
+
+            var pag = document.getElementById('batch-pagination');
+            if (totalPages <= 1) { pag.innerHTML = ''; return; }
+            var html = '';
+            html += '<button type="button" class="btn-sm-outline" ' + (page === 1 ? 'disabled' : '') +
+                    ' onclick="batchGoToPage(' + (page - 1) + ')">&larr; Prev</button>';
+            for (var p = 1; p <= totalPages; p++) {
+                html += '<button type="button" class="btn-sm-outline" style="' +
+                        (p === page ? 'background:var(--color-accent,#fd783b);color:#fff;border-color:transparent;' : '') +
+                        '" onclick="batchGoToPage(' + p + ')">' + p + '</button>';
+            }
+            html += '<button type="button" class="btn-sm-outline" ' + (page === totalPages ? 'disabled' : '') +
+                    ' onclick="batchGoToPage(' + (page + 1) + ')">Next &rarr;</button>';
+            pag.innerHTML = html;
+        }
+        window.batchGoToPage = function (p) { page = p; renderPage(); };
+
         window.filterBatches = function () {
             var q = document.getElementById('batch-search').value.trim().toLowerCase();
             var rows = document.querySelectorAll('#batch-list .batch-row');
             var shown = 0;
             rows.forEach(function (r) {
                 var hit = q === '' || (r.dataset.name || '').indexOf(q) !== -1;
-                r.style.display = hit ? '' : 'none';
+                r.dataset.searchHit = hit ? '1' : '0';
                 if (hit) shown++;
             });
             document.getElementById('batch-search-count').textContent =
                 q === '' ? '' : (shown + ' of ' + rows.length);
             document.getElementById('batch-empty-search').style.display = (shown === 0 && q !== '') ? '' : 'none';
+            page = 1;
+            renderPage();
         };
         window.toggleBatchSort = function () {
             sortAsc = !sortAsc;
@@ -361,7 +403,11 @@ function fmt_date(string $iso): string {
             });
             rows.forEach(function (r) { list.appendChild(r); });
             document.getElementById('batch-sort-btn').textContent = 'Sort by # ' + (sortAsc ? '↑' : '↓');
+            page = 1;
+            renderPage();
         };
+
+        renderPage();
     })();
     </script>
 
