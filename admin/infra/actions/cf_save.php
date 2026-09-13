@@ -131,6 +131,12 @@ if ($action === 'discover') {
 $label  = trim((string) ($_POST['label'] ?? ''));
 $acctId = trim((string) ($_POST['account_id'] ?? ''));
 $token  = trim((string) ($_POST['api_token'] ?? ''));
+// Origin CA token: a SEPARATE credential from api_token/global_key above — Cloudflare's
+// certificates endpoint needs its own token scoped to Zone → SSL and Certificates →
+// Edit (see cf_create_origin_ca_cert()'s docblock). Optional: a blank field on save
+// means "no change" on an edit, same as api_token, and "not configured yet" on a new
+// account — nothing here requires it before the account can be saved and used.
+$originCaToken = trim((string) ($_POST['origin_ca_token'] ?? ''));
 
 $errors = [];
 if ($label  === '') $errors[] = 'Give the account a name.';
@@ -141,6 +147,7 @@ if ($token === '') {
     if ($idx === null) $errors[] = 'Paste an API token.';
     else               $token = $existing['api_token'] ?? '';
 }
+if ($originCaToken === '') $originCaToken = $existing['origin_ca_token'] ?? '';
 
 if ($errors) {
     infra_set_flash('err', implode(' ', $errors));
@@ -150,10 +157,11 @@ if ($errors) {
 // Keep every field this form does not manage — notably email/global_key, which the
 // registrar path signs with.
 $candidate = array_merge($existing, [
-    'id'         => $id !== '' ? $id : 'acct-' . substr(bin2hex(random_bytes(3)), 0, 6),
-    'label'      => $label,
-    'account_id' => $acctId,
-    'api_token'  => $token,
+    'id'              => $id !== '' ? $id : 'acct-' . substr(bin2hex(random_bytes(3)), 0, 6),
+    'label'           => $label,
+    'account_id'      => $acctId,
+    'api_token'       => $token,
+    'origin_ca_token' => $originCaToken,
 ]);
 
 // The box is part of the account form now, so an account can be created already bound

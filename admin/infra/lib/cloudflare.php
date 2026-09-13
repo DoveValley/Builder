@@ -308,20 +308,22 @@ function cf_get_ssl_mode(array $account, string $zoneId): array
  * Issue a Cloudflare Origin CA certificate for a domain (+ wildcard), signing a
  * CSR generated locally so the private key never leaves this box unencrypted
  * over the wire. This is a SEPARATE credential from the account's api_token or
- * global_key — Cloudflare's Origin CA endpoint only accepts an Origin CA Key
- * (`X-Auth-User-Service-Key`), which is per-login, not per-token, and has to be
- * copied in by hand from that account's dashboard (My Profile → API Tokens →
- * Origin CA Key). Store it as `origin_ca_key` on the account record in
- * config/cloudflare.json. Until that's set, callers should fall back to
- * Cloudflare SSL mode `flexible` rather than call this at all — see the
- * `full`-with-no-origin-cert incident in provision.php.
+ * global_key — Cloudflare's Origin CA endpoint needs its own API Token scoped to
+ * Zone → SSL and Certificates → Edit (Zone Resources: All zones), stored as
+ * `origin_ca_token` on the account record in config/cloudflare.json, sent as a
+ * normal Bearer token. (The old account-wide "Origin CA Key" / X-Auth-User-
+ * Service-Key header this used to document is deprecated by Cloudflare and stops
+ * working entirely on 2026-09-30 — do not resurrect that path.) Until
+ * origin_ca_token is set, callers should fall back to Cloudflare SSL mode
+ * `flexible` rather than call this at all — see the `full`-with-no-origin-cert
+ * incident in provision.php.
  *
  * @return array{ok:bool, cert?:string, key?:string, message:string}
  */
 function cf_create_origin_ca_cert(array $account, string $domain, int $days = 5475): array
 {
-    if (empty($account['origin_ca_key'])) {
-        return ['ok' => false, 'message' => 'no origin_ca_key configured for this Cloudflare account'];
+    if (empty($account['origin_ca_token'])) {
+        return ['ok' => false, 'message' => 'no origin_ca_token configured for this Cloudflare account'];
     }
 
     $dir = sys_get_temp_dir() . '/cf_origin_ca_' . bin2hex(random_bytes(6));
@@ -341,7 +343,7 @@ function cf_create_origin_ca_cert(array $account, string $domain, int $days = 54
     if ($csr === '' || $key === '') return ['ok' => false, 'message' => 'openssl could not generate a CSR'];
 
     $r = infra_http('POST', 'https://api.cloudflare.com/client/v4/certificates', [
-        'headers' => ['X-Auth-User-Service-Key: ' . $account['origin_ca_key'], 'Content-Type: application/json'],
+        'headers' => ['Authorization: Bearer ' . $account['origin_ca_token'], 'Content-Type: application/json'],
         'body'    => ['hostnames' => [$domain, '*.' . $domain], 'requested_validity' => $days,
                       'request_type' => 'origin-rsa', 'csr' => $csr],
         'timeout' => 30,

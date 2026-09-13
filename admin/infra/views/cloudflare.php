@@ -29,6 +29,15 @@
                                style="width:100%;max-width:420px" <?= $isEdit ? '' : 'required' ?>>
                         <?php if ($isEdit): ?><br><span style="color:#9ca3af;font-size:12px">A token is stored. It is never shown here.</span><?php endif; ?></td>
                 </tr>
+                <tr>
+                    <td><strong>Origin CA token</strong><br>
+                        <span style="color:#6b7280;font-size:12px">Optional. Needed only for a real HTTPS
+                        certificate on this account's boxes — see the SSL/origin-cert section below.</span></td>
+                    <td><input name="origin_ca_token" type="password" autocomplete="new-password"
+                               placeholder="<?= ($isEdit && !empty($a['origin_ca_token'])) ? 'leave blank to keep the current one' : 'paste the token, or leave blank for now' ?>"
+                               style="width:100%;max-width:420px">
+                        <?php if ($isEdit && !empty($a['origin_ca_token'])): ?><br><span style="color:#9ca3af;font-size:12px">A token is stored. It is never shown here.</span><?php endif; ?></td>
+                </tr>
                 <?php
                 // The box is chosen HERE, when the account is created — not afterwards on
                 // whichever of twenty box cards you happen to scroll to. An account exists
@@ -143,6 +152,40 @@
             </ul>
         </div>
     </details>
+
+    <details class="ic-card ic-fold" style="margin-bottom:18px">
+        <summary style="cursor:pointer">
+            <h2 style="display:inline;font-size:15px"><span style="color:#9ca3af;font-weight:400">&#9656;</span>
+                How to get an Origin CA token (real HTTPS on this account's boxes)</h2>
+        </summary>
+        <div class="body">
+            <div class="ic-note" style="margin-bottom:12px">Optional — nothing below requires this to work.
+                Without it, a new domain on this account still gets HTTPS for visitors (Cloudflare's own
+                certificate), it just falls back to SSL mode "flexible" (Cloudflare&harr;origin traffic is
+                plain HTTP). This token upgrades that one hop to encrypted too. The old account-wide
+                "Origin CA Key" some Cloudflare accounts still show is being retired entirely on
+                <strong>2026-09-30</strong> — this token is the only replacement, so don't chase that key.</div>
+            <ul style="margin:4px 0 0 18px;line-height:1.9">
+                <li>Log into this same Cloudflare account, same as above.</li>
+                <li>Go to <strong>Manage Account &rarr; Account API Tokens</strong> &mdash; same reason as the
+                    main token above: scoped to just this one account, not every account your login can see.</li>
+                <li><strong>Create Token &rarr; Custom Token</strong>, one permission:
+                    <ul style="margin:6px 0 6px 18px;line-height:1.8">
+                        <li><code>Zone &rarr; SSL and Certificates &rarr; Edit</code></li>
+                    </ul>
+                    Zone Resources: <strong>Include &rarr; All zones</strong> — so a domain provisioned on this
+                    account later is covered automatically, not just ones that exist today.</li>
+                <li>Leave Start/End date empty, same gotcha as above.</li>
+                <li>Create it, copy the token value (shown once), and paste it into
+                    <strong>Origin CA token</strong> in the form below.</li>
+                <li>If you're instead editing an existing token's permissions rather than creating a new one:
+                    saving an edit will <strong>never</strong> show you the secret again — Cloudflare only
+                    displays it once, at creation. Use <strong>Roll</strong> on that token to generate a fresh
+                    secret if you need one.</li>
+            </ul>
+        </div>
+    </details>
+
     <?php
     // Oldest stored zone list across the accounts: the bar should reflect the
     // staleset thing on the page, not the freshest.
@@ -257,6 +300,10 @@
                             <span style="color:#6b7280">— <?= count($zones) - count($pending) ?> with nameservers set, <?= count($pending) ?> waiting</span>
                             <?php endif; ?>
                             <div style="color:#9ca3af;font-size:12px">Nameservers set means Cloudflare is answering for the domain. It does not mean a website is behind it.</div></td></tr>
+                    <tr><td style="color:#6b7280">Origin CA token (real HTTPS cert)</td>
+                        <td><?= !empty($a['origin_ca_token'])
+                            ? '<span class="badge b-ok">configured</span>'
+                            : '<span class="badge b-mut">not set — new zones here fall back to Cloudflare SSL mode &quot;flexible&quot;</span>' ?></td></tr>
                 </tbody>
             </table>
 

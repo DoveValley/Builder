@@ -19,7 +19,7 @@ require_once __DIR__ . '/acquire.php'; // infra_domain_buy() — the ONE guarded
  * Issue a Cloudflare Origin CA cert for $domain and install it on the box, via
  * the domain's own FTP login (Hestia's API has no upload verb — see
  * hestia_install_cert()'s docblock). Returns ok:false, not an exception, when
- * the account has no origin_ca_key configured yet — that is the expected state
+ * the account has no origin_ca_token configured yet — that is the expected state
  * for every account until one is added by hand, not a failure worth aborting a
  * provision run over.
  */
