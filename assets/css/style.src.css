@@ -1753,20 +1753,15 @@ body.has-fixed-header main {
     flex-wrap: wrap;
 }
 
-/* Info items — logo left, middle items center-right, last item far right */
+/* Info items — logo left, the whole group (1, 2 or 3 items) right-justified
+   as a tight cluster with a small gap, not spread across the row. */
 .header-info-items {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 14px;
     flex-wrap: wrap;
     flex: 1;
-    justify-content: center;
-    padding-left: 192px;
-}
-
-/* Push last info item to the far right */
-.header-info-item:last-child {
-    margin-left: auto;
+    justify-content: flex-end;
 }
 .header-info-item {
     display: flex;
