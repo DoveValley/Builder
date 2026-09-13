@@ -1505,6 +1505,17 @@ function render_content_blocks_editor($blocks) {
                             </select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label>Subheading (optional)</label>
+                        <input type="text" name="steps_subtext[]" value="<?= h($block['steps_subtext'] ?? '') ?>" placeholder="e.g. From your initial call to the final inspection, we provide a structured, professional process.">
+                    </div>
+                    <div class="form-group">
+                        <label>Card style</label>
+                        <select name="steps_style[]">
+                            <option value="plain" <?= ($block['steps_style'] ?? 'plain') === 'plain' ? 'selected' : '' ?>>Plain — numbered circle, no card</option>
+                            <option value="card"  <?= ($block['steps_style'] ?? 'plain') === 'card'  ? 'selected' : '' ?>>Card — dashed-border box per step</option>
+                        </select>
+                    </div>
                     <span class="hint" style="display:block;margin-bottom:10px;">Leave the image blank to show an auto-numbered circle instead.</span>
                     <div class="steps-items-editor" id="steps_items_<?= $i ?>">
                         <?php foreach (($block['steps_items'] ?? []) as $si => $step): ?>

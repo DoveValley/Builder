@@ -592,6 +592,8 @@ function parse_blocks_from_post(): array {
                 $block['steps_heading'] = trim($_POST['steps_heading'][$i] ?? '');
                 $stHlRaw = trim($_POST['steps_heading_level'][$i] ?? 'h2');
                 $block['steps_heading_level'] = in_array($stHlRaw, ['h2','h3','h4']) ? $stHlRaw : 'h2';
+                $block['steps_subtext'] = trim($_POST['steps_subtext'][$i] ?? '');
+                $block['steps_style'] = ($_POST['steps_style'][$i] ?? '') === 'card' ? 'card' : 'plain';
                 $stepHeadings  = $_POST['steps_heading_item'][$i] ?? [];
                 $stepTexts     = $_POST['steps_text'][$i]          ?? [];
                 $stepAlts      = $_POST['steps_alt'][$i]           ?? [];

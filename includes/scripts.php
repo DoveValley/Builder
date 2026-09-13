@@ -753,6 +753,12 @@ function content_editor_scripts() {
                         <select name="steps_heading_level[]"><option value="h2" selected>H2</option><option value="h3">H3</option><option value="h4">H4</option></select>
                     </div>
                 </div>
+                <div class="form-group"><label>Subheading (optional)</label>
+                    <input type="text" name="steps_subtext[]" placeholder="e.g. From your initial call to the final inspection, we provide a structured, professional process.">
+                </div>
+                <div class="form-group"><label>Card style</label>
+                    <select name="steps_style[]"><option value="plain" selected>Plain — numbered circle, no card</option><option value="card">Card — dashed-border box per step</option></select>
+                </div>
                 <div class="steps-items-editor" id="steps_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addStepItem(this, 'new_${idx}')">+ Add step</button>
             </div>

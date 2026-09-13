@@ -1375,13 +1375,16 @@ function render_content_block($block, $pathPrefix = '') {
         case 'steps':
             $heading    = $block['steps_heading'] ?? '';
             $stHeadTag  = in_array($block['steps_heading_level'] ?? '', ['h2','h3','h4']) ? $block['steps_heading_level'] : 'h2';
+            $subtext    = $block['steps_subtext'] ?? '';
+            $stepsStyle = ($block['steps_style'] ?? '') === 'card' ? 'card' : 'plain';
             $items   = $block['steps_items']   ?? [];
             // NOTE: HowTo JSON-LD used to be emitted here, but Google deprecated HowTo
             // rich results (2023) — the markup produced no SERP feature, so it was removed
             // to keep output lean. The visible steps UI below is unaffected.
             echo '<div class="content-block block-steps"' . $anchorAttr . '>';
             if ($heading) echo '<'.$stHeadTag.' class="section-heading">' . h($heading) . '</'.$stHeadTag.'>';
-            echo '<div class="steps-grid">';
+            if ($subtext) echo '<p class="section-subheading">' . h($subtext) . '</p>';
+            echo '<div class="steps-grid' . ($stepsStyle === 'card' ? ' steps-grid-card' : '') . '">';
             foreach ($items as $n => $step) {
                 $stepImg  = $step['image']   ?? '';
                 $stepHead = $step['heading'] ?? '';

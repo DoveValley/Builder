@@ -1229,6 +1229,42 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     margin: 0;
 }
 
+/* "Card" style variant — a light box per step with an offset dashed outline behind it,
+   and the number badge overlapping the card's top-left corner, instead of a bare
+   numbered circle sitting above plain text. */
+.steps-grid-card { margin-top: 44px; }
+.steps-grid-card::before { display: none; } /* no connector line behind the cards */
+.steps-grid-card .step-item {
+    text-align: left;
+    background: #eef1f4;
+    border-radius: 10px;
+    padding: 32px 24px 24px;
+}
+.steps-grid-card .step-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px dashed var(--color-accent, #fd783b);
+    border-radius: 10px;
+    transform: translate(-8px, 8px);
+    z-index: -1;
+}
+.steps-grid-card .step-number,
+.steps-grid-card .step-icon {
+    position: absolute;
+    top: -24px;
+    left: -16px;
+    margin: 0;
+    z-index: 2;
+}
+.steps-grid-card .step-number {
+    background: var(--skin-dark-bg, #0d1f3c);
+    width: 72px;
+    height: 72px;
+    font-size: 1.75rem;
+}
+.steps-grid-card .step-body { margin-top: 16px; }
+
 /* ============================================================
    STATS / COUNTERS
    ============================================================ */
@@ -1605,6 +1641,12 @@ html, body {
     }
     /* Very small: single column for feature grids with lots of text */
     .feature-col-text { font-size: var(--font-size-body); }
+    /* Desktop's 28px column gap + 28px top/bottom padding on EACH .feature-col adds up to
+       ~84px of blank space between items once stacked to a single column on mobile — real
+       columns side by side don't notice their own vertical padding, a single-column stack
+       does. Tighter on mobile, same as steps-grid's gap already gets above. */
+    .feature-grid { gap: 8px; }
+    .feature-col { padding: 16px 16px; }
 
     /* Fix #9: steps — single column on mobile, no connector line */
     .steps-grid {
@@ -1617,6 +1659,14 @@ html, body {
     .step-icon   { margin: 0; flex-shrink: 0; width: 48px; height: 48px; }
     .step-body   { flex: 1 1 auto; min-width: 0; }
     .step-heading { margin-top: 0; }
+    /* Card style keeps its stacked-card shape (corner badge over a box) on mobile too —
+       the plain style's icon+text row above doesn't fit a card with a dashed outline. */
+    .steps-grid-card { margin-top: 32px; }
+    .steps-grid-card .step-item { display: block; padding: 28px 20px 20px; margin-left: 16px; }
+    .steps-grid-card .step-number,
+    .steps-grid-card .step-icon { position: absolute; top: -22px; left: -16px; width: 56px; height: 56px; }
+    .steps-grid-card .step-number { font-size: 1.35rem; }
+    .steps-grid-card .step-body { margin-top: 12px; }
 
     /* Fix #18: card-link touch target */
     .card-link { padding: 11px 20px; }
@@ -3077,7 +3127,16 @@ body { padding-bottom: 70px; }
 @media (max-width: 768px) {
     .block-hero-grid { grid-template-columns: 1fr; }
     .hg-left { min-height: 300px; }
-    .hg-overlay { padding: 32px 24px; }
+    /* .hg-overlay is position:absolute + inset:0 above, so it never contributes to
+       .hg-left's height — that box just sits at the 300px floor no matter how long the
+       label/heading/body/button run, and the overlay's own content silently overflows
+       past the bottom edge, visibly colliding with .hg-grid's tiles right below it (the
+       Call button ends up hidden under them). Real, live bug: hero_grid's body text is
+       AI-generated per site and its length isn't known ahead of time, so a fixed-height
+       absolute overlay can never be trusted not to overflow. Put back in normal flow on
+       mobile so the box always grows to fit whatever text actually landed in it —
+       min-height above is still the floor for short copy, this removes the ceiling. */
+    .hg-overlay { position: static; padding: 32px 24px; }
     .hg-heading { font-size: var(--font-size-h3); }
     .hg-grid { grid-template-columns: repeat(3, 1fr); }
     .hg-tile { min-height: 120px; padding: 20px 10px; gap: 8px; }
@@ -3683,21 +3742,21 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .mi-info-split .mi-text { margin: 0; }
 /* A diagram must never be cropped — its labels live at the edges. */
 .mi-map-wrap img { width: 100%; height: auto; display: block; border-radius: 6px; }
-/* Across the full width the diagram is bigger than it needs to be, so hold it to 75% and
-   centre it. Scoped to the stacked layout — in the half-width left/right panels it is
-   already small enough.
-
-   The width lives on the WRAPPER, not the <img>, so the heading and caption can share the same
-   column and line up with the picture instead of with the panel. */
-.mi-stacked .mi-map-panel .mi-map-wrap,
-.mi-stacked .mi-map-panel .mi-heading,
-.mi-stacked .mi-map-panel .mi-map-caption {
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-}
+/* Used to cap the diagram at 75% width, centered, in the stacked layout — left a visible
+   empty margin on both sides while every other AI-generated image on the page (the data
+   charts, .mi-photo right next to this one) fills its full column. Removed so this one
+   stretches edge to edge like the rest instead of sitting in its own smaller box. */
 .mi-stacked .mi-map-panel .mi-heading { text-align: left; }
 .mi-stacked .mi-map-wrap img { width: 100%; }
+/* .mi-panel's bordered white card (border + padding + background) reads as a visible frame
+   around the diagram that none of the page's other AI images have — the data charts and
+   .mi-photo just sit on the page with no card around them. Drop it for the stacked map panel
+   only; the info panel beside/below it keeps its card. */
+.mi-stacked .mi-map-panel {
+    border: none;
+    padding: 0;
+    background: transparent;
+}
 
 @media (max-width: 768px) {
     .mi-grid { grid-template-columns: 1fr; }
