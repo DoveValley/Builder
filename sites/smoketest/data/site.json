@@ -2,7 +2,7 @@
     "theme": {
         "header_bg": "#ffffff",
         "header_top_bg": "#ffffff",
-        "header_text": "#000000",
+        "header_text": "#ffffff",
         "content_bg": "#ffffff",
         "content_text": "#000000",
         "heading_color": "#000000",
@@ -14,36 +14,38 @@
         "border_color": "#e5e7eb",
         "primary_font": "sans-serif",
         "heading_font": "",
-        "font_size_body": "16",
-        "font_size_h1": "2.5",
-        "font_size_h2": "2",
-        "font_size_h3": "1.75",
-        "font_size_h4": "1.5",
-        "button_radius": "4",
+        "font_size_body": 16,
+        "font_size_h1": 2.5,
+        "font_size_h2": 2,
+        "font_size_h3": 1.75,
+        "font_size_h4": 1.5,
+        "button_radius": 4,
         "analytics_head": "",
         "facebook_pixel": "",
         "skins": {
             "light": {
                 "bg": "#ffffff",
                 "heading": "#1a2e5a",
-                "text": "#555e6d"
+                "text": "#000000"
             },
             "dark": {
                 "bg": "#0d1f3c",
                 "heading": "#ffffff",
-                "text": "#e2e8f0"
+                "text": "#ffffff"
             },
             "accent": {
                 "bg": "#2563eb",
                 "heading": "#ffffff",
-                "text": "#dbeafe"
+                "text": "#ffffff"
             },
             "subtle": {
                 "bg": "#f8fafc",
                 "heading": "#1a2e5a",
-                "text": "#555e6d"
+                "text": "#000000"
             }
-        }
+        },
+        "head_extra": "",
+        "font_family": "sans-serif"
     },
     "header": {
         "logo": "",
@@ -120,14 +122,24 @@
         "columns": [],
         "copyright": "&copy; {year} {business}",
         "bottom_links": [],
-        "email": "{email}"
+        "email": "{email}",
+        "logo_in_contact_column": false,
+        "tagline": ""
     },
     "pages": [],
     "posts": [],
     "blog_settings": {
         "blog_heading": "Pest Control Tips & News for {city}",
         "blog_intro": "",
-        "posts_per_page": 9
+        "posts_per_page": 9,
+        "enabled": true
     },
-    "popups": []
+    "popups": {
+        "info": {
+            "enabled": false,
+            "heading": "How Your Calls Are Handled",
+            "image": "",
+            "body": ""
+        }
+    }
 }

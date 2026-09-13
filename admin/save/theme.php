@@ -64,11 +64,13 @@
                 }
             }
         }
-        // theme.heading_color used to be synced FROM skins.light.heading here — backwards
-        // now that light/subtle.heading are themselves derived FROM heading_color at render
-        // time (theme_css_vars()). heading_color has no dedicated admin field of its own (it
-        // never did); it's read by the generated wordmark logo and otherwise just needs to
-        // stay whatever it was last set to (matches header_bg on every real site currently).
+        // Site-wide heading color — drives light/subtle.heading at render time
+        // (theme_css_vars()) and the generated wordmark logo. One real field on the
+        // Gen-Visual tab (Light skin card), not per-skin, since light/subtle share it.
+        $headingColor = trim($_POST['heading_color'] ?? '');
+        if (preg_match('/^#[0-9a-fA-F]{6}$/', $headingColor)) {
+            $data['theme']['heading_color'] = $headingColor;
+        }
         // Analytics snippets — stored as-is (admin only, trusted input)
         $data['theme']['analytics_head']  = $_POST['analytics_head']  ?? '';
         $data['theme']['facebook_pixel']  = $_POST['facebook_pixel']  ?? '';

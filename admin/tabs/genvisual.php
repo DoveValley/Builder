@@ -420,8 +420,8 @@
                 <p class="hint" style="margin-bottom:14px;"><?= $skinHint ?> Pick this block skin on any block from the <strong>Block skin</strong> picker.</p>
                 <?php if ($skinKey === 'accent'): ?>
                 <p class="hint" style="margin-bottom:14px;color:#2563eb;">Background automatically follows <strong>Primary accent</strong> above — no separate field needed.</p>
-                <?php elseif ($skinKey === 'light' || $skinKey === 'subtle'): ?>
-                <p class="hint" style="margin-bottom:14px;color:#2563eb;">Heading text automatically follows the site-wide heading color — no separate field needed.</p>
+                <?php elseif ($skinKey === 'subtle'): ?>
+                <p class="hint" style="margin-bottom:14px;color:#2563eb;">Heading text automatically follows the site-wide heading color (set on the <strong>Light</strong> skin card above) — no separate field needed.</p>
                 <?php endif; ?>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
                     <div class="skin-swatch skin-swatch-<?= $skinKey ?>" style="width:56px;height:56px;border-radius:8px;border:1px solid rgba(0,0,0,.12);flex-shrink:0;margin-top:4px;"></div>
@@ -440,6 +440,10 @@
                                        oninput="document.getElementById('<?= $fkey ?>_picker').value=this.value;updateSkinSwatch('<?= $skinKey ?>');">
                             </div>
                         </div>
+                        <?php if ($skinKey === 'light' && $prop === 'text'):
+                            $colorField('heading_color', 'Heading text', $theme['heading_color'] ?? '#1a2e5a',
+                                'Site-wide heading color — drives block titles fleet-wide (also used by the Subtle skin above, and read by the generated logo). Not the same as Body text just above.');
+                        endif; ?>
                         <?php endforeach; ?>
                     </div>
                 </div>
