@@ -223,5 +223,28 @@
         "default_fields": [],
         "_compiled_from": "homepage_service_area",
         "_niche": "pest"
+    },
+    "homepage_process_steps": {
+        "label": "Homepage Process Steps (Standalone)",
+        "description": "Generates the homepage's How It Works process-steps section (heading, subheading, and 3 steps) -- general, city-agnostic copy since the homepage is not tied to one city or service.",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing the \"How It Works\" process-steps section for {business}, a referral service that connects property owners with independent local pest control providers. This is for the HOMEPAGE, which is general and not about any one city or one specific service, so the copy must work sitewide.\n\nWrite:\n1. \"steps_heading\": 6-10 words. It MUST contain the LITERAL, UNCHANGED placeholder token \"{city_state}\" (do not replace it with any real city -- leave those exact characters in place), plus a general reference to Pest Control in a phrase like \"How Our Pest Control Process Works in {city_state}?\" (you may vary the wording, but keep the literal token).\n2. \"steps_subtext\": one sentence, 15-25 words, summarizing that the process is structured, professional, and easy for the customer, with no city or service specifics.\n3. \"steps_items\": exactly 3 steps in chronological order (initial contact -> on-site assessment -> resolution/follow-up). Each: \"heading\" (2-4 words, action-focused) and \"text\" (20-35 words) describing what happens at that step in general terms -- do NOT mention any specific city, neighborhood, or region anywhere in steps_subtext or steps_items.\n\nACCURACY RULES (critical): Never guarantee outcomes. This business is a referral/advertising network, not the crew performing the work -- never write \"our team\" doing the repair/removal/treatment itself, never claim to directly perform, inspect, remove, or repair anything, and never claim to employ technicians. Do not claim to vet, screen, certify, or background-check the providers in the network unless that is explicitly given as a fact. Always frame the work as done by the independent local providers this business connects customers to. Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.\nTone: reassuring and professional. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only, no markdown fences: {\"steps_heading\": \"...\", \"steps_subtext\": \"...\", \"steps_items\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
+        "ai_output_schema": {
+            "steps_heading": "string",
+            "steps_subtext": "string",
+            "steps_items": "array"
+        },
+        "default_fields": {
+            "steps_heading_level": "h2",
+            "steps_style": "card",
+            "steps_items": []
+        },
+        "_compiled_from": "homepage_process_steps",
+        "_niche": "pest control"
     }
 }

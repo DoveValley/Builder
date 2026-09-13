@@ -297,7 +297,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How Our {service} Process Works",
+            "steps_heading": "How Our {service} Process Works in {city_state}?",
             "steps_items": [
                 {
                     "heading": "Schedule Your Contents Restoration & Pack-Out Visit",
@@ -319,7 +319,9 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "e08dd2f4ce6552ed",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "steps_subtext": "From your initial call to the final inspection, we provide a structured, professional, and efficient process to ensure your property is fully restored after {service}.",
+            "steps_style": "card"
         },
         {
             "type": "cta_banner",
