@@ -156,6 +156,7 @@
     </div></div>
     <?php endif; ?>
 
+    <?php $isLive = ($rec['status'] ?? '') === 'live'; ?>
     <div class="ic-card" style="border-color:#fca5a5"><h2 style="color:#991b1b">⚠ Danger zone</h2><div class="body">
       <p style="font-size:13px;color:#6b7280;margin-top:0">Each action requires typing <code><?= ih($d) ?></code> to confirm.</p>
       <?php
@@ -165,13 +166,17 @@
         ['untrack', 'Remove from fleet (untrack)', 'Forgets this domain here. Leaves the host + Cloudflare intact.'],
         ['teardown', 'Full teardown', 'Deletes the CF zone + the host on the server AND removes from fleet. Irreversible.'],
       ];
-      foreach ($dz as [$act, $label, $desc]): ?>
-        <form method="post" action="actions/domain_manage.php" style="margin:10px 0;padding:10px;border:1px solid #f0f0f0;border-radius:8px" onsubmit="return confirm('<?= ih($label) ?> for <?= ih($d) ?>? This cannot be undone.');">
+      foreach ($dz as [$act, $label, $desc]):
+        $confirmPhrase = $isLive ? $d . ' live' : $d;
+      ?>
+        <form method="post" action="actions/domain_manage.php" style="margin:10px 0;padding:10px;border:1px solid #f0f0f0;border-radius:8px" onsubmit="return confirm('<?= $isLive ? '⚠ ' . ih($d) . ' is LIVE. ' : '' ?><?= ih($label) ?> for <?= ih($d) ?>? This cannot be undone.');">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
           <input type="hidden" name="action" value="<?= ih($act) ?>">
           <input type="hidden" name="domain" value="<?= ih($d) ?>">
-          <div><strong><?= ih($label) ?></strong> <span style="color:#6b7280;font-size:12px"><?= ih($desc) ?></span></div>
-          <input name="confirm" placeholder="type <?= ih($d) ?>" style="width:280px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px;margin:6px 8px 0 0">
+          <div><strong><?= ih($label) ?></strong> <span style="color:#6b7280;font-size:12px"><?= ih($desc) ?></span>
+            <?php if ($isLive): ?><span class="badge b-err">⚠ LIVE</span><?php endif; ?>
+          </div>
+          <input name="confirm" placeholder="type <?= ih($confirmPhrase) ?>" style="width:280px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px;margin:6px 8px 0 0">
           <button class="btn" style="background:#991b1b" type="submit"><?= ih($label) ?></button>
         </form>
       <?php endforeach; ?>

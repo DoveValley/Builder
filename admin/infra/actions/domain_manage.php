@@ -41,8 +41,19 @@ $destructive = ['delete_zone', 'delete_site', 'untrack', 'teardown', 'buy'];
 // cannot be mis-targeted the way a typed name in a shared form can. It still needs
 // CSRF, an authenticated session, and a browser confirm naming the domain and price.
 $quick = ($action === 'buy' && !empty($_POST['quick']));
-if (!$quick && in_array($action, $destructive, true) && strtolower(trim($_POST['confirm'] ?? '')) !== $domain) {
-    infra_set_flash('err', 'Confirmation did not match the domain — nothing changed.');
+// A LIVE domain's Danger Zone actions require typing the domain PLUS "live" — the
+// bare domain name sits right in the page's own heading and offers no real friction
+// against an absent-minded click on a site actually serving real traffic. Same
+// fleet.db `status` field the batch pipeline's already-live skip (see
+// run_campaign.php / upload_sites.php) reads — no new field invented for this.
+$liveGuarded = ['delete_zone', 'delete_site', 'untrack', 'teardown'];
+$isLiveGuard = ($rec['status'] ?? '') === 'live' && in_array($action, $liveGuarded, true);
+$expected    = $isLiveGuard ? $domain . ' live' : $domain;
+$typed       = strtolower(trim((string) ($_POST['confirm'] ?? '')));
+if (!$quick && in_array($action, $destructive, true) && $typed !== $expected) {
+    infra_set_flash('err', $isLiveGuard
+        ? "This domain is LIVE — type \"{$domain} live\" to confirm. Nothing changed."
+        : 'Confirmation did not match the domain — nothing changed.');
     header('Location: ' . $back); exit;
 }
 
