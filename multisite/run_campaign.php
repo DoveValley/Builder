@@ -32,6 +32,7 @@ require __DIR__ . '/../includes/functions.php';
 require __DIR__ . '/../includes/multisite/params.php';
 require __DIR__ . '/../includes/multisite/batch.php';
 require __DIR__ . '/../includes/multisite/clone.php';
+require __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
 
 // ── Args ──────────────────────────────────────────────────────────────────────
 $args      = array_slice($argv, 1);
@@ -94,10 +95,25 @@ $parsed = ms_parse_csv($csvPath);
 if ($parsed['error']) { fwrite(STDERR, 'CSV error: ' . $parsed['error'] . "\n"); exit(2); }
 $v = ms_validate_rows($parsed['rows'], $parsed['header']);
 
-$rows = [];
+$onlyList = $only !== '' ? array_map('trim', array_map('strtolower', explode(',', $only))) : [];
+
+$rows = []; $liveSkipped = 0;
 foreach ($v['rows'] as $r) {
     if ($r['errors']) { echo "SKIP (invalid) line {$r['line']} {$r['domain']}: " . implode('; ', $r['errors']) . "\n"; continue; }
-    if ($only !== '' && !in_array(strtolower($r['domain']), array_map('trim', array_map('strtolower', explode(',', $only))), true)) continue;
+    $domLower = strtolower($r['domain']);
+    if ($onlyList && !in_array($domLower, $onlyList, true)) continue;
+    // A domain already confirmed live is skipped by default — it must be named
+    // explicitly in --only to be touched, so re-running Generate for a batch that has
+    // grown new sibling rows never silently rebuilds (and re-bills AI/image steps for)
+    // a site that's already public. Naming it in --only is the deliberate override.
+    if (!$onlyList) {
+        $rec = infra_state_get_domain($r['domain']);
+        if ($rec && ($rec['status'] ?? '') === 'live') {
+            echo "SKIP (already live) {$r['domain']} — name it in --only to include it anyway\n";
+            $liveSkipped++;
+            continue;
+        }
+    }
     $rows[] = $r['data'];
 }
 if ($limit > 0) $rows = array_slice($rows, 0, $limit);
@@ -105,8 +121,9 @@ if ($limit > 0) $rows = array_slice($rows, 0, $limit);
 $n = count($rows);
 echo "Batch: {$masterId}  |  rows to process: {$n}"
    . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '')
-   . ($skip !== '' ? '  [skipping: ' . $skip . ']' : '') . "\n";
-if ($n === 0) { echo "Nothing to do.\n"; exit(0); }
+   . ($skip !== '' ? '  [skipping: ' . $skip . ']' : '')
+   . ($liveSkipped > 0 ? "  [{$liveSkipped} already-live skipped]" : '') . "\n";
+if ($n === 0) { echo $liveSkipped > 0 ? "Nothing to do (all matching rows are already live).\n" : "Nothing to do.\n"; exit(0); }
 
 // ── FTP pre-flight (§5 R0) ────────────────────────────────────────────────────
 if (!$noPre) {
@@ -301,7 +318,7 @@ $paramsVersion = ms_current_params_version($batchDir);   // which params table t
 
 // Write the run status file (state = running | done | failed). Written incrementally
 // so the admin UI can poll it while a detached run is in progress.
-$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt) {
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt, $liveSkipped) {
     // $results here can carry in-flight rows too (status='running') so the UI has
     // something to show mid-build — those must not count toward done/ok/failed.
     $ok   = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
@@ -323,6 +340,7 @@ $writeStatus = function (string $state, array $results) use ($statusFile, $runId
         'finished_at' => $state === 'running' ? null : gmdate('c'),
         'options'     => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
         'total'       => $n,
+        'live_skipped' => $liveSkipped,
         'done'        => $done,
         'ok'          => $ok,
         'failed'      => $done - $ok,

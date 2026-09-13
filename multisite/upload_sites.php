@@ -33,6 +33,7 @@ require __DIR__ . '/../includes/functions.php';
 require __DIR__ . '/../includes/multisite/params.php';
 require __DIR__ . '/../includes/multisite/batch.php';
 require __DIR__ . '/../includes/multisite/deploy.php';
+require __DIR__ . '/../admin/infra/lib/state.php';   // infra_state_get_domain() — already-live skip
 
 /* deploy_site() reports through the progress system, whose default sink is SSE — which
  * on a CLI script means "data: {...}" frames wrapping every file. This log is read by a
@@ -77,11 +78,18 @@ $built  = ms_batch_built($masterId, $batchId);
 
 /* Line up each row with the build waiting for it. Three states worth telling apart:
    nothing generated, no credentials, and ready. */
-$ready = []; $noBuild = []; $noCreds = [];
+$ready = []; $noBuild = []; $noCreds = []; $liveSkipped = [];
 foreach ($parsed['rows'] as $r) {
     $domain = strtolower(trim((string) ($r['domain'] ?? '')));
     if ($domain === '') continue;
     if ($onlyList && !in_array($domain, $onlyList, true)) continue;
+    // Same rule as Generate: a domain already confirmed live is skipped unless named
+    // explicitly in --only, so re-uploading a batch that's grown new sibling rows
+    // never silently re-pushes files onto a site that's already public.
+    if (!$onlyList) {
+        $rec = infra_state_get_domain($domain);
+        if ($rec && ($rec['status'] ?? '') === 'live') { $liveSkipped[] = $domain; continue; }
+    }
     // Must match ms_batch_output_dir()'s own derivation (ms_domain_slug()) — ms_batch_built()
     // keys its results by the actual directory name on disk.
     $slug = ms_domain_slug($domain);
@@ -96,9 +104,11 @@ if ($limit > 0) $ready = array_slice($ready, 0, $limit);
 printf("Batch %s/%s — %d ready to upload", $masterId, $batchId, count($ready));
 if ($noBuild) printf(", %d not generated yet", count($noBuild));
 if ($noCreds) printf(", %d without credentials", count($noCreds));
+if ($liveSkipped) printf(", %d already-live skipped", count($liveSkipped));
 echo ($force ? "  [--force: full re-upload]" : "") . ($wipe ? "  [--wipe: remote files deleted first]" : "") . "\n";
 foreach ($noBuild as $d) echo "  – {$d}: nothing generated yet — run Generate sites first\n";
 foreach ($noCreds as $d) echo "  – {$d}: no FTP credentials — run Create host first\n";
+foreach ($liveSkipped as $d) echo "  – {$d}: already live — name it in --only to upload to it anyway\n";
 if (!$ready) { echo "\nNothing to upload.\n"; exit(0); }
 echo str_repeat('-', 58) . "\n";
 
