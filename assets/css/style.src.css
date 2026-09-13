@@ -1506,6 +1506,42 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     padding: 8px 10px;
 }
 
+/* Grouped mega menu (appliance-repair niche only — plugins/appliance_services_menu):
+   each grid cell is a whole labeled section (a type, "Shop by Brand", or "Specialty"),
+   not a single link, so it needs more width and more columns than the flat mega menu,
+   and a scroll cap — a 13-item column plus its title genuinely can run taller than a
+   laptop viewport, and this is mouse-hover-only (gated below, same as the base mega
+   menu), so an internal scrollbar has none of the "swallowed tap" risk a touch
+   accordion would. */
+.dropdown-menu-mega.dropdown-menu-grouped {
+    width: 1040px;
+    max-width: 95vw;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+    max-height: 80vh;
+    overflow-y: auto;
+    gap: 4px 18px;
+}
+.dropdown-group {
+    display: flex;
+    flex-direction: column;
+}
+/* More specific than the flat ".dropdown-menu-mega li a" rule above, so a group's own
+   heading link (e.g. "Refrigerator Repair") reads as a section label, not just another
+   item the same weight as its own children. */
+.header-nav-row .site-nav ul.dropdown-menu-grouped a.dropdown-group-title {
+    font-weight: 700;
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: 8px 10px 4px;
+    opacity: 0.75;
+}
+.dropdown-group-items {
+    display: flex;
+    flex-direction: column;
+}
+
 /* ---- Mobile: dropdown becomes accordion ---- */
 @media (max-width: 768px) {
     /* Same specificity note as the desktop rule above — .header-nav-row .site-nav ul's
@@ -1552,6 +1588,18 @@ summary.block-card-header::-webkit-details-marker { display: none; }
     }
     .site-nav ul li.has-dropdown.open > ul.dropdown-menu-mega {
         display: block;
+    }
+    /* Same specificity (two classes) as the desktop .dropdown-menu-mega.dropdown-menu-grouped
+       rule above, so this actually overrides it here rather than losing on source order —
+       a plain single-class .dropdown-menu-mega mobile reset would NOT beat it. Same
+       no-nested-scroll reasoning as the base mega menu: this becomes one long flowing
+       list on mobile (Scott's call — simple, and he doesn't mind it being long), group
+       titles just becoming plain section dividers within it. */
+    .dropdown-menu-mega.dropdown-menu-grouped {
+        width: auto;
+        max-width: 100%;
+        max-height: none;
+        overflow-y: visible;
     }
 }
 

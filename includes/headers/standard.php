@@ -98,7 +98,22 @@
                         // so the nav can never link to a page that wasn't actually built for
                         // this city and never drifts from that shortcode's own list.
                         $navChildren = $item['children'] ?? [];
-                        if ($navChildren === '@services_links' && function_exists('services_links_resolve')) {
+                        $navGroups   = null;
+                        // '@appliance_services_menu' — same soft-guard shape as '@services_links'
+                        // below, appliance-repair niche only. Checked FIRST (not elseif-chained
+                        // with services_links) so a site using this sentinel never falls through
+                        // to the flat resolver by accident. plugins/appliance_services_menu/
+                        // plugin.php owns everything about what goes in $navGroups; mold/water/
+                        // pest never set this sentinel, so this branch never runs for them.
+                        if ($navChildren === '@appliance_services_menu' && function_exists('appliance_services_menu_groups')) {
+                            $grouped   = appliance_services_menu_groups($data);
+                            $navGroups = $grouped['groups'];
+                            // Brand-only pages and the specialty row ride along as two more
+                            // "groups" so the render loop below doesn't need a third shape.
+                            if ($grouped['brands'])    $navGroups[] = ['title' => 'Shop by Brand', 'hub_url' => '#', 'items' => $grouped['brands']];
+                            if ($grouped['specialty']) $navGroups[] = ['title' => 'Specialty',      'hub_url' => '#', 'items' => $grouped['specialty']];
+                            $navChildren = [];
+                        } elseif ($navChildren === '@services_links' && function_exists('services_links_resolve')) {
                             $navChildren = array_map(
                                 fn($row) => ['label' => $row[0], 'url' => $row[1]],
                                 services_links_resolve($data['services_links'] ?? [])
@@ -106,12 +121,14 @@
                         } elseif (!is_array($navChildren)) {
                             $navChildren = [];
                         }
-                        $hasChildren = !empty($navChildren);
+                        $hasChildren = !empty($navChildren) || !empty($navGroups);
                         // A short list (e.g. 4-5 links) fits a normal single-column dropdown.
                         // A long one (a niche with 20-30+ services) needs a wide, multi-column
                         // "mega menu" instead — one narrow column of that many items would run
-                        // off the bottom of the screen.
-                        $isMega = $hasChildren && count($navChildren) > 8;
+                        // off the bottom of the screen. A grouped menu (appliance) is always
+                        // wide enough to need the mega layout regardless of its flat item count,
+                        // since it's counted in groups, not links.
+                        $isMega = $navGroups !== null || ($hasChildren && count($navChildren) > 8);
                         ?>
                         <li class="<?= $hasChildren ? 'has-dropdown' : '' ?><?= $isMega ? ' has-mega-dropdown' : '' ?>">
                             <a href="<?= h($item['url'] ?: '#') ?>"
@@ -120,7 +137,22 @@
                                 <?= h($item['label']) ?>
                                 <?php if ($hasChildren): ?><span class="dropdown-arrow" aria-hidden="true">&#9662;</span><?php endif; ?>
                             </a>
-                            <?php if ($hasChildren): ?>
+                            <?php if ($navGroups !== null): ?>
+                            <ul class="dropdown-menu dropdown-menu-mega dropdown-menu-grouped">
+                                <?php foreach ($navGroups as $group): ?>
+                                    <?php if (empty($group['items'])) continue; ?>
+                                    <li class="dropdown-group">
+                                        <a class="dropdown-group-title" href="<?= h($group['hub_url'] ?: '#') ?>"><?= h($group['title']) ?></a>
+                                        <ul class="dropdown-group-items">
+                                            <?php foreach ($group['items'] as $child): ?>
+                                                <?php if (empty($child[0])) continue; ?>
+                                                <li><a href="<?= h($child[1] ?: '#') ?>"><?= h($child[0]) ?></a></li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                            <?php elseif ($hasChildren): ?>
                             <ul class="dropdown-menu<?= $isMega ? ' dropdown-menu-mega' : '' ?>">
                                 <?php foreach ($navChildren as $child): ?>
                                     <?php if (empty($child['label'])) continue; ?>

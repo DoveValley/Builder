@@ -65,7 +65,7 @@
             {
                 "label": "Services",
                 "url": "/",
-                "children": "@services_links"
+                "children": "@appliance_services_menu"
             }
         ],
         "socials": {
@@ -815,6 +815,330 @@
             {
                 "name": "Miele Appliance Repair",
                 "url": "/miele-appliance-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Refrigerator Repair",
+                "url": "/dacor-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "GE Stove Repair",
+                "url": "/ge-stove-repair-{city_slug}"
+            },
+            {
+                "name": "LG Cooktop Repair",
+                "url": "/lg-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Dishwasher Repair",
+                "url": "/amana-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Sub-Zero Refrigerator Repair",
+                "url": "/sub-zero-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "GE Refrigerator Repair",
+                "url": "/ge-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Dryer Repair",
+                "url": "/frigidaire-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "GE Oven Repair",
+                "url": "/ge-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Oven Repair",
+                "url": "/dacor-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Range Repair",
+                "url": "/maytag-range-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Refrigerator Repair",
+                "url": "/maytag-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Dishwasher Repair",
+                "url": "/viking-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Washer Repair",
+                "url": "/kenmore-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Washer Repair",
+                "url": "/whirlpool-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Washer Repair",
+                "url": "/maytag-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Oven Repair",
+                "url": "/kenmore-oven-repair-{city_slug}"
+            },
+            {
+                "name": "LG Oven Repair",
+                "url": "/lg-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Oven Repair",
+                "url": "/miele-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Garbage Disposal Repair",
+                "url": "/garbage-disposal-repair-{city_slug}"
+            },
+            {
+                "name": "JennAir Refrigerator Repair",
+                "url": "/jennair-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Dryer Repair",
+                "url": "/kenmore-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Refrigerator Repair",
+                "url": "/whirlpool-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Washer Repair",
+                "url": "/frigidaire-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Oven Repair",
+                "url": "/bosch-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Range Repair",
+                "url": "/dacor-range-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Cooktop Repair",
+                "url": "/thermador-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "GE Monogram Refrigerator Repair",
+                "url": "/ge-monogram-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "KitchenAid Cooktop Repair",
+                "url": "/kitchenaid-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Cooktop Repair",
+                "url": "/viking-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Dryer Repair",
+                "url": "/bosch-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Freezer Repair",
+                "url": "/viking-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Dishwasher Repair",
+                "url": "/dacor-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Sub-Zero Freezer Repair",
+                "url": "/sub-zero-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "KitchenAid Freezer Repair",
+                "url": "/kitchenaid-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Washer Repair",
+                "url": "/amana-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Dishwasher Repair",
+                "url": "/frigidaire-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Refrigerator Repair",
+                "url": "/bosch-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Dishwasher Repair",
+                "url": "/whirlpool-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Dishwasher Repair",
+                "url": "/kenmore-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Oven Repair",
+                "url": "/whirlpool-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Range Repair",
+                "url": "/whirlpool-range-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Freezer Repair",
+                "url": "/whirlpool-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Refrigerator Repair",
+                "url": "/miele-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "GE Freezer Repair",
+                "url": "/ge-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Dacor Cooktop Repair",
+                "url": "/dacor-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "JennAir Oven Repair",
+                "url": "/jennair-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Dishwasher Repair",
+                "url": "/thermador-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Dishwasher Repair",
+                "url": "/miele-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Range Repair",
+                "url": "/wolf-range-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Cooktop Repair",
+                "url": "/bosch-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Washer Repair",
+                "url": "/miele-washer-repair-{city_slug}"
+            },
+            {
+                "name": "KitchenAid Oven Repair",
+                "url": "/kitchenaid-oven-repair-{city_slug}"
+            },
+            {
+                "name": "KitchenAid Dishwasher Repair",
+                "url": "/kitchenaid-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Dryer Repair",
+                "url": "/whirlpool-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Range Repair",
+                "url": "/viking-range-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Dishwasher Repair",
+                "url": "/maytag-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "GE Range Repair",
+                "url": "/ge-range-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Oven Repair",
+                "url": "/viking-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Kenmore Refrigerator Repair",
+                "url": "/kenmore-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Ice Machine Repair",
+                "url": "/ice-machine-repair-{city_slug}"
+            },
+            {
+                "name": "Maytag Oven Repair",
+                "url": "/maytag-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Miele Freezer Repair",
+                "url": "/miele-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Bosch Dishwasher Repair",
+                "url": "/bosch-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Oven Repair",
+                "url": "/amana-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Samsung Freezer Repair",
+                "url": "/samsung-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Refrigerator Repair",
+                "url": "/amana-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "KitchenAid Washer Repair",
+                "url": "/kitchenaid-washer-repair-{city_slug}"
+            },
+            {
+                "name": "Amana Dryer Repair",
+                "url": "/amana-dryer-repair-{city_slug}"
+            },
+            {
+                "name": "Stove Repair",
+                "url": "/stove-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Oven Repair",
+                "url": "/thermador-oven-repair-{city_slug}"
+            },
+            {
+                "name": "Whirlpool Cooktop Repair",
+                "url": "/whirlpool-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Wolf Cooktop Repair",
+                "url": "/wolf-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Viking Refrigerator Repair",
+                "url": "/viking-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Refrigerator Repair",
+                "url": "/frigidaire-refrigerator-repair-{city_slug}"
+            },
+            {
+                "name": "JennAir Dishwasher Repair",
+                "url": "/jennair-dishwasher-repair-{city_slug}"
+            },
+            {
+                "name": "GE Cooktop Repair",
+                "url": "/ge-cooktop-repair-{city_slug}"
+            },
+            {
+                "name": "Frigidaire Freezer Repair",
+                "url": "/frigidaire-freezer-repair-{city_slug}"
+            },
+            {
+                "name": "Thermador Range Repair",
+                "url": "/thermador-range-repair-{city_slug}"
+            },
+            {
+                "name": "Trash Compactor Repair",
+                "url": "/trash-compactor-repair-{city_slug}"
+            },
+            {
+                "name": "Ice Maker Repair",
+                "url": "/ice-maker-repair-{city_slug}"
+            },
+            {
+                "name": "Wine Cooler Repair",
+                "url": "/wine-cooler-repair-{city_slug}"
             }
         ],
         "url_pattern": "/{service_slug}-{city_slug}",
