@@ -144,6 +144,18 @@
       </form>
     </div></div>
 
+    <?php if (trim((string) ($rec['batch'] ?? '')) !== ''): ?>
+    <div class="ic-card"><h2>Batch claim</h2><div class="body">
+      <p style="margin-top:0">Claimed by <strong><?= ih($rec['batch']) ?></strong>.</p>
+      <form method="post" action="actions/domain_manage.php" onsubmit="return confirm('Unclaim <?= ih($d) ?> from <?= ih($rec['batch']) ?>? Removes its row from that batch\'s target list and clears the tag here. Ownership, host and CF zone are untouched.');">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="unclaim">
+        <input type="hidden" name="domain" value="<?= ih($d) ?>">
+        <button class="btn sec" type="submit">Unclaim from batch</button>
+      </form>
+    </div></div>
+    <?php endif; ?>
+
     <div class="ic-card" style="border-color:#fca5a5"><h2 style="color:#991b1b">⚠ Danger zone</h2><div class="body">
       <p style="font-size:13px;color:#6b7280;margin-top:0">Each action requires typing <code><?= ih($d) ?></code> to confirm.</p>
       <?php

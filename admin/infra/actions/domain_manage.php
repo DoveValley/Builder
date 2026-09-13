@@ -149,6 +149,14 @@ switch ($action) {
         infra_set_flash($r['ok'] ? 'ok' : 'err', $r['message']);
         header('Location: ' . $back); exit;
 
+    case 'unclaim':
+        // Non-destructive: only clears the batch tag + removes this domain's row from
+        // that batch's params.csv. Ownership, registrar, host, and CF zone are all left
+        // exactly as they are — the reverse of "Claim for Batch" alone, not a teardown.
+        $u = infra_unclaim_from_batch($domain);
+        infra_set_flash($u['ok'] ? 'ok' : 'err', "Unclaim {$domain}: {$u['reason']}");
+        header('Location: ' . $back); exit;
+
     case 'untrack':
         infra_state_delete_domain($domain);
         infra_set_flash('ok', "Removed {$domain} from fleet state (infrastructure left intact).");
