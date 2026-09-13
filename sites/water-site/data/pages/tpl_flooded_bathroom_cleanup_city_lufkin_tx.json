@@ -1,599 +1,593 @@
 {
-  "template_id": "tpl_flooded_bathroom_cleanup",
-  "city_id": "city_lufkin_tx",
-  "slug": "flooded-bathroom-cleanup-lufkin-tx",
-  "title": "Flooded Bathroom Cleanup in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by timber, wood products, and heavy manufacturing tied to companies like Lufkin Industries. The local economy has diversified into healthcare, education, and regional retail trade, with hospitals and Angelina College drawing workers from surrounding rural counties. Its location amid piney woods forestland keeps timber and oilfield equipment manufacturing central to the area's identity.",
-    "local_note": "Most homes in Lufkin are built on slab-on-grade foundations, with some older pier-and-beam construction in historic neighborhoods. The dominant water-damage risk is heavy seasonal rainfall and localized flash flooding, particularly during spring and early summer storm systems.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Copeland",
-      "Green Acres",
-      "Northland Heights"
-    ],
-    "population": 34700,
-    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out.",
-    "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
-    "city_image_alt": "Downtown Lufkin, TX",
-    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
-    "industries": [
-      "Timber and forest products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Retail and regional trade",
-      "Education",
-      "Government/public administration"
-    ],
-    "top_employers": [
-      "Lufkin Industries (Baker Hughes)",
-      "CHI St. Luke's Health Memorial Lufkin",
-      "Woodland Heights Medical Center",
-      "Lufkin Independent School District",
-      "Angelina College",
-      "City of Lufkin",
-      "Angelina County",
-      "Brookshire Grocery Company",
-      "Georgia-Pacific",
-      "Walmart",
-      "Southern Plastics",
-      "Regions Bank"
-    ],
-    "_researched": 1,
-    "freeze_days_monthly": [
-      8,
-      5,
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      2,
-      6
-    ],
-    "freeze_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
-    "rainfall_monthly": [
-      4.3,
-      4,
-      4,
-      3.8,
-      5.2,
-      4.3,
-      3,
-      3,
-      4,
-      4.5,
-      4.6,
-      4.8
-    ],
-    "rainfall_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
-    "rainfall_annual": 49.5,
-    "rainfall_state_avg": 34,
-    "nearby_towns": [
-      {
-        "name": "Diboll",
-        "miles": 10
-      },
-      {
-        "name": "Hudson",
-        "miles": 5
-      },
-      {
-        "name": "Huntington",
-        "miles": 10
-      },
-      {
-        "name": "Nacogdoches",
-        "miles": 20
-      },
-      {
-        "name": "Zavalla",
-        "miles": 20
-      },
-      {
-        "name": "Pollok",
-        "miles": 10
-      },
-      {
-        "name": "Corrigan",
-        "miles": 25
-      },
-      {
-        "name": "Livingston",
-        "miles": 40
-      }
-    ],
-    "flood_years_source": "NOAA Storm Events Database",
-    "flood_years": [
-      2016,
-      2017,
-      2019
-    ],
-    "heavy_rain_days_monthly": [
-      2.5,
-      2.3,
-      2.5,
-      2.6,
-      3,
-      2.3,
-      1.8,
-      1.7,
-      2.2,
-      2.3,
-      2.3,
-      2.5
-    ],
-    "heavy_rain_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
-    "homes_by_decade": {
-      "Before 1960": 25,
-      "1960-1979": 30,
-      "1980-1999": 25,
-      "2000-2009": 10,
-      "2010 or later": 10
+    "template_id": "tpl_flooded_bathroom_cleanup",
+    "city_id": "city_lufkin_tx",
+    "slug": "flooded-bathroom-cleanup-lufkin-tx",
+    "title": "Flooded Bathroom Cleanup in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by timber, wood products, and heavy manufacturing tied to companies like Lufkin Industries. The local economy has diversified into healthcare, education, and regional retail trade, with hospitals and Angelina College drawing workers from surrounding rural counties. Its location amid piney woods forestland keeps timber and oilfield equipment manufacturing central to the area's identity.",
+        "local_note": "Most homes in Lufkin are built on slab-on-grade foundations, with some older pier-and-beam construction in historic neighborhoods. The dominant water-damage risk is heavy seasonal rainfall and localized flash flooding, particularly during spring and early summer storm systems.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Copeland",
+            "Green Acres",
+            "Northland Heights"
+        ],
+        "population": 34700,
+        "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out.",
+        "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
+        "city_image_alt": "Downtown Lufkin, TX",
+        "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+        "industries": [
+            "Timber and forest products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Retail and regional trade",
+            "Education",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "Lufkin Industries (Baker Hughes)",
+            "CHI St. Luke's Health Memorial Lufkin",
+            "Woodland Heights Medical Center",
+            "Lufkin Independent School District",
+            "Angelina College",
+            "City of Lufkin",
+            "Angelina County",
+            "Brookshire Grocery Company",
+            "Georgia-Pacific",
+            "Walmart",
+            "Southern Plastics",
+            "Regions Bank"
+        ],
+        "_researched": 1,
+        "freeze_days_monthly": [
+            8,
+            5,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            6
+        ],
+        "freeze_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+        "rainfall_monthly": [
+            4.3,
+            4,
+            4,
+            3.8,
+            5.2,
+            4.3,
+            3,
+            3,
+            4,
+            4.5,
+            4.6,
+            4.8
+        ],
+        "rainfall_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+        "rainfall_annual": 49.5,
+        "rainfall_state_avg": 34,
+        "nearby_towns": [
+            {
+                "name": "Diboll",
+                "miles": 10
+            },
+            {
+                "name": "Hudson",
+                "miles": 5
+            },
+            {
+                "name": "Huntington",
+                "miles": 10
+            },
+            {
+                "name": "Nacogdoches",
+                "miles": 20
+            },
+            {
+                "name": "Zavalla",
+                "miles": 20
+            },
+            {
+                "name": "Pollok",
+                "miles": 10
+            },
+            {
+                "name": "Corrigan",
+                "miles": 25
+            },
+            {
+                "name": "Livingston",
+                "miles": 40
+            }
+        ],
+        "flood_years_source": "NOAA Storm Events Database",
+        "flood_years": [
+            2016,
+            2017,
+            2019
+        ],
+        "heavy_rain_days_monthly": [
+            2.5,
+            2.3,
+            2.5,
+            2.6,
+            3,
+            2.3,
+            1.8,
+            1.7,
+            2.2,
+            2.3,
+            2.3,
+            2.5
+        ],
+        "heavy_rain_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+        "homes_by_decade": {
+            "Before 1960": 25,
+            "1960-1979": 30,
+            "1980-1999": 25,
+            "2000-2009": 10,
+            "2010 or later": 10
+        },
+        "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+        "hot_days_monthly": [
+            0,
+            0,
+            0,
+            1,
+            4,
+            15,
+            23,
+            24,
+            12,
+            3,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+        "humidity_monthly": [
+            75,
+            72,
+            68,
+            68,
+            72,
+            72,
+            71,
+            70,
+            71,
+            71,
+            74,
+            76
+        ],
+        "humidity_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+        "neighborhoods_source": "verified",
+        "lat": "31.338624",
+        "lng": "-94.728856"
     },
-    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
-    "hot_days_monthly": [
-      0,
-      0,
-      0,
-      1,
-      4,
-      15,
-      23,
-      24,
-      12,
-      3,
-      0,
-      0
-    ],
-    "hot_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
-    "humidity_monthly": [
-      75,
-      72,
-      68,
-      68,
-      72,
-      72,
-      71,
-      70,
-      71,
-      71,
-      74,
-      76
-    ],
-    "humidity_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
-    "neighborhoods_source": "verified",
-    "lat": "31.338624",
-    "lng": "-94.728856"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>Heavy spring storms and seasonal freeze-thaw cycles across East Texas create frequent water intrusion risks for Lufkin-area homes, particularly in bathrooms where plumbing vulnerability and moisture accumulation demand swift attention. Freeman Restoration connects property owners with independent local restoration providers who respond quickly to flooded bathroom cleanup, extracting standing water and beginning the drying process to prevent secondary damage. When bathroom flooding strikes, reaching a responsive local provider fast protects your property and reduces the scope of repair work ahead.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Water-damaged bathroom — flooded bathroom cleanup in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/flooded-bathroom-vanity-toilet-lufkin-tx.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:25.788417Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "3ff5261629b2f586",
-      "_hs_photo_orig": "sites/water-site/uploads/media/flooded-bathroom-vanity-toilet-2-lufkin-tx.webp",
-      "_ai_injected_count": 1,
-      "id": "hero_split_1"
-    },
-    {
-      "type": "trust_bar",
-      "tb_bg": "subtle",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
+    "content_blocks": [
         {
-          "label": "Trained Specialists",
-          "icon": ""
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Heavy spring storms and seasonal freeze-thaw cycles across East Texas create frequent water intrusion risks for Lufkin-area homes, particularly in bathrooms where plumbing vulnerability and moisture accumulation demand swift attention. Freeman Restoration connects property owners with independent local restoration providers who respond quickly to flooded bathroom cleanup, extracting standing water and beginning the drying process to prevent secondary damage. When bathroom flooding strikes, reaching a responsive local provider fast protects your property and reduces the scope of repair work ahead.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Water-damaged bathroom — flooded bathroom cleanup in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/flooded-bathroom-vanity-toilet-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:25.788417Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "3ff5261629b2f586",
+            "_hs_photo_orig": "sites/water-site/uploads/media/flooded-bathroom-vanity-toilet-2-lufkin-tx.webp",
+            "_ai_injected_count": 1,
+            "id": "hero_split_1"
         },
         {
-          "label": "Free Estimates",
-          "icon": ""
+            "type": "trust_bar",
+            "tb_bg": "subtle",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Trained Specialists",
+                    "icon": ""
+                },
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Emergency Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
         },
         {
-          "label": "24/7 Emergency Response",
-          "icon": ""
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/flooded-bathroom-standing-water-lufkin-tx.webp",
+            "it_alt": "Water-damaged bathroom — bathroom water damage in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Flooded Bathroom Cleanup Services for Lufkin Property Owners",
+            "text": "<p>Bathrooms in Lufkin and surrounding East Texas communities face particular vulnerability to flooding and water damage due to the region's climate and seasonal patterns. Heavy rainfall, spring storms, and freeze-thaw cycles that occur during winter months can all lead to pipe bursts, backed-up drains, and water intrusion that leaves bathrooms saturated and at risk of structural damage. When flooding occurs in a bathroom—whether from a burst pipe, toilet overflow, or storm-related water entry—swift cleanup and thorough drying are essential to prevent mold growth, wood rot, and lasting property deterioration.</p><p>Freeman Restoration connects property owners in Lufkin with independent local restoration providers who specialize in flooded bathroom cleanup. These professionals work to extract standing water, dry affected materials, and restore the space to safe, usable condition. The approach emphasizes thoroughness and timely follow-up to catch moisture that may linger in walls, subfloors, and cabinetry where hidden damage can develop. When you face a flooded bathroom in your home, reaching out quickly to a qualified local provider through Freeman Restoration can make a meaningful difference in recovery time and outcome.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:29.105602Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "791f1377139d0724",
+            "_it_photo_orig": "sites/water-site/uploads/media/flooded-bathroom-standing-water-2-lufkin-tx.webp",
+            "id": "ai_block_1"
         },
         {
-          "label": "Fast Local Response",
-          "icon": ""
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Fast Local Response",
+                    "text": "Freeman Restoration connects you with independent local water damage providers ready to respond quickly to flooded bathrooms. Speed matters when water spreads—early intervention by experienced local crews helps limit damage and costs."
+                },
+                {
+                    "heading": "Thorough Drying & Treatment",
+                    "text": "Connected providers use professional-grade equipment and methods to extract standing water, dry affected materials, and treat surfaces. Comprehensive cleanup protects your bathroom structure and prevents secondary damage from lingering moisture."
+                },
+                {
+                    "heading": "Expert Damage Assessment",
+                    "text": "Local restoration professionals evaluate hidden water damage, compromised materials, and restoration needs beyond what's visible. Trained expertise ensures nothing is overlooked, supporting informed decisions about repairs and insurance documentation."
+                },
+                {
+                    "heading": "Ready for East Texas Weather",
+                    "text": "Lufkin's seasonal freeze-thaw cycles and heavy spring storms can strain plumbing and roofing, leading to bathroom flooding. Freeman Restoration connects you with local providers experienced in storm and water damage common to the East Texas region."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:33.467334Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "32f303404b0e859b",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "heading": "Report Your Flooded Bathroom Damage",
+                    "text": "Contact Freeman Restoration to describe your flooded bathroom situation. We'll connect you quickly with an independent local restoration provider in Lufkin, TX who can assess water damage and begin cleanup right away."
+                },
+                {
+                    "heading": "Local Provider Inspects Flooded Bathroom",
+                    "text": "A restoration professional from our network visits to evaluate water extent, affected materials, and contamination risk in your flooded bathroom. Given East Texas humidity and occasional heavy rains, prompt inspection helps prevent secondary moisture issues."
+                },
+                {
+                    "heading": "Flooded Bathroom Cleanup and Water Removal Begin",
+                    "text": "The local provider extracts standing water, removes saturated materials, and begins drying your flooded bathroom. Freeman Restoration stays in touch to ensure the independent crew addresses your needs and answers questions throughout the cleanup process."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "_ai_injected_count": 3,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-07T15:18:35.812210Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "steps_local",
+            "_ai_input_hash": "a6fd81e6dd892f4c",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_structure}",
+            "it_alt": "{chart_group_structure_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Flooded Bathroom Cleanup Across Lufkin",
+            "text": "<p>Lufkin's mix of older and newer homes creates distinct challenges when bathrooms flood. Established neighborhoods with mature oak and pine trees face unique risks—root systems can compromise aging plumbing lines, and heavy rainfall runoff from surrounding canopy areas can overwhelm drainage systems. Older construction materials, common in central Lufkin areas, may absorb water more readily and take longer to dry completely, increasing the urgency of professional water removal and cleanup to prevent secondary damage.</p><p>Newer subdivisions across the region often feature modern plumbing and construction standards, but they still face the seasonal weather patterns that define East Texas. Spring storms and heavy precipitation can saturate yards and foundation areas, pushing water into basements and lower-level bathrooms. The freeze-thaw cycles in winter, though typically mild, can stress pipes and contribute to unexpected leaks. Regardless of your home's age or location, flooded bathrooms require fast response to extract standing water and begin the drying process. Freeman Restoration connects you with responsive local providers who understand how Lufkin's climate and property types affect water damage, so cleanup can begin without delay.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:37.734949Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "479b84185640ddb9",
+            "_it_photo_orig": "sites/water-site/uploads/media/modern-bathroom-marble-2-lufkin-tx.webp",
+            "id": "ai_block_3",
+            "_it_photo_prechart": "sites/water-site/uploads/media/modern-bathroom-marble-lufkin-tx.webp",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "it_caption": "{chart_group_structure_caption}"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water Damage in Lufkin: Year-Round Restoration",
+            "steps_items": [
+                {
+                    "heading": "Spring: Severe Thunderstorms",
+                    "text": "Spring brings intense thunderstorms and heavy rainfall to the Lufkin area, creating roof leaks, foundation seepage, and interior flooding. Property owners across North Lufkin and surrounding regions face rapid water intrusion. Freeman Restoration connects you quickly with local restoration providers who respond to active emergencies and begin water removal and drying efforts."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity",
+                    "text": "Summer heat accelerates moisture problems after spring storms or plumbing failures. Warm, humid conditions in the Lufkin region can promote secondary damage if water isn't fully dried. Freeman Restoration links you with responsive local providers who manage thorough drying and moisture control to prevent lingering issues."
+                },
+                {
+                    "heading": "Fall: Tropical Systems",
+                    "text": "Fall tropical storms and occasional hurricanes pose significant flood and wind-driven water risks to East Texas properties. Bathrooms, basements, and crawl spaces are vulnerable to rapid saturation. Freeman Restoration's network includes local specialists available for urgent storm response and water extraction across the Lufkin area."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw Damage",
+                    "text": "Winter freezes can burst pipes and crack foundations throughout the Lufkin region, leading to water damage when temperatures rise. Frozen plumbing lines and ice dams create bathroom and interior flooding hazards. Freeman Restoration connects property owners with local providers experienced in cold-weather water damage response and cleanup."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:42.563148Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "62f803a05f532dc9",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Flood Damage Restoration {city} {SS}",
+                    "heading": "Flood Damage Restoration",
+                    "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/flood-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                }
+            ],
+            "id": "service_cards_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What does flooded bathroom cleanup in Lufkin actually involve?",
+                    "answer": "<p>Flooded bathroom cleanup includes water removal, drying of walls and floors, sanitization of affected surfaces, and disposal of contaminated materials. Providers assess structural damage, identify moisture trapped behind fixtures and baseboards, and work to prevent secondary issues like mold. Freeman Restoration connects you with local specialists who handle the full scope of bathroom water damage restoration.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman Restoration connect me to a Lufkin flooded bathroom expert?",
+                    "answer": "<p>Freeman Restoration prioritizes fast response to active water emergencies. When you contact us about bathroom flooding in the Lufkin area, we work to connect you with an independent local provider as quickly as possible so mitigation and cleanup can begin immediately, reducing further damage and drying time.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of flooded bathroom cleanup in Lufkin?",
+                    "answer": "<p>Flooded bathroom cleanup costs depend on water volume, category (clean, gray, or contaminated), structural damage, materials affected, and drying complexity. Bathroom size, ceiling and wall damage, and whether subflooring is involved also influence pricing. Providers Freeman Restoration connects you with will assess your specific situation and discuss costs during their evaluation.</p>"
+                },
+                {
+                    "question": "How should I prepare my Lufkin bathroom before cleanup work begins?",
+                    "answer": "<p>Before cleanup arrives, turn off water at the source if safe, remove personal items from the bathroom, and clear access to affected areas. Document damage with photos for insurance purposes. Avoid entering standing water if electrical hazards are present. The restoration provider will guide you on any additional preparation needed and take steps to protect your home during the work.</p>"
+                },
+                {
+                    "question": "What can Lufkin homeowners do to prevent bathroom flooding?",
+                    "answer": "<p>Regular maintenance prevents many bathroom floods: inspect supply line connections monthly, check for slow leaks under sinks, ensure proper grading away from your foundation, and maintain gutters. Know your main water shut-off location. In older homes, consider updating aging pipes. While not all flooding is preventable, these steps reduce risk significantly in the Lufkin area.</p>"
+                },
+                {
+                    "question": "Does Lufkin's weather and season affect bathroom flood risk?",
+                    "answer": "<p>East Texas experiences heavy spring rainfall and occasional severe storms, which increase groundwater pressure and foundation seepage—sometimes flooding basements and lower bathrooms. Winter freeze-thaw cycles can crack pipes and cause delayed leaks. Summer thunderstorms bring sudden water intrusion. Understanding these seasonal risks helps homeowners stay vigilant and respond quickly when damage occurs.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:50.889268Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "e9453c55eeb732ed",
+            "skin": "dark",
+            "fq_open": true,
+            "_ai_injected_count": 6,
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
         }
-      ],
-      "anchor": "trust_bar",
-      "id": "trust_bar_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/flooded-bathroom-standing-water-lufkin-tx.webp",
-      "it_alt": "Water-damaged bathroom — bathroom water damage in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Flooded Bathroom Cleanup Services for Lufkin Property Owners",
-      "text": "<p>Bathrooms in Lufkin and surrounding East Texas communities face particular vulnerability to flooding and water damage due to the region's climate and seasonal patterns. Heavy rainfall, spring storms, and freeze-thaw cycles that occur during winter months can all lead to pipe bursts, backed-up drains, and water intrusion that leaves bathrooms saturated and at risk of structural damage. When flooding occurs in a bathroom—whether from a burst pipe, toilet overflow, or storm-related water entry—swift cleanup and thorough drying are essential to prevent mold growth, wood rot, and lasting property deterioration.</p><p>Freeman Restoration connects property owners in Lufkin with independent local restoration providers who specialize in flooded bathroom cleanup. These professionals work to extract standing water, dry affected materials, and restore the space to safe, usable condition. The approach emphasizes thoroughness and timely follow-up to catch moisture that may linger in walls, subfloors, and cabinetry where hidden damage can develop. When you face a flooded bathroom in your home, reaching out quickly to a qualified local provider through Freeman Restoration can make a meaningful difference in recovery time and outcome.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:29.105602Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "791f1377139d0724",
-      "_it_photo_orig": "sites/water-site/uploads/media/flooded-bathroom-standing-water-2-lufkin-tx.webp",
-      "id": "ai_block_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Fast Local Response",
-          "text": "Freeman Restoration connects you with independent local water damage providers ready to respond quickly to flooded bathrooms. Speed matters when water spreads—early intervention by experienced local crews helps limit damage and costs."
-        },
-        {
-          "heading": "Thorough Drying & Treatment",
-          "text": "Connected providers use professional-grade equipment and methods to extract standing water, dry affected materials, and treat surfaces. Comprehensive cleanup protects your bathroom structure and prevents secondary damage from lingering moisture."
-        },
-        {
-          "heading": "Expert Damage Assessment",
-          "text": "Local restoration professionals evaluate hidden water damage, compromised materials, and restoration needs beyond what's visible. Trained expertise ensures nothing is overlooked, supporting informed decisions about repairs and insurance documentation."
-        },
-        {
-          "heading": "Ready for East Texas Weather",
-          "text": "Lufkin's seasonal freeze-thaw cycles and heavy spring storms can strain plumbing and roofing, leading to bathroom flooding. Freeman Restoration connects you with local providers experienced in storm and water damage common to the East Texas region."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:33.467334Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "32f303404b0e859b",
-      "id": "ai_block_2"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "heading": "Report Your Flooded Bathroom Damage",
-          "text": "Contact Freeman Restoration to describe your flooded bathroom situation. We'll connect you quickly with an independent local restoration provider in Lufkin, TX who can assess water damage and begin cleanup right away."
-        },
-        {
-          "heading": "Local Provider Inspects Flooded Bathroom",
-          "text": "A restoration professional from our network visits to evaluate water extent, affected materials, and contamination risk in your flooded bathroom. Given East Texas humidity and occasional heavy rains, prompt inspection helps prevent secondary moisture issues."
-        },
-        {
-          "heading": "Flooded Bathroom Cleanup and Water Removal Begin",
-          "text": "The local provider extracts standing water, removes saturated materials, and begins drying your flooded bathroom. Freeman Restoration stays in touch to ensure the independent crew addresses your needs and answers questions throughout the cleanup process."
-        }
-      ],
-      "ai_type_id": "steps_local",
-      "_ai_injected_count": 3,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-07T15:18:35.812210Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "steps_local",
-      "_ai_input_hash": "a6fd81e6dd892f4c",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "id": "cta_banner_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "{chart_group_structure}",
-      "it_alt": "{chart_group_structure_alt}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Flooded Bathroom Cleanup Across Lufkin",
-      "text": "<p>Lufkin's mix of older and newer homes creates distinct challenges when bathrooms flood. Established neighborhoods with mature oak and pine trees face unique risks—root systems can compromise aging plumbing lines, and heavy rainfall runoff from surrounding canopy areas can overwhelm drainage systems. Older construction materials, common in central Lufkin areas, may absorb water more readily and take longer to dry completely, increasing the urgency of professional water removal and cleanup to prevent secondary damage.</p><p>Newer subdivisions across the region often feature modern plumbing and construction standards, but they still face the seasonal weather patterns that define East Texas. Spring storms and heavy precipitation can saturate yards and foundation areas, pushing water into basements and lower-level bathrooms. The freeze-thaw cycles in winter, though typically mild, can stress pipes and contribute to unexpected leaks. Regardless of your home's age or location, flooded bathrooms require fast response to extract standing water and begin the drying process. Freeman Restoration connects you with responsive local providers who understand how Lufkin's climate and property types affect water damage, so cleanup can begin without delay.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:37.734949Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "479b84185640ddb9",
-      "_it_photo_orig": "sites/water-site/uploads/media/modern-bathroom-marble-2-lufkin-tx.webp",
-      "id": "ai_block_3",
-      "_it_photo_prechart": "sites/water-site/uploads/media/modern-bathroom-marble-lufkin-tx.webp",
-      "it_ratio": "auto",
-      "it_layout": "stacked",
-      "it_caption": "{chart_group_structure_caption}"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water Damage in Lufkin: Year-Round Restoration",
-      "steps_items": [
-        {
-          "heading": "Spring: Severe Thunderstorms",
-          "text": "Spring brings intense thunderstorms and heavy rainfall to the Lufkin area, creating roof leaks, foundation seepage, and interior flooding. Property owners across North Lufkin and surrounding regions face rapid water intrusion. Freeman Restoration connects you quickly with local restoration providers who respond to active emergencies and begin water removal and drying efforts."
-        },
-        {
-          "heading": "Summer: Heat and Humidity",
-          "text": "Summer heat accelerates moisture problems after spring storms or plumbing failures. Warm, humid conditions in the Lufkin region can promote secondary damage if water isn't fully dried. Freeman Restoration links you with responsive local providers who manage thorough drying and moisture control to prevent lingering issues."
-        },
-        {
-          "heading": "Fall: Tropical Systems",
-          "text": "Fall tropical storms and occasional hurricanes pose significant flood and wind-driven water risks to East Texas properties. Bathrooms, basements, and crawl spaces are vulnerable to rapid saturation. Freeman Restoration's network includes local specialists available for urgent storm response and water extraction across the Lufkin area."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw Damage",
-          "text": "Winter freezes can burst pipes and crack foundations throughout the Lufkin region, leading to water damage when temperatures rise. Frozen plumbing lines and ice dams create bathroom and interior flooding hazards. Freeman Restoration connects property owners with local providers experienced in cold-weather water damage response and cleanup."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:42.563148Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "62f803a05f532dc9",
-      "id": "ai_block_4"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Flood Damage Restoration {city} {SS}",
-          "heading": "Flood Damage Restoration",
-          "text": "Professional Flood Damage Restoration for {city_state} homes and businesses.",
-          "url": "/flood-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        }
-      ],
-      "id": "service_cards_1"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What does flooded bathroom cleanup in Lufkin actually involve?",
-          "answer": "<p>Flooded bathroom cleanup includes water removal, drying of walls and floors, sanitization of affected surfaces, and disposal of contaminated materials. Providers assess structural damage, identify moisture trapped behind fixtures and baseboards, and work to prevent secondary issues like mold. Freeman Restoration connects you with local specialists who handle the full scope of bathroom water damage restoration.</p>"
-        },
-        {
-          "question": "How quickly can Freeman Restoration connect me to a Lufkin flooded bathroom expert?",
-          "answer": "<p>Freeman Restoration prioritizes fast response to active water emergencies. When you contact us about bathroom flooding in the Lufkin area, we work to connect you with an independent local provider as quickly as possible so mitigation and cleanup can begin immediately, reducing further damage and drying time.</p>"
-        },
-        {
-          "question": "What factors affect the cost of flooded bathroom cleanup in Lufkin?",
-          "answer": "<p>Flooded bathroom cleanup costs depend on water volume, category (clean, gray, or contaminated), structural damage, materials affected, and drying complexity. Bathroom size, ceiling and wall damage, and whether subflooring is involved also influence pricing. Providers Freeman Restoration connects you with will assess your specific situation and discuss costs during their evaluation.</p>"
-        },
-        {
-          "question": "How should I prepare my Lufkin bathroom before cleanup work begins?",
-          "answer": "<p>Before cleanup arrives, turn off water at the source if safe, remove personal items from the bathroom, and clear access to affected areas. Document damage with photos for insurance purposes. Avoid entering standing water if electrical hazards are present. The restoration provider will guide you on any additional preparation needed and take steps to protect your home during the work.</p>"
-        },
-        {
-          "question": "What can Lufkin homeowners do to prevent bathroom flooding?",
-          "answer": "<p>Regular maintenance prevents many bathroom floods: inspect supply line connections monthly, check for slow leaks under sinks, ensure proper grading away from your foundation, and maintain gutters. Know your main water shut-off location. In older homes, consider updating aging pipes. While not all flooding is preventable, these steps reduce risk significantly in the Lufkin area.</p>"
-        },
-        {
-          "question": "Does Lufkin's weather and season affect bathroom flood risk?",
-          "answer": "<p>East Texas experiences heavy spring rainfall and occasional severe storms, which increase groundwater pressure and foundation seepage—sometimes flooding basements and lower bathrooms. Winter freeze-thaw cycles can crack pipes and cause delayed leaks. Summer thunderstorms bring sudden water intrusion. Understanding these seasonal risks helps homeowners stay vigilant and respond quickly when damage occurs.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:50.889268Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "e9453c55eeb732ed",
-      "skin": "dark",
-      "fq_open": true,
-      "_ai_injected_count": 6,
-      "id": "faq_two_col_1"
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "id": "cta_banner_2"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]",
-      "id": "custom_html_1"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "Areas We Serve in {city}, {state}",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "top",
-      "mi_map_caption": "{city_map_caption}",
-      "id": "map_info_1"
-    }
-  ],
-  "seo": {
-    "seo_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
-    "canonical_url": "https://freemanrestoration.com/flooded-bathroom-cleanup-lufkin-tx/",
-    "meta_description": "Flooded Bathroom Cleanup in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "flooded bathroom cleanup Lufkin TX, bathroom water damage Lufkin, overflowing tub cleanup Lufkin, shower overflow cleanup Lufkin",
-    "og_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
-    "og_description": "24/7 flooded bathroom cleanup in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/flooded-bathroom-cleanup-1.webp",
-    "service_name": "Flooded Bathroom Cleanup",
-    "service_type": "Flooded Bathroom Cleanup",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Flooded bathroom cleanup for homes and businesses in {city_state}, including bathroom water damage, overflowing tub cleanup and shower overflow cleanup.",
-    "bc_label": "Flooded Bathroom Cleanup",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in Lufkin, TX — bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
-    "primary_keyword": "Flooded Bathroom Cleanup",
-    "secondary_keywords": "bathroom water damage, overflowing tub cleanup, shower overflow cleanup"
-  },
-  "layout_enabled": true,
-  "layout_variants": [
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_2",
-      "ai_block_1",
-      "cta_banner_1",
-      "steps_1",
-      "ai_block_3",
-      "ai_block_4",
-      "service_cards_1",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
     ],
-    [
-      "hero_split_1",
-      "ai_block_1",
-      "trust_bar_1",
-      "ai_block_2",
-      "steps_1",
-      "cta_banner_1",
-      "ai_block_3",
-      "ai_block_4",
-      "service_cards_1",
-      "faq_two_col_1",
-      "custom_html_1",
-      "cta_banner_2",
-      "map_info_1"
+    "seo": {
+        "seo_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
+        "canonical_url": "https://freemanrestoration.com/flooded-bathroom-cleanup-lufkin-tx/",
+        "meta_description": "Flooded Bathroom Cleanup in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "flooded bathroom cleanup Lufkin TX, bathroom water damage Lufkin, overflowing tub cleanup Lufkin, shower overflow cleanup Lufkin",
+        "og_title": "Flooded Bathroom Cleanup in {city_state} | {business}",
+        "og_description": "24/7 flooded bathroom cleanup in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/flooded-bathroom-cleanup-1.webp",
+        "service_name": "Flooded Bathroom Cleanup",
+        "service_type": "Flooded Bathroom Cleanup",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Flooded bathroom cleanup for homes and businesses in {city_state}, including bathroom water damage, overflowing tub cleanup and shower overflow cleanup.",
+        "bc_label": "Flooded Bathroom Cleanup",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in Lufkin, TX — bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
+        "primary_keyword": "Flooded Bathroom Cleanup",
+        "secondary_keywords": "bathroom water damage, overflowing tub cleanup, shower overflow cleanup"
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+        [
+            "hero_split_1",
+            "trust_bar_1",
+            "ai_block_2",
+            "ai_block_1",
+            "cta_banner_1",
+            "steps_1",
+            "ai_block_3",
+            "ai_block_4",
+            "service_cards_1",
+            "faq_two_col_1",
+            "cta_banner_2",
+            "custom_html_1",
+            "map_info_1"
+        ],
+        [
+            "hero_split_1",
+            "ai_block_1",
+            "trust_bar_1",
+            "ai_block_2",
+            "steps_1",
+            "cta_banner_1",
+            "ai_block_3",
+            "ai_block_4",
+            "service_cards_1",
+            "faq_two_col_1",
+            "custom_html_1",
+            "cta_banner_2",
+            "map_info_1"
+        ],
+        [
+            "hero_split_1",
+            "trust_bar_1",
+            "ai_block_1",
+            "ai_block_2",
+            "steps_1",
+            "ai_block_3",
+            "cta_banner_1",
+            "service_cards_1",
+            "ai_block_4",
+            "faq_two_col_1",
+            "cta_banner_2",
+            "custom_html_1",
+            "map_info_1"
+        ]
     ],
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_1",
-      "ai_block_2",
-      "steps_1",
-      "ai_block_3",
-      "cta_banner_1",
-      "service_cards_1",
-      "ai_block_4",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
-    ]
-  ],
-  "locked_blocks": [],
-  "generated_at": "2026-09-08T04:32:49+00:00",
-  "template_version": "f7619e89fcc5ce050fa8eb0bf98a6166"
+    "locked_blocks": [],
+    "generated_at": "2026-09-08T04:32:49+00:00",
+    "template_version": "f7619e89fcc5ce050fa8eb0bf98a6166"
 }

@@ -1,599 +1,593 @@
 {
-  "template_id": "tpl_flood_damage_restoration",
-  "city_id": "city_lufkin_tx",
-  "slug": "flood-damage-restoration-lufkin-tx",
-  "title": "Flood Damage Restoration in {city_state} | {business}",
-  "city_vars": {
-    "id": "city_lufkin_tx",
-    "city": "Lufkin",
-    "SS": "TX",
-    "state": "Texas",
-    "city_slug": "lufkin-tx",
-    "zip": "75901",
-    "tags": [],
-    "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by timber, wood products, and heavy manufacturing tied to companies like Lufkin Industries. The local economy has diversified into healthcare, education, and regional retail trade, with hospitals and Angelina College drawing workers from surrounding rural counties. Its location amid piney woods forestland keeps timber and oilfield equipment manufacturing central to the area's identity.",
-    "local_note": "Most homes in Lufkin are built on slab-on-grade foundations, with some older pier-and-beam construction in historic neighborhoods. The dominant water-damage risk is heavy seasonal rainfall and localized flash flooding, particularly during spring and early summer storm systems.",
-    "neighborhoods": [
-      "Downtown Lufkin",
-      "Crown Colony",
-      "Fuller Springs",
-      "Copeland",
-      "Green Acres",
-      "Northland Heights"
-    ],
-    "population": 34700,
-    "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out.",
-    "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
-    "city_image_alt": "Downtown Lufkin, TX",
-    "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
-    "industries": [
-      "Timber and forest products manufacturing",
-      "Healthcare",
-      "Oil and gas equipment manufacturing",
-      "Retail and regional trade",
-      "Education",
-      "Government/public administration"
-    ],
-    "top_employers": [
-      "Lufkin Industries (Baker Hughes)",
-      "CHI St. Luke's Health Memorial Lufkin",
-      "Woodland Heights Medical Center",
-      "Lufkin Independent School District",
-      "Angelina College",
-      "City of Lufkin",
-      "Angelina County",
-      "Brookshire Grocery Company",
-      "Georgia-Pacific",
-      "Walmart",
-      "Southern Plastics",
-      "Regions Bank"
-    ],
-    "_researched": 1,
-    "freeze_days_monthly": [
-      8,
-      5,
-      1,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      2,
-      6
-    ],
-    "freeze_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
-    "rainfall_monthly": [
-      4.3,
-      4,
-      4,
-      3.8,
-      5.2,
-      4.3,
-      3,
-      3,
-      4,
-      4.5,
-      4.6,
-      4.8
-    ],
-    "rainfall_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
-    "rainfall_annual": 49.5,
-    "rainfall_state_avg": 34,
-    "nearby_towns": [
-      {
-        "name": "Diboll",
-        "miles": 10
-      },
-      {
-        "name": "Hudson",
-        "miles": 5
-      },
-      {
-        "name": "Huntington",
-        "miles": 10
-      },
-      {
-        "name": "Nacogdoches",
-        "miles": 20
-      },
-      {
-        "name": "Zavalla",
-        "miles": 20
-      },
-      {
-        "name": "Pollok",
-        "miles": 10
-      },
-      {
-        "name": "Corrigan",
-        "miles": 25
-      },
-      {
-        "name": "Livingston",
-        "miles": 40
-      }
-    ],
-    "flood_years_source": "NOAA Storm Events Database",
-    "flood_years": [
-      2016,
-      2017,
-      2019
-    ],
-    "heavy_rain_days_monthly": [
-      2.5,
-      2.3,
-      2.5,
-      2.6,
-      3,
-      2.3,
-      1.8,
-      1.7,
-      2.2,
-      2.3,
-      2.3,
-      2.5
-    ],
-    "heavy_rain_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
-    "homes_by_decade": {
-      "Before 1960": 25,
-      "1960-1979": 30,
-      "1980-1999": 25,
-      "2000-2009": 10,
-      "2010 or later": 10
+    "template_id": "tpl_flood_damage_restoration",
+    "city_id": "city_lufkin_tx",
+    "slug": "flood-damage-restoration-lufkin-tx",
+    "title": "Flood Damage Restoration in {city_state} | {business}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "tags": [],
+        "market_blurb": "Lufkin, Texas serves as the commercial hub of Deep East Texas, historically anchored by timber, wood products, and heavy manufacturing tied to companies like Lufkin Industries. The local economy has diversified into healthcare, education, and regional retail trade, with hospitals and Angelina College drawing workers from surrounding rural counties. Its location amid piney woods forestland keeps timber and oilfield equipment manufacturing central to the area's identity.",
+        "local_note": "Most homes in Lufkin are built on slab-on-grade foundations, with some older pier-and-beam construction in historic neighborhoods. The dominant water-damage risk is heavy seasonal rainfall and localized flash flooding, particularly during spring and early summer storm systems.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Crown Colony",
+            "Fuller Springs",
+            "Copeland",
+            "Green Acres",
+            "Northland Heights"
+        ],
+        "population": 34700,
+        "city_spotlight": "Lufkin sits at the heart of Deep East Texas, a piney-woods hub of roughly 34,500 people that anchors Angelina County and the smaller communities around it. The region's identity was built on timber, and that heritage still runs deep through local mills and wood products work, alongside a long history of oil and gas equipment manufacturing tied to names like Lufkin Industries. Over time, the economy has broadened to include healthcare, retail, and distribution, giving the city a steadier, more varied footing.\n\nDowntown Lufkin and the busier Loop 287 corridor reflect that mix, with hospitals, schools, plastics manufacturing, and everyday retail all contributing to a working, self-reliant town. It's a place shaped by resourceful people who keep the region running, day in and day out.",
+        "city_image": "sites/water-site/uploads/media/city-scenic-lufkin-tx.webp",
+        "city_image_alt": "Downtown Lufkin, TX",
+        "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+        "industries": [
+            "Timber and forest products manufacturing",
+            "Healthcare",
+            "Oil and gas equipment manufacturing",
+            "Retail and regional trade",
+            "Education",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "Lufkin Industries (Baker Hughes)",
+            "CHI St. Luke's Health Memorial Lufkin",
+            "Woodland Heights Medical Center",
+            "Lufkin Independent School District",
+            "Angelina College",
+            "City of Lufkin",
+            "Angelina County",
+            "Brookshire Grocery Company",
+            "Georgia-Pacific",
+            "Walmart",
+            "Southern Plastics",
+            "Regions Bank"
+        ],
+        "_researched": 1,
+        "freeze_days_monthly": [
+            8,
+            5,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            6
+        ],
+        "freeze_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+        "rainfall_monthly": [
+            4.3,
+            4,
+            4,
+            3.8,
+            5.2,
+            4.3,
+            3,
+            3,
+            4,
+            4.5,
+            4.6,
+            4.8
+        ],
+        "rainfall_source": "NOAA NCEI 1991-2020 Climate Normals, Lufkin, TX station",
+        "rainfall_annual": 49.5,
+        "rainfall_state_avg": 34,
+        "nearby_towns": [
+            {
+                "name": "Diboll",
+                "miles": 10
+            },
+            {
+                "name": "Hudson",
+                "miles": 5
+            },
+            {
+                "name": "Huntington",
+                "miles": 10
+            },
+            {
+                "name": "Nacogdoches",
+                "miles": 20
+            },
+            {
+                "name": "Zavalla",
+                "miles": 20
+            },
+            {
+                "name": "Pollok",
+                "miles": 10
+            },
+            {
+                "name": "Corrigan",
+                "miles": 25
+            },
+            {
+                "name": "Livingston",
+                "miles": 40
+            }
+        ],
+        "flood_years_source": "NOAA Storm Events Database",
+        "flood_years": [
+            2016,
+            2017,
+            2019
+        ],
+        "heavy_rain_days_monthly": [
+            2.5,
+            2.3,
+            2.5,
+            2.6,
+            3,
+            2.3,
+            1.8,
+            1.7,
+            2.2,
+            2.3,
+            2.3,
+            2.5
+        ],
+        "heavy_rain_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+        "homes_by_decade": {
+            "Before 1960": 25,
+            "1960-1979": 30,
+            "1980-1999": 25,
+            "2000-2009": 10,
+            "2010 or later": 10
+        },
+        "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+        "hot_days_monthly": [
+            0,
+            0,
+            0,
+            1,
+            4,
+            15,
+            23,
+            24,
+            12,
+            3,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+        "humidity_monthly": [
+            75,
+            72,
+            68,
+            68,
+            72,
+            72,
+            71,
+            70,
+            71,
+            71,
+            74,
+            76
+        ],
+        "humidity_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
+        "neighborhoods_source": "verified",
+        "lat": "31.338624",
+        "lng": "-94.728856"
     },
-    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
-    "hot_days_monthly": [
-      0,
-      0,
-      0,
-      1,
-      4,
-      15,
-      23,
-      24,
-      12,
-      3,
-      0,
-      0
-    ],
-    "hot_days_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
-    "humidity_monthly": [
-      75,
-      72,
-      68,
-      68,
-      72,
-      72,
-      71,
-      70,
-      71,
-      71,
-      74,
-      76
-    ],
-    "humidity_source": "NOAA National Centers for Environmental Information, 1991-2020 Climate Normals",
-    "neighborhoods_source": "verified",
-    "lat": "31.338624",
-    "lng": "-94.728856"
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "{primary_keyword} in {city_state}",
-      "hs_subtext": "<p>East Texas weather brings heavy seasonal rainfall, thunderstorms, and occasional freeze-thaw cycles that can compromise roofs, foundations, and basements throughout the Lufkin area. When flood damage strikes your property—whether from severe weather, burst pipes, or ground saturation—Freeman Restoration connects you directly with independent local restoration providers who respond quickly to assess water intrusion and begin extraction and drying work. Getting connected to experienced restoration professionals in your region means faster mitigation and less disruption to your property and schedule.</p>",
-      "hs_btn_text": "{phone}",
-      "hs_btn_url": "tel:{tel}",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "Flood damage restoration in {city_state} by {business}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#eef4fb",
-      "hs_photo": "sites/water-site/uploads/media/flood-damage-restoration-pump-crew-lufkin-tx.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "text_first",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:25.145465Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "817f316433abe3aa",
-      "_hs_photo_orig": "sites/water-site/uploads/media/flood-damage-restoration-pump-crew-2-lufkin-tx.webp",
-      "_ai_injected_count": 1,
-      "id": "hero_split_1"
-    },
-    {
-      "type": "trust_bar",
-      "tb_bg": "subtle",
-      "tb_bg_custom": "#f3f6f7",
-      "tb_items": [
+    "content_blocks": [
         {
-          "label": "Trained Specialists",
-          "icon": ""
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>East Texas weather brings heavy seasonal rainfall, thunderstorms, and occasional freeze-thaw cycles that can compromise roofs, foundations, and basements throughout the Lufkin area. When flood damage strikes your property—whether from severe weather, burst pipes, or ground saturation—Freeman Restoration connects you directly with independent local restoration providers who respond quickly to assess water intrusion and begin extraction and drying work. Getting connected to experienced restoration professionals in your region means faster mitigation and less disruption to your property and schedule.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Flood damage restoration in {city_state} by {business}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#eef4fb",
+            "hs_photo": "sites/water-site/uploads/media/flood-damage-restoration-pump-crew-lufkin-tx.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:25.145465Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "817f316433abe3aa",
+            "_hs_photo_orig": "sites/water-site/uploads/media/flood-damage-restoration-pump-crew-2-lufkin-tx.webp",
+            "_ai_injected_count": 1,
+            "id": "hero_split_1"
         },
         {
-          "label": "Free Estimates",
-          "icon": ""
+            "type": "trust_bar",
+            "tb_bg": "subtle",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": [
+                {
+                    "label": "Trained Specialists",
+                    "icon": ""
+                },
+                {
+                    "label": "Free Estimates",
+                    "icon": ""
+                },
+                {
+                    "label": "24/7 Emergency Response",
+                    "icon": ""
+                },
+                {
+                    "label": "Fast Local Response",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
         },
         {
-          "label": "24/7 Emergency Response",
-          "icon": ""
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/water-site/uploads/media/water-damage-rain-boots-lufkin-tx.webp",
+            "it_alt": "Flood restoration in {city_state} by {business}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Flood Damage Restoration Services in Lufkin",
+            "text": "<p>Lufkin and the surrounding East Texas region experience weather patterns that put properties at genuine risk of flooding and water damage. Spring storms bring heavy rainfall, and the area's relatively flat terrain and clay-heavy soil can slow drainage significantly, allowing water to accumulate around foundations and in basements. Seasonal freeze-thaw cycles in winter, though milder than northern states, still stress pipes and roofing systems. Homeowners and business owners throughout Lufkin know that when storms strike or pipes fail, water intrusion can spread quickly through walls, flooring, and structural materials, threatening both the building envelope and everything inside it.</p><p>Freeman Restoration connects property owners in Lufkin with independent local restoration providers who specialize in flood damage recovery. These providers respond promptly to active water emergencies, extract standing water, begin drying and dehumidification, and document damage thoroughly for insurance purposes. Their approach emphasizes speed and comprehensiveness—addressing not just visible water but also moisture hidden in walls and crawl spaces that, left untreated, can lead to long-term structural and indoor air quality problems. Whether your property is in North Lufkin, South Lufkin, or elsewhere in the region, Freeman Restoration helps you find a qualified local provider ready to begin restoration work and guide you through the recovery process.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:29.567895Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_intro",
+            "_ai_input_hash": "31cbe5acad255ff5",
+            "_it_photo_orig": "sites/water-site/uploads/media/water-damage-rain-boots-2-lufkin-tx.webp",
+            "id": "ai_block_1"
         },
         {
-          "label": "Fast Local Response",
-          "icon": ""
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "Fast Connection to Local Experts",
+                    "text": "Freeman Restoration links you directly to independent restoration providers ready to respond to water and storm damage emergencies. Quick access to experienced local professionals minimizes delays when every hour matters."
+                },
+                {
+                    "heading": "Thorough Water Damage Assessment",
+                    "text": "Connected providers conduct detailed inspections to identify all affected areas—walls, flooring, and hidden moisture zones. Comprehensive evaluation helps ensure damage is properly documented and addressed before secondary issues develop."
+                },
+                {
+                    "heading": "Professional Drying and Restoration",
+                    "text": "Independent providers use industry-standard equipment and methods to remove standing water and manage moisture. Trained technicians work to restore your property systematically, protecting your home and belongings from further harm."
+                },
+                {
+                    "heading": "Year-Round Storm and Freeze Risk Coverage",
+                    "text": "East Texas experiences heavy spring and summer storms plus winter freeze-thaw cycles that damage pipes and foundations. Freeman Restoration connects you to local providers familiar with regional weather hazards and seasonal property vulnerabilities."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:33.513362Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "9b4fa0f5f18d4c02",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our {service} Process Works",
+            "steps_items": [
+                {
+                    "heading": "Report Flood Damage Now",
+                    "text": "Contact Freeman Restoration immediately after discovering water intrusion or storm flooding. We connect you with a responsive local flood damage restoration provider in Lufkin who can assess your property and begin water removal without delay."
+                },
+                {
+                    "heading": "Assessment & Water Extraction Plan",
+                    "text": "The restoration provider inspects flooded areas, identifies water source and extent, and develops a flood damage restoration strategy. In East Texas's humid climate with seasonal heavy rains and occasional freeze-thaw cycles, prompt extraction and drying prevent secondary damage and mold growth."
+                },
+                {
+                    "heading": "Restoration & Property Recovery",
+                    "text": "The local provider executes flood damage restoration—water removal, structural drying, cleaning, and repairs—then guides you through insurance documentation. You'll receive ongoing support until your property is fully restored and your claim is resolved."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "_ai_injected_count": 3,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-07T15:18:32.401354Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "steps_local",
+            "_ai_input_hash": "ced8604da0eaed83",
+            "_ai_locked": true
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need {service} in {city}? Get fast, professional help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#2563eb",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_flood}",
+            "it_alt": "{chart_group_flood_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Water Damage Restoration Across Lufkin",
+            "text": "<p>Lufkin's diverse housing stock—from established neighborhoods like Downtown Lufkin with mature trees and older construction to newer residential areas—responds differently to flood and water damage. Mature trees and aging roofs in longstanding communities can channel water toward foundations during heavy rainfall, while settled soil and older drainage systems may struggle during the region's spring storms and occasional heavy downpours. Newer subdivisions often feature modern grading and updated plumbing, yet still face risks from intense weather events typical of East Texas.</p><p>Seasonal freeze-thaw cycles in the area can stress pipes and structural integrity, particularly in aging homes, making winter and early spring active seasons for water intrusion and damage. The region's humid subtropical climate means that standing water and moisture can promote secondary issues quickly, underscoring the need for prompt response from local restoration professionals. Freeman Restoration connects property owners across Lufkin with independent, responsive providers equipped to assess damage, extract water, and begin the restoration process—whether your home sits in an older established area or a newer section of town.</p>",
+            "_ai_generated_at": "2026-09-01T01:20:37.400768Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "dae5ed55d36237d7",
+            "_it_photo_orig": "sites/water-site/uploads/media/restoration-consultation-clipboard-2-lufkin-tx.webp",
+            "id": "ai_block_3",
+            "_it_photo_prechart": "sites/water-site/uploads/media/restoration-consultation-clipboard-lufkin-tx.webp",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "it_caption": "{chart_group_flood_caption}"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "skin": "light",
+            "steps_heading": "Seasonal Water and Storm Damage in Lufkin",
+            "steps_items": [
+                {
+                    "heading": "Spring: Severe Thunderstorms",
+                    "text": "Spring storms bring heavy rainfall, hail, and occasional tornadoes across the Lufkin region. Roofs, gutters, and foundations experience sudden water intrusion. Freeman Restoration connects you quickly with local water damage specialists who assess storm damage and coordinate drying and restoration before secondary issues develop."
+                },
+                {
+                    "heading": "Summer: Heat and Humidity",
+                    "text": "Intense heat and high humidity create conditions where standing water from storms or plumbing failures becomes a breeding ground for mold and odor. Immediate water extraction and dehumidification are critical. Freeman Restoration links property owners to local professionals who respond fast to prevent damage from spreading in the summer heat."
+                },
+                {
+                    "heading": "Fall: Heavy Rainfall",
+                    "text": "Fall storms in East Texas bring sustained rainfall that strains drainage systems and saturates soil around foundations and crawl spaces. Basements and lower-level spaces are especially vulnerable. Freeman Restoration helps you connect with experienced water restoration providers who specialize in extracting water and preventing structural damage during heavy fall rains."
+                },
+                {
+                    "heading": "Winter: Freeze-Thaw Cycles",
+                    "text": "Winter freezes followed by thaws cause pipes to burst and ice dams to trap water on roofs. Thawing snow and ice melt add moisture to attics, walls, and foundations. Freeman Restoration connects you with local restoration specialists who respond to winter water emergencies and mitigate damage from freeze-related failures."
+                }
+            ],
+            "_ai_generated_at": "2026-09-01T01:20:42.371386Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "seasonal_calendar",
+            "_ai_input_hash": "47cfe7d8f849bc48",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "service_cards",
+            "anchor": "related_services",
+            "sc_badge": "",
+            "sc_heading": "Other Water Restoration Services in {city_state}",
+            "sc_cols": 4,
+            "sc_badge_bg": "accent",
+            "sc_head_color": "header",
+            "sc_badge_bg_custom": "#fd783b",
+            "sc_head_color_custom": "#120575",
+            "sc_icon_bg": "#f4f6f8",
+            "sc_items": [
+                {
+                    "icon": "",
+                    "alt": "Water Damage Repair {city} {SS}",
+                    "heading": "Water Damage Repair",
+                    "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
+                    "url": "/water-damage-repair-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Storm Damage Restoration {city} {SS}",
+                    "heading": "Storm Damage Restoration",
+                    "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
+                    "url": "/storm-damage-restoration-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Water Mitigation {city} {SS}",
+                    "heading": "Water Mitigation",
+                    "text": "Professional Water Mitigation for {city_state} homes and businesses.",
+                    "url": "/water-mitigation-{city_slug}"
+                },
+                {
+                    "icon": "",
+                    "alt": "Sewage Cleanup {city} {SS}",
+                    "heading": "Sewage Cleanup",
+                    "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
+                    "url": "/sewage-cleanup-{city_slug}"
+                }
+            ],
+            "id": "service_cards_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQs — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [
+                {
+                    "question": "What does flood damage restoration in Lufkin actually involve?",
+                    "answer": "<p>Flood damage restoration includes water extraction, structural drying, debris removal, and assessment of affected materials like drywall, flooring, and insulation. The independent local restoration providers Freeman connects you to will inspect your property, document damage, and create a plan to restore it safely and minimize further loss. Each situation is unique, so the scope depends on water depth, exposure time, and what was affected.</p>"
+                },
+                {
+                    "question": "How quickly can Freeman connect me with flood restoration help in Lufkin?",
+                    "answer": "<p>Freeman connects you with responsive local restoration providers as fast as possible when you reach out. Because water damage worsens rapidly, time is critical—the sooner a restoration team begins extracting water and drying your property, the better. Contact Freeman right away during or after a flood event so we can link you with available providers in your area ready to respond.</p>"
+                },
+                {
+                    "question": "What factors affect the cost of flood damage restoration?",
+                    "answer": "<p>Restoration costs depend on how much water entered your property, which materials were saturated, how long water sat before extraction began, and whether structural damage occurred. Labor, equipment, and disposal also factor in. Freeman connects you with local providers who can assess your specific situation and discuss costs. Many restoration companies work directly with insurance, so ask about that process when you contact them.</p>"
+                },
+                {
+                    "question": "What should I do before the flood restoration crew arrives at my home?",
+                    "answer": "<p>For safety, avoid contact with standing water, especially if sewage may be present, and stay clear of electrical hazards. If it is safe to do so, document damage with photos for insurance. Shut off utilities if instructed by emergency services. Move valuable items to higher ground if possible. When the restoration team arrives, be ready to provide access and describe what happened. Let the professionals handle extraction and drying.</p>"
+                },
+                {
+                    "question": "Can flood damage be prevented, or what reduces the risk in Lufkin?",
+                    "answer": "<p>Prevention includes maintaining gutters and downspouts, grading soil away from your foundation, and clearing storm drains near your property. Sump pumps and backflow prevention valves help in flood-prone areas. During heavy rain seasons common to East Texas, keep an eye on local weather and be ready to act. After one flood event, many property owners work with restoration providers to discuss long-term risk reduction strategies.</p>"
+                },
+                {
+                    "question": "When is flood season in the Lufkin area, and what weather causes flooding?",
+                    "answer": "<p>East Texas, including the Lufkin region, experiences heavy rainfall year-round, with increased storm activity in spring and early summer. Tropical systems in late summer and fall can also bring intense flooding. Winter freeze-thaw cycles and saturated soil can worsen drainage problems. Knowing your property's flood history and local drainage patterns helps you stay alert. Freeman can connect you with local restoration expertise familiar with regional storm and flood patterns.</p>"
+                }
+            ],
+            "_ai_locked": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-09-01T01:20:51.856333Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "4fdff10bae1e97b2",
+            "skin": "dark",
+            "fq_open": true,
+            "_ai_injected_count": 6,
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call Now — {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#0d2340",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
         }
-      ],
-      "anchor": "trust_bar",
-      "id": "trust_bar_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "left",
-      "it_photo": "sites/water-site/uploads/media/water-damage-rain-boots-lufkin-tx.webp",
-      "it_alt": "Flood restoration in {city_state} by {business}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Flood Damage Restoration Services in Lufkin",
-      "text": "<p>Lufkin and the surrounding East Texas region experience weather patterns that put properties at genuine risk of flooding and water damage. Spring storms bring heavy rainfall, and the area's relatively flat terrain and clay-heavy soil can slow drainage significantly, allowing water to accumulate around foundations and in basements. Seasonal freeze-thaw cycles in winter, though milder than northern states, still stress pipes and roofing systems. Homeowners and business owners throughout Lufkin know that when storms strike or pipes fail, water intrusion can spread quickly through walls, flooring, and structural materials, threatening both the building envelope and everything inside it.</p><p>Freeman Restoration connects property owners in Lufkin with independent local restoration providers who specialize in flood damage recovery. These providers respond promptly to active water emergencies, extract standing water, begin drying and dehumidification, and document damage thoroughly for insurance purposes. Their approach emphasizes speed and comprehensiveness—addressing not just visible water but also moisture hidden in walls and crawl spaces that, left untreated, can lead to long-term structural and indoor air quality problems. Whether your property is in North Lufkin, South Lufkin, or elsewhere in the region, Freeman Restoration helps you find a qualified local provider ready to begin restoration work and guide you through the recovery process.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:29.567895Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_intro",
-      "_ai_input_hash": "31cbe5acad255ff5",
-      "_it_photo_orig": "sites/water-site/uploads/media/water-damage-rain-boots-2-lufkin-tx.webp",
-      "id": "ai_block_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "fc_heading": "Why Lufkin Property Owners Choose Freeman Restoration",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "Fast Connection to Local Experts",
-          "text": "Freeman Restoration links you directly to independent restoration providers ready to respond to water and storm damage emergencies. Quick access to experienced local professionals minimizes delays when every hour matters."
-        },
-        {
-          "heading": "Thorough Water Damage Assessment",
-          "text": "Connected providers conduct detailed inspections to identify all affected areas—walls, flooring, and hidden moisture zones. Comprehensive evaluation helps ensure damage is properly documented and addressed before secondary issues develop."
-        },
-        {
-          "heading": "Professional Drying and Restoration",
-          "text": "Independent providers use industry-standard equipment and methods to remove standing water and manage moisture. Trained technicians work to restore your property systematically, protecting your home and belongings from further harm."
-        },
-        {
-          "heading": "Year-Round Storm and Freeze Risk Coverage",
-          "text": "East Texas experiences heavy spring and summer storms plus winter freeze-thaw cycles that damage pipes and foundations. Freeman Restoration connects you to local providers familiar with regional weather hazards and seasonal property vulnerabilities."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:33.513362Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "9b4fa0f5f18d4c02",
-      "id": "ai_block_2"
-    },
-    {
-      "type": "steps",
-      "steps_heading": "How Our {service} Process Works",
-      "steps_items": [
-        {
-          "heading": "Report Flood Damage Now",
-          "text": "Contact Freeman Restoration immediately after discovering water intrusion or storm flooding. We connect you with a responsive local flood damage restoration provider in Lufkin who can assess your property and begin water removal without delay."
-        },
-        {
-          "heading": "Assessment & Water Extraction Plan",
-          "text": "The restoration provider inspects flooded areas, identifies water source and extent, and develops a flood damage restoration strategy. In East Texas's humid climate with seasonal heavy rains and occasional freeze-thaw cycles, prompt extraction and drying prevent secondary damage and mold growth."
-        },
-        {
-          "heading": "Restoration & Property Recovery",
-          "text": "The local provider executes flood damage restoration—water removal, structural drying, cleaning, and repairs—then guides you through insurance documentation. You'll receive ongoing support until your property is fully restored and your claim is resolved."
-        }
-      ],
-      "ai_type_id": "steps_local",
-      "_ai_injected_count": 3,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-07T15:18:32.401354Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "steps_local",
-      "_ai_input_hash": "ced8604da0eaed83",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "anchor": "mid_cta",
-      "cb_text": "Need {service} in {city}? Get fast, professional help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "header",
-      "cb_bg_custom": "#2563eb",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "id": "cta_banner_1"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "image_text",
-      "it_image_side": "right",
-      "it_photo": "{chart_group_flood}",
-      "it_alt": "{chart_group_flood_alt}",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Water Damage Restoration Across Lufkin",
-      "text": "<p>Lufkin's diverse housing stock—from established neighborhoods like Downtown Lufkin with mature trees and older construction to newer residential areas—responds differently to flood and water damage. Mature trees and aging roofs in longstanding communities can channel water toward foundations during heavy rainfall, while settled soil and older drainage systems may struggle during the region's spring storms and occasional heavy downpours. Newer subdivisions often feature modern grading and updated plumbing, yet still face risks from intense weather events typical of East Texas.</p><p>Seasonal freeze-thaw cycles in the area can stress pipes and structural integrity, particularly in aging homes, making winter and early spring active seasons for water intrusion and damage. The region's humid subtropical climate means that standing water and moisture can promote secondary issues quickly, underscoring the need for prompt response from local restoration professionals. Freeman Restoration connects property owners across Lufkin with independent, responsive providers equipped to assess damage, extract water, and begin the restoration process—whether your home sits in an older established area or a newer section of town.</p>",
-      "_ai_generated_at": "2026-09-01T01:20:37.400768Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "dae5ed55d36237d7",
-      "_it_photo_orig": "sites/water-site/uploads/media/restoration-consultation-clipboard-2-lufkin-tx.webp",
-      "id": "ai_block_3",
-      "_it_photo_prechart": "sites/water-site/uploads/media/restoration-consultation-clipboard-lufkin-tx.webp",
-      "it_ratio": "auto",
-      "it_layout": "stacked",
-      "it_caption": "{chart_group_flood_caption}"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "seasonal_calendar",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "skin": "light",
-      "steps_heading": "Seasonal Water and Storm Damage in Lufkin",
-      "steps_items": [
-        {
-          "heading": "Spring: Severe Thunderstorms",
-          "text": "Spring storms bring heavy rainfall, hail, and occasional tornadoes across the Lufkin region. Roofs, gutters, and foundations experience sudden water intrusion. Freeman Restoration connects you quickly with local water damage specialists who assess storm damage and coordinate drying and restoration before secondary issues develop."
-        },
-        {
-          "heading": "Summer: Heat and Humidity",
-          "text": "Intense heat and high humidity create conditions where standing water from storms or plumbing failures becomes a breeding ground for mold and odor. Immediate water extraction and dehumidification are critical. Freeman Restoration links property owners to local professionals who respond fast to prevent damage from spreading in the summer heat."
-        },
-        {
-          "heading": "Fall: Heavy Rainfall",
-          "text": "Fall storms in East Texas bring sustained rainfall that strains drainage systems and saturates soil around foundations and crawl spaces. Basements and lower-level spaces are especially vulnerable. Freeman Restoration helps you connect with experienced water restoration providers who specialize in extracting water and preventing structural damage during heavy fall rains."
-        },
-        {
-          "heading": "Winter: Freeze-Thaw Cycles",
-          "text": "Winter freezes followed by thaws cause pipes to burst and ice dams to trap water on roofs. Thawing snow and ice melt add moisture to attics, walls, and foundations. Freeman Restoration connects you with local restoration specialists who respond to winter water emergencies and mitigate damage from freeze-related failures."
-        }
-      ],
-      "_ai_generated_at": "2026-09-01T01:20:42.371386Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "seasonal_calendar",
-      "_ai_input_hash": "47cfe7d8f849bc48",
-      "id": "ai_block_4"
-    },
-    {
-      "type": "service_cards",
-      "anchor": "related_services",
-      "sc_badge": "",
-      "sc_heading": "Other Water Restoration Services in {city_state}",
-      "sc_cols": 4,
-      "sc_badge_bg": "accent",
-      "sc_head_color": "header",
-      "sc_badge_bg_custom": "#fd783b",
-      "sc_head_color_custom": "#120575",
-      "sc_icon_bg": "#f4f6f8",
-      "sc_items": [
-        {
-          "icon": "",
-          "alt": "Water Damage Repair {city} {SS}",
-          "heading": "Water Damage Repair",
-          "text": "Professional Water Damage Repair for {city_state} homes and businesses.",
-          "url": "/water-damage-repair-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Storm Damage Restoration {city} {SS}",
-          "heading": "Storm Damage Restoration",
-          "text": "Professional Storm Damage Restoration for {city_state} homes and businesses.",
-          "url": "/storm-damage-restoration-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Water Mitigation {city} {SS}",
-          "heading": "Water Mitigation",
-          "text": "Professional Water Mitigation for {city_state} homes and businesses.",
-          "url": "/water-mitigation-{city_slug}"
-        },
-        {
-          "icon": "",
-          "alt": "Sewage Cleanup {city} {SS}",
-          "heading": "Sewage Cleanup",
-          "text": "Professional Sewage Cleanup for {city_state} homes and businesses.",
-          "url": "/sewage-cleanup-{city_slug}"
-        }
-      ],
-      "id": "service_cards_1"
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "{primary_keyword} FAQs — {city_state}",
-      "fq_bg_color": "#ffffff",
-      "fq_item_bg": "#d9d9d9",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#120575",
-      "fq_icon_bg_custom": "#fd783b",
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "replace",
-      "fq_items": [
-        {
-          "question": "What does flood damage restoration in Lufkin actually involve?",
-          "answer": "<p>Flood damage restoration includes water extraction, structural drying, debris removal, and assessment of affected materials like drywall, flooring, and insulation. The independent local restoration providers Freeman connects you to will inspect your property, document damage, and create a plan to restore it safely and minimize further loss. Each situation is unique, so the scope depends on water depth, exposure time, and what was affected.</p>"
-        },
-        {
-          "question": "How quickly can Freeman connect me with flood restoration help in Lufkin?",
-          "answer": "<p>Freeman connects you with responsive local restoration providers as fast as possible when you reach out. Because water damage worsens rapidly, time is critical—the sooner a restoration team begins extracting water and drying your property, the better. Contact Freeman right away during or after a flood event so we can link you with available providers in your area ready to respond.</p>"
-        },
-        {
-          "question": "What factors affect the cost of flood damage restoration?",
-          "answer": "<p>Restoration costs depend on how much water entered your property, which materials were saturated, how long water sat before extraction began, and whether structural damage occurred. Labor, equipment, and disposal also factor in. Freeman connects you with local providers who can assess your specific situation and discuss costs. Many restoration companies work directly with insurance, so ask about that process when you contact them.</p>"
-        },
-        {
-          "question": "What should I do before the flood restoration crew arrives at my home?",
-          "answer": "<p>For safety, avoid contact with standing water, especially if sewage may be present, and stay clear of electrical hazards. If it is safe to do so, document damage with photos for insurance. Shut off utilities if instructed by emergency services. Move valuable items to higher ground if possible. When the restoration team arrives, be ready to provide access and describe what happened. Let the professionals handle extraction and drying.</p>"
-        },
-        {
-          "question": "Can flood damage be prevented, or what reduces the risk in Lufkin?",
-          "answer": "<p>Prevention includes maintaining gutters and downspouts, grading soil away from your foundation, and clearing storm drains near your property. Sump pumps and backflow prevention valves help in flood-prone areas. During heavy rain seasons common to East Texas, keep an eye on local weather and be ready to act. After one flood event, many property owners work with restoration providers to discuss long-term risk reduction strategies.</p>"
-        },
-        {
-          "question": "When is flood season in the Lufkin area, and what weather causes flooding?",
-          "answer": "<p>East Texas, including the Lufkin region, experiences heavy rainfall year-round, with increased storm activity in spring and early summer. Tropical systems in late summer and fall can also bring intense flooding. Winter freeze-thaw cycles and saturated soil can worsen drainage problems. Knowing your property's flood history and local drainage patterns helps you stay alert. Freeman can connect you with local restoration expertise familiar with regional storm and flood patterns.</p>"
-        }
-      ],
-      "_ai_locked": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-09-01T01:20:51.856333Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "4fdff10bae1e97b2",
-      "skin": "dark",
-      "fq_open": true,
-      "_ai_injected_count": 6,
-      "id": "faq_two_col_1"
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
-      "cb_subtext": "",
-      "cb_btn_text": "Call Now — {phone}",
-      "cb_btn_url": "tel:{tel}",
-      "cb_bg": "accent",
-      "cb_bg_custom": "#0d2340",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "compact",
-      "id": "cta_banner_2"
-    },
-    {
-      "type": "custom_html",
-      "anchor": "pest_services",
-      "html": "[services_links]",
-      "id": "custom_html_1"
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "Areas We Serve in {city}, {state}",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#120575",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "top",
-      "mi_map_caption": "{city_map_caption}",
-      "id": "map_info_1"
-    }
-  ],
-  "seo": {
-    "seo_title": "Flood Damage Restoration in {city_state} | {business}",
-    "canonical_url": "https://freemanrestoration.com/flood-damage-restoration-lufkin-tx/",
-    "meta_description": "Flood Damage Restoration in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
-    "meta_keywords": "flood damage restoration Lufkin TX, flood restoration Lufkin, flood cleanup Lufkin, flood damage repair Lufkin",
-    "og_title": "Flood Damage Restoration in {city_state} | {business}",
-    "og_description": "24/7 flood damage restoration in {city_state}. Fast, professional local response.",
-    "og_image": "sites/water-site/uploads/media/flood-damage-restoration-2_f11c38.webp",
-    "service_name": "Flood Damage Restoration",
-    "service_type": "Flood Damage Restoration",
-    "service_area": "{city_state} and surrounding areas",
-    "service_description": "Flood damage restoration for homes and businesses in {city_state}, including flood restoration, flood cleanup and flood damage repair.",
-    "bc_label": "Flood Damage Restoration",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flood Damage Restoration\",\n    \"name\": \"Flood Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flood damage restoration in Lufkin, TX — flood restoration, flood cleanup and flood damage repair.\"\n}",
-    "primary_keyword": "Flood Damage Restoration",
-    "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services"
-  },
-  "layout_enabled": true,
-  "layout_variants": [
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_1",
-      "steps_1",
-      "ai_block_2",
-      "ai_block_3",
-      "cta_banner_1",
-      "ai_block_4",
-      "service_cards_1",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
     ],
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_1",
-      "ai_block_2",
-      "steps_1",
-      "cta_banner_1",
-      "ai_block_4",
-      "ai_block_3",
-      "faq_two_col_1",
-      "service_cards_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
+    "seo": {
+        "seo_title": "Flood Damage Restoration in {city_state} | {business}",
+        "canonical_url": "https://freemanrestoration.com/flood-damage-restoration-lufkin-tx/",
+        "meta_description": "Flood Damage Restoration in {city_state} — {business} offers 24/7 emergency response from trained specialists. Call {phone}.",
+        "meta_keywords": "flood damage restoration Lufkin TX, flood restoration Lufkin, flood cleanup Lufkin, flood damage repair Lufkin",
+        "og_title": "Flood Damage Restoration in {city_state} | {business}",
+        "og_description": "24/7 flood damage restoration in {city_state}. Fast, professional local response.",
+        "og_image": "sites/water-site/uploads/media/flood-damage-restoration-2_f11c38.webp",
+        "service_name": "Flood Damage Restoration",
+        "service_type": "Flood Damage Restoration",
+        "service_area": "{city_state} and surrounding areas",
+        "service_description": "Flood damage restoration for homes and businesses in {city_state}, including flood restoration, flood cleanup and flood damage repair.",
+        "bc_label": "Flood Damage Restoration",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flood Damage Restoration\",\n    \"name\": \"Flood Damage Restoration in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"Freeman Restoration\",\n        \"telephone\": \"+19362015560\",\n        \"url\": \"https://freemanrestoration.com\"\n    },\n    \"description\": \"24/7 flood damage restoration in Lufkin, TX — flood restoration, flood cleanup and flood damage repair.\"\n}",
+        "primary_keyword": "Flood Damage Restoration",
+        "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services"
+    },
+    "layout_enabled": true,
+    "layout_variants": [
+        [
+            "hero_split_1",
+            "trust_bar_1",
+            "ai_block_1",
+            "steps_1",
+            "ai_block_2",
+            "ai_block_3",
+            "cta_banner_1",
+            "ai_block_4",
+            "service_cards_1",
+            "faq_two_col_1",
+            "cta_banner_2",
+            "custom_html_1",
+            "map_info_1"
+        ],
+        [
+            "hero_split_1",
+            "trust_bar_1",
+            "ai_block_1",
+            "ai_block_2",
+            "steps_1",
+            "cta_banner_1",
+            "ai_block_4",
+            "ai_block_3",
+            "faq_two_col_1",
+            "service_cards_1",
+            "cta_banner_2",
+            "custom_html_1",
+            "map_info_1"
+        ],
+        [
+            "hero_split_1",
+            "trust_bar_1",
+            "ai_block_1",
+            "ai_block_2",
+            "cta_banner_1",
+            "steps_1",
+            "ai_block_4",
+            "ai_block_3",
+            "service_cards_1",
+            "faq_two_col_1",
+            "cta_banner_2",
+            "custom_html_1",
+            "map_info_1"
+        ]
     ],
-    [
-      "hero_split_1",
-      "trust_bar_1",
-      "ai_block_1",
-      "ai_block_2",
-      "cta_banner_1",
-      "steps_1",
-      "ai_block_4",
-      "ai_block_3",
-      "service_cards_1",
-      "faq_two_col_1",
-      "cta_banner_2",
-      "custom_html_1",
-      "map_info_1"
-    ]
-  ],
-  "locked_blocks": [],
-  "generated_at": "2026-09-08T04:32:49+00:00",
-  "template_version": "b7014c5f42edb843800ccb7edb4fafc5"
+    "locked_blocks": [],
+    "generated_at": "2026-09-08T04:32:49+00:00",
+    "template_version": "b7014c5f42edb843800ccb7edb4fafc5"
 }
