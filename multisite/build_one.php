@@ -257,10 +257,11 @@ progress_log($skipped('tags')
     ? 'Differentiating (schema / geo) — site tags skipped, turned off for this run…'
     : 'Differentiating (schema / geo / analytics)…');
 // The scrub always runs; only the analytics + Search Console tags are optional.
-// Section-order switches from the batch card. Unticking the whole step turns off all three.
+// Section-order switches from the batch card. Unticking the whole step turns off both. There
+// is no 'legal' switch — Privacy/Terms/disclaimer/Contact Us are never structurally reordered
+// (see ms_structure_group() in differentiate.php), so a toggle for it would do nothing.
 $structureSkip = [
     'home'    => $skipped('structure') || $skipped('structure.home'),
-    'legal'   => $skipped('structure') || $skipped('structure.legal'),
     'landing' => $skipped('structure') || $skipped('structure.landing'),
 ];
 ms_differentiate_working_dir($workingDir, $params, $masterIdentity, $skipped('tags'), $structureSkip);

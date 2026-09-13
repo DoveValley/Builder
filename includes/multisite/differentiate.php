@@ -125,21 +125,29 @@ function ms_gsc_meta(string $token): string {
  * are safety nets, not features, so they have no switch.
  */
 /**
- * Which section-order group a page belongs to — the three the batch card switches separately.
- * Matched on the slug rather than a stored flag, because no such flag exists and adding one to
- * every master's data would be a migration for a three-way split. Substring, not exact, so a
- * master that calls it "privacy" or "privacy-policy" lands in the same group either way.
+ * Which section-order group a page belongs to. Privacy/Terms/disclaimer and Contact Us are
+ * matched on slug into 'fixed' and are NEVER structurally reordered, regardless of the batch
+ * card's toggles — no checkbox re-enables it. Two reasons, not one: (a) these pages' wording is
+ * already varied per domain by reword_legal_pages()/'ai.legal_reword', so reordering sections
+ * adds nothing that wording-variance doesn't already do; (b) since the 2026-09 merge of Privacy/
+ * Terms down to 2 blocks (a locked opening paragraph + everything else merged into one),
+ * layout_generate_variants() can no longer produce an ordering for them anyway (it needs >=4
+ * blocks total and >=2 movable middle ones) — leaving the toggle live would have offered a
+ * control that does nothing for these pages while still risking a stale saved ordering from
+ * before the merge being replayed by id match. Substring, not exact, so a master that calls it
+ * "privacy"/"privacy-policy"/"contact"/"contact-us" lands in the same bucket either way.
  */
 function ms_structure_group(string $slug): string {
-    foreach (['privacy', 'terms', 'disclaimer', 'legal'] as $needle) {
-        if (str_contains($slug, $needle)) return 'legal';
+    foreach (['privacy', 'terms', 'disclaimer', 'legal', 'contact'] as $needle) {
+        if (str_contains($slug, $needle)) return 'fixed';
     }
     return 'home';                     // home + core pages; landing pages are handled separately
 }
 
 /**
- * $structureSkip: ['home'=>bool,'legal'=>bool,'landing'=>bool] — the section-order switches
- * from the batch card. Absent/empty means every group varies, which is the old behaviour.
+ * $structureSkip: ['home'=>bool,'landing'=>bool] — the section-order switches from the batch
+ * card. Absent/empty means every switchable group varies, which is the old behaviour. There is
+ * no 'legal' entry — the 'fixed' group (see ms_structure_group()) is never switchable.
  */
 function ms_differentiate_working_dir(string $workingDir, array $params, array $masterIdentity, bool $skipTags = false, array $structureSkip = []): void {
     $sf = $workingDir . '/data/site.json';
@@ -238,13 +246,17 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     }
 
     // ── 5. Layout variation (2a) — one ordering per domain ───────────────────
-    // Split into the three groups the batch card switches independently: the home + core
-    // pages, the legal pages, and the landing pages. A page that has no stored orderings is
-    // a no-op inside layout_apply_for_domain(), so an un-generated page costs nothing here.
+    // Split into the groups the batch card switches independently: home + core pages, and
+    // landing pages. Privacy/Terms/disclaimer/Contact Us ('fixed', see ms_structure_group())
+    // are skipped unconditionally here — not gated on $structureSkip — so there is no toggle
+    // that can turn structural reordering back on for them. A page that has no stored
+    // orderings is a no-op inside layout_apply_for_domain(), so an un-generated page costs
+    // nothing here.
     if (function_exists('layout_apply_for_domain')) {
         if (empty($structureSkip['home'])) layout_apply_for_domain($data, $domain);
         foreach (($data['pages'] ?? []) as &$pg) {
             $group = ms_structure_group((string) ($pg['slug'] ?? ''));
+            if ($group === 'fixed') continue;
             if (empty($structureSkip[$group])) layout_apply_for_domain($pg, $domain);
         }
         unset($pg);

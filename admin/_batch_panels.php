@@ -360,10 +360,9 @@ require_once __DIR__ . '/../includes/multisite/image_ai.php';
                     ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
                  ]],
                 ['key' => 'structure', 'label' => 'Site structure variance', 'status' => 'live',
-                 'note' => 'Section order: each site gets a different arrangement of the same sections, picked by a hash of its domain so it never changes on a rebuild. The hero stays first and the last block stays last, so no H1 moves.',
+                 'note' => 'Section order: each site gets a different arrangement of the same sections, picked by a hash of its domain so it never changes on a rebuild. The hero stays first and the last block stays last, so no H1 moves. Privacy, Terms, disclaimer and Contact Us are never reordered here regardless of these toggles — their wording already varies per domain (see "AI content" &rarr; Privacy/Terms/Contact Us reword, above), and their opening-paragraph + merged-body structure has too few movable sections for a second ordering to add anything.',
                  'subs' => [
                     ['Section order — home and core pages', 'control', 'structure.home'],
-                    ['Section order — Privacy and Terms', 'control', 'structure.legal'],
                     ['Section order — landing pages', 'control', 'structure.landing'],
                     ['Class vocabulary — same layout, different class names', 'control', 'structure.classvocab'],
                     ['Schema shape — same facts, different JSON-LD field order', 'control', 'structure.schemashape'],
