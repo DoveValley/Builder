@@ -144,20 +144,7 @@
             "tb_bg": "accent",
             "tb_bg_custom": "#f3f6f7",
             "tb_show_icons": true,
-            "tb_items": [
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                },
-                {
-                    "label": "Upfront Pricing",
-                    "icon": ""
-                },
-                {
-                    "label": "Warranty on Repairs",
-                    "icon": ""
-                }
-            ],
+            "tb_items": "@safe_trust_badges",
             "id": "trust_bar_1"
         },
         {
@@ -449,7 +436,7 @@
                 "text": ""
             }
         ],
-        "copyright": "© Copyright {business}. All Rights Reserved.",
+        "copyright": "© Copyright {year} {business}. All Rights Reserved.",
         "bottom_links": [
             {
                 "label": "Privacy Policy",

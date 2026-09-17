@@ -420,6 +420,22 @@ function ms_generate_logo(array &$data, string $workingDir, string $line1, strin
     }
 
     $data['header']['logo'] = $rel;
+    // The footer has its own independently-uploadable logo field (admin/tabs/footer.php) —
+    // most masters leave it blank, and a blank one must stay blank here (setting it would
+    // turn ON a footer logo no one configured). But a master that DOES set one (water-site:
+    // both fields point at its own real logo) was leaking straight through to every domain
+    // built from it — e.g. baileyrestoration.com's footer showed freemanrestoration's logo,
+    // not its own freshly-generated one. Keep it in sync whenever it's already in use.
+    if (!empty($data['footer']['logo'])) $data['footer']['logo'] = $rel;
+    // A third, separate copy: the LocalBusiness JSON-LD schema's own "image" field
+    // (local_business.lb_logo — see includes/shortcodes.php, stored pre-resolved as
+    // "{website}/uploads/logo_....png"). Never synced by anything, so it silently kept
+    // pointing at the MASTER's own logo filename in every domain's structured data —
+    // invisible on the page itself, but wrong to any crawler or rich-result reading it.
+    $lbLogo = (string) ($data['local_business']['lb_logo'] ?? '');
+    if ($lbLogo !== '' && preg_match('#/uploads/logo_[^/]+\.(png|jpe?g|webp|gif)$#i', $lbLogo)) {
+        $data['local_business']['lb_logo'] = preg_replace('#/uploads/logo_[^/]+\.(png|jpe?g|webp|gif)$#i', '/' . $rel, $lbLogo);
+    }
     return $rel;
 }
 

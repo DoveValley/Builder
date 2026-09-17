@@ -33,6 +33,7 @@ const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 
 const MS_ROW_EDITABLE_COLS = [
     'business', 'phone', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
     'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification', 'rating', 'review_count',
+    'years_in_business', 'mission_statement',
     'landing_cities', 'theme_preset', 'web3forms_key',
 ];
 
@@ -259,6 +260,19 @@ switch ($action) {
         $cols[] = 'ftp_protocol';
         $protoExamples = ['ftp', 'sftp', '', '', 'ftp'];
         foreach ($sample as $i => &$row) { $row[] = $protoExamples[$i] ?? ''; }
+        unset($row);
+        // Optional years_in_business / mission_statement — real, operator-entered trust
+        // facts for THIS domain's actual business (About Us page; admin/tabs/header.php's
+        // "Trust facts" card). Blank on purpose for most rows: the AI is instructed to
+        // write around a blank fact, never invent one — do not fill these in with a
+        // guess or with another site's numbers just to avoid a blank cell.
+        $cols[] = 'years_in_business';
+        $yearsExamples = ['12', '', '', '', '8'];
+        foreach ($sample as $i => &$row) { $row[] = $yearsExamples[$i] ?? ''; }
+        unset($row);
+        $cols[] = 'mission_statement';
+        $missionExamples = ['Connecting Dallas homeowners with responsive, quality local providers.', '', '', '', ''];
+        foreach ($sample as $i => &$row) { $row[] = $missionExamples[$i] ?? ''; }
         unset($row);
         // Star the columns that must be filled on every row. Purely a hint for whoever
         // fills the sheet in — ms_parse_csv() strips the star on the way back, so the

@@ -112,6 +112,75 @@ if (!function_exists('gen_copy_dir')) {
     }
 }
 
+if (!function_exists('contact_mail_static_php')) {
+    /**
+     * Source for the small, dependency-free contact-form handler dropped into every
+     * static build (as contact_mail.php, alongside index.html) — deliberately NOT a
+     * copy of contact_send.php, which needs config.php/functions.php/load_data() and
+     * has nothing to run on a plain static export.
+     *
+     * $toEmail is baked directly into the file's own source, never accepted from the
+     * POST — a handler that took its destination from form input would let anyone use
+     * the box to relay mail to an arbitrary address. No CSRF token either: unlike a
+     * PHP-rendered page, a static HTML page is written once at build time, so there is
+     * no per-visit request to seed a fresh token into a session — the honeypot field is
+     * the same defense the old Web3Forms path already relied on for static builds.
+     */
+    function contact_mail_static_php(string $toEmail): string {
+        $toLiteral = var_export($toEmail, true);
+        return <<<PHP
+<?php
+// Auto-generated per-domain contact handler. Self-contained on purpose — a static
+// build ships no config.php/includes/, so this cannot depend on either.
+session_start();
+\$to = {$toLiteral};
+
+if (\$_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: /'); exit; }
+
+// Where to bounce back to: this file is the same on every page of the site (one
+// contact_mail.php per domain, not per page), so it has no build-time knowledge of
+// which page the visitor was actually on — the Referer header is the only thing
+// that knows that at request time. Falls back to the homepage if absent/off-site.
+\$referer    = \$_SERVER['HTTP_REFERER'] ?? '';
+\$refHost    = parse_url(\$referer, PHP_URL_HOST) ?: '';
+\$returnPath = (\$refHost !== '' && \$refHost === (\$_SERVER['HTTP_HOST'] ?? '')) ? (parse_url(\$referer, PHP_URL_PATH) ?: '/') : '/';
+function cf_redirect(string \$path, string \$msg): void { header('Location: ' . \$path . '?cf_msg=' . \$msg); exit; }
+
+// Honeypot — bots fill this, humans don't.
+if ((\$_POST['botcheck'] ?? '') !== '') cf_redirect(\$returnPath, 'success');
+
+// Rate limit: 5 submissions per IP per hour.
+\$ipKey = 'cf_rate_' . md5(\$_SERVER['REMOTE_ADDR'] ?? '');
+\$rate  = \$_SESSION[\$ipKey] ?? ['count' => 0, 'start' => time()];
+if (time() - \$rate['start'] > 3600) \$rate = ['count' => 0, 'start' => time()];
+if (\$rate['count'] >= 5) cf_redirect(\$returnPath, 'limit');
+\$rate['count']++; \$_SESSION[\$ipKey] = \$rate;
+
+\$name    = trim(\$_POST['cf_name']    ?? '');
+\$email   = trim(\$_POST['cf_email']   ?? '');
+\$phone   = trim(\$_POST['cf_phone']   ?? '');
+\$message = trim(\$_POST['cf_message'] ?? '');
+if (\$name === '' || \$email === '' || \$message === '' || !filter_var(\$email, FILTER_VALIDATE_EMAIL)) {
+    cf_redirect(\$returnPath, 'error');
+}
+\$name    = substr(strip_tags(\$name),    0, 200);
+\$email   = substr(strip_tags(\$email),   0, 200);
+\$phone   = substr(strip_tags(\$phone),   0, 50);
+\$message = substr(strip_tags(\$message), 0, 5000);
+
+\$safeName  = str_replace(["\\r", "\\n"], '', \$name);
+\$safeEmail = str_replace(["\\r", "\\n"], '', \$email);
+\$subject   = 'New inquiry from ' . \$safeName;
+\$body      = "Name: \$name\\nEmail: \$email\\n" . (\$phone !== '' ? "Phone: \$phone\\n" : '') . "\\nMessage:\\n\$message\\n";
+\$host      = preg_replace('/[^a-z0-9.\\\\-]/i', '', \$_SERVER['HTTP_HOST'] ?? 'localhost');
+\$headers   = implode("\\r\\n", ['From: noreply@' . \$host, 'Reply-To: ' . \$safeEmail, 'Content-Type: text/plain; charset=UTF-8']);
+
+if (!@mail(\$to, \$subject, \$body, \$headers)) cf_redirect(\$returnPath, 'error');
+cf_redirect(\$returnPath, 'success');
+PHP;
+    }
+}
+
 /**
  * Render the whole site to static HTML under $outputBase.
  *
@@ -146,6 +215,17 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 
     // Load site data once — reused for every page render; city pages merge city_vars per-iteration.
     $siteData = load_data();
+
+    // Contact form recipient for a STATIC build (no PHP runtime, so contact_send.php's
+    // config.php/load_data() dependency tree can't run on the deployed domain — see
+    // contact_mail_static_php() below). Same recipient-resolution rule as
+    // contact_send.php: the site's own configured email first, CONTACT_EMAIL fallback,
+    // so a multisite domain's form always reaches ITS OWN inbox, never a shared one.
+    $staticContactEmail = trim($siteData['site_vars']['email'] ?? '');
+    if ($staticContactEmail === '' || !filter_var($staticContactEmail, FILTER_VALIDATE_EMAIL)) {
+        $staticContactEmail = (defined('CONTACT_EMAIL') && CONTACT_EMAIL !== '') ? CONTACT_EMAIL : '';
+    }
+    $GLOBALS['_static_contact_email'] = $staticContactEmail;
 
     // ── Pre-count total steps for progress tracking ───────────────────────────────
     $_prePages = array_filter($siteData['pages'] ?? [], fn($p) => ($p['slug'] ?? '') !== '' && preg_match('/^[a-z0-9][a-z0-9-]*$/', $p['slug'] ?? ''));
@@ -506,6 +586,14 @@ HTACCESS;
     gen_write($outputBase . '.htaccess', $htaccess);
     progress_log('Generated: .htaccess.');
     progress_tick(++$_preDone, $_preTotal);
+
+    // ── 11. contact_mail.php ──────────────────────────────────────────────────────
+    if ($staticContactEmail !== '') {
+        file_put_contents($outputBase . 'contact_mail.php', contact_mail_static_php($staticContactEmail));
+        progress_log("Generated: contact_mail.php (to {$staticContactEmail}).");
+    } else {
+        progress_log('Skipping contact_mail.php — no contact email resolved for this site.', 'warn');
+    }
 
     // ── Done ──────────────────────────────────────────────────────────────────────
     $total = 1 + $pageCount + $cityCount + $postCount + 1; // +1 home +1 404

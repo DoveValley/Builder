@@ -44,12 +44,13 @@ function ms_ai_compile(array $archetypes, array $brief): array {
         }
 
         // 1. Inline the shared blocks into the skeleton, then fill brief placeholders.
+        // Generic over every key in _shared — this used to hardcode just guardrail/tone_line,
+        // so any OTHER shared block (e.g. local_grounding) silently passed through as literal,
+        // unresolved "[[shared.x]]" text instead of being inlined.
         $prompt = (string)($arch['prompt_skeleton'] ?? '');
-        $prompt = str_replace(
-            ['[[shared.guardrail]]', '[[shared.tone_line]]'],
-            [(string)($shared['guardrail'] ?? ''), (string)($shared['tone_line'] ?? '')],
-            $prompt
-        );
+        foreach ($shared as $sKey => $sVal) {
+            $prompt = str_replace('[[shared.' . $sKey . ']]', (string) $sVal, $prompt);
+        }
         // Fill every [[brief.<field>]] token (in both the skeleton and the inlined shared blocks).
         $prompt = preg_replace_callback('/\[\[brief\.([a-z_]+)\]\]/', function ($m) use ($brief) {
             return _ms_ai_brief_val($brief[$m[1]] ?? '');

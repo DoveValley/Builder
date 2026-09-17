@@ -23,10 +23,33 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
     // Direct site_vars mappings — only overwrite when the param is a non-empty string.
     // 'email' is included here too — build_one.php computes it as info@{bare-domain}
     // before this runs, so every domain gets a working address with no per-row data entry.
-    foreach (['business', 'phone', 'tel', 'email', 'city', 'state', 'SS', 'zip', 'address'] as $k) {
+    foreach (['business', 'phone', 'tel', 'email', 'city', 'state', 'SS', 'zip', 'address',
+              'years_in_business', 'mission_statement'] as $k) {
         if (isset($params[$k]) && is_string($params[$k]) && $params[$k] !== '') {
             $sv[$k] = $params[$k];
         }
+    }
+
+    // years_in_business / mission_statement (admin/tabs/header.php's "Trust facts" card) are
+    // real operator-entered facts about the MASTER's own specific business — never anything
+    // else's. The "only overwrite when non-empty" rule above means a row that doesn't supply
+    // its own value left the master's actual facts (e.g. water-site's real "20" years) sitting
+    // in $sv untouched, so every domain silently inherited and stated another business's real
+    // history as its own. The about_story archetype is explicitly built to write around a
+    // blank fact rather than invent one (see multisite/ai/archetypes.json) — blank is always
+    // the safe, correct default, so a row without its own value must start blank, not inherit.
+    foreach (['years_in_business', 'mission_statement'] as $k) {
+        if (empty($params[$k])) $sv[$k] = '';
+    }
+
+    // A row's own 'tel' is meant to be optional: resolve_shortcodes() (includes/shortcodes.php)
+    // derives {tel} from 'phone' whenever site_vars.tel is blank. But the "only overwrite when
+    // non-empty" rule above means a row with a real phone and no tel column left the MASTER's
+    // own tel — tied to the MASTER's phone — sitting in $sv untouched, so every domain's tel:
+    // links silently kept dialing the master's number while the visible text showed the
+    // domain's real one. A blank tel column means "derive it," not "inherit the master's."
+    if (isset($params['phone']) && is_string($params['phone']) && $params['phone'] !== '' && empty($params['tel'])) {
+        $sv['tel'] = '';
     }
 
     // Derived fields.

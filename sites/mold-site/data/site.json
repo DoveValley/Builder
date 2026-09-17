@@ -152,7 +152,7 @@
             "fs_heading": "Mold Problems We Handle in {city}",
             "fs_subtext": "Lufkin's humid subtropical climate and seasonal rainfall create ideal conditions for indoor mold growth in homes and businesses. Elk Mold Pros connects you with independent local mold remediation providers ready to assess, contain, and remove mold safely and thoroughly.",
             "fs_photo_alt": "Mold remediation technician in {city}, {SS}",
-            "fs_star_text": "5 Star Service",
+            "fs_star_text": "",
             "fs_bg_color": "#f0fdf4",
             "fs_accent": "#16a34a",
             "fs_image_side": "left",
@@ -348,7 +348,7 @@
             "type": "image_features",
             "if_heading": "Safe, Thorough Mold Removal",
             "if_intro": "Mold spreads and degrades your air quality the longer it’s left untreated. Our providers act fast to contain the area, remove mold at the source, and correct the moisture problem — so it doesn’t come back.",
-            "if_closing": "Every job is handled by trained, certified mold remediation technicians, giving you peace of mind from inspection through final clearance.",
+            "if_closing": "Every job is handled by experienced local mold remediation providers, giving you peace of mind from inspection through final clearance.",
             "if_phone_label": "Call Us 24/7",
             "if_phone": "{phone}",
             "if_phone_url": "tel:{tel}",
@@ -495,7 +495,7 @@
         },
         {
             "type": "cta_banner",
-            "cb_text": "Certified Mold Remediation in {city_state}",
+            "cb_text": "Mold Remediation in {city_state}",
             "cb_subtext": "",
             "cb_btn_text": "Call Now — {phone}",
             "cb_btn_url": "tel:{tel}",
@@ -507,8 +507,8 @@
         },
         {
             "type": "cta_card",
-            "cc_heading": "Mold in Your {city} Property? Call for a Free Inspection",
-            "cc_text": "Don’t let mold spread — it damages your property and your air quality. Call {business} to connect with certified {city_state} mold specialists for inspection, testing, safe removal, and prevention. Fast response and honest pricing.",
+            "cc_heading": "Mold in Your {city} Property? Call to Connect With a Local Provider",
+            "cc_text": "Don’t let mold spread — it damages your property and your air quality. Call {business} to connect with local {city_state} mold specialists for inspection, testing, safe removal, and prevention. Fast response and honest pricing.",
             "cc_btn_text": "{phone}",
             "cc_btn_url": "tel:{tel}",
             "cc_btn_style": "outline",
@@ -535,8 +535,8 @@
         },
         {
             "type": "cta_card",
-            "cc_heading": "The Values That Make Us {city}’s Most Trusted Mold Team",
-            "cc_text": "We’re trusted across {city} for more than just mold removal — it’s how we work. Clear communication, honest pricing, and proven containment and remediation standards deliver results you can count on. Certified providers who treat your property with care — because getting your home safe and healthy is always the priority. That’s why local property owners choose us and refer us.",
+            "cc_heading": "The Values Behind Every {city} Mold Connection",
+            "cc_text": "We’re trusted across {city} for more than just mold removal — it’s how we work. Clear communication, honest pricing, and proven containment and remediation standards deliver results you can count on. Experienced providers who treat your property with care — because getting your home safe and healthy is always the priority. That’s why local property owners choose us and refer us.",
             "cc_btn_text": "",
             "cc_btn_url": "",
             "cc_btn_style": "outline",
@@ -550,10 +550,10 @@
     "seo": {
         "seo_title": "Mold Remediation in {city_state} | {business}",
         "canonical_url": "",
-        "meta_description": "Certified mold inspection and remediation in {city_state} from {business} — testing, removal, moisture control. Call {phone}.",
+        "meta_description": "Mold inspection and remediation in {city_state} from {business} — testing, removal, moisture control. Call {phone}.",
         "meta_keywords": "mold remediation {city} {SS}, mold removal {city}, black mold removal {city} {SS}, mold inspection {city}, mold testing {city} {SS}",
         "og_title": "Mold Remediation in {city_state} | {business}",
-        "og_description": "Certified mold remediation in {city_state} — inspection, testing, black mold removal, safe containment, and prevention. Fast local response.",
+        "og_description": "Mold remediation in {city_state} — inspection, testing, black mold removal, safe containment, and prevention. Fast local response.",
         "og_image": "sites/mold-site/uploads/media/home-banner.webp",
         "service_name": "Mold Remediation",
         "service_type": "Mold Remediation",
@@ -562,7 +562,7 @@
         "bc_label": "",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with certified mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"addressLocality\": \"{city}\",\n                \"addressRegion\": \"{SS}\",\n                \"postalCode\": \"{zip}\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"HomeAndConstructionBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"image\": \"{lb_logo}\",\n            \"description\": \"{business} connects {state} property owners with local mold inspection and remediation specialists, providing mold testing, black mold removal, safe containment, and moisture control for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"priceRange\": \"$$\",\n            \"openingHours\": \"Mo-Su 00:00-23:59\",\n            \"address\": {\n                \"@type\": \"PostalAddress\",\n                \"addressLocality\": \"{city}\",\n                \"addressRegion\": \"{SS}\",\n                \"postalCode\": \"{zip}\",\n                \"addressCountry\": \"US\"\n            }\n        },\n        {\n            \"@type\": \"WebSite\",\n            \"@id\": \"{website}/#website\",\n            \"url\": \"{website}\",\n            \"name\": \"{business}\",\n            \"publisher\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        }\n    ]\n}",
         "primary_keyword": "Mold Remediation",
         "secondary_keywords": "mold removal, black mold removal, mold inspection, mold testing, mold mitigation"
     },
@@ -632,7 +632,7 @@
                 "text": ""
             }
         ],
-        "copyright": "© Copyright {business}. All Rights Reserved.",
+        "copyright": "© Copyright {year} {business}. All Rights Reserved.",
         "bottom_links": [
             {
                 "label": "Privacy Policy",
@@ -864,7 +864,7 @@
         "lb_lng": "-94.7291",
         "lb_price_range": "$$",
         "lb_hours": "Mo-Su 00:00-23:59",
-        "lb_description": "{business} connects {city_state} property owners with certified mold specialists — including mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation.",
+        "lb_description": "{business} connects {city_state} property owners with local mold specialists — including mold inspection, mold testing, air-quality assessment, and safe mold removal and remediation.",
         "lb_logo": "{website}/uploads/logo_elk-mold-pros-lufkin.png",
         "lb_rating": "",
         "lb_review_count": ""
@@ -952,7 +952,7 @@
         "url_pattern": "/{service_slug}-{city_slug}",
         "heading": "Our Mold Remediation Services in {city_state}",
         "sublabel": "",
-        "subtext": "We connect {city_state} property owners with certified specialists for the full range of mold services — from inspection and testing to black mold removal, containment, and prevention. Fast, reliable local response.",
+        "subtext": "We connect {city_state} property owners with local specialists for the full range of mold services — from inspection and testing to black mold removal, containment, and prevention. Fast, reliable local response.",
         "style": "dark",
         "cols": 5,
         "bg_photo": "sites/mold-site/uploads/media/two-story-family-home.webp",

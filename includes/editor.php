@@ -2073,8 +2073,15 @@ function render_content_blocks_editor($blocks) {
                             <label><input type="checkbox" name="tb_show_icons[]" value="1" style="width:auto;margin-right:6px;" <?= ($block['tb_show_icons'] ?? true) ? 'checked' : '' ?>>Show icons</label>
                         </div>
                     </div>
+                    <?php $tbUsesSharedBadges = ($block['tb_items'] ?? null) === '@safe_trust_badges'; ?>
+                    <?php if ($tbUsesSharedBadges): ?>
+                        <p class="hint">Using the shared, niche-neutral trust badge set (defined once in
+                        <code>trust_bar_safe_badges()</code>, <code>includes/blocks.php</code>) — every niche
+                        shows the same safe wording automatically. Editing and saving the badges below will
+                        switch this block to its own custom set instead.</p>
+                    <?php endif; ?>
                     <div class="tb-items-editor" id="tb_items_<?= $i ?>">
-                        <?php $tbItems = $block['tb_items'] ?? [['label'=>'','icon'=>'']]; ?>
+                        <?php $tbItems = $tbUsesSharedBadges ? trust_bar_safe_badges() : ($block['tb_items'] ?? [['label'=>'','icon'=>'']]); ?>
                         <?php foreach ($tbItems as $tbItem): ?>
                         <div class="faq-item-row" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
                             <div class="form-group" style="flex:1 1 200px;">

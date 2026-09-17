@@ -30,7 +30,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 <!-- ===== UPLOAD CARD ===== -->
 <div class="card" id="ms-upload">
     <h3 style="margin-top:0;">1. Upload target list (CSV)</h3>
-    <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export &rarr; CSV</strong>. One row per site. Required columns: <code>domain, business, phone, email, city, state, SS</code>. Optional: <code>tel, address, zip, lat, lng, rating, review_count, analytics_id, logo</code>. Add FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>) to deploy &mdash; omit them and the row still builds.</p>
+    <p class="hint">Prepare the table in Excel or Google Sheets and <strong>Save As / Export &rarr; CSV</strong>. One row per site. Required columns: <code>domain, business, phone, email, city, state, SS</code>. Optional: <code>tel, address, zip, lat, lng, rating, review_count, analytics_id, logo, years_in_business, mission_statement</code>. Add FTP credentials (<code>ftp_host, ftp_user, ftp_pass</code>) to deploy &mdash; omit them and the row still builds.</p>
 
     <p style="margin:0 0 8px;">
         <a class="btn" href="multisite_api.php?action=sample_csv">&#11015; Download sample CSV</a>

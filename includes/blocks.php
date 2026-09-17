@@ -302,6 +302,34 @@ function heading_level_options() {
     return ['h1' => 'H1 (Page title — use once)', 'h2' => 'H2 (Section heading)', 'h3' => 'H3 (Sub-section)', 'p' => 'Paragraph (no heading)'];
 }
 
+/**
+ * The one, shared, niche-neutral set of trust_bar badges every referral-network site is
+ * safe to show. A `trust_bar` block's `tb_items` may be the literal sentinel string
+ * '@safe_trust_badges' instead of an item array — resolved here, same pattern as
+ * '@services_links' (plugins/services_links/plugin.php) and '@appliance_services_menu'
+ * (plugins/appliance_services_menu/plugin.php).
+ *
+ * Why this exists: every niche's own templates.json/site.json used to hand-type its own
+ * badge wording independently — "Free Estimates," "Trained Technicians," "Certified
+ * Technicians" — none of which this business can actually promise, since it never performs
+ * the work and doesn't set the independent local providers' pricing (see any niche_brief.json's
+ * `guardrails` field). Fixing that per-niche, per-template text is a one-time patch that a
+ * newly built 5th niche would silently repeat. Routing every niche through ONE shared function
+ * instead means the wording only has to be right once, here, and every niche — present and
+ * future — inherits it automatically.
+ *
+ * Each phrase below describes something this business genuinely controls and can prove (its
+ * own referral/connection service), never the independent provider's work or pricing.
+ */
+function trust_bar_safe_badges(): array {
+    return [
+        ['label' => 'Local Provider Network', 'icon' => ''],
+        ['label' => 'No-Cost To Connect',      'icon' => ''],
+        ['label' => '24/7 Response Line',      'icon' => ''],
+        ['label' => 'Fast Local Response',     'icon' => ''],
+    ];
+}
+
 /* ============================================================
    FRONTEND: render a single block
    ============================================================ */
@@ -1831,6 +1859,7 @@ function render_content_block($block, $pathPrefix = '') {
             $tbBg       = $block['tb_bg']        ?? 'subtle';
             $tbBgCustom = $block['tb_bg_custom'] ?? '#f3f6f7';
             $tbItems    = $block['tb_items']     ?? [];
+            if ($tbItems === '@safe_trust_badges') $tbItems = trust_bar_safe_badges();
             $tbShowIcons = $block['tb_show_icons'] ?? true;   // false = text-only badges
             // Text/check colors adapt to the bar background (theme vars only): light bars
             // (subtle/light) -> heading color + accent checks; colored bars -> button-text
@@ -1890,14 +1919,25 @@ function render_content_block($block, $pathPrefix = '') {
             if ($cfSubtext) echo '<p class="section-subtext">' . h($cfSubtext) . '</p>';
 
             if (defined('STATIC_BUILD') && STATIC_BUILD) {
-                $w3fKey = $GLOBALS['_static_web3forms_key'] ?? '';
-                if ($w3fKey !== '') {
+                // Client-side only: a static page is written once at build time, so
+                // there is no server-side request to read ?cf_msg= from and print a
+                // notice into the HTML — same reason contact_mail.php carries no CSRF
+                // token. Mirrors the wording/classes the non-static branch below uses.
+                echo '<div class="cf-notice cf-static-notice" style="display:none;"></div>';
+                echo '<script>(function(){var p=new URLSearchParams(location.search),m=p.get("cf_msg");if(!m)return;var n=document.currentScript.previousElementSibling,t={success:["cf-success","Thank you! Your message has been sent — we\'ll be in touch shortly."],limit:["cf-error","Too many submissions. Please try again in an hour."],error:["cf-error","Something went wrong. Please check your details and try again."]}[m];if(!t)return;n.className="cf-notice "+t[0];n.textContent=t[1];n.style.display="";})();</script>';
+
+                $staticEmail = $GLOBALS['_static_contact_email'] ?? '';
+                $w3fKey      = $GLOBALS['_static_web3forms_key'] ?? '';
+                if ($staticEmail !== '') {
+                    echo '<form class="cf-form" method="post" action="contact_mail.php">';
+                    echo '<div style="display:none;"><input type="text" name="botcheck" tabindex="-1" autocomplete="off"></div>';
+                } elseif ($w3fKey !== '') {
                     echo '<form class="cf-form" method="post" action="https://api.web3forms.com/submit">';
                     echo '<input type="hidden" name="access_key" value="' . h($w3fKey) . '">';
                     echo '<input type="hidden" name="redirect" value="' . h(resolve_shortcodes('{website}')) . '?submitted=1">';
                     echo '<input type="checkbox" name="botcheck" style="display:none;" tabindex="-1">';
                 } else {
-                    echo '<p style="color:#9ca3af;font-style:italic;">Contact form requires a Web3Forms key — set it in the Deploy tab.</p>';
+                    echo '<p style="color:#9ca3af;font-style:italic;">Contact form is not yet configured for this site.</p>';
                 }
             } else {
                 if (empty($_SESSION['cf_csrf_token'])) {
