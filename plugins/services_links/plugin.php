@@ -89,19 +89,14 @@ function services_links_resolve(array $cfg, array $filter = ['brand' => '', 'typ
     $services = $cfg['services'] ?? [];
     $pattern  = $cfg['url_pattern'] ?? '/{service_slug}-{city_slug}';
 
-    $existSlugs = null;
-    if (defined('PAGE_INDEX_FILE') && file_exists(PAGE_INDEX_FILE)) {
-        $pi = json_decode((string)file_get_contents(PAGE_INDEX_FILE), true);
-        $existSlugs = is_array($pi) ? $pi : [];
-    }
     $links = [];
     foreach ($services as $svc) {
         if (!_services_links_passes($filter, $svc)) continue;
         [$name, $url] = _services_links_row($svc, $pattern);
         if ($name === '') continue;
-        if ($existSlugs !== null && isset($url[0]) && $url[0] === '/') {
+        if (isset($url[0]) && $url[0] === '/') {
             $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
-            if ($slug !== '' && strpos($slug, '/') === false && !isset($existSlugs[$slug])) continue;
+            if ($slug !== '' && strpos($slug, '/') === false && !ms_page_slug_exists($slug)) continue;
         }
         $links[] = [$name, $url];
     }

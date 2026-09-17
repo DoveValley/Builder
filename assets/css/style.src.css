@@ -4646,3 +4646,53 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 }
 /* Match the image's own box so the caption cannot be wider than the picture it describes. */
 .content-figcaption { max-width: 900px; }
+
+/* Related Links block — pill/chip grid, same visual family as .lg-link (Links Grid) so it
+   reads as "part of this site" rather than a bare list of blue underlined text. Anchor text
+   is still full, descriptive prose (the actual SEO value) — the chip just gives it a real
+   tap target and a hover state instead of looking like leftover markup. */
+.block-related-links {
+    padding: 44px 0;
+    background: var(--skin-subtle-bg, #f3f6f7);
+}
+.related-links-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 14px;
+}
+.related-links-list li { margin: 0; }
+.related-links-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: var(--btn-radius, 999px);
+    color: var(--color-heading, #1a1a2e);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
+}
+.related-links-list a::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+}
+.related-links-list a:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-btn-text, #fff);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+}
+.related-links-list a:hover::before { background: var(--color-btn-text, #fff); }

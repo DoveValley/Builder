@@ -148,6 +148,7 @@ function allowed_block_types() {
         'stage_cards'     => 'Stage / Career Path Cards (numbered columns with item lists)',
         'email_banner'    => 'Email Capture Banner (split: heading left, email form right)',
         'contact_form'    => 'Contact Form (name, email, phone, message)',
+        'related_links'   => 'Related Links (curated internal links, real pages only)',
         'comparison_table'=> 'Comparison Table (feature vs. competitor)',
         'ai_block'        => 'AI Block (city & service content)',
     ];
@@ -199,6 +200,7 @@ function grouped_block_types(): array {
         'Utility' => [
             'map_info'         => 'Map + info',
             'contact_form'     => 'Contact form',
+            'related_links'    => 'Related links',
         ],
         'AI Generation' => [
             'ai_block' => 'AI Block (city & service content)',
@@ -241,6 +243,7 @@ function block_descriptions(): array {
         'cta_button'       => 'Single centered button link',
         'map_info'         => 'Embedded Google map beside a photo + info panel. Pick which side the map sits on, and optionally let AI write the city info text (City Spotlight).',
         'contact_form'     => 'Name / email / message form with spam protection',
+        'related_links'    => 'Curated list of related-page links — each one checked against this domain\'s real built pages before it renders, so it never points at a page that doesn\'t exist here.',
         'ai_block'         => 'Placeholder filled by the AI generator — renders as any block type once generated',
     ];
 }
@@ -282,6 +285,7 @@ function block_thumbnails(): array {
         'logo_bar'        => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="30" y="14" width="60" height="4" rx="2" fill="#cbd5e1"/><rect x="6" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="35" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="64" y="26" width="23" height="18" rx="3" fill="#e2e8f0"/><rect x="93" y="26" width="21" height="18" rx="3" fill="#e2e8f0"/><rect x="10" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="39" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="68" y="31" width="15" height="8" rx="1" fill="#94a3b8"/><rect x="96" y="31" width="14" height="8" rx="1" fill="#94a3b8"/><rect x="20" y="54" width="80" height="3" rx="1" fill="#e2e8f0"/></svg>',
         'trust_bar'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="0" y="26" width="120" height="24" fill="#f3f6f7"/><line x1="0" y1="26" x2="120" y2="26" stroke="#e2e8f0" stroke-width="1"/><line x1="0" y1="50" x2="120" y2="50" stroke="#e2e8f0" stroke-width="1"/><circle cx="12" cy="38" r="4" fill="#fd783b"/><rect x="20" y="36" width="18" height="4" rx="2" fill="#475569"/><circle cx="47" cy="38" r="4" fill="#fd783b"/><rect x="55" y="36" width="18" height="4" rx="2" fill="#475569"/><circle cx="82" cy="38" r="4" fill="#fd783b"/><rect x="90" y="36" width="18" height="4" rx="2" fill="#475569"/></svg>',
         'contact_form'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="10" y="10" width="100" height="8" rx="2" fill="#475569"/><rect x="10" y="25" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="39" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="53" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="67" width="40" height="8" rx="2" fill="#fd783b"/></svg>',
+        'related_links'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="10" y="12" width="60" height="6" rx="2" fill="#475569"/><circle cx="16" cy="34" r="3" fill="#fd783b"/><rect x="26" y="31" width="70" height="6" rx="2" fill="#2563eb" text-decoration="underline"/><circle cx="16" cy="50" r="3" fill="#fd783b"/><rect x="26" y="47" width="55" height="6" rx="2" fill="#2563eb"/><circle cx="16" cy="66" r="3" fill="#fd783b"/><rect x="26" y="63" width="60" height="6" rx="2" fill="#2563eb"/></svg>',
         'comparison_table'=> '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="5" width="40" height="8" rx="2" fill="#475569"/><rect x="48" y="5" width="30" height="8" rx="2" fill="#e2e8f0"/><rect x="82" y="5" width="33" height="8" rx="2" fill="#fd783b"/><rect x="5" y="16" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="16" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="16" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="26" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="26" width="30" height="7" rx="1" fill="#f8fafc"/><rect x="82" y="26" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="36" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="36" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="36" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="46" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="46" width="30" height="7" rx="1" fill="#f8fafc"/><rect x="82" y="46" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="57" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="57" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="57" width="33" height="7" rx="1" fill="#dcfce7"/></svg>',
         'stage_cards'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="4" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="4" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="33" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="33" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="62" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="62" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="91" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="91" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/></svg>',
     ];
@@ -1975,6 +1979,32 @@ function render_content_block($block, $pathPrefix = '') {
                 echo '</form>';
             }
 
+            echo '</div></div>';
+            break;
+
+        /* ---- RELATED LINKS (curated internal links, real pages only) ---- */
+        case 'related_links':
+            $rlHeading = resolve_shortcodes($block['rl_heading'] ?? '');
+            $rlMax     = (int) ($block['rl_max'] ?? 3);
+            if ($rlMax <= 0) $rlMax = 3;
+            // Soft-guarded like every other plugin-backed block (@services_links,
+            // @appliance_services_menu) — a site missing the plugin renders nothing here,
+            // never a broken block. The candidate list is intentionally MORE than $rlMax
+            // items (editorial slack) — Page Pool means not every candidate exists on every
+            // domain, so the resolver returns only the ones that are real, in order.
+            $rlLinks = function_exists('related_links_resolve')
+                ? related_links_resolve($block['rl_items'] ?? [], $rlMax)
+                : [];
+            // Fewer than 2 real matches isn't worth a whole section — same "disappear
+            // rather than show thin/broken" rule used elsewhere (fake ratings, safe badges).
+            if (count($rlLinks) < 2) break;
+            echo '<div class="content-block block-related-links"' . $anchorAttr . '><div class="container">';
+            if ($rlHeading) echo '<h2 class="section-heading">' . h($rlHeading) . '</h2>';
+            echo '<ul class="related-links-list">';
+            foreach ($rlLinks as [$rlText, $rlUrl]) {
+                echo '<li><a href="' . h($rlUrl) . '">' . h($rlText) . '</a></li>';
+            }
+            echo '</ul>';
             echo '</div></div>';
             break;
 

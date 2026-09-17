@@ -884,6 +884,26 @@ function parse_blocks_from_post(): array {
                 if (empty($tbItems)) continue 2;
                 break;
 
+            case 'related_links':
+                $block['rl_heading'] = trim($_POST['rl_heading'][$i] ?? 'Related Services') ?: 'Related Services';
+                $rlMax = (int) ($_POST['rl_max'][$i] ?? 3);
+                $block['rl_max'] = max(1, min(12, $rlMax ?: 3));
+                $rlTexts = $_POST['rl_text'][$i] ?? [];
+                $rlUrls  = $_POST['rl_url'][$i]  ?? [];
+                $rlItems = [];
+                foreach ($rlTexts as $ri => $rlText) {
+                    $rlText = trim($rlText);
+                    // sanitize_url() (includes/helpers.php) — every stored URL goes through it.
+                    // Passes {city_slug} etc. through unchanged (it only checks the scheme
+                    // prefix), which related_links_resolve() needs intact to resolve per-city.
+                    $rlUrl = sanitize_url(trim($rlUrls[$ri] ?? ''));
+                    if ($rlText === '' || $rlUrl === '') continue;
+                    $rlItems[] = ['text' => $rlText, 'url' => $rlUrl];
+                }
+                $block['rl_items'] = $rlItems;
+                if (empty($rlItems)) continue 2;
+                break;
+
             case 'video':
                 $block['vid_heading'] = trim($_POST['vid_heading'][$i] ?? '');
                 $block['vid_url']     = sanitize_url(trim($_POST['vid_url'][$i] ?? ''));

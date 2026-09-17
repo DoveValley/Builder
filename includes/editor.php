@@ -2101,6 +2101,44 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addTbItem(this, <?= $i ?>)">+ Add badge</button>
                 </div>
 
+                <?php /* ---- RELATED LINKS FIELDS ---- */ ?>
+                <div class="block-fields block-fields-related_links <?= $type !== 'related_links' ? 'is-hidden' : '' ?>">
+                    <p class="hint">Give MORE candidates than you want shown (the "Show up to" count below) — on
+                    any given domain, Page Pool may not have built every page you list here, so each candidate
+                    is checked against this domain's REAL pages at build time, and only the real ones render, in
+                    the order listed. Fewer than 2 real matches on a domain means the whole block quietly
+                    doesn't show there, rather than a thin or broken section.</p>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px;">
+                        <div class="form-group" style="flex:1 1 260px;">
+                            <label>Heading</label>
+                            <input type="text" name="rl_heading[]" value="<?= h($block['rl_heading'] ?? 'Related Services') ?>" placeholder="Related Services">
+                        </div>
+                        <div class="form-group" style="flex:0 0 140px;">
+                            <label>Show up to</label>
+                            <input type="number" name="rl_max[]" min="1" max="12" step="1" value="<?= h($block['rl_max'] ?? 3) ?>">
+                        </div>
+                    </div>
+                    <div class="rl-items-editor" id="rl_items_<?= $i ?>">
+                        <?php $rlItems = $block['rl_items'] ?? [['url' => '', 'text' => '']]; ?>
+                        <?php foreach ($rlItems as $rlItem): ?>
+                        <div class="faq-item-row" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;">
+                            <div class="form-group" style="flex:1 1 260px;">
+                                <label>Link text (descriptive — not "click here")</label>
+                                <input type="text" name="rl_text[<?= $i ?>][]" value="<?= h($rlItem['text'] ?? '') ?>" placeholder="e.g. attic water damage">
+                            </div>
+                            <div class="form-group" style="flex:1 1 260px;">
+                                <label>Page URL (use {city_slug} for a per-city page)</label>
+                                <input type="text" name="rl_url[<?= $i ?>][]" value="<?= h($rlItem['url'] ?? '') ?>" placeholder="/attic-water-damage-{city_slug}">
+                            </div>
+                            <div style="padding-top:22px;">
+                                <button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-small" onclick="addRlItem(this, <?= $i ?>)">+ Add candidate link</button>
+                </div>
+
                 <?php /* ---- STAGE CARDS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-stage_cards <?= $type !== 'stage_cards' ? 'is-hidden' : '' ?>">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">

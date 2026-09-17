@@ -874,6 +874,20 @@ function content_editor_scripts() {
                 <div class="tb-items-editor" id="tb_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addTbItem(this, 'new_${idx}')">+ Add badge</button>
             </div>
+            <div class="block-fields block-fields-related_links is-hidden">
+                <p class="hint">Give MORE candidates than you want shown — each is checked against this domain's
+                REAL pages at build time, and only the real ones render, in the order listed.</p>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px;">
+                    <div class="form-group" style="flex:1 1 260px;"><label>Heading</label>
+                        <input type="text" name="rl_heading[]" value="Related Services" placeholder="Related Services">
+                    </div>
+                    <div class="form-group" style="flex:0 0 140px;"><label>Show up to</label>
+                        <input type="number" name="rl_max[]" min="1" max="12" step="1" value="3">
+                    </div>
+                </div>
+                <div class="rl-items-editor" id="rl_items_new_${idx}"></div>
+                <button type="button" class="btn btn-secondary btn-small" onclick="addRlItem(this, 'new_${idx}')">+ Add candidate link</button>
+            </div>
             <div class="block-fields block-fields-cards is-hidden">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Label (small caps above heading)</label>
@@ -1520,6 +1534,19 @@ function content_editor_scripts() {
         row.innerHTML = `
             <div class="form-group" style="flex:1 1 200px;"><label>Badge label</label><input type="text" name="tb_label[${blockIdx}][]" placeholder="e.g. Free Estimates"></div>
             <div class="form-group" style="flex:2 1 260px;"><label>Icon SVG (leave blank for default checkmark)</label><textarea name="tb_icon[${blockIdx}][]" rows="3" style="font-size:0.72rem;font-family:monospace;" placeholder="<svg …>…</svg>"></textarea></div>
+            <div style="padding-top:22px;"><button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button></div>
+        `;
+        editor.appendChild(row);
+    }
+
+    function addRlItem(btn, blockIdx) {
+        const editor = document.getElementById('rl_items_' + blockIdx);
+        const row = document.createElement('div');
+        row.className = 'faq-item-row';
+        row.style.cssText = 'display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start;';
+        row.innerHTML = `
+            <div class="form-group" style="flex:1 1 260px;"><label>Link text (descriptive — not "click here")</label><input type="text" name="rl_text[${blockIdx}][]" placeholder="e.g. attic water damage"></div>
+            <div class="form-group" style="flex:1 1 260px;"><label>Page URL (use {city_slug} for a per-city page)</label><input type="text" name="rl_url[${blockIdx}][]" placeholder="/attic-water-damage-{city_slug}"></div>
             <div style="padding-top:22px;"><button type="button" class="remove-row btn-secondary btn-small" onclick="removeFaqItem(this)">&times; Remove</button></div>
         `;
         editor.appendChild(row);

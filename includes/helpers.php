@@ -74,6 +74,33 @@ function slugify($text) {
     return trim($text, '-');
 }
 
+/**
+ * Does a page with this slug actually exist for the CURRENT site/domain?
+ *
+ * The one place in the codebase that answers "will linking to this slug 404?" — reads
+ * PAGE_INDEX_FILE, the authoritative per-domain build output (Page Pool means every
+ * domain ships a different subset of pages, so no fixed list is ever safe to assume).
+ * Extracted from plugins/services_links/plugin.php's inline check so a THIRD consumer
+ * (plugins/related_links/plugin.php) doesn't duplicate it — same "one module, reused
+ * everywhere" rule CLAUDE.md states for external API calls, applied to this internal one.
+ * Missing/unreadable PAGE_INDEX_FILE (single-site mode, no page pool) → assume it exists,
+ * matching services_links_resolve()'s own original fallback behavior.
+ */
+function ms_page_slug_exists(string $slug): bool {
+    static $existSlugs = null;
+    if ($existSlugs === null) {
+        $existSlugs = [];
+        if (defined('PAGE_INDEX_FILE') && file_exists(PAGE_INDEX_FILE)) {
+            $pi = json_decode((string) file_get_contents(PAGE_INDEX_FILE), true);
+            $existSlugs = is_array($pi) ? $pi : [];
+        } else {
+            $existSlugs = false; // no index at all — nothing to check against
+        }
+    }
+    if ($existSlugs === false) return true;
+    return isset($existSlugs[$slug]);
+}
+
 function reserved_slugs() {
     return ['', 'admin', 'assets', 'data', 'includes', 'uploads', 'index', 'page', 'home', 'blog'];
 }
