@@ -240,6 +240,20 @@ function ms_clear_inherited_tagline_reword(string $workingDir): int {
 }
 
 /**
+ * Same shape of bug as ms_clear_inherited_disclaimer_reword() above, for generate.py's
+ * reword_info_popup(): _popup_reworded on the master's own popups.info would otherwise
+ * become every future domain's reword too.
+ */
+function ms_clear_inherited_popup_reword(string $workingDir): int {
+    $siteFile = $workingDir . '/data/site.json';
+    $site = json_decode((string) @file_get_contents($siteFile), true);
+    if (!is_array($site) || empty($site['popups']['info']['_popup_reworded'])) return 0;
+    unset($site['popups']['info']['_popup_reworded']);
+    file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    return 1;
+}
+
+/**
  * THE single required step for anything the master authored that a clone must never inherit
  * verbatim — one call site in build_one.php, one place in the run tree, one place in this file
  * that any future "generate once per site, skip if already present" feature MUST register
@@ -261,6 +275,7 @@ function ms_scrub_master_content(string $workingDir): array {
         'legal_reword_cleared'=> ms_clear_inherited_legal_reword($workingDir),
         'disclaimer_reword_cleared' => ms_clear_inherited_disclaimer_reword($workingDir),
         'tagline_reword_cleared'    => ms_clear_inherited_tagline_reword($workingDir),
+        'popup_reword_cleared'      => ms_clear_inherited_popup_reword($workingDir),
     ];
 }
 
@@ -425,7 +440,7 @@ const MS_LEGAL_REWORD_SLUGS = ['privacy-policy', 'terms-and-conditions', 'contac
  */
 function ms_footer_reword_inject_from_cache(string $workingDir, string $cacheFile, bool $skipTagline = false): array {
     $siteFile = $workingDir . '/data/site.json';
-    $hit = ['disclaimer' => false, 'tagline' => false, 'legal_pages' => 0];
+    $hit = ['disclaimer' => false, 'tagline' => false, 'legal_pages' => 0, 'popup' => false];
     if (!file_exists($siteFile) || !file_exists($cacheFile)) return $hit;
     $site  = json_decode(file_get_contents($siteFile), true);
     $cache = json_decode(file_get_contents($cacheFile), true);
@@ -438,6 +453,11 @@ function ms_footer_reword_inject_from_cache(string $workingDir, string $cacheFil
         $site['footer']['disclaimer'] = $fr['disclaimer']['text'];
         $site['footer']['_disclaimer_reworded'] = true;
         $hit['disclaimer'] = true; $changed = true;
+    }
+    if (!empty($fr['popup']['text'])) {
+        $site['popups']['info']['body'] = $fr['popup']['text'];
+        $site['popups']['info']['_popup_reworded'] = true;
+        $hit['popup'] = true; $changed = true;
     }
     if (!$skipTagline && !empty($fr['tagline']['text'])) {
         $site['footer']['tagline'] = $fr['tagline']['text'];
@@ -469,11 +489,12 @@ function ms_footer_reword_inject_from_cache(string $workingDir, string $cacheFil
  */
 function ms_footer_reword_extract_to_cache(string $workingDir, string $cacheFile): array {
     $siteFile = $workingDir . '/data/site.json';
-    $out = ['disclaimer' => false, 'tagline' => false, 'legal_pages' => 0];
+    $out = ['disclaimer' => false, 'tagline' => false, 'legal_pages' => 0, 'popup' => false];
     if (!file_exists($siteFile)) return $out;
     $site = json_decode(file_get_contents($siteFile), true);
     if (!is_array($site)) return $out;
     $footer = $site['footer'] ?? [];
+    $popup  = $site['popups']['info'] ?? [];
 
     $existing = file_exists($cacheFile) ? (json_decode(file_get_contents($cacheFile), true) ?: []) : [];
     $fr = $existing['footer_reword'] ?? [];
@@ -483,6 +504,10 @@ function ms_footer_reword_extract_to_cache(string $workingDir, string $cacheFile
     if (!empty($footer['_disclaimer_reworded']) && !empty($footer['disclaimer'])) {
         $fr['disclaimer'] = ['text' => $footer['disclaimer']];
         $out['disclaimer'] = true; $changed = true;
+    }
+    if (!empty($popup['_popup_reworded']) && !empty($popup['body'])) {
+        $fr['popup'] = ['text' => $popup['body']];
+        $out['popup'] = true; $changed = true;
     }
     if (!empty($footer['_tagline_reworded']) && !empty($footer['tagline'])) {
         $fr['tagline'] = ['text' => $footer['tagline']];

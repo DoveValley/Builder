@@ -313,6 +313,7 @@ if ($noAi) {
     if ($scrub['legal_reword_cleared'] > 0) progress_log("AI: cleared {$scrub['legal_reword_cleared']} legal-page reword lock(s) inherited from the master.");
     if ($scrub['disclaimer_reword_cleared'] > 0) progress_log('AI: cleared footer-disclaimer reword lock inherited from the master.');
     if ($scrub['tagline_reword_cleared'] > 0)    progress_log('AI: cleared footer-tagline reword lock inherited from the master.');
+    if ($scrub['popup_reword_cleared'] > 0)      progress_log('AI: cleared info-popup reword lock inherited from the master.');
 
     // Cache (§6a): re-inject known copy so generate.py only fills misses/stale blocks.
     $cacheFile = BASE_DIR . '/sites/' . $masterId . '/multisite/cache/' . $domainSlug . '.json';
@@ -327,6 +328,7 @@ if ($noAi) {
     if ($fr['disclaimer'])     progress_log('AI cache: reused cached footer disclaimer.');
     if ($fr['tagline'])        progress_log('AI cache: reused cached footer tagline.');
     if ($fr['legal_pages'] > 0) progress_log("AI cache: reused {$fr['legal_pages']} cached legal-page reword(s).");
+    if ($fr['popup'])          progress_log('AI cache: reused cached info-popup disclosure.');
 
     ms_step_begin('ai');
     progress_log('Generating AI content for city…');
@@ -338,7 +340,8 @@ if ($noAi) {
             . ($force ? ' --refresh' : '')
             . ($skipped('ai.legal_reword') ? ' --no-legal-reword' : '')
             . ($skipped('ai.disclaimer_reword') ? ' --no-disclaimer-reword' : '')
-            . ($skipped('ai.tagline_reword') ? ' --no-tagline-reword' : '') . ' 2>&1';
+            . ($skipped('ai.tagline_reword') ? ' --no-tagline-reword' : '')
+            . ($skipped('ai.popup_reword') ? ' --no-popup-reword' : '') . ' 2>&1';
     $gp = proc_open($genCmd, [1 => ['pipe', 'w']], $gpipes, BASE_DIR, $genEnv);
     if (is_resource($gp)) {
         while (($l = fgets($gpipes[1])) !== false) {
@@ -371,8 +374,8 @@ if ($noAi) {
     // Must run AFTER ms_ai_extract_to_cache() above — that call overwrites the whole
     // cache file, so a footer_reword key written before it would be silently wiped.
     $frOut = ms_footer_reword_extract_to_cache($workingDir, $cacheFile);
-    if ($frOut['disclaimer'] || $frOut['tagline'] || $frOut['legal_pages'] > 0) {
-        progress_log('AI cache: footer/legal reword(s) cached → ' . basename($cacheFile));
+    if ($frOut['disclaimer'] || $frOut['tagline'] || $frOut['legal_pages'] > 0 || $frOut['popup']) {
+        progress_log('AI cache: footer/legal/popup reword(s) cached → ' . basename($cacheFile));
     }
 }
 

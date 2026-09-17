@@ -33,6 +33,7 @@ function ms_batch_options_defaults(): array {
         ],
         'subs' => [
             'ai.legal_reword' => true, 'ai.disclaimer_reword' => true, 'ai.tagline_reword' => true,
+            'ai.popup_reword' => true,
             'visual.palette' => true, 'visual.font' => true, 'visual.jitter' => true,
             'structure.home' => true, 'structure.landing' => true,
             'structure.classvocab' => true, 'structure.schemashape' => true,

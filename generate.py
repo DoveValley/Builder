@@ -1980,6 +1980,68 @@ def reword_disclaimer(site_data, brief, api_key, dry_run=False) -> bool:
     return False
 
 
+def reword_info_popup_text(text, brief, api_key, dry_run=False):
+    """Reword the header info-popup's disclosure body for this domain. Returns
+    (text, changed). Same rules as reword_disclaimer_text: this is the "How Your Calls
+    Are Handled" advertising-disclosure text shown when a visitor clicks the info icon
+    next to the header phone number — one flowing paragraph, no heading line to
+    preserve (the popup heading itself is short and generic; only the body is legal
+    boilerplate worth varying)."""
+    guardrails = (brief.get('guardrails') or '').strip()
+    prompt = (
+        'Below is the disclosure text shown in a popup when a visitor clicks the info '
+        f'icon next to the phone number, for {brief.get("business_descriptor") or "a local business"}. '
+        'Reword it: preserve the EXACT same legal meaning, scope, and every factual '
+        'claim — change nothing about what is disclaimed, promised, or disclosed. Vary '
+        'only sentence structure and word choice, so this reads as independently '
+        'written rather than copied. Preserve every {token}-style placeholder (e.g. '
+        '{website}, {phone}) EXACTLY as written wherever one appears — never translate, '
+        'remove, or reword around one in a way that changes what it refers to. Keep the '
+        'surrounding HTML tags (e.g. <p>...</p>, <strong>...</strong>) as they are.'
+        + (f'\n\nGuardrails: {guardrails}' if guardrails else '')
+        + f'\n\nCurrent text:\n{text}\n\n'
+        'Return JSON only: {"text": "reworded HTML"}'
+    )
+
+    if dry_run:
+        _log(f'    [dry-run] Would reword info-popup disclosure ({len(prompt)} char prompt)')
+        return text, False
+
+    result = call_claude(prompt, REWRITE_MODEL, api_key, dry_run=False)
+    if not result or not isinstance(result, dict) or not isinstance(result.get('text'), str) or not result['text'].strip():
+        _warn('    Reword for info-popup disclosure failed — keeping existing text')
+        return text, False
+
+    new_text = result['text']
+    if _rewrite_tokens(new_text) != _rewrite_tokens(text):
+        _warn('    Info-popup disclosure: dropped/altered a {token} in the reword — kept original text')
+        return text, False
+
+    return new_text, True
+
+
+def reword_info_popup(site_data, brief, api_key, dry_run=False) -> bool:
+    """Runs once per domain: rewords the header info-popup's disclosure body, then
+    stamps _popup_reworded on popups.info so it is never re-billed on a later rebuild —
+    success or failure, one attempt is enough for text this low-stakes. Same shape as
+    reword_disclaimer()."""
+    popup = site_data.setdefault('popups', {}).setdefault('info', {})
+    if popup.get('_popup_reworded'):
+        return False
+    text = (popup.get('body') or '').strip()
+    if not text:
+        return False
+    _log('  Rewording info-popup disclosure for this domain...')
+    new_text, ok = reword_info_popup_text(text, brief, api_key, dry_run)
+    if ok:
+        popup['body'] = new_text
+        _ok('    Info-popup disclosure — reworded')
+    if not dry_run:
+        popup['_popup_reworded'] = True
+        return True
+    return False
+
+
 def reword_tagline_text(text, brief, api_key, dry_run=False):
     """Reword the footer tagline for this domain. Returns (text, changed). Unlike the
     disclaimer, this one is expected to be asked for again later (via Force) to get a
@@ -2191,6 +2253,9 @@ def main():
     ap.add_argument('--no-tagline-reword', action='store_true', dest='no_tagline_reword',
                     help='Skip the per-domain reword of the footer tagline '
                          '(runs automatically as part of --page core / --all otherwise).')
+    ap.add_argument('--no-popup-reword', action='store_true', dest='no_popup_reword',
+                    help='Skip the one-time per-domain reword of the header info-popup '
+                         'disclosure body (runs automatically as part of --page core / --all otherwise).')
     ap.add_argument('--sync-templates',  action='store_true', dest='sync_templates',
                     help='Insert missing ai_blocks from templates.json into existing page files, then exit')
     ap.add_argument('--rewrite-template', dest='rewrite_template', default=None,
@@ -2348,7 +2413,7 @@ def main():
 
     if args.all or args.page == 'core':
         _merge_stats(total, process_core_pages(paths, site_data, registry, c_idx, api_key, args.refresh, args.dry_run, model_override))
-        if not args.no_legal_reword or not args.no_disclaimer_reword or not args.no_tagline_reword:
+        if not args.no_legal_reword or not args.no_disclaimer_reword or not args.no_tagline_reword or not args.no_popup_reword:
             _brief_for_legal = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
             _legal_changed = False
             if not args.no_legal_reword:
@@ -2357,6 +2422,8 @@ def main():
                 _legal_changed = reword_disclaimer(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
             if not args.no_tagline_reword:
                 _legal_changed = reword_tagline(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
+            if not args.no_popup_reword:
+                _legal_changed = reword_info_popup(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
             if _legal_changed and not args.dry_run:
                 save_json(paths['site_json'], site_data)
 
