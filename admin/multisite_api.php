@@ -377,9 +377,17 @@ switch ($action) {
         // Progress comes from parsing upload_sites.php's own printed lines — it has no
         // separate machine-readable channel, so the header count and the per-domain
         // ✓/✗ markers ARE the source of truth for "how far along is this".
+        //
+        // The "file(s) … " prompt and its ✓/✗ result are printed by two separate
+        // statements (upload_sites.php prints the prompt, deploy_site() reports the
+        // outcome), with nothing guaranteeing they land on the same line — a Force
+        // run has deploy_site() log a "~ Force push …" warning line in between, and
+        // a real, fully successful upload would show up here as an unmatched row
+        // (counted as a failure below) because \s* cannot cross that non-whitespace
+        // text. Match across whatever comes between, not just whitespace.
         $total = 0;
         if (preg_match('/(\d+) ready to upload/', $j['raw'], $m)) $total = (int) $m[1];
-        preg_match_all('/file\(s\)\s*…\s*(✓|✗)/u', $j['raw'], $mm);
+        preg_match_all('/file\(s\)\s*…[\s\S]*?(✓|✗)/u', $j['raw'], $mm);
         $marks  = $mm[1] ?? [];
         $ok     = count(array_filter($marks, fn($c) => $c === '✓'));
         $failed = count($marks) - $ok;
