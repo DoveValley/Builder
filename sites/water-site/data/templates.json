@@ -1305,10 +1305,10 @@
   {
     "id": "tpl_emergency_water_damage",
     "base": 0,
-    "title": "24-Hour Emergency Water Damage in {city_state} | {business_short}",
+    "title": "Emergency Water Damage Restoration in {city_state} | {business_short}",
     "slug_pattern": "emergency-water-damage-{city_slug}",
     "page_type": "template",
-    "service": "24-Hour Emergency Water Damage",
+    "service": "Emergency Water Damage Restoration",
     "generation_steps": [
       {
         "step": "city_vars"
@@ -1323,7 +1323,7 @@
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
         "hs_caption2": "",
-        "hs_photo_alt": "24-hour emergency water damage in {city_state} by {business}",
+        "hs_photo_alt": "Emergency water damage restoration in {city_state} by {business}",
         "hs_image_side": "right",
         "hs_bg_color": "#eef4fb",
         "hs_photo": "sites/water-site/uploads/media/emergency-water-damage-restoration-crew-2-lufkin-tx.webp",
@@ -1548,23 +1548,23 @@
       }
     ],
     "seo": {
-      "seo_title": "24-Hour Emergency Water Damage in {city_state} | {business_short}",
+      "seo_title": "Emergency Water Damage Restoration in {city_state} | {business_short}",
       "canonical_url": "",
       "meta_description": "Water damage worsens rapidly; immediate response prevents additional harm to structures and contents. Serving {city_state}. Call {phone}.",
-      "meta_keywords": "24-hour emergency water damage {city} {SS}, emergency water damage cleanup {city}, 24 hour water damage restoration {city}, emergency water restoration {city}",
-      "og_title": "24-Hour Emergency Water Damage in {city_state} | {business}",
-      "og_description": "24/7 24-hour emergency water damage in {city_state}. Fast, professional local response.",
+      "meta_keywords": "emergency water damage restoration {city} {SS}, emergency water damage {city}, 24 hour emergency water damage {city}, water damage restoration near me",
+      "og_title": "Emergency Water Damage Restoration in {city_state} | {business}",
+      "og_description": "Emergency water damage restoration in {city_state}. Fast, professional local response, available 24/7.",
       "og_image": "sites/water-site/uploads/media/emergency-water-damage-restoration-crew-2-lufkin-tx.webp",
-      "service_name": "24-Hour Emergency Water Damage",
-      "service_type": "24-Hour Emergency Water Damage",
+      "service_name": "Emergency Water Damage Restoration",
+      "service_type": "Emergency Water Damage Restoration",
       "service_area": "{city_state} and surrounding areas",
-      "service_description": "24-hour emergency water damage for homes and businesses in {city_state}, including emergency water damage cleanup, 24 hour water damage restoration and emergency water restoration.",
-      "bc_label": "24-Hour Emergency Water Damage",
+      "service_description": "Emergency water damage restoration for homes and businesses in {city_state}, including 24-hour emergency response, water damage cleanup, and emergency water restoration.",
+      "bc_label": "Emergency Water Damage Restoration",
       "bc_mid_label": "",
       "bc_mid_url": "",
-      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"24-Hour Emergency Water Damage\",\n    \"name\": \"24-Hour Emergency Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 24-hour emergency water damage in {city_state} \u2014 emergency water damage cleanup, 24 hour water damage restoration and emergency water restoration.\"\n}",
-      "primary_keyword": "24-Hour Emergency Water Damage",
-      "secondary_keywords": "emergency water damage cleanup, 24 hour water damage restoration, emergency water restoration, 24/7 restoration"
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Emergency Water Damage Restoration\",\n    \"name\": \"Emergency Water Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Emergency water damage restoration in {city_state} \u2014 available 24/7, including water damage cleanup and emergency water restoration.\"\n}",
+      "primary_keyword": "Emergency Water Damage Restoration",
+      "secondary_keywords": "24 hour emergency water damage, emergency water damage, water damage restoration near me, emergency water damage cleanup"
     },
     "base_role": "Restoration",
     "layout_enabled": true,
