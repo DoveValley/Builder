@@ -30,15 +30,18 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
         }
     }
 
-    // years_in_business / mission_statement (admin/tabs/header.php's "Trust facts" card) are
-    // real operator-entered facts about the MASTER's own specific business — never anything
+    // years_in_business / mission_statement (admin/tabs/header.php's "Trust facts" card) and
+    // zip are real facts specific to the MASTER's own business/location — never anything
     // else's. The "only overwrite when non-empty" rule above means a row that doesn't supply
-    // its own value left the master's actual facts (e.g. water-site's real "20" years) sitting
-    // in $sv untouched, so every domain silently inherited and stated another business's real
-    // history as its own. The about_story archetype is explicitly built to write around a
-    // blank fact rather than invent one (see multisite/ai/archetypes.json) — blank is always
-    // the safe, correct default, so a row without its own value must start blank, not inherit.
-    foreach (['years_in_business', 'mission_statement'] as $k) {
+    // its own value left the master's actual facts (e.g. water-site's real "20" years, or its
+    // real Lufkin, TX zip 75901) sitting in $sv untouched, so every domain silently inherited
+    // and stated another business's — or another CITY's — real facts as its own (found on
+    // baileyrestoration.com: Santa Clarita, CA's schema listing postalCode 75901, a Texas zip).
+    // The about_story archetype is explicitly built to write around a blank fact rather than
+    // invent one (see multisite/ai/archetypes.json); no per-city zip lookup exists at all, so
+    // blank is the only correct default here too — a row without its own value must start
+    // blank, not inherit a fact that belongs to a different city entirely.
+    foreach (['years_in_business', 'mission_statement', 'zip'] as $k) {
         if (empty($params[$k])) $sv[$k] = '';
     }
 
