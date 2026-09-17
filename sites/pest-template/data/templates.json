@@ -190,7 +190,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cockroach Exterminator in {city_state}\",\"serviceType\":\"Cockroach Extermination\",\"description\":\"Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cockroach Exterminator in {city_state}\",\n            \"serviceType\": \"Cockroach Extermination\",\n            \"description\": \"Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Cockroach Exterminator",
             "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
         },
@@ -434,7 +434,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ant Pest Control in {city_state}\",\"serviceType\":\"Ant Pest Control\",\"description\":\"Professional ant pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ant Pest Control in {city_state}\",\n            \"serviceType\": \"Ant Pest Control\",\n            \"description\": \"Professional ant pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Ant Pest Control",
             "secondary_keywords": "ant exterminator, ant control, ant treatment, ant removal, get rid of ants"
         },
@@ -677,7 +677,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Fire ant Exterminator in {city_state}\",\"serviceType\":\"Fire ant Extermination\",\"description\":\"Professional fire ant exterminator services in {city_state}. Targeted fire ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Fire ant Exterminator in {city_state}\",\n            \"serviceType\": \"Fire ant Extermination\",\n            \"description\": \"Professional fire ant exterminator services in {city_state}. Targeted fire ant control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Fire Ant Control",
             "secondary_keywords": "fire ant treatment, fire ant exterminator, fire ant yard treatment, fire ant killer, fire ant mound treatment"
         },
@@ -920,7 +920,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Carpenter ant Exterminator in {city_state}\",\"serviceType\":\"Carpenter ant Extermination\",\"description\":\"Professional carpenter ant exterminator services in {city_state}. Targeted carpenter ant control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Carpenter ant Exterminator in {city_state}\",\n            \"serviceType\": \"Carpenter ant Extermination\",\n            \"description\": \"Professional carpenter ant exterminator services in {city_state}. Targeted carpenter ant control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Carpenter Ant Control",
             "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage"
         },
@@ -1163,7 +1163,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bed Bug Control in {city_state}\",\"serviceType\":\"Bed Bug Control\",\"description\":\"Professional bed bug control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bed Bug Control in {city_state}\",\n            \"serviceType\": \"Bed Bug Control\",\n            \"description\": \"Professional bed bug control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Bed Bug Control",
             "secondary_keywords": "bed bug exterminator, bed bug treatment, bed bug removal, bed bug heat treatment, bed bug pest control, get rid of bed bugs"
         },
@@ -1406,7 +1406,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Exterminator in {city_state}\",\"serviceType\":\"Termite Extermination\",\"description\":\"Professional termite exterminator services in {city_state}. Targeted termite control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Termite Exterminator in {city_state}\",\n            \"serviceType\": \"Termite Extermination\",\n            \"description\": \"Professional termite exterminator services in {city_state}. Targeted termite control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Termite Treatment",
             "secondary_keywords": "termite control, termite exterminator, termite removal, subterranean termite treatment, termite pest control, termite bond"
         },
@@ -1649,7 +1649,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Mosquito Exterminator in {city_state}\",\"serviceType\":\"Mosquito Extermination\",\"description\":\"Professional mosquito exterminator services in {city_state}. Targeted mosquito control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Mosquito Exterminator in {city_state}\",\n            \"serviceType\": \"Mosquito Extermination\",\n            \"description\": \"Professional mosquito exterminator services in {city_state}. Targeted mosquito control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Mosquito Control",
             "secondary_keywords": "mosquito treatment, mosquito exterminator, mosquito spray service, backyard mosquito control, mosquito misting system, mosquito yard treatment"
         },
@@ -1892,7 +1892,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Flea Pest Control in {city_state}\",\"serviceType\":\"Flea Pest Control\",\"description\":\"Professional flea pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Flea Pest Control in {city_state}\",\n            \"serviceType\": \"Flea Pest Control\",\n            \"description\": \"Professional flea pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Flea Pest Control",
             "secondary_keywords": "flea exterminator, flea control, flea treatment, flea removal, flea and tick control, get rid of fleas"
         },
@@ -2135,7 +2135,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Tick Treatment in {city_state}\",\"serviceType\":\"Tick Treatment\",\"description\":\"Professional tick treatment services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Tick Treatment in {city_state}\",\n            \"serviceType\": \"Tick Treatment\",\n            \"description\": \"Professional tick treatment services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Tick Treatment",
             "secondary_keywords": "tick control, tick exterminator, tick yard treatment, flea and tick treatment, get rid of ticks"
         },
@@ -2378,7 +2378,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Rat Exterminator in {city_state}\",\"serviceType\":\"Rat Extermination\",\"description\":\"Professional rat exterminator services in {city_state}. Targeted rat control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Rat Exterminator in {city_state}\",\n            \"serviceType\": \"Rat Extermination\",\n            \"description\": \"Professional rat exterminator services in {city_state}. Targeted rat control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Rat Exterminator",
             "secondary_keywords": "rat control, rat pest control, rat removal, rodent control, rodent exterminator, get rid of rats"
         },
@@ -2621,7 +2621,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Mouse Exterminator in {city_state}\",\"serviceType\":\"Mouse Extermination\",\"description\":\"Professional mouse exterminator services in {city_state}. Targeted mouse control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Mouse Exterminator in {city_state}\",\n            \"serviceType\": \"Mouse Extermination\",\n            \"description\": \"Professional mouse exterminator services in {city_state}. Targeted mouse control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Mouse Exterminator",
             "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice"
         },
@@ -2864,7 +2864,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Spider Pest Control in {city_state}\",\"serviceType\":\"Spider Pest Control\",\"description\":\"Professional spider pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Spider Pest Control in {city_state}\",\n            \"serviceType\": \"Spider Pest Control\",\n            \"description\": \"Professional spider pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Spider Pest Control",
             "secondary_keywords": "spider control, spider exterminator, spider treatment, spider removal, get rid of spiders"
         },
@@ -3107,7 +3107,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Scorpion Pest Control in {city_state}\",\"serviceType\":\"Scorpion Pest Control\",\"description\":\"Professional scorpion pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Scorpion Pest Control in {city_state}\",\n            \"serviceType\": \"Scorpion Pest Control\",\n            \"description\": \"Professional scorpion pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Scorpion Pest Control",
             "secondary_keywords": "scorpion control, scorpion exterminator, scorpion treatment, scorpion removal, get rid of scorpions"
         },
@@ -3350,7 +3350,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in {city_state}\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wasp Exterminator in {city_state}\",\n            \"serviceType\": \"Wasp Extermination\",\n            \"description\": \"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Wasp Exterminator",
             "secondary_keywords": "wasp control, wasp pest control, wasp removal, wasp spray service, get rid of wasps"
         },
@@ -3593,7 +3593,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Yellow jacket Exterminator in {city_state}\",\"serviceType\":\"Yellow jacket Extermination\",\"description\":\"Professional yellow jacket exterminator services in {city_state}. Targeted yellow jacket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Yellow jacket Exterminator in {city_state}\",\n            \"serviceType\": \"Yellow jacket Extermination\",\n            \"description\": \"Professional yellow jacket exterminator services in {city_state}. Targeted yellow jacket control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Yellow Jacket Control",
             "secondary_keywords": "yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal, get rid of yellow jackets"
         },
@@ -3836,7 +3836,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Silverfish Exterminator in {city_state}\",\"serviceType\":\"Silverfish Extermination\",\"description\":\"Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Silverfish Exterminator in {city_state}\",\n            \"serviceType\": \"Silverfish Extermination\",\n            \"description\": \"Professional silverfish exterminator services in {city_state}. Targeted silverfish control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Silverfish Control",
             "secondary_keywords": "silverfish exterminator, silverfish treatment, silverfish removal, get rid of silverfish"
         },
@@ -4079,7 +4079,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Centipede Exterminator in {city_state}\",\"serviceType\":\"Centipede Extermination\",\"description\":\"Professional centipede exterminator services in {city_state}. Targeted centipede control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Centipede Exterminator in {city_state}\",\n            \"serviceType\": \"Centipede Extermination\",\n            \"description\": \"Professional centipede exterminator services in {city_state}. Targeted centipede control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Centipede Control",
             "secondary_keywords": "centipede exterminator, millipede control, centipede treatment, get rid of centipedes"
         },
@@ -4322,7 +4322,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cricket Exterminator in {city_state}\",\"serviceType\":\"Cricket Extermination\",\"description\":\"Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cricket Exterminator in {city_state}\",\n            \"serviceType\": \"Cricket Extermination\",\n            \"description\": \"Professional cricket exterminator services in {city_state}. Targeted cricket control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Cricket Control",
             "secondary_keywords": "cricket exterminator, cricket treatment, cricket removal, get rid of crickets"
         },
@@ -4565,7 +4565,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Stink bug Exterminator in {city_state}\",\"serviceType\":\"Stink bug Extermination\",\"description\":\"Professional stink bug exterminator services in {city_state}. Targeted stink bug control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Stink bug Exterminator in {city_state}\",\n            \"serviceType\": \"Stink bug Extermination\",\n            \"description\": \"Professional stink bug exterminator services in {city_state}. Targeted stink bug control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Stink Bug Control",
             "secondary_keywords": "stink bug exterminator, boxelder bug control, overwintering pests, get rid of stink bugs"
         },
@@ -4808,7 +4808,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wasp Exterminator in {city_state}\",\"serviceType\":\"Wasp Extermination\",\"description\":\"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wasp Exterminator in {city_state}\",\n            \"serviceType\": \"Wasp Extermination\",\n            \"description\": \"Professional wasp exterminator services in {city_state}. Targeted wasp control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Wasp Nest Removal",
             "secondary_keywords": "wasp nest treatment, wasp nest removal near me, remove wasp nest, wasp nest exterminator"
         },
@@ -5051,7 +5051,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Hornet Exterminator in {city_state}\",\"serviceType\":\"Hornet Extermination\",\"description\":\"Professional hornet exterminator services in {city_state}. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Hornet Exterminator in {city_state}\",\n            \"serviceType\": \"Hornet Extermination\",\n            \"description\": \"Professional hornet exterminator services in {city_state}. Targeted hornet control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Hornet Removal",
             "secondary_keywords": "hornet exterminator, hornet nest removal, hornet control, get rid of hornets"
         },
@@ -5294,7 +5294,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bee Exterminator in {city_state}\",\"serviceType\":\"Bee Extermination\",\"description\":\"Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bee Exterminator in {city_state}\",\n            \"serviceType\": \"Bee Extermination\",\n            \"description\": \"Professional bee exterminator services in {city_state}. Targeted bee control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Bee Removal",
             "secondary_keywords": "bee relocation, honey bee removal, live bee removal, bee hive removal, bee control"
         },
@@ -5565,7 +5565,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Termite Inspection in {city_state}\",\"serviceType\":\"Termite Inspection\",\"description\":\"Professional termite inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Termite Inspection in {city_state}\",\n            \"serviceType\": \"Termite Inspection\",\n            \"description\": \"Professional termite inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Termite Inspection",
             "secondary_keywords": "termite inspection cost, free termite inspection, termite inspection near me, real estate termite inspection"
         },
@@ -5836,7 +5836,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Inspection in {city_state}\",\"serviceType\":\"Pest Inspection\",\"description\":\"Professional pest inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Pest Inspection in {city_state}\",\n            \"serviceType\": \"Pest Inspection\",\n            \"description\": \"Professional pest inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Pest Inspection",
             "secondary_keywords": "home pest inspection, pest control inspection, pest inspection near me, pest inspection cost"
         },
@@ -6106,7 +6106,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"WDI Inspection in {city_state}\",\"serviceType\":\"WDI Inspection\",\"description\":\"Professional wdi inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"WDI Inspection in {city_state}\",\n            \"serviceType\": \"WDI Inspection\",\n            \"description\": \"Professional wdi inspection services in {city_state} with a thorough on-site inspection and a written report of findings.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "WDI Inspection",
             "secondary_keywords": "real estate termite inspection, wood destroying insect inspection, termite letter, wdi report, va termite inspection"
         },
@@ -6350,7 +6350,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Residential Pest Control in {city_state}\",\"serviceType\":\"Residential Pest Control\",\"description\":\"Professional residential pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Residential Pest Control in {city_state}\",\n            \"serviceType\": \"Residential Pest Control\",\n            \"description\": \"Professional residential pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Residential Pest Control",
             "secondary_keywords": "residential exterminator, home pest control, house pest control, family pest control"
         },
@@ -6594,7 +6594,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Commercial Pest Control in {city_state}\",\"serviceType\":\"Commercial Pest Control\",\"description\":\"Professional commercial pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Commercial Pest Control in {city_state}\",\n            \"serviceType\": \"Commercial Pest Control\",\n            \"description\": \"Professional commercial pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Commercial Pest Control",
             "secondary_keywords": "commercial exterminator, business pest control, office pest control, warehouse pest control, industrial pest control"
         },
@@ -6837,7 +6837,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Emergency Pest Control in {city_state}\",\"serviceType\":\"Emergency Pest Control\",\"description\":\"Professional emergency pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Pest Control in {city_state}\",\n            \"serviceType\": \"Emergency Pest Control\",\n            \"description\": \"Professional emergency pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Emergency Pest Control",
             "secondary_keywords": "same day pest control, 24 hour pest control, same day exterminator, emergency exterminator, 24 hour exterminator"
         },
@@ -7080,7 +7080,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Restaurant Pest Control in {city_state}\",\"serviceType\":\"Restaurant Pest Control\",\"description\":\"Professional restaurant pest control services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Restaurant Pest Control in {city_state}\",\n            \"serviceType\": \"Restaurant Pest Control\",\n            \"description\": \"Professional restaurant pest control services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Restaurant Pest Control",
             "secondary_keywords": "commercial kitchen pest control, food service pest control, restaurant exterminator, food safety pest control"
         },
@@ -7351,7 +7351,7 @@
             "bc_label": "",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Pest Control Plans in {city_state}\",\"serviceType\":\"Pest Control Plans\",\"description\":\"Professional pest control plans services in {city_state} for homes and businesses.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Pest Control Plans in {city_state}\",\n            \"serviceType\": \"Pest Control Plans\",\n            \"description\": \"Professional pest control plans services in {city_state} for homes and businesses.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "primary_keyword": "Pest Control Plans",
             "secondary_keywords": "quarterly pest control, monthly pest control, year-round pest control, recurring pest control, pest control service plans"
         },

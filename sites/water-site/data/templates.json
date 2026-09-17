@@ -227,7 +227,7 @@
             "bc_label": "Flood Damage Restoration",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flood Damage Restoration\",\n    \"name\": \"Flood Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flood damage restoration in {city_state} — flood restoration, flood cleanup and flood damage repair.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flood Damage Restoration\",\n    \"name\": \"Flood Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flood damage restoration in {city_state} — flood restoration, flood cleanup and flood damage repair.\"\n}",
             "primary_keyword": "Flood Damage Restoration",
             "secondary_keywords": "flood restoration, flood cleanup, flood damage repair, flood damage cleanup, flood restoration services"
         },
@@ -554,7 +554,7 @@
             "bc_mid_url": "",
             "og_type": "website",
             "robots_noindex": false,
-            "schema": "{\r\n    \"@context\": \"https://schema.org\",\r\n    \"@type\": \"Service\",\r\n    \"serviceType\": \"Storm Damage Restoration\",\r\n    \"name\": \"Storm Damage Restoration in {city_state}\",\r\n    \"areaServed\": {\r\n        \"@type\": \"City\",\r\n        \"name\": \"{city}\"\r\n    },\r\n    \"provider\": {\r\n        \"@type\": \"HomeAndConstructionBusiness\",\r\n        \"name\": \"{business}\",\r\n        \"telephone\": \"{tel}\",\r\n        \"url\": \"{website}\"\r\n    },\r\n    \"description\": \"24/7 storm damage restoration in {city_state} — weather damage, storm damage repair and storm damage cleanup.\"\r\n}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Storm Damage Restoration\",\n    \"name\": \"Storm Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 storm damage restoration in {city_state} — weather damage, storm damage repair and storm damage cleanup.\"\n}"
         },
         "base_role": "Restoration",
         "layout_enabled": true,
@@ -834,7 +834,7 @@
             "bc_label": "Water Damage Repair",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Repair\",\n    \"name\": \"Water Damage Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage repair in {city_state} — repair water damage, home water damage repair and water damage repair services.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Repair\",\n    \"name\": \"Water Damage Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage repair in {city_state} — repair water damage, home water damage repair and water damage repair services.\"\n}",
             "primary_keyword": "Water Damage Repair",
             "secondary_keywords": "repair water damage, home water damage repair, water damage repair services"
         },
@@ -1116,7 +1116,7 @@
             "bc_label": "Water Mitigation",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Mitigation\",\n    \"name\": \"Water Mitigation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water mitigation in {city_state} — water extraction, water removal and emergency water extraction.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Mitigation\",\n    \"name\": \"Water Mitigation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water mitigation in {city_state} — water extraction, water removal and emergency water extraction.\"\n}",
             "primary_keyword": "Water Mitigation",
             "secondary_keywords": "water extraction, water removal, emergency water extraction, structural drying, dehumidification, water mitigation services"
         },
@@ -1398,7 +1398,7 @@
             "bc_label": "24-Hour Emergency Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"24-Hour Emergency Water Damage\",\n    \"name\": \"24-Hour Emergency Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 24-hour emergency water damage in {city_state} — emergency water damage cleanup, 24 hour water damage restoration and emergency water restoration.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"24-Hour Emergency Water Damage\",\n    \"name\": \"24-Hour Emergency Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 24-hour emergency water damage in {city_state} — emergency water damage cleanup, 24 hour water damage restoration and emergency water restoration.\"\n}",
             "primary_keyword": "24-Hour Emergency Water Damage",
             "secondary_keywords": "emergency water damage cleanup, 24 hour water damage restoration, emergency water restoration, 24/7 restoration"
         },
@@ -1680,7 +1680,7 @@
             "bc_label": "Sewage Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Sewage Cleanup\",\n    \"name\": \"Sewage Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 sewage cleanup in {city_state} — sewage backup cleanup, sewage removal and black water cleanup.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Sewage Cleanup\",\n    \"name\": \"Sewage Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 sewage cleanup in {city_state} — sewage backup cleanup, sewage removal and black water cleanup.\"\n}",
             "primary_keyword": "Sewage Cleanup",
             "secondary_keywords": "sewage backup cleanup, sewage removal, black water cleanup, sewage damage cleanup"
         },
@@ -1962,7 +1962,7 @@
             "bc_label": "Flooded Basement Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Basement Cleanup\",\n    \"name\": \"Flooded Basement Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded basement cleanup in {city_state} — basement flood clean up, flooded basement water removal and basement water damage.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Basement Cleanup\",\n    \"name\": \"Flooded Basement Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded basement cleanup in {city_state} — basement flood clean up, flooded basement water removal and basement water damage.\"\n}",
             "primary_keyword": "Flooded Basement Cleanup",
             "secondary_keywords": "basement flood clean up, flooded basement water removal, basement water damage, wet basement cleanup, crawl space water damage, crawl space water removal"
         },
@@ -2244,7 +2244,7 @@
             "bc_label": "Commercial Water Damage Restoration",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Commercial Water Damage Restoration\",\n    \"name\": \"Commercial Water Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 commercial water damage restoration in {city_state} — commercial water damage, commercial flood cleanup and business water damage restoration.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Commercial Water Damage Restoration\",\n    \"name\": \"Commercial Water Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 commercial water damage restoration in {city_state} — commercial water damage, commercial flood cleanup and business water damage restoration.\"\n}",
             "primary_keyword": "Commercial Water Damage Restoration",
             "secondary_keywords": "commercial water damage, commercial flood cleanup, business water damage restoration, commercial water damage cleanup"
         },
@@ -2526,7 +2526,7 @@
             "bc_label": "Burst Pipe Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe water damage in {city_state} — burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe water damage in {city_state} — burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
             "primary_keyword": "Burst Pipe Water Damage",
             "secondary_keywords": "burst pipe cleanup, water line break, frozen pipe water damage, broken pipe water damage"
         },
@@ -2808,7 +2808,7 @@
             "bc_label": "Ceiling Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Water Damage\",\n    \"name\": \"Ceiling Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 ceiling water damage in {city_state} — ceiling water damage repair, water stained ceiling and ceiling leak repair.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Water Damage\",\n    \"name\": \"Ceiling Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 ceiling water damage in {city_state} — ceiling water damage repair, water stained ceiling and ceiling leak repair.\"\n}",
             "primary_keyword": "Ceiling Water Damage",
             "secondary_keywords": "ceiling water damage repair, water stained ceiling, ceiling leak repair"
         },
@@ -3090,7 +3090,7 @@
             "bc_label": "Hardwood Floor Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hardwood Floor Water Damage\",\n    \"name\": \"Hardwood Floor Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hardwood floor water damage in {city_state} — wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hardwood Floor Water Damage\",\n    \"name\": \"Hardwood Floor Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hardwood floor water damage in {city_state} — wood floor water damage, water damaged hardwood floors and hardwood floor water damage repair.\"\n}",
             "primary_keyword": "Hardwood Floor Water Damage",
             "secondary_keywords": "wood floor water damage, water damaged hardwood floors, hardwood floor water damage repair, wet wood floor"
         },
@@ -3372,7 +3372,7 @@
             "bc_label": "Carpet Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 carpet water damage in {city_state} — water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Carpet Water Damage\",\n    \"name\": \"Carpet Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 carpet water damage in {city_state} — water damaged carpet, carpet water extraction and carpet flood damage.\"\n}",
             "primary_keyword": "Carpet Water Damage",
             "secondary_keywords": "water damaged carpet, carpet water extraction, carpet flood damage"
         },
@@ -3654,7 +3654,7 @@
             "bc_label": "Roof Leak Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Leak Water Damage\",\n    \"name\": \"Roof Leak Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 roof leak water damage in {city_state} — water damage from roof leak, ceiling leak from roof and roof leak water damage repair.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Leak Water Damage\",\n    \"name\": \"Roof Leak Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 roof leak water damage in {city_state} — water damage from roof leak, ceiling leak from roof and roof leak water damage repair.\"\n}",
             "primary_keyword": "Roof Leak Water Damage",
             "secondary_keywords": "water damage from roof leak, ceiling leak from roof, roof leak water damage repair"
         },
@@ -3936,7 +3936,7 @@
             "bc_label": "Attic Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 attic water damage in {city_state} — attic water damage repair and wet attic insulation.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Water Damage\",\n    \"name\": \"Attic Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 attic water damage in {city_state} — attic water damage repair and wet attic insulation.\"\n}",
             "primary_keyword": "Attic Water Damage",
             "secondary_keywords": "attic water damage repair, wet attic insulation"
         },
@@ -4218,7 +4218,7 @@
             "bc_label": "Drywall Water Damage Repair",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Drywall Water Damage Repair\",\n    \"name\": \"Drywall Water Damage Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 drywall water damage repair in {city_state} — fixing water damaged drywall, water damaged drywall and sheetrock water damage repair.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Drywall Water Damage Repair\",\n    \"name\": \"Drywall Water Damage Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 drywall water damage repair in {city_state} — fixing water damaged drywall, water damaged drywall and sheetrock water damage repair.\"\n}",
             "primary_keyword": "Drywall Water Damage Repair",
             "secondary_keywords": "fixing water damaged drywall, water damaged drywall, sheetrock water damage repair, wet drywall repair"
         },
@@ -4500,7 +4500,7 @@
             "bc_label": "Toilet Overflow Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Toilet Overflow Cleanup\",\n    \"name\": \"Toilet Overflow Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 toilet overflow cleanup in {city_state} — toilet overflow water damage, overflowing toilet cleanup and toilet flood cleanup.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Toilet Overflow Cleanup\",\n    \"name\": \"Toilet Overflow Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 toilet overflow cleanup in {city_state} — toilet overflow water damage, overflowing toilet cleanup and toilet flood cleanup.\"\n}",
             "primary_keyword": "Toilet Overflow Cleanup",
             "secondary_keywords": "toilet overflow water damage, overflowing toilet cleanup, toilet flood cleanup"
         },
@@ -4782,7 +4782,7 @@
             "bc_label": "Emergency Board-Up",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Emergency Board-Up\",\n    \"name\": \"Emergency Board-Up in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 emergency board-up in {city_state} — board up services, emergency board up services and window board up.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Emergency Board-Up\",\n    \"name\": \"Emergency Board-Up in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 emergency board-up in {city_state} — board up services, emergency board up services and window board up.\"\n}",
             "primary_keyword": "Emergency Board-Up",
             "secondary_keywords": "board up services, emergency board up services, window board up"
         },
@@ -5064,7 +5064,7 @@
             "bc_label": "Roof Tarping",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Tarping\",\n    \"name\": \"Roof Tarping in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 roof tarping in {city_state} — emergency roof tarping, roof tarp service and temporary roof tarp.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Roof Tarping\",\n    \"name\": \"Roof Tarping in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 roof tarping in {city_state} — emergency roof tarping, roof tarp service and temporary roof tarp.\"\n}",
             "primary_keyword": "Roof Tarping",
             "secondary_keywords": "emergency roof tarping, roof tarp service, temporary roof tarp"
         },
@@ -5346,7 +5346,7 @@
             "bc_label": "Hurricane Damage Restoration",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hurricane Damage Restoration\",\n    \"name\": \"Hurricane Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hurricane damage restoration in {city_state} — hurricane damage cleanup and hurricane damage repair.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Hurricane Damage Restoration\",\n    \"name\": \"Hurricane Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 hurricane damage restoration in {city_state} — hurricane damage cleanup and hurricane damage repair.\"\n}",
             "primary_keyword": "Hurricane Damage Restoration",
             "secondary_keywords": "hurricane damage cleanup, hurricane damage repair"
         },
@@ -5628,7 +5628,7 @@
             "bc_label": "Water Heater Leak",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Heater Leak\",\n    \"name\": \"Water Heater Leak in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water heater leak in {city_state} — water heater leak cleanup, burst water heater and water heater flood.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Heater Leak\",\n    \"name\": \"Water Heater Leak in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water heater leak in {city_state} — water heater leak cleanup, burst water heater and water heater flood.\"\n}",
             "primary_keyword": "Water Heater Leak",
             "secondary_keywords": "water heater leak cleanup, burst water heater, water heater flood"
         },
@@ -5910,7 +5910,7 @@
             "bc_label": "Appliance Leak & Overflow Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Appliance Leak & Overflow Cleanup\",\n    \"name\": \"Appliance Leak & Overflow Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 appliance leak & overflow cleanup in {city_state} — refrigerator leak, washing machine overflow and dishwasher leak cleanup.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Appliance Leak & Overflow Cleanup\",\n    \"name\": \"Appliance Leak & Overflow Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 appliance leak & overflow cleanup in {city_state} — refrigerator leak, washing machine overflow and dishwasher leak cleanup.\"\n}",
             "primary_keyword": "Appliance Leak & Overflow Cleanup",
             "secondary_keywords": "refrigerator leak, washing machine overflow, dishwasher leak cleanup"
         },
@@ -6192,7 +6192,7 @@
             "bc_label": "Flooded Bathroom Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in {city_state} — bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Bathroom Cleanup\",\n    \"name\": \"Flooded Bathroom Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded bathroom cleanup in {city_state} — bathroom water damage, overflowing tub cleanup and shower overflow cleanup.\"\n}",
             "primary_keyword": "Flooded Bathroom Cleanup",
             "secondary_keywords": "bathroom water damage, overflowing tub cleanup, shower overflow cleanup"
         },
@@ -6474,7 +6474,7 @@
             "bc_label": "Water Damage Inspection & Assessment",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Inspection & Assessment\",\n    \"name\": \"Water Damage Inspection & Assessment in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage inspection & assessment in {city_state} — water damage assessment, moisture inspection and water damage evaluation.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Inspection & Assessment\",\n    \"name\": \"Water Damage Inspection & Assessment in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage inspection & assessment in {city_state} — water damage assessment, moisture inspection and water damage evaluation.\"\n}",
             "primary_keyword": "Water Damage Inspection & Assessment",
             "secondary_keywords": "water damage assessment, moisture inspection, water damage evaluation, water damage estimate"
         },
@@ -6756,7 +6756,7 @@
             "bc_label": "Water Damage Reconstruction",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Reconstruction\",\n    \"name\": \"Water Damage Reconstruction in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage reconstruction in {city_state} — water damage rebuild, rebuild after water damage and post water damage reconstruction.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Reconstruction\",\n    \"name\": \"Water Damage Reconstruction in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage reconstruction in {city_state} — water damage rebuild, rebuild after water damage and post water damage reconstruction.\"\n}",
             "primary_keyword": "Water Damage Reconstruction",
             "secondary_keywords": "water damage rebuild, rebuild after water damage, post water damage reconstruction"
         },
@@ -7038,7 +7038,7 @@
             "bc_label": "Contents Restoration & Pack-Out",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Contents Restoration & Pack-Out\",\n    \"name\": \"Contents Restoration & Pack-Out in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 contents restoration & pack-out in {city_state} — pack out services and contents pack out.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Contents Restoration & Pack-Out\",\n    \"name\": \"Contents Restoration & Pack-Out in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 contents restoration & pack-out in {city_state} — pack out services and contents pack out.\"\n}",
             "primary_keyword": "Contents Restoration & Pack-Out",
             "secondary_keywords": "pack out services, contents pack out"
         },
@@ -7320,7 +7320,7 @@
             "bc_label": "Winter Storm Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Winter Storm Damage\",\n    \"name\": \"Winter Storm Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 winter storm damage in {city_state} — ice damage restoration and ice dam water damage.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Winter Storm Damage\",\n    \"name\": \"Winter Storm Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 winter storm damage in {city_state} — ice damage restoration and ice dam water damage.\"\n}",
             "primary_keyword": "Winter Storm Damage",
             "secondary_keywords": "ice damage restoration, ice dam water damage"
         },

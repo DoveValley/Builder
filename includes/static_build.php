@@ -485,7 +485,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
         'photo_position' => 'center',
         'photo_alt'      => '',
     ]];
-    $seo             = [];
+    $seo             = ['robots_noindex' => true];
     $pageTitle       = 'Page Not Found';
     $assetPathPrefix = '/';
     $homeUrl         = '/';
@@ -550,6 +550,19 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Redirect plain http to https. Checks X-Forwarded-Proto (not just %{HTTPS}) because
+    # these boxes sit behind Cloudflare: in "Flexible" SSL mode Cloudflare always connects
+    # to the origin over plain HTTP even when the visitor used HTTPS, so a bare "%{HTTPS}
+    # off" check alone would redirect on every request and loop forever. Cloudflare sets
+    # X-Forwarded-Proto to the VISITOR's real scheme regardless of that internal hop, so
+    # checking both conditions together only fires for a genuinely plain-http request.
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
 
 <IfModule mod_expires.c>
     ExpiresActive On

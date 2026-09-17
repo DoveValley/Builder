@@ -208,7 +208,7 @@
             "bc_label": "Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Removal\",\n    \"name\": \"Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Removal in {city_state} \\u2014 professional removal of mold from walls, floors, and hidden spaces.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Removal\",\n    \"name\": \"Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Removal in {city_state} — professional removal of mold from walls, floors, and hidden spaces.\"\n}",
             "primary_keyword": "Mold Removal",
             "secondary_keywords": "mold removal services, professional mold removal, mold removal near me, mold cleanup, mold abatement, bathroom mold removal, shower mold removal, mold smell removal, musty odor removal"
         },
@@ -471,7 +471,7 @@
             "bc_label": "Mold Damage Restoration",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Damage Restoration\",\n    \"name\": \"Mold Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Damage Restoration in {city_state} \\u2014 repair and restoration of drywall, structure, and finishes damaged by mold.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Damage Restoration\",\n    \"name\": \"Mold Damage Restoration in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Damage Restoration in {city_state} — repair and restoration of drywall, structure, and finishes damaged by mold.\"\n}",
             "primary_keyword": "Mold Damage Restoration",
             "secondary_keywords": "mold damage services, mold damage repair, mold damage cleanup, structural drying, water damage mold, mold after water damage"
         },
@@ -734,7 +734,7 @@
             "bc_label": "Mold Inspection",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Inspection\",\n    \"name\": \"Mold Inspection in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Inspection in {city_state} \\u2014 a thorough inspection to locate visible and hidden mold and the moisture source feeding it.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Inspection\",\n    \"name\": \"Mold Inspection in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Inspection in {city_state} — a thorough inspection to locate visible and hidden mold and the moisture source feeding it.\"\n}",
             "primary_keyword": "Mold Inspection",
             "secondary_keywords": "mold inspection and testing, home mold inspection, mold inspection near me, mold assessment"
         },
@@ -997,7 +997,7 @@
             "bc_label": "Black Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Black Mold Removal\",\n    \"name\": \"Black Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Black Mold Removal in {city_state} \\u2014 safe containment and removal of toxic black mold.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Black Mold Removal\",\n    \"name\": \"Black Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Black Mold Removal in {city_state} — safe containment and removal of toxic black mold.\"\n}",
             "primary_keyword": "Black Mold Removal",
             "secondary_keywords": "black mold clean up, black mold mitigation, black mold remediation, toxic mold removal, black mold in shower, black mold removal near me"
         },
@@ -1260,7 +1260,7 @@
             "bc_label": "Mold Testing",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Testing\",\n    \"name\": \"Mold Testing in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Testing in {city_state} \\u2014 air and surface sampling with lab analysis to confirm mold type and spore levels.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Testing\",\n    \"name\": \"Mold Testing in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Testing in {city_state} — air and surface sampling with lab analysis to confirm mold type and spore levels.\"\n}",
             "primary_keyword": "Mold Testing",
             "secondary_keywords": "mold testing services, mold spore testing, mold sampling, mold lab testing"
         },
@@ -1523,7 +1523,7 @@
             "bc_label": "Commercial Mold Remediation",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Commercial Mold Remediation\",\n    \"name\": \"Commercial Mold Remediation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Commercial Mold Remediation in {city_state} \\u2014 mold remediation for offices, retail, and multi-unit commercial properties.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Commercial Mold Remediation\",\n    \"name\": \"Commercial Mold Remediation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Commercial Mold Remediation in {city_state} — mold remediation for offices, retail, and multi-unit commercial properties.\"\n}",
             "primary_keyword": "Commercial Mold Remediation",
             "secondary_keywords": "commercial mold removal, business mold remediation, office mold removal, commercial mold removal near me"
         },
@@ -1786,7 +1786,7 @@
             "bc_label": "Mold Mitigation",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Mitigation\",\n    \"name\": \"Mold Mitigation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Mitigation in {city_state} \\u2014 emergency containment and moisture control to stop mold from spreading.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Mitigation\",\n    \"name\": \"Mold Mitigation in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Mitigation in {city_state} — emergency containment and moisture control to stop mold from spreading.\"\n}",
             "primary_keyword": "Mold Mitigation",
             "secondary_keywords": "mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation"
         },
@@ -2049,7 +2049,7 @@
             "bc_label": "Crawl Space Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Crawl Space Mold Removal\",\n    \"name\": \"Crawl Space Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Crawl Space Mold Removal in {city_state} \\u2014 below-grade crawl space mold removal and moisture control.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Crawl Space Mold Removal\",\n    \"name\": \"Crawl Space Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Crawl Space Mold Removal in {city_state} — below-grade crawl space mold removal and moisture control.\"\n}",
             "primary_keyword": "Crawl Space Mold Removal",
             "secondary_keywords": "crawl space mold remediation, mold in crawl space, crawl space mold removal near me"
         },
@@ -2312,7 +2312,7 @@
             "bc_label": "Attic Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Mold Removal\",\n    \"name\": \"Attic Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Attic Mold Removal in {city_state} \\u2014 removal of mold from attic sheathing, rafters, and insulation.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Attic Mold Removal\",\n    \"name\": \"Attic Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Attic Mold Removal in {city_state} — removal of mold from attic sheathing, rafters, and insulation.\"\n}",
             "primary_keyword": "Attic Mold Removal",
             "secondary_keywords": "attic mold remediation, attic mold treatment, mold in attic, attic mold removal near me"
         },
@@ -2575,7 +2575,7 @@
             "bc_label": "Basement Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Basement Mold Removal\",\n    \"name\": \"Basement Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Basement Mold Removal in {city_state} \\u2014 basement mold removal and below-grade moisture control.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Basement Mold Removal\",\n    \"name\": \"Basement Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Basement Mold Removal in {city_state} — basement mold removal and below-grade moisture control.\"\n}",
             "primary_keyword": "Basement Mold Removal",
             "secondary_keywords": "basement mold remediation, basement mold treatment, mold in basement, basement mold removal near me"
         },
@@ -2838,7 +2838,7 @@
             "bc_label": "Air Conditioner Mold Removal",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Air Conditioner Mold Removal\",\n    \"name\": \"Air Conditioner Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Air Conditioner Mold Removal in {city_state} \\u2014 removal of mold from AC units, vents, and ductwork.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Air Conditioner Mold Removal\",\n    \"name\": \"Air Conditioner Mold Removal in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Air Conditioner Mold Removal in {city_state} — removal of mold from AC units, vents, and ductwork.\"\n}",
             "primary_keyword": "Air Conditioner Mold Removal",
             "secondary_keywords": "ac mold removal, hvac mold removal, mold in air vents, air duct mold removal, ac mold removal near me"
         },
@@ -3101,7 +3101,7 @@
             "bc_label": "Mold Prevention",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Prevention\",\n    \"name\": \"Mold Prevention in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Prevention in {city_state} \\u2014 moisture control and prevention to keep mold from returning.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Prevention\",\n    \"name\": \"Mold Prevention in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Mold Prevention in {city_state} — moisture control and prevention to keep mold from returning.\"\n}",
             "primary_keyword": "Mold Prevention",
             "secondary_keywords": "mold prevention services, moisture control, moisture detection, mold proofing"
         },
@@ -3364,7 +3364,7 @@
             "bc_label": "Indoor Air Quality Testing",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Indoor Air Quality Testing\",\n    \"name\": \"Indoor Air Quality Testing in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"HomeAndConstructionBusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Indoor Air Quality Testing in {city_state} \\u2014 indoor air quality and mold air sampling.\"\n}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Indoor Air Quality Testing\",\n    \"name\": \"Indoor Air Quality Testing in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Indoor Air Quality Testing in {city_state} — indoor air quality and mold air sampling.\"\n}",
             "primary_keyword": "Indoor Air Quality Testing",
             "secondary_keywords": "air quality inspection, indoor air quality mold"
         },

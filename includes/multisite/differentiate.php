@@ -180,10 +180,15 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     if (($params['lat'] ?? '') !== '') $data['site_vars']['lat'] = $params['lat'];
     if (($params['lng'] ?? '') !== '') $data['site_vars']['lng'] = $params['lng'];
 
-    // ── 3b. Emit a real LocalBusiness JSON-LD node (the Tier-2 distinct-entity signal) ──
-    // The master schema has no such node. Inject one whenever the row supplies real
-    // local data — geo, a street address, or a rating. Each part is included only if
-    // present; the rating is never fabricated (both rating + review_count required).
+    // ── 3b. Enrich the business's JSON-LD node with real per-domain geo/address/rating
+    //       (the Tier-2 distinct-entity signal) ──────────────────────────────────
+    // The master schema's own #localbusiness node has no geo/address/rating. Merge
+    // real local data into it whenever the row supplies some — geo, a street
+    // address, or a rating — never fabricated (rating requires both rating +
+    // review_count). This used to APPEND a second node at the same @id instead of
+    // merging into the existing one — two entities sharing one @id, which is what
+    // broke the schema every real multisite domain shipped (found via a real
+    // review of baileyrestoration.com's live schema, not a hypothetical).
     $addr = [];
     foreach ([['address','streetAddress'], ['city','addressLocality'], ['SS','addressRegion'], ['zip','postalCode']] as [$pk, $ak]) {
         if (($params[$pk] ?? '') !== '') $addr[$ak] = $params[$pk];
@@ -191,32 +196,58 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     $hasGeo    = ($params['lat'] ?? '') !== '' && ($params['lng'] ?? '') !== '';
     $hasRating = ($params['rating'] ?? '') !== '' && ($params['review_count'] ?? '') !== '';
     if ($website !== '' && ($hasGeo || $addr || $hasRating)) {
-        $lbNode = ['@type' => 'LocalBusiness', '@id' => $website . '/#localbusiness',
-                   'name' => $params['business'] ?? '', 'url' => $website];
-        if (($params['tel'] ?? '') !== '') $lbNode['telephone'] = $params['tel'];
-        if ($addr)    $lbNode['address'] = array_merge(['@type' => 'PostalAddress'], $addr);
-        if ($hasGeo)  $lbNode['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => $params['lat'], 'longitude' => $params['lng']];
+        // Deliberately no '@type' here — an Organization (a referral/advertising
+        // network, not the crew doing the work) merges into whatever type the
+        // master's own node already declares rather than asserting a possibly
+        // conflicting one of its own.
+        $lbFields = ['@id' => $website . '/#localbusiness',
+                     'name' => $params['business'] ?? '', 'url' => $website];
+        if (($params['tel'] ?? '') !== '') $lbFields['telephone'] = $params['tel'];
+        if ($addr)    $lbFields['address'] = array_merge(['@type' => 'PostalAddress'], $addr);
+        if ($hasGeo)  $lbFields['geo'] = ['@type' => 'GeoCoordinates', 'latitude' => $params['lat'], 'longitude' => $params['lng']];
         // areaServed — the "we serve this area" signal for service-area businesses with
         // no storefront (leave the street address blank; this still declares the market).
         if (($params['city'] ?? '') !== '') {
             $area = ['@type' => 'City', 'name' => $params['city']];
             if (($params['SS'] ?? '') !== '') $area['containedInPlace'] = ['@type' => 'AdministrativeArea', 'name' => $params['SS']];
-            $lbNode['areaServed'] = $area;
+            $lbFields['areaServed'] = $area;
         }
-        if ($hasRating) $lbNode['aggregateRating'] = [
+        if ($hasRating) $lbFields['aggregateRating'] = [
             '@type' => 'AggregateRating',
             'ratingValue' => (string)$params['rating'],
             'reviewCount' => (string)$params['review_count'],
             'bestRating'  => '5', 'worstRating' => '1',
         ];
 
+        // Match by the "#localbusiness" @id SUFFIX, the convention every schema prompt in
+        // this codebase follows (see schema_apply_sameas() in includes/schema.php) — NOT
+        // an exact string match against $lbFields['@id']. The master's own node still
+        // carries the unresolved "{website}" shortcode at this pipeline stage (shortcodes
+        // resolve later, at render time), so comparing against the already-resolved
+        // $website URL here would never match, and silently fall through to appending a
+        // second node again — confirmed by actually running this against a real row
+        // before trusting the fix, not just reading the code.
+        $isLbNode = fn($n) => is_array($n) && str_ends_with((string) ($n['@id'] ?? ''), '#localbusiness');
         $schema = json_decode($data['seo']['schema'] ?? '', true);
         if (is_array($schema) && isset($schema['@graph']) && is_array($schema['@graph'])) {
-            $schema['@graph'][] = $lbNode;
+            $merged = false;
+            foreach ($schema['@graph'] as &$node) {
+                if ($isLbNode($node)) {
+                    $node = array_merge($node, $lbFields);   // same entity, richer data — not a second one
+                    $merged = true;
+                    break;
+                }
+            }
+            unset($node);
+            if (!$merged) $schema['@graph'][] = array_merge(['@type' => 'Organization'], $lbFields);
+        } elseif (is_array($schema) && $isLbNode($schema)) {
+            $schema = array_merge($schema, $lbFields);
         } elseif (is_array($schema)) {
-            $schema = ['@context' => 'https://schema.org', '@graph' => [$schema, $lbNode]];
+            $schema = ['@context' => 'https://schema.org',
+                       '@graph' => [$schema, array_merge(['@type' => 'Organization'], $lbFields)]];
         } else {
-            $schema = ['@context' => 'https://schema.org', '@graph' => [$lbNode]];
+            $schema = ['@context' => 'https://schema.org',
+                       '@graph' => [array_merge(['@type' => 'Organization'], $lbFields)]];
         }
         $data['seo']['schema'] = json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     }

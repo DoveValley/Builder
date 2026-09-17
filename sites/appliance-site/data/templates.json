@@ -179,7 +179,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in {city_state}\",\"serviceType\":\"Appliance Repair\",\"description\":\"Appliance repair in {city_state} from {business}. Upfront pricing, same-day service, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Appliance Repair in {city_state}\",\n            \"serviceType\": \"Appliance Repair\",\n            \"description\": \"Appliance repair in {city_state} from {business}. Upfront pricing, same-day service, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -377,7 +377,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in {city_state}\",\"serviceType\":\"Appliance Repair\",\"description\":\"Expert appliance repair in {city_state} from {business}. All major brands, same-day service, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Appliance Repair in {city_state}\",\n            \"serviceType\": \"Appliance Repair\",\n            \"description\": \"Expert appliance repair in {city_state} from {business}. All major brands, same-day service, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -569,7 +569,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Appliance Repair in {city_state}\",\"serviceType\":\"Appliance Repair\",\"description\":\"Appliance repair in {city_state} from {business}, matched to your appliance's brand. Same-day service, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Appliance Repair in {city_state}\",\n            \"serviceType\": \"Appliance Repair\",\n            \"description\": \"Appliance repair in {city_state} from {business}, matched to your appliance's brand. Same-day service, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "layout_enabled": true,
         "layout_variants": [
@@ -771,7 +771,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Appliance Repair in {city_state}\",\"serviceType\":\"Whirlpool Appliance Repair\",\"description\":\"Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Appliance Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Appliance Repair\",\n            \"description\": \"Whirlpool appliance repair in {city_state} from {business}. Same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Range, Cooktop, Freezer"
         },
         "service": "Whirlpool Appliance Repair",
@@ -973,7 +973,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Refrigerator Repair in {city_state}\",\"serviceType\":\"Refrigerator Repair\",\"description\":\"Professional refrigerator repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Refrigerator Repair\",\n            \"description\": \"Professional refrigerator repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, GE Monogram, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, JennAir, Dacor, Sub-Zero, Viking, Thermador, Miele"
         },
         "service": "Refrigerator Repair",
@@ -1175,7 +1175,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Washer Repair in {city_state}\",\"serviceType\":\"Washer Repair\",\"description\":\"Professional washer repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Washer Repair in {city_state}\",\n            \"serviceType\": \"Washer Repair\",\n            \"description\": \"Professional washer repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, Miele"
         },
         "service": "Washer Repair",
@@ -1377,7 +1377,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Dryer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dryer Repair in {city_state}\",\"serviceType\":\"Dryer Repair\",\"description\":\"Professional dryer repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dryer Repair in {city_state}\",\n            \"serviceType\": \"Dryer Repair\",\n            \"description\": \"Professional dryer repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, Miele"
         },
         "service": "Dryer Repair",
@@ -1579,7 +1579,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dishwasher Repair in {city_state}\",\"serviceType\":\"Dishwasher Repair\",\"description\":\"Professional dishwasher repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Dishwasher Repair\",\n            \"description\": \"Professional dishwasher repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, GE Monogram, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, JennAir, Dacor, Viking, Thermador, Miele"
         },
         "service": "Dishwasher Repair",
@@ -1781,7 +1781,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Oven Repair in {city_state}\",\"serviceType\":\"Oven Repair\",\"description\":\"Professional oven repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Oven Repair in {city_state}\",\n            \"serviceType\": \"Oven Repair\",\n            \"description\": \"Professional oven repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, GE Monogram, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, JennAir, Dacor, Wolf, Viking, Thermador, Miele"
         },
         "service": "Oven Repair",
@@ -1983,7 +1983,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Range Repair in {city_state}\",\"serviceType\":\"Range Repair\",\"description\":\"Professional range repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Range Repair in {city_state}\",\n            \"serviceType\": \"Range Repair\",\n            \"description\": \"Professional range repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, JennAir, Dacor, Wolf, Viking, Thermador"
         },
         "service": "Range Repair",
@@ -2185,7 +2185,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Cooktop Repair in {city_state}\",\"serviceType\":\"Cooktop Repair\",\"description\":\"Professional cooktop repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Cooktop Repair\",\n            \"description\": \"Professional cooktop repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, Maytag, GE, GE Monogram, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, JennAir, Dacor, Wolf, Viking, Thermador"
         },
         "service": "Cooktop Repair",
@@ -2387,7 +2387,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Freezer Repair in {city_state}\",\"serviceType\":\"Freezer Repair\",\"description\":\"Professional freezer repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Freezer Repair in {city_state}\",\n            \"serviceType\": \"Freezer Repair\",\n            \"description\": \"Professional freezer repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "brands_serviced": "Whirlpool, GE, GE Monogram, KitchenAid, LG, Samsung, Frigidaire, Bosch, Kenmore, Amana, JennAir, Dacor, Sub-Zero, Viking, Thermador, Miele"
         },
         "service": "Freezer Repair",
@@ -2591,7 +2591,7 @@
             "secondary_keywords": "",
             "brand": "Maytag",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Appliance Repair in {city_state}\",\"serviceType\":\"Maytag Appliance Repair\",\"description\":\"Professional maytag appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Appliance Repair in {city_state}\",\n            \"serviceType\": \"Maytag Appliance Repair\",\n            \"description\": \"Professional maytag appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Range, Cooktop"
         },
         "service": "Maytag Appliance Repair",
@@ -2795,7 +2795,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Appliance Repair in {city_state}\",\"serviceType\":\"GE Appliance Repair\",\"description\":\"Professional ge appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Appliance Repair in {city_state}\",\n            \"serviceType\": \"GE Appliance Repair\",\n            \"description\": \"Professional ge appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Range, Cooktop, Freezer"
         },
         "service": "GE Appliance Repair",
@@ -2999,7 +2999,7 @@
             "secondary_keywords": "",
             "brand": "GE Monogram",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Monogram Appliance Repair in {city_state}\",\"serviceType\":\"GE Monogram Appliance Repair\",\"description\":\"Professional ge monogram appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Monogram Appliance Repair in {city_state}\",\n            \"serviceType\": \"GE Monogram Appliance Repair\",\n            \"description\": \"Professional ge monogram appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "GE Monogram Appliance Repair",
@@ -3203,7 +3203,7 @@
             "secondary_keywords": "",
             "brand": "KitchenAid",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Appliance Repair in {city_state}\",\"serviceType\":\"KitchenAid Appliance Repair\",\"description\":\"Professional kitchenaid appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Appliance Repair in {city_state}\",\n            \"serviceType\": \"KitchenAid Appliance Repair\",\n            \"description\": \"Professional kitchenaid appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "KitchenAid Appliance Repair",
@@ -3407,7 +3407,7 @@
             "secondary_keywords": "",
             "brand": "LG",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Appliance Repair in {city_state}\",\"serviceType\":\"LG Appliance Repair\",\"description\":\"Professional lg appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Appliance Repair in {city_state}\",\n            \"serviceType\": \"LG Appliance Repair\",\n            \"description\": \"Professional lg appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "LG Appliance Repair",
@@ -3611,7 +3611,7 @@
             "secondary_keywords": "",
             "brand": "Samsung",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Appliance Repair in {city_state}\",\"serviceType\":\"Samsung Appliance Repair\",\"description\":\"Professional samsung appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Samsung Appliance Repair in {city_state}\",\n            \"serviceType\": \"Samsung Appliance Repair\",\n            \"description\": \"Professional samsung appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "Samsung Appliance Repair",
@@ -3815,7 +3815,7 @@
             "secondary_keywords": "",
             "brand": "Frigidaire",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Appliance Repair in {city_state}\",\"serviceType\":\"Frigidaire Appliance Repair\",\"description\":\"Professional frigidaire appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Appliance Repair in {city_state}\",\n            \"serviceType\": \"Frigidaire Appliance Repair\",\n            \"description\": \"Professional frigidaire appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "Frigidaire Appliance Repair",
@@ -4019,7 +4019,7 @@
             "secondary_keywords": "",
             "brand": "Bosch",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Appliance Repair in {city_state}\",\"serviceType\":\"Bosch Appliance Repair\",\"description\":\"Professional bosch appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Appliance Repair in {city_state}\",\n            \"serviceType\": \"Bosch Appliance Repair\",\n            \"description\": \"Professional bosch appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "Bosch Appliance Repair",
@@ -4223,7 +4223,7 @@
             "secondary_keywords": "",
             "brand": "Kenmore",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Appliance Repair in {city_state}\",\"serviceType\":\"Kenmore Appliance Repair\",\"description\":\"Professional kenmore appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Appliance Repair in {city_state}\",\n            \"serviceType\": \"Kenmore Appliance Repair\",\n            \"description\": \"Professional kenmore appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "Kenmore Appliance Repair",
@@ -4427,7 +4427,7 @@
             "secondary_keywords": "",
             "brand": "Amana",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Appliance Repair in {city_state}\",\"serviceType\":\"Amana Appliance Repair\",\"description\":\"Professional amana appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Amana Appliance Repair in {city_state}\",\n            \"serviceType\": \"Amana Appliance Repair\",\n            \"description\": \"Professional amana appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
         },
         "service": "Amana Appliance Repair",
@@ -4631,7 +4631,7 @@
             "secondary_keywords": "",
             "brand": "JennAir",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Appliance Repair in {city_state}\",\"serviceType\":\"JennAir Appliance Repair\",\"description\":\"Professional jennair appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Appliance Repair in {city_state}\",\n            \"serviceType\": \"JennAir Appliance Repair\",\n            \"description\": \"Professional jennair appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Dishwasher, Oven, Range, Cooktop, Freezer"
         },
         "service": "JennAir Appliance Repair",
@@ -4835,7 +4835,7 @@
             "secondary_keywords": "",
             "brand": "Dacor",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Appliance Repair in {city_state}\",\"serviceType\":\"Dacor Appliance Repair\",\"description\":\"Professional dacor appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Appliance Repair in {city_state}\",\n            \"serviceType\": \"Dacor Appliance Repair\",\n            \"description\": \"Professional dacor appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Dishwasher, Oven, Range, Cooktop, Freezer"
         },
         "service": "Dacor Appliance Repair",
@@ -5039,7 +5039,7 @@
             "secondary_keywords": "",
             "brand": "Sub-Zero",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Sub-Zero Appliance Repair in {city_state}\",\"serviceType\":\"Sub-Zero Appliance Repair\",\"description\":\"Professional sub-zero appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sub-Zero Appliance Repair in {city_state}\",\n            \"serviceType\": \"Sub-Zero Appliance Repair\",\n            \"description\": \"Professional sub-zero appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Freezer"
         },
         "service": "Sub-Zero Appliance Repair",
@@ -5243,7 +5243,7 @@
             "secondary_keywords": "",
             "brand": "Wolf",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wolf Appliance Repair in {city_state}\",\"serviceType\":\"Wolf Appliance Repair\",\"description\":\"Professional wolf appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wolf Appliance Repair in {city_state}\",\n            \"serviceType\": \"Wolf Appliance Repair\",\n            \"description\": \"Professional wolf appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Oven, Range, Cooktop"
         },
         "service": "Wolf Appliance Repair",
@@ -5447,7 +5447,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Appliance Repair in {city_state}\",\"serviceType\":\"Viking Appliance Repair\",\"description\":\"Professional viking appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Appliance Repair in {city_state}\",\n            \"serviceType\": \"Viking Appliance Repair\",\n            \"description\": \"Professional viking appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Dishwasher, Oven, Range, Cooktop, Freezer"
         },
         "service": "Viking Appliance Repair",
@@ -5651,7 +5651,7 @@
             "secondary_keywords": "",
             "brand": "Thermador",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Appliance Repair in {city_state}\",\"serviceType\":\"Thermador Appliance Repair\",\"description\":\"Professional thermador appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Thermador Appliance Repair in {city_state}\",\n            \"serviceType\": \"Thermador Appliance Repair\",\n            \"description\": \"Professional thermador appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Dishwasher, Oven, Range, Cooktop, Freezer"
         },
         "service": "Thermador Appliance Repair",
@@ -5855,7 +5855,7 @@
             "secondary_keywords": "",
             "brand": "Miele",
             "appliance_type": "",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Appliance Repair in {city_state}\",\"serviceType\":\"Miele Appliance Repair\",\"description\":\"Professional miele appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Appliance Repair in {city_state}\",\n            \"serviceType\": \"Miele Appliance Repair\",\n            \"description\": \"Professional miele appliance repair in {city_state} from {business}. Responsive local providers, same-day service, upfront pricing, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}",
             "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Freezer"
         },
         "service": "Miele Appliance Repair",
@@ -6094,7 +6094,7 @@
             "secondary_keywords": "",
             "brand": "Dacor",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Refrigerator Repair in {city_state}\",\"serviceType\":\"Dacor Refrigerator Repair\",\"description\":\"Professional dacor refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Dacor Refrigerator Repair\",\n            \"description\": \"Professional dacor refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Dacor Refrigerator Repair",
         "layout_enabled": true,
@@ -6338,7 +6338,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "Stove",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Stove Repair in {city_state}\",\"serviceType\":\"GE Stove Repair\",\"description\":\"Professional ge stove repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Stove Repair in {city_state}\",\n            \"serviceType\": \"GE Stove Repair\",\n            \"description\": \"Professional ge stove repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Stove Repair",
         "layout_enabled": true,
@@ -6582,7 +6582,7 @@
             "secondary_keywords": "",
             "brand": "LG",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Cooktop Repair in {city_state}\",\"serviceType\":\"LG Cooktop Repair\",\"description\":\"Professional lg cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Cooktop Repair in {city_state}\",\n            \"serviceType\": \"LG Cooktop Repair\",\n            \"description\": \"Professional lg cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "LG Cooktop Repair",
         "layout_enabled": true,
@@ -6826,7 +6826,7 @@
             "secondary_keywords": "",
             "brand": "Amana",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Dishwasher Repair in {city_state}\",\"serviceType\":\"Amana Dishwasher Repair\",\"description\":\"Professional amana dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Amana Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Amana Dishwasher Repair\",\n            \"description\": \"Professional amana dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Amana Dishwasher Repair",
         "layout_enabled": true,
@@ -7070,7 +7070,7 @@
             "secondary_keywords": "",
             "brand": "Sub-Zero",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Sub-Zero Refrigerator Repair in {city_state}\",\"serviceType\":\"Sub-Zero Refrigerator Repair\",\"description\":\"Professional sub-zero refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sub-Zero Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Sub-Zero Refrigerator Repair\",\n            \"description\": \"Professional sub-zero refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Sub-Zero Refrigerator Repair",
         "layout_enabled": true,
@@ -7314,7 +7314,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Refrigerator Repair in {city_state}\",\"serviceType\":\"GE Refrigerator Repair\",\"description\":\"Professional ge refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"GE Refrigerator Repair\",\n            \"description\": \"Professional ge refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Refrigerator Repair",
         "layout_enabled": true,
@@ -7558,7 +7558,7 @@
             "secondary_keywords": "",
             "brand": "Frigidaire",
             "appliance_type": "Dryer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Dryer Repair in {city_state}\",\"serviceType\":\"Frigidaire Dryer Repair\",\"description\":\"Professional frigidaire dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Dryer Repair in {city_state}\",\n            \"serviceType\": \"Frigidaire Dryer Repair\",\n            \"description\": \"Professional frigidaire dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Frigidaire Dryer Repair",
         "layout_enabled": true,
@@ -7802,7 +7802,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Oven Repair in {city_state}\",\"serviceType\":\"GE Oven Repair\",\"description\":\"Professional ge oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Oven Repair in {city_state}\",\n            \"serviceType\": \"GE Oven Repair\",\n            \"description\": \"Professional ge oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Oven Repair",
         "layout_enabled": true,
@@ -8046,7 +8046,7 @@
             "secondary_keywords": "",
             "brand": "Dacor",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Oven Repair in {city_state}\",\"serviceType\":\"Dacor Oven Repair\",\"description\":\"Professional dacor oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Oven Repair in {city_state}\",\n            \"serviceType\": \"Dacor Oven Repair\",\n            \"description\": \"Professional dacor oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Dacor Oven Repair",
         "layout_enabled": true,
@@ -8290,7 +8290,7 @@
             "secondary_keywords": "",
             "brand": "Maytag",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Range Repair in {city_state}\",\"serviceType\":\"Maytag Range Repair\",\"description\":\"Professional maytag range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Range Repair in {city_state}\",\n            \"serviceType\": \"Maytag Range Repair\",\n            \"description\": \"Professional maytag range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Maytag Range Repair",
         "layout_enabled": true,
@@ -8534,7 +8534,7 @@
             "secondary_keywords": "",
             "brand": "Maytag",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Refrigerator Repair in {city_state}\",\"serviceType\":\"Maytag Refrigerator Repair\",\"description\":\"Professional maytag refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Maytag Refrigerator Repair\",\n            \"description\": \"Professional maytag refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Maytag Refrigerator Repair",
         "layout_enabled": true,
@@ -8778,7 +8778,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Dishwasher Repair in {city_state}\",\"serviceType\":\"Viking Dishwasher Repair\",\"description\":\"Professional viking dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Viking Dishwasher Repair\",\n            \"description\": \"Professional viking dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Viking Dishwasher Repair",
         "layout_enabled": true,
@@ -9022,7 +9022,7 @@
             "secondary_keywords": "",
             "brand": "Kenmore",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Washer Repair in {city_state}\",\"serviceType\":\"Kenmore Washer Repair\",\"description\":\"Professional kenmore washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Washer Repair in {city_state}\",\n            \"serviceType\": \"Kenmore Washer Repair\",\n            \"description\": \"Professional kenmore washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Kenmore Washer Repair",
         "layout_enabled": true,
@@ -9266,7 +9266,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Washer Repair in {city_state}\",\"serviceType\":\"Whirlpool Washer Repair\",\"description\":\"Professional whirlpool washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Washer Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Washer Repair\",\n            \"description\": \"Professional whirlpool washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Washer Repair",
         "layout_enabled": true,
@@ -9510,7 +9510,7 @@
             "secondary_keywords": "",
             "brand": "Maytag",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Washer Repair in {city_state}\",\"serviceType\":\"Maytag Washer Repair\",\"description\":\"Professional maytag washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Washer Repair in {city_state}\",\n            \"serviceType\": \"Maytag Washer Repair\",\n            \"description\": \"Professional maytag washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Maytag Washer Repair",
         "layout_enabled": true,
@@ -9754,7 +9754,7 @@
             "secondary_keywords": "",
             "brand": "Kenmore",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Oven Repair in {city_state}\",\"serviceType\":\"Kenmore Oven Repair\",\"description\":\"Professional kenmore oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Oven Repair in {city_state}\",\n            \"serviceType\": \"Kenmore Oven Repair\",\n            \"description\": \"Professional kenmore oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Kenmore Oven Repair",
         "layout_enabled": true,
@@ -9998,7 +9998,7 @@
             "secondary_keywords": "",
             "brand": "LG",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"LG Oven Repair in {city_state}\",\"serviceType\":\"LG Oven Repair\",\"description\":\"Professional lg oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"LG Oven Repair in {city_state}\",\n            \"serviceType\": \"LG Oven Repair\",\n            \"description\": \"Professional lg oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "LG Oven Repair",
         "layout_enabled": true,
@@ -10242,7 +10242,7 @@
             "secondary_keywords": "",
             "brand": "Miele",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Oven Repair in {city_state}\",\"serviceType\":\"Miele Oven Repair\",\"description\":\"Professional miele oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Oven Repair in {city_state}\",\n            \"serviceType\": \"Miele Oven Repair\",\n            \"description\": \"Professional miele oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Miele Oven Repair",
         "layout_enabled": true,
@@ -10450,7 +10450,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Garbage Disposal",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Garbage Disposal Repair in {city_state}\",\"serviceType\":\"Garbage Disposal Repair\",\"description\":\"Professional garbage disposal repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Garbage Disposal Repair in {city_state}\",\n            \"serviceType\": \"Garbage Disposal Repair\",\n            \"description\": \"Professional garbage disposal repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Garbage Disposal Repair",
         "layout_enabled": true,
@@ -10688,7 +10688,7 @@
             "secondary_keywords": "",
             "brand": "JennAir",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Refrigerator Repair in {city_state}\",\"serviceType\":\"JennAir Refrigerator Repair\",\"description\":\"Professional jennair refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"JennAir Refrigerator Repair\",\n            \"description\": \"Professional jennair refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "JennAir Refrigerator Repair",
         "layout_enabled": true,
@@ -10932,7 +10932,7 @@
             "secondary_keywords": "",
             "brand": "Kenmore",
             "appliance_type": "Dryer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Dryer Repair in {city_state}\",\"serviceType\":\"Kenmore Dryer Repair\",\"description\":\"Professional kenmore dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Dryer Repair in {city_state}\",\n            \"serviceType\": \"Kenmore Dryer Repair\",\n            \"description\": \"Professional kenmore dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Kenmore Dryer Repair",
         "layout_enabled": true,
@@ -11176,7 +11176,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Refrigerator Repair in {city_state}\",\"serviceType\":\"Whirlpool Refrigerator Repair\",\"description\":\"Whirlpool refrigerator repair in {city_state} from {business}. Factory-trained techs, same-day service, warranty. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Refrigerator Repair\",\n            \"description\": \"Whirlpool refrigerator repair in {city_state} from {business}. Factory-trained techs, same-day service, warranty. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Refrigerator Repair",
         "layout_enabled": true,
@@ -11420,7 +11420,7 @@
             "secondary_keywords": "",
             "brand": "Frigidaire",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Washer Repair in {city_state}\",\"serviceType\":\"Frigidaire Washer Repair\",\"description\":\"Professional frigidaire washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Washer Repair in {city_state}\",\n            \"serviceType\": \"Frigidaire Washer Repair\",\n            \"description\": \"Professional frigidaire washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Frigidaire Washer Repair",
         "layout_enabled": true,
@@ -11664,7 +11664,7 @@
             "secondary_keywords": "",
             "brand": "Bosch",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Oven Repair in {city_state}\",\"serviceType\":\"Bosch Oven Repair\",\"description\":\"Professional bosch oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Oven Repair in {city_state}\",\n            \"serviceType\": \"Bosch Oven Repair\",\n            \"description\": \"Professional bosch oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Bosch Oven Repair",
         "layout_enabled": true,
@@ -11908,7 +11908,7 @@
             "secondary_keywords": "",
             "brand": "Dacor",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Range Repair in {city_state}\",\"serviceType\":\"Dacor Range Repair\",\"description\":\"Professional dacor range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Range Repair in {city_state}\",\n            \"serviceType\": \"Dacor Range Repair\",\n            \"description\": \"Professional dacor range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Dacor Range Repair",
         "layout_enabled": true,
@@ -12152,7 +12152,7 @@
             "secondary_keywords": "",
             "brand": "Thermador",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Cooktop Repair in {city_state}\",\"serviceType\":\"Thermador Cooktop Repair\",\"description\":\"Professional thermador cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Thermador Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Thermador Cooktop Repair\",\n            \"description\": \"Professional thermador cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Thermador Cooktop Repair",
         "layout_enabled": true,
@@ -12396,7 +12396,7 @@
             "secondary_keywords": "",
             "brand": "GE Monogram",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Monogram Refrigerator Repair in {city_state}\",\"serviceType\":\"GE Monogram Refrigerator Repair\",\"description\":\"Professional ge monogram refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Monogram Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"GE Monogram Refrigerator Repair\",\n            \"description\": \"Professional ge monogram refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Monogram Refrigerator Repair",
         "layout_enabled": true,
@@ -12640,7 +12640,7 @@
             "secondary_keywords": "",
             "brand": "KitchenAid",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Cooktop Repair in {city_state}\",\"serviceType\":\"KitchenAid Cooktop Repair\",\"description\":\"Professional kitchenaid cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Cooktop Repair in {city_state}\",\n            \"serviceType\": \"KitchenAid Cooktop Repair\",\n            \"description\": \"Professional kitchenaid cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "KitchenAid Cooktop Repair",
         "layout_enabled": true,
@@ -12884,7 +12884,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Cooktop Repair in {city_state}\",\"serviceType\":\"Viking Cooktop Repair\",\"description\":\"Professional viking cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Viking Cooktop Repair\",\n            \"description\": \"Professional viking cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Viking Cooktop Repair",
         "layout_enabled": true,
@@ -13128,7 +13128,7 @@
             "secondary_keywords": "",
             "brand": "Bosch",
             "appliance_type": "Dryer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Dryer Repair in {city_state}\",\"serviceType\":\"Bosch Dryer Repair\",\"description\":\"Professional bosch dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Dryer Repair in {city_state}\",\n            \"serviceType\": \"Bosch Dryer Repair\",\n            \"description\": \"Professional bosch dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Bosch Dryer Repair",
         "layout_enabled": true,
@@ -13372,7 +13372,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Freezer Repair in {city_state}\",\"serviceType\":\"Viking Freezer Repair\",\"description\":\"Professional viking freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Freezer Repair in {city_state}\",\n            \"serviceType\": \"Viking Freezer Repair\",\n            \"description\": \"Professional viking freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Viking Freezer Repair",
         "layout_enabled": true,
@@ -13616,7 +13616,7 @@
             "secondary_keywords": "",
             "brand": "Dacor",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Dishwasher Repair in {city_state}\",\"serviceType\":\"Dacor Dishwasher Repair\",\"description\":\"Professional dacor dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Dacor Dishwasher Repair\",\n            \"description\": \"Professional dacor dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Dacor Dishwasher Repair",
         "layout_enabled": true,
@@ -13860,7 +13860,7 @@
             "secondary_keywords": "",
             "brand": "Sub-Zero",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Sub-Zero Freezer Repair in {city_state}\",\"serviceType\":\"Sub-Zero Freezer Repair\",\"description\":\"Professional sub-zero freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Sub-Zero Freezer Repair in {city_state}\",\n            \"serviceType\": \"Sub-Zero Freezer Repair\",\n            \"description\": \"Professional sub-zero freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Sub-Zero Freezer Repair",
         "layout_enabled": true,
@@ -14104,7 +14104,7 @@
             "secondary_keywords": "",
             "brand": "KitchenAid",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Freezer Repair in {city_state}\",\"serviceType\":\"KitchenAid Freezer Repair\",\"description\":\"Professional kitchenaid freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Freezer Repair in {city_state}\",\n            \"serviceType\": \"KitchenAid Freezer Repair\",\n            \"description\": \"Professional kitchenaid freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "KitchenAid Freezer Repair",
         "layout_enabled": true,
@@ -14348,7 +14348,7 @@
             "secondary_keywords": "",
             "brand": "Amana",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Washer Repair in {city_state}\",\"serviceType\":\"Amana Washer Repair\",\"description\":\"Professional amana washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Amana Washer Repair in {city_state}\",\n            \"serviceType\": \"Amana Washer Repair\",\n            \"description\": \"Professional amana washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Amana Washer Repair",
         "layout_enabled": true,
@@ -14592,7 +14592,7 @@
             "secondary_keywords": "",
             "brand": "Frigidaire",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Dishwasher Repair in {city_state}\",\"serviceType\":\"Frigidaire Dishwasher Repair\",\"description\":\"Professional frigidaire dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Frigidaire Dishwasher Repair\",\n            \"description\": \"Professional frigidaire dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Frigidaire Dishwasher Repair",
         "layout_enabled": true,
@@ -14836,7 +14836,7 @@
             "secondary_keywords": "",
             "brand": "Bosch",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Refrigerator Repair in {city_state}\",\"serviceType\":\"Bosch Refrigerator Repair\",\"description\":\"Professional bosch refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Bosch Refrigerator Repair\",\n            \"description\": \"Professional bosch refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Bosch Refrigerator Repair",
         "layout_enabled": true,
@@ -15080,7 +15080,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Dishwasher Repair in {city_state}\",\"serviceType\":\"Whirlpool Dishwasher Repair\",\"description\":\"Professional whirlpool dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Dishwasher Repair\",\n            \"description\": \"Professional whirlpool dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Dishwasher Repair",
         "layout_enabled": true,
@@ -15324,7 +15324,7 @@
             "secondary_keywords": "",
             "brand": "Kenmore",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Dishwasher Repair in {city_state}\",\"serviceType\":\"Kenmore Dishwasher Repair\",\"description\":\"Professional kenmore dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Kenmore Dishwasher Repair\",\n            \"description\": \"Professional kenmore dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Kenmore Dishwasher Repair",
         "layout_enabled": true,
@@ -15568,7 +15568,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Oven Repair in {city_state}\",\"serviceType\":\"Whirlpool Oven Repair\",\"description\":\"Professional whirlpool oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Oven Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Oven Repair\",\n            \"description\": \"Professional whirlpool oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Oven Repair",
         "layout_enabled": true,
@@ -15812,7 +15812,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Range Repair in {city_state}\",\"serviceType\":\"Whirlpool Range Repair\",\"description\":\"Professional whirlpool range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Range Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Range Repair\",\n            \"description\": \"Professional whirlpool range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Range Repair",
         "layout_enabled": true,
@@ -16056,7 +16056,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Freezer Repair in {city_state}\",\"serviceType\":\"Whirlpool Freezer Repair\",\"description\":\"Professional whirlpool freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Freezer Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Freezer Repair\",\n            \"description\": \"Professional whirlpool freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Freezer Repair",
         "layout_enabled": true,
@@ -16300,7 +16300,7 @@
             "secondary_keywords": "",
             "brand": "Miele",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Refrigerator Repair in {city_state}\",\"serviceType\":\"Miele Refrigerator Repair\",\"description\":\"Professional miele refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Miele Refrigerator Repair\",\n            \"description\": \"Professional miele refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Miele Refrigerator Repair",
         "layout_enabled": true,
@@ -16544,7 +16544,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Freezer Repair in {city_state}\",\"serviceType\":\"GE Freezer Repair\",\"description\":\"Professional ge freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Freezer Repair in {city_state}\",\n            \"serviceType\": \"GE Freezer Repair\",\n            \"description\": \"Professional ge freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Freezer Repair",
         "layout_enabled": true,
@@ -16788,7 +16788,7 @@
             "secondary_keywords": "",
             "brand": "Dacor",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Dacor Cooktop Repair in {city_state}\",\"serviceType\":\"Dacor Cooktop Repair\",\"description\":\"Professional dacor cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Dacor Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Dacor Cooktop Repair\",\n            \"description\": \"Professional dacor cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Dacor Cooktop Repair",
         "layout_enabled": true,
@@ -17032,7 +17032,7 @@
             "secondary_keywords": "",
             "brand": "JennAir",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Oven Repair in {city_state}\",\"serviceType\":\"JennAir Oven Repair\",\"description\":\"Professional jennair oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Oven Repair in {city_state}\",\n            \"serviceType\": \"JennAir Oven Repair\",\n            \"description\": \"Professional jennair oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "JennAir Oven Repair",
         "layout_enabled": true,
@@ -17276,7 +17276,7 @@
             "secondary_keywords": "",
             "brand": "Thermador",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Dishwasher Repair in {city_state}\",\"serviceType\":\"Thermador Dishwasher Repair\",\"description\":\"Professional thermador dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Thermador Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Thermador Dishwasher Repair\",\n            \"description\": \"Professional thermador dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Thermador Dishwasher Repair",
         "layout_enabled": true,
@@ -17520,7 +17520,7 @@
             "secondary_keywords": "",
             "brand": "Miele",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Dishwasher Repair in {city_state}\",\"serviceType\":\"Miele Dishwasher Repair\",\"description\":\"Professional miele dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Miele Dishwasher Repair\",\n            \"description\": \"Professional miele dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Miele Dishwasher Repair",
         "layout_enabled": true,
@@ -17764,7 +17764,7 @@
             "secondary_keywords": "",
             "brand": "Wolf",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wolf Range Repair in {city_state}\",\"serviceType\":\"Wolf Range Repair\",\"description\":\"Professional wolf range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wolf Range Repair in {city_state}\",\n            \"serviceType\": \"Wolf Range Repair\",\n            \"description\": \"Professional wolf range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Wolf Range Repair",
         "layout_enabled": true,
@@ -18008,7 +18008,7 @@
             "secondary_keywords": "",
             "brand": "Bosch",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Cooktop Repair in {city_state}\",\"serviceType\":\"Bosch Cooktop Repair\",\"description\":\"Professional bosch cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Bosch Cooktop Repair\",\n            \"description\": \"Professional bosch cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Bosch Cooktop Repair",
         "layout_enabled": true,
@@ -18252,7 +18252,7 @@
             "secondary_keywords": "",
             "brand": "Miele",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Washer Repair in {city_state}\",\"serviceType\":\"Miele Washer Repair\",\"description\":\"Professional miele washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Washer Repair in {city_state}\",\n            \"serviceType\": \"Miele Washer Repair\",\n            \"description\": \"Professional miele washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Miele Washer Repair",
         "layout_enabled": true,
@@ -18496,7 +18496,7 @@
             "secondary_keywords": "",
             "brand": "KitchenAid",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Oven Repair in {city_state}\",\"serviceType\":\"KitchenAid Oven Repair\",\"description\":\"Professional kitchenaid oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Oven Repair in {city_state}\",\n            \"serviceType\": \"KitchenAid Oven Repair\",\n            \"description\": \"Professional kitchenaid oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "KitchenAid Oven Repair",
         "layout_enabled": true,
@@ -18740,7 +18740,7 @@
             "secondary_keywords": "",
             "brand": "KitchenAid",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Dishwasher Repair in {city_state}\",\"serviceType\":\"KitchenAid Dishwasher Repair\",\"description\":\"Professional kitchenaid dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"KitchenAid Dishwasher Repair\",\n            \"description\": \"Professional kitchenaid dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "KitchenAid Dishwasher Repair",
         "layout_enabled": true,
@@ -18984,7 +18984,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Dryer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Dryer Repair in {city_state}\",\"serviceType\":\"Whirlpool Dryer Repair\",\"description\":\"Professional whirlpool dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Dryer Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Dryer Repair\",\n            \"description\": \"Professional whirlpool dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Dryer Repair",
         "layout_enabled": true,
@@ -19228,7 +19228,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Range Repair in {city_state}\",\"serviceType\":\"Viking Range Repair\",\"description\":\"Professional viking range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Range Repair in {city_state}\",\n            \"serviceType\": \"Viking Range Repair\",\n            \"description\": \"Professional viking range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Viking Range Repair",
         "layout_enabled": true,
@@ -19472,7 +19472,7 @@
             "secondary_keywords": "",
             "brand": "Maytag",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Dishwasher Repair in {city_state}\",\"serviceType\":\"Maytag Dishwasher Repair\",\"description\":\"Professional maytag dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Maytag Dishwasher Repair\",\n            \"description\": \"Professional maytag dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Maytag Dishwasher Repair",
         "layout_enabled": true,
@@ -19716,7 +19716,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Range Repair in {city_state}\",\"serviceType\":\"GE Range Repair\",\"description\":\"Professional ge range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Range Repair in {city_state}\",\n            \"serviceType\": \"GE Range Repair\",\n            \"description\": \"Professional ge range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Range Repair",
         "layout_enabled": true,
@@ -19960,7 +19960,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Oven Repair in {city_state}\",\"serviceType\":\"Viking Oven Repair\",\"description\":\"Professional viking oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Oven Repair in {city_state}\",\n            \"serviceType\": \"Viking Oven Repair\",\n            \"description\": \"Professional viking oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Viking Oven Repair",
         "layout_enabled": true,
@@ -20204,7 +20204,7 @@
             "secondary_keywords": "",
             "brand": "Kenmore",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Kenmore Refrigerator Repair in {city_state}\",\"serviceType\":\"Kenmore Refrigerator Repair\",\"description\":\"Professional kenmore refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Kenmore Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Kenmore Refrigerator Repair\",\n            \"description\": \"Professional kenmore refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Kenmore Refrigerator Repair",
         "layout_enabled": true,
@@ -20412,7 +20412,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Ice Machine",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ice Machine Repair in {city_state}\",\"serviceType\":\"Ice Machine Repair\",\"description\":\"Professional ice machine repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ice Machine Repair in {city_state}\",\n            \"serviceType\": \"Ice Machine Repair\",\n            \"description\": \"Professional ice machine repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Ice Machine Repair",
         "layout_enabled": true,
@@ -20650,7 +20650,7 @@
             "secondary_keywords": "",
             "brand": "Maytag",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Maytag Oven Repair in {city_state}\",\"serviceType\":\"Maytag Oven Repair\",\"description\":\"Professional maytag oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Maytag Oven Repair in {city_state}\",\n            \"serviceType\": \"Maytag Oven Repair\",\n            \"description\": \"Professional maytag oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Maytag Oven Repair",
         "layout_enabled": true,
@@ -20894,7 +20894,7 @@
             "secondary_keywords": "",
             "brand": "Miele",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Miele Freezer Repair in {city_state}\",\"serviceType\":\"Miele Freezer Repair\",\"description\":\"Professional miele freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Miele Freezer Repair in {city_state}\",\n            \"serviceType\": \"Miele Freezer Repair\",\n            \"description\": \"Professional miele freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Miele Freezer Repair",
         "layout_enabled": true,
@@ -21138,7 +21138,7 @@
             "secondary_keywords": "",
             "brand": "Bosch",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Dishwasher Repair in {city_state}\",\"serviceType\":\"Bosch Dishwasher Repair\",\"description\":\"Professional bosch dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Bosch Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"Bosch Dishwasher Repair\",\n            \"description\": \"Professional bosch dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Bosch Dishwasher Repair",
         "layout_enabled": true,
@@ -21382,7 +21382,7 @@
             "secondary_keywords": "",
             "brand": "Amana",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Oven Repair in {city_state}\",\"serviceType\":\"Amana Oven Repair\",\"description\":\"Professional amana oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Amana Oven Repair in {city_state}\",\n            \"serviceType\": \"Amana Oven Repair\",\n            \"description\": \"Professional amana oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Amana Oven Repair",
         "layout_enabled": true,
@@ -21626,7 +21626,7 @@
             "secondary_keywords": "",
             "brand": "Samsung",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Samsung Freezer Repair in {city_state}\",\"serviceType\":\"Samsung Freezer Repair\",\"description\":\"Professional samsung freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Samsung Freezer Repair in {city_state}\",\n            \"serviceType\": \"Samsung Freezer Repair\",\n            \"description\": \"Professional samsung freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Samsung Freezer Repair",
         "layout_enabled": true,
@@ -21870,7 +21870,7 @@
             "secondary_keywords": "",
             "brand": "Amana",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Refrigerator Repair in {city_state}\",\"serviceType\":\"Amana Refrigerator Repair\",\"description\":\"Professional amana refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Amana Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Amana Refrigerator Repair\",\n            \"description\": \"Professional amana refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Amana Refrigerator Repair",
         "layout_enabled": true,
@@ -22114,7 +22114,7 @@
             "secondary_keywords": "",
             "brand": "KitchenAid",
             "appliance_type": "Washer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"KitchenAid Washer Repair in {city_state}\",\"serviceType\":\"KitchenAid Washer Repair\",\"description\":\"Professional kitchenaid washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"KitchenAid Washer Repair in {city_state}\",\n            \"serviceType\": \"KitchenAid Washer Repair\",\n            \"description\": \"Professional kitchenaid washer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "KitchenAid Washer Repair",
         "layout_enabled": true,
@@ -22358,7 +22358,7 @@
             "secondary_keywords": "",
             "brand": "Amana",
             "appliance_type": "Dryer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Amana Dryer Repair in {city_state}\",\"serviceType\":\"Amana Dryer Repair\",\"description\":\"Professional amana dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Amana Dryer Repair in {city_state}\",\n            \"serviceType\": \"Amana Dryer Repair\",\n            \"description\": \"Professional amana dryer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Amana Dryer Repair",
         "layout_enabled": true,
@@ -22566,7 +22566,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Stove",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Stove Repair in {city_state}\",\"serviceType\":\"Stove Repair\",\"description\":\"Professional stove repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Stove Repair in {city_state}\",\n            \"serviceType\": \"Stove Repair\",\n            \"description\": \"Professional stove repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Stove Repair",
         "layout_enabled": true,
@@ -22804,7 +22804,7 @@
             "secondary_keywords": "",
             "brand": "Thermador",
             "appliance_type": "Oven",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Oven Repair in {city_state}\",\"serviceType\":\"Thermador Oven Repair\",\"description\":\"Professional thermador oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Thermador Oven Repair in {city_state}\",\n            \"serviceType\": \"Thermador Oven Repair\",\n            \"description\": \"Professional thermador oven repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Thermador Oven Repair",
         "layout_enabled": true,
@@ -23048,7 +23048,7 @@
             "secondary_keywords": "",
             "brand": "Whirlpool",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Whirlpool Cooktop Repair in {city_state}\",\"serviceType\":\"Whirlpool Cooktop Repair\",\"description\":\"Professional whirlpool cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Whirlpool Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Whirlpool Cooktop Repair\",\n            \"description\": \"Professional whirlpool cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Whirlpool Cooktop Repair",
         "layout_enabled": true,
@@ -23292,7 +23292,7 @@
             "secondary_keywords": "",
             "brand": "Wolf",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wolf Cooktop Repair in {city_state}\",\"serviceType\":\"Wolf Cooktop Repair\",\"description\":\"Professional wolf cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wolf Cooktop Repair in {city_state}\",\n            \"serviceType\": \"Wolf Cooktop Repair\",\n            \"description\": \"Professional wolf cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Wolf Cooktop Repair",
         "layout_enabled": true,
@@ -23536,7 +23536,7 @@
             "secondary_keywords": "",
             "brand": "Viking",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Viking Refrigerator Repair in {city_state}\",\"serviceType\":\"Viking Refrigerator Repair\",\"description\":\"Professional viking refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Viking Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Viking Refrigerator Repair\",\n            \"description\": \"Professional viking refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Viking Refrigerator Repair",
         "layout_enabled": true,
@@ -23780,7 +23780,7 @@
             "secondary_keywords": "",
             "brand": "Frigidaire",
             "appliance_type": "Refrigerator",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Refrigerator Repair in {city_state}\",\"serviceType\":\"Frigidaire Refrigerator Repair\",\"description\":\"Professional frigidaire refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Refrigerator Repair in {city_state}\",\n            \"serviceType\": \"Frigidaire Refrigerator Repair\",\n            \"description\": \"Professional frigidaire refrigerator repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Frigidaire Refrigerator Repair",
         "layout_enabled": true,
@@ -24024,7 +24024,7 @@
             "secondary_keywords": "",
             "brand": "JennAir",
             "appliance_type": "Dishwasher",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"JennAir Dishwasher Repair in {city_state}\",\"serviceType\":\"JennAir Dishwasher Repair\",\"description\":\"Professional jennair dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"JennAir Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"JennAir Dishwasher Repair\",\n            \"description\": \"Professional jennair dishwasher repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "JennAir Dishwasher Repair",
         "layout_enabled": true,
@@ -24268,7 +24268,7 @@
             "secondary_keywords": "",
             "brand": "GE",
             "appliance_type": "Cooktop",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Cooktop Repair in {city_state}\",\"serviceType\":\"GE Cooktop Repair\",\"description\":\"Professional ge cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Cooktop Repair in {city_state}\",\n            \"serviceType\": \"GE Cooktop Repair\",\n            \"description\": \"Professional ge cooktop repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "GE Cooktop Repair",
         "layout_enabled": true,
@@ -24512,7 +24512,7 @@
             "secondary_keywords": "",
             "brand": "Frigidaire",
             "appliance_type": "Freezer",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Frigidaire Freezer Repair in {city_state}\",\"serviceType\":\"Frigidaire Freezer Repair\",\"description\":\"Professional frigidaire freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Frigidaire Freezer Repair in {city_state}\",\n            \"serviceType\": \"Frigidaire Freezer Repair\",\n            \"description\": \"Professional frigidaire freezer repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Frigidaire Freezer Repair",
         "layout_enabled": true,
@@ -24756,7 +24756,7 @@
             "secondary_keywords": "",
             "brand": "Thermador",
             "appliance_type": "Range",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Range Repair in {city_state}\",\"serviceType\":\"Thermador Range Repair\",\"description\":\"Professional thermador range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Thermador Range Repair in {city_state}\",\n            \"serviceType\": \"Thermador Range Repair\",\n            \"description\": \"Professional thermador range repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Thermador Range Repair",
         "layout_enabled": true,
@@ -24964,7 +24964,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Trash Compactor",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Trash Compactor Repair in {city_state}\",\"serviceType\":\"Trash Compactor Repair\",\"description\":\"Professional trash compactor repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Trash Compactor Repair in {city_state}\",\n            \"serviceType\": \"Trash Compactor Repair\",\n            \"description\": \"Professional trash compactor repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Trash Compactor Repair",
         "layout_enabled": true,
@@ -25166,7 +25166,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Ice Maker",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Ice Maker Repair in {city_state}\",\"serviceType\":\"Ice Maker Repair\",\"description\":\"Professional ice maker repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Ice Maker Repair in {city_state}\",\n            \"serviceType\": \"Ice Maker Repair\",\n            \"description\": \"Professional ice maker repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Ice Maker Repair",
         "layout_enabled": true,
@@ -25368,7 +25368,7 @@
             "secondary_keywords": "",
             "brand": "",
             "appliance_type": "Wine Cooler",
-            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Wine Cooler Repair in {city_state}\",\"serviceType\":\"Wine Cooler Repair\",\"description\":\"Professional wine cooler repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Wine Cooler Repair in {city_state}\",\n            \"serviceType\": \"Wine Cooler Repair\",\n            \"description\": \"Professional wine cooler repair in {city_state} from {business}. Same-day service, upfront pricing, and warranty options available. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
         },
         "service": "Wine Cooler Repair",
         "layout_enabled": true,

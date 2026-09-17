@@ -80,6 +80,15 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
         $data['header']['site_name'] = $params['business'];
     }
 
+    // sitemap.xml's <lastmod> reads this ONE top-level field for every URL (see
+    // build_static_site() in includes/static_build.php) — it never gets touched by
+    // anything else in the multisite pipeline, so every domain cloned from this master
+    // permanently reported the master's last hand-edit date (e.g. water-site: frozen at
+    // 2026-08-25) regardless of when THAT domain was actually generated, telling Google
+    // there was nothing new to recrawl on content that may be brand new. Stamp it to the
+    // real build date here, once per domain build.
+    $data['last_modified'] = date('Y-m-d');
+
     $tmp = $file . '.tmp.' . getmypid();
     $json = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     if ($json === false || file_put_contents($tmp, $json) === false) {

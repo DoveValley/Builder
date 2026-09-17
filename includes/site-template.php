@@ -121,7 +121,11 @@ if (empty($seo['og_image'])) {
     <?php endif; ?>
     <?php
     $canonicalUrl = resolve_shortcodes($seo['canonical_url'] ?? '');
-    if (empty($canonicalUrl)) {
+    // A noindexed page (e.g. 404.html) has no canonical: a bare slug ('') falling through
+    // this fallback used to resolve to the site's own homepage URL — pointing Google at a
+    // completely different page while ALSO telling it not to index this one, a contradictory
+    // pair of signals on a 404. Any noindexed page skips the fallback for the same reason.
+    if (empty($canonicalUrl) && empty($seo['robots_noindex'])) {
         $lbUrl = rtrim(resolve_shortcodes($data['local_business']['lb_url'] ?? ''), '/');
         if ($lbUrl && isset($slug)) {
             $canonicalUrl = $slug ? $lbUrl . '/' . $slug : $lbUrl . '/';
@@ -148,7 +152,11 @@ if (empty($seo['og_image'])) {
     ?>
     <?php
     $ogSiteName  = !empty($seo['og_site_name'])   ? $seo['og_site_name']   : ($data['seo']['og_site_name']   ?? '');
-    $ogLocale    = !empty($seo['og_locale'])       ? $seo['og_locale']       : ($data['seo']['og_locale']       ?? 'en_US');
+    // og_locale is stored as a literal '' (present, not unset) once a page has ever been
+    // saved through the SEO tab, so `?? 'en_US'` never fires — '??' only catches null/unset,
+    // not an empty string — and every page shipped an empty og:locale forever. !empty()
+    // treats '' the same as absent, which null-coalescing does not.
+    $ogLocale    = !empty($seo['og_locale']) ? $seo['og_locale'] : (!empty($data['seo']['og_locale']) ? $data['seo']['og_locale'] : 'en_US');
     $ogImageAlt  = !empty($seo['og_image_alt'])   ? $seo['og_image_alt']   : ($data['seo']['og_image_alt']   ?? '');
     $twCard      = !empty($seo['twitter_card'])    ? $seo['twitter_card']    : ($data['seo']['twitter_card']    ?? 'summary_large_image');
     $twHandle    = !empty($seo['twitter_handle'])  ? $seo['twitter_handle']  : ($data['seo']['twitter_handle']  ?? '');
