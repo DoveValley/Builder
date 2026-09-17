@@ -29,7 +29,7 @@ const MS_FTP_COLS = ['ftp_host', 'ftp_user', 'ftp_pass'];
 
 /** All recognized columns (anything else is reported as "unknown column"). */
 const MS_KNOWN_COLS = [
-    'domain', 'business', 'phone', 'tel', 'email', 'address',
+    'domain', 'business', 'business_short', 'phone', 'tel', 'email', 'address',
     'city', 'state', 'SS', 'zip', 'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification',
     'rating', 'review_count', 'years_in_business', 'mission_statement',
     'landing_cities', 'theme_preset',

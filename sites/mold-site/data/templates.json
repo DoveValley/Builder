@@ -2,7 +2,7 @@
   {
     "id": "tpl_mold_removal",
     "base": 1,
-    "title": "Mold Removal in {city_state} | {business}",
+    "title": "Mold Removal in {city_state} | {business_short}",
     "slug_pattern": "mold-removal-{city_slug}",
     "page_type": "template",
     "service": "Mold Removal",
@@ -15,7 +15,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -105,7 +105,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -195,7 +195,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -222,9 +222,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mold Removal in {city_state} | {business}",
+      "seo_title": "Mold Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mold Removal in {city_state}. {business} provides professional removal of mold from walls, floors, and hidden spaces. Call {phone} to connect with a local provider.",
+      "meta_description": "Mold growth spreads quickly in moist environments and can damage building materials. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mold removal services {city}, professional mold removal {city}, mold removal near me {city}, mold cleanup {city}",
       "og_title": "Mold Removal in {city_state} | {business}",
       "og_description": "Mold Removal in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -293,7 +293,7 @@
   {
     "id": "tpl_mold_damage_restoration",
     "base": 0,
-    "title": "Mold Damage Restoration in {city_state} | {business}",
+    "title": "Mold Damage Restoration in {city_state} | {business_short}",
     "slug_pattern": "mold-damage-restoration-{city_slug}",
     "page_type": "template",
     "service": "Mold Damage Restoration",
@@ -306,7 +306,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -396,7 +396,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -482,7 +482,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -509,9 +509,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mold Damage Restoration in {city_state} | {business}",
+      "seo_title": "Mold Damage Restoration in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mold Damage Restoration in {city_state} from {business} \u2014 local specialists, real moisture control. Call {phone}.",
+      "meta_description": "Water intrusion and mold can compromise structural integrity and surface finishes throughout a property. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mold damage services {city}, mold damage repair {city}, mold damage cleanup {city}, structural drying {city}",
       "og_title": "Mold Damage Restoration in {city_state} | {business}",
       "og_description": "Mold Damage Restoration in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -580,7 +580,7 @@
   {
     "id": "tpl_mold_inspection",
     "base": 0,
-    "title": "Mold Inspection in {city_state} | {business}",
+    "title": "Mold Inspection in {city_state} | {business_short}",
     "slug_pattern": "mold-inspection-{city_slug}",
     "page_type": "template",
     "service": "Mold Inspection",
@@ -593,7 +593,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -683,7 +683,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -746,6 +746,10 @@
           {
             "url": "/black-mold-removal-{city_slug}",
             "text": "black mold removal"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
           }
         ],
         "id": "related_links_1"
@@ -769,7 +773,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -796,9 +800,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mold Inspection in {city_state} | {business}",
+      "seo_title": "Mold Inspection in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mold Inspection in {city_state} from {business} \u2014 local specialists, real moisture control. Call {phone}.",
+      "meta_description": "Identifying mold presence early prevents it from spreading to hidden areas within walls and foundations. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mold inspection and testing {city}, home mold inspection {city}, mold inspection near me {city}, mold assessment {city}",
       "og_title": "Mold Inspection in {city_state} | {business}",
       "og_description": "Mold Inspection in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -867,7 +871,7 @@
   {
     "id": "tpl_black_mold_removal",
     "base": 0,
-    "title": "Black Mold Removal in {city_state} | {business}",
+    "title": "Black Mold Removal in {city_state} | {business_short}",
     "slug_pattern": "black-mold-removal-{city_slug}",
     "page_type": "template",
     "service": "Black Mold Removal",
@@ -880,7 +884,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -970,7 +974,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1033,6 +1037,10 @@
           {
             "url": "/mold-mitigation-{city_slug}",
             "text": "mold mitigation"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
           }
         ],
         "id": "related_links_1"
@@ -1056,7 +1064,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1083,9 +1091,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Black Mold Removal in {city_state} | {business}",
+      "seo_title": "Black Mold Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Black Mold Removal in {city_state}. {business} provides safe containment and removal of toxic black mold. Call {phone} to connect with a local provider.",
+      "meta_description": "Dark mold species thrive in damp conditions and require specialized assessment before remediation begins. Serving {city_state}. Call {phone}.",
       "meta_keywords": "black mold clean up {city}, black mold mitigation {city}, black mold remediation {city}, toxic mold removal {city}",
       "og_title": "Black Mold Removal in {city_state} | {business}",
       "og_description": "Black Mold Removal in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -1154,7 +1162,7 @@
   {
     "id": "tpl_mold_testing",
     "base": 0,
-    "title": "Mold Testing in {city_state} | {business}",
+    "title": "Mold Testing in {city_state} | {business_short}",
     "slug_pattern": "mold-testing-{city_slug}",
     "page_type": "template",
     "service": "Mold Testing",
@@ -1167,7 +1175,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -1257,7 +1265,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1320,6 +1328,10 @@
           {
             "url": "/mold-removal-{city_slug}",
             "text": "mold removal"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
           }
         ],
         "id": "related_links_1"
@@ -1343,7 +1355,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1370,9 +1382,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mold Testing in {city_state} | {business}",
+      "seo_title": "Mold Testing in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mold Testing in {city_state} from {business} \u2014 local specialists, real moisture control. Call {phone}.",
+      "meta_description": "Lab analysis determines mold types present and their concentration levels in your indoor environment. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mold testing services {city}, mold spore testing {city}, mold sampling {city}, mold lab testing {city}",
       "og_title": "Mold Testing in {city_state} | {business}",
       "og_description": "Mold Testing in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -1441,7 +1453,7 @@
   {
     "id": "tpl_commercial_mold_remediation",
     "base": 0,
-    "title": "Commercial Mold Remediation in {city_state} | {business}",
+    "title": "Commercial Mold Remediation in {city_state} | {business_short}",
     "slug_pattern": "commercial-mold-remediation-{city_slug}",
     "page_type": "template",
     "service": "Commercial Mold Remediation",
@@ -1454,7 +1466,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -1544,7 +1556,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1607,6 +1619,10 @@
           {
             "url": "/air-quality-testing-{city_slug}",
             "text": "indoor air quality testing"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
           }
         ],
         "id": "related_links_1"
@@ -1630,7 +1646,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1657,9 +1673,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Commercial Mold Remediation in {city_state} | {business}",
+      "seo_title": "Commercial Mold Remediation in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Commercial Mold Remediation in {city_state} from {business} \u2014 local specialists, real moisture control. Call {phone}.",
+      "meta_description": "Businesses face operational disruptions and liability concerns when mold contaminates facilities. Serving {city_state}. Call {phone}.",
       "meta_keywords": "commercial mold removal {city}, business mold remediation {city}, office mold removal {city}, commercial mold removal near me {city}",
       "og_title": "Commercial Mold Remediation in {city_state} | {business}",
       "og_description": "Commercial Mold Remediation in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -1728,7 +1744,7 @@
   {
     "id": "tpl_mold_mitigation",
     "base": 0,
-    "title": "Mold Mitigation in {city_state} | {business}",
+    "title": "Mold Mitigation in {city_state} | {business_short}",
     "slug_pattern": "mold-mitigation-{city_slug}",
     "page_type": "template",
     "service": "Mold Mitigation",
@@ -1741,7 +1757,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -1831,7 +1847,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1917,7 +1933,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -1944,13 +1960,13 @@
       }
     ],
     "seo": {
-      "seo_title": "Mold Mitigation in {city_state} | {business}",
+      "seo_title": "Mold Mitigation in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mold Mitigation in {city_state}. {business} provides emergency containment and moisture control to stop mold from spreading. Call {phone} to connect with a local provider.",
+      "meta_description": "Controlling moisture reduces the conditions that allow mold colonies to establish and persist indoors. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mold mitigation services {city}, mold mitigation company {city}, emergency mold mitigation {city}, mold containment {city}",
       "og_title": "Mold Mitigation in {city_state} | {business}",
       "og_description": "Mold Mitigation in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
-      "og_image": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall.webp",
+      "og_image": "sites/mold-site/uploads/media/mobile-mold-remediation.webp",
       "service_name": "Mold Mitigation",
       "service_type": "Mold Mitigation",
       "service_area": "{city_state} and surrounding areas",
@@ -2015,7 +2031,7 @@
   {
     "id": "tpl_crawl_space_mold_removal",
     "base": 0,
-    "title": "Crawl Space Mold Removal in {city_state} | {business}",
+    "title": "Crawl Space Mold Removal in {city_state} | {business_short}",
     "slug_pattern": "crawl-space-mold-removal-{city_slug}",
     "page_type": "template",
     "service": "Crawl Space Mold Removal",
@@ -2028,7 +2044,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -2118,7 +2134,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -2181,6 +2197,14 @@
           {
             "url": "/mold-prevention-{city_slug}",
             "text": "mold prevention"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
+          },
+          {
+            "url": "/mold-inspection-{city_slug}",
+            "text": "mold inspection"
           }
         ],
         "id": "related_links_1"
@@ -2204,7 +2228,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -2231,9 +2255,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Crawl Space Mold Removal in {city_state} | {business}",
+      "seo_title": "Crawl Space Mold Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Crawl Space Mold Removal in {city_state}. {business} provides below-grade crawl space mold removal and moisture control. Call {phone} to connect with a local provider.",
+      "meta_description": "Crawl spaces accumulate humidity naturally, making them common sites for mold colonization beneath homes. Serving {city_state}. Call {phone}.",
       "meta_keywords": "crawl space mold remediation {city}, mold in crawl space {city}, crawl space mold removal near me {city}",
       "og_title": "Crawl Space Mold Removal in {city_state} | {business}",
       "og_description": "Crawl Space Mold Removal in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -2302,7 +2326,7 @@
   {
     "id": "tpl_attic_mold_removal",
     "base": 0,
-    "title": "Attic Mold Removal in {city_state} | {business}",
+    "title": "Attic Mold Removal in {city_state} | {business_short}",
     "slug_pattern": "attic-mold-removal-{city_slug}",
     "page_type": "template",
     "service": "Attic Mold Removal",
@@ -2315,7 +2339,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -2405,7 +2429,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -2468,6 +2492,14 @@
           {
             "url": "/mold-removal-{city_slug}",
             "text": "mold removal"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
+          },
+          {
+            "url": "/mold-inspection-{city_slug}",
+            "text": "mold inspection"
           }
         ],
         "id": "related_links_1"
@@ -2491,7 +2523,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -2518,9 +2550,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Attic Mold Removal in {city_state} | {business}",
+      "seo_title": "Attic Mold Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Attic Mold Removal in {city_state}. {business} provides removal of mold from attic sheathing, rafters, and insulation. Call {phone} to connect with a local provider.",
+      "meta_description": "Roof leaks and poor ventilation create warm, damp attic environments where mold thrives year-round. Serving {city_state}. Call {phone}.",
       "meta_keywords": "attic mold remediation {city}, attic mold treatment {city}, mold in attic {city}, attic mold removal near me {city}",
       "og_title": "Attic Mold Removal in {city_state} | {business}",
       "og_description": "Attic Mold Removal in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -2589,7 +2621,7 @@
   {
     "id": "tpl_basement_mold_removal",
     "base": 0,
-    "title": "Basement Mold Removal in {city_state} | {business}",
+    "title": "Basement Mold Removal in {city_state} | {business_short}",
     "slug_pattern": "basement-mold-removal-{city_slug}",
     "page_type": "template",
     "service": "Basement Mold Removal",
@@ -2602,7 +2634,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -2692,7 +2724,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -2755,6 +2787,14 @@
           {
             "url": "/mold-prevention-{city_slug}",
             "text": "mold prevention"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
+          },
+          {
+            "url": "/mold-inspection-{city_slug}",
+            "text": "mold inspection"
           }
         ],
         "id": "related_links_1"
@@ -2778,7 +2818,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -2805,13 +2845,13 @@
       }
     ],
     "seo": {
-      "seo_title": "Basement Mold Removal in {city_state} | {business}",
+      "seo_title": "Basement Mold Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Basement Mold Removal in {city_state}. {business} provides basement mold removal and below-grade moisture control. Call {phone} to connect with a local provider.",
+      "meta_description": "Below-grade spaces are prone to water seepage and condensation that encourage mold development. Serving {city_state}. Call {phone}.",
       "meta_keywords": "basement mold remediation {city}, basement mold treatment {city}, mold in basement {city}, basement mold removal near me {city}",
       "og_title": "Basement Mold Removal in {city_state} | {business}",
       "og_description": "Basement Mold Removal in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
-      "og_image": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
+      "og_image": "sites/mold-site/uploads/media/flooded-basement-water-damage.webp",
       "service_name": "Basement Mold Removal",
       "service_type": "Basement Mold Removal",
       "service_area": "{city_state} and surrounding areas",
@@ -2876,7 +2916,7 @@
   {
     "id": "tpl_air_conditioner_mold_removal",
     "base": 0,
-    "title": "Air Conditioner Mold Removal in {city_state} | {business}",
+    "title": "Air Conditioner Mold Removal in {city_state} | {business_short}",
     "slug_pattern": "air-conditioner-mold-removal-{city_slug}",
     "page_type": "template",
     "service": "Air Conditioner Mold Removal",
@@ -2889,7 +2929,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -2979,7 +3019,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -3042,6 +3082,14 @@
           {
             "url": "/mold-removal-{city_slug}",
             "text": "mold removal"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
+          },
+          {
+            "url": "/mold-inspection-{city_slug}",
+            "text": "mold inspection"
           }
         ],
         "id": "related_links_1"
@@ -3065,7 +3113,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -3092,9 +3140,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Air Conditioner Mold Removal in {city_state} | {business}",
+      "seo_title": "Air Conditioner Mold Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Air Conditioner Mold Removal in {city_state}. {business} provides removal of mold from AC units, vents, and ductwork. Call {phone} to connect with a local provider.",
+      "meta_description": "HVAC systems circulate mold spores throughout buildings when coils and ducts become contaminated. Serving {city_state}. Call {phone}.",
       "meta_keywords": "ac mold removal {city}, hvac mold removal {city}, mold in air vents {city}, air duct mold removal {city}",
       "og_title": "Air Conditioner Mold Removal in {city_state} | {business}",
       "og_description": "Air Conditioner Mold Removal in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -3163,7 +3211,7 @@
   {
     "id": "tpl_mold_prevention",
     "base": 0,
-    "title": "Mold Prevention in {city_state} | {business}",
+    "title": "Mold Prevention in {city_state} | {business_short}",
     "slug_pattern": "mold-prevention-{city_slug}",
     "page_type": "template",
     "service": "Mold Prevention",
@@ -3176,7 +3224,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -3266,7 +3314,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -3329,6 +3377,10 @@
           {
             "url": "/mold-removal-{city_slug}",
             "text": "mold removal"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
           }
         ],
         "id": "related_links_1"
@@ -3352,7 +3404,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -3379,9 +3431,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mold Prevention in {city_state} | {business}",
+      "seo_title": "Mold Prevention in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mold Prevention in {city_state}. {business} provides moisture control and prevention to keep mold from returning. Call {phone} to connect with a local provider.",
+      "meta_description": "Reducing indoor humidity and fixing water leaks stops mold from establishing in the first place. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mold prevention services {city}, moisture control {city}, moisture detection {city}, mold proofing {city}",
       "og_title": "Mold Prevention in {city_state} | {business}",
       "og_description": "Mold Prevention in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",
@@ -3450,7 +3502,7 @@
   {
     "id": "tpl_air_quality_testing",
     "base": 0,
-    "title": "Indoor Air Quality Testing in {city_state} | {business}",
+    "title": "Indoor Air Quality Testing in {city_state} | {business_short}",
     "slug_pattern": "air-quality-testing-{city_slug}",
     "page_type": "template",
     "service": "Indoor Air Quality Testing",
@@ -3463,7 +3515,7 @@
       {
         "type": "hero_split",
         "hs_heading": "{primary_keyword} in {city_state}",
-        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with trained {city_state} specialists for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
+        "hs_subtext": "<p>Need {service} in {city}? {business} connects you with a local {city_state} provider for fast, professional {service} \u2014 available 24/7 to protect your home or business.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -3553,7 +3605,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need {service} in {city}? Get fast, professional help.",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -3616,6 +3668,14 @@
           {
             "url": "/mold-prevention-{city_slug}",
             "text": "mold prevention"
+          },
+          {
+            "url": "/mold-removal-{city_slug}",
+            "text": "mold removal"
+          },
+          {
+            "url": "/mold-damage-restoration-{city_slug}",
+            "text": "mold damage restoration"
           }
         ],
         "id": "related_links_1"
@@ -3639,7 +3699,7 @@
       },
       {
         "type": "cta_banner",
-        "cb_text": "Need {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
         "cb_subtext": "",
         "cb_btn_text": "Call Now \u2014 {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -3666,9 +3726,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Indoor Air Quality Testing in {city_state} | {business}",
+      "seo_title": "Indoor Air Quality Testing in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Indoor Air Quality Testing in {city_state}. {business} provides indoor air quality and mold air sampling. Call {phone} to connect with a local provider.",
+      "meta_description": "Testing reveals airborne particle levels and contaminants that affect occupant comfort and safety. Serving {city_state}. Call {phone}.",
       "meta_keywords": "air quality inspection {city}, indoor air quality mold {city}",
       "og_title": "Indoor Air Quality Testing in {city_state} | {business}",
       "og_description": "Indoor Air Quality Testing in {city_state} \u2014 fast, local response. Call {phone} to connect with a local provider.",

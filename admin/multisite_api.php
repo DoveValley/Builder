@@ -31,7 +31,7 @@ const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 
  *  excludes ftp_* (Create Host's job, not a hand edit) and 'domain' itself (renaming
  *  a row is delete+add, not an edit — a domain never changes identity in place). */
 const MS_ROW_EDITABLE_COLS = [
-    'business', 'phone', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
+    'business', 'business_short', 'phone', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
     'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification', 'rating', 'review_count',
     'years_in_business', 'mission_statement',
     'landing_cities', 'theme_preset', 'web3forms_key',
@@ -273,6 +273,12 @@ switch ($action) {
         $cols[] = 'mission_statement';
         $missionExamples = ['Connecting Dallas homeowners with responsive, quality local providers.', '', '', '', ''];
         foreach ($sample as $i => &$row) { $row[] = $missionExamples[$i] ?? ''; }
+        unset($row);
+        // Optional business_short — a shorter brand form for space-constrained fields like
+        // <title> (e.g. "Bailey Restoration" instead of "Bailey Water Damage Restoration").
+        // Blank = falls back to the full 'business' name at render time.
+        $cols[] = 'business_short';
+        foreach ($sample as &$row) { $row[] = ''; }
         unset($row);
         // Star the columns that must be filled on every row. Purely a hint for whoever
         // fills the sheet in — ms_parse_csv() strips the star on the way back, so the

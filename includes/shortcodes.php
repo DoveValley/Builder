@@ -75,6 +75,11 @@ function resolve_shortcodes(string $text): string {
     $lat          = $v['lat']       ?? '';
     $lng          = $v['lng']       ?? '';
     $business_domain = parse_url($website, PHP_URL_HOST) ?: $website;
+    // {business_short} — a shorter brand form for space-constrained fields like <title>,
+    // where the full business name plus a keyword phrase often runs past what search
+    // engines display. Panel-editable (falls back to the full {business} when not set,
+    // so nothing breaks for sites that never fill it in).
+    $business_short = trim($v['business_short'] ?? '') ?: $business;
     $rating       = $lb['lb_rating']       ?? '';
     $review_count = $lb['lb_review_count'] ?? '';
     // lb_logo is stored as "{website}/uploads/...", already resolved-website-relative
@@ -97,7 +102,8 @@ function resolve_shortcodes(string $text): string {
     $built_at = gmdate('Y-m-d H:i') . ' UTC';
     $map = [
         '{city}' => $city, '{state}' => $state, '{SS}' => $SS, '{city_state}' => $city_state,
-        '{city_slug}' => $city_slug, '{business}' => $business, '{phone}' => $phone, '{tel}' => $tel,
+        '{city_slug}' => $city_slug, '{business}' => $business, '{business_short}' => $business_short,
+        '{phone}' => $phone, '{tel}' => $tel,
         '{zip}' => $zip, '{website}' => $website, '{business_domain}' => $business_domain, '{email}' => $email,
         '{rating}' => $rating, '{review_count}' => $review_count, '{address}' => $address,
         '{lb_logo}' => $lb_logo,

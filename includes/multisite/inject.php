@@ -23,7 +23,7 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
     // Direct site_vars mappings — only overwrite when the param is a non-empty string.
     // 'email' is included here too — build_one.php computes it as info@{bare-domain}
     // before this runs, so every domain gets a working address with no per-row data entry.
-    foreach (['business', 'phone', 'tel', 'email', 'city', 'state', 'SS', 'zip', 'address',
+    foreach (['business', 'business_short', 'phone', 'tel', 'email', 'city', 'state', 'SS', 'zip', 'address',
               'years_in_business', 'mission_statement'] as $k) {
         if (isset($params[$k]) && is_string($params[$k]) && $params[$k] !== '') {
             $sv[$k] = $params[$k];
@@ -41,7 +41,7 @@ function inject_params_into_working_dir(string $workingDir, array $params): void
     // invent one (see multisite/ai/archetypes.json); no per-city zip lookup exists at all, so
     // blank is the only correct default here too — a row without its own value must start
     // blank, not inherit a fact that belongs to a different city entirely.
-    foreach (['years_in_business', 'mission_statement', 'zip'] as $k) {
+    foreach (['years_in_business', 'mission_statement', 'zip', 'business_short'] as $k) {
         if (empty($params[$k])) $sv[$k] = '';
     }
 

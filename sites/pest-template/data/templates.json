@@ -72,13 +72,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where roaches are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where roaches are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -156,6 +156,10 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/termite-treatment-{city_slug}",
+            "text": "termite treatment"
           }
         ],
         "id": "related_links_1"
@@ -206,7 +210,7 @@
     "seo": {
       "seo_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
       "canonical_url": "",
-      "meta_description": "Cockroach Extermination in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Cockroaches thrive indoors and spread bacteria, posing health risks to occupants. Serving {city_state}. Call {phone}.",
       "meta_keywords": "cockroach exterminator {city} {SS}, roach exterminator, cockroach control, roach control",
       "og_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
       "og_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -274,7 +278,7 @@
   },
   {
     "id": "tpl_ant_exterminator",
-    "title": "Ant Pest Control in {city_state} | {business}",
+    "title": "Ant Pest Control in {city_state} | {business_short}",
     "slug_pattern": "ant-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Ant Pest Control",
@@ -287,7 +291,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Ant Pest Control in {city_state}",
-        "hs_subtext": "<p>Reliable ant pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
+        "hs_subtext": "<p>Reliable ant pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source and back the work with a re-treat guarantee.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -344,13 +348,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where ants are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where ants are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -428,6 +432,14 @@
           {
             "url": "/termite-treatment-{city_slug}",
             "text": "termite treatment"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -476,9 +488,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Ant Pest Control in {city_state} | {business}",
+      "seo_title": "Ant Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Professional ant pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+      "meta_description": "Ant colonies can number in the thousands and invade food storage areas rapidly. Serving {city_state}. Call {phone}.",
       "meta_keywords": "ant pest control {city} {SS}, ant exterminator, ant control, ant treatment",
       "og_title": "Ant Pest Control in {city_state} | {business}",
       "og_description": "Professional ant pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
@@ -545,7 +557,7 @@
   },
   {
     "id": "tpl_fire_ant_control",
-    "title": "Fire Ant Control in {city_state} | {business}",
+    "title": "Fire Ant Control in {city_state} | {business_short}",
     "slug_pattern": "fire-ant-control-{city_slug}",
     "page_type": "template",
     "service": "Fire Ant Control",
@@ -615,13 +627,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where fire ants are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where fire ants are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -695,6 +707,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -743,9 +763,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Fire Ant Control in {city_state} | {business}",
+      "seo_title": "Fire Ant Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Fire Ant Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Fire ants deliver painful stings and build mounds that damage landscaping and soil. Serving {city_state}. Call {phone}.",
       "meta_keywords": "fire ant control {city} {SS}, fire ant treatment, fire ant exterminator, fire ant yard treatment",
       "og_title": "Fire ant Exterminator in {city_state} | Fast, Guaranteed Fire ant Control",
       "og_description": "Get rid of fire ants fast with a professional fire ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -812,7 +832,7 @@
   },
   {
     "id": "tpl_carpenter_ant_control",
-    "title": "Carpenter Ant Control in {city_state} | {business}",
+    "title": "Carpenter Ant Control in {city_state} | {business_short}",
     "slug_pattern": "carpenter-ant-control-{city_slug}",
     "page_type": "template",
     "service": "Carpenter Ant Control",
@@ -882,13 +902,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where carpenter ants are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where carpenter ants are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -966,6 +986,14 @@
           {
             "url": "/residential-pest-control-{city_slug}",
             "text": "residential pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -1014,9 +1042,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Carpenter Ant Control in {city_state} | {business}",
+      "seo_title": "Carpenter Ant Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Carpenter Ant Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Carpenter ants hollow out wood structures, weakening frames and support systems over time. Serving {city_state}. Call {phone}.",
       "meta_keywords": "carpenter ant control {city} {SS}, carpenter ant exterminator, carpenter ant treatment, carpenter ant removal",
       "og_title": "Carpenter ant Exterminator in {city_state} | Fast, Guaranteed Carpenter ant Control",
       "og_description": "Get rid of carpenter ants fast with a professional carpenter ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -1083,7 +1111,7 @@
   },
   {
     "id": "tpl_bed_bug_exterminator",
-    "title": "Bed Bug Control in {city_state} | {business}",
+    "title": "Bed Bug Control in {city_state} | {business_short}",
     "slug_pattern": "bed-bug-control-{city_slug}",
     "page_type": "template",
     "service": "Bed Bug Control",
@@ -1096,7 +1124,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Bed Bug Control in {city_state}",
-        "hs_subtext": "<p>Reliable bed bug control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
+        "hs_subtext": "<p>Reliable bed bug control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source and back the work with a re-treat guarantee.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -1153,13 +1181,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where bed bugs are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where bed bugs are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -1233,6 +1261,10 @@
           {
             "url": "/cockroach-exterminator-{city_slug}",
             "text": "cockroach extermination"
+          },
+          {
+            "url": "/termite-treatment-{city_slug}",
+            "text": "termite treatment"
           }
         ],
         "id": "related_links_1"
@@ -1281,9 +1313,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Bed Bug Control in {city_state} | {business}",
+      "seo_title": "Bed Bug Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Professional bed bug control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+      "meta_description": "Bed bugs feed on blood at night and multiply quickly in bedding and furniture. Serving {city_state}. Call {phone}.",
       "meta_keywords": "bed bug control {city} {SS}, bed bug exterminator, bed bug treatment, bed bug removal",
       "og_title": "Bed Bug Control in {city_state} | {business}",
       "og_description": "Professional bed bug control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
@@ -1350,7 +1382,7 @@
   },
   {
     "id": "tpl_termite_treatment",
-    "title": "Termite Treatment in {city_state} | {business}",
+    "title": "Termite Treatment in {city_state} | {business_short}",
     "slug_pattern": "termite-treatment-{city_slug}",
     "page_type": "template",
     "service": "Termite Treatment",
@@ -1420,13 +1452,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where termites are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where termites are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -1504,6 +1536,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -1552,9 +1592,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Termite Treatment in {city_state} | {business}",
+      "seo_title": "Termite Treatment in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Termite Treatment in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Termites silently consume wood from inside out, causing structural damage worth thousands. Serving {city_state}. Call {phone}.",
       "meta_keywords": "termite treatment {city} {SS}, termite control, termite exterminator, termite removal",
       "og_title": "Termite Exterminator in {city_state} | Fast, Guaranteed Termite Control",
       "og_description": "Get rid of termites fast with a professional termite exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -1621,7 +1661,7 @@
   },
   {
     "id": "tpl_mosquito_control",
-    "title": "Mosquito Control in {city_state} | {business}",
+    "title": "Mosquito Control in {city_state} | {business_short}",
     "slug_pattern": "mosquito-control-{city_slug}",
     "page_type": "template",
     "service": "Mosquito Control",
@@ -1691,13 +1731,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where mosquitoes are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where mosquitoes are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -1771,6 +1811,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -1819,9 +1867,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mosquito Control in {city_state} | {business}",
+      "seo_title": "Mosquito Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mosquito Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Mosquitoes transmit diseases and breed in standing water during warm months. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mosquito control {city} {SS}, mosquito treatment, mosquito exterminator, mosquito spray service",
       "og_title": "Mosquito Exterminator in {city_state} | Fast, Guaranteed Mosquito Control",
       "og_description": "Get rid of mosquitoes fast with a professional mosquito exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -1888,7 +1936,7 @@
   },
   {
     "id": "tpl_flea_exterminator",
-    "title": "Flea Pest Control in {city_state} | {business}",
+    "title": "Flea Pest Control in {city_state} | {business_short}",
     "slug_pattern": "flea-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Flea Pest Control",
@@ -1901,7 +1949,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Flea Pest Control in {city_state}",
-        "hs_subtext": "<p>Reliable flea pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
+        "hs_subtext": "<p>Reliable flea pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source and back the work with a re-treat guarantee.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -1958,13 +2006,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where fleas are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where fleas are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -2038,6 +2086,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -2086,9 +2142,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Flea Pest Control in {city_state} | {business}",
+      "seo_title": "Flea Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+      "meta_description": "Fleas infest pet bedding and carpets, causing itching and potential illness in animals. Serving {city_state}. Call {phone}.",
       "meta_keywords": "flea pest control {city} {SS}, flea exterminator, flea control, flea treatment",
       "og_title": "Flea Pest Control in {city_state} | {business}",
       "og_description": "Professional flea pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
@@ -2155,7 +2211,7 @@
   },
   {
     "id": "tpl_tick_control",
-    "title": "Tick Treatment in {city_state} | {business}",
+    "title": "Tick Treatment in {city_state} | {business_short}",
     "slug_pattern": "tick-treatment-{city_slug}",
     "page_type": "template",
     "service": "Tick Treatment",
@@ -2168,7 +2224,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Tick Treatment in {city_state}",
-        "hs_subtext": "<p>Reliable tick treatment for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
+        "hs_subtext": "<p>Reliable tick treatment for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source and back the work with a re-treat guarantee.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -2225,13 +2281,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where ticks are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where ticks are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -2305,6 +2361,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -2353,9 +2417,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Tick Treatment in {city_state} | {business}",
+      "seo_title": "Tick Treatment in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+      "meta_description": "Ticks attach to skin and can carry pathogens that cause serious illnesses. Serving {city_state}. Call {phone}.",
       "meta_keywords": "tick treatment {city} {SS}, tick control, tick exterminator, tick yard treatment",
       "og_title": "Tick Treatment in {city_state} | {business}",
       "og_description": "Professional tick treatment in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
@@ -2422,7 +2486,7 @@
   },
   {
     "id": "tpl_rat_exterminator",
-    "title": "Rat Exterminator in {city_state} | {business}",
+    "title": "Rat Exterminator in {city_state} | {business_short}",
     "slug_pattern": "rat-exterminator-{city_slug}",
     "page_type": "template",
     "service": "Rat Exterminator",
@@ -2492,13 +2556,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where rats are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where rats are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -2576,6 +2640,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -2624,9 +2696,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Rat Exterminator in {city_state} | {business}",
+      "seo_title": "Rat Exterminator in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Rat Exterminator in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Rats contaminate food and surfaces with droppings while chewing through wiring and walls. Serving {city_state}. Call {phone}.",
       "meta_keywords": "rat exterminator {city} {SS}, rat control, rat pest control, rat removal",
       "og_title": "Rat Exterminator in {city_state} | Fast, Guaranteed Rat Control",
       "og_description": "Get rid of rats fast with a professional rat exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -2693,7 +2765,7 @@
   },
   {
     "id": "tpl_mouse_exterminator",
-    "title": "Mouse Exterminator in {city_state} | {business}",
+    "title": "Mouse Exterminator in {city_state} | {business_short}",
     "slug_pattern": "mouse-exterminator-{city_slug}",
     "page_type": "template",
     "service": "Mouse Exterminator",
@@ -2763,13 +2835,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where mice are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where mice are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -2847,6 +2919,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -2895,9 +2975,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Mouse Exterminator in {city_state} | {business}",
+      "seo_title": "Mouse Exterminator in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Mouse Exterminator in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Mice enter homes seeking warmth and food, leaving droppings and urine trails behind. Serving {city_state}. Call {phone}.",
       "meta_keywords": "mouse exterminator {city} {SS}, mouse control, mice control, mice exterminator",
       "og_title": "Mouse Exterminator in {city_state} | Fast, Guaranteed Mouse Control",
       "og_description": "Get rid of mice fast with a professional mouse exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -2964,7 +3044,7 @@
   },
   {
     "id": "tpl_spider_control",
-    "title": "Spider Pest Control in {city_state} | {business}",
+    "title": "Spider Pest Control in {city_state} | {business_short}",
     "slug_pattern": "spider-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Spider Pest Control",
@@ -2977,7 +3057,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Spider Pest Control in {city_state}",
-        "hs_subtext": "<p>Reliable spider pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
+        "hs_subtext": "<p>Reliable spider pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source and back the work with a re-treat guarantee.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -3034,13 +3114,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where spiders are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where spiders are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -3114,6 +3194,14 @@
           {
             "url": "/residential-pest-control-{city_slug}",
             "text": "residential pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -3162,9 +3250,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Spider Pest Control in {city_state} | {business}",
+      "seo_title": "Spider Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Professional spider pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+      "meta_description": "Some spider species bite, and webs accumulate in corners and dark spaces indoors. Serving {city_state}. Call {phone}.",
       "meta_keywords": "spider pest control {city} {SS}, spider control, spider exterminator, spider treatment",
       "og_title": "Spider Pest Control in {city_state} | {business}",
       "og_description": "Professional spider pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
@@ -3231,7 +3319,7 @@
   },
   {
     "id": "tpl_scorpion_control",
-    "title": "Scorpion Pest Control in {city_state} | {business}",
+    "title": "Scorpion Pest Control in {city_state} | {business_short}",
     "slug_pattern": "scorpion-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Scorpion Pest Control",
@@ -3244,7 +3332,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Scorpion Pest Control in {city_state}",
-        "hs_subtext": "<p>Reliable scorpion pest control for {city_state} homes and businesses. Our trained local technicians treat the problem at the source and back the work with a re-treat guarantee.</p>",
+        "hs_subtext": "<p>Reliable scorpion pest control for {city_state} homes and businesses. The local providers we connect you with treat the problem at the source and back the work with a re-treat guarantee.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -3301,13 +3389,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where scorpions are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where scorpions are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -3381,6 +3469,14 @@
           {
             "url": "/emergency-pest-control-{city_slug}",
             "text": "emergency pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -3429,9 +3525,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Scorpion Pest Control in {city_state} | {business}",
+      "seo_title": "Scorpion Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Professional scorpion pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
+      "meta_description": "Scorpions hide in dark spaces and deliver venomous stings when disturbed or threatened. Serving {city_state}. Call {phone}.",
       "meta_keywords": "scorpion pest control {city} {SS}, scorpion control, scorpion exterminator, scorpion treatment",
       "og_title": "Scorpion Pest Control in {city_state} | {business}",
       "og_description": "Professional scorpion pest control in {city_state} from {business}. Trained, local technicians, targeted treatment, and a re-treat guarantee. Call {phone}.",
@@ -3498,7 +3594,7 @@
   },
   {
     "id": "tpl_wasp_exterminator",
-    "title": "Wasp Exterminator in {city_state} | {business}",
+    "title": "Wasp Exterminator in {city_state} | {business_short}",
     "slug_pattern": "wasp-exterminator-{city_slug}",
     "page_type": "template",
     "service": "Wasp Exterminator",
@@ -3568,13 +3664,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where wasps are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where wasps are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -3652,6 +3748,14 @@
           {
             "url": "/emergency-pest-control-{city_slug}",
             "text": "emergency pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -3700,9 +3804,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Wasp Exterminator in {city_state} | {business}",
+      "seo_title": "Wasp Exterminator in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Wasp Exterminator in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Wasps defend their nests aggressively and sting multiple times without losing their stinger. Serving {city_state}. Call {phone}.",
       "meta_keywords": "wasp exterminator {city} {SS}, wasp control, wasp pest control, wasp removal",
       "og_title": "Wasp Exterminator in {city_state} | Fast, Guaranteed Wasp Control",
       "og_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -3769,7 +3873,7 @@
   },
   {
     "id": "tpl_yellow_jacket_control",
-    "title": "Yellow Jacket Control in {city_state} | {business}",
+    "title": "Yellow Jacket Control in {city_state} | {business_short}",
     "slug_pattern": "yellow-jacket-control-{city_slug}",
     "page_type": "template",
     "service": "Yellow Jacket Control",
@@ -3839,13 +3943,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where yellow jackets are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where yellow jackets are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -3919,6 +4023,14 @@
           {
             "url": "/emergency-pest-control-{city_slug}",
             "text": "emergency pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -3967,9 +4079,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Yellow Jacket Control in {city_state} | {business}",
+      "seo_title": "Yellow Jacket Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Yellow Jacket Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Yellow jackets scavenge for food and become territorial near human gathering areas. Serving {city_state}. Call {phone}.",
       "meta_keywords": "yellow jacket control {city} {SS}, yellow jacket exterminator, yellow jacket nest removal, yellow jacket removal",
       "og_title": "Yellow jacket Exterminator in {city_state} | Fast, Guaranteed Yellow jacket Control",
       "og_description": "Get rid of yellow jackets fast with a professional yellow jacket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -4036,7 +4148,7 @@
   },
   {
     "id": "tpl_silverfish_control",
-    "title": "Silverfish Control in {city_state} | {business}",
+    "title": "Silverfish Control in {city_state} | {business_short}",
     "slug_pattern": "silverfish-control-{city_slug}",
     "page_type": "template",
     "service": "Silverfish Control",
@@ -4106,13 +4218,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where silverfish are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where silverfish are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -4186,6 +4298,14 @@
           {
             "url": "/residential-pest-control-{city_slug}",
             "text": "residential pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -4234,9 +4354,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Silverfish Control in {city_state} | {business}",
+      "seo_title": "Silverfish Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Silverfish Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Silverfish damage paper, fabrics, and stored goods while thriving in humid environments. Serving {city_state}. Call {phone}.",
       "meta_keywords": "silverfish control {city} {SS}, silverfish exterminator, silverfish treatment, silverfish removal",
       "og_title": "Silverfish Exterminator in {city_state} | Fast, Guaranteed Silverfish Control",
       "og_description": "Get rid of silverfish fast with a professional silverfish exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -4303,7 +4423,7 @@
   },
   {
     "id": "tpl_centipede_control",
-    "title": "Centipede Control in {city_state} | {business}",
+    "title": "Centipede Control in {city_state} | {business_short}",
     "slug_pattern": "centipede-control-{city_slug}",
     "page_type": "template",
     "service": "Centipede Control",
@@ -4373,13 +4493,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where centipedes are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where centipedes are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -4453,6 +4573,14 @@
           {
             "url": "/residential-pest-control-{city_slug}",
             "text": "residential pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -4501,9 +4629,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Centipede Control in {city_state} | {business}",
+      "seo_title": "Centipede Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Centipede Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Centipedes bite and prey on household insects, indicating deeper pest problems may exist. Serving {city_state}. Call {phone}.",
       "meta_keywords": "centipede control {city} {SS}, centipede exterminator, millipede control, centipede treatment",
       "og_title": "Centipede Exterminator in {city_state} | Fast, Guaranteed Centipede Control",
       "og_description": "Get rid of centipedes fast with a professional centipede exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -4570,7 +4698,7 @@
   },
   {
     "id": "tpl_cricket_control",
-    "title": "Cricket Control in {city_state} | {business}",
+    "title": "Cricket Control in {city_state} | {business_short}",
     "slug_pattern": "cricket-control-{city_slug}",
     "page_type": "template",
     "service": "Cricket Control",
@@ -4640,13 +4768,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where crickets are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where crickets are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -4720,6 +4848,14 @@
           {
             "url": "/residential-pest-control-{city_slug}",
             "text": "residential pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -4768,9 +4904,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Cricket Control in {city_state} | {business}",
+      "seo_title": "Cricket Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Cricket Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Crickets chirp loudly at night and feed on fabrics, paper, and stored food items. Serving {city_state}. Call {phone}.",
       "meta_keywords": "cricket control {city} {SS}, cricket exterminator, cricket treatment, cricket removal",
       "og_title": "Cricket Exterminator in {city_state} | Fast, Guaranteed Cricket Control",
       "og_description": "Get rid of crickets fast with a professional cricket exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -4837,7 +4973,7 @@
   },
   {
     "id": "tpl_stink_bug_control",
-    "title": "Stink Bug Control in {city_state} | {business}",
+    "title": "Stink Bug Control in {city_state} | {business_short}",
     "slug_pattern": "stink-bug-control-{city_slug}",
     "page_type": "template",
     "service": "Stink Bug Control",
@@ -4907,13 +5043,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where stink bugs are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where stink bugs are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -4983,6 +5119,14 @@
           {
             "url": "/residential-pest-control-{city_slug}",
             "text": "residential pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -5031,9 +5175,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Stink Bug Control in {city_state} | {business}",
+      "seo_title": "Stink Bug Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Stink Bug Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Stink bugs damage crops and plants while releasing odor when crushed or threatened. Serving {city_state}. Call {phone}.",
       "meta_keywords": "stink bug control {city} {SS}, stink bug exterminator, boxelder bug control, overwintering pests",
       "og_title": "Stink bug Exterminator in {city_state} | Fast, Guaranteed Stink bug Control",
       "og_description": "Get rid of stink bugs fast with a professional stink bug exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -5100,7 +5244,7 @@
   },
   {
     "id": "tpl_wasp_nest_removal",
-    "title": "Wasp Nest Removal in {city_state} | {business}",
+    "title": "Wasp Nest Removal in {city_state} | {business_short}",
     "slug_pattern": "wasp-nest-removal-{city_slug}",
     "page_type": "template",
     "service": "Wasp Nest Removal",
@@ -5170,13 +5314,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where wasps are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where wasps are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -5254,6 +5398,14 @@
           {
             "url": "/emergency-pest-control-{city_slug}",
             "text": "emergency pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -5302,9 +5454,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Wasp Nest Removal in {city_state} | {business}",
+      "seo_title": "Wasp Nest Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Wasp Nest Removal in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Active wasp nests pose sting hazards and continue growing as the colony expands. Serving {city_state}. Call {phone}.",
       "meta_keywords": "wasp nest removal {city} {SS}, wasp nest treatment, wasp nest removal near me, remove wasp nest",
       "og_title": "Wasp Exterminator in {city_state} | Fast, Guaranteed Wasp Control",
       "og_description": "Get rid of wasps fast with a professional wasp exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -5371,7 +5523,7 @@
   },
   {
     "id": "tpl_hornet_removal",
-    "title": "Hornet Removal in {city_state} | {business}",
+    "title": "Hornet Removal in {city_state} | {business_short}",
     "slug_pattern": "hornet-removal-{city_slug}",
     "page_type": "template",
     "service": "Hornet Removal",
@@ -5441,13 +5593,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where hornets are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where hornets are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -5521,6 +5673,14 @@
           {
             "url": "/emergency-pest-control-{city_slug}",
             "text": "emergency pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -5569,9 +5729,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Hornet Removal in {city_state} | {business}",
+      "seo_title": "Hornet Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Hornet Removal in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Hornet nests grow larger each season and their stings cause severe pain and swelling. Serving {city_state}. Call {phone}.",
       "meta_keywords": "hornet removal {city} {SS}, hornet exterminator, hornet nest removal, hornet control",
       "og_title": "Hornet Exterminator in {city_state} | Fast, Guaranteed Hornet Control",
       "og_description": "Get rid of hornets fast with a professional hornet exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -5638,7 +5798,7 @@
   },
   {
     "id": "tpl_bee_removal",
-    "title": "Bee Removal in {city_state} | {business}",
+    "title": "Bee Removal in {city_state} | {business_short}",
     "slug_pattern": "bee-removal-{city_slug}",
     "page_type": "template",
     "service": "Bee Removal",
@@ -5708,13 +5868,13 @@
             "image": "",
             "alt": "",
             "heading": "Call Our {city} Team",
-            "text": "Tell us what you are seeing. Our team works to get you scheduled quickly, often the same day for active infestations."
+            "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
           },
           {
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the home, identifies the species and where bees are harboring, and builds a targeted treatment plan."
+            "text": "A local technician inspects the home, identifies the species and where bees are harboring, and builds a targeted treatment plan."
           },
           {
             "image": "",
@@ -5788,6 +5948,14 @@
           {
             "url": "/emergency-pest-control-{city_slug}",
             "text": "emergency pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -5836,9 +6004,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Bee Removal in {city_state} | {business}",
+      "seo_title": "Bee Removal in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Bee Removal in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Bee colonies require humane handling to protect these important pollinators and your safety. Serving {city_state}. Call {phone}.",
       "meta_keywords": "bee removal {city} {SS}, bee relocation, honey bee removal, live bee removal",
       "og_title": "Bee Exterminator in {city_state} | Fast, Guaranteed Bee Control",
       "og_description": "Get rid of bees fast with a professional bee exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
@@ -5906,7 +6074,7 @@
   {
     "id": "tpl_termite_inspection",
     "base": true,
-    "title": "Termite Inspection in {city_state} | {business}",
+    "title": "Termite Inspection in {city_state} | {business_short}",
     "slug_pattern": "termite-inspection-{city_slug}",
     "page_type": "template",
     "service": "Termite Inspection",
@@ -5919,7 +6087,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Termite Inspection in {city_state}",
-        "hs_subtext": "<p>Thorough termite inspection for {city_state} homes and businesses. Our trained inspectors document findings and give you a clear, written report you can act on.</p>",
+        "hs_subtext": "<p>Thorough termite inspection for {city_state} homes and businesses. The local inspector we connect you with documents findings and give you a clear, written report you can act on.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -5997,7 +6165,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need a termite inspection in {city}? Schedule with our trained {city} inspectors.",
+        "cb_text": "Need a termite inspection in {city}? Connect with a local inspector fast.",
         "cb_subtext": "",
         "cb_btn_text": "Call {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -6083,6 +6251,14 @@
           {
             "url": "/pest-inspection-{city_slug}",
             "text": "pest inspection"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -6131,9 +6307,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Termite Inspection in {city_state} | {business}",
+      "seo_title": "Termite Inspection in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Termite Inspection in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Early termite detection prevents costly structural damage before visible signs appear. Serving {city_state}. Call {phone}.",
       "meta_keywords": "termite inspection {city} {SS}, termite inspection cost, free termite inspection, termite inspection near me",
       "og_title": "Termite Inspection in {city_state} | {business}",
       "og_description": "Professional termite inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
@@ -6201,7 +6377,7 @@
   },
   {
     "id": "tpl_pest_inspection",
-    "title": "Pest Inspection in {city_state} | {business}",
+    "title": "Pest Inspection in {city_state} | {business_short}",
     "slug_pattern": "pest-inspection-{city_slug}",
     "page_type": "template",
     "service": "Pest Inspection",
@@ -6214,7 +6390,7 @@
       {
         "type": "hero_split",
         "hs_heading": "Pest Inspection in {city_state}",
-        "hs_subtext": "<p>Thorough pest inspection for {city_state} homes and businesses. Our trained inspectors document findings and give you a clear, written report you can act on.</p>",
+        "hs_subtext": "<p>Thorough pest inspection for {city_state} homes and businesses. The local inspector we connect you with documents findings and give you a clear, written report you can act on.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -6292,7 +6468,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need a pest inspection in {city}? Schedule with our trained {city} inspectors.",
+        "cb_text": "Need a pest inspection in {city}? Connect with a local inspector fast.",
         "cb_subtext": "",
         "cb_btn_text": "Call {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -6378,6 +6554,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -6426,9 +6610,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Pest Inspection in {city_state} | {business}",
+      "seo_title": "Pest Inspection in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Pest Inspection in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Property inspections identify pest entry points and conditions that attract infestations. Serving {city_state}. Call {phone}.",
       "meta_keywords": "pest inspection {city} {SS}, home pest inspection, pest control inspection, pest inspection near me",
       "og_title": "Pest Inspection in {city_state} | {business}",
       "og_description": "Professional pest inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
@@ -6495,7 +6679,7 @@
   },
   {
     "id": "tpl_wdi_inspection",
-    "title": "WDI Inspection in {city_state} | {business}",
+    "title": "WDI Inspection in {city_state} | {business_short}",
     "slug_pattern": "wdi-inspection-{city_slug}",
     "page_type": "template",
     "service": "WDI Inspection",
@@ -6508,7 +6692,7 @@
       {
         "type": "hero_split",
         "hs_heading": "WDI Inspection in {city_state}",
-        "hs_subtext": "<p>Thorough wdi inspection for {city_state} homes and businesses. Our trained inspectors document findings and give you a clear, written report you can act on.</p>",
+        "hs_subtext": "<p>Thorough wdi inspection for {city_state} homes and businesses. The local inspector we connect you with documents findings and give you a clear, written report you can act on.</p>",
         "hs_btn_text": "{phone}",
         "hs_btn_url": "tel:{tel}",
         "hs_caption1": "",
@@ -6586,7 +6770,7 @@
       {
         "type": "cta_banner",
         "anchor": "mid_cta",
-        "cb_text": "Need a wdi inspection in {city}? Schedule with our trained {city} inspectors.",
+        "cb_text": "Need a wdi inspection in {city}? Connect with a local inspector fast.",
         "cb_subtext": "",
         "cb_btn_text": "Call {phone}",
         "cb_btn_url": "tel:{tel}",
@@ -6672,6 +6856,14 @@
           {
             "url": "/carpenter-ant-control-{city_slug}",
             "text": "carpenter ant control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -6720,9 +6912,9 @@
       }
     ],
     "seo": {
-      "seo_title": "WDI Inspection in {city_state} | {business}",
+      "seo_title": "WDI Inspection in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "WDI Inspection in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Wood-destroying insect reports document existing or potential damage for real estate transactions. Serving {city_state}. Call {phone}.",
       "meta_keywords": "wdi inspection {city} {SS}, real estate termite inspection, wood destroying insect inspection, termite letter",
       "og_title": "WDI Inspection in {city_state} | {business}",
       "og_description": "Professional wdi inspection in {city_state} from {business}. Trained inspectors, a thorough on-site inspection, and a clear written report of findings. Call {phone}.",
@@ -6790,7 +6982,7 @@
   {
     "id": "tpl_residential_pest_control",
     "base": true,
-    "title": "Residential Pest Control in {city_state} | {business}",
+    "title": "Residential Pest Control in {city_state} | {business_short}",
     "slug_pattern": "residential-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Residential Pest Control",
@@ -6866,7 +7058,7 @@
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
+            "text": "A local technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
           },
           {
             "image": "",
@@ -6944,6 +7136,14 @@
           {
             "url": "/cockroach-exterminator-{city_slug}",
             "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
+          },
+          {
+            "url": "/termite-treatment-{city_slug}",
+            "text": "termite treatment"
           }
         ],
         "id": "related_links_1"
@@ -6992,9 +7192,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Residential Pest Control in {city_state} | {business}",
+      "seo_title": "Residential Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Residential Pest Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Homes provide shelter and food sources that attract unwanted pests year-round. Serving {city_state}. Call {phone}.",
       "meta_keywords": "residential pest control {city} {SS}, residential exterminator, home pest control, house pest control",
       "og_title": "Residential Pest Control in {city_state} | {business}",
       "og_description": "Professional residential pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -7062,7 +7262,7 @@
   },
   {
     "id": "tpl_commercial_pest_control",
-    "title": "Commercial Pest Control in {city_state} | {business}",
+    "title": "Commercial Pest Control in {city_state} | {business_short}",
     "slug_pattern": "commercial-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Commercial Pest Control",
@@ -7138,7 +7338,7 @@
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
+            "text": "A local technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
           },
           {
             "image": "",
@@ -7216,6 +7416,14 @@
           {
             "url": "/pest-inspection-{city_slug}",
             "text": "pest inspection"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -7264,9 +7472,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Commercial Pest Control in {city_state} | {business}",
+      "seo_title": "Commercial Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Commercial Pest Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Businesses face reputation damage and health code violations from pest infestations. Serving {city_state}. Call {phone}.",
       "meta_keywords": "commercial pest control {city} {SS}, commercial exterminator, business pest control, office pest control",
       "og_title": "Commercial Pest Control in {city_state} | {business}",
       "og_description": "Professional commercial pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -7333,7 +7541,7 @@
   },
   {
     "id": "tpl_emergency_pest_control",
-    "title": "Emergency Pest Control in {city_state} | {business}",
+    "title": "Emergency Pest Control in {city_state} | {business_short}",
     "slug_pattern": "emergency-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Emergency Pest Control",
@@ -7409,7 +7617,7 @@
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
+            "text": "A local technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
           },
           {
             "image": "",
@@ -7487,6 +7695,14 @@
           {
             "url": "/pest-control-plans-{city_slug}",
             "text": "pest control plans"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/termite-treatment-{city_slug}",
+            "text": "termite treatment"
           }
         ],
         "id": "related_links_1"
@@ -7535,9 +7751,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Emergency Pest Control in {city_state} | {business}",
+      "seo_title": "Emergency Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Emergency Pest Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Sudden pest emergencies require fast response to minimize spread and property damage. Serving {city_state}. Call {phone}.",
       "meta_keywords": "emergency pest control {city} {SS}, same day pest control, 24 hour pest control, same day exterminator",
       "og_title": "Emergency Pest Control in {city_state} | {business}",
       "og_description": "Professional emergency pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -7604,7 +7820,7 @@
   },
   {
     "id": "tpl_restaurant_pest_control",
-    "title": "Restaurant Pest Control in {city_state} | {business}",
+    "title": "Restaurant Pest Control in {city_state} | {business_short}",
     "slug_pattern": "restaurant-pest-control-{city_slug}",
     "page_type": "template",
     "service": "Restaurant Pest Control",
@@ -7680,7 +7896,7 @@
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
+            "text": "A local technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
           },
           {
             "image": "",
@@ -7754,6 +7970,14 @@
           {
             "url": "/pest-inspection-{city_slug}",
             "text": "pest inspection"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
+          },
+          {
+            "url": "/termite-treatment-{city_slug}",
+            "text": "termite treatment"
           }
         ],
         "id": "related_links_1"
@@ -7802,9 +8026,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Restaurant Pest Control in {city_state} | {business}",
+      "seo_title": "Restaurant Pest Control in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Restaurant Pest Control in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Restaurants attract pests through food storage and preparation, risking closures and fines. Serving {city_state}. Call {phone}.",
       "meta_keywords": "restaurant pest control {city} {SS}, commercial kitchen pest control, food service pest control, restaurant exterminator",
       "og_title": "Restaurant Pest Control in {city_state} | {business}",
       "og_description": "Professional restaurant pest control in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",
@@ -7871,7 +8095,7 @@
   },
   {
     "id": "tpl_pest_control_plans",
-    "title": "Pest Control Plans in {city_state} | {business}",
+    "title": "Pest Control Plans in {city_state} | {business_short}",
     "slug_pattern": "pest-control-plans-{city_slug}",
     "page_type": "template",
     "service": "Pest Control Plans",
@@ -7986,7 +8210,7 @@
             "image": "",
             "alt": "",
             "heading": "Inspection & Assessment",
-            "text": "Your technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
+            "text": "A local technician inspects the property, identifies the pests and entry points, and builds a treatment plan for your home or business."
           },
           {
             "image": "",
@@ -8049,6 +8273,14 @@
           {
             "url": "/ant-pest-control-{city_slug}",
             "text": "ant pest control"
+          },
+          {
+            "url": "/cockroach-exterminator-{city_slug}",
+            "text": "cockroach extermination"
+          },
+          {
+            "url": "/bed-bug-control-{city_slug}",
+            "text": "bed bug control"
           }
         ],
         "id": "related_links_1"
@@ -8097,9 +8329,9 @@
       }
     ],
     "seo": {
-      "seo_title": "Pest Control Plans in {city_state} | {business}",
+      "seo_title": "Pest Control Plans in {city_state} | {business_short}",
       "canonical_url": "",
-      "meta_description": "Pest Control Plans in {city_state} \u2014 {business} offers fast, guaranteed treatments. Call {phone}.",
+      "meta_description": "Ongoing pest management prevents infestations rather than addressing problems after they start. Serving {city_state}. Call {phone}.",
       "meta_keywords": "pest control plans {city} {SS}, quarterly pest control, monthly pest control, year-round pest control",
       "og_title": "Pest Control Plans in {city_state} | {business}",
       "og_description": "Professional pest control plans in {city_state} from {business}. Fast local response, thorough treatment, and recurring options to keep pests away. Call {phone}.",

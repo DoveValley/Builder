@@ -96,7 +96,8 @@ function default_data() {
             'lb_review_count' => '',
         ],
         'site_vars' => [
-            'business'  => 'Your Business Name',
+            'business'       => 'Your Business Name',
+            'business_short' => '',
             'phone'     => '(555) 123-4567',
             'tel'       => 'tel:+15551234567',
             'email'     => 'contact@yourbusiness.com',
