@@ -4653,7 +4653,10 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
    tap target and a hover state instead of looking like leftover markup. */
 .block-related-links {
     padding: 44px 0;
-    background: var(--skin-subtle-bg, #f3f6f7);
+    background: var(--color-accent);
+}
+.block-related-links .section-heading {
+    color: var(--color-btn-text, #fff);
 }
 .related-links-list {
     list-style: none;
@@ -4677,6 +4680,7 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     font-weight: 600;
     font-size: 0.95rem;
     text-decoration: none;
+    text-transform: capitalize;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
 }
@@ -4689,10 +4693,10 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     flex-shrink: 0;
 }
 .related-links-list a:hover {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-btn-text, #fff);
+    background: var(--color-heading, #1a1a2e);
+    border-color: var(--color-heading, #1a1a2e);
+    color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
 }
-.related-links-list a:hover::before { background: var(--color-btn-text, #fff); }
+.related-links-list a:hover::before { background: #ffffff; }
