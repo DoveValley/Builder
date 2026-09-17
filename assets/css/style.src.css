@@ -4671,7 +4671,8 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .related-links-list a {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    text-align: center;
     padding: 11px 20px;
     background: #ffffff;
     border: 1px solid rgba(0,0,0,0.08);
@@ -4684,14 +4685,6 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
 }
-.related-links-list a::before {
-    content: '';
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    flex-shrink: 0;
-}
 .related-links-list a:hover {
     background: var(--color-heading, #1a1a2e);
     border-color: var(--color-heading, #1a1a2e);
@@ -4699,4 +4692,3 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.18);
 }
-.related-links-list a:hover::before { background: #ffffff; }
