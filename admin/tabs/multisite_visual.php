@@ -186,6 +186,7 @@ function msvCardHtml(i){
                  ? '<div style="font-size:.85rem;color:#2563eb;font-weight:700;">★ This site’s brand</div>'
                    + '<button type="button" class="btn btn-secondary" style="padding:4px 8px;font-size:.78rem;align-self:flex-start;" onclick="msvUse('+i+')" title="Re-apply this preset\'s current colors/font and regenerate the live logo + favicon">↻ Regenerate</button>'
                  : '<button type="button" class="btn btn-secondary" style="padding:5px 10px;font-size:.85rem;align-self:flex-start;" onclick="msvUse('+i+')">Use for this site →</button>')
+      +     '<button type="button" class="btn btn-secondary" style="padding:5px 10px;font-size:.85rem;align-self:flex-start;" onclick="msvPreviewSite('+i+')" title="Open this site\'s real homepage in a new tab with this preset\'s colors applied — nothing is saved">👁 Preview site</button>'
       +     '<label style="margin:0;font-weight:400;display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.9rem;">'
       +       '<input type="checkbox" class="msv-rot" data-i="'+i+'"'+(p.in_rotation!==false?' checked':'')+'> In multisite rotation</label>'
       +   '</div>'
@@ -264,6 +265,18 @@ function msvSave(cb){
           else { msg.style.color='#dc2626'; msg.textContent='Error: '+(d.error||'save failed'); if(cb)cb(false); }
       })
       .catch(function(){ msg.style.color='#dc2626'; msg.textContent='Network error.'; if(cb)cb(false); });
+}
+// Opens the site's real homepage in a new tab with this preset's colors
+// substituted in at render time (admin/theme_preview.php) — reads straight from
+// the in-memory MSV[i] so it reflects whatever is on screen right now, even a
+// color just tweaked and not yet saved. No save, no reload of this tab.
+function msvPreviewSite(i){
+    var p = MSV[i];
+    var url = 'theme_preview.php?accent=' + encodeURIComponent(p.accent)
+        + '&dark=' + encodeURIComponent(p.dark)
+        + '&radius=' + encodeURIComponent(p.radius || 0)
+        + '&name=' + encodeURIComponent(p.name || '');
+    window.open(url, '_blank');
 }
 function msvUse(i){
     var p = MSV[i];
