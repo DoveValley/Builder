@@ -1886,9 +1886,13 @@ function render_content_block($block, $pathPrefix = '') {
             // Text/check colors adapt to the bar background (theme vars only): light bars
             // (subtle/light) -> heading color + accent checks; colored bars -> button-text
             // color (readable on accent/dark). Needed so text stays legible on a colored bar.
+            // Accent is its own case: the bar's own background IS the accent color, so a
+            // check drawn in "accent" would vanish into it — same reason cta_banner's
+            // accent-skin button draws itself in the palette's dark color for contrast
+            // (var(--skin-accent-heading)) instead of the accent color a plain button uses.
             $tbLight       = in_array($tbBg, ['subtle', 'light'], true);
             $tbTextColor   = $tbLight ? 'var(--color-heading)'  : 'var(--color-btn-text,#fff)';
-            $tbCheckStroke = $tbLight ? 'var(--color-accent)'   : 'var(--color-btn-text,#fff)';
+            $tbCheckStroke = $tbLight ? 'var(--color-accent)'   : ($tbBg === 'accent' ? 'var(--skin-accent-heading)' : 'var(--color-btn-text,#fff)');
             $tbCheck    = '<svg width="1.35em" height="1.35em" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="'.$tbCheckStroke.'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             $tbRows = '';
             foreach ($tbItems as $tbItem) {
