@@ -439,7 +439,23 @@ function ms_generate_logo(array &$data, string $workingDir, string $line1, strin
     return $rel;
 }
 
-/** Merge a preset's theme + header fragments into the site data (in place). */
+/**
+ * Merge a preset's theme + header fragments into the site data (in place), then
+ * DERIVE — never store — the skins/accent2_color fields the render pipeline also
+ * needs (skins.dark, skins.accent, accent2_color). These used to be extra fields
+ * a preset could carry, hand-added to theme_presets.json once to fix two real
+ * fleet-wide bugs (Dark-skin sections and accent-skin buttons/headings staying
+ * frozen off-preset). They did not survive: admin/visual_presets_save.php
+ * rebuilds each preset's `theme` from only the 10 fields the Color Preset
+ * card's own editor knows about, on every autosave (which fires on every single
+ * edit in that panel) — so the very next color tweak or checkbox click silently
+ * wiped them back out. Found live: all 10 of water-site's presets had already
+ * lost both fields by the time this was caught. Deriving them here instead of
+ * storing them anywhere means there is no longer a second copy to go stale or
+ * get overwritten — every consumer (this function, called from the real
+ * single-site apply, the multisite build, AND the preview) computes the same
+ * values from the same two source colors, every time.
+ */
 function ms_apply_theme_preset(array &$data, array $preset): void {
     foreach (($preset['theme'] ?? []) as $k => $v) {
         if ($k === 'skins' && is_array($v)) {
@@ -451,6 +467,11 @@ function ms_apply_theme_preset(array &$data, array $preset): void {
     foreach (($preset['header'] ?? []) as $k => $v) {
         $data['header'][$k] = $v;
     }
+    $dark   = $data['theme']['header_bg']    ?? '#0d1f3c';
+    $accent = $data['theme']['accent_color'] ?? '#fd783b';
+    $data['theme']['accent2_color']   = $accent;
+    $data['theme']['skins']['dark']   = ['bg' => $dark, 'heading' => '#ffffff', 'text' => '#e2e8f0'];
+    $data['theme']['skins']['accent'] = ['heading' => $dark, 'text' => '#ffffff'];
 }
 
 /**
