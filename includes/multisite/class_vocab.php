@@ -28,6 +28,61 @@ function ms_class_vocab_reserved(): array
             'sr-only', 'clearfix', 'container', 'row', 'col'];
 }
 
+/**
+ * Find every quoted-string span in a chunk of CSS as [start, end) byte offsets — a
+ * hand-rolled scan, not a regex. A regex quote-matcher like `"(?:[^"\\]|\\.)*"` is
+ * exactly the kind of pattern that exhausts PCRE's JIT stack on a large file — this
+ * codebase has one: style.src.css, a debug/unminified stylesheet copy some builds
+ * carry, at 140KB+. `preg_split`/`preg_replace_callback` with that pattern silently
+ * returned null/false on it (confirmed — not a hypothetical), which crashed the
+ * whole batch row with a TypeError. A byte-by-byte scan has no backtracking at all,
+ * so it can't hit that limit regardless of input size.
+ */
+function ms_class_vocab_quoted_spans(string $css): array
+{
+    $spans = [];
+    $len = strlen($css);
+    $i = 0;
+    while ($i < $len) {
+        $ch = $css[$i];
+        if ($ch === '"' || $ch === "'") {
+            $quote = $ch;
+            $start = $i++;
+            while ($i < $len) {
+                if ($css[$i] === '\\' && $i + 1 < $len) { $i += 2; continue; }
+                if ($css[$i] === $quote) { $i++; break; }
+                $i++;
+            }
+            $spans[] = [$start, $i];
+            continue;
+        }
+        $i++;
+    }
+    return $spans;
+}
+
+/**
+ * Blank out every quoted string in a chunk of CSS — used purely for scanning (which
+ * class names have a real rule), never for anything written back to disk, so exact
+ * length doesn't matter here. A CSS class selector never appears inside a quoted
+ * string, but plenty of legitimate CSS does put ".-like" substrings there:
+ * url("data:...") for an SVG mask/background-image, content:"...", attribute
+ * selectors [x="y.z"], font-family names. Scanning without this strip finds fake
+ * "classes" like `.org` or `.w3` out of a mask URL's own `www.w3.org` — and once
+ * anything named `w3`/`org` is (wrongly) in the eligible-class map, the REWRITE pass
+ * corrupts that same URL by replacing those substrings, breaking the icon it draws.
+ */
+function ms_class_vocab_blank_quoted(string $css): string
+{
+    $out = '';
+    $pos = 0;
+    foreach (ms_class_vocab_quoted_spans($css) as [$start, $end]) {
+        $out .= substr($css, $pos, $start - $pos) . str_repeat(' ', $end - $start);
+        $pos = $end;
+    }
+    return $out . substr($css, $pos);
+}
+
 /** Every class name that has at least one CSS rule, across a site's stylesheets. */
 function ms_class_vocab_css_classes(array $cssFiles): array
 {
@@ -36,6 +91,7 @@ function ms_class_vocab_css_classes(array $cssFiles): array
         $css = (string) @file_get_contents($f);
         // Strip comments first — a commented-out selector is not a rule.
         $css = preg_replace('~/\*.*?\*/~s', '', $css);
+        $css = ms_class_vocab_blank_quoted($css);
         if (preg_match_all('/\.(-?[A-Za-z_][A-Za-z0-9_-]*)/', $css, $m)) {
             foreach ($m[1] as $c) $out[$c] = true;
         }
@@ -53,6 +109,7 @@ function ms_class_vocab_inline_css_classes(array $htmlFiles): array
         if (!preg_match_all('~<style\b[^>]*>(.*?)</style>~is', $html, $m)) continue;
         foreach ($m[1] as $css) {
             $css = preg_replace('~/\*.*?\*/~s', '', $css);
+            $css = ms_class_vocab_blank_quoted($css);
             if (preg_match_all('/\.(-?[A-Za-z_][A-Za-z0-9_-]*)/', $css, $mm)) {
                 foreach ($mm[1] as $c) $out[$c] = true;
             }
@@ -127,14 +184,38 @@ function ms_class_vocab_rewrite_html(string $html, array $map): string
     );
 }
 
-/** Rewrite class SELECTORS in a stylesheet — only where a dot precedes the name. */
+/**
+ * Rewrite class SELECTORS in a stylesheet — only where a dot precedes the name, and
+ * only outside a quoted string. Quoted content (url("data:...") for an SVG mask,
+ * content:"...", attribute-selector values) is passed through byte-for-byte
+ * unchanged — see ms_class_vocab_blank_quoted() for why: a mask URL's own
+ * "www.w3.org" is not a class selector, and rewriting it corrupts the icon it draws.
+ *
+ * Uses ms_class_vocab_quoted_spans() (a manual scan, not a regex) to find the quoted
+ * spans, then runs the simple classname regex only on the unquoted segments between
+ * them. A regex-based quote-splitter (preg_split with a quote-matching pattern) was
+ * tried first and confirmed to return null/false on style.src.css (a 140KB+
+ * debug/unminified stylesheet copy some builds carry) — PCRE's JIT stack exhausted,
+ * silently, which crashed the whole batch row with a TypeError. The classname regex
+ * alone is fine at any size actually seen in this codebase; it's specifically a
+ * regex tasked with finding quote boundaries in a large string that isn't.
+ */
 function ms_class_vocab_rewrite_css(string $css, array $map): string
 {
-    return preg_replace_callback(
+    $rewriteChunk = fn($chunk) => preg_replace_callback(
         '/\.(-?[A-Za-z_][A-Za-z0-9_-]*)/',
         fn($m) => isset($map[$m[1]]) ? '.' . $map[$m[1]] : $m[0],
-        $css
-    );
+        $chunk
+    ) ?? $chunk;
+
+    $out = '';
+    $pos = 0;
+    foreach (ms_class_vocab_quoted_spans($css) as [$start, $end]) {
+        $out .= $rewriteChunk(substr($css, $pos, $start - $pos));
+        $out .= substr($css, $start, $end - $start); // quoted span — untouched
+        $pos = $end;
+    }
+    return $out . $rewriteChunk(substr($css, $pos));
 }
 
 /**
