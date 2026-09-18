@@ -57,6 +57,12 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
         return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
     }
+    // Same guard as city_chart_render() (plugins/image-data-chart/render.php) — a
+    // preview render must never write into the real master's uploads just because
+    // it's rendering with different, not-yet-saved colors.
+    if (!empty($GLOBALS['_ms_preview_no_write'])) {
+        return is_file($p['webp']) ? ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false] : null;
+    }
     if (!is_dir(dirname($p['svg'])) && !@mkdir(dirname($p['svg']), 0775, true) && !is_dir(dirname($p['svg']))) return null;
     if (@file_put_contents($p['svg'], $svg) === false) return null;
 
