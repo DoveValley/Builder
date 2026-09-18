@@ -970,7 +970,16 @@ function render_content_block($block, $pathPrefix = '') {
                 $bgStyle   = "var(--skin-{$cbSkin}-bg)";
                 $textColor = "var(--skin-{$cbSkin}-text)";
                 $btnBg     = "var(--skin-{$cbSkin}-heading)";
-                $btnFg     = "var(--skin-{$cbSkin}-bg)";
+                // Button text normally reuses the section's own background as its
+                // color — correct for light/subtle/dark, where "heading" (the
+                // button's bg) sits at the OPPOSITE pole from "bg" (light section
+                // gets a dark button, dark section gets a light button), so the
+                // section's bg color reads fine as text on top of it. Accent's
+                // "heading" is ALSO a dark, saturated brand color (not the old pale
+                // default), so that assumption breaks — reusing the section's own
+                // (bright) accent color as text on a dark button reads muddy. Use
+                // the section's own light TEXT color there instead.
+                $btnFg = $cbSkin === 'accent' ? "var(--skin-{$cbSkin}-text)" : "var(--skin-{$cbSkin}-bg)";
             } else {
                 $bgStyle = resolve_color($bg, $bgCustom);
                 $btnBg   = $textColor;
@@ -983,8 +992,17 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-cta-banner"'.$anchorAttr
                 .' style="background:'.$bgStyle.';padding:'.$paddingStyle.';text-align:center;">';
             echo '<div class="container">';
-            if ($text)    echo '<'.$cbHeadTag.' class="cb-text" style="color:'.h($textColor).';">'.h($text).'</'.$cbHeadTag.'>';
-            if ($subtext) echo '<p class="cb-subtext" style="color:'.h($textColor).';">'.h($subtext).'</p>';
+            // !important on both: a generic rule styles every h1-h4 inside a
+            // .skin-accent/.skin-dark/etc section from that skin's own "heading"
+            // color (assets/css/style.src.css), meant for blocks that don't pick
+            // their own heading color. This block already computes $textColor
+            // deliberately per skin above — for the 'accent' skin specifically,
+            // "heading" is now a dark brand color (see the cta_banner skins fix)
+            // while $textColor is the section's own light text, so without
+            // !important here the generic rule silently wins and the text goes
+            // dark-on-dark instead of the light color this block actually chose.
+            if ($text)    echo '<'.$cbHeadTag.' class="cb-text" style="color:'.h($textColor).' !important;">'.h($text).'</'.$cbHeadTag.'>';
+            if ($subtext) echo '<p class="cb-subtext" style="color:'.h($textColor).' !important;">'.h($subtext).'</p>';
             if ($btnText) echo '<a href="'.h($btnUrl).'" class="cb-btn" style="color:'.h($btnFg).';background:'.h($btnBg).';">'.h($btnText).'</a>';
             echo '</div></div>';
             break;
