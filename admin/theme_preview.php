@@ -57,6 +57,48 @@ if ($preset === null) {
 $data = load_data();
 ms_apply_theme_preset($data, $preset);
 
+// The logo/favicon are pre-rendered PNGs (ms_generate_logo()), only ever
+// regenerated when a preset is actually APPLIED — so left alone here they'd
+// keep showing whatever colors were baked in last time, same stale-field bug
+// as skins.dark/accent above, just for an image instead of CSS. Point them at
+// the existing safe logo-preview endpoint (admin/visual_preview.php — already
+// used by the Preset/Logo Library cards, renders into system temp only, never
+// touches this site's real uploads/) instead of regenerating a file here.
+$logoDoc      = @json_decode((string)@file_get_contents(ACTIVE_SITE_DIR . '/multisite/logo_configs.json'), true) ?: [];
+$logoConfigs  = is_array($logoDoc['logos'] ?? null) ? $logoDoc['logos'] : [];
+$singleLogoId = (int)($logoDoc['single_logo_id'] ?? 0);
+$logoConfig   = null;
+foreach ($logoConfigs as $idx => $l) {
+    if ((int)($l['id'] ?? ($idx + 1)) === $singleLogoId) { $logoConfig = $l; break; }
+}
+$siteVars = [
+    'business' => trim((string)($data['site_vars']['business'] ?? '')),
+    'city'     => trim((string)($data['site_vars']['city']     ?? '')),
+    'state'    => trim((string)($data['site_vars']['state']    ?? '')),
+    'SS'       => trim((string)($data['site_vars']['SS']       ?? '')),
+];
+$logoLines = ms_resolve_logo_lines($logoConfig, $siteVars, ACTIVE_SITE_ID);
+
+// Same accent/dark resolution ms_generate_logo() itself uses (visual.php ~line 357).
+$logoAccent = preg_match('/^#[0-9a-fA-F]{6}$/', $data['theme']['accent_color'] ?? '') ? $data['theme']['accent_color'] : '#fd783b';
+$logoDark   = '#120575';
+foreach (['heading_color', 'footer_bg', 'header_bg'] as $f) {
+    if (preg_match('/^#[0-9a-fA-F]{6}$/', $data['theme'][$f] ?? '')) { $logoDark = $data['theme'][$f]; break; }
+}
+$logoQuery = http_build_query([
+    'accent'      => $logoAccent,
+    'dark'        => $logoDark,
+    'line1'       => $logoLines['line1'],
+    'line2'       => $logoLines['line2'],
+    'line1_color' => $logoLines['line1Color'],
+    'line2_color' => $logoLines['line2Color'],
+    'icon_bg'     => $logoLines['iconBg'],
+    'icon'        => $logoLines['iconPath'] ? basename($logoLines['iconPath']) : '',
+]);
+$data['header']['logo']    = 'admin/visual_preview.php?' . $logoQuery;
+$data['header']['favicon'] = 'admin/visual_preview.php?' . $logoQuery . '&type=favicon';
+if (!empty($data['footer']['logo'])) $data['footer']['logo'] = $data['header']['logo'];
+
 $contentBlocks   = $data['content_blocks'];
 $seo             = $data['seo'];
 $pageTitle       = 'Preview: ' . ($name !== '' ? $name : 'Untitled preset');
