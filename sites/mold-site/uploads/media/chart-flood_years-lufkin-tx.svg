@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img">
-<defs><linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f4f7fa"/></linearGradient><linearGradient id="tdot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3A712"/><stop offset="1" stop-color="#000000"/></linearGradient></defs>
+<defs><linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f4f7fa"/></linearGradient><linearGradient id="tdot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3A712"/><stop offset="1" stop-color="#0B5A8C"/></linearGradient></defs>
 <rect width="900" height="300" fill="url(#tbg)"/>
 <rect x="0" y="0" width="900" height="6" fill="#F3A712" fill-opacity=".9"/>
-<text x="62" y="52" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="25" font-weight="700" fill="#000000">Major flood events in Lufkin, TX</text>
+<text x="62" y="52" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="25" font-weight="700" fill="#0B5A8C">Major flood events in Lufkin, TX</text>
 <text x="62" y="78" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" font-weight="700" fill="#F3A712">Most recent: 2017</text>
 <line x1="62" y1="176" x2="838" y2="176" stroke="#6b7f95" stroke-opacity=".35" stroke-width="2"/>
 <text x="62" y="206" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" fill="#6b7f95">2016</text>
@@ -10,7 +10,7 @@
 <line x1="139.6" y1="162" x2="139.6" y2="176" stroke="#F3A712" stroke-opacity=".45" stroke-width="1.5"/>
 <circle cx="139.6" cy="176" r="9" fill="url(#tdot)"/>
 <circle cx="139.6" cy="176" r="15" fill="none" stroke="#F3A712" stroke-opacity=".45" stroke-width="2"/>
-<text x="139.6" y="154" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#000000">2017</text>
+<text x="139.6" y="154" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#0B5A8C">2017</text>
 <text x="62" y="282" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" fill="#6b7f95">Source: NOAA Storm Events Database</text>
 <rect x="2" y="2" width="896" height="296" rx="16" fill="none" stroke="#F3A712" stroke-opacity=".55" stroke-width="4"/>
 </svg>

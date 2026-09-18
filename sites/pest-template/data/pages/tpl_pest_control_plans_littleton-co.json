@@ -203,7 +203,7 @@
         },
         {
             "type": "trust_bar",
-            "tb_bg": "subtle",
+            "tb_bg": "accent",
             "tb_bg_custom": "#f3f6f7",
             "tb_items": [
                 {
@@ -393,6 +393,7 @@
         },
         {
             "type": "service_cards",
+            "skin": "accent",
             "anchor": "related_services",
             "sc_badge": "",
             "sc_heading": "Pests We Treat in {city_state}",
