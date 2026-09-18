@@ -307,9 +307,14 @@ function admin_upload_url_v(string $path): string {
 }
 
 /* Filesystem path for a stored upload path ("uploads/x.png"), so the file can be
-   inspected server-side (e.g. getimagesize). Mirrors admin_upload_url's mapping. */
+   inspected server-side (e.g. getimagesize). Mirrors admin_upload_url's mapping.
+   Strips a trailing "?v=..." cache-buster first (chart/map tokens carry one — see
+   plugins/image-data-chart/render.php) so it can't be mistaken for part of the
+   filename and make is_file() miss a real, existing file. */
 function upload_fs_path(string $path): string {
     $path = ltrim($path, '/');
+    $qPos = strpos($path, '?');
+    if ($qPos !== false) $path = substr($path, 0, $qPos);
     if ($path === '') return '';
     if (defined('UPLOAD_DIR') && strncmp($path, 'uploads/', 8) === 0) {
         return rtrim(UPLOAD_DIR, '/') . '/' . substr($path, 8);

@@ -50,8 +50,13 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
     // place, because the path is keyed on city + chart id and never varies. Comparing the SVG
     // is cheap (pure string building) and still skips the expensive rasterise when nothing
     // actually changed, so ten sites covering one city draw it once.
+    // Cache-busted: chart images are regenerated in place under a fixed filename
+    // (keyed on city + chart id, never on content), so a browser that cached an older
+    // version before a theme/color change kept showing it forever — same bug the
+    // footer logo had (includes/site-template.php, admin_upload_url_v()) before it
+    // was given a ?v=<mtime> query string. Same fix here, at the source.
     if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
-        return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
+        return ['path' => $p['url'] . '.webp?v=' . filemtime($p['webp']), 'alt' => $alt, 'drawn' => false];
     }
     // A preview render (admin/theme_preview.php) points ACTIVE_SITE_DIR at the real
     // master on purpose — it needs the master's real content — but must never WRITE
@@ -59,7 +64,7 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
     // whatever is already on disk (colors may not match this preview) rather than
     // regenerating the master's real chart, or show nothing if none exists yet.
     if (!empty($GLOBALS['_ms_preview_no_write'])) {
-        return is_file($p['webp']) ? ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false] : null;
+        return is_file($p['webp']) ? ['path' => $p['url'] . '.webp?v=' . filemtime($p['webp']), 'alt' => $alt, 'drawn' => false] : null;
     }
     if (!is_dir(dirname($p['svg'])) && !@mkdir(dirname($p['svg']), 0775, true) && !is_dir(dirname($p['svg']))) return null;
     if (@file_put_contents($p['svg'], $svg) === false) return null;
@@ -67,9 +72,9 @@ function city_chart_render(string $siteDir, array $city, array $def, array $them
     if (!city_chart_rasterise($p['svg'], $p['webp'])) {
         // No converter on this box. The SVG is valid and usable, so ship that rather than
         // nothing — a chart in the wrong format beats no chart.
-        return ['path' => $p['url'] . '.svg', 'alt' => $alt, 'drawn' => true];
+        return ['path' => $p['url'] . '.svg?v=' . filemtime($p['svg']), 'alt' => $alt, 'drawn' => true];
     }
-    return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => true];
+    return ['path' => $p['url'] . '.webp?v=' . filemtime($p['webp']), 'alt' => $alt, 'drawn' => true];
 }
 
 /**

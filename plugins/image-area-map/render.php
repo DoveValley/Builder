@@ -54,14 +54,17 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     // city slug and never changes. Comparing the SVG is cheap — it is pure string building —
     // and it still skips the expensive rasterise whenever nothing has actually changed, so two
     // sites covering the same city draw it once.
+    // Cache-busted for the same reason city_chart_render() is (plugins/image-data-chart/
+    // render.php): this diagram is regenerated in place under a fixed filename, so a
+    // browser that cached an older version before a theme/color change never saw the update.
     if (!$force && is_file($p['webp']) && is_file($p['svg']) && @file_get_contents($p['svg']) === $svg) {
-        return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false];
+        return ['path' => $p['url'] . '.webp?v=' . filemtime($p['webp']), 'alt' => $alt, 'drawn' => false];
     }
     // Same guard as city_chart_render() (plugins/image-data-chart/render.php) — a
     // preview render must never write into the real master's uploads just because
     // it's rendering with different, not-yet-saved colors.
     if (!empty($GLOBALS['_ms_preview_no_write'])) {
-        return is_file($p['webp']) ? ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => false] : null;
+        return is_file($p['webp']) ? ['path' => $p['url'] . '.webp?v=' . filemtime($p['webp']), 'alt' => $alt, 'drawn' => false] : null;
     }
     if (!is_dir(dirname($p['svg'])) && !@mkdir(dirname($p['svg']), 0775, true) && !is_dir(dirname($p['svg']))) return null;
     if (@file_put_contents($p['svg'], $svg) === false) return null;
@@ -69,9 +72,9 @@ function city_map_render(string $siteDir, array $city, array $theme = [], bool $
     if (!city_map_rasterise($p['svg'], $p['webp'])) {
         // Rasterising failed (no converter on this box). The SVG is still valid and usable,
         // so return that rather than nothing — a diagram in the wrong format beats no diagram.
-        return ['path' => $p['url'] . '.svg', 'alt' => $alt, 'drawn' => true];
+        return ['path' => $p['url'] . '.svg?v=' . filemtime($p['svg']), 'alt' => $alt, 'drawn' => true];
     }
-    return ['path' => $p['url'] . '.webp', 'alt' => $alt, 'drawn' => true];
+    return ['path' => $p['url'] . '.webp?v=' . filemtime($p['webp']), 'alt' => $alt, 'drawn' => true];
 }
 
 /**
