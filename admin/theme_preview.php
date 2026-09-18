@@ -1,19 +1,21 @@
 <?php
 /**
  * Live full-page preview for a Color Preset — renders the ACTIVE site's real
- * homepage with a given accent/dark/radius substituted into $data['theme'],
+ * homepage with a chosen preset's colors substituted into $data['theme'],
  * entirely in memory. Nothing is read from or written to any preset file;
  * this is a render-time overlay only, same "no save, just show" spirit as
  * admin/visual_preview.php (the existing logo/favicon preview).
  *
- * Builds the SAME shape a stored preset in theme_presets.json carries and
- * applies it via the real ms_apply_theme_preset() — not a hand-picked subset
- * of keys — so this preview and an actual multisite build never drift apart.
- * A first cut of this file only set 8 base keys and missed `skins.dark.bg` /
- * `accent2_color`, which stayed frozen at the master's own values regardless
- * of preset — real bug, found because Scott looked at a non-default preset
- * here for the first time (see includes/multisite/visual.php's
- * ms_apply_theme_preset() docblock for why `skins` is a preset-carried key).
+ * Looks up the REAL saved preset by id and applies it via the real
+ * ms_apply_theme_preset() — does not reconstruct any part of its shape by
+ * hand. A first cut of this file hand-built an 8-key theme array from raw
+ * accent/dark/radius GET params, which meant every field a preset carries
+ * that ISN'T one of those 8 (skins.dark, skins.accent, accent2_color, ...)
+ * silently fell back to whatever the MASTER's own site.json happened to
+ * have — found real, twice, both times because Scott looked at a non-
+ * default preset and a button or section came out visibly wrong. Looking
+ * the preset up by id and applying it for real is the only way this can't
+ * happen a third time for some field not yet discovered to matter.
  *
  * DANGER FOUND + FIXED: this points ACTIVE_SITE_DIR at the real master on
  * purpose (it needs the master's real content), but rendering ALSO fires the
@@ -28,7 +30,11 @@
  * saved theme's colors rather than the previewed one, which is a fair trade
  * for never corrupting live assets from a "just looking" click.
  *
- * GET: accent=#hex  dark=#hex  radius=0-50  name=label (cosmetic, page title only)
+ * GET: i=<0-based position in the library>  name=label (cosmetic, error text
+ *      only). Position, not the stored `id` field — admin/tabs/multisite_visual.php's
+ *      MSV array (what the button actually reads from) is rebuilt fresh from
+ *      theme_presets.json on every page load and indexed by array position,
+ *      same as every other action on that card (data-i, "Use for this site").
  */
 require_once __DIR__ . '/../config.php';
 if (empty($_SESSION['admin_logged_in'])) { http_response_code(403); header('Content-Type: text/plain'); exit('Not authenticated.'); }
@@ -37,26 +43,18 @@ require_once __DIR__ . '/../includes/multisite/visual.php';
 
 $GLOBALS['_ms_preview_no_write'] = true;
 
-$accent = preg_match('/^#[0-9a-fA-F]{6}$/', (string) ($_GET['accent'] ?? '')) ? $_GET['accent'] : '#fd783b';
-$dark   = preg_match('/^#[0-9a-fA-F]{6}$/', (string) ($_GET['dark']   ?? '')) ? $_GET['dark']   : '#1e293b';
-$radius = isset($_GET['radius']) && ctype_digit((string) $_GET['radius']) ? (int) $_GET['radius'] : 8;
-$name   = trim((string) ($_GET['name'] ?? 'Preview'));
+$i    = (int) ($_GET['i'] ?? -1);
+$name = trim((string) ($_GET['name'] ?? 'Preview'));
+
+$presets = ms_load_theme_presets(ACTIVE_SITE_ID);
+$preset  = $presets[$i] ?? null;
+if ($preset === null) {
+    http_response_code(404);
+    header('Content-Type: text/plain');
+    exit("Preset #{$i} (\"{$name}\") not found — save the library first (it auto-saves on every edit), then try Preview again.");
+}
 
 $data = load_data();
-
-// Same shape as a real theme_presets.json entry — see ms_apply_theme_preset().
-$preset = ['theme' => [
-    'accent_color'   => $accent,
-    'header_bg'      => $dark,
-    'footer_bg'      => $dark,
-    'heading_color'  => $dark,
-    'header_text'    => '#ffffff',
-    'footer_text'    => '#ffffff',
-    'header_top_bg'  => '#ffffff',
-    'button_radius'  => $radius,
-    'accent2_color'  => $accent,
-    'skins'          => ['dark' => ['bg' => $dark, 'heading' => '#ffffff', 'text' => '#e2e8f0']],
-]];
 ms_apply_theme_preset($data, $preset);
 
 $contentBlocks   = $data['content_blocks'];

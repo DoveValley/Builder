@@ -267,14 +267,16 @@ function msvSave(cb){
       .catch(function(){ msg.style.color='#dc2626'; msg.textContent='Network error.'; if(cb)cb(false); });
 }
 // Opens the site's real homepage in a new tab with this preset's colors
-// substituted in at render time (admin/theme_preview.php) — reads straight from
-// the in-memory MSV[i] so it reflects whatever is on screen right now, even a
-// color just tweaked and not yet saved. No save, no reload of this tab.
+// substituted in at render time (admin/theme_preview.php) — looks the preset
+// up by its position in the library (same index every other button on this
+// card already uses) and applies it for real via ms_apply_theme_preset(), so
+// the preview can never miss a field the way an earlier cut (which rebuilt
+// just accent/dark/radius by hand) twice did. Auto-save already persists
+// every edit on change, so a color just tweaked is on disk by the time this
+// click happens — no save, no reload of this tab.
 function msvPreviewSite(i){
     var p = MSV[i];
-    var url = 'theme_preview.php?accent=' + encodeURIComponent(p.accent)
-        + '&dark=' + encodeURIComponent(p.dark)
-        + '&radius=' + encodeURIComponent(p.radius || 0)
+    var url = 'theme_preview.php?i=' + encodeURIComponent(i)
         + '&name=' + encodeURIComponent(p.name || '');
     window.open(url, '_blank');
 }
