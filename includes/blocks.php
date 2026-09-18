@@ -1212,7 +1212,12 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-service-cards"'.$anchorAttr.'>';
             echo '<div class="container">';
             if ($badge)   echo '<div class="svc-badge-wrap"><span class="svc-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span></div>';
-            if ($heading) echo '<h2 class="svc-heading" style="color:'.$headColorStyle.';">'.h($heading).'</h2>';
+            // !important: a generic rule (assets/css/style.src.css) colors every heading
+            // inside a skin-accent/dark/etc section from that skin's own "heading" color,
+            // for blocks that don't pick their own — this block DOES (sc_head_color, a real
+            // panel field), so its own choice must win over the generic one rather than
+            // silently losing to it when the panel's Block-skin picker is set to Accent/Dark.
+            if ($heading) echo '<h2 class="svc-heading" style="color:'.$headColorStyle.' !important;">'.h($heading).'</h2>';
             echo '<div class="svc-grid svc-grid-'.$cols.'">';
             foreach ($items as $item) {
                 $iIcon  = $item['icon']    ?? '';
