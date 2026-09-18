@@ -185,8 +185,8 @@
                     </div>
                 </div>
 
-                <div class="form-group" id="sr-bar-height-row" style="<?= ($currentLayout === 'single_row') ? '' : 'display:none;' ?>">
-                    <label for="sr_bar_height">Header bar height: <strong id="sr_bar_height_val"><?= h($header['sr_bar_height'] ?? '64') ?>px</strong></label>
+                <div class="form-group" id="sr-bar-height-row">
+                    <label for="sr_bar_height">Nav bar height: <strong id="sr_bar_height_val"><?= h($header['sr_bar_height'] ?? '64') ?>px</strong></label>
                     <input type="range" id="sr_bar_height" name="sr_bar_height"
                            min="48" max="120" step="4"
                            value="<?= h($header['sr_bar_height'] ?? '64') ?>"
@@ -301,9 +301,13 @@
                     <div class="form-group" style="flex:0 0 auto;padding-bottom:4px;">
                         <label>
                             <input type="checkbox" name="show_sponsored" value="1" <?= !empty($header['show_sponsored']) ? 'checked' : '' ?>>
-                            Show "Sponsored" badge
+                            Show info-icon badge
                         </label>
                         <span class="hint">Uncheck for non-lead-gen sites.</span>
+                    </div>
+                    <div class="form-group" style="flex:1 1 160px;">
+                        <label for="sponsored_text">Badge text <span class="hint">(leave blank for icon only)</span></label>
+                        <input type="text" id="sponsored_text" name="sponsored_text" value="<?= h($header['sponsored_text'] ?? 'Sponsored') ?>" placeholder="e.g. Sponsored">
                     </div>
                 </div>
                 <div class="form-group">
@@ -311,6 +315,13 @@
                         <input type="checkbox" name="sticky" value="1" <?= !empty($header['sticky']) ? 'checked' : '' ?>>
                         Sticky header (stays at top of page when scrolling)
                     </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="sticky_nav_on_scroll" value="1" <?= !empty($header['sticky_nav_on_scroll']) ? 'checked' : '' ?>>
+                        Stick just the nav/phone bar to the top once you scroll past the logo row
+                    </label>
+                    <span class="hint">An alternative to "Sticky header" above — the logo row scrolls away normally, and only the colored nav+phone bar pins to the top of the browser as you scroll. Matches the behavior on sites like planowaterrestoration.com. Turn off "Sticky header" above when using this, since pinning the whole header makes this redundant.</span>
                 </div>
             </div>
 
@@ -396,8 +407,6 @@
 function onHeaderLayoutChange(layout) {
     var infoCard = document.getElementById('header-info-items-card');
     if (infoCard) infoCard.style.display = (layout === 'single_row') ? 'none' : '';
-    var srHeight = document.getElementById('sr-bar-height-row');
-    if (srHeight) srHeight.style.display = (layout === 'single_row') ? '' : 'none';
 document.querySelectorAll('.layout-option').forEach(function(el) {
         el.classList.remove('layout-option-selected');
     });

@@ -16,9 +16,11 @@
         $data['header']['phone_btn_style'] = in_array($_POST['phone_btn_style'] ?? '', ['outline','filled','plain']) ? $_POST['phone_btn_style'] : 'outline';
         $data['header']['phone_label']    = trim($_POST['phone_label']   ?? 'Helpline:');
         $data['header']['show_sponsored'] = !empty($_POST['show_sponsored']);
+        $data['header']['sponsored_text'] = trim($_POST['sponsored_text'] ?? 'Sponsored');
         $data['header']['cta_text']       = trim($_POST['cta_text']      ?? '');
         $data['header']['cta_url']        = sanitize_url($_POST['cta_url'] ?? '');
         $data['header']['sticky']         = !empty($_POST['sticky']);
+        $data['header']['sticky_nav_on_scroll'] = !empty($_POST['sticky_nav_on_scroll']);
         // Info items
         $infoIcons   = $_POST['info_icon']   ?? [];
         $infoTexts   = $_POST['info_text']   ?? [];

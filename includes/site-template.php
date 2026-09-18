@@ -277,7 +277,8 @@ if (empty($seo['og_image'])) {
     // Analytics — output raw (admin-entered, trusted)
     if (!empty($theme['analytics_head'])) echo $theme['analytics_head'] . "\n";
     if (!empty($theme['facebook_pixel'])) echo $theme['facebook_pixel'] . "\n";
-    if (!empty($theme['head_extra']))     echo $theme['head_extra'] . "\n";   // e.g. per-site Search Console verification
+    if (!empty($theme['gsc_meta']))       echo $theme['gsc_meta'] . "\n";     // multisite: per-site Search Console verification meta tag
+    if (!empty($theme['head_extra']))     echo $theme['head_extra'] . "\n";   // free-text "Custom head code" — admin-authored CSS/HTML
     ?>
 </head>
 <body>
@@ -292,6 +293,7 @@ $infoItems     = $header['info_items']      ?? [];
 $logoHeight    = max(32, min(120, (int)($header['logo_max_height'] ?? 56)));
 $phoneLabel    = trim($header['phone_label']   ?? 'Helpline:');
 $showSponsored = !empty($header['show_sponsored']);
+$sponsoredText = trim($header['sponsored_text'] ?? 'Sponsored');
 $ctaText       = trim($header['cta_text']      ?? '');
 $ctaUrl        = trim($header['cta_url']       ?? '#');
 
@@ -554,7 +556,7 @@ if ($firstBlockHero) {
     <div class="sticky-bar-inner">
         <span class="sticky-bar-text" style="color:<?= h($header['nav_text'] ?? '#ffffff') ?>;">
             <?= h($footer['sticky_bar_text'] ?? '24/7 Support Line - Call Now') ?>
-            <?php if (!empty($footer['sticky_bar_info']) || !empty($data['popups']['info']['enabled'])): ?>
+            <?php if (($footer['show_sticky_info_icon'] ?? true) && (!empty($footer['sticky_bar_info']) || !empty($data['popups']['info']['enabled']))): ?>
                 <button class="info-trigger sticky-info-trigger"
                         onclick="openInfoPopup()"
                         title="<?= h($footer['sticky_bar_info'] ?? '') ?>"
@@ -600,6 +602,48 @@ if ($firstBlockHero) {
         }
         setOffset();
         window.addEventListener('resize', setOffset);
+    }
+
+    // Stick just the nav/phone row to the top once you scroll past the logo row —
+    // an alternative to the whole-header sticky above. Threshold-based (not scroll-
+    // direction based): it pins once you scroll past its natural position and stays
+    // pinned either direction, only releasing once you scroll back above that point.
+    // position:sticky can't be used here — this site sets overflow-x:hidden/clip on
+    // html/body (elsewhere, intentionally), which breaks native sticky in all browsers.
+    var navRow = document.querySelector('.header-nav-row.nav-row-sticky-enabled');
+    if (navRow) {
+        var navSpacer = document.createElement('div');
+        navSpacer.style.display = 'none';
+        navRow.parentNode.insertBefore(navSpacer, navRow.nextSibling);
+        var navThreshold = null;
+        function getNavThreshold() {
+            if (navThreshold === null) {
+                navThreshold = navRow.getBoundingClientRect().top + window.scrollY;
+            }
+            return navThreshold;
+        }
+        var navTicking = false;
+        function onNavScroll() {
+            if (window.scrollY > getNavThreshold()) {
+                if (!navRow.classList.contains('nav-row-stuck')) {
+                    navSpacer.style.height = navRow.offsetHeight + 'px';
+                    navSpacer.style.display = 'block';
+                    navRow.classList.add('nav-row-stuck');
+                }
+            } else if (navRow.classList.contains('nav-row-stuck')) {
+                navRow.classList.remove('nav-row-stuck');
+                navSpacer.style.display = 'none';
+            }
+            navTicking = false;
+        }
+        window.addEventListener('scroll', function() {
+            if (!navTicking) {
+                window.requestAnimationFrame(onNavScroll);
+                navTicking = true;
+            }
+        });
+        window.addEventListener('resize', function() { navThreshold = null; });
+        onNavScroll();
     }
 
     // Scroll to top button

@@ -33,6 +33,8 @@
         if (preg_match('/^[a-zA-Z0-9\s,\-]*$/', $headingFont)) {
             $data['theme']['heading_font'] = $headingFont;
         }
+        $headingWeight = $_POST['heading_weight'] ?? '700';
+        $data['theme']['heading_weight'] = in_array($headingWeight, ['400','500','600','700','800','900'], true) ? $headingWeight : '700';
         // Font sizes
         $data['theme']['font_size_body'] = max(12, min(24, (int)($_POST['font_size_body'] ?? 16)));
         foreach (['h1','h2','h3','h4'] as $tag) {

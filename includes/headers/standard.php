@@ -18,7 +18,7 @@
 </div>
 <?php endif; ?>
 
-<header class="site-header<?= $isSticky ? ' site-header-sticky' : '' ?>">
+<header class="site-header<?= $isSticky ? ' site-header-sticky' : '' ?><?= !empty($header['sticky_nav_on_scroll']) ? ' sticky-nav-pattern' : '' ?>">
 
     <!-- TOP ROW: logo + info items -->
     <div class="header-top-row">
@@ -77,8 +77,34 @@
     </div>
 
     <!-- BOTTOM ROW: nav bar -->
-    <div class="header-nav-row" style="background:<?= h($navBg) ?>;">
-        <div class="container header-nav-inner">
+    <?php $_navBarHeight = max(48, min(120, (int)($header['sr_bar_height'] ?? 64))); ?>
+    <div class="header-nav-row<?= !empty($header['sticky_nav_on_scroll']) ? ' nav-row-sticky-enabled' : '' ?>" style="background:<?= h($navBg) ?>;">
+        <div class="container header-nav-inner" style="min-height:<?= $_navBarHeight ?>px;">
+
+            <?php if (!empty($header['sticky_nav_on_scroll'])): ?>
+            <?php
+            $__navBrand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')));
+            if ($__navBrand === '') $__navBrand = SITE_TITLE;
+            $__navBrandParts = explode(' ', $__navBrand, 2);
+            $__navBrandLine1 = $__navBrandParts[0];
+            $__navBrandLine2 = $__navBrandParts[1] ?? '';
+            ?>
+            <div class="mobile-nav-logo">
+                <a href="<?= h($homeUrl ?? '/') ?>" class="mobile-nav-logo-link">
+                    <?php if (!empty($header['mobile_logo_icon_white'])): ?>
+                        <img src="<?= h(admin_upload_url_v($header['mobile_logo_icon_white'])) ?>" alt="" <?= img_dim_attrs($header['mobile_logo_icon_white'], 43) ?>class="mobile-nav-logo-icon" style="height:43px;width:auto;display:block;">
+                        <span class="mobile-nav-logo-text">
+                            <span class="mobile-nav-logo-line"><?= h($__navBrandLine1) ?></span>
+                            <?php if ($__navBrandLine2 !== ''): ?><span class="mobile-nav-logo-line"><?= h($__navBrandLine2) ?></span><?php endif; ?>
+                        </span>
+                    <?php elseif (!empty($header['logo'])): ?>
+                        <img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h($__navBrand) ?>" <?= img_dim_attrs($header['logo'], 36) ?>class="mobile-nav-logo-composite" style="max-height:36px;height:auto;width:auto;max-width:100%;display:block;">
+                    <?php else: ?>
+                        <span class="logo-text" style="color:<?= h($navText) ?>;"><?= h($__navBrand) ?></span>
+                    <?php endif; ?>
+                </a>
+            </div>
+            <?php endif; ?>
 
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span style="background:<?= h($navText) ?>;"></span>
@@ -176,12 +202,12 @@
                         <span class="helpline-sponsored" style="color:<?= h($navText) ?>;">
                             <?php if (!empty($data['popups']['info']['enabled'])): ?>
                                 <button class="info-trigger" onclick="openInfoPopup()" aria-label="Info" style="color:<?= h($navText) ?>;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
                                 </button>
                             <?php else: ?>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2ZM11 7h2v2h-2zm0 4h2v6h-2z"/></svg>
                             <?php endif; ?>
-                            Sponsored
+                            <?= h($sponsoredText) ?>
                         </span>
                         <?php endif; ?>
                     </div>

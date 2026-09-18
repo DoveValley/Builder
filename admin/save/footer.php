@@ -6,6 +6,7 @@
         $data['footer']['disclaimer']           = trim($_POST['disclaimer']      ?? '');
         $data['footer']['sticky_bar_text']      = trim($_POST['sticky_bar_text'] ?? '');
         $data['footer']['sticky_bar_info']      = trim($_POST['sticky_bar_info'] ?? '');
+        $data['footer']['show_sticky_info_icon'] = !empty($_POST['show_sticky_info_icon']);
         $data['footer']['logo_in_copyright_bar']= !empty($_POST['logo_in_copyright_bar']);
         $data['footer']['logo_in_contact_column']= !empty($_POST['logo_in_contact_column']);
         $data['footer']['col_count'] = max(2, min(4, (int)($_POST['footer_col_count'] ?? 3)));

@@ -619,6 +619,16 @@
                     </div>
                     <span class="hint" style="margin-top:6px;display:block;">rem units relative to body size. H1 default 2.5, H2 2, H3 1.75, H4 1.5.</span>
                 </div>
+                <div class="form-group">
+                    <label for="heading_weight">Heading weight</label>
+                    <select id="heading_weight" name="heading_weight">
+                        <?php $currentHWeight = $theme['heading_weight'] ?? '700'; ?>
+                        <?php foreach (['400'=>'Regular (400)','500'=>'Medium (500)','600'=>'Semibold (600)','700'=>'Bold (700, default)','800'=>'Extra Bold (800)','900'=>'Black (900)'] as $wv => $wl): ?>
+                            <option value="<?= h($wv) ?>" <?= $currentHWeight === $wv ? 'selected' : '' ?>><?= h($wl) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <span class="hint">Applies to any heading that doesn't already set its own weight (plain text blocks, FAQ, etc). Blocks like Hero/Stats/Cards already set their own bold weight and are unaffected.</span>
+                </div>
                 <div class="form-group" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;">
                     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
                         <button type="button" class="btn btn-secondary btn-small" onclick="gvSetTypographyPreset('Inter, sans-serif','Inter, sans-serif',2,1.75,1.17,1)">Home Serv Head &amp; Body Font</button>

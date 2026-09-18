@@ -253,18 +253,22 @@ function ms_differentiate_working_dir(string $workingDir, array $params, array $
     }
 
     // ── 4. Analytics isolation — per-site tag or none (never shared) ──────────
-    // Both tags are still CLEARED when skipped, not left alone: the clone inherits the
-    // master's tags, so "leave it as it was" would send this site's traffic to the
-    // master's property — the one thing per-site isolation exists to prevent.
+    // Only the real per-site TAGS are cleared when skipped, not left alone: the clone
+    // inherits the master's tags, so "leave it as it was" would send this site's traffic
+    // to the master's property — the one thing per-site isolation exists to prevent.
+    // theme.head_extra is NOT a tracking tag — it's the site's own free-text "Custom head
+    // code" field (arbitrary CSS/HTML authored per-site in the admin), so it must survive
+    // the clone untouched; it used to get clobbered here because the GSC meta tag was
+    // written into this same field, silently destroying any custom CSS on every generate.
     if ($skipTags) {
         $data['theme']['analytics_head'] = '';
-        $data['theme']['head_extra']     = '';
+        $data['theme']['gsc_meta']       = '';
     } else {
         $aid = trim($params['analytics_id'] ?? '');
         $data['theme']['analytics_head'] = $aid !== '' ? ms_ga4_snippet($aid) : '';
 
         // ── 4b. Search Console verification — per-site meta tag or none ────────
-        $data['theme']['head_extra'] = ms_gsc_meta($params['gsc_verification'] ?? '');
+        $data['theme']['gsc_meta'] = ms_gsc_meta($params['gsc_verification'] ?? '');
     }
 
     // ── 5. Section-order rotation — one ordering per domain, computed live ──

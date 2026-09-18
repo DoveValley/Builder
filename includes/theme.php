@@ -37,6 +37,9 @@ function theme_css_vars($theme) {
     if ($headingFont !== '' && preg_match('/^[a-zA-Z0-9\s,\-]+$/', $headingFont)) {
         $css .= "    --font-heading: {$headingFont};\n";
     }
+    $headingWeight = (string)($theme['heading_weight'] ?? '700');
+    $headingWeight = in_array($headingWeight, ['400','500','600','700','800','900'], true) ? $headingWeight : '700';
+    $css .= "    --font-weight-heading: {$headingWeight};\n";
     // Font sizes (rem for headings, px for body)
     $bodyPx = max(12, min(24, (int)($theme['font_size_body'] ?? 16)));
     $css .= "    --font-size-body: {$bodyPx}px;\n";

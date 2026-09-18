@@ -170,6 +170,12 @@
                            value="<?= h($footer['sticky_bar_info'] ?? '') ?>"
                            placeholder="e.g. Calls answered by advertising partners">
                 </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="show_sticky_info_icon" value="1" <?= ($footer['show_sticky_info_icon'] ?? true) ? 'checked' : '' ?>>
+                        Show info icon on this bar
+                    </label>
+                </div>
             </div>
 
             <div class="card">

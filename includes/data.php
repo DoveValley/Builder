@@ -16,6 +16,7 @@ function default_data() {
             'border_color'   => '#e5e7eb',
             'primary_font'   => 'sans-serif',
             'heading_font'   => '',
+            'heading_weight' => '700',
             'font_size_body' => '16',
             'font_size_h1'   => '2.5',
             'font_size_h2'   => '2',
@@ -25,6 +26,7 @@ function default_data() {
             'analytics_head' => '',
             'facebook_pixel' => '',
             'head_extra'     => '',
+            'gsc_meta'       => '',
             'skins' => [
                 'light'  => ['bg' => '#ffffff', 'heading' => '#1a2e5a', 'text' => '#555e6d'],
                 'dark'   => ['bg' => '#0d1f3c', 'heading' => '#ffffff',  'text' => '#e2e8f0'],
@@ -43,9 +45,11 @@ function default_data() {
             'phone_btn_style' => 'outline',
             'phone_label'     => 'Helpline:',
             'show_sponsored'  => true,
+            'sponsored_text'  => 'Sponsored',
             'cta_text'        => '',
             'cta_url'         => '',
             'sticky'          => true,
+            'sticky_nav_on_scroll' => false,
             'info_items'      => [
                 ['icon' => '🌐', 'text' => '', 'label' => 'Location:'],
                 ['icon' => '🇺🇸', 'text' => 'American', 'label' => 'Proudly'],
@@ -118,6 +122,7 @@ function default_data() {
             'disclaimer'      => '',
             'sticky_bar_text' => '24/7 Support Line - Call Now',
             'sticky_bar_info' => '',
+            'show_sticky_info_icon' => true,
             'socials'         => [
                 'facebook'  => '',
                 'instagram' => '',
