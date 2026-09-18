@@ -4639,7 +4639,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
       <tr><td><code>lat</code>, <code>lng</code></td><td>—</td><td><code>site_vars.lat</code>/<code>lng</code> (so <code>{lat}</code>/<code>{lng}</code> resolve); <code>local_business.lb_lat</code>/<code>lb_lng</code>; <code>LocalBusiness</code> <code>geo</code> (<code>GeoCoordinates</code>). Auto-geocoded from OpenStreetMap by the Research step and pulled from <code>cities.json</code> when the CSV cell is blank.</td></tr>
       <tr><td><code>rating</code>, <code>review_count</code></td><td>—</td><td><code>local_business.lb_rating</code>/<code>lb_review_count</code>; <code>LocalBusiness</code> <code>aggregateRating</code> — only if <strong>both</strong> present; the master's rating is stripped so nothing is ever fabricated</td></tr>
       <tr><td><code>analytics_id</code></td><td>—</td><td><code>theme.analytics_head</code> (per-site GA4 <code>gtag.js</code>; never shared across sites)</td></tr>
-      <tr><td><code>gsc_verification</code></td><td>—</td><td><code>theme.head_extra</code> (<code>google-site-verification</code> meta tag)</td></tr>
+      <tr><td><code>gsc_verification</code></td><td>—</td><td><code>theme.gsc_meta</code> (<code>google-site-verification</code> meta tag)</td></tr>
       <tr><td><code>web3forms_key</code></td><td>—</td><td>build env <code>MULTISITE_WEB3FORMS</code> → the contact form's access key</td></tr>
       <tr><td><code>theme_preset</code></td><td>—</td><td>Visual-identity step — theme colors / font / button radius + a generated logo &amp; favicon in those colors</td></tr>
       <tr><td><code>logo</code></td><td>—</td><td>Visual-identity step — per-site logo (overrides the generated wordmark)</td></tr>
@@ -5218,7 +5218,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <h3>3g · Unique Search Console verification <span class="pri should">Should</span> <span class="where perrow" style="float:none;margin-left:6px;">Per-row</span></h3>
         <p class="bc-meta">✅ built (meta-tag method)</p>
         <p><strong>Description.</strong> Each domain verified independently (own meta tag) — never all through one shared GTM property.</p>
-        <p><strong>Build (today).</strong> A <code>gsc_verification</code> column holds each site's Search Console token. In <code>differentiate.php</code>, <code>ms_gsc_meta()</code> emits a per-site <code>&lt;meta name="google-site-verification"&gt;</code> into <code>theme.head_extra</code> (blank cell → nothing), echoed in <code>site-template.php</code> next to analytics. Operator still creates each property + pastes its token; DNS-TXT is the alternative (done at the registrar, outside the tool).</p>
+        <p><strong>Build (today).</strong> A <code>gsc_verification</code> column holds each site's Search Console token. In <code>differentiate.php</code>, <code>ms_gsc_meta()</code> emits a per-site <code>&lt;meta name="google-site-verification"&gt;</code> into its own <code>theme.gsc_meta</code> field (blank cell → nothing), echoed in <code>site-template.php</code> next to analytics. Kept separate from <code>theme.head_extra</code> (the admin's free-text "Custom head code" field) on purpose — the two used to share one field, so every batch generation silently destroyed any custom CSS/HTML a site had there. Operator still creates each property + pastes its token; DNS-TXT is the alternative (done at the registrar, outside the tool).</p>
     </div>
 
     <div class="block-card-doc" id="spec-fingerprint">

@@ -678,9 +678,10 @@
             <div class="card">
                 <h2>Analytics &amp; Tracking</h2>
                 <p class="hint" style="margin-bottom:14px;">Paste your tracking code here. It will be added to the <code>&lt;head&gt;</code> of every page automatically.
-                    <strong>Note for batches:</strong> the two snippets below are copied onto every generated domain exactly as written
-                    &mdash; one GA property and one Pixel for the whole fleet unless you clear them. The Search Console field is the
-                    opposite: the batch overwrites it per domain with that domain's own verification tag.</p>
+                    <strong>Note for batches:</strong> GA and Pixel below are copied onto every generated domain exactly as written
+                    &mdash; one GA property and one Pixel for the whole fleet unless you clear them. Search Console verification is
+                    generated separately, per domain, from that row's own <code>gsc_verification</code> parameter &mdash; it does not
+                    use the "Custom head code" field below, which now survives batch generation untouched.</p>
                 <div class="form-group">
                     <label for="analytics_head">Google Analytics / GA4 snippet</label>
                     <textarea id="analytics_head" name="analytics_head" rows="5"
@@ -694,11 +695,12 @@
                     <span class="hint">Paste the full Pixel base code here.</span>
                 </div>
                 <div class="form-group">
-                    <label for="head_extra">Search Console verification / other &lt;head&gt; tags</label>
+                    <label for="head_extra">Custom head code (CSS/HTML)</label>
                     <textarea id="head_extra" name="head_extra" rows="3"
                               style="font-family:monospace;font-size:0.82rem;"><?= h($theme['head_extra'] ?? '') ?></textarea>
-                    <span class="hint">Paste the full <code>&lt;meta name="google-site-verification" content="..."&gt;</code> tag
-                        Google gives you, or any other raw tag that belongs in <code>&lt;head&gt;</code>.</span>
+                    <span class="hint">Any raw tag or <code>&lt;style&gt;</code> block that belongs in <code>&lt;head&gt;</code> — survives
+                        batch generation on every domain unchanged. Not for Search Console verification; that's generated per-domain
+                        automatically from the batch row's own parameter, separate from this field.</span>
                 </div>
             </div>
 

@@ -43,6 +43,24 @@ function ms_class_vocab_css_classes(array $cssFiles): array
     return $out;
 }
 
+/** Same as above, but for CSS embedded inline in <style> blocks within HTML files —
+ * e.g. theme.head_extra ("Custom head code"), which is never a standalone .css file. */
+function ms_class_vocab_inline_css_classes(array $htmlFiles): array
+{
+    $out = [];
+    foreach ($htmlFiles as $f) {
+        $html = (string) @file_get_contents($f);
+        if (!preg_match_all('~<style\b[^>]*>(.*?)</style>~is', $html, $m)) continue;
+        foreach ($m[1] as $css) {
+            $css = preg_replace('~/\*.*?\*/~s', '', $css);
+            if (preg_match_all('/\.(-?[A-Za-z_][A-Za-z0-9_-]*)/', $css, $mm)) {
+                foreach ($mm[1] as $c) $out[$c] = true;
+            }
+        }
+    }
+    return $out;
+}
+
 /**
  * Class names any script touches. Covers the three shapes the built pages actually use:
  * a selector string ('.ts-tab'), classList.add/remove/toggle/contains('x'), and
@@ -120,6 +138,24 @@ function ms_class_vocab_rewrite_css(string $css, array $map): string
 }
 
 /**
+ * Rewrite class SELECTORS inside any inline <style>...</style> blocks in an HTML string.
+ * External .css files aren't the only place a class-based rule can live — a site's
+ * theme.head_extra ("Custom head code") field is a whole <style> block embedded directly
+ * in <head>, and theme_css_vars() emits another. Without this, ms_class_vocab_apply()
+ * renames the class in every stylesheet and every class="..." attribute but leaves any
+ * inline <style> block's selectors under the OLD name — the elements it targets have
+ * already been renamed by ms_class_vocab_rewrite_html(), so the rule now matches nothing.
+ */
+function ms_class_vocab_rewrite_inline_styles(string $html, array $map): string
+{
+    return preg_replace_callback(
+        '~(<style\b[^>]*>)(.*?)(</style>)~is',
+        fn($m) => $m[1] . ms_class_vocab_rewrite_css($m[2], $map) . $m[3],
+        $html
+    );
+}
+
+/**
  * Apply the whole pass to one built site.
  * @return array{renamed:int,skipped_js:int,skipped_nocss:int,files:int,orphans:array}
  *   orphans = classes still in the HTML that have a CSS rule under their OLD name. Always
@@ -141,7 +177,7 @@ function ms_class_vocab_apply(string $outputDir, string $domain): array
     }
     if (!$htmlFiles || !$cssFiles) return $res;
 
-    $cssClasses = ms_class_vocab_css_classes($cssFiles);
+    $cssClasses = ms_class_vocab_css_classes($cssFiles) + ms_class_vocab_inline_css_classes($htmlFiles);
     $jsClasses  = ms_class_vocab_js_classes($htmlFiles, $jsFiles);
     foreach (ms_class_vocab_reserved() as $c) $jsClasses[$c] = true;
 
@@ -162,18 +198,31 @@ function ms_class_vocab_apply(string $outputDir, string $domain): array
     }
     foreach ($htmlFiles as $f) {
         $html = (string) @file_get_contents($f);
-        @file_put_contents($f, ms_class_vocab_rewrite_html($html, $map));
+        $html = ms_class_vocab_rewrite_html($html, $map);
+        $html = ms_class_vocab_rewrite_inline_styles($html, $map);
+        @file_put_contents($f, $html);
         $res['files']++;
     }
 
-    // Verify: no class left in the markup that still matches an OLD name we renamed. If one
-    // survives, its rule is now under a new name and the element has lost its styling.
+    // Verify: no class left in the markup (or in an inline <style> selector) that still
+    // matches an OLD name we renamed. If one survives, its rule is now under a new name
+    // and the element — or the rule — has lost the other half of the pair.
     foreach ($htmlFiles as $f) {
         $html = (string) @file_get_contents($f);
-        if (!preg_match_all('~\bclass\s*=\s*(["\'])(.*?)\1~is', $html, $m)) continue;
-        foreach ($m[2] as $attr) {
-            foreach (preg_split('/\s+/', trim($attr), -1, PREG_SPLIT_NO_EMPTY) as $c) {
-                if (isset($map[$c])) $res['orphans'][$c] = true;
+        if (preg_match_all('~\bclass\s*=\s*(["\'])(.*?)\1~is', $html, $m)) {
+            foreach ($m[2] as $attr) {
+                foreach (preg_split('/\s+/', trim($attr), -1, PREG_SPLIT_NO_EMPTY) as $c) {
+                    if (isset($map[$c])) $res['orphans'][$c] = true;
+                }
+            }
+        }
+        if (preg_match_all('~<style\b[^>]*>(.*?)</style>~is', $html, $sm)) {
+            foreach ($sm[1] as $css) {
+                if (preg_match_all('/\.(-?[A-Za-z_][A-Za-z0-9_-]*)/', $css, $cm)) {
+                    foreach ($cm[1] as $c) {
+                        if (isset($map[$c])) $res['orphans'][$c] = true;
+                    }
+                }
             }
         }
     }
