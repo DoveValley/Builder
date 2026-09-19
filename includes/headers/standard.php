@@ -76,26 +76,42 @@
         </div>
     </div>
 
-    <!-- BOTTOM ROW: nav bar -->
-    <?php $_navBarHeight = max(48, min(120, (int)($header['sr_bar_height'] ?? 64))); ?>
-    <div class="header-nav-row<?= !empty($header['sticky_nav_on_scroll']) ? ' nav-row-sticky-enabled' : '' ?>" style="background:<?= h($navBg) ?>;">
+</header>
+
+<!-- NAV BAR: a sibling of <header>, not nested inside it. A position:sticky
+     element can only stay pinned for as long as its OWN parent's box is still
+     in view — nested inside the short two-row <header>, it would stick for
+     the header's own height and then scroll away with it, not for the whole
+     page. Moved out so its parent is effectively the full page. -->
+<?php $_navBarHeight = max(48, min(120, (int)($header['sr_bar_height'] ?? 64))); ?>
+<div class="header-nav-row<?= !empty($header['sticky_nav_on_scroll']) ? ' nav-row-sticky-enabled' : '' ?>" style="background:<?= h($navBg) ?>;">
         <div class="container header-nav-inner" style="min-height:<?= $_navBarHeight ?>px;">
 
             <?php if (!empty($header['sticky_nav_on_scroll'])): ?>
             <?php
             $__navBrand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')));
             if ($__navBrand === '') $__navBrand = SITE_TITLE;
-            $__navBrandParts = explode(' ', $__navBrand, 2);
-            $__navBrandLine1 = $__navBrandParts[0];
-            $__navBrandLine2 = $__navBrandParts[1] ?? '';
+            $__navBrandWords = preg_split('/\s+/', $__navBrand);
+            if (count($__navBrandWords) >= 4) {
+                // e.g. "Bailey Water Damage Restoration" -> "Bailey" / "Water Damage" / "Restoration"
+                $__navBrandLine1 = $__navBrandWords[0];
+                $__navBrandLine2 = $__navBrandWords[1] . ' ' . $__navBrandWords[2];
+                $__navBrandLine3 = implode(' ', array_slice($__navBrandWords, 3));
+            } else {
+                $__navBrandParts = explode(' ', $__navBrand, 2);
+                $__navBrandLine1 = $__navBrandParts[0];
+                $__navBrandLine2 = $__navBrandParts[1] ?? '';
+                $__navBrandLine3 = '';
+            }
             ?>
             <div class="mobile-nav-logo">
                 <a href="<?= h($homeUrl ?? '/') ?>" class="mobile-nav-logo-link">
                     <?php if (!empty($header['mobile_logo_icon_white'])): ?>
                         <img src="<?= h(admin_upload_url_v($header['mobile_logo_icon_white'])) ?>" alt="" <?= img_dim_attrs($header['mobile_logo_icon_white'], 43) ?>class="mobile-nav-logo-icon" style="height:43px;width:auto;display:block;">
-                        <span class="mobile-nav-logo-text">
+                        <span class="mobile-nav-logo-text<?= $__navBrandLine3 !== '' ? ' mobile-nav-logo-text-3line' : '' ?>">
                             <span class="mobile-nav-logo-line"><?= h($__navBrandLine1) ?></span>
                             <?php if ($__navBrandLine2 !== ''): ?><span class="mobile-nav-logo-line"><?= h($__navBrandLine2) ?></span><?php endif; ?>
+                            <?php if ($__navBrandLine3 !== ''): ?><span class="mobile-nav-logo-line"><?= h($__navBrandLine3) ?></span><?php endif; ?>
                         </span>
                     <?php elseif (!empty($header['logo'])): ?>
                         <img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h($__navBrand) ?>" <?= img_dim_attrs($header['logo'], 36) ?>class="mobile-nav-logo-composite" style="max-height:36px;height:auto;width:auto;max-width:100%;display:block;">
@@ -236,6 +252,4 @@
             <?php endif; ?>
 
         </div>
-    </div>
-
-</header>
+</div>

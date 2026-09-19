@@ -38,7 +38,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-weight: 500;
+    font-weight: var(--font-weight-heading, 700);
     line-height: 1.2;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -1832,6 +1832,27 @@ html, body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
+/* Plano-style: stick just the nav/phone bar on scroll (distinct from the
+   always-fixed .site-header-sticky above). Real position:sticky, handled
+   natively by the browser's compositor — no scroll listener, no threshold
+   math, no spacer element, and critically, no one-frame lag behind native
+   scrolling (which is what caused a visible flicker in the JS-driven version
+   this replaced: position.fixed, toggled from a 'scroll' event, unavoidably
+   lands a frame or more after the compositor has already scrolled). This
+   ONLY stays pinned for the full page because .header-nav-row now lives as
+   a sibling of <header>, not nested inside it — see standard.php's comment
+   on why. z-index isn't optional here: .header-nav-row is also `position:
+   relative` (below) so its children (the mobile menu panel, the desktop
+   dropdown) have it as their containing block, and needs to out-rank later
+   page content (e.g. a hero image) for the same reason a plain z-index on
+   those children alone would not, once their ancestor is itself positioned. */
+.header-nav-row.nav-row-sticky-enabled {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
 /* Push page content down so it doesn't hide under the fixed header */
 .site-header-sticky ~ main,
 body.has-fixed-header main {
@@ -1900,12 +1921,12 @@ body.has-fixed-header main {
     font-family: "Google Sans", sans-serif;
 }
 .header-info-item-label {
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 400;
     color: #000000;
 }
 .header-info-item-value {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     color: #0b0c0c;
 }
@@ -1914,7 +1935,7 @@ body.has-fixed-header main {
    'prefix' is set instead of 'label'. */
 .header-info-item-prefix {
     font-family: "Google Sans", sans-serif;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 700;
     color: #1f2937;
     line-height: 1;
@@ -1923,6 +1944,13 @@ body.has-fixed-header main {
 /* BOTTOM ROW — colored nav bar */
 .header-nav-row {
     background: #fd783b;
+    /* Containing block for the mobile menu panel and desktop dropdown below
+       (both position:absolute), regardless of which sticky mechanism (if
+       any) this site uses — a plain div here would otherwise fall back to
+       whatever ELSE up the tree happens to be positioned (e.g. the legacy
+       .site-header-sticky header), anchoring the panel under the wrong
+       element and at the wrong height. */
+    position: relative;
 }
 .header-nav-inner {
     display: flex;
@@ -1983,14 +2011,14 @@ body.has-fixed-header main {
     text-align: right;
 }
 .helpline-label   { font-weight: 700; }
-.helpline-sponsored { opacity: 0.85; }
+.helpline-sponsored { opacity: 0.85; display: flex; justify-content: flex-end; }
 
 /* Phone button styles */
 .header-phone-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 20px;
+    padding: 11px 26px;
     font-weight: 800;
     font-size: 1.15rem;
     border-radius: var(--btn-radius, 4px);
@@ -2001,7 +2029,7 @@ body.has-fixed-header main {
 .header-phone-btn:hover { opacity: 0.85; text-decoration: none; }
 .header-phone-btn-outline {
     background: transparent;
-    border: 2px solid #fff;
+    border: 3px solid #fff;
     color: #fff;
 }
 .header-phone-btn-filled {
@@ -2045,7 +2073,7 @@ body.has-fixed-header main {
     .nav-toggle { display: flex; order: 1; }
     .header-phone-wrap { order: 2; margin-left: auto; }
     .helpline-label, .helpline-sponsored { display: none; }
-    .header-phone-btn { padding: 7px 14px; font-size: 0.85rem; }
+    .header-phone-btn { padding: 9px 18px; font-size: 0.85rem; }
 
     /* Mobile nav dropdown. flex-basis:0% (part of the desktop rule's "flex:1"
        shorthand, further up this file, unconditional) is not reset by width:100%
@@ -2063,7 +2091,29 @@ body.has-fixed-header main {
         order: 10;
         background: rgba(0,0,0,0.15);
     }
-    .header-nav-row .site-nav.is-open { display: block; }
+    /* Absolute off .header-nav-row (position:relative, above) rather than
+       fixed off the viewport — top:100% then just means "flush below the
+       nav bar" and is correct automatically whether that bar is currently
+       sticky-pinned or sitting in normal flow, with no JS position math
+       needed. height/overflow-y are still set from JS (the toggle handler in
+       site-template.php) — how much room is actually available below the bar
+       depends on the live viewport height, and it's height (fills all the way
+       to the sticky bottom bar even for a short menu), not max-height (would
+       shrink-wrap to a short menu's own content and leave a gap the page
+       shows through). Always applying the same rule regardless of scroll
+       position at open time — rather than only capping it in some states —
+       is what makes the menu behave the same on every page instead of
+       differing by incidental scroll position (the original version of this
+       bug: a short service page vs. the tall homepage read as two different
+       menus because one code path landed in two different states). */
+    .header-nav-row .site-nav.is-open {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 495;
+    }
     .header-nav-row .site-nav ul {
         flex-direction: column;
         gap: 0;
@@ -2094,6 +2144,42 @@ body.has-fixed-header main {
 @media (max-width: 480px) {
     .header-info-items { display: none; } /* hide info items on very small screens */
     .header-top-inner  { padding: 8px 12px; }
+}
+
+/* Force info items to stay visible even below 480px when the sticky-nav
+   pattern is on — beats the max-width:480 rule above on specificity + !important. */
+.sticky-nav-pattern .header-info-items { display: flex !important; }
+
+/* Mobile logo-in-bar: hidden by default at every width; the mobile media
+   query below turns it on (flex) only when .sticky-nav-pattern is active,
+   swapping the phone number out for the logo next to the hamburger. */
+.mobile-nav-logo { display: none; }
+.mobile-nav-logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.mobile-nav-logo-composite { filter: brightness(0) invert(1); }
+.mobile-nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+.mobile-nav-logo-line { color: #fff; font-weight: 800; font-size: 1.39rem; font-family: var(--font-heading, inherit); }
+.mobile-nav-logo .logo-text { color: #fff; }
+/* 3-line brand (e.g. water-site's "Bailey Water Damage Restoration") needs a
+   smaller size than the usual 2-line case or it overruns the nav bar */
+.mobile-nav-logo-text-3line .mobile-nav-logo-line { font-size: 1.05rem; }
+
+@media (max-width: 768px) {
+    /* .mobile-nav-logo, .header-phone-wrap, .header-cta-btn, and .nav-toggle all
+       live inside .header-nav-row, which is a SIBLING of <header> (see the "NAV
+       BAR" comment in standard.php for why), not a descendant of it — so they
+       can't be reached via ".sticky-nav-pattern <descendant>" (that class is on
+       <header> itself). Scoped off .nav-row-sticky-enabled instead, the class
+       already on .header-nav-row for exactly this condition. The three rules
+       below THIS block target elements still actually inside <header>
+       (.header-top-row/.header-top-inner/.header-info-items), so those keep
+       using .sticky-nav-pattern correctly. */
+    .header-nav-row.nav-row-sticky-enabled .mobile-nav-logo { display: flex; align-items: center; margin-right: auto; }
+    .header-nav-row.nav-row-sticky-enabled .header-phone-wrap,
+    .header-nav-row.nav-row-sticky-enabled .header-cta-btn { display: none !important; }
+    .header-nav-row.nav-row-sticky-enabled .nav-toggle { margin-left: 0; }
+    .sticky-nav-pattern .header-top-row .site-logo { display: none; }
+    .sticky-nav-pattern .header-top-inner { justify-content: center; }
+    .sticky-nav-pattern .header-info-items { justify-content: center; flex: none; width: 100%; }
 }
 
 /* ============================================================
@@ -3603,7 +3689,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .cb-btn:hover { opacity: 0.85; text-decoration: none; }
 
 @media (max-width: 768px) {
-    .cb-text { font-size: 1.15rem; }
+    .cb-text { font-size: var(--font-size-h2, 1.15rem); }
 }
 
 /* ============================================================
@@ -4007,7 +4093,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
    ============================================================ */
 .block-blog-list { padding: 48px 0 64px; }
 .blog-list-heading {
-    font-size: 2.1rem;
+    font-size: var(--font-size-h1, 2.1rem);
     font-weight: 800;
     color: #6b7280;
     text-align: center;
@@ -4105,7 +4191,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     border-radius: 999px;
 }
 .blog-card-heading {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lead, 1.25rem);
     font-weight: 700;
     color: var(--color-accent, #fd783b);
     line-height: 1.35;
@@ -4149,7 +4235,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 /* Single post header (post_meta block) */
 .block-post-meta { padding: 40px 0 8px; }
 .post-meta-heading {
-    font-size: 2.1rem;
+    font-size: var(--font-size-h1, 2.1rem);
     font-weight: 800;
     color: #2d2d3a;
     line-height: 1.25;
@@ -4618,7 +4704,7 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .team-member { text-align: center; }
 .team-member-photo { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; margin: 0 auto 16px; background: #e2e8f0; }
 .team-member-photo img { width: 100%; height: 100%; object-fit: cover; }
-.team-member-name { font-size: 1.1rem; font-weight: 700; color: var(--color-heading); margin: 0 0 4px; }
+.team-member-name { font-size: var(--font-size-body, 1.1rem); font-weight: 700; color: var(--color-heading); margin: 0 0 4px; }
 .team-member-title { font-size: 0.875rem; color: var(--color-accent); font-weight: 600; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.04em; }
 .team-member-bio { font-size: 0.9rem; margin: 0; line-height: 1.65; }
 @media (max-width: 768px) {
@@ -4692,3 +4778,32 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(0,0,0,0.18);
 }
+
+/* ============================================================
+   HEADER LIVE-TUNING OVERRIDES (ported from compiled style.css,
+   which had drifted ahead of this source file — see the mobile-
+   nav-logo rules above for the same issue). Kept verbatim/unsplit;
+   values are exact pixel/percent tuning, not meant to be "cleaned up".
+   ============================================================ */
+.sticky-phone-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--skin-dark-bg);flex:0 0 44px;margin-right:8px;}
+.sticky-phone-icon svg{display:none;}
+.sticky-phone-icon::before{content:"";display:inline-block;width:22px;height:22px;background:#fff;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M497.39%20361.8l-112-48a24%2024%200%200%200-28%206.9l-49.6%2060.6A370.66%20370.66%200%200%201%20130.6%20204.11l60.6-49.6a23.94%2023.94%200%200%200%206.9-28l-48-112A24.16%2024.16%200%200%200%20122.6.61l-104%2024A24%2024%200%200%200%200%2048c0%20256.5%20207.9%20464%20464%20464a24%2024%200%200%200%2023.4-18.6l24-104a24.29%2024.29%200%200%200-14.01-27.6z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;}
+.sticky-info-trigger svg{display:none;}
+.sticky-info-trigger::before{content:"";display:inline-block;width:26px;height:26px;vertical-align:middle;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;}
+.sticky-bar-text{font-size:1.4rem !important;}
+.sticky-phone-number{font-size:1.75rem !important;font-weight:400 !important;}
+.header-info-item{font-weight:400 !important;font-size:0.55rem !important;}
+.header-info-item:last-child{margin-left:0 !important;}
+.header-nav-inner{min-height:73px;}
+.header-phone-btn svg{display:none;}
+.header-phone-btn{font-size:1.5rem !important;font-weight:400 !important;}
+.helpline-sponsored .info-trigger svg{display:none;}
+.helpline-sponsored .info-trigger::before{content:"";display:inline-block;width:1.53em;height:1.53em;margin-right:5px;vertical-align:middle;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%3E%3Cpath%20d%3D%27M256%208C119.043%208%208%20119.083%208%20256c0%20136.997%20111.043%20248%20248%20248s248-111.003%20248-248C504%20119.083%20392.957%208%20256%208zm0%20110c23.196%200%2042%2018.804%2042%2042s-18.804%2042-42%2042-42-18.804-42-42%2018.804-42%2042-42zm56%20254c0%206.627-5.373%2012-12%2012h-88c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h12v-64h-12c-6.627%200-12-5.373-12-12v-24c0-6.627%205.373-12%2012-12h64c6.627%200%2012%205.373%2012%2012v100h12c6.627%200%2012%205.373%2012%2012v24z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;}
+.header-nav-row .site-nav > ul > li > a{font-size:1.15rem !important;}
+.header-helpline{font-size:1.1rem !important;text-align:left !important;}
+.helpline-label{font-weight:400 !important;}
+.helpline-sponsored{opacity:1 !important;}
+.header-info-item .info-icon{width:30.1px !important;height:30.1px !important;}
+.header-info-item .info-icon svg[stroke]{width:90% !important;height:90% !important;}
+.header-info-item:nth-child(2) .info-icon svg{transform:translateY(1.5px);width:93.45% !important;height:93.45% !important;}
+.header-info-item:nth-child(2) .info-icon{border:none !important;}

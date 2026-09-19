@@ -604,47 +604,16 @@ if ($firstBlockHero) {
         window.addEventListener('resize', setOffset);
     }
 
-    // Stick just the nav/phone row to the top once you scroll past the logo row —
-    // an alternative to the whole-header sticky above. Threshold-based (not scroll-
-    // direction based): it pins once you scroll past its natural position and stays
-    // pinned either direction, only releasing once you scroll back above that point.
-    // position:sticky can't be used here — this site sets overflow-x:hidden/clip on
-    // html/body (elsewhere, intentionally), which breaks native sticky in all browsers.
-    var navRow = document.querySelector('.header-nav-row.nav-row-sticky-enabled');
-    if (navRow) {
-        var navSpacer = document.createElement('div');
-        navSpacer.style.display = 'none';
-        navRow.parentNode.insertBefore(navSpacer, navRow.nextSibling);
-        var navThreshold = null;
-        function getNavThreshold() {
-            if (navThreshold === null) {
-                navThreshold = navRow.getBoundingClientRect().top + window.scrollY;
-            }
-            return navThreshold;
-        }
-        var navTicking = false;
-        function onNavScroll() {
-            if (window.scrollY > getNavThreshold()) {
-                if (!navRow.classList.contains('nav-row-stuck')) {
-                    navSpacer.style.height = navRow.offsetHeight + 'px';
-                    navSpacer.style.display = 'block';
-                    navRow.classList.add('nav-row-stuck');
-                }
-            } else if (navRow.classList.contains('nav-row-stuck')) {
-                navRow.classList.remove('nav-row-stuck');
-                navSpacer.style.display = 'none';
-            }
-            navTicking = false;
-        }
-        window.addEventListener('scroll', function() {
-            if (!navTicking) {
-                window.requestAnimationFrame(onNavScroll);
-                navTicking = true;
-            }
-        });
-        window.addEventListener('resize', function() { navThreshold = null; });
-        onNavScroll();
-    }
+    // The nav/phone row stays pinned to the top on scroll via real CSS
+    // position:sticky (.header-nav-row.nav-row-sticky-enabled in
+    // style.src.css) — the browser's compositor handles it natively, so
+    // there's no scroll listener, threshold math, or spacer element here at
+    // all. An earlier version faked this in JS (position:fixed toggled from
+    // a 'scroll' event) because of an old assumption that this site's
+    // overflow-x:hidden/clip on html/body broke native sticky everywhere;
+    // that's only true for Safari below 16 falling back to plain
+    // overflow-x:hidden (see the comment on that rule) — negligible today,
+    // and not worth carrying this much JS to work around.
 
     // Scroll to top button
     var scrollBtn = document.getElementById('scrollToTop');
@@ -717,28 +686,57 @@ if ($firstBlockHero) {
         var open = nav.classList.toggle('is-open');
         toggle.classList.toggle('is-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        // A sticky header is position:fixed, so an expanded nav (all services open)
-        // can grow taller than the viewport with no way to reach the rest — fixed
-        // elements aren't part of normal document flow, so the page's own scroll
-        // never reveals their overflow. Cap the open panel to the space actually
-        // left below it and let IT scroll instead. Only one scroll region is ever
-        // created this way (the mega-menu itself carries no scroll of its own),
-        // so this doesn't reintroduce the nested-scroll tap-swallow bug.
-        var header = document.querySelector('.site-header');
-        var isFixed = header && getComputedStyle(header).position === 'fixed';
-        if (open && isFixed) {
-            var rect = nav.getBoundingClientRect();
+        // Lock page scroll while the menu is open. The panel above is capped to
+        // its own internal scroll, but nothing was stopping the PAGE underneath
+        // from scrolling too — on a real phone a finger usually lands on the
+        // panel itself so this went unnoticed, but any input that isn't a touch
+        // literally on the panel (a mouse wheel, or the touch simulation used by
+        // a browser's device-emulation mode) scrolled the page behind it, which
+        // showed through in the gap around the panel. One line, fixes it outright
+        // instead of relying on the panel's footprint to happen to cover input.
+        document.documentElement.style.overflow = open ? 'hidden' : '';
+        // The open panel is always position:absolute off .header-nav-row (see
+        // .header-nav-row .site-nav.is-open in style.src.css), top:100% — so it's
+        // always flush below the nav bar with no position math needed here, whether
+        // that bar is currently sticky-pinned or sitting in normal flow. Only the
+        // height still needs JS: how much room is available below the bar depends
+        // on the live viewport height, which CSS alone can't see.
+        if (open) {
+            // A bare ".site-nav" rule elsewhere (written for a different header
+            // layout, where this element is a divider sitting in normal flow) adds
+            // an 8px margin-top + hairline border-top. Harmless there; here it left
+            // an 8px gap between the bar and the panel that let the page peek
+            // through. Must happen BEFORE the rect measurement below — clearing it
+            // AFTER measuring meant the measured top still included the 8px that
+            // was about to be removed, so every height computed from it came out
+            // 8px short once the margin actually disappeared.
+            nav.style.marginTop = '0';
+            nav.style.borderTop = 'none';
+            var navRect = nav.getBoundingClientRect();
             // The mobile sticky call bar is also position:fixed at the bottom of the
             // viewport, on top of the nav (higher z-index) — reserve its height so the
-            // scrollable nav stops above it instead of scrolling underneath it out of
-            // sight the whole time it's open.
+            // panel stops above it instead of running underneath it out of sight.
             var stickyBar = document.querySelector('.sticky-bottom-bar');
             var stickyBarHeight = stickyBar ? stickyBar.getBoundingClientRect().height : 0;
-            nav.style.maxHeight = (window.innerHeight - rect.top - stickyBarHeight) + 'px';
+            // height, not max-height: a short menu (few top-level links, nothing
+            // expanded) should still fill all the way down to the sticky bottom bar,
+            // not shrink-wrap to its own content and leave a gap where the page
+            // shows through. overflow-y:auto still kicks in if an accordion expands
+            // past this height — the fixed height becomes the scroll viewport, it
+            // doesn't clip content the way max-height plus real content would.
+            nav.style.height = (window.innerHeight - navRect.top - stickyBarHeight) + 'px';
             nav.style.overflowY = 'auto';
-        } else if (!open) {
-            nav.style.maxHeight = '';
+            // Solid backing so the page underneath a fixed, always-on-top panel
+            // doesn't show through a translucent one — was fine when this only ever
+            // sat in normal document flow (nothing to show through), became a visible
+            // double-exposure once it started floating over the page for every open.
+            nav.style.background = getComputedStyle(nav.closest('.header-nav-row')).backgroundColor;
+        } else {
+            nav.style.height = '';
             nav.style.overflowY = '';
+            nav.style.background = '';
+            nav.style.marginTop = '';
+            nav.style.borderTop = '';
         }
     });
 
@@ -780,14 +778,36 @@ if ($firstBlockHero) {
         }
     });
 
-    // Close everything when a leaf link is clicked
+    // Close everything when a leaf link is clicked.
+    function closeMobileNav() {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflow = '';
+    }
     nav.querySelectorAll('a:not([aria-haspopup="true"])').forEach(function(a) {
         a.addEventListener('click', function() {
-            nav.classList.remove('is-open');
-            toggle.classList.remove('is-open');
-            toggle.setAttribute('aria-expanded', 'false');
+            // A real page link is about to navigate away, so closing the menu
+            // here — unlocking scroll, hiding the panel — forces a reflow of
+            // the CURRENT page a moment before the browser actually swaps in
+            // the destination. That reflow gets painted (briefly showing the
+            // old page, now unscrolled-and-unlocked) right before navigation
+            // completes, reading as "the menu closes, shows a page, then
+            // flickers to a second page" — the flicker is real, it's just the
+            // old page's new layout, not an actual double navigation. Deferred
+            // to 'pagehide' below instead, which fires as the browser is
+            // already tearing the page down, so nothing from it gets painted.
+            // An in-page anchor (href="#...") is the one case that's exempt —
+            // it doesn't navigate away at all, so nothing will ever fire
+            // pagehide, and skipping the close here would leave the menu
+            // open on the same page with no page-hide to save it.
+            if (a.getAttribute('href').charAt(0) === '#') closeMobileNav();
         });
     });
+    // Catches real navigations (including the back/forward button), so a
+    // page restored from the browser's cache never comes back with the menu
+    // still open or scroll still locked from when it was left.
+    window.addEventListener('pagehide', closeMobileNav);
 })();
 </script>
 <?php run_hook('body_scripts', $data, $assetPathPrefix ?? ''); ?>
