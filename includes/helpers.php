@@ -405,3 +405,65 @@ function css_minify_to(string $srcPath, string $outPath): int {
     }
     return $outMtime !== false ? $outMtime : (int) ($srcMtime ?: time());
 }
+
+/**
+ * The actual woff2 file URLs behind a Google Fonts css2 request — so the browser
+ * can preload the font BYTES, not just the CSS.
+ *
+ * Why this exists: font-display:optional still measurably shifts layout on this
+ * fleet (confirmed: 0.287 CLS on a real page, dropping to 0.000 with Google Fonts
+ * blocked entirely — a controlled block/unblock test, not a guess). optional gives
+ * the browser a very short window (~100ms) to decide whether the real font is
+ * "already available"; without this, that window starts only once the CSS request
+ * finishes and the browser discovers the @font-face it needs — a full extra round
+ * trip. Preloading the font file directly starts that download in parallel with
+ * everything else, so it's far more likely to already be in cache by the time the
+ * decision is made, instead of arriving mid-window and causing a visible swap.
+ *
+ * @font-face src urls are UA-dependent (Google serves woff2 to modern browsers,
+ * older formats to others) — fetched here with an explicit modern desktop UA so
+ * every visitor gets a woff2 preload hint, which is a safe no-op for a browser
+ * that would have fetched something else anyway.
+ *
+ * Cached indefinitely, keyed by the exact query string — the same family+weight
+ * request always resolves to the same files, and this is one cheap outbound
+ * fetch per NEW font combination the fleet ever uses (a handful of entries even
+ * across every niche), not one per page view.
+ */
+function gf_preload_urls(string $cssHref): array {
+    $cacheFile = (defined('BASE_DIR') ? BASE_DIR : __DIR__ . '/..') . '/data/gf_preload_cache.json';
+    $cache = is_file($cacheFile) ? (json_decode((string) @file_get_contents($cacheFile), true) ?: []) : [];
+    if (array_key_exists($cssHref, $cache)) return (array) $cache[$cssHref];
+
+    $urls = [];
+    $ch = curl_init($cssHref);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    ]);
+    $css = curl_exec($ch);
+    $ok  = $css !== false && (int) curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
+    curl_close($ch);
+
+    // Google returns one @font-face per (weight × unicode-range subset) — for a family
+    // requesting 5 weights that's ~35 blocks, most of which (cyrillic, greek,
+    // vietnamese, ...) this fleet's English-language sites never render a single
+    // character from. Preloading all of them would trade the font-swap fix for a
+    // real, wasted-bandwidth regression. Keep only latin + latin-ext (covers English
+    // plus accented characters) — every family Google Fonts serves labels its blocks
+    // with a leading "/* subset */" comment, which is what this filters on.
+    if ($ok && preg_match_all('/\/\*\s*(latin|latin-ext)\s*\*\/\s*@font-face\s*\{[^}]*url\((https:\/\/fonts\.gstatic\.com\/[^)]+\.woff2)\)/', (string) $css, $m)) {
+        $urls = array_values(array_unique($m[2]));
+    }
+
+    // Cache the outcome either way (including empty) so a fetch failure doesn't
+    // retry on every single page load — worst case, preloading is a missed
+    // optimization, never a correctness problem.
+    $cache[$cssHref] = $urls;
+    $dir = dirname($cacheFile);
+    if (!is_dir($dir)) @mkdir($dir, 0775, true);
+    @file_put_contents($cacheFile, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+
+    return $urls;
+}

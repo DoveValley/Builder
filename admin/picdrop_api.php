@@ -310,10 +310,24 @@ function pd_commit(
         }
         // Also fix the landing templates these pages are generated from. Without this the
         // next regen puts the old picture straight back, which reads as "Pic Drop did not
-        // save" long after the drop.
+        // save" long after the drop. Excludes the source itself — when the edit already
+        // came FROM a template row, this would otherwise "match" that same row (its old
+        // value still equals its old value) and double-count it as an unrelated template.
         foreach (picdrop_template_matches($slot['value'], picdrop_leaf($parts['field'])) as $t) {
+            if ($parts['scope'] === 'template' && $t['id'] === $parts['id'] && $t['block'] === $parts['block'] && $t['field'] === $parts['field']) continue;
             $edits[] = $t + ['value' => $newValue];
             $templates++;
+        }
+        // Editing a TEMPLATE row itself: the match above only finds pages whose CURRENT
+        // photo still equals this template's OLD value, which is almost never true — every
+        // page already carries its own byte-differentiated copy. Reach them by "built from
+        // this template" instead, or checking this box on a template row would silently
+        // touch nothing.
+        if ($parts['scope'] === 'template') {
+            foreach (picdrop_pages_for_template($parts['id'], $parts['block'], $parts['field']) as $p) {
+                $edits[] = $p + ['value' => $newValue];
+                $propagated++;
+            }
         }
     }
 
@@ -430,7 +444,12 @@ if ($action === 'place') {
         if ($refPath === null) {
             pd_fail('This slot has no existing photo to use as a reference yet — generate or drop one first, or uncheck "Use current photo as reference."');
         }
-        $r = openai_images_edit($prompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
+        // Editing FROM a real photo risks the result reading as too close to that
+        // specific photo's own person — this instruction rides along only on the
+        // reference path (not stored back into $prompt, so a later regenerate
+        // doesn't inherit boilerplate it didn't ask for).
+        $refPrompt = $prompt . ' If there is a technician or other person in the photo, give them a different face and hairstyle than the reference photo.';
+        $r = openai_images_edit($refPrompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
         $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     }
@@ -469,8 +488,7 @@ $filename = $base . '_' . substr(md5(uniqid('', true)), 0, 6) . '.webp';
 $dest     = MEDIA_DIR . $filename;
 
 [$ok, $note] = img_fit_to($tmpFile, $dest, $mime, (int) $slot['w'], (int) $slot['h']);
-if ($cleanupTmp) @unlink($tmpFile);
-if (!$ok) pd_fail('Could not process that image.');
+if (!$ok) { if ($cleanupTmp) @unlink($tmpFile); pd_fail('Could not process that image.'); }
 
 /* Keep the full-size original so the picture can be re-cropped later. The slot file
    is already trimmed to the slot, so without this a later "zoom out" would have no
@@ -484,6 +502,13 @@ if (media_originals_dir() !== null) {
     // for every drop.
     if (!img_optimize($tmpFile, ORIGINALS_DIR . $origName, $mime)) $origName = '';
 }
+// $tmpFile is only a temp file when the source was an AI generation (place/place_media
+// read straight from the upload's own tmp_name or an existing library file, which are
+// not ours to delete). Cleaned up AFTER img_optimize() above — cleaning it up right
+// after img_fit_to() meant every single AI-generated photo silently lost its "original"
+// backup (img_optimize's copy() failed against a file that was already gone), quietly
+// disabling "zoom out" in Adjust View for every AI photo without ever surfacing an error.
+if ($cleanupTmp) @unlink($tmpFile);
 
 [$nw, $nh] = @getimagesize($dest) ?: [0, 0];
 

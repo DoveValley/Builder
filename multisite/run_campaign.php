@@ -238,9 +238,15 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
     }
     // Every message updates 'last', not just fatal/done — so a row still IN PROGRESS
     // can say what it's doing right now (which AI block, which landing page, …)
-    // instead of showing nothing until it finishes or dies.
-    if ($msg !== '') $m['last'] = $msg;
-    if (($ev['type'] ?? '') === 'fatal') $m['status'] = 'failed';
+    // instead of showing nothing until it finishes or dies. BUT once a row has died
+    // (a 'fatal' already set status to failed), stop letting later lines overwrite
+    // 'last' — build_one.php always logs a routine "Cleaned up temp dirs." right
+    // after every fatal exit, which was silently replacing the real error with that
+    // cleanup message by the time the row finished. The actual reason was always
+    // being captured correctly one level down (see build_one.php's fatal messages);
+    // it was being erased here, one line later.
+    if ($msg !== '' && $m['status'] !== 'failed') $m['last'] = $msg;
+    if (($ev['type'] ?? '') === 'fatal') { $m['status'] = 'failed'; if ($msg !== '') $m['last'] = $msg; }
     if (preg_match('/Deploy complete — (\d+) uploaded/u', $msg, $x)) $m['uploaded'] = (int)$x[1];
     if (preg_match('/Tokens\s*:\s*([\d,]+) in \/ ([\d,]+) out/u', $msg, $x)) {
         $m['tokens_in']  = (int)str_replace(',', '', $x[1]);

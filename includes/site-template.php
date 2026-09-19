@@ -218,12 +218,26 @@ if (empty($seo['og_image'])) {
         }
     }
     if ($gfFamilies):
-        $gfHref = 'https://fonts.googleapis.com/css2?' . implode('&', array_map(fn($f) => 'family=' . $f, $gfFamilies)) . '&display=swap';
+        $gfHref = 'https://fonts.googleapis.com/css2?' . implode('&', array_map(fn($f) => 'family=' . $f, $gfFamilies)) . '&display=optional';
     ?>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <?php /* Load font CSS async so it never blocks first paint — display=swap already
-             paints text in the fallback, then swaps to the web font when it arrives. */ ?>
+    <?php /* Load font CSS async so it never blocks first paint. display=optional: the
+             browser only uses the web font if it's already available within its first
+             ~100ms decision window, otherwise it keeps the fallback for the whole view
+             and just caches the font for next time. swap painted the fallback then
+             ALWAYS swapped to the web font once it arrived — a real, measured CLS
+             source (0.26-0.29, "poor" on PageSpeed) confirmed on a real page. optional
+             alone still measurably shifted layout (confirmed: same 0.287 page, dropped
+             to exactly 0 with Google Fonts blocked in a controlled test) — it narrows
+             the window a swap can happen in, it doesn't remove it. Preloading the
+             actual font FILE below (not just this CSS) is what closes that window: the
+             bytes start downloading immediately instead of only after this stylesheet
+             resolves and the browser discovers the @font-face, so the font is far more
+             likely to already be ready when optional's decision point arrives. */
+    foreach (gf_preload_urls($gfHref) as $gfFontUrl): ?>
+    <link rel="preload" as="font" type="font/woff2" href="<?= h($gfFontUrl) ?>" crossorigin>
+    <?php endforeach; ?>
     <link rel="preload" as="style" href="<?= h($gfHref) ?>">
     <link rel="stylesheet" href="<?= h($gfHref) ?>" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="<?= h($gfHref) ?>"></noscript>

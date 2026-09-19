@@ -5,10 +5,12 @@
  *
  * The moment an AI photo is confirmed in Pic Drop (picdrop_api.php), the prompt that
  * produced it is captured here as that slot's standing template for the master
- * (multisite/image_prompts.json). A batch run with images.ai_photos on then fills in
- * this domain's own {city}/{SS}/{business} and a domain-seeded style phrase, generates
- * once, and caches the result — same "never re-bill a rebuild" rule as every other
- * per-domain AI step in this pipeline.
+ * (multisite/image_prompts.json). A batch run with images.ai_photos on then EDITS
+ * each domain's own copy of that approved photo (not a from-scratch description of
+ * it) with one small, domain-deterministic change — staying close to what was
+ * actually approved instead of drifting wherever a fresh description happens to
+ * land — generates once, and caches the result — same "never re-bill a rebuild"
+ * rule as every other per-domain AI step in this pipeline.
  *
  * SCOPE: home-page and site-wide (services_links) slots only. A landing page's block
  * order can shift under page-pool pruning, and trusting a block INDEX there without
@@ -84,9 +86,19 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
  * Generates (or reuses a cached) AI photo for every home/global slot the master has a
  * locked prompt for, writing each straight into the working dir's own site.json.
  *
+ * Cache hits and locked/missing slots are resolved immediately (cheap, no network).
+ * Everything that actually needs a new photo is generated in one concurrent batch
+ * via openai_images_generate_many() — a domain with 30+ approved prompts used to
+ * mean 30+ requests waited on one at a time (real minutes); this runs several at
+ * once instead, then applies each result to site.json as it comes back.
+ *
+ * @param callable|null $onProgress called (int $done, int $total) as each photo in
+ *        the concurrent batch finishes — purely for progress reporting, e.g. a
+ *        "generating photo 3 of 12" line in a batch run's status. $total counts
+ *        only the photos that actually needed generating (cache hits aren't in it).
  * @return array{generated:int,cached:int,failed:int}
  */
-function ms_generate_ai_images_for_domain(string $workingDir, string $domain, string $masterDir): array {
+function ms_generate_ai_images_for_domain(string $workingDir, string $domain, string $masterDir, ?callable $onProgress = null): array {
     $out = ['generated' => 0, 'cached' => 0, 'failed' => 0, 'errors' => []];
     $templates = ms_image_ai_prompts_load($masterDir);
     if (!$templates) return $out;
@@ -113,6 +125,12 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
     $mediaDir = $workingDir . '/uploads/media/';
     $dirty    = false;
 
+    // ── Pass 1: resolve every slot, handle cache hits immediately, queue the rest ──
+    // Anything that actually needs a new photo goes into $pending instead of being
+    // generated right here — see Pass 2 below, which fires them all through
+    // openai_images_generate_many() instead of one at a time.
+    $pending = [];
+
     foreach ($templates as $slotKey => $entry) {
         // Back-compat with the very first (pre-fix) shape, a bare prompt string with no
         // block_type — can't safely resolve those by type, only by the index they were
@@ -136,35 +154,15 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // even a cache hit must still write the cached photo into THIS build's
         // site.json, since a fresh clone's block field holds the master's placeholder,
         // not last time's generated photo, until that write happens.
-        if ($parts['scope'] === 'global') {
-            if (!isset($site['services_links']) || !is_array($site['services_links'])) {
-                $out['failed']++; $out['errors'][] = "$slotKey: no services_links block in this domain's site.json"; continue;
-            }
-            $block = &$site['services_links'];
-        } else {
-            if ($blockType === '') {
-                $out['failed']++; $out['errors'][] = "$slotKey: no block_type recorded for this template (captured before this fix) — re-confirm the AI photo in Pic Drop once to re-capture it"; continue;
-            }
-            // Reference must chain through a bare variable — foreach-by-reference over
-            // an expression like `$site['content_blocks'] ?? []` silently breaks the
-            // reference back to $site, so a later `$block[$field] = ...` writes into a
-            // throwaway copy and never reaches $site at all. Confirmed with a standalone
-            // repro before trusting this: the `?? []` form saved a cache entry claiming
-            // success while site.json quietly kept the old photo.
-            $block = null;
-            if (isset($site['content_blocks']) && is_array($site['content_blocks'])) {
-                $blocks = &$site['content_blocks'];
-                foreach ($blocks as &$candidate) {
-                    if (is_array($candidate) && ($candidate['type'] ?? '') === $blockType && array_key_exists($parts['field'], $candidate)) {
-                        $block = &$candidate;
-                        break;
-                    }
-                }
-                unset($candidate);
-            }
-            if ($block === null) {
-                $out['failed']++; $out['errors'][] = "$slotKey: no '$blockType' block with field '{$parts['field']}' found on this domain's homepage"; continue;
-            }
+        if ($parts['scope'] !== 'global' && $blockType === '') {
+            $out['failed']++; $out['errors'][] = "$slotKey: no block_type recorded for this template (captured before this fix) — re-confirm the AI photo in Pic Drop once to re-capture it"; continue;
+        }
+        $block = &ms_image_ai_resolve_block($site, $parts, $blockType);
+        if ($block === null) {
+            $msg = $parts['scope'] === 'global'
+                ? "no services_links block in this domain's site.json"
+                : "no '$blockType' block with field '{$parts['field']}' found on this domain's homepage";
+            $out['failed']++; $out['errors'][] = "$slotKey: $msg"; continue;
         }
 
         $field = $parts['field'];
@@ -177,8 +175,12 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // AI text cache already uses. A domain never changes filename on rebuild, but
         // editing the prompt in Pic Drop changes this hash, so it regenerates once
         // rather than silently reusing a photo made from a prompt Scott has since
-        // replaced.
-        $filename    = 'ai_' . substr(md5($slotKey . '|' . $basePrompt), 0, 10) . '.webp';
+        // replaced. The 'edit-v1' tag does the same job for the METHOD, not just the
+        // prompt — bumps every previously-cached photo (made by describing a scene
+        // from scratch, which is what was drifting "way off") so it regenerates once
+        // under the new edit-from-reference approach instead of being served forever
+        // from a cache keyed the old way.
+        $filename    = 'ai_' . substr(md5($slotKey . '|' . $basePrompt . '|edit-v1'), 0, 10) . '.webp';
         $persistFile = $persistDir . '/' . $filename;
         $url         = 'uploads/media/' . $filename;
 
@@ -199,44 +201,99 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             $out['failed']++; $out['errors'][] = "$slotKey: current value is a locked {token}, not ours to touch"; continue;
         }
 
-        [$tw, $th] = @getimagesize($workingDir . '/' . ltrim($currentValue, '/')) ?: [0, 0];
+        $refPath = $workingDir . '/' . ltrim($currentValue, '/');
+        [$tw, $th] = @getimagesize($refPath) ?: [0, 0];
         if ($tw < 1 || $th < 1) {
             $out['failed']++; $out['errors'][] = "$slotKey: could not read size of existing photo ($currentValue)"; continue;
         }
 
+        // Edited FROM the domain's current photo — which is a straight (differentiated)
+        // copy of the exact picture approved in Pic Drop — rather than described from
+        // scratch. A from-scratch description let every domain's result drift wherever
+        // the model felt like going that day; editing keeps the result close to what was
+        // actually approved, with one small, deliberate, per-domain-deterministic change
+        // so it isn't a pixel duplicate. Still enough to matter for the same reason every
+        // OTHER photo in this pipeline gets its own differentiated copy — see
+        // picdrop_matching_slots()'s docblock.
+        // The approved prompt still rides along (so a meaningful edit to it in Pic
+        // Drop — a different subject entirely, say — still has a say), but the
+        // instruction now leads with "stay close to the reference," not "here's a
+        // scene, go describe it" — that framing is what let results wander.
         $styleIdx = ms_variant($domain, count(ms_image_ai_style_pool()), 'image_style');
-        $prompt   = ms_image_ai_fill_tokens($basePrompt, $siteVars) . ', ' . ms_image_ai_style_pool()[$styleIdx] . '.';
+        $prompt   = ms_image_ai_fill_tokens($basePrompt, $siteVars) . '. Keep this photo nearly identical to '
+                  . 'the reference — same subject, same composition, same framing. Make only one small, '
+                  . 'subtle change: ' . ms_image_ai_style_pool()[$styleIdx] . '.';
 
         $size = ($tw > 0 && $th > 0)
             ? ($tw >= $th * 1.2 ? '1536x1024' : ($th >= $tw * 1.2 ? '1024x1536' : '1024x1024'))
             : '1024x1024';
 
-        $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
-        if (!$r['ok']) {
-            $out['failed']++; $out['errors'][] = "$slotKey: openai_images_generate failed (HTTP {$r['code']}): {$r['error']}"; continue;
-        }
-
-        $tmpFile = tempnam(sys_get_temp_dir(), 'msai');
-        file_put_contents($tmpFile, $r['bytes']);
-        if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
-        $dest = $mediaDir . $filename;
-        [$fitOk] = img_fit_to($tmpFile, $dest, 'image/webp', $tw, $th);
-        @unlink($tmpFile);
-        if (!$fitOk) {
-            $out['failed']++; $out['errors'][] = "$slotKey: img_fit_to() could not process the generated image"; continue;
-        }
-
-        // Persist OUTSIDE the working dir so the next, separate build of this same
-        // domain hits cache instead of re-billing OpenAI — see the note by $persistDir.
-        if (!is_dir($persistDir)) mkdir($persistDir, 0775, true);
-        copy($dest, $persistFile);
-
-        $block[$field]   = $url;
-        $cache[$slotKey] = ['url' => $url, 'prompt' => $prompt, 'generated_at' => date('Y-m-d H:i:s')];
-        $dirty = true;
-        $out['generated']++;
+        // Not generated here — queued. Pass 2 below fires every queued slot through
+        // openai_images_edit_many() together, instead of waiting on each one in
+        // turn (see that function's docblock for why this used to be slow: a domain
+        // with 30+ approved prompts meant 30+ full request/response waits back to
+        // back). $block is intentionally NOT captured here — content_blocks is a
+        // plain array, so a reference into it can go stale if anything else in this
+        // array touches the array between now and Pass 2; re-resolving by type+field
+        // there is cheap and exactly what the single-request path already did.
+        $pending[] = [
+            'slotKey' => $slotKey, 'parts' => $parts, 'blockType' => $blockType, 'field' => $field,
+            'filename' => $filename, 'persistFile' => $persistFile, 'url' => $url, 'refPath' => $refPath,
+            'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size,
+        ];
     }
     unset($block);
+
+    // ── Pass 2: generate every queued slot concurrently, apply each as it lands ──
+    if ($pending) {
+        $jobs = array_map(
+            fn($p) => ['prompt' => $p['prompt'], 'ref_path' => $p['refPath'], 'opts' => ['size' => $p['size'], 'quality' => 'medium', 'output_format' => 'webp']],
+            $pending
+        );
+
+        $total = count($jobs);
+        $done  = 0;
+        $results = openai_images_edit_many($jobs, ms_image_ai_concurrency(), function ($i, $r) use (&$done, $total, $onProgress) {
+            $done++;
+            if ($onProgress) $onProgress($done, $total);
+        });
+
+        foreach ($pending as $i => $p) {
+            $slotKey = $p['slotKey'];
+            $r = $results[$i];
+            if (!$r['ok']) {
+                $out['failed']++; $out['errors'][] = "$slotKey: openai_images_generate failed (HTTP {$r['code']}): {$r['error']}"; continue;
+            }
+
+            $tmpFile = tempnam(sys_get_temp_dir(), 'msai');
+            file_put_contents($tmpFile, $r['bytes']);
+            if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
+            $dest = $mediaDir . $p['filename'];
+            [$fitOk] = img_fit_to($tmpFile, $dest, 'image/webp', $p['tw'], $p['th']);
+            @unlink($tmpFile);
+            if (!$fitOk) {
+                $out['failed']++; $out['errors'][] = "$slotKey: img_fit_to() could not process the generated image"; continue;
+            }
+
+            // Persist OUTSIDE the working dir so the next, separate build of this same
+            // domain hits cache instead of re-billing OpenAI — see the note by $persistDir.
+            if (!is_dir($persistDir)) mkdir($persistDir, 0775, true);
+            copy($dest, $p['persistFile']);
+
+            $block = &ms_image_ai_resolve_block($site, $p['parts'], $p['blockType']);
+            if ($block === null) {
+                // Vanishingly unlikely (Pass 1 just resolved this same slot) — but the
+                // photo is already made and cached, so fail loudly rather than lose it.
+                $out['failed']++; $out['errors'][] = "$slotKey: generated but the block moved before it could be written — file is cached at {$p['persistFile']} for the next attempt"; continue;
+            }
+            $block[$p['field']] = $p['url'];
+            unset($block);
+
+            $cache[$slotKey] = ['url' => $p['url'], 'prompt' => $p['prompt'], 'generated_at' => date('Y-m-d H:i:s')];
+            $dirty = true;
+            $out['generated']++;
+        }
+    }
 
     if ($dirty) {
         file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
@@ -245,4 +302,44 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         file_put_contents($cacheFile, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
     return $out;
+}
+
+/**
+ * How many AI photo requests may be in flight at once for one domain's batch. A
+ * flat constant, not a per-batch setting — tuned once here if OpenAI's rate limit
+ * ever pushes back, rather than exposed as one more checkbox nobody will tune.
+ */
+function ms_image_ai_concurrency(): int {
+    return 5;
+}
+
+/**
+ * Resolves a slot's block BY REFERENCE, matching by TYPE + field rather than the
+ * block INDEX the key carries — block order can shift per domain (structure.home),
+ * so "index 2" does not reliably mean the same block it meant when the prompt was
+ * captured. Returns a null-valued reference when nothing matches (PHP has no
+ * nullable reference return otherwise). Used from both passes above: once to
+ * decide what needs generating, once again to write each result back.
+ */
+function &ms_image_ai_resolve_block(array &$site, array $parts, string $blockType) {
+    $null = null;
+    if ($parts['scope'] === 'global') {
+        if (!isset($site['services_links']) || !is_array($site['services_links'])) return $null;
+        return $site['services_links'];
+    }
+    if ($blockType === '' || !isset($site['content_blocks']) || !is_array($site['content_blocks'])) return $null;
+    // Reference must chain through a bare variable — foreach-by-reference over an
+    // expression like `$site['content_blocks'] ?? []` silently breaks the reference
+    // back to $site, so a later `$block[$field] = ...` writes into a throwaway copy
+    // and never reaches $site at all. Confirmed with a standalone repro before
+    // trusting this: the `?? []` form saved a cache entry claiming success while
+    // site.json quietly kept the old photo.
+    $blocks = &$site['content_blocks'];
+    foreach ($blocks as &$candidate) {
+        if (is_array($candidate) && ($candidate['type'] ?? '') === $blockType && array_key_exists($parts['field'], $candidate)) {
+            return $candidate;
+        }
+    }
+    unset($candidate);
+    return $null;
 }

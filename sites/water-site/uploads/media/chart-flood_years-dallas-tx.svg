@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img">
+<defs><linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f4f7fa"/></linearGradient><linearGradient id="tdot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F07E13"/><stop offset="1" stop-color="#14532D"/></linearGradient></defs>
+<rect width="900" height="300" fill="url(#tbg)"/>
+<rect x="0" y="0" width="900" height="6" fill="#F07E13" fill-opacity=".9"/>
+<text x="62" y="52" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="25" font-weight="700" fill="#14532D">Major flood events in Dallas, TX</text>
+<text x="62" y="78" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" font-weight="700" fill="#F07E13">Most recent: 2019</text>
+<line x1="62" y1="176" x2="838" y2="176" stroke="#6b7f95" stroke-opacity=".35" stroke-width="2"/>
+<text x="62" y="206" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" fill="#6b7f95">1901</text>
+<text x="838" y="206" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" fill="#6b7f95">2026</text>
+<line x1="105.5" y1="162" x2="105.5" y2="176" stroke="#F07E13" stroke-opacity=".45" stroke-width="1.5"/>
+<circle cx="105.5" cy="176" r="6.5" fill="url(#tdot)"/>
+<text x="105.5" y="154" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#14532D">1908</text>
+<line x1="360" y1="176" x2="360" y2="190" stroke="#F07E13" stroke-opacity=".45" stroke-width="1.5"/>
+<circle cx="360" cy="176" r="6.5" fill="url(#tdot)"/>
+<text x="360" y="228" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#14532D">1949</text>
+<line x1="769.7" y1="162" x2="769.7" y2="176" stroke="#F07E13" stroke-opacity=".45" stroke-width="1.5"/>
+<circle cx="769.7" cy="176" r="6.5" fill="url(#tdot)"/>
+<text x="769.7" y="154" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#14532D">2015</text>
+<line x1="775.9" y1="176" x2="775.9" y2="190" stroke="#F07E13" stroke-opacity=".45" stroke-width="1.5"/>
+<circle cx="775.9" cy="176" r="6.5" fill="url(#tdot)"/>
+<text x="775.9" y="228" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="16" font-weight="600" fill="#14532D">2016</text>
+<line x1="794.5" y1="162" x2="794.5" y2="176" stroke="#F07E13" stroke-opacity=".45" stroke-width="1.5"/>
+<circle cx="794.5" cy="176" r="9" fill="url(#tdot)"/>
+<circle cx="794.5" cy="176" r="15" fill="none" stroke="#F07E13" stroke-opacity=".45" stroke-width="2"/>
+<text x="794.5" y="154" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#14532D">2019</text>
+<text x="62" y="282" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" fill="#6b7f95">Source: NOAA Storm Events Database</text>
+<rect x="2" y="2" width="896" height="296" rx="16" fill="none" stroke="#F07E13" stroke-opacity=".55" stroke-width="4"/>
+</svg>

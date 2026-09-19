@@ -10,15 +10,24 @@
             <?php
             require_once BASE_DIR . '/includes/picdrop.php';
 
-            $pdGroups = picdrop_groups();
+            $pdGroups         = picdrop_groups();
+            $pdTemplateGroups = picdrop_template_groups();
+
+            // What actually gets a row: site-wide/home/core pages as before, but landing
+            // pages are replaced by their TEMPLATES — one row per template, not one per
+            // already-built city, which stops scaling past a handful of cities. $pdGroups
+            // itself is left untouched (still a full scan, still used below for the
+            // cross-value checks the non-template rows rely on).
+            $pdRenderGroups = array_merge(
+                array_values(array_filter($pdGroups, fn($g) => $g['scope'] !== 'landing')),
+                $pdTemplateGroups
+            );
 
             // How many slots share each image, so the propagate control can say what it will do
             // before you commit to it. Keyed by value + leaf field, matching what the API does.
             $pdShared = [];
-            $pdTotal  = 0;
             foreach ($pdGroups as $g) {
                 foreach ($g['slots'] as $s) {
-                    $pdTotal++;
                     if ($s['value'] !== '' && !$s['token']) {
                         $pdShared[$s['value'] . '|' . picdrop_leaf($s['field'])] ??= 0;
                         $pdShared[$s['value'] . '|' . picdrop_leaf($s['field'])]++;
@@ -44,8 +53,23 @@
                 }
             }
 
+            // How many already-built pages exist for each template — what a template row's
+            // own "also replace" checkbox counts, since matching by current file value
+            // would find nothing once a page's photo has its own differentiated copy.
+            $pdPagesByTemplate = [];
+            if (defined('PAGES_DIR')) {
+                foreach ((glob(PAGES_DIR . '*.json') ?: []) as $f) {
+                    $p = json_decode((string) @file_get_contents($f), true);
+                    $tid = is_array($p) ? (string) ($p['template_id'] ?? '') : '';
+                    if ($tid !== '') $pdPagesByTemplate[$tid] = ($pdPagesByTemplate[$tid] ?? 0) + 1;
+                }
+            }
+
+            $pdTotal = 0;
+            foreach ($pdRenderGroups as $g) { $pdTotal += count($g['slots']); }
+
             $pdMissing = 0;
-            foreach ($pdGroups as $g) {
+            foreach ($pdRenderGroups as $g) {
                 // A token slot has no file by design, and an empty slot is not broken —
                 // only a real path that does not resolve counts as missing.
                 foreach ($g['slots'] as $s) { if (!$s['exists'] && !$s['token'] && $s['value'] !== '') $pdMissing++; }
@@ -60,7 +84,7 @@
                     <button type="button" class="btn btn-secondary btn-small" onclick="pdToggleAll(true)">Expand all</button>
                     <button type="button" class="btn btn-secondary btn-small" onclick="pdToggleAll(false)">Collapse all</button>
                     <span id="pd-shown" style="font-size:.85rem;color:#6b7280;white-space:nowrap;">
-                        <?= count($pdGroups) ?> pages &middot; <?= $pdTotal ?> pictures
+                        <?= count($pdRenderGroups) ?> groups &middot; <?= $pdTotal ?> pictures
                     </span>
                 </div>
 
@@ -85,7 +109,13 @@
                 <?php endif; ?>
             </div>
 
-            <?php foreach ($pdGroups as $gi => $g): ?>
+            <?php $pdShownTplHeader = false; ?>
+            <?php foreach ($pdRenderGroups as $gi => $g): ?>
+                <?php if ($g['scope'] === 'template' && !$pdShownTplHeader): $pdShownTplHeader = true; ?>
+                    <h2 style="font-size:1rem;color:#1e3a5f;margin:24px 0 8px;">Landing page templates</h2>
+                    <p class="hint" style="margin:0 0 12px;">One row per template &mdash; not per city. Setting a photo here and checking
+                        "also replace elsewhere" pushes it onto every page already built from this template.</p>
+                <?php endif; ?>
                 <?php $gid = 'pdg' . $gi; ?>
                 <div class="card pd-group" data-search="<?= h(strtolower($g['title'] . ' ' . $g['sub'])) ?>" style="padding:0;overflow:hidden;">
                     <button type="button" class="pd-head" onclick="pdToggle('<?= $gid ?>')"
@@ -102,10 +132,22 @@
                         <?php else: ?>
                             <?php foreach ($g['slots'] as $s): ?>
                                 <?php
-                                $sid     = 'pds' . md5($s['key']);
-                                $shareKey= $s['value'] . '|' . picdrop_leaf($s['field']);
-                                $shared  = $pdShared[$shareKey] ?? 1;
-                                $tplHits = $pdTpl[$shareKey] ?? 0;
+                                $sid = 'pds' . md5($s['key']);
+                                // A template row's "also replace" means something different from a page
+                                // row's: not "who else currently holds this exact file" (nobody does, once
+                                // a page has its own differentiated copy) but "how many pages were built
+                                // from this template" — see picdrop_pages_for_template()'s docblock.
+                                if ($g['scope'] === 'template') {
+                                    $tplPageCount = $pdPagesByTemplate[$s['page_id']] ?? 0;
+                                    $shared = $tplHits = 0;
+                                    $propShow = $tplPageCount > 0;
+                                } else {
+                                    $tplPageCount = 0;
+                                    $shareKey = $s['value'] . '|' . picdrop_leaf($s['field']);
+                                    $shared   = $pdShared[$shareKey] ?? 1;
+                                    $tplHits  = $pdTpl[$shareKey] ?? 0;
+                                    $propShow = ($shared > 1 || $tplHits > 0);
+                                }
                                 ?>
                                 <div class="pd-slot" style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #f1f5f9;">
                                     <div id="<?= $sid ?>_prev" style="flex-shrink:0;width:132px;">
@@ -189,15 +231,19 @@
                                             <div class="hint" style="margin-top:7px;">Decorative background &mdash; no alt text.</div>
                                         <?php endif; ?>
 
-                                        <?php if ($shared > 1 || $tplHits > 0): ?>
+                                        <?php if ($propShow): ?>
                                             <label class="hint" style="display:flex;align-items:center;gap:6px;margin-top:6px;">
                                                 <input type="checkbox" class="pd-prop" checked>
-                                                Also replace
-                                                <?php if ($shared > 1): ?>
-                                                    on the other <?= $shared - 1 ?> page<?= $shared - 1 === 1 ? '' : 's' ?> using this same picture here<?= $tplHits ? ',' : '' ?>
-                                                <?php endif; ?>
-                                                <?php if ($tplHits): ?>
-                                                    <?= $shared > 1 ? 'and in' : 'in' ?> <?= $tplHits ?> landing template<?= $tplHits === 1 ? '' : 's' ?> (or a regen puts the old one back)
+                                                <?php if ($g['scope'] === 'template'): ?>
+                                                    Also replace on this template's <strong><?= $tplPageCount ?></strong> existing page<?= $tplPageCount === 1 ? '' : 's' ?>
+                                                <?php else: ?>
+                                                    Also replace
+                                                    <?php if ($shared > 1): ?>
+                                                        on the other <?= $shared - 1 ?> page<?= $shared - 1 === 1 ? '' : 's' ?> using this same picture here<?= $tplHits ? ',' : '' ?>
+                                                    <?php endif; ?>
+                                                    <?php if ($tplHits): ?>
+                                                        <?= $shared > 1 ? 'and in' : 'in' ?> <?= $tplHits ?> landing template<?= $tplHits === 1 ? '' : 's' ?> (or a regen puts the old one back)
+                                                    <?php endif; ?>
                                                 <?php endif; ?>
                                             </label>
                                         <?php endif; ?>
@@ -208,7 +254,7 @@
                                             &#128274; Set per city<br><span style="font-size:.72rem;">City Image plugin</span>
                                         </div>
                                     <?php else: ?>
-                                        <?php $aiDefault = 'Photorealistic photo for: ' . $s['block_label'] . ' — ' . $s['label'] . '. Natural daylight, documentary photography style, no visible text or logos.'; ?>
+                                        <?php $aiDefault = 'Photorealistic photo for: ' . $s['block_label'] . ' — ' . $s['label'] . '. Bright, well-lit scene with natural daylight — not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression — not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing. If tools or machinery are part of the scene, keep them fully in frame — do not crop them off.'; ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
                                                  style="border:2px dashed #d1d5db;border-radius:7px;padding:14px 10px;text-align:center;cursor:pointer;font-size:.8rem;color:#6b7280;transition:border-color .15s,background .15s;">
@@ -349,7 +395,7 @@
                         if (hit) shown++;
                     });
                     document.getElementById('pd-shown').textContent =
-                        shown + (q ? ' of <?= count($pdGroups) ?>' : '') + ' pages';
+                        shown + (q ? ' of <?= count($pdRenderGroups) ?>' : '') + ' groups';
                 });
 
                 function markDirty() {

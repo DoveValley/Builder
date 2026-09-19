@@ -447,7 +447,8 @@ if ($skipped('images')) {
     if ($skipped('images.ai_photos')) {
         progress_log('Images: AI photo skipped — turned off for this run.', 'warn');
     } else {
-        $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir);
+        $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir,
+            function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); });
         if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
             progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
                 . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',

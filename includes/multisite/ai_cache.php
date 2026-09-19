@@ -291,13 +291,23 @@ function ms_scrub_master_content(string $workingDir): array {
  * silently un-does the exact class of bug the compile-on-save fix closed one layer up.
  *
  * default_fields are structural config, not AI-authored content, so the CURRENT registry
- * should always win for them — the AI-authored fields (heading_text, text, …) still come
- * from cache untouched, since they aren't in default_fields at all.
+ * should win for them when the block predates that field existing at all. But some
+ * archetypes' default_fields double as the PRE-GENERATION SCAFFOLD for a field the AI
+ * DOES author — feature_columns_local/seasonal_calendar/why_choose_us all list their own
+ * output keys (fc_heading/columns, steps_heading/steps_items) as empty placeholders, since
+ * that scaffold is what a fresh, never-generated block shows in the admin UI. Reapplying
+ * those unconditionally after the cache just restored the real content silently blanked
+ * it back to that placeholder on every cache-hit rebuild — found live: a why_choose_us
+ * block generated real copy, cached correctly, then came back empty on the very next
+ * rebuild because this function stomped it. $restoredKeys is what the cache just set;
+ * skip reapplying a default for any key already in that set, so a real AI-authored value
+ * is never overwritten by its own pre-generation placeholder.
  */
-function ms_ai_reapply_current_defaults(array &$b, array $registry): void {
+function ms_ai_reapply_current_defaults(array &$b, array $registry, array $restoredKeys = []): void {
     if (($b['type'] ?? '') !== 'ai_block') return;   // enrich blocks own their real fields already
     $typeId = $b['ai_type_id'] ?? '';
     foreach (($registry[$typeId]['default_fields'] ?? []) as $k => $v) {
+        if (in_array($k, $restoredKeys, true)) continue;
         $b[$k] = $v;
     }
 }
@@ -320,11 +330,13 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
     ms_ai_walk_site($site, function (array &$b) use ($entries, &$candidates, $registry) {
         $id = $b['id'] ?? '';
         if ($id === '' || !isset($entries[$id])) return;
+        $restoredKeys = [];
         foreach (($entries[$id]['value'] ?? []) as $k => $v) {
             if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;   // pre-existing caches carry these
             $b[$k] = $v;
+            $restoredKeys[] = $k;
         }
-        ms_ai_reapply_current_defaults($b, $registry);
+        ms_ai_reapply_current_defaults($b, $registry, $restoredKeys);
         $b['_ai_cache_hash'] = $entries[$id]['input_hash'] ?? '';
         $candidates++;
     });
@@ -342,11 +354,13 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
         ms_ai_walk_page_blocks($page, function (array &$b, int $occ) use ($entries, $base, &$candidates, &$pageHits, $registry) {
             $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
             if (!isset($entries[$key])) return;
+            $restoredKeys = [];
             foreach (($entries[$key]['value'] ?? []) as $k => $v) {
                 if (in_array($k, MS_AI_IMAGE_KEYS, true)) continue;   // pre-existing caches carry these
                 $b[$k] = $v;
+                $restoredKeys[] = $k;
             }
-            ms_ai_reapply_current_defaults($b, $registry);
+            ms_ai_reapply_current_defaults($b, $registry, $restoredKeys);
             $b['_ai_cache_hash'] = $entries[$key]['input_hash'] ?? '';
             $candidates++; $pageHits++;
         });

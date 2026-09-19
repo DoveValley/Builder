@@ -13,6 +13,7 @@
  *     core:page_8845f40cd5d04:3:it_photo
  *     landing:tpl_attic_water_damage_city_lufkin_tx.json:1:hs_photo
  *     global:services_links:0:bg_photo
+ *     template:tpl_attic_water_damage:1:hs_photo
  *
  * fieldPath may be dotted for fields nested in a repeater ("ts_tabs.2.photo").
  */
@@ -322,6 +323,15 @@ function picdrop_find_slot(string $key): ?array {
             $page = $f !== null ? json_decode((string) @file_get_contents($f), true) : null;
             $blocks = is_array($page) ? ($page['content_blocks'] ?? []) : [];
             break;
+        case 'template':
+            $tpls = defined('TEMPLATES_FILE') && is_file(TEMPLATES_FILE)
+                ? (json_decode((string) @file_get_contents(TEMPLATES_FILE), true) ?: [])
+                : [];
+            $blocks = [];
+            foreach ($tpls as $t) {
+                if (is_array($t) && ($t['id'] ?? '') === $parts['id']) { $blocks = $t['content_blocks'] ?? []; break; }
+            }
+            break;
         default:
             return null;
     }
@@ -392,6 +402,32 @@ function picdrop_groups(): array {
         ];
     }
 
+    return $groups;
+}
+
+/**
+ * One group per landing-page TEMPLATE, each with its own photo slots — the
+ * template-level counterpart to picdrop_groups()'s per-PAGE list. A site with many
+ * cities can have dozens of already-built pages per template; managing a photo one
+ * page at a time does not scale. This lets Pic Drop show ONE row per template
+ * instead, using the exact same drop/library/AI-generate widget a page row already
+ * uses (nothing about that mechanism changes — only what it's pointed at).
+ */
+function picdrop_template_groups(): array {
+    if (!defined('TEMPLATES_FILE') || !is_file(TEMPLATES_FILE)) return [];
+    $tpls = json_decode((string) @file_get_contents(TEMPLATES_FILE), true);
+    if (!is_array($tpls)) return [];
+
+    $groups = [];
+    foreach ($tpls as $t) {
+        if (!is_array($t) || ($t['id'] ?? '') === '') continue;
+        $groups[] = [
+            'scope' => 'template', 'id' => (string) $t['id'],
+            'title' => (string) ($t['title'] ?: $t['id']),
+            'sub'   => 'Landing template',
+            'slots' => picdrop_slots_for_blocks($t['content_blocks'] ?? [], 'template', (string) $t['id']),
+        ];
+    }
     return $groups;
 }
 
@@ -573,6 +609,65 @@ function picdrop_template_matches(string $value, string $leaf): array {
 }
 
 /**
+ * Landing PAGES generated from a template — matched by "this page was built from
+ * this template", not by whether it currently holds the same file. Every page's
+ * photo is already its own byte-unique copy of the template's picture on purpose
+ * (see picdrop_matching_slots()'s docblock — that's what keeps search engines from
+ * seeing the same image on multiple pages), so a value-equality search finds
+ * nothing once that's happened. This is what lets editing a TEMPLATE row's
+ * "also replace elsewhere" checkbox actually reach the real, already-built pages.
+ *
+ * Matched by block TYPE + its ordinal position among same-typed blocks on the
+ * template, not by bare index — landing pages can have their section order
+ * rotated per domain (structure.landing), so "block 3" on the template does not
+ * reliably mean "block 3" on a generated page. Same reasoning already used by the
+ * batch AI-photo pipeline for the same problem (includes/multisite/image_ai.php).
+ */
+function picdrop_pages_for_template(string $templateId, int $templateBlockIndex, string $field): array {
+    if (!defined('TEMPLATES_FILE') || !is_file(TEMPLATES_FILE) || !defined('PAGES_DIR')) return [];
+    $tpls = json_decode((string) @file_get_contents(TEMPLATES_FILE), true);
+    if (!is_array($tpls)) return [];
+
+    $tplBlocks = null;
+    foreach ($tpls as $t) {
+        if (is_array($t) && ($t['id'] ?? '') === $templateId) { $tplBlocks = $t['content_blocks'] ?? []; break; }
+    }
+    if ($tplBlocks === null || !isset($tplBlocks[$templateBlockIndex])) return [];
+
+    $blockType = (string) ($tplBlocks[$templateBlockIndex]['type'] ?? '');
+    if ($blockType === '') return [];
+
+    // Which occurrence of this block type is this, among the template's own blocks?
+    $ordinal = 0;
+    foreach ($tplBlocks as $i => $b) {
+        if (is_array($b) && ($b['type'] ?? '') === $blockType) {
+            $ordinal++;
+            if ($i === $templateBlockIndex) break;
+        }
+    }
+
+    $out = [];
+    foreach ((glob(PAGES_DIR . '*.json') ?: []) as $f) {
+        $page = json_decode((string) @file_get_contents($f), true);
+        if (!is_array($page) || ($page['template_id'] ?? '') !== $templateId) continue;
+        $blocks = $page['content_blocks'] ?? [];
+
+        $seen = 0;
+        foreach ($blocks as $bi => $b) {
+            if (!is_array($b) || ($b['type'] ?? '') !== $blockType) continue;
+            $seen++;
+            if ($seen !== $ordinal) continue;
+            if (array_key_exists($field, $b)) {
+                $out[] = ['scope' => 'landing', 'id' => basename($f), 'block' => $bi, 'field' => $field,
+                          'page_title' => (string) ($page['title'] ?? basename($f))];
+            }
+            break;   // found the matching occurrence (or its shape drifted) — stop scanning this page
+        }
+    }
+    return $out;
+}
+
+/**
  * Documents whose seo.og_image is the very file being replaced.
  *
  * og_image is deliberately NOT a Pic Drop slot — it is never rendered on the page and
@@ -618,12 +713,13 @@ function picdrop_parse_key(string $key): ?array {
     if (count($parts) !== 4) return null;
     [$scope, $id, $bi, $path] = $parts;
 
-    if (!in_array($scope, ['global', 'home', 'core', 'landing'], true)) return null;
+    if (!in_array($scope, ['global', 'home', 'core', 'landing', 'template'], true)) return null;
     if (!preg_match('/^\d+$/', $bi)) return null;
     if (!preg_match('/^[a-z0-9_]+(\.\d+\.[a-z0-9_]+)?$/i', $path)) return null;
     if (!isset(picdrop_fields()[picdrop_leaf($path)])) return null;
     if ($scope === 'landing' && !preg_match('/^[a-z0-9_\-]+\.json$/i', $id)) return null;
     if ($scope === 'core' && !preg_match('/^[a-z0-9_\-]+$/i', $id)) return null;
+    if ($scope === 'template' && !preg_match('/^[a-z0-9_\-]+$/i', $id)) return null;
 
     return ['scope' => $scope, 'id' => $id, 'block' => (int) $bi, 'field' => $path];
 }

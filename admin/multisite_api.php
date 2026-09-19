@@ -847,7 +847,7 @@ switch ($action) {
         $rres = ms_with_launch_lock($runsDir . '/.lock', function () use ($runsDir, $masterId, $batchId) {
             if ($running = ms_active_run($runsDir)) return ['error' => 'This batch is already running.', 'run_id' => $running['run_id'] ?? null];
             $flags = ms_run_flags([
-                'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 0, 'limit' => $_POST['limit'] ?? 0,
+                'jobs' => $_POST['jobs'] ?? 1, 'retries' => $_POST['retries'] ?? 1, 'limit' => $_POST['limit'] ?? 0,
                 'no_ai' => !empty($_POST['no_ai']), 'force' => !empty($_POST['force']),
                 'skip'  => array_filter(array_map('trim', explode(',', (string) ($_POST['skip'] ?? '')))),
                 'no_deploy' => !empty($_POST['no_deploy']),

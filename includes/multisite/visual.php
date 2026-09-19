@@ -84,11 +84,27 @@ function ms_load_fonts(string $masterId): array {
     return $pool;
 }
 
+/**
+ * Per-domain font pins that bypass the deterministic pool pick entirely — for a
+ * domain that needs to opt OUT of the Google-Fonts rotation (e.g. a real, confirmed
+ * font-swap CLS issue on that specific domain), not for routine customization.
+ * Deliberately a tiny flat file, not a params.csv column: this is meant to be rare.
+ */
+function ms_font_overrides(string $masterId): array {
+    $file = BASE_DIR . '/sites/' . $masterId . '/multisite/font_overrides.json';
+    $d = @json_decode((string) @file_get_contents($file), true);
+    return is_array($d) ? $d : [];
+}
+
 /** The font this domain gets. Deterministic — crc32 of the domain, so a rebuild repeats it. */
 function ms_pick_font(string $masterId, array $params): string {
+    $domain = (string)($params['domain'] ?? $params['DOMAIN'] ?? '');
+    $overrides = ms_font_overrides($masterId);
+    if ($domain !== '' && isset($overrides[$domain]) && trim((string) $overrides[$domain]) !== '') {
+        return (string) $overrides[$domain];
+    }
     $pool = ms_load_fonts($masterId);
     if (!$pool) return '';
-    $domain = (string)($params['domain'] ?? $params['DOMAIN'] ?? '');
     return $pool[ms_variant($domain, count($pool), 'font')] ?? $pool[0];
 }
 

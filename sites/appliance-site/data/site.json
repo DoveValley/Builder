@@ -381,6 +381,22 @@
             "mi_map_caption": "{city_map_caption}"
         },
         {
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_prompt_override": "",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "type": "ai_block",
+            "ai_type_id": "why_choose_us",
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": [],
+            "id": "why_choose_us_home"
+        },
+        {
             "type": "cta_banner",
             "skin": "accent",
             "cb_text": "Broken appliance in {city}? {business} can help — usually same-day.",
@@ -669,6 +685,22 @@
                     "heading_level": "h2",
                     "text": "",
                     "id": "ai_block_about"
+                },
+                {
+                    "ai_mode": "standalone",
+                    "ai_render_as": "feature_columns",
+                    "ai_model": "claude-haiku-4-5-20251001",
+                    "ai_prompt_override": "",
+                    "ai_inject_target": null,
+                    "ai_inject_field": null,
+                    "ai_inject_mode": null,
+                    "type": "ai_block",
+                    "ai_type_id": "why_choose_us",
+                    "skin": "light",
+                    "fc_heading": "",
+                    "fc_num_cols": 4,
+                    "columns": [],
+                    "id": "why_choose_us_about"
                 }
             ],
             "seo": {

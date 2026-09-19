@@ -204,6 +204,28 @@
         "requires_research": false,
         "prompt_skeleton": "You are writing homepage body copy for {business}, [[brief.business_descriptor]], serving {city}, {state}.\n\nTarget keyword: \"{keyword}\" — this page exists to rank for it. {service} must read as the clear subject.\n\nWrite 1 short paragraph (40-60 words), wrapped in <p>...</p>, explaining how {business} approaches {service} for {city} customers — thoroughness, responsiveness, and fit to the customer's specific situation. Do not list every service offered; stay focused on the approach.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON: {\"hg_body\": \"<p>...</p>\"}. JSON only, no markdown fences."
     },
+    "why_choose_us": {
+        "label": "Why Choose Us (Home/About, Standalone)",
+        "description": "Home/About-Us 'why choose us' feature-columns section — general reasons to work with this business, not tied to a specific city page or target keyword. Each site gets independently AI-written wording so an operator running many sites never ends up with the same section twice.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "requires_research": false,
+        "prompt_skeleton": "You are writing a \"why choose us\" feature-columns section for {business}, [[brief.business_descriptor]], based in {city}, {state}.\n\nThis is for the homepage or About Us page — it is NOT tied to one specific city landing page or target keyword, so keep it general to the business rather than hyper-local.\n\nfc_heading: 5-9 words, benefit-focused (e.g. \"Why [[brief.customer_noun]]s Choose {business}\").\n\nWrite exactly 4 columns, each a distinct, general reason to work with {business} for {service} — for example: how quickly someone gets connected to help, ease/clarity of the process, breadth of local coverage, and availability (e.g. nights/weekends/emergencies) if true to how this business operates. Do not repeat the same idea across columns, and do not all four columns about speed.\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete, no invented specifics.\n\n[[shared.guardrail]]\n[[shared.tone_line]]\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}"
+    },
     "homepage_service_area": {
         "label": "Homepage Service Area Statement (Inject)",
         "description": "Injects the homepage's split_cta service-area paragraph (sc_left_text), replacing static cross-domain-duplicated text with per-domain copy focused on the site's primary keyword.",

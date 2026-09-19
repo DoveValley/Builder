@@ -110,3 +110,7 @@ admin/_dirnet-data/sheet3-legend.csv
 # it is what stops the webroot serving them — so that one is tracked.
 sites/*/_originals/*
 !sites/*/_originals/.htaccess
+
+# Google Fonts file-preload cache (includes/helpers.php gf_preload_urls()) —
+# regenerable lookup of font URLs, not meaningful to version.
+data/gf_preload_cache.json

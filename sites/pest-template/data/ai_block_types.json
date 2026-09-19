@@ -223,5 +223,28 @@
         "default_fields": [],
         "_compiled_from": "homepage_service_area",
         "_niche": "pest"
+    },
+    "why_choose_us": {
+        "label": "Why Choose Us (Home/About, Standalone)",
+        "description": "Home/About-Us 'why choose us' feature-columns section — general reasons to work with this business, not tied to a specific city page or target keyword. Each site gets independently AI-written wording so an operator running many sites never ends up with the same section twice.",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_model": "claude-haiku-4-5-20251001",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt": "You are writing a \"why choose us\" feature-columns section for {business}, a referral service that connects property owners with independent local pest control providers, based in {city}, {state}.\n\nThis is for the homepage or About Us page — it is NOT tied to one specific city landing page or target keyword, so keep it general to the business rather than hyper-local.\n\nfc_heading: 5-9 words, benefit-focused (e.g. \"Why homeowners Choose {business}\").\n\nWrite exactly 4 columns, each a distinct, general reason to work with {business} for {service} — for example: how quickly someone gets connected to help, ease/clarity of the process, breadth of local coverage, and availability (e.g. nights/weekends/emergencies) if true to how this business operates. Do not repeat the same idea across columns, and do not all four columns about speed.\n\nEach column: heading 3-5 words (benefit-focused); text 20-30 words, concrete, no invented specifics.\n\nACCURACY RULES (critical): Use only well-established general knowledge about {city}'s region, climate, and seasons. Do NOT invent or state as fact: statistics, prices, pass/success rates, review counts, years in business, awards, certifications, specific ZIP codes, specific neighborhood names, local ordinances, or any local detail you are not confident is true. If you are unsure about a specific detail for {city}, write about the broader region or state instead of inventing specifics. Never guarantee outcomes. Never describe the providers this business connects customers to as \"trained\", \"expert\", \"top-rated\", or with superlatives like \"highest standards of professionalism\" — these are unverifiable quality claims. Never say this business itself offers \"honest pricing\", \"affordable pricing\", or otherwise characterize pricing — the independent provider sets pricing, not this business. Never write \"our team\", \"our technicians\", \"our professionals\", or \"our providers\" — they are independent providers this business connects customers to, not employees. Use the standard two-letter abbreviation for {state} where an abbreviation reads naturally. This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"background-checked\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.\nTone: reassuring and professional, with appropriate urgency for active infestations. Write in original wording; do not copy competitor phrasing.\n\nReturn JSON only: {\"fc_heading\": \"...\", \"columns\": [{\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}, {\"heading\": \"...\", \"text\": \"...\"}]}",
+        "ai_output_schema": {
+            "fc_heading": "string",
+            "columns": "array"
+        },
+        "default_fields": {
+            "skin": "light",
+            "fc_heading": "",
+            "fc_num_cols": 4,
+            "columns": []
+        },
+        "_compiled_from": "why_choose_us",
+        "_niche": "pest"
     }
 }
