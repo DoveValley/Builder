@@ -385,6 +385,15 @@ if ($firstBlockHero) {
         $btype = $block['type'] ?? '';
         // Blocks that manage their own .container must be full-width here to avoid double-wrapping
         $isFullWidth = in_array($btype, ['split_cta','cta_banner','wide_banner','links_grid','hero_grid','cta_card','map_info','hero_split','feature_split','faq_two_col','image_features','service_cards','tab_services','blog_list','stats','email_banner','cards','custom_html','comparison_table','testimonials','stage_cards','logo_bar','trust_bar','video','contact_form','buttons_grid','related_links']);
+        // These stay width-constrained by .container (they need its max-width/
+        // centering for a multi-column grid, unlike the isFullWidth types above),
+        // but each already has its own top/bottom padding — .container's own
+        // 56px block-section padding on top of that was a second, redundant
+        // layer of the same "blank space at the start/end of blocks" bug the
+        // isFullWidth list exists to prevent, just via the width path instead
+        // of the padding path. container-tight-v keeps the width/centering,
+        // drops only the vertical padding.
+        $noContainerVPad = in_array($btype, ['hero','feature_columns','cta_button','faq','html_two_col','gallery','steps','pricing_cards','team']);
         $blockIdx++;
     ?>
         <?php
@@ -399,7 +408,7 @@ if ($firstBlockHero) {
         <?php endif; ?>
         <section class="block-section<?= $skinClass ?>"<?= $sectionStyle ?>>
         <?php if (!$isFullWidth): ?>
-        <div class="container">
+        <div class="container<?= $noContainerVPad ? ' container-tight-v' : '' ?>">
         <?php endif; ?>
             <?php render_content_block($block, $assetPathPrefix ?? ''); ?>
         <?php if (!$isFullWidth): ?>

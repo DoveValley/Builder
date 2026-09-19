@@ -204,17 +204,27 @@ a:hover {
     align-items: center;
     gap: 40px;
     flex-wrap: wrap;
-    margin-bottom: 48px;
 }
 
+/* Every other block type provides its own top/bottom padding (a .block-{type}
+   rule, or the .container wrapper below for the handful that don't). These
+   three are the only ones that render with NO padding of their own — they're
+   bare text/image content, spaced apart purely by this margin. Was the
+   opposite for years (48px margin-bottom on EVERY block by default, with an
+   exception list of the ones that already had their own padding and needed
+   it zeroed back out) — that list only ever grew one bug report at a time
+   (4 separate "double-padding" fixes across git history) because every block
+   type that was never reported just kept silently double-spacing. Defaulting
+   to 0 and opting the few needy ones IN, instead of opting everyone else OUT,
+   means a new block type can't reintroduce this by omission. */
+.content-block.text-only,
+.content-block.image-left,
+.content-block.image-right {
+    margin-bottom: 32px;
+}
 .content-block:last-child {
     margin-bottom: 0;
 }
-.block-stats, .block-cards, .block-email-banner, .block-cta-banner, .block-split-cta,
-.block-wide-banner, .block-faq-two-col, .block-image-features, .block-service-cards,
-.block-tab-services, .block-hero, .block-hero-split, .block-feature-split,
-.block-links-grid, .block-hero-grid, .block-cta-card, .block-map-info,
-.block-stage-cards, .block-team, .block-feature-columns, .block-steps, .block-testimonials { margin-bottom: 0; }
 
 .content-block .content-photo {
     flex: 3 1 380px;
@@ -1656,7 +1666,10 @@ html, body {
     .section-heading { font-size: var(--font-size-h2); }
 
     /* Tighten block gap slightly */
-    .content-block { gap: 28px; margin-bottom: 36px; }
+    .content-block { gap: 28px; }
+    .content-block.text-only,
+    .content-block.image-left,
+    .content-block.image-right { margin-bottom: 24px; }
 
     /* Steps: force 2 or 3 col max on tablet */
     .steps-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
@@ -1679,7 +1692,10 @@ html, body {
     .section-heading { font-size: var(--font-size-h2); margin-bottom: 24px; }
 
     /* Fix #16: tighter block gap on mobile */
-    .content-block { gap: 20px; margin-bottom: 32px; }
+    .content-block { gap: 20px; }
+    .content-block.text-only,
+    .content-block.image-left,
+    .content-block.image-right { margin-bottom: 20px; }
 
     /* Force all feature grids to single column on mobile */
     .feature-grid-2,
@@ -4608,8 +4624,23 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 
 /* ── Block skin system ─────────────────────────────────────────────────────── */
 .block-section { display: block; }
-/* Non-full-width blocks: add vertical breathing room via the contained wrapper */
-.block-section > .container { padding-top: 56px; padding-bottom: 56px; }
+/* Non-full-width blocks: add vertical breathing room via the contained wrapper.
+   32px, not the 56px this used to be — 56+56 between two back-to-back plain/
+   white blocks (no skin, no colored background) reads as a big empty gap with
+   nothing marking the transition, since a COLORED block's background change
+   does that visual separation job for free and doesn't need as much raw space
+   to not look cramped. Left at one value for both cases rather than only
+   tightening white-on-white specifically — detecting "is the adjacent block
+   also plain" would need a whole adjacency pass through $contentBlocks, and a
+   colored transition loses nothing from slightly less padding since the color
+   change itself already reads as intentional, deliberate spacing. */
+.block-section > .container { padding-top: 32px; padding-bottom: 32px; }
+/* ...except the block types that already provide their own top/bottom padding
+   (see $noContainerVPad in site-template.php) — they still need .container for
+   its max-width/centering (a multi-column grid can't self-constrain the way
+   isFullWidth blocks with their own inner wrapper do), just not a second,
+   redundant layer of vertical padding stacked on top of their own. */
+.block-section > .container.container-tight-v { padding-top: 0; padding-bottom: 0; }
 .block-section.skin-light  { background: var(--skin-light-bg);  color: var(--skin-light-text); }
 .block-section.skin-dark   { background: var(--skin-dark-bg);   color: var(--skin-dark-text); }
 .block-section.skin-accent { background: var(--skin-accent-bg); color: var(--skin-accent-text); }
