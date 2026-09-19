@@ -24,6 +24,9 @@ if (!defined('MEDIA_DIR')) {
     unset($_mediaSiteRoot);
 }
 if (!defined('MAX_WIDTH')) define('MAX_WIDTH', 1800);
+// Width of the generated "-mobile" sibling — see img_write_mobile_variant(). ~2x a
+// typical mobile CSS viewport (390-430px), so it still looks sharp on a retina phone.
+if (!defined('MOBILE_IMG_WIDTH')) define('MOBILE_IMG_WIDTH', 800);
 
 /**
  * Where full-size originals are kept so a picture can be re-cropped later.
@@ -113,15 +116,60 @@ function media_magick(string $src, string $dest, array $ops): bool {
     return true;
 }
 
+/**
+ * Write a smaller "-mobile" sibling next to an already-written webp, same crop, scaled
+ * down to MOBILE_IMG_WIDTH — so a phone downloads a genuinely smaller file instead of the
+ * same bytes as desktop. Best-effort: skipped (not an error) when the file is missing,
+ * already narrow enough that a second file wouldn't save anything meaningful, or the
+ * resize itself fails. Every write path in this file (img_optimize, img_fit_to,
+ * img_place_to) calls this once it has a final webp on disk, so every source — plain
+ * upload, slot-cropped drop, or the zoom/pan adjuster — gets one the same way.
+ *
+ * Render time picks this up automatically: img_srcset() in blocks.php just checks whether
+ * "name-mobile.webp" exists next to "name.webp" and adds it to the <img> srcset if so — no
+ * per-caller wiring, and an old file with no sibling yet just renders as it always has.
+ */
+function img_write_mobile_variant(string $mainFile): void {
+    if (!is_file($mainFile)) return;
+    [$w, $h] = @getimagesize($mainFile) ?: [0, 0];
+    if ($w < 1 || $h < 1 || $w <= MOBILE_IMG_WIDTH + 120) return;
+
+    $mobileFile = preg_replace('/\.webp$/i', '-mobile.webp', $mainFile);
+    if ($mobileFile === null || $mobileFile === $mainFile) return;
+
+    $nw = MOBILE_IMG_WIDTH;
+    $nh = max(1, (int) round($h * $nw / $w));
+
+    if (extension_loaded('gd')) {
+        $src = @imagecreatefromwebp($mainFile);
+        if (!$src) return;
+        $dst = imagecreatetruecolor($nw, $nh);
+        imagealphablending($dst, false);
+        imagesavealpha($dst, true);
+        imagefill($dst, 0, 0, imagecolorallocatealpha($dst, 0, 0, 0, 127));
+        imagecopyresampled($dst, $src, 0, 0, 0, 0, $nw, $nh, $w, $h);
+        @imagewebp($dst, $mobileFile, 80);
+        imagedestroy($src);
+        imagedestroy($dst);
+        return;
+    }
+    media_magick($mainFile, $mobileFile, ['-resize', escapeshellarg($nw . 'x' . $nh . '!')]);
+}
+
 /* Downscale to MAX_WIDTH if wider, then write webp. Aspect ratio is preserved. */
 function img_optimize(string $tmp, string $dest, string $mime): bool {
     if (!extension_loaded('gd')) {
         // "1800x>" only ever shrinks — a narrower source is left at its own size.
-        if (media_magick($tmp, $dest, ['-resize', escapeshellarg(MAX_WIDTH . 'x>')])) return true;
-        return copy($tmp, $dest);
+        $ok = media_magick($tmp, $dest, ['-resize', escapeshellarg(MAX_WIDTH . 'x>')]) || copy($tmp, $dest);
+        if ($ok) img_write_mobile_variant($dest);
+        return $ok;
     }
     $src = media_imagecreate($tmp, $mime);
-    if (!$src) return copy($tmp, $dest);
+    if (!$src) {
+        $ok = copy($tmp, $dest);
+        if ($ok) img_write_mobile_variant($dest);
+        return $ok;
+    }
 
     $ow = imagesx($src); $oh = imagesy($src);
     if ($ow > MAX_WIDTH) {
@@ -137,6 +185,7 @@ function img_optimize(string $tmp, string $dest, string $mime): bool {
     }
     $ok = imagewebp($src, $dest, 82);
     imagedestroy($src);
+    if ($ok) img_write_mobile_variant($dest);
     return $ok;
 }
 
@@ -173,12 +222,18 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
             '-gravity', 'center',
             '-extent', escapeshellarg($tw . 'x' . $th),
         ]);
-        if ($ok) return [true, $note];
-        return [copy($tmp, $dest), 'could not resize — copied at its own size'];
+        if ($ok) { img_write_mobile_variant($dest); return [true, $note]; }
+        $ok = copy($tmp, $dest);
+        if ($ok) img_write_mobile_variant($dest);
+        return [$ok, 'could not resize — copied at its own size'];
     }
 
     $src = media_imagecreate($tmp, $mime);
-    if (!$src) return [copy($tmp, $dest), 'could not decode — copied as-is'];
+    if (!$src) {
+        $ok = copy($tmp, $dest);
+        if ($ok) img_write_mobile_variant($dest);
+        return [$ok, 'could not decode — copied as-is'];
+    }
 
     // Source rectangle to sample from: the whole image, or the centred cover-crop.
     $sx = 0; $sy = 0; $sw = $ow; $sh = $oh;
@@ -201,6 +256,7 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
 
     $ok = imagewebp($dst, $dest, 82);
     imagedestroy($dst);
+    if ($ok) img_write_mobile_variant($dest);
 
     return [$ok, $note];
 }
@@ -267,6 +323,7 @@ function img_place_to(string $src, string $dest, int $tw, int $th,
         '-extent',    escapeshellarg(sprintf('%dx%d%+d%+d', $tw, $th, -$px, -$py)),
     ]);
     if (!$ok) return [false, 'the image could not be written'];
+    img_write_mobile_variant($dest);
 
     $note = ($nw < $tw || $nh < $th)
         ? sprintf('whole picture shown at %.2f×, padded %s', $zoom, $bg === 'none' ? 'transparent' : $bg)

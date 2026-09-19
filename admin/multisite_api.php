@@ -425,6 +425,22 @@ switch ($action) {
         echo json_encode($n + ['total' => count($rows)]);
         break;
 
+    // The target list's domains, for the "Only this domain"/"Only these domains" pickers
+    // on Generate/Upload — so naming a domain to override the live-skip is a select, not
+    // remembering to type it exactly right. 'live' rides along so the picker can flag
+    // which ones actually need to be named to be touched at all.
+    case 'domains':
+        require_once __DIR__ . '/infra/lib/state.php';
+        $rows = ms_parse_csv($paramsPath)['rows'] ?? [];
+        $out = [];
+        foreach ($rows as $r) {
+            $d = trim((string) ($r['domain'] ?? '')); if ($d === '') continue;
+            $rec = infra_state_get_domain($d);
+            $out[] = ['domain' => $d, 'live' => ($rec && ($rec['status'] ?? '') === 'live')];
+        }
+        echo json_encode(['domains' => $out]);
+        break;
+
     /* Phase 6 — go live. Wraps the Infra console's own per-domain pipeline
      * (admin/infra/lib/pipeline.php / golive.php) rather than re-implementing any
      * Cloudflare or registrar logic here — the "batch" tag written by create_hosts.php

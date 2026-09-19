@@ -162,6 +162,11 @@
                                                 <?= (int) $s['w'] ?>&times;<?= (int) $s['h'] ?> &middot; <?= round($s['bytes'] / 1024) ?> KB
                                             <?php endif; ?>
                                         </div>
+                                        <?php if (!$s['token']): ?>
+                                            <div style="margin-top:2px;font-size:.72rem;color:#94a3b8;font-style:italic;">
+                                                <?= h(picdrop_crop_hint($s['block_type'], picdrop_leaf($s['field']))) ?>
+                                            </div>
+                                        <?php endif; ?>
 
                                         <?php if ($s['value'] !== '' && !$s['token']): ?>
                                             <div id="<?= $sid ?>_acts" style="margin-top:5px;display:flex;gap:10px;font-size:.76rem;">

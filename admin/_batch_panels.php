@@ -865,7 +865,14 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         (free on rebuilds).</p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Build this many (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:110px;"></label>
-        <label class="hint">Only this domain (optional)<br><input type="text" id="ms-run-only" placeholder="example.com" style="width:200px;"></label>
+        <label class="hint">Only this domain (optional, comma-separated for more than one)<br>
+            <span style="display:flex;gap:6px;">
+                <input type="text" id="ms-run-only" placeholder="example.com" style="width:200px;">
+                <select id="ms-run-only-picker" style="max-width:170px;" onchange="msOnlyPick('ms-run-only', this)">
+                    <option value="">Add a domain…</option>
+                </select>
+            </span>
+        </label>
         <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
@@ -1215,6 +1222,11 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             (t.files_uploaded ? ' · ' + t.files_uploaded + ' files' : '') +
             (t.cost_usd ? ' · $' + Number(t.cost_usd).toFixed(4) : '') +
             (d.params_version ? ' · <span title="target list version used">list ' + esc(d.params_version) + '</span>' : '') + '</div>' +
+            // A run that found nothing to process (every row already live, per its
+            // live-skip guard) still has a state/total/done to render above, but
+            // "DONE — 0/0" alone reads like the click failed rather than like the
+            // intended safety behavior it actually is — d.note carries that explanation.
+            (d.note ? '<div class="hint" style="margin:2px 0 8px;">' + esc(d.note) + '</div>' : '') +
             '<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:8px 0 12px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>';
         if (d.results && d.results.length) {
             html += '<div style="max-height:240px;overflow:auto;font-size:0.85rem;line-height:1.7;">' +
@@ -1539,6 +1551,32 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     }).catch(() => {});
     loadRuns();            // runs history
     refreshParamsState();  // download-current button + saved versions
+
+    // Domain pickers for Generate's "only this domain" and Upload's "only these
+    // domains" — one fetch feeds both selects (Upload's select lives in the included
+    // _batch_upload.php, a separate IIFE, so this is exposed on window rather than
+    // called directly). A domain tagged live gets a marker so it's obvious WHY you'd
+    // need to name it — these are exactly the ones the live-skip guard otherwise
+    // refuses to touch.
+    window.msOnlyPick = function (inputId, selectEl) {
+        const domain = selectEl.value;
+        if (!domain) return;
+        const input = document.getElementById(inputId);
+        const current = input.value.split(',').map(s => s.trim()).filter(Boolean);
+        if (!current.includes(domain)) current.push(domain);
+        input.value = current.join(', ');
+        selectEl.value = '';
+    };
+    fetch('multisite_api.php?action=domains').then(r => r.json()).then(d => {
+        const domains = (d && d.domains) || [];
+        const optionsHtml = domains.map(x =>
+            '<option value="' + esc(x.domain) + '">' + esc(x.domain) + (x.live ? ' (live)' : '') + '</option>'
+        ).join('');
+        ['ms-run-only-picker', 'ms-up-only-picker'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.insertAdjacentHTML('beforeend', optionsHtml);
+        });
+    }).catch(() => {});
     // Resume any latest/in-progress research job. Unlike 'run' above, this used to
     // have no bootstrap at all: reloading the page (or leaving and coming back)
     // while a paid, possibly long research job was running left both buttons

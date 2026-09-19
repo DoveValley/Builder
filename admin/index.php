@@ -699,7 +699,7 @@ function addLink(button) {
                     <div class="ml-actions">
                         <button class="btn btn-small btn-secondary" onclick="copyUrl('${escHtml(m.url)}')">Copy URL</button>
                         <button class="btn btn-small btn-secondary" onclick="openCropper('${escHtml(m.filename)}','../${escHtml(m.url)}')">&#9986; Crop</button>
-                        <button class="btn btn-small btn-secondary" onclick="openFocal('${escHtml(m.filename)}','../${escHtml(m.url)}',${m.focal_x!=null?m.focal_x:50},${m.focal_y!=null?m.focal_y:50})">&#10753; Focal</button>
+                        <button class="btn btn-small btn-secondary" onclick="openFocal('${escHtml(m.filename)}','../${escHtml(m.url)}',${m.focal_x!=null?m.focal_x:50},${m.focal_y!=null?m.focal_y:50},${m.focal_x_mobile!=null?m.focal_x_mobile:'null'},${m.focal_y_mobile!=null?m.focal_y_mobile:'null'})">&#10753; Focal</button>
                         <button class="btn btn-small btn-danger" onclick="deleteMedia('${escHtml(m.filename)}')">Delete</button>
                     </div>
                 </div>
@@ -1094,22 +1094,46 @@ function addLink(button) {
     /* ── focal point tool ── */
     let focalFilename = '';
     let focalX = 50, focalY = 50;
+    let focalDesktopX = 50, focalDesktopY = 50;
+    let focalMobileX = null, focalMobileY = null;   // null = no override, tracks desktop
+    let focalDevice = 'desktop';
 
-    window.openFocal = function(filename, url, fx, fy) {
-        focalFilename = filename;
-        focalX = fx != null ? fx : 50;
-        focalY = fy != null ? fy : 50;
+    function focalRenderDevice() {
+        const dot  = document.getElementById('focal-dot');
+        const info = document.getElementById('focal-info');
+        const btnD = document.getElementById('focal-device-desktop');
+        const btnM = document.getElementById('focal-device-mobile');
+        const resetBtn = document.getElementById('focal-reset-mobile');
+        if (focalDevice === 'mobile') {
+            const hasOverride = focalMobileX != null;
+            focalX = hasOverride ? focalMobileX : focalDesktopX;
+            focalY = hasOverride ? focalMobileY : focalDesktopY;
+            btnD.style.background = ''; btnM.style.background = '#2563eb'; btnM.style.color = '#fff'; btnD.style.color = '';
+            resetBtn.style.display = hasOverride ? 'inline' : 'none';
+            info.textContent = (hasOverride ? 'Mobile override — ' : 'Mobile (matching desktop) — ')
+                + 'Left: ' + Math.round(focalX) + '%, Top: ' + Math.round(focalY) + '%';
+        } else {
+            focalX = focalDesktopX; focalY = focalDesktopY;
+            btnM.style.background = ''; btnD.style.background = '#2563eb'; btnD.style.color = '#fff'; btnM.style.color = '';
+            resetBtn.style.display = 'none';
+            info.textContent = 'Left: ' + Math.round(focalX) + '%, Top: ' + Math.round(focalY) + '%';
+        }
+        dot.style.left = focalX + '%';
+        dot.style.top  = focalY + '%';
+    }
+
+    window.openFocal = function(filename, url, fx, fy, fxm, fym) {
+        focalFilename  = filename;
+        focalDesktopX  = fx  != null ? fx  : 50;
+        focalDesktopY  = fy  != null ? fy  : 50;
+        focalMobileX   = (fxm != null && fxm !== 'null') ? fxm : null;
+        focalMobileY   = (fym != null && fym !== 'null') ? fym : null;
+        focalDevice    = 'desktop';
         const modal = document.getElementById('focal-modal');
         const img   = document.getElementById('focal-image');
-        const dot   = document.getElementById('focal-dot');
-        const info  = document.getElementById('focal-info');
         img.src = '';
         modal.style.display = 'block';
-        img.onload = function() {
-            dot.style.left = focalX + '%';
-            dot.style.top  = focalY + '%';
-            info.textContent = 'Left: ' + Math.round(focalX) + '%, Top: ' + Math.round(focalY) + '%';
-        };
+        img.onload = focalRenderDevice;
         img.src = url;
     };
 
@@ -1119,19 +1143,42 @@ function addLink(button) {
         focalFilename = '';
     };
 
+    window.setFocalDevice = function(device) {
+        focalDevice = device === 'mobile' ? 'mobile' : 'desktop';
+        focalRenderDevice();
+    };
+
+    window.resetFocalMobile = async function() {
+        const fd = new FormData();
+        fd.append('action', 'focal');
+        fd.append('filename', focalFilename);
+        fd.append('clear_mobile', '1');
+        fd.append('csrf_token', CSRF_TOKEN);
+        const res  = await fetch(api, { method:'POST', body: fd });
+        const data = await res.json();
+        if (data.success) {
+            focalMobileX = null; focalMobileY = null;
+            const idx = allMedia.findIndex(m => m.filename === focalFilename);
+            if (idx !== -1) { allMedia[idx].focal_x_mobile = null; allMedia[idx].focal_y_mobile = null; }
+            focalRenderDevice();
+            showToast('Mobile override cleared — back to matching desktop');
+        } else {
+            showToast('Error: ' + (data.error || 'reset failed'));
+        }
+    };
+
     window.clickFocal = async function(e) {
         const img  = document.getElementById('focal-image');
         const rect = img.getBoundingClientRect();
         focalX = Math.min(100, Math.max(0, ((e.clientX - rect.left) / rect.width)  * 100));
         focalY = Math.min(100, Math.max(0, ((e.clientY - rect.top)  / rect.height) * 100));
-        const dot  = document.getElementById('focal-dot');
-        const info = document.getElementById('focal-info');
-        dot.style.left = focalX + '%';
-        dot.style.top  = focalY + '%';
-        info.textContent = 'Left: ' + Math.round(focalX) + '%, Top: ' + Math.round(focalY) + '%';
+        if (focalDevice === 'mobile') { focalMobileX = focalX; focalMobileY = focalY; }
+        else                          { focalDesktopX = focalX; focalDesktopY = focalY; }
+        focalRenderDevice();
         const fd = new FormData();
         fd.append('action',   'focal');
         fd.append('filename', focalFilename);
+        fd.append('device',   focalDevice);
         fd.append('focal_x',  focalX.toFixed(1));
         fd.append('focal_y',  focalY.toFixed(1));
         fd.append('csrf_token', CSRF_TOKEN);
@@ -1139,8 +1186,11 @@ function addLink(button) {
         const data = await res.json();
         if (data.success) {
             const idx = allMedia.findIndex(m => m.filename === focalFilename);
-            if (idx !== -1) { allMedia[idx].focal_x = data.focal_x; allMedia[idx].focal_y = data.focal_y; }
-            showToast('Focal point saved');
+            if (idx !== -1) {
+                if (focalDevice === 'mobile') { allMedia[idx].focal_x_mobile = data.focal_x; allMedia[idx].focal_y_mobile = data.focal_y; }
+                else                          { allMedia[idx].focal_x = data.focal_x; allMedia[idx].focal_y = data.focal_y; }
+            }
+            showToast(focalDevice === 'mobile' ? 'Mobile focal point saved' : 'Focal point saved');
         } else {
             showToast('Error: ' + (data.error || 'save failed'));
         }
@@ -1226,6 +1276,13 @@ function addLink(button) {
         </div>
         <div style="padding:16px 20px;">
             <p style="margin:0 0 10px;font-size:.85rem;color:#6b7280;">Click the most important part of the image — the crop will stay centered on that point.</p>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <div style="display:inline-flex;border:1px solid #d1d5db;border-radius:6px;overflow:hidden;">
+                    <button id="focal-device-desktop" type="button" onclick="setFocalDevice('desktop')" style="border:none;padding:5px 12px;font-size:.78rem;cursor:pointer;background:#2563eb;color:#fff;">Desktop</button>
+                    <button id="focal-device-mobile" type="button" onclick="setFocalDevice('mobile')" style="border:none;padding:5px 12px;font-size:.78rem;cursor:pointer;">Mobile</button>
+                </div>
+                <a id="focal-reset-mobile" href="#" onclick="resetFocalMobile();return false;" style="display:none;font-size:.78rem;color:#6b7280;text-decoration:underline;">Reset to match desktop</a>
+            </div>
             <div style="border-radius:4px;overflow:hidden;background:#111;max-height:58vh;overflow-y:auto;">
                 <div id="focal-img-wrap" style="position:relative;cursor:crosshair;line-height:0;" onclick="clickFocal(event)">
                     <img id="focal-image" src="" style="width:100%;height:auto;display:block;">

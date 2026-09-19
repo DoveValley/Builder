@@ -102,6 +102,13 @@ if (!$lockFp || !flock($lockFp, LOCK_EX | LOCK_NB)) {
 // $lockFp stays open for the whole run (do not close); flock releases automatically.
 
 // ── Load + validate rows ────────────────────────────────────────────────────
+// Resolved here (not at its old spot just before the process-pool section) so the
+// "nothing to do" early exit below can write a real run-status file under this id —
+// ms_launch_campaign() already committed to this run_id and handed it to the browser
+// before this process even started, so the poll it's about to make needs a file to find.
+$runId = ($runIdArg !== '' && preg_match('/^[A-Za-z0-9._-]{1,64}$/', $runIdArg))
+    ? $runIdArg : gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+
 $parsed = ms_parse_csv($csvPath);
 if ($parsed['error']) { fwrite(STDERR, 'CSV error: ' . $parsed['error'] . "\n"); exit(2); }
 $v = ms_validate_rows($parsed['rows'], $parsed['header']);
@@ -134,7 +141,48 @@ echo "Batch: {$masterId}  |  rows to process: {$n}"
    . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '')
    . ($skip !== '' ? '  [skipping: ' . $skip . ']' : '')
    . ($liveSkipped > 0 ? "  [{$liveSkipped} already-live skipped]" : '') . "\n";
-if ($n === 0) { echo $liveSkipped > 0 ? "Nothing to do (all matching rows are already live).\n" : "Nothing to do.\n"; exit(0); }
+if ($n === 0) {
+    // Same message either way, but ALSO a real run-status file — this branch used to
+    // just echo to stdout and exit, which only the launcher's own .out log ever saw.
+    // ms_launch_campaign() had already handed this run_id to the browser and started
+    // polling runs/{run_id}.json for it before this process even started; with nothing
+    // written here, every poll got {none:true} forever (no file = no error, so nothing
+    // ever showed) and the admin panel looked exactly like the click had done nothing —
+    // until a page reload fell back to the LAST run that HAD written a file, which could
+    // be hours old, looking like a stale success instead of an explanation. Real, live
+    // bug: caught from a batch where every row was already live — the good, common case
+    // this skip exists for — being reported as "Generate gave no feedback at all."
+    $note = $liveSkipped > 0 ? "Nothing to do (all matching rows are already live)." : "Nothing to do.";
+    echo $note . "\n";
+    $runsDir = $batchDir . '/runs';
+    if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
+    $statusFile = $runsDir . '/' . $runId . '.json';
+    $payload = [
+        'run_id'       => $runId,
+        'master_id'    => $masterId,
+        'batch_id'     => $batchId,
+        'params_version' => ms_current_params_version($batchDir),
+        'state'        => 'done',
+        'pid'          => getmypid(),
+        'pid_started'  => ms_pid_start_time(getmypid()),
+        'started_at'   => gmdate('c'),
+        'finished_at'  => gmdate('c'),
+        'options'      => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
+        'total'        => 0,
+        'live_skipped' => $liveSkipped,
+        'done'         => 0,
+        'ok'           => 0,
+        'failed'       => 0,
+        'totals'       => ['files_uploaded' => 0, 'tokens_in' => 0, 'tokens_out' => 0, 'cost_usd' => 0],
+        'results'      => [],
+        'note'         => $note,
+    ];
+    $tmp = $statusFile . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
+        rename($tmp, $statusFile);
+    }
+    exit(0);
+}
 
 // ── FTP pre-flight (§5 R0) ────────────────────────────────────────────────────
 if (!$noPre) {
@@ -173,8 +221,7 @@ try { snapshot_master($masterId, $snapshotDir); }
 catch (Throwable $e) { fwrite(STDERR, 'Snapshot failed: ' . $e->getMessage() . "\n"); exit(1); }
 
 // ── Process each row via build_one.php ───────────────────────────────────────
-$runId = ($runIdArg !== '' && preg_match('/^[A-Za-z0-9._-]{1,64}$/', $runIdArg))
-    ? $runIdArg : gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
+// $runId resolved earlier, up by the row-filtering step — see the comment there.
 
 // Parse one JSON-line of build_one output into a metrics accumulator (mutating).
 function ms_parse_line(string $line, array &$m, bool $verbose): void {

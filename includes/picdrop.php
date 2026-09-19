@@ -115,6 +115,38 @@ function picdrop_block_label(string $type): string {
 }
 
 /**
+ * How this slot actually crops, in plain English — for the person dropping the photo,
+ * not the person reading the CSS. Keyed by "block_type.leaf_field" first (a few block
+ * types have more than one photo field with different behavior), falling back to just
+ * block_type, then to a generic default that's still true of every slot on the site:
+ * there is no separate mobile crop anywhere, only a smaller version of the same one.
+ *
+ * Source of truth is style.src.css + the render_content_block() case for each type —
+ * if either changes, this table can drift out of date the same way it could describe
+ * the wrong thing today; it is a hint, not a computed fact.
+ */
+function picdrop_crop_hint(string $blockType, string $field): string {
+    static $hints = [
+        'hero.hero_bg_image'        => 'Full-width background — cropped to fill the hero, same shape on mobile and desktop.',
+        'hero_split.hs_photo'       => 'Fixed 4:3 box — cropped the same on mobile and desktop, just shown smaller. Keep the subject centered, especially top/bottom.',
+        'hero_split.hs_bg_photo'    => 'Background photo — box height follows the surrounding text, shrinks further on mobile. Center the subject vertically.',
+        'feature_split.fs_photo'    => 'Fixed 4:3 box — same crop on mobile and desktop.',
+        'image_features.if_photo'   => 'Fixed 4:3 box — same crop on mobile and desktop.',
+        'hero_grid.hg_photo'        => 'Background panel — fixed height (480px desktop, 300px mobile), so mobile shows a shorter slice of the same photo. Keep the subject vertically centered.',
+        'wide_banner.wb_photo'      => 'Background photo — has a height floor now, but still grows with the heading/subtext length. Center the subject vertically.',
+        'tab_services.photo'        => 'Fixed-height strip (420px desktop, 240px mobile) — keep the subject centered.',
+        'map_info.mi_info_photo'    => 'Capped at 320px tall, no locked ratio — the most forgiving photo slot on the site.',
+        'gallery.photo'             => 'Fixed 4:3 grid tile — same crop on mobile and desktop.',
+        'image_left.photo'          => 'Ratio set by this block\'s own Photo Ratio field — same crop on mobile and desktop.',
+        'image_right.photo'         => 'Ratio set by this block\'s own Photo Ratio field — same crop on mobile and desktop.',
+        'image_text.it_photo'       => 'Ratio set by this block\'s own Photo Ratio field — same crop on mobile and desktop.',
+    ];
+    $key = $blockType . '.' . $field;
+    if (isset($hints[$key])) return $hints[$key];
+    return 'Cropped to fill its box — same shape on mobile and desktop, just shown smaller.';
+}
+
+/**
  * Turn a stored image value into an absolute filesystem path, or null.
  *
  * Stored values are webroot-relative ("sites/water-site/uploads/media/x.webp" is the

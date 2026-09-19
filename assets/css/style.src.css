@@ -2808,6 +2808,14 @@ body { padding-bottom: 70px; }
 }
 .hs-image {
     width: 100%;
+    /* height:auto is load-bearing, not decorative — the <img> also carries literal
+       width/height HTML attributes (img_intrinsic_attrs() in includes/helpers.php,
+       there to stop layout jump while the file loads). Without an explicit CSS
+       height, those attributes win over aspect-ratio for the FINAL box size, so this
+       box rendered at the photo's raw native pixel height — routinely 500-600px+ —
+       instead of 4:3 of its own (much narrower, especially on mobile) width. Real,
+       live bug: measured a mold-site photo at 366x554 instead of 366x274. */
+    height: auto;
     aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
@@ -2861,7 +2869,12 @@ body { padding-bottom: 70px; }
     .block-hero-split { padding: 36px 0; }
     .hs-inner { gap: 28px; flex-direction: column; align-items: stretch; }
     .hs-heading { font-size: var(--font-size-h1); }
-    .hs-image-wrap { max-width: 100%; }
+    /* flex:1 1 380px on the desktop rule is a WIDTH basis for the row layout above —
+       flex-direction switches to column here, turning that same 380px into a HEIGHT
+       basis instead, which pinned this wrapper at 380px tall regardless of the image's
+       real (correctly 4:3, now ~275px on a phone-width column) height. Real, live bug,
+       found alongside the aspect-ratio fix a few rules up. */
+    .hs-image-wrap { max-width: 100%; flex-basis: auto; }
     .hs-btn-row { flex-wrap: wrap; }
     .hs-btn, .hs-btn2 { flex: 1 1 auto; text-align: center; }
     .hs-mobile-img-first { flex-direction: column; }
@@ -2952,6 +2965,7 @@ body { padding-bottom: 70px; }
 }
 .fs-arch-img {
     width: 100%;
+    height: auto;   /* see .hs-image's comment — same fix, same reason */
     aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
@@ -3389,6 +3403,11 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .block-wide-banner {
     position: relative;
     width: 100%;
+    /* Floor so the visible crop window doesn't track however long this run's
+       AI-generated heading/subtext happens to be — without it the same photo shows a
+       genuinely different slice depending on copy length, worst on mobile where the
+       overlay padding shrinks too. Still grows past the floor for long copy. */
+    min-height: 320px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -3448,6 +3467,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .wb-btn-outline { background: transparent !important; color: #fff !important; border-color: #fff !important; }
 
 @media (max-width: 768px) {
+    .block-wide-banner { min-height: 260px; }
     .wb-overlay { padding: 36px 0; }
     .wb-heading { font-size: var(--font-size-h2); }
     .wb-inner { flex-direction: column; align-items: flex-start; }
@@ -3475,6 +3495,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 }
 .if-photo {
     width: 100%;
+    height: auto;   /* see .hs-image's comment in the hero-split section — same fix, same reason */
     border-radius: 12px;
     box-shadow: 0 6px 28px rgba(0,0,0,0.14);
     display: block;
@@ -3575,7 +3596,12 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 @media (max-width: 768px) {
     .block-image-features { padding: 36px 0; }
     .if-inner { gap: 28px; flex-direction: column; align-items: stretch; }
-    .if-photo-wrap { flex: 1 1 100%; }
+    /* Same class of bug as .hs-image-wrap's mobile rule: .if-inner is column here, so a
+       percentage flex-basis (100%) resolves against the container's height instead of
+       width — with no explicit height on the column, that collapsed this wrapper to
+       0px tall while the image inside (sized correctly by aspect-ratio) rendered
+       outside its own reserved space instead of pushing the text below it down. */
+    .if-photo-wrap { flex: none; width: 100%; }
     .if-heading { font-size: var(--font-size-h2); }
     .if-features-grid { grid-template-columns: 1fr; }
 }
@@ -4838,3 +4864,22 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .header-info-item .info-icon svg[stroke]{width:90% !important;height:90% !important;}
 .header-info-item:nth-child(2) .info-icon svg{transform:translateY(1.5px);width:93.45% !important;height:93.45% !important;}
 .header-info-item:nth-child(2) .info-icon{border:none !important;}
+
+/* ============================================================
+   MOBILE FOCAL POINT + MOBILE IMAGE VARIANT OVERRIDE
+   ============================================================
+   Every photo/background block above sets --op (desktop focal point) always, and
+   --opm/--bgm only when a distinct mobile focal point or a smaller "-mobile" file
+   actually exists (see img_focal_vars()/bg_style_vars() in includes/blocks.php,
+   img_write_mobile_variant() in includes/media_lib.php). var()'s fallback means this
+   rule is a no-op for any image that doesn't have an override — same desktop values
+   just get reapplied. One rule for every block type, so a future block type only needs
+   to set --op/--bg the same way, not a bespoke media query of its own. */
+@media (max-width: 768px) {
+    .hs-image, .fs-arch-img, .if-photo,
+    .block-hero, .block-hero-split, .block-wide-banner, .hg-left {
+        object-position: var(--opm, var(--op));
+        background-position: var(--opm, var(--op));
+        background-image: var(--bgm, var(--bg));
+    }
+}

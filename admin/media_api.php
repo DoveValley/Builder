@@ -412,8 +412,14 @@ if ($action === 'usage') {
 }
 
 // ── FOCAL POINT ──────────────────────────────────────────────────────────────
+// device=mobile writes focal_x_mobile/focal_y_mobile instead of the desktop pair — an
+// override, not a replacement (get_focal_point_mobile() in includes/blocks.php falls
+// back to the desktop point whenever these two keys aren't set). clear_mobile removes
+// the override so the image goes back to tracking the desktop point on all sizes.
 if ($action === 'focal') {
     $filename = basename($_POST['filename'] ?? '');
+    $device   = ($_POST['device'] ?? 'desktop') === 'mobile' ? 'mobile' : 'desktop';
+    $clear    = !empty($_POST['clear_mobile']);
     $fx = max(0.0, min(100.0, (float) ($_POST['focal_x'] ?? 50)));
     $fy = max(0.0, min(100.0, (float) ($_POST['focal_y'] ?? 50)));
 
@@ -423,8 +429,15 @@ if ($action === 'focal') {
     $found = false;
     foreach ($items as &$item) {
         if ($item['filename'] === $filename) {
-            $item['focal_x'] = round($fx, 1);
-            $item['focal_y'] = round($fy, 1);
+            if ($clear) {
+                unset($item['focal_x_mobile'], $item['focal_y_mobile']);
+            } elseif ($device === 'mobile') {
+                $item['focal_x_mobile'] = round($fx, 1);
+                $item['focal_y_mobile'] = round($fy, 1);
+            } else {
+                $item['focal_x'] = round($fx, 1);
+                $item['focal_y'] = round($fy, 1);
+            }
             $found = true;
             break;
         }
@@ -433,7 +446,13 @@ if ($action === 'focal') {
     if (!$found) { echo json_encode(['error' => 'File not found']); exit; }
     media_save($items);
 
-    echo json_encode(['success' => true, 'focal_x' => round($fx, 1), 'focal_y' => round($fy, 1)]);
+    echo json_encode([
+        'success'  => true,
+        'device'   => $device,
+        'cleared'  => $clear,
+        'focal_x'  => round($fx, 1),
+        'focal_y'  => round($fy, 1),
+    ]);
     exit;
 }
 

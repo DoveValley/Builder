@@ -68,7 +68,7 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     $altAttr = h($alt ?: '');
     $src = photo_src($photo, $pathPrefix);
     $html  = '<div class="' . $class . '"' . ($style !== '' ? ' style="' . h($style) . '"' : '') . '>';
-    $html .= '<img src="' . h($src) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . 'loading="lazy" style="object-position:' . h($position) . ';">';
+    $html .= '<img src="' . h($src) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . img_srcset($photo, $pathPrefix) . 'loading="lazy" style="object-position:' . h($position) . ';">';
     $html .= '</div>';
     // A <figcaption> belongs to its image, which is what makes the text and the picture read as
     // one thing to a person and to a crawler.
@@ -79,7 +79,7 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     return $html;
 }
 
-function get_focal_point(string $url): string {
+function _media_focal_index(): array {
     static $index = null;
     if ($index === null) {
         $siteDir = (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR !== '') ? ACTIVE_SITE_DIR : (defined('BASE_DIR') ? BASE_DIR : '');
@@ -90,9 +90,88 @@ function get_focal_point(string $url): string {
             if (!empty($item['url'])) $index[$item['url']] = $item;
         }
     }
-    $item = $index[$url] ?? null;
+    return $index;
+}
+
+function get_focal_point(string $url): string {
+    $item = _media_focal_index()[$url] ?? null;
     if (!$item || !isset($item['focal_x'])) return '50% 50%';
     return round($item['focal_x'], 1) . '% ' . round($item['focal_y'], 1) . '%';
+}
+
+/** Optional per-image override for narrow viewports, set via the Focal tool's Mobile
+ *  toggle. Null (not just '50% 50%') means "no override" so callers can tell that
+ *  apart from a deliberate center point and skip emitting --opm entirely. */
+function get_focal_point_mobile(string $url): ?string {
+    $item = _media_focal_index()[$url] ?? null;
+    if (!$item || !isset($item['focal_x_mobile'], $item['focal_y_mobile'])) return null;
+    return round($item['focal_x_mobile'], 1) . '% ' . round($item['focal_y_mobile'], 1) . '%';
+}
+
+/**
+ * CSS custom properties for an <img> using object-position — desktop value always,
+ * mobile only when it's been set to something different. Pair with
+ * `object-position:var(--op)` on the element and the one global
+ * `@media(max-width:768px){ ... object-position:var(--opm,var(--op)) }` rule in
+ * style.src.css that actually applies the override.
+ */
+function img_focal_vars(string $photo): string {
+    $css = '--op:' . h(get_focal_point($photo)) . ';';
+    $mobile = get_focal_point_mobile($photo);
+    if ($mobile !== null) $css .= '--opm:' . h($mobile) . ';';
+    return $css;
+}
+
+/**
+ * Same idea for a CSS background-image block (hero, wide_banner, hero_grid's left
+ * panel, hero_split's alt background-photo mode): --bg/--bgm carry the url()s so the
+ * SAME global mobile media-query rule can swap both the focal point AND the smaller
+ * "-mobile" file (see img_write_mobile_variant()) with nothing per-block-type to add.
+ * Pair with `background-image:var(--bg);background-position:var(--op)`.
+ */
+function bg_style_vars(string $photo, string $pathPrefix = ''): string {
+    if ($photo === '') return '';
+    $css = '--bg:url(' . h(photo_src($photo, $pathPrefix)) . ');';
+    $fs = function_exists('upload_fs_path') ? upload_fs_path($photo) : '';
+    if ($fs !== '' && is_file($fs)) {
+        $mobilePath = preg_replace('/\.(webp|jpe?g|png|gif)$/i', '-mobile.$1', $photo);
+        if ($mobilePath !== null && $mobilePath !== $photo) {
+            $mobileFs = upload_fs_path($mobilePath);
+            if ($mobileFs !== '' && is_file($mobileFs)) {
+                $css .= '--bgm:url(' . h(photo_src($mobilePath, $pathPrefix)) . ');';
+            }
+        }
+    }
+    $css .= '--op:' . h(get_focal_point($photo)) . ';';
+    $mobileFocal = get_focal_point_mobile($photo);
+    if ($mobileFocal !== null) $css .= '--opm:' . h($mobileFocal) . ';';
+    return $css;
+}
+
+/**
+ * srcset/sizes for an <img> whose stored path has a "-mobile" sibling on disk (written
+ * by img_write_mobile_variant() at upload/crop/generate time — see media_lib.php). No
+ * sibling yet (old file, or the source was already narrow) just returns '', so the
+ * <img> renders exactly as it always has — nothing to migrate, this only kicks in as
+ * images get uploaded/re-cropped/regenerated going forward.
+ */
+function img_srcset(string $photo, string $pathPrefix = '', string $sizes = '(max-width: 768px) 100vw, 50vw'): string {
+    if ($photo === '' || !function_exists('upload_fs_path')) return '';
+    $fs = upload_fs_path($photo);
+    if ($fs === '' || !is_file($fs)) return '';
+    $sz = @getimagesize($fs);
+    if (!$sz || empty($sz[0])) return '';
+
+    $mobilePath = preg_replace('/\.(webp|jpe?g|png|gif)$/i', '-mobile.$1', $photo);
+    if ($mobilePath === null || $mobilePath === $photo) return '';
+    $mobileFs = upload_fs_path($mobilePath);
+    if ($mobileFs === '' || !is_file($mobileFs)) return '';
+    $mSz = @getimagesize($mobileFs);
+    if (!$mSz || empty($mSz[0])) return '';
+
+    $mainSrc   = photo_src($photo, $pathPrefix);
+    $mobileSrc = photo_src($mobilePath, $pathPrefix);
+    return 'srcset="' . h($mobileSrc) . ' ' . (int) $mSz[0] . 'w, ' . h($mainSrc) . ' ' . (int) $sz[0] . 'w" sizes="' . h($sizes) . '" ';
 }
 
 /**
@@ -408,7 +487,7 @@ function render_content_block($block, $pathPrefix = '') {
             $bgColor    = $block['hero_bg_color']   ?? '';
             $textColor  = $block['hero_text_color'] ?? '#ffffff';
             $style = '';
-            if ($bgImage) $style .= 'background-image:url(' . h($pathPrefix . $bgImage) . ');background-size:cover;background-position:'.h(get_focal_point($bgImage)).';';
+            if ($bgImage) $style .= bg_style_vars($bgImage, $pathPrefix) . 'background-image:var(--bg);background-size:cover;background-position:var(--op);';
             if ($bgColor) $style .= 'background-color:' . h($bgColor) . ';';
             echo '<div class="content-block block-hero" style="' . $style . 'color:' . h($textColor) . ';"' . $anchorAttr . '>';
             echo '<div class="hero-inner">';
@@ -440,7 +519,7 @@ function render_content_block($block, $pathPrefix = '') {
             }
             if ($bgPhoto) {
                 $bgPhotoSrc = photo_src($bgPhoto, $pathPrefix);
-                $bgStyle = 'background:'.h($bgColor).';background-image:url('.h($bgPhotoSrc).');background-size:cover;background-position:'.h(get_focal_point($bgPhoto)).';color:'.$textColor.';';
+                $bgStyle = 'background:'.h($bgColor).';'.bg_style_vars($bgPhoto, $pathPrefix).'background-image:var(--bg);background-size:cover;background-position:var(--op);color:'.$textColor.';';
             } else {
                 $bgStyle = 'background:'.h($bgColor).';color:'.$textColor.';';
             }
@@ -452,7 +531,7 @@ function render_content_block($block, $pathPrefix = '') {
             if ($photo) {
                 $photoSrc = photo_src($photo, $pathPrefix);
                 $hsImgCol .= '<div class="hs-image-wrap">';
-                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_intrinsic_attrs($photo).'style="object-position:'.h(get_focal_point($photo)).';">';
+                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'style="'.img_focal_vars($photo).'object-position:var(--op);">';
                 if ($caption1 || $caption2) {
                     $hsImgCol .= '<div class="hs-caption">';
                     if ($caption1) $hsImgCol .= '<div class="hs-caption-title">'.h($caption1).'</div>';
@@ -502,7 +581,7 @@ function render_content_block($block, $pathPrefix = '') {
             $hasIcons = !empty(array_filter($items, fn($i) => !empty($i['icon'])));
 
             $imgCol = '<div class="fs-right">';
-            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" '.img_intrinsic_attrs($photo).'loading="lazy" style="object-position:'.h(get_focal_point($photo)).';"></div>';
+            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'loading="lazy" style="'.img_focal_vars($photo).'object-position:var(--op);"></div>';
             if ($starText) $imgCol .= '<div class="fs-star-badge"><span class="fs-stars">★★★★★</span><span class="fs-star-text">'.h($starText).'</span></div>';
             $imgCol .= '</div>';
 
@@ -832,7 +911,7 @@ function render_content_block($block, $pathPrefix = '') {
 
             $photoHtml = '';
             if ($infoPhotoSrc) {
-                $photoHtml .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" '.img_intrinsic_attrs($infoPhoto).'loading="lazy">';
+                $photoHtml .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" '.img_intrinsic_attrs($infoPhoto).img_srcset($infoPhoto, $pathPrefix).'loading="lazy">';
                 if ($infoCredit) $photoHtml .= '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
             }
 
@@ -1079,7 +1158,7 @@ function render_content_block($block, $pathPrefix = '') {
             // LEFT: photo
             if ($photoSrc) {
                 echo '<div class="if-photo-wrap">';
-                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" '.img_intrinsic_attrs($photo).'loading="lazy" style="object-position:'.h(get_focal_point($photo)).';">';
+                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'loading="lazy" style="'.img_focal_vars($photo).'object-position:var(--op);">';
                 echo '</div>';
             }
 
@@ -1149,7 +1228,7 @@ function render_content_block($block, $pathPrefix = '') {
             }
 
             if ($photoSrc) {
-                $bgStyle = 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';';
+                $bgStyle = bg_style_vars($photo, $pathPrefix).'background-image:var(--bg);background-size:cover;background-position:var(--op);';
                 $overlayStyle = 'background:rgba(0,0,0,'.h($overlayOpacity).');';
             } elseif ($bgColor) {
                 $bgStyle = 'background:'.h($bgColor).';';
@@ -1274,7 +1353,7 @@ function render_content_block($block, $pathPrefix = '') {
             echo '<div class="content-block block-hero-grid"'.$anchorAttr.'>';
 
             // LEFT: image with overlay + text
-            echo '<div class="hg-left" style="'.($photoSrc ? 'background-image:url('.h($photoSrc).');background-size:cover;background-position:'.h(get_focal_point($photo)).';' : 'background:var(--color-media-fallback);').'">';
+            echo '<div class="hg-left" style="'.($photoSrc ? bg_style_vars($photo, $pathPrefix).'background-image:var(--bg);background-size:cover;background-position:var(--op);' : 'background:var(--color-media-fallback);').'">';
             echo '<div class="hg-overlay">';
             if ($label)   echo '<div class="hg-label">'.h($label).'</div>';
             if ($heading) echo '<h2 class="hg-heading">'.h($heading).'</h2>';
@@ -1399,7 +1478,7 @@ function render_content_block($block, $pathPrefix = '') {
                 }
                 $hidden = $ti === 0 ? '' : ' hidden';
                 echo '<div class="ts-panel" data-panel="'.$ti.'"'.$hidden.'>';
-                if ($photoSrc) echo '<img src="'.h($photoSrc).'" alt="'.h($alt).'" class="ts-photo" '.img_intrinsic_attrs($photo).'loading="lazy">';
+                if ($photoSrc) echo '<img src="'.h($photoSrc).'" alt="'.h($alt).'" class="ts-photo" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'loading="lazy">';
                 if ($desc)     echo '<div class="ts-desc">'.h($desc).'</div>';
                 echo '</div>';
             }
@@ -1420,7 +1499,7 @@ function render_content_block($block, $pathPrefix = '') {
                 $alt = $img['alt']   ?? '';
                 if (!$src) continue;
                 echo '<div class="gallery-item">';
-                echo '<img src="' . h($pathPrefix . $src) . '" alt="' . h($alt) . '" ' . img_intrinsic_attrs($src) . 'loading="lazy">';
+                echo '<img src="' . h($pathPrefix . $src) . '" alt="' . h($alt) . '" ' . img_intrinsic_attrs($src) . img_srcset($src, $pathPrefix, '(max-width: 768px) 50vw, 33vw') . 'loading="lazy">';
                 echo '</div>';
             }
             echo '</div></div>';

@@ -26,7 +26,14 @@
 
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Limit (0 = all)<br><input type="number" id="ms-up-limit" value="0" min="0" style="width:90px;"></label>
-        <label class="hint">Only these domains (optional, comma-separated)<br><input type="text" id="ms-up-only" placeholder="example.com, example2.com" style="width:240px;" oninput="msUpWipeGate()"></label>
+        <label class="hint">Only these domains (optional, comma-separated)<br>
+            <span style="display:flex;gap:6px;">
+                <input type="text" id="ms-up-only" placeholder="example.com, example2.com" style="width:240px;" oninput="msUpWipeGate()">
+                <select id="ms-up-only-picker" style="max-width:170px;" onchange="msOnlyPick('ms-up-only', this); msUpWipeGate();">
+                    <option value="">Add a domain…</option>
+                </select>
+            </span>
+        </label>
         <label class="hint"><input type="checkbox" id="ms-up-force"> Force (send every file)</label>
         <label class="hint" style="color:#991b1b;"><input type="checkbox" id="ms-up-wipe" onchange="msUpWipeGate()"> Wipe remote files first (deletes everything on the server, then uploads fresh)</label>
         <button type="button" class="btn btn-primary" id="ms-up-btn" onclick="msUploadSites()">Upload sites</button>
