@@ -22,6 +22,21 @@ admin tab (`admin/tabs/niche_brief.php`, saved by `admin/niche_brief_save.php`).
 | `custom_research_fields[]` | `{key, ask}` pairs — niche-specific facts to research that aren't tied to any chart. See "Three ways to add a research field" below. |
 | `enabled_archetypes[]` | Which shared content-block archetypes (from `multisite/ai/archetypes.json`) this niche uses. Per-master wording overrides live in `admin/tabs/niche_brief_archetypes.php`, stored as diffs in `sites/{id}/multisite/archetypes.json`. |
 
+**A new archetype's `default_fields` must not double as its own output field names.**
+`includes/multisite/ai_cache.php`'s `ms_ai_reapply_current_defaults()` re-merges an archetype's
+CURRENT `default_fields` on top of every cache-hit restore, so a structural field correction (e.g.
+a wrong `heading_level`) propagates to every domain's cache on its next rebuild without a manual
+cache wipe. That's correct for fields that are pure config — but `feature_columns_local`,
+`seasonal_calendar`, and `why_choose_us` all list their own AI-authored output keys (`columns`,
+`steps_items`, etc.) as empty placeholders in `default_fields`, since that's what an ungenerated
+block shows in the admin editor. Reapplying those unconditionally silently blanked real generated
+content back to that placeholder on every cache-hit rebuild, and then re-cached the now-empty
+value — a real bug, permanent and self-perpetuating until caught. Fixed by threading through the
+set of keys the cache restore just wrote and skipping reapply for those — but any *new* archetype
+whose `default_fields` shape looks like its own output should be tested with a real
+rebuild-after-generation (not just a first generation) before trusting it, since the bug is
+invisible on a first generate and only shows up one rebuild later.
+
 **Compiling:** saving the brief always recompiles it into `sites/{id}/ai_block_types.json` (via
 `multisite/ai/compile.php`, `ms_ai_compile_master()`) — the two can never drift apart from a
 normal save. But an edit to the **shared** `multisite/ai/archetypes.json` library does not

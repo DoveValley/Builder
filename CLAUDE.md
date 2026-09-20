@@ -10,8 +10,10 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 | Building or rebuilding a single bespoke client site into `site.json` | `docs/site-building.md` |
 | Standing up a new niche vertical's page set: keyword map, templates, bulk-generate, deploy | `docs/landing-page-build-process-V1-20260709.md` |
 | Configuring a niche's AI content, per-city research, charts, or auto-generated blog posts (`niche_brief.json`, archetypes) | `docs/niche-brief-and-research.md` |
-| A block must go edge-to-edge, or a full-width block leaves a gap above the footer | `docs/content-blocks.md` |
+| A block must go edge-to-edge, a full-width block leaves a gap above the footer, a photo is the wrong size on mobile, or working on `related_links` | `docs/content-blocks.md` |
 | Course data, the two schedule widgets, or the Schedule tab | `docs/course-schedule.md` |
+| A multisite master's Color Presets, or `ms_apply_theme_preset()` | `docs/color-presets.md` |
+| Pic Drop (per-domain/per-template image management), or `includes/picdrop.php` | `docs/pic-drop-image-management.md` |
 
 ## Running locally
 
@@ -69,12 +71,12 @@ via FormData POST (`action=select&site_id=...`). Admin redirects to `sites.php` 
 All block types are registered in `allowed_block_types()` in `includes/blocks.php`. Each block is a
 PHP associative array stored in `site.json`, rendered by the `render_content_block()` switch.
 
-**Current block types (34):** `text`, `image_left`, `image_right`, `hero`, `hero_split`,
+**Current block types (39):** `text`, `image_left`, `image_right`, `hero`, `hero_split`,
 `feature_split`, `split_cta`, `tab_services`, `hero_grid`, `service_cards`, `wide_banner`,
 `image_features`, `faq_two_col`, `cta_banner`, `links_grid`, `cta_card`, `map_info`, `image_text`,
 `faq`, `feature_columns`, `custom_html`, `steps`, `stats`, `cards`, `gallery`, `cta_button`,
-`testimonials`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`, `stage_cards`,
-`contact_form`
+`testimonials`, `team`, `video`, `buttons_grid`, `html_two_col`, `pricing_cards`, `logo_bar`,
+`trust_bar`, `stage_cards`, `email_banner`, `contact_form`, `related_links`, `comparison_table`
 
 **Adding a new block type requires changes across four files:**
 1. `includes/blocks.php` — add to `allowed_block_types()`, add a `case` in `render_content_block()`

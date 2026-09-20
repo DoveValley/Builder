@@ -257,3 +257,13 @@ Generated city pages are kept **uncommitted as artifacts** (regenerable per real
 - Never fabricate prices/ratings/stats; model service-area businesses with `areaServed`, no address.
 - `force_locked` on Pass A wipes AI content; `chown www-data` after any root-run generation.
 - Keep the master's static pest words consistent so one find/replace pair-set cleans a clone.
+- **`class_vocab.php`'s per-domain class-renaming pass must also rewrite classes inside inline
+  `<style>` blocks**, not just HTML attributes — `head_extra`/`theme_css_vars()` render CSS inline,
+  and a renamer that only touches `class="..."` leaves the inline stylesheet's selectors pointing
+  at the OLD class names after the HTML has been renamed, silently breaking that CSS. Also: prefer
+  a hand-rolled byte-scan over a single big regex for this — a large unminified stylesheet can blow
+  PHP's PCRE JIT stack with no visible error, crashing the whole batch row.
+- **`differentiate.php` must write the GSC verification tag to its own `theme.gsc_meta` field, never
+  into `theme.head_extra`** — head_extra is also where a site's own hand-added custom CSS/meta
+  lives, and a batch run that writes the GSC tag into head_extra overwrites (deletes) that custom
+  content on every single build.
