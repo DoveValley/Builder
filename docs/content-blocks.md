@@ -53,6 +53,15 @@ same "disappear rather than show thin/broken" rule used for fake ratings and saf
 Soft-guarded like every other plugin-backed block (`function_exists()`) — a site missing the plugin
 renders nothing here, never a broken block.
 
+**`ms_page_slug_exists()` only checked Page-Pool-variable LANDING pages, not CORE pages** — About
+Us, Contact Us, Privacy Policy exist identically on every domain, so nothing ever wrote them into
+`PAGE_INDEX_FILE` (the index that function reads). A candidate pointing at a real core page slug
+(e.g. `/about-us`) was silently reported as "doesn't exist" and dropped every time. Fixed by also
+checking `$data['pages']` for a slug match before falling back to the landing-page index — purely
+additive, since it only ever turns an incorrect `false` into the correct `true` for a slug that
+provably exists. If a `related_links`/`services_links` candidate ever points at a core page again
+and mysteriously never shows, this is the first thing to re-check.
+
 ## Mobile image sizing — the `aspect-ratio` + HTML attribute trap
 
 `img_intrinsic_attrs()` (`includes/helpers.php`) stamps every `<img>` with the photo's raw native

@@ -2274,6 +2274,20 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
                 'photo': '', 'photo_ratio': 'landscape', 'photo_position': 'center', 'photo_alt': '',
             })
 
+        # Internal link to a real service page — resolved at RENDER TIME by the existing
+        # related_links block (includes/blocks.php + plugins/related_links/plugin.php),
+        # not here. The AI never sees or picks a URL; this only hands it the hand-authored
+        # candidates from niche_brief.json. related_links_resolve() checks each one against
+        # this domain's own real built pages, so a candidate Page Pool didn't build for this
+        # domain never shows as a link — the whole block just doesn't render (needs 2 real
+        # matches), never a guess and never a 404.
+        link_candidates = topic.get('link_candidates') or []
+        if link_candidates:
+            content_blocks.append({
+                'type': 'related_links', 'rl_heading': 'Related', 'rl_max': 2,
+                'rl_items': link_candidates,
+            })
+
         today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
         title = ai.get('title') or topic.get('title', '')
         post = {

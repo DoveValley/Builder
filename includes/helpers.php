@@ -85,8 +85,21 @@ function slugify($text) {
  * everywhere" rule CLAUDE.md states for external API calls, applied to this internal one.
  * Missing/unreadable PAGE_INDEX_FILE (single-site mode, no page pool) → assume it exists,
  * matching services_links_resolve()'s own original fallback behavior.
+ *
+ * PAGE_INDEX_FILE only ever covers Page-Pool-variable LANDING pages, never CORE pages
+ * (About Us, Contact Us, Privacy Policy, …) — those are the same for every domain, not
+ * something Page Pool varies, so nothing ever wrote them into that index. A candidate
+ * link pointing at a real core page slug was therefore always reported as "doesn't
+ * exist," found live when a `related_links` candidate pointing at `/about-us` never
+ * rendered on any domain. Check `$data['pages']` for a slug match too, before falling
+ * back to the landing-page index.
  */
 function ms_page_slug_exists(string $slug): bool {
+    global $data;
+    foreach (($data['pages'] ?? []) as $page) {
+        if (is_array($page) && ($page['slug'] ?? '') === $slug) return true;
+    }
+
     static $existSlugs = null;
     if ($existSlugs === null) {
         $existSlugs = [];

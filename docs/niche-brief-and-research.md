@@ -141,6 +141,20 @@ step involved.
   map — an informational blog topic competing with your own transactional landing page for the same
   term is self-cannibalization, not incremental reach.
 
+**Internal linking, `link_candidates[]` on each topic.** Each topic can carry 1+ hand-picked
+`{text, url}` candidates (same shape `related_links`'s `rl_items` already uses — see
+`docs/content-blocks.md`), pointing at the service page that topic is most related to. The AI
+never sees or chooses a URL — `generate_blog_posts()` just appends a `related_links` block onto
+the post's `content_blocks` verbatim, unresolved, and the **existing** `related_links` render
+path (`plugins/related_links/plugin.php`'s `related_links_resolve()`) checks each candidate
+against this domain's actual built pages at render time, same as it already does for a hand-typed
+`related_links` block anywhere else on the site. No new resolution code — that's what keeps this
+reliable: a candidate Page Pool didn't build for this domain just doesn't show, never a guess and
+never a 404. Give at least 2 candidates per topic where you can (the block needs 2 real matches to
+render anything at all) — a plausible always-built page (the homepage `/`, or a core page like
+About Us) as one of them is a reasonable safety net so the section isn't hidden just because Page
+Pool skipped the one specific service page you'd have preferred.
+
 ## Charts (optional)
 
 `plugins/image-data-chart/niches/{slug}/*.json`, one file per chart. A niche folder that doesn't

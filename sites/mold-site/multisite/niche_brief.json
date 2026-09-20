@@ -14,9 +14,9 @@
         "attic, crawl space, and basement mold removal",
         "moisture control and mold prevention"
     ],
-    "local_angle": "the region\u2019s humidity, seasonal rainfall, and moisture patterns that drive indoor mold growth in homes and businesses",
+    "local_angle": "the region’s humidity, seasonal rainfall, and moisture patterns that drive indoor mold growth in homes and businesses",
     "tone": "reassuring and professional, emphasizing health, indoor air quality, safe containment, and thorough removal without fear-mongering",
-    "guardrails": "This business is a referral/advertising network, not the crew performing the work \u2014 never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"background-checked\", or \"accredited\" to describe the providers in the network \u2014 even softened or implied \u2014 unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not diagnose health conditions or make medical claims about mold exposure; describe potential effects in general, cautious terms only. Do not guarantee complete or permanent mold elimination, or that mold will never return. Do not promise specific removal or drying times. Do not promise insurance claim approval or coverage. Do not claim specific spore-count results. Do not give unsafe do-it-yourself advice for disturbing black mold or large affected areas. Avoid alarmist or exaggerated toxic-mold scare language.",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"background-checked\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not diagnose health conditions or make medical claims about mold exposure; describe potential effects in general, cautious terms only. Do not guarantee complete or permanent mold elimination, or that mold will never return. Do not promise specific removal or drying times. Do not promise insurance claim approval or coverage. Do not claim specific spore-count results. Do not give unsafe do-it-yourself advice for disturbing black mold or large affected areas. Avoid alarmist or exaggerated toxic-mold scare language.",
     "uses_research_fields": true,
     "enabled_archetypes": [
         "city_intro",
@@ -32,157 +32,407 @@
         "homepage_service_area",
         "why_choose_us"
     ],
-    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences on how humid {city} is year-round (not just storm events) and whether crawl spaces or basements are common here \u2014 the conditions that actually drive indoor mold growth in this region.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences on how humid {city} is year-round (not just storm events) and whether crawl spaces or basements are common here — the conditions that actually drive indoor mold growth in this region.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
     "blog_topics": [
         {
             "slug": "signs-you-might-have-mold",
             "title": "Signs You Might Have a Hidden Mold Problem",
             "tag": "Prevention",
-            "focus_keyword": "signs of hidden mold"
+            "focus_keyword": "signs of hidden mold",
+            "link_candidates": [
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "black-mold-vs-other-mold",
             "title": "Black Mold vs. Other Household Mold: What's the Real Difference?",
             "tag": "How-To",
-            "focus_keyword": "black mold vs other mold"
+            "focus_keyword": "black mold vs other mold",
+            "link_candidates": [
+                {
+                    "text": "Black Mold Removal",
+                    "url": "/black-mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Removal",
+                    "url": "/mold-removal-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mold-and-indoor-air-quality",
             "title": "How Mold Affects Your Home's Indoor Air Quality",
             "tag": "Health & Air Quality",
-            "focus_keyword": "mold and indoor air quality"
+            "focus_keyword": "mold and indoor air quality",
+            "link_candidates": [
+                {
+                    "text": "Indoor Air Quality Testing",
+                    "url": "/air-quality-testing-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "humidity-levels-prevent-mold",
             "title": "The Ideal Humidity Level for Preventing Mold Growth",
             "tag": "Prevention",
-            "focus_keyword": "humidity level to prevent mold"
+            "focus_keyword": "humidity level to prevent mold",
+            "link_candidates": [
+                {
+                    "text": "Mold Prevention",
+                    "url": "/mold-prevention-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "bathroom-mold-prevention-tips",
             "title": "Simple Habits That Keep Bathroom Mold Away",
             "tag": "Prevention",
-            "focus_keyword": "prevent bathroom mold"
+            "focus_keyword": "prevent bathroom mold",
+            "link_candidates": [
+                {
+                    "text": "Mold Prevention",
+                    "url": "/mold-prevention-{city_slug}"
+                },
+                {
+                    "text": "Mold Removal",
+                    "url": "/mold-removal-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mold-after-water-damage-timeline",
             "title": "How Fast Does Mold Grow After Water Damage?",
             "tag": "Prevention",
-            "focus_keyword": "mold growth after water damage"
+            "focus_keyword": "mold growth after water damage",
+            "link_candidates": [
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "crawl-space-mold-causes",
             "title": "Why Crawl Spaces Are Prone to Mold Growth",
             "tag": "Prevention",
-            "focus_keyword": "crawl space mold causes"
+            "focus_keyword": "crawl space mold causes",
+            "link_candidates": [
+                {
+                    "text": "Crawl Space Mold Removal",
+                    "url": "/crawl-space-mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "hvac-mold-risks",
             "title": "Can Mold Grow Inside Your HVAC System?",
             "tag": "Prevention",
-            "focus_keyword": "mold in hvac system"
+            "focus_keyword": "mold in hvac system",
+            "link_candidates": [
+                {
+                    "text": "Air Conditioner Mold Removal",
+                    "url": "/air-conditioner-mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Indoor Air Quality Testing",
+                    "url": "/air-quality-testing-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mold-testing-what-to-expect",
             "title": "What Happens During a Mold Inspection?",
             "tag": "How-To",
-            "focus_keyword": "what happens during a mold inspection"
+            "focus_keyword": "what happens during a mold inspection",
+            "link_candidates": [
+                {
+                    "text": "Mold Testing",
+                    "url": "/mold-testing-{city_slug}"
+                },
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "musty-smell-no-visible-mold",
             "title": "Musty Smell But No Visible Mold? Here's What It Might Mean",
             "tag": "How-To",
-            "focus_keyword": "musty smell but no visible mold"
+            "focus_keyword": "musty smell but no visible mold",
+            "link_candidates": [
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "text": "Mold Testing",
+                    "url": "/mold-testing-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mold-insurance-coverage-basics",
             "title": "Is Mold Damage Covered by Homeowners Insurance?",
             "tag": "Insurance",
-            "focus_keyword": "is mold covered by insurance"
+            "focus_keyword": "is mold covered by insurance",
+            "link_candidates": [
+                {
+                    "text": "Mold Damage Restoration",
+                    "url": "/mold-damage-restoration-{city_slug}"
+                },
+                {
+                    "text": "About Us",
+                    "url": "/about-us"
+                }
+            ]
         },
         {
             "slug": "attic-mold-warning-signs",
             "title": "Attic Mold: Warning Signs Homeowners Often Miss",
             "tag": "Prevention",
-            "focus_keyword": "attic mold warning signs"
+            "focus_keyword": "attic mold warning signs",
+            "link_candidates": [
+                {
+                    "text": "Attic Mold Removal",
+                    "url": "/attic-mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "mold-remediation-vs-removal",
             "title": "Mold Remediation vs. Mold Removal: What's the Difference?",
             "tag": "How-To",
-            "focus_keyword": "mold remediation vs removal"
+            "focus_keyword": "mold remediation vs removal",
+            "link_candidates": [
+                {
+                    "text": "Mold Removal",
+                    "url": "/mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Mitigation",
+                    "url": "/mold-mitigation-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "window-condensation-mold-risk",
             "title": "How Window Condensation Can Lead to Mold Problems",
             "tag": "Prevention",
-            "focus_keyword": "window condensation mold"
+            "focus_keyword": "window condensation mold",
+            "link_candidates": [
+                {
+                    "text": "Mold Prevention",
+                    "url": "/mold-prevention-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "mold-health-symptoms-explained",
             "title": "Common Symptoms Linked to Mold Exposure",
             "tag": "Health & Air Quality",
-            "focus_keyword": "mold exposure symptoms"
+            "focus_keyword": "mold exposure symptoms",
+            "link_candidates": [
+                {
+                    "text": "Indoor Air Quality Testing",
+                    "url": "/air-quality-testing-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "basement-dehumidifier-mold-prevention",
             "title": "Using a Dehumidifier to Keep Your Basement Mold-Free",
             "tag": "Prevention",
-            "focus_keyword": "basement dehumidifier mold"
+            "focus_keyword": "basement dehumidifier mold",
+            "link_candidates": [
+                {
+                    "text": "Basement Mold Removal",
+                    "url": "/basement-mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Prevention",
+                    "url": "/mold-prevention-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mold-on-drywall-what-to-do",
             "title": "Found Mold on Drywall? Here's What to Do Next",
             "tag": "How-To",
-            "focus_keyword": "mold on drywall"
+            "focus_keyword": "mold on drywall",
+            "link_candidates": [
+                {
+                    "text": "Mold Removal",
+                    "url": "/mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Damage Restoration",
+                    "url": "/mold-damage-restoration-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "renters-mold-rights",
             "title": "What Renters Should Know About Mold in a Rental Property",
             "tag": "Insurance",
-            "focus_keyword": "renters rights mold"
+            "focus_keyword": "renters rights mold",
+            "link_candidates": [
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "text": "About Us",
+                    "url": "/about-us"
+                }
+            ]
         },
         {
             "slug": "mold-prevention-after-a-leak",
             "title": "How to Prevent Mold After a Plumbing Leak",
             "tag": "Prevention",
-            "focus_keyword": "prevent mold after a leak"
+            "focus_keyword": "prevent mold after a leak",
+            "link_candidates": [
+                {
+                    "text": "Mold Prevention",
+                    "url": "/mold-prevention-{city_slug}"
+                },
+                {
+                    "text": "Mold Damage Restoration",
+                    "url": "/mold-damage-restoration-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mold-vs-mildew-difference",
             "title": "Mold vs. Mildew: How to Tell Them Apart",
             "tag": "How-To",
-            "focus_keyword": "mold vs mildew"
+            "focus_keyword": "mold vs mildew",
+            "link_candidates": [
+                {
+                    "text": "Mold Removal",
+                    "url": "/mold-removal-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "seasonal-mold-risks",
             "title": "Why Mold Risk Changes With the Seasons",
             "tag": "Prevention",
-            "focus_keyword": "seasonal mold risk"
+            "focus_keyword": "seasonal mold risk",
+            "link_candidates": [
+                {
+                    "text": "Mold Prevention",
+                    "url": "/mold-prevention-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "mold-in-new-homes",
             "title": "Can New Construction Homes Still Have a Mold Problem?",
             "tag": "How-To",
-            "focus_keyword": "mold in new homes"
+            "focus_keyword": "mold in new homes",
+            "link_candidates": [
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "air-purifiers-and-mold-spores",
             "title": "Do Air Purifiers Help With Mold Spores?",
             "tag": "Health & Air Quality",
-            "focus_keyword": "air purifiers and mold spores"
+            "focus_keyword": "air purifiers and mold spores",
+            "link_candidates": [
+                {
+                    "text": "Indoor Air Quality Testing",
+                    "url": "/air-quality-testing-{city_slug}"
+                },
+                {
+                    "text": "Mold Remediation Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "preparing-for-mold-inspection",
             "title": "How to Prepare Your Home Before a Mold Inspection",
             "tag": "How-To",
-            "focus_keyword": "prepare for a mold inspection"
+            "focus_keyword": "prepare for a mold inspection",
+            "link_candidates": [
+                {
+                    "text": "Mold Inspection",
+                    "url": "/mold-inspection-{city_slug}"
+                },
+                {
+                    "text": "Mold Testing",
+                    "url": "/mold-testing-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "choosing-a-mold-provider",
             "title": "What to Ask Before Hiring a Mold Inspection or Remediation Provider",
             "tag": "How-To",
-            "focus_keyword": "hiring a mold remediation provider"
+            "focus_keyword": "hiring a mold remediation provider",
+            "link_candidates": [
+                {
+                    "text": "Mold Removal",
+                    "url": "/mold-removal-{city_slug}"
+                },
+                {
+                    "text": "About Us",
+                    "url": "/about-us"
+                }
+            ]
         }
     ]
 }

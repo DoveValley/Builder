@@ -13,10 +13,10 @@
         "freezer repair"
     ],
     "local_angle": "how quickly a technician can reach the address, and the appliance brands common in local homes",
-    "tone": "practical and reassuring \u2014 a dead fridge is urgent, but the repair itself is routine work",
-    "guardrails": "This business is a referral/advertising network, not the crew performing the work \u2014 never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"background-checked\", \"certified\", \"licensed\", or \"accredited\" to describe the providers in the network \u2014 even softened or implied \u2014 unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Never claim to be factory authorized, manufacturer certified, or an approved warranty servicer. Do not quote prices, call-out fees, or parts availability. Do not promise same-day or next-day service as a guarantee \u2014 describe it as often available, never certain. Do not name a brand as serviced unless it appears in the site's own brand pages. Never state how long a repair will take or how long a part will last.",
+    "tone": "practical and reassuring — a dead fridge is urgent, but the repair itself is routine work",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"background-checked\", \"certified\", \"licensed\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Never claim to be factory authorized, manufacturer certified, or an approved warranty servicer. Do not quote prices, call-out fees, or parts availability. Do not promise same-day or next-day service as a guarantee — describe it as often available, never certain. Do not name a brand as serviced unless it appears in the site's own brand pages. Never state how long a repair will take or how long a part will last.",
     "uses_research_fields": true,
-    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences on whether {city}'s water supply is hard or soft, and how frequent severe storms or power surges are in this region \u2014 both drive real, specific appliance wear and failure.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences on whether {city}'s water supply is hard or soft, and how frequent severe storms or power surges are in this region — both drive real, specific appliance wear and failure.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
     "enabled_archetypes": [
         "city_intro",
         "hero_subtext",
@@ -37,151 +37,401 @@
             "slug": "refrigerator-not-cooling-causes",
             "title": "Common Reasons a Refrigerator Stops Cooling",
             "tag": "How-To",
-            "focus_keyword": "refrigerator not cooling"
+            "focus_keyword": "refrigerator not cooling",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "repair-or-replace-appliance",
             "title": "Repair or Replace? How to Decide With an Aging Appliance",
             "tag": "Cost & Planning",
-            "focus_keyword": "repair or replace an appliance"
+            "focus_keyword": "repair or replace an appliance",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "washer-not-draining-causes",
-            "title": "Why a Washing Machine Won't Drain \u2014 Common Causes",
+            "title": "Why a Washing Machine Won't Drain — Common Causes",
             "tag": "How-To",
-            "focus_keyword": "washer not draining"
+            "focus_keyword": "washer not draining",
+            "link_candidates": [
+                {
+                    "text": "Washer Repair",
+                    "url": "/washer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "dryer-taking-too-long-causes",
             "title": "Why Your Dryer Is Taking Longer Than It Should",
             "tag": "How-To",
-            "focus_keyword": "dryer takes too long to dry"
+            "focus_keyword": "dryer takes too long to dry",
+            "link_candidates": [
+                {
+                    "text": "Dryer Repair",
+                    "url": "/dryer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "dishwasher-not-cleaning-properly",
             "title": "Dishwasher Not Cleaning Dishes Properly? Here's Why",
             "tag": "How-To",
-            "focus_keyword": "dishwasher not cleaning properly"
+            "focus_keyword": "dishwasher not cleaning properly",
+            "link_candidates": [
+                {
+                    "text": "Dishwasher Repair",
+                    "url": "/dishwasher-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "oven-temperature-inaccurate",
             "title": "Signs Your Oven's Temperature Isn't Accurate Anymore",
             "tag": "How-To",
-            "focus_keyword": "oven temperature inaccurate"
+            "focus_keyword": "oven temperature inaccurate",
+            "link_candidates": [
+                {
+                    "text": "Oven Repair",
+                    "url": "/oven-repair-{city_slug}"
+                },
+                {
+                    "text": "Range Repair",
+                    "url": "/range-repair-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "appliance-lifespan-guide",
             "title": "How Long Should Your Major Appliances Actually Last?",
             "tag": "Cost & Planning",
-            "focus_keyword": "appliance lifespan"
+            "focus_keyword": "appliance lifespan",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "refrigerator-maintenance-checklist",
             "title": "A Simple Maintenance Checklist to Extend Your Refrigerator's Life",
             "tag": "Prevention",
-            "focus_keyword": "refrigerator maintenance"
+            "focus_keyword": "refrigerator maintenance",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "washer-vibration-noise-causes",
             "title": "Why Your Washing Machine Shakes or Makes Noise",
             "tag": "How-To",
-            "focus_keyword": "washing machine vibration noise"
+            "focus_keyword": "washing machine vibration noise",
+            "link_candidates": [
+                {
+                    "text": "Washer Repair",
+                    "url": "/washer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "dryer-lint-fire-risk",
             "title": "Why Dryer Lint Buildup Is a Real Fire Risk",
             "tag": "Prevention",
-            "focus_keyword": "dryer lint fire risk"
+            "focus_keyword": "dryer lint fire risk",
+            "link_candidates": [
+                {
+                    "text": "Dryer Repair",
+                    "url": "/dryer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "freezer-frost-buildup-causes",
             "title": "What Causes Frost Buildup in a Freezer",
             "tag": "How-To",
-            "focus_keyword": "freezer frost buildup"
+            "focus_keyword": "freezer frost buildup",
+            "link_candidates": [
+                {
+                    "text": "Freezer Repair",
+                    "url": "/freezer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "appliance-warranty-what-covered",
             "title": "What Your Appliance Warranty Usually Does (and Doesn't) Cover",
             "tag": "Cost & Planning",
-            "focus_keyword": "what does an appliance warranty cover"
+            "focus_keyword": "what does an appliance warranty cover",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "About Us",
+                    "url": "/about-us"
+                }
+            ]
         },
         {
             "slug": "range-burner-not-igniting",
             "title": "Gas Range Burner Won't Light? Common Causes",
             "tag": "How-To",
-            "focus_keyword": "gas range burner not igniting"
+            "focus_keyword": "gas range burner not igniting",
+            "link_candidates": [
+                {
+                    "text": "Range Repair",
+                    "url": "/range-repair-{city_slug}"
+                },
+                {
+                    "text": "Cooktop Repair",
+                    "url": "/cooktop-repair-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "water-leaking-from-fridge",
             "title": "Why Water Is Pooling Under Your Refrigerator",
             "tag": "Emergency Tips",
-            "focus_keyword": "water leaking from refrigerator"
+            "focus_keyword": "water leaking from refrigerator",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "dishwasher-leaving-residue",
             "title": "Why Your Dishwasher Leaves a Cloudy Residue on Dishes",
             "tag": "How-To",
-            "focus_keyword": "dishwasher leaving residue"
+            "focus_keyword": "dishwasher leaving residue",
+            "link_candidates": [
+                {
+                    "text": "Dishwasher Repair",
+                    "url": "/dishwasher-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "appliance-energy-efficiency-signs",
             "title": "Signs an Old Appliance Is Costing You More on Energy Bills",
             "tag": "Cost & Planning",
-            "focus_keyword": "appliance energy efficiency"
+            "focus_keyword": "appliance energy efficiency",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "washer-smells-musty",
             "title": "Why Your Front-Load Washer Smells Musty",
             "tag": "How-To",
-            "focus_keyword": "washer smells musty"
+            "focus_keyword": "washer smells musty",
+            "link_candidates": [
+                {
+                    "text": "Washer Repair",
+                    "url": "/washer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "cooktop-not-heating-evenly",
             "title": "Cooktop Heating Unevenly? What's Usually Behind It",
             "tag": "How-To",
-            "focus_keyword": "cooktop not heating evenly"
+            "focus_keyword": "cooktop not heating evenly",
+            "link_candidates": [
+                {
+                    "text": "Cooktop Repair",
+                    "url": "/cooktop-repair-{city_slug}"
+                },
+                {
+                    "text": "Range Repair",
+                    "url": "/range-repair-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "ice-maker-not-working",
             "title": "Common Reasons an Ice Maker Stops Working",
             "tag": "How-To",
-            "focus_keyword": "ice maker not working"
+            "focus_keyword": "ice maker not working",
+            "link_candidates": [
+                {
+                    "text": "Ice Maker Repair",
+                    "url": "/ice-maker-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "appliance-error-codes-guide",
             "title": "What Appliance Error Codes Are Actually Telling You",
             "tag": "How-To",
-            "focus_keyword": "appliance error codes"
+            "focus_keyword": "appliance error codes",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "moving-appliances-safely",
             "title": "How to Safely Disconnect and Move a Major Appliance",
             "tag": "How-To",
-            "focus_keyword": "moving appliances safely"
+            "focus_keyword": "moving appliances safely",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "dryer-not-heating-causes",
             "title": "Dryer Running But Not Heating? Common Causes",
             "tag": "How-To",
-            "focus_keyword": "dryer not heating"
+            "focus_keyword": "dryer not heating",
+            "link_candidates": [
+                {
+                    "text": "Dryer Repair",
+                    "url": "/dryer-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "seasonal-appliance-maintenance",
             "title": "A Seasonal Maintenance Routine for Your Kitchen Appliances",
             "tag": "Prevention",
-            "focus_keyword": "seasonal appliance maintenance"
+            "focus_keyword": "seasonal appliance maintenance",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Dishwasher Repair",
+                    "url": "/dishwasher-repair-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "refrigerator-door-seal-issues",
             "title": "How a Worn Door Seal Affects Your Refrigerator's Performance",
             "tag": "How-To",
-            "focus_keyword": "refrigerator door seal"
+            "focus_keyword": "refrigerator door seal",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "Appliance Repair Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "choosing-an-appliance-repair-provider",
             "title": "What to Ask Before Hiring an Appliance Repair Provider",
             "tag": "Cost & Planning",
-            "focus_keyword": "hiring an appliance repair provider"
+            "focus_keyword": "hiring an appliance repair provider",
+            "link_candidates": [
+                {
+                    "text": "Refrigerator Repair",
+                    "url": "/refrigerator-repair-{city_slug}"
+                },
+                {
+                    "text": "About Us",
+                    "url": "/about-us"
+                }
+            ]
         }
     ]
 }

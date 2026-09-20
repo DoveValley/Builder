@@ -14,7 +14,7 @@
     ],
     "local_angle": "the local climate and seasonal pest cycles",
     "tone": "reassuring and professional, with appropriate urgency for active infestations",
-    "guardrails": "This business is a referral/advertising network, not the crew performing the work \u2014 never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"background-checked\", or \"accredited\" to describe the providers in the network \u2014 even softened or implied \u2014 unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.",
+    "guardrails": "This business is a referral/advertising network, not the crew performing the work — never write \"our team\" doing the repair/removal/restoration itself, never claim to directly perform, install, extract, remove, or repair anything, and never claim to employ technicians. Never use the words \"vetted\", \"screened\", \"certified\", \"licensed\", \"background-checked\", or \"accredited\" to describe the providers in the network — even softened or implied — unless that is explicitly given as a fact. Describe the connection itself (fast, local, responsive), not an unverified quality-control process. Always frame the work as done by the independent local providers this business connects customers to. Do not make pesticide safety or efficacy claims beyond general statements. Never guarantee total or permanent eradication. Do not name specific chemical products.",
     "uses_research_fields": true,
     "enabled_archetypes": [
         "city_intro",
@@ -30,157 +30,407 @@
         "homepage_service_area",
         "why_choose_us"
     ],
-    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences naming the pests actually most common and problematic in {city}'s region (be specific \u2014 e.g. fire ants, Formosan termites, scorpions, carpenter ants \u2014 not just \"pests\" generically) and whether pest activity here is year-round or has a strong seasonal pattern.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" — array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" — array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" — 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" — one to two sentences naming the pests actually most common and problematic in {city}'s region (be specific — e.g. fire ants, Formosan termites, scorpions, carpenter ants — not just \"pests\" generically) and whether pest activity here is year-round or has a strong seasonal pattern.\n5. \"neighborhoods\" — array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist — never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" — {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts — real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
     "blog_topics": [
         {
             "slug": "signs-of-termite-infestation",
             "title": "Early Signs of a Termite Infestation",
             "tag": "Prevention",
-            "focus_keyword": "signs of termites"
+            "focus_keyword": "signs of termites",
+            "link_candidates": [
+                {
+                    "text": "Termite Inspection",
+                    "url": "/termite-inspection-{city_slug}"
+                },
+                {
+                    "text": "Termite Treatment",
+                    "url": "/termite-treatment-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "seasonal-pest-activity-guide",
             "title": "How Pest Activity Changes With the Seasons",
             "tag": "Prevention",
-            "focus_keyword": "seasonal pest control"
+            "focus_keyword": "seasonal pest control",
+            "link_candidates": [
+                {
+                    "text": "Residential Pest Control",
+                    "url": "/residential-pest-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "bed-bugs-how-they-spread",
             "title": "How Bed Bugs Spread From One Home to Another",
             "tag": "How-To",
-            "focus_keyword": "how bed bugs spread"
+            "focus_keyword": "how bed bugs spread",
+            "link_candidates": [
+                {
+                    "text": "Bed Bug Control",
+                    "url": "/bed-bug-exterminator-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "ants-vs-termites-how-to-tell",
             "title": "Ants or Termites? How to Tell the Difference",
             "tag": "How-To",
-            "focus_keyword": "ants vs termites"
+            "focus_keyword": "ants vs termites",
+            "link_candidates": [
+                {
+                    "text": "Ant Pest Control",
+                    "url": "/ant-exterminator-{city_slug}"
+                },
+                {
+                    "text": "Termite Inspection",
+                    "url": "/termite-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "diy-pest-control-when-to-call-pro",
             "title": "DIY Pest Control: When It Works and When to Call a Professional",
             "tag": "How-To",
-            "focus_keyword": "when to call a pest control professional"
+            "focus_keyword": "when to call a pest control professional",
+            "link_candidates": [
+                {
+                    "text": "Residential Pest Control",
+                    "url": "/residential-pest-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Inspection",
+                    "url": "/pest-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "mosquito-breeding-grounds-yard",
             "title": "Common Mosquito Breeding Grounds Hiding in Your Yard",
             "tag": "Prevention",
-            "focus_keyword": "mosquito breeding grounds"
+            "focus_keyword": "mosquito breeding grounds",
+            "link_candidates": [
+                {
+                    "text": "Mosquito Control",
+                    "url": "/mosquito-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "rodent-proofing-your-home",
             "title": "How to Rodent-Proof Your Home This Fall",
             "tag": "Prevention",
-            "focus_keyword": "rodent proofing your home"
+            "focus_keyword": "rodent proofing your home",
+            "link_candidates": [
+                {
+                    "text": "Mouse Exterminator",
+                    "url": "/mouse-exterminator-{city_slug}"
+                },
+                {
+                    "text": "Rat Exterminator",
+                    "url": "/rat-exterminator-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "wasp-nest-safety-tips",
             "title": "What to Do (and Not Do) About a Wasp Nest",
             "tag": "Emergency Tips",
-            "focus_keyword": "wasp nest safety"
+            "focus_keyword": "wasp nest safety",
+            "link_candidates": [
+                {
+                    "text": "Wasp Nest Removal",
+                    "url": "/wasp-nest-removal-{city_slug}"
+                },
+                {
+                    "text": "Wasp Exterminator",
+                    "url": "/wasp-exterminator-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "cockroach-attractants-in-kitchens",
             "title": "What Attracts Cockroaches to a Kitchen",
             "tag": "Prevention",
-            "focus_keyword": "what attracts cockroaches"
+            "focus_keyword": "what attracts cockroaches",
+            "link_candidates": [
+                {
+                    "text": "Cockroach Extermination",
+                    "url": "/cockroach-exterminator-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "flea-infestation-without-pets",
             "title": "Can You Get a Flea Infestation Without Pets?",
             "tag": "How-To",
-            "focus_keyword": "flea infestation without pets"
+            "focus_keyword": "flea infestation without pets",
+            "link_candidates": [
+                {
+                    "text": "Flea Pest Control",
+                    "url": "/flea-exterminator-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "termite-damage-vs-water-damage",
             "title": "Termite Damage or Water Damage? How to Tell",
             "tag": "How-To",
-            "focus_keyword": "termite damage vs water damage"
+            "focus_keyword": "termite damage vs water damage",
+            "link_candidates": [
+                {
+                    "text": "Termite Inspection",
+                    "url": "/termite-inspection-{city_slug}"
+                },
+                {
+                    "text": "WDI Inspection",
+                    "url": "/wdi-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "tick-prevention-yard-tips",
             "title": "Simple Yard Habits That Reduce Tick Populations",
             "tag": "Prevention",
-            "focus_keyword": "tick prevention yard tips"
+            "focus_keyword": "tick prevention yard tips",
+            "link_candidates": [
+                {
+                    "text": "Tick Treatment",
+                    "url": "/tick-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "pest-pressure-after-rain",
             "title": "Why Pest Activity Often Spikes After Heavy Rain",
             "tag": "Prevention",
-            "focus_keyword": "pests after rain"
+            "focus_keyword": "pests after rain",
+            "link_candidates": [
+                {
+                    "text": "Residential Pest Control",
+                    "url": "/residential-pest-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "spider-infestation-or-normal",
             "title": "Is It a Spider Infestation, or Just a Few Spiders?",
             "tag": "How-To",
-            "focus_keyword": "spider infestation signs"
+            "focus_keyword": "spider infestation signs",
+            "link_candidates": [
+                {
+                    "text": "Spider Pest Control",
+                    "url": "/spider-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "sealing-entry-points-pests",
             "title": "How to Seal the Entry Points Pests Use to Get Inside",
             "tag": "Prevention",
-            "focus_keyword": "seal entry points pests"
+            "focus_keyword": "seal entry points pests",
+            "link_candidates": [
+                {
+                    "text": "Residential Pest Control",
+                    "url": "/residential-pest-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Inspection",
+                    "url": "/pest-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "pest-control-and-food-safety",
             "title": "Why Pest Control Matters for Restaurants and Food Businesses",
             "tag": "Commercial",
-            "focus_keyword": "pest control food safety"
+            "focus_keyword": "pest control food safety",
+            "link_candidates": [
+                {
+                    "text": "Restaurant Pest Control",
+                    "url": "/restaurant-pest-control-{city_slug}"
+                },
+                {
+                    "text": "Commercial Pest Control",
+                    "url": "/commercial-pest-control-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "silverfish-what-they-mean",
             "title": "What Silverfish in Your Home Might Be Telling You",
             "tag": "How-To",
-            "focus_keyword": "silverfish in home"
+            "focus_keyword": "silverfish in home",
+            "link_candidates": [
+                {
+                    "text": "Silverfish Control",
+                    "url": "/silverfish-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "stink-bug-season-explained",
             "title": "Why Stink Bugs Show Up in the Fall",
             "tag": "Prevention",
-            "focus_keyword": "stink bug season"
+            "focus_keyword": "stink bug season",
+            "link_candidates": [
+                {
+                    "text": "Stink Bug Control",
+                    "url": "/stink-bug-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "carpenter-ants-vs-regular-ants",
             "title": "Carpenter Ants vs. Regular Ants: Why the Difference Matters",
             "tag": "How-To",
-            "focus_keyword": "carpenter ants vs regular ants"
+            "focus_keyword": "carpenter ants vs regular ants",
+            "link_candidates": [
+                {
+                    "text": "Carpenter Ant Control",
+                    "url": "/carpenter-ant-control-{city_slug}"
+                },
+                {
+                    "text": "Ant Pest Control",
+                    "url": "/ant-exterminator-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "pest-inspection-home-buying",
             "title": "Why a Pest Inspection Matters When Buying a Home",
             "tag": "How-To",
-            "focus_keyword": "pest inspection when buying a home"
+            "focus_keyword": "pest inspection when buying a home",
+            "link_candidates": [
+                {
+                    "text": "Pest Inspection",
+                    "url": "/pest-inspection-{city_slug}"
+                },
+                {
+                    "text": "WDI Inspection",
+                    "url": "/wdi-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "yellow-jackets-vs-bees",
             "title": "Yellow Jackets vs. Bees: Know the Difference Before You Act",
             "tag": "How-To",
-            "focus_keyword": "yellow jackets vs bees"
+            "focus_keyword": "yellow jackets vs bees",
+            "link_candidates": [
+                {
+                    "text": "Yellow Jacket Control",
+                    "url": "/yellow-jacket-control-{city_slug}"
+                },
+                {
+                    "text": "Bee Removal",
+                    "url": "/bee-removal-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "pest-proofing-pantry-tips",
             "title": "Pest-Proofing Your Pantry: A Simple Checklist",
             "tag": "Prevention",
-            "focus_keyword": "pest proof your pantry"
+            "focus_keyword": "pest proof your pantry",
+            "link_candidates": [
+                {
+                    "text": "Cockroach Extermination",
+                    "url": "/cockroach-exterminator-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "wdi-inspection-what-is-it",
             "title": "What Is a WDI Inspection, and Do You Need One?",
             "tag": "How-To",
-            "focus_keyword": "what is a wdi inspection"
+            "focus_keyword": "what is a wdi inspection",
+            "link_candidates": [
+                {
+                    "text": "WDI Inspection",
+                    "url": "/wdi-inspection-{city_slug}"
+                },
+                {
+                    "text": "Termite Inspection",
+                    "url": "/termite-inspection-{city_slug}"
+                }
+            ]
         },
         {
             "slug": "centipedes-in-house-meaning",
             "title": "Why You're Seeing Centipedes Indoors",
             "tag": "How-To",
-            "focus_keyword": "centipedes in house"
+            "focus_keyword": "centipedes in house",
+            "link_candidates": [
+                {
+                    "text": "Centipede Control",
+                    "url": "/centipede-control-{city_slug}"
+                },
+                {
+                    "text": "Pest Control Services",
+                    "url": "/"
+                }
+            ]
         },
         {
             "slug": "choosing-a-pest-control-provider",
             "title": "What to Ask Before Hiring a Pest Control Provider",
             "tag": "How-To",
-            "focus_keyword": "hiring a pest control provider"
+            "focus_keyword": "hiring a pest control provider",
+            "link_candidates": [
+                {
+                    "text": "Residential Pest Control",
+                    "url": "/residential-pest-control-{city_slug}"
+                },
+                {
+                    "text": "About Us",
+                    "url": "/about-us"
+                }
+            ]
         }
     ]
 }
