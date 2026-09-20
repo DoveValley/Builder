@@ -30,5 +30,157 @@
         "homepage_service_area",
         "why_choose_us"
     ],
-    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences naming the pests actually most common and problematic in {city}'s region (be specific \u2014 e.g. fire ants, Formosan termites, scorpions, carpenter ants \u2014 not just \"pests\" generically) and whether pest activity here is year-round or has a strong seasonal pattern.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation."
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences naming the pests actually most common and problematic in {city}'s region (be specific \u2014 e.g. fire ants, Formosan termites, scorpions, carpenter ants \u2014 not just \"pests\" generically) and whether pest activity here is year-round or has a strong seasonal pattern.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "blog_topics": [
+        {
+            "slug": "signs-of-termite-infestation",
+            "title": "Early Signs of a Termite Infestation",
+            "tag": "Prevention",
+            "focus_keyword": "signs of termites"
+        },
+        {
+            "slug": "seasonal-pest-activity-guide",
+            "title": "How Pest Activity Changes With the Seasons",
+            "tag": "Prevention",
+            "focus_keyword": "seasonal pest control"
+        },
+        {
+            "slug": "bed-bugs-how-they-spread",
+            "title": "How Bed Bugs Spread From One Home to Another",
+            "tag": "How-To",
+            "focus_keyword": "how bed bugs spread"
+        },
+        {
+            "slug": "ants-vs-termites-how-to-tell",
+            "title": "Ants or Termites? How to Tell the Difference",
+            "tag": "How-To",
+            "focus_keyword": "ants vs termites"
+        },
+        {
+            "slug": "diy-pest-control-when-to-call-pro",
+            "title": "DIY Pest Control: When It Works and When to Call a Professional",
+            "tag": "How-To",
+            "focus_keyword": "when to call a pest control professional"
+        },
+        {
+            "slug": "mosquito-breeding-grounds-yard",
+            "title": "Common Mosquito Breeding Grounds Hiding in Your Yard",
+            "tag": "Prevention",
+            "focus_keyword": "mosquito breeding grounds"
+        },
+        {
+            "slug": "rodent-proofing-your-home",
+            "title": "How to Rodent-Proof Your Home This Fall",
+            "tag": "Prevention",
+            "focus_keyword": "rodent proofing your home"
+        },
+        {
+            "slug": "wasp-nest-safety-tips",
+            "title": "What to Do (and Not Do) About a Wasp Nest",
+            "tag": "Emergency Tips",
+            "focus_keyword": "wasp nest safety"
+        },
+        {
+            "slug": "cockroach-attractants-in-kitchens",
+            "title": "What Attracts Cockroaches to a Kitchen",
+            "tag": "Prevention",
+            "focus_keyword": "what attracts cockroaches"
+        },
+        {
+            "slug": "flea-infestation-without-pets",
+            "title": "Can You Get a Flea Infestation Without Pets?",
+            "tag": "How-To",
+            "focus_keyword": "flea infestation without pets"
+        },
+        {
+            "slug": "termite-damage-vs-water-damage",
+            "title": "Termite Damage or Water Damage? How to Tell",
+            "tag": "How-To",
+            "focus_keyword": "termite damage vs water damage"
+        },
+        {
+            "slug": "tick-prevention-yard-tips",
+            "title": "Simple Yard Habits That Reduce Tick Populations",
+            "tag": "Prevention",
+            "focus_keyword": "tick prevention yard tips"
+        },
+        {
+            "slug": "pest-pressure-after-rain",
+            "title": "Why Pest Activity Often Spikes After Heavy Rain",
+            "tag": "Prevention",
+            "focus_keyword": "pests after rain"
+        },
+        {
+            "slug": "spider-infestation-or-normal",
+            "title": "Is It a Spider Infestation, or Just a Few Spiders?",
+            "tag": "How-To",
+            "focus_keyword": "spider infestation signs"
+        },
+        {
+            "slug": "sealing-entry-points-pests",
+            "title": "How to Seal the Entry Points Pests Use to Get Inside",
+            "tag": "Prevention",
+            "focus_keyword": "seal entry points pests"
+        },
+        {
+            "slug": "pest-control-and-food-safety",
+            "title": "Why Pest Control Matters for Restaurants and Food Businesses",
+            "tag": "Commercial",
+            "focus_keyword": "pest control food safety"
+        },
+        {
+            "slug": "silverfish-what-they-mean",
+            "title": "What Silverfish in Your Home Might Be Telling You",
+            "tag": "How-To",
+            "focus_keyword": "silverfish in home"
+        },
+        {
+            "slug": "stink-bug-season-explained",
+            "title": "Why Stink Bugs Show Up in the Fall",
+            "tag": "Prevention",
+            "focus_keyword": "stink bug season"
+        },
+        {
+            "slug": "carpenter-ants-vs-regular-ants",
+            "title": "Carpenter Ants vs. Regular Ants: Why the Difference Matters",
+            "tag": "How-To",
+            "focus_keyword": "carpenter ants vs regular ants"
+        },
+        {
+            "slug": "pest-inspection-home-buying",
+            "title": "Why a Pest Inspection Matters When Buying a Home",
+            "tag": "How-To",
+            "focus_keyword": "pest inspection when buying a home"
+        },
+        {
+            "slug": "yellow-jackets-vs-bees",
+            "title": "Yellow Jackets vs. Bees: Know the Difference Before You Act",
+            "tag": "How-To",
+            "focus_keyword": "yellow jackets vs bees"
+        },
+        {
+            "slug": "pest-proofing-pantry-tips",
+            "title": "Pest-Proofing Your Pantry: A Simple Checklist",
+            "tag": "Prevention",
+            "focus_keyword": "pest proof your pantry"
+        },
+        {
+            "slug": "wdi-inspection-what-is-it",
+            "title": "What Is a WDI Inspection, and Do You Need One?",
+            "tag": "How-To",
+            "focus_keyword": "what is a wdi inspection"
+        },
+        {
+            "slug": "centipedes-in-house-meaning",
+            "title": "Why You're Seeing Centipedes Indoors",
+            "tag": "How-To",
+            "focus_keyword": "centipedes in house"
+        },
+        {
+            "slug": "choosing-a-pest-control-provider",
+            "title": "What to Ask Before Hiring a Pest Control Provider",
+            "tag": "How-To",
+            "focus_keyword": "hiring a pest control provider"
+        }
+    ]
 }

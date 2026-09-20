@@ -86,6 +86,46 @@ zero cost. A population threshold (Landing Cities tab, default 14,000) still ind
 whether verified neighborhood names actually render on a page at all — that gate and this
 verification are complementary, not substitutes for each other.
 
+## Blog posts (optional, domain-level — a separate mechanism from the archetype system above)
+
+`blog_topics[]` on the niche brief — `{slug, title, tag, focus_keyword}` objects, ~25 per niche,
+hand-written once per niche (no admin UI yet; edit the JSON directly). Unlike everything else on
+this page, blog posts are **not** part of the `enabled_archetypes`/compile/`ai_block_types.json`
+pipeline — they don't belong to any city, so there's nothing for `[[brief.*]]`/`{city}` token
+resolution to run against. They're generated the same way the one-time footer/tagline/disclaimer
+rewords are (`generate.py`'s `reword_disclaimer()` etc.): read `niche_brief.json` directly out of
+the clone's own `multisite/` folder (already copied there by `clone.php` for exactly this reason —
+see `feedback_clone_must_carry_render_time_files`), build the prompt inline in Python, no compile
+step involved.
+
+- **Per-domain, not per-city.** Each *domain* (not each landing page) gets `BLOG_POSTS_PER_DOMAIN`
+  (3) posts, picked from the pool with a seed derived from the domain's own site id — reproducible
+  on a rebuild, different domain → different pick.
+- **Stable across rebuilds via the per-domain AI cache**, same file as everything else in
+  `includes/multisite/ai_cache.php` (`sites/{master}/multisite/cache/{domainSlug}.json`), under its
+  own `blog_posts` key (`ms_blog_inject_from_cache()` / `ms_blog_extract_to_cache()`). A rebuild
+  reinjects existing posts for free and only tops up toward 3 if some are still missing (e.g. a
+  prior run's API call returned unparseable JSON — logged and skipped, not fatal; the next rebuild
+  just tries the still-missing slot again).
+- **Auto-publishes only if it clears an automated quality gate** — word count, a cap on how many
+  times the focus keyword can appear, and a banned-phrase list drawn from the same overclaim
+  language every niche's `guardrails` already bans (licensed/certified/guaranteed/"our team", etc.)
+  — there's no human review step before a batch goes live, so this is what stands in for one. A
+  post that fails goes to `status: draft` instead, logged with the specific reason, not silently
+  dropped or force-published.
+- **Batch panel:** "AI content → Blog posts" checkbox (`ai.blog`), same skip-key convention as the
+  reword toggles — unticking passes `--no-blog` to `generate.py`.
+- **Model:** Haiku (`MODEL_DEFAULT`), deliberately not `REWRITE_MODEL` (Sonnet) like the reword
+  functions above it in the same file — Sonnet's default adaptive thinking routinely burned the
+  shared 8000-token cap entirely on "thinking" for a 550+-word creative-writing prompt, leaving an
+  empty response (measured: 2 of 3 real calls failed this way). Haiku doesn't hit that tradeoff for
+  a prompt this size, and it's cheaper.
+- Write new topics evergreen and city-agnostic (no local facts, no neighborhood names) — they're
+  shared across every domain in the niche, and picking a topic that needs per-city grounding has
+  nothing to ground it against. Keep the `focus_keyword` distinct from your landing-page keyword
+  map — an informational blog topic competing with your own transactional landing page for the same
+  term is self-cannibalization, not incremental reach.
+
 ## Charts (optional)
 
 `plugins/image-data-chart/niches/{slug}/*.json`, one file per chart. A niche folder that doesn't

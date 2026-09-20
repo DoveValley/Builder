@@ -548,3 +548,79 @@ function ms_footer_reword_extract_to_cache(string $workingDir, string $cacheFile
     }
     return $out;
 }
+
+/**
+ * Cache/reinject blog posts generate.py wrote for this domain
+ * (generate_blog_posts() in generate.py, keyed by niche_brief.json's blog_topics pool).
+ * Posts are not ai_blocks — they live in `posts`, not `content_blocks` — so
+ * ms_ai_inject_from_cache()/ms_ai_extract_to_cache() above never see them. Without this,
+ * every fresh build starts from a pristine clone of the master (no posts of its own) and
+ * would re-pick + re-bill from scratch on every single rebuild. Each cached post carries
+ * the `_blog_topic_slug` marker generate.py stamps, which is what lets both sides tell
+ * "already have this domain's post for this topic" from "need one more."
+ */
+function ms_blog_inject_from_cache(string $workingDir, string $cacheFile): array {
+    $siteFile = $workingDir . '/data/site.json';
+    $hit = ['posts' => 0];
+    if (!file_exists($siteFile) || !file_exists($cacheFile)) return $hit;
+    $site  = json_decode(file_get_contents($siteFile), true);
+    $cache = json_decode(file_get_contents($cacheFile), true);
+    if (!is_array($site) || !is_array($cache)) return $hit;
+    $cachedPosts = $cache['blog_posts'] ?? [];
+    if (!$cachedPosts) return $hit;
+
+    $posts = is_array($site['posts'] ?? null) ? $site['posts'] : [];
+    $existingSlugs = [];
+    foreach ($posts as $p) {
+        if (is_array($p) && !empty($p['_blog_topic_slug'])) $existingSlugs[$p['_blog_topic_slug']] = true;
+    }
+    foreach ($cachedPosts as $key => $post) {
+        if (!is_array($post)) continue;
+        $slug = $post['_blog_topic_slug'] ?? '';
+        if ($slug !== '' && isset($existingSlugs[$slug])) continue;   // already present, don't duplicate
+        $posts[$key] = $post;
+        $hit['posts']++;
+    }
+    if ($hit['posts'] > 0) {
+        $site['posts'] = $posts;
+        $tmp = $siteFile . '.tmp.' . getmypid();
+        file_put_contents($tmp, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+        rename($tmp, $siteFile);
+    }
+    return $hit;
+}
+
+/**
+ * Companion to ms_blog_inject_from_cache() — persists every AI-generated blog post
+ * (identified by the `_blog_topic_slug` marker) back into the cache after generate.py
+ * runs, so future rebuilds reinject instead of regenerating. Must run AFTER
+ * ms_ai_extract_to_cache() (same reasoning as the footer-reword extract above: that call
+ * overwrites the whole cache file with just {generated_at, fields}), but order relative
+ * to ms_footer_reword_extract_to_cache() doesn't matter — both read-modify-write, adding
+ * only their own top-level key.
+ */
+function ms_blog_extract_to_cache(string $workingDir, string $cacheFile): int {
+    $siteFile = $workingDir . '/data/site.json';
+    if (!file_exists($siteFile)) return 0;
+    $site = json_decode(file_get_contents($siteFile), true);
+    if (!is_array($site) || empty($site['posts']) || !is_array($site['posts'])) return 0;
+
+    $existing = file_exists($cacheFile) ? (json_decode(file_get_contents($cacheFile), true) ?: []) : [];
+    $blogPosts = $existing['blog_posts'] ?? [];
+
+    $added = 0;
+    foreach ($site['posts'] as $key => $post) {
+        if (!is_array($post) || empty($post['_blog_topic_slug'])) continue;
+        $blogPosts[$key] = $post;
+        $added++;
+    }
+    if ($added === 0) return 0;
+
+    $existing['blog_posts'] = $blogPosts;
+    $dir = dirname($cacheFile);
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    $tmp = $cacheFile . '.tmp.' . getmypid();
+    file_put_contents($tmp, json_encode($existing, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    rename($tmp, $cacheFile);
+    return $added;
+}

@@ -330,6 +330,10 @@ if ($noAi) {
     if ($fr['legal_pages'] > 0) progress_log("AI cache: reused {$fr['legal_pages']} cached legal-page reword(s).");
     if ($fr['popup'])          progress_log('AI cache: reused cached info-popup disclosure.');
 
+    // Same idea for blog posts — not ai_blocks, so the cache above never sees them either.
+    $blogHit = ms_blog_inject_from_cache($workingDir, $cacheFile);
+    if ($blogHit['posts'] > 0) progress_log("AI cache: reused {$blogHit['posts']} cached blog post(s).");
+
     ms_step_begin('ai');
     progress_log('Generating AI content for city…');
     $genEnv = getenv();
@@ -341,7 +345,8 @@ if ($noAi) {
             . ($skipped('ai.legal_reword') ? ' --no-legal-reword' : '')
             . ($skipped('ai.disclaimer_reword') ? ' --no-disclaimer-reword' : '')
             . ($skipped('ai.tagline_reword') ? ' --no-tagline-reword' : '')
-            . ($skipped('ai.popup_reword') ? ' --no-popup-reword' : '') . ' 2>&1';
+            . ($skipped('ai.popup_reword') ? ' --no-popup-reword' : '')
+            . ($skipped('ai.blog') ? ' --no-blog' : '') . ' 2>&1';
     $gp = proc_open($genCmd, [1 => ['pipe', 'w']], $gpipes, BASE_DIR, $genEnv);
     if (is_resource($gp)) {
         while (($l = fgets($gpipes[1])) !== false) {
@@ -377,6 +382,9 @@ if ($noAi) {
     if ($frOut['disclaimer'] || $frOut['tagline'] || $frOut['legal_pages'] > 0 || $frOut['popup']) {
         progress_log('AI cache: footer/legal/popup reword(s) cached → ' . basename($cacheFile));
     }
+
+    $blogCached = ms_blog_extract_to_cache($workingDir, $cacheFile);
+    if ($blogCached > 0) progress_log("AI cache: {$blogCached} blog post(s) cached → " . basename($cacheFile));
 }
 
 // ── Per-site image differentiation (4c hero overlay + image pass) ─────────────

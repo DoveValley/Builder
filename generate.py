@@ -2103,6 +2103,220 @@ def reword_tagline(site_data, brief, api_key, dry_run=False) -> bool:
     return False
 
 
+BLOG_POSTS_PER_DOMAIN = 3
+BLOG_WORD_MIN = 450
+BLOG_WORD_MAX = 900
+BLOG_KEYWORD_CAP = 5
+# Same overclaim/impersonation shapes every niche_brief.json guardrails string already bans
+# for content_blocks, plus generic SEO-overclaim phrases — a second, automated backstop since
+# blog posts auto-publish with no human review step.
+BLOG_BANNED_PHRASES = [
+    'licensed', 'certified', 'guaranteed', 'award-winning', 'award winning',
+    'vetted', 'screened', 'background-checked', 'background checked', 'accredited',
+    '#1', 'our team', 'our technicians', 'our professionals', 'our providers', 'our crew', 'our experts',
+]
+
+def _blog_strip_html(html):
+    return re.sub(r'<[^>]+>', ' ', html or '')
+
+def _blog_quality_check(focus_keyword, title, meta_description, html_parts):
+    """Automated publish gate — a post that fails goes to draft instead of live, since
+    auto-publish means nothing else catches a bad generation before it's public.
+    Returns (ok: bool, reasons: list[str])."""
+    reasons = []
+    body_text = ' '.join(_blog_strip_html(p) for p in html_parts)
+    word_count = len(body_text.split())
+    if word_count < BLOG_WORD_MIN or word_count > BLOG_WORD_MAX:
+        reasons.append(f'word count {word_count} outside {BLOG_WORD_MIN}-{BLOG_WORD_MAX}')
+
+    all_text = ' '.join([title or '', meta_description or '', body_text]).lower()
+    kw = (focus_keyword or '').strip().lower()
+    if kw:
+        kw_count = all_text.count(kw)
+        if kw_count == 0:
+            reasons.append('focus keyword never appears')
+        elif kw_count > BLOG_KEYWORD_CAP:
+            reasons.append(f'focus keyword repeated {kw_count}x (cap {BLOG_KEYWORD_CAP})')
+
+    for phrase in BLOG_BANNED_PHRASES:
+        if phrase in all_text:
+            reasons.append(f'banned phrase "{phrase}"')
+
+    return (len(reasons) == 0, reasons)
+
+def generate_blog_post_text(topic, brief, business, api_key, dry_run=False):
+    """One Claude call for one blog post. Returns the parsed dict, or None on failure.
+    Domain-level, not per-city — reuses the niche brief's guardrails/tone directly,
+    same pattern as reword_disclaimer_text()/reword_tagline_text() above, rather than
+    going through the per-city archetype/registry pipeline those don't use either."""
+    guardrails = (brief.get('guardrails') or '').strip()
+    tone = (brief.get('tone') or 'reassuring and professional').strip()
+    descriptor = brief.get('business_descriptor') or 'a local service referral business'
+    customer_noun = brief.get('customer_noun') or 'customer'
+    focus_keyword = topic.get('focus_keyword', '')
+    title_hint = topic.get('title', '')
+
+    prompt = (
+        f'You are writing an informational blog post for {business}, {descriptor}. '
+        f'This is an educational article for {customer_noun}s researching this topic online — '
+        'not a sales page, and not a description of work this business performs itself.\n\n'
+        f'Topic: "{title_hint}"\n'
+        f'Target keyword: "{focus_keyword}" — use it naturally 2-4 times total across the whole '
+        'post (title, meta description, and body combined). Never repeat it mechanically or stuff it.\n\n'
+        'ACCURACY RULES (critical): Use only well-established general knowledge on this topic. '
+        'Do NOT invent or state as fact any statistic, price, study, citation, or percentage you '
+        'are not confident is true. Hedge appropriately ("often", "in many cases", "a professional '
+        'can confirm") for anything that varies by situation or property. Never guarantee an '
+        'outcome, a timeline, or a cost. This is a national/general-audience article — do not '
+        'name or assume any specific city, region, or climate.\n\n'
+        f'{guardrails}\n\n'
+        f'Tone: {tone}. Write in fully original wording — do not copy competitor or reference-site '
+        'phrasing.\n\n'
+        'Structure:\n'
+        '- title: 50-60 characters, includes the target keyword naturally.\n'
+        '- meta_description: 150-160 characters, includes the target keyword naturally.\n'
+        '- excerpt: one sentence, about 20-25 words, summarizing the post.\n'
+        '- intro_html: one opening paragraph (3-4 sentences, 50-70 words), wrapped in <p>...</p>, no heading.\n'
+        '- sections: exactly 3 sections, each with "heading" (H2, 4-8 words) and "html" '
+        '(2 paragraphs, 170-210 words total, each paragraph wrapped in its own <p>...</p>). The '
+        'whole post (intro + all 3 sections combined) must total at least 550 words — this is a '
+        'hard minimum, not a suggestion; thin, padded-out content is worse than a slightly longer '
+        'post, so favor going a little over the section targets rather than under them.\n\n'
+        'Return JSON only, no markdown fences: {"title": "...", "meta_description": "...", '
+        '"excerpt": "...", "intro_html": "<p>...</p>", "sections": '
+        '[{"heading": "...", "html": "..."}, {"heading": "...", "html": "..."}, '
+        '{"heading": "...", "html": "..."}]}'
+    )
+
+    # MODEL_DEFAULT (haiku), not REWRITE_MODEL (sonnet) — sonnet-5's default adaptive
+    # thinking on a long-form 550+ word creative-writing task routinely burns most or all
+    # of call_claude()'s shared 8000-token cap on thinking alone, leaving no budget for the
+    # actual text block (an empty response, which fails JSON parsing). Measured directly:
+    # 2 of 3 real calls failed this way with sonnet-5; 5 of 5 succeeded with haiku, which
+    # doesn't hit the same thinking/output tradeoff for a task this size — also cheaper,
+    # and consistent with the model most standalone content archetypes already use.
+    result = call_claude(prompt, MODEL_DEFAULT, api_key, dry_run=dry_run)
+    if not result or not isinstance(result, dict):
+        return None
+    if not all(k in result for k in ('title', 'meta_description', 'excerpt', 'intro_html', 'sections')):
+        return None
+    if not isinstance(result['sections'], list) or not result['sections']:
+        return None
+    return result
+
+def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -> bool:
+    """Runs toward BLOG_POSTS_PER_DOMAIN published/drafted posts per domain: picks topics
+    from brief['blog_topics'] this domain hasn't used yet, one Claude call per post. Topic
+    selection is seeded from domain_seed (the site id), so a rebuild without new cache
+    (--dry-run, or before build_one.php's blog cache exists) still picks the SAME topics
+    rather than re-rolling — the real per-domain persistence is the cache in
+    ms_blog_inject_from_cache()/ms_blog_extract_to_cache() (includes/multisite/ai_cache.php),
+    which is what actually makes a rebuild skip re-generating (and re-billing) at all.
+    A post that fails the automated quality gate is written as a draft, not published,
+    and logged — see _blog_quality_check()."""
+    topics = brief.get('blog_topics') or []
+    if not topics or not isinstance(topics, list):
+        return False
+
+    # default_data() (includes/data.php) seeds 'posts' as PHP's [] — round-trips through
+    # JSON as an empty LIST, not an object, for every domain that has never had a post.
+    # setdefault() only fills a MISSING key, so on every real site this returns that
+    # existing empty list as-is, not a fresh dict — found live: a full build_one.php run
+    # produced zero posts with no error, because the isinstance(dict) guard below was
+    # silently bailing out on exactly this shape every time.
+    posts = site_data.get('posts')
+    if not isinstance(posts, dict):
+        posts = {}
+        site_data['posts'] = posts
+    used_slugs = {p.get('_blog_topic_slug') for p in posts.values()
+                  if isinstance(p, dict) and p.get('_blog_topic_slug')}
+    needed = BLOG_POSTS_PER_DOMAIN - len(used_slugs)
+    if needed <= 0:
+        return False
+
+    available = [t for t in topics if isinstance(t, dict) and t.get('slug') and t.get('slug') not in used_slugs]
+    if not available:
+        return False
+
+    rng = random.Random(hashlib.md5(('blog|' + domain_seed).encode('utf-8')).hexdigest())
+    rng.shuffle(available)
+    picks = available[:needed]
+
+    business = (site_data.get('site_vars') or {}).get('business') or '{business}'
+    changed = False
+
+    for topic in picks:
+        _log(f'  Generating blog post: {topic.get("title", topic.get("slug"))} ...')
+        ai = generate_blog_post_text(topic, brief, business, api_key, dry_run=dry_run)
+        if not ai:
+            _warn(f'    Blog post generation failed for "{topic.get("slug")}" — skipping')
+            continue
+        if dry_run:
+            continue
+
+        sections = [s for s in ai.get('sections', []) if isinstance(s, dict)]
+        html_parts = [ai.get('intro_html', '')] + [s.get('html', '') for s in sections]
+        ok, reasons = _blog_quality_check(topic.get('focus_keyword', ''), ai.get('title', ''),
+                                          ai.get('meta_description', ''), html_parts)
+        status = 'published' if ok else 'draft'
+        if not ok:
+            _warn(f'    Blog post "{topic.get("slug")}" flagged to draft: ' + '; '.join(reasons))
+
+        content_blocks = [{
+            'type': 'text', 'heading_level': 'p', 'heading_text': '',
+            'text': ai.get('intro_html', ''),
+            'photo': '', 'photo_ratio': 'landscape', 'photo_position': 'center', 'photo_alt': '',
+        }]
+        for sec in sections:
+            content_blocks.append({
+                'type': 'text', 'heading_level': 'h2', 'heading_text': sec.get('heading', ''),
+                'text': sec.get('html', ''),
+                'photo': '', 'photo_ratio': 'landscape', 'photo_position': 'center', 'photo_alt': '',
+            })
+
+        today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+        title = ai.get('title') or topic.get('title', '')
+        post = {
+            'title': title,
+            'slug': topic.get('slug', ''),
+            'status': status,
+            'published_at': today,
+            'updated_at': today,
+            'author': '{business} Team',
+            'tag': topic.get('tag', ''),
+            'excerpt': ai.get('excerpt', ''),
+            'featured_image': '',
+            'featured_image_alt': '',
+            'content_blocks': content_blocks,
+            'seo': {
+                'primary_keyword': topic.get('focus_keyword', ''),
+                'secondary_keywords': '',
+                'meta_keywords': '',
+                'meta_description': ai.get('meta_description', ''),
+                'og_title': title,
+                'og_description': ai.get('meta_description', ''),
+                'og_image': '',
+                'schema': '',
+                'canonical_url': '',
+                'service_name': '',
+                'service_type': '',
+                'service_area': '',
+                'service_description': '',
+                'bc_label': title,
+                'bc_mid_label': 'Blog',
+                'bc_mid_url': '/blog',
+            },
+            '_blog_topic_slug': topic.get('slug', ''),
+            '_blog_generated_at': today,
+        }
+        post_id = 'post_' + uuid.uuid4().hex[:13]
+        posts[post_id] = post
+        changed = True
+        _ok(f'    Blog post "{title}" — {status}')
+
+    return changed
+
+
 def sync_templates(paths, dry_run=False) -> dict:
     """
     For each page file in pages/, compare ai_blocks against the source template.
@@ -2256,6 +2470,9 @@ def main():
     ap.add_argument('--no-popup-reword', action='store_true', dest='no_popup_reword',
                     help='Skip the one-time per-domain reword of the header info-popup '
                          'disclosure body (runs automatically as part of --page core / --all otherwise).')
+    ap.add_argument('--no-blog', action='store_true', dest='no_blog',
+                    help='Skip generating blog posts from niche_brief.json\'s blog_topics pool '
+                         '(runs automatically as part of --page core / --all otherwise).')
     ap.add_argument('--sync-templates',  action='store_true', dest='sync_templates',
                     help='Insert missing ai_blocks from templates.json into existing page files, then exit')
     ap.add_argument('--rewrite-template', dest='rewrite_template', default=None,
@@ -2425,6 +2642,11 @@ def main():
             if not args.no_popup_reword:
                 _legal_changed = reword_info_popup(site_data, _brief_for_legal, api_key, dry_run=args.dry_run) or _legal_changed
             if _legal_changed and not args.dry_run:
+                save_json(paths['site_json'], site_data)
+
+        if not args.no_blog:
+            _brief_for_blog = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
+            if generate_blog_posts(site_data, _brief_for_blog, args.site, api_key, dry_run=args.dry_run) and not args.dry_run:
                 save_json(paths['site_json'], site_data)
 
     if args.all or args.page == 'landing':

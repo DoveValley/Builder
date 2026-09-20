@@ -301,6 +301,11 @@ function ms_seo_gate(string $workingDir, string $outputDir): array
     }
     foreach ($expected as $page) unset($built[$page['path']]);
     foreach (array_keys($built) as $extra) {
+        // Blog posts are deliberately domain-specific — each domain picks its own topics
+        // from niche_brief.json's blog_topics pool (generate_blog_posts() in generate.py),
+        // so a domain's /blog/* pages never match the master's own page list by design.
+        // Without this, every domain with blog posts warns on every single build.
+        if ($extra === 'blog' || str_starts_with($extra, 'blog/')) continue;
         $out['warnings'][] = ($extra === '' ? '(home)' : $extra) . ': built but not in the master\'s page list';
     }
 

@@ -32,5 +32,157 @@
         "homepage_service_area",
         "why_choose_us"
     ],
-    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences on how humid {city} is year-round (not just storm events) and whether crawl spaces or basements are common here \u2014 the conditions that actually drive indoor mold growth in this region.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation."
+    "research_prompt": "Research {city}, {state} ({SS}) for {business_descriptor}.\n\nReturn a JSON object with these fields:\n\n1. \"industries\" \u2014 array of 4-6 dominant local industry sectors in {city}.\n2. \"top_employers\" \u2014 array of 8-12 major employers with a real physical presence in {city} (exact organization names).\n3. \"market_blurb\" \u2014 2-3 sentences on {city}'s local economy, referencing the city by name and its main industries.\n4. \"local_note\" \u2014 one to two sentences on how humid {city} is year-round (not just storm events) and whether crawl spaces or basements are common here \u2014 the conditions that actually drive indoor mold growth in this region.\n5. \"neighborhoods\" \u2014 array of 6-10 real, well-known neighborhoods, subdivisions, or districts in {city}. Only names you are confident actually exist \u2014 never invent. If you are not confident, return fewer names or an empty array. Better to return none than a fake one.\n6. \"population\" \u2014 {city}'s approximate population as a plain integer (most recent well-known estimate, digits only, no commas or text).\n\nRules:\n- Only verifiable facts \u2014 real employers and real neighborhoods, no invented statistics, companies, or place names.\n- Return JSON only, no markdown fences, no explanation.",
+    "blog_topics": [
+        {
+            "slug": "signs-you-might-have-mold",
+            "title": "Signs You Might Have a Hidden Mold Problem",
+            "tag": "Prevention",
+            "focus_keyword": "signs of hidden mold"
+        },
+        {
+            "slug": "black-mold-vs-other-mold",
+            "title": "Black Mold vs. Other Household Mold: What's the Real Difference?",
+            "tag": "How-To",
+            "focus_keyword": "black mold vs other mold"
+        },
+        {
+            "slug": "mold-and-indoor-air-quality",
+            "title": "How Mold Affects Your Home's Indoor Air Quality",
+            "tag": "Health & Air Quality",
+            "focus_keyword": "mold and indoor air quality"
+        },
+        {
+            "slug": "humidity-levels-prevent-mold",
+            "title": "The Ideal Humidity Level for Preventing Mold Growth",
+            "tag": "Prevention",
+            "focus_keyword": "humidity level to prevent mold"
+        },
+        {
+            "slug": "bathroom-mold-prevention-tips",
+            "title": "Simple Habits That Keep Bathroom Mold Away",
+            "tag": "Prevention",
+            "focus_keyword": "prevent bathroom mold"
+        },
+        {
+            "slug": "mold-after-water-damage-timeline",
+            "title": "How Fast Does Mold Grow After Water Damage?",
+            "tag": "Prevention",
+            "focus_keyword": "mold growth after water damage"
+        },
+        {
+            "slug": "crawl-space-mold-causes",
+            "title": "Why Crawl Spaces Are Prone to Mold Growth",
+            "tag": "Prevention",
+            "focus_keyword": "crawl space mold causes"
+        },
+        {
+            "slug": "hvac-mold-risks",
+            "title": "Can Mold Grow Inside Your HVAC System?",
+            "tag": "Prevention",
+            "focus_keyword": "mold in hvac system"
+        },
+        {
+            "slug": "mold-testing-what-to-expect",
+            "title": "What Happens During a Mold Inspection?",
+            "tag": "How-To",
+            "focus_keyword": "what happens during a mold inspection"
+        },
+        {
+            "slug": "musty-smell-no-visible-mold",
+            "title": "Musty Smell But No Visible Mold? Here's What It Might Mean",
+            "tag": "How-To",
+            "focus_keyword": "musty smell but no visible mold"
+        },
+        {
+            "slug": "mold-insurance-coverage-basics",
+            "title": "Is Mold Damage Covered by Homeowners Insurance?",
+            "tag": "Insurance",
+            "focus_keyword": "is mold covered by insurance"
+        },
+        {
+            "slug": "attic-mold-warning-signs",
+            "title": "Attic Mold: Warning Signs Homeowners Often Miss",
+            "tag": "Prevention",
+            "focus_keyword": "attic mold warning signs"
+        },
+        {
+            "slug": "mold-remediation-vs-removal",
+            "title": "Mold Remediation vs. Mold Removal: What's the Difference?",
+            "tag": "How-To",
+            "focus_keyword": "mold remediation vs removal"
+        },
+        {
+            "slug": "window-condensation-mold-risk",
+            "title": "How Window Condensation Can Lead to Mold Problems",
+            "tag": "Prevention",
+            "focus_keyword": "window condensation mold"
+        },
+        {
+            "slug": "mold-health-symptoms-explained",
+            "title": "Common Symptoms Linked to Mold Exposure",
+            "tag": "Health & Air Quality",
+            "focus_keyword": "mold exposure symptoms"
+        },
+        {
+            "slug": "basement-dehumidifier-mold-prevention",
+            "title": "Using a Dehumidifier to Keep Your Basement Mold-Free",
+            "tag": "Prevention",
+            "focus_keyword": "basement dehumidifier mold"
+        },
+        {
+            "slug": "mold-on-drywall-what-to-do",
+            "title": "Found Mold on Drywall? Here's What to Do Next",
+            "tag": "How-To",
+            "focus_keyword": "mold on drywall"
+        },
+        {
+            "slug": "renters-mold-rights",
+            "title": "What Renters Should Know About Mold in a Rental Property",
+            "tag": "Insurance",
+            "focus_keyword": "renters rights mold"
+        },
+        {
+            "slug": "mold-prevention-after-a-leak",
+            "title": "How to Prevent Mold After a Plumbing Leak",
+            "tag": "Prevention",
+            "focus_keyword": "prevent mold after a leak"
+        },
+        {
+            "slug": "mold-vs-mildew-difference",
+            "title": "Mold vs. Mildew: How to Tell Them Apart",
+            "tag": "How-To",
+            "focus_keyword": "mold vs mildew"
+        },
+        {
+            "slug": "seasonal-mold-risks",
+            "title": "Why Mold Risk Changes With the Seasons",
+            "tag": "Prevention",
+            "focus_keyword": "seasonal mold risk"
+        },
+        {
+            "slug": "mold-in-new-homes",
+            "title": "Can New Construction Homes Still Have a Mold Problem?",
+            "tag": "How-To",
+            "focus_keyword": "mold in new homes"
+        },
+        {
+            "slug": "air-purifiers-and-mold-spores",
+            "title": "Do Air Purifiers Help With Mold Spores?",
+            "tag": "Health & Air Quality",
+            "focus_keyword": "air purifiers and mold spores"
+        },
+        {
+            "slug": "preparing-for-mold-inspection",
+            "title": "How to Prepare Your Home Before a Mold Inspection",
+            "tag": "How-To",
+            "focus_keyword": "prepare for a mold inspection"
+        },
+        {
+            "slug": "choosing-a-mold-provider",
+            "title": "What to Ask Before Hiring a Mold Inspection or Remediation Provider",
+            "tag": "How-To",
+            "focus_keyword": "hiring a mold remediation provider"
+        }
+    ]
 }

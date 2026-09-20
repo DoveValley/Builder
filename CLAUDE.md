@@ -9,7 +9,7 @@ Task-specific detail lives in `docs/` — read the relevant one when the task ca
 |---|---|
 | Building or rebuilding a single bespoke client site into `site.json` | `docs/site-building.md` |
 | Standing up a new niche vertical's page set: keyword map, templates, bulk-generate, deploy | `docs/landing-page-build-process-V1-20260709.md` |
-| Configuring a niche's AI content, per-city research, or charts (`niche_brief.json`, archetypes) | `docs/niche-brief-and-research.md` |
+| Configuring a niche's AI content, per-city research, charts, or auto-generated blog posts (`niche_brief.json`, archetypes) | `docs/niche-brief-and-research.md` |
 | A block must go edge-to-edge, or a full-width block leaves a gap above the footer | `docs/content-blocks.md` |
 | Course data, the two schedule widgets, or the Schedule tab | `docs/course-schedule.md` |
 
@@ -130,6 +130,12 @@ updated_at, author, tag, excerpt, featured_image, featured_image_alt, content_bl
 
 The tag is a single string per post; `/blog?tag=slug` filters by `slugify()` match. The listing page
 renders a persistent tag-pill bar — listing only, not individual posts.
+
+**Multisite domains can also auto-generate blog posts** from a per-niche topic pool
+(`niche_brief.json`'s `blog_topics[]`) during batch build — see "Blog posts" in
+`docs/niche-brief-and-research.md` for the mechanism (domain-level, cached, auto-publish gated by
+an automated quality check). Not part of the archetype/`ai_block_types.json` system used by
+everything else AI-generated in this codebase.
 
 ## Breadcrumbs
 
