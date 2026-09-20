@@ -852,6 +852,15 @@ switch ($action) {
         echo json_encode(['restored' => true, 'stored' => true] + ms_validation_payload($v));
         break;
 
+    // Read-only counts for the pre-flight confirmation shown before a run actually
+    // starts — how much real work is pending, not whether a step is turned on (the
+    // confirmation UI already knows that from its own live checkboxes).
+    case 'preflight_summary':
+        require_once __DIR__ . '/../includes/multisite/image_ai.php';
+        require_once __DIR__ . '/../includes/multisite/steps.php';
+        echo json_encode(ms_batch_pending_summary($masterId, $batchId));
+        break;
+
     // Launch a batch run as a detached background process.
     case 'run':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }

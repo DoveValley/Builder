@@ -66,6 +66,10 @@ sites/*/data/*.bak
 sites/*/data/*.bak[0-9]
 sites/*/data/*.bak-*
 
+# Infra config snapshots taken before/after a box add/remove (contain live credentials —
+# must never be committed)
+admin/infra/config/*.bak-*
+
 # Python bytecode cache
 __pycache__/
 *.pyc

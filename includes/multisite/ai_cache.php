@@ -338,6 +338,15 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
         }
         ms_ai_reapply_current_defaults($b, $registry, $restoredKeys);
         $b['_ai_cache_hash'] = $entries[$id]['input_hash'] ?? '';
+        // Restore the enrich-mode bookkeeping alongside the value it describes — without
+        // this, a subsequent regeneration can't tell how much of the restored value was
+        // its own last contribution, and re-appends on top of the whole thing again.
+        if (($entries[$id]['injected_count'] ?? null) !== null) {
+            $b['_ai_injected_count'] = $entries[$id]['injected_count'];
+        }
+        if (($entries[$id]['injected_text'] ?? null) !== null) {
+            $b['_ai_injected_text'] = $entries[$id]['injected_text'];
+        }
         $candidates++;
     });
     if ($candidates > 0) {
@@ -362,6 +371,12 @@ function ms_ai_inject_from_cache(string $workingDir, string $cacheFile, array $r
             }
             ms_ai_reapply_current_defaults($b, $registry, $restoredKeys);
             $b['_ai_cache_hash'] = $entries[$key]['input_hash'] ?? '';
+            if (($entries[$key]['injected_count'] ?? null) !== null) {
+                $b['_ai_injected_count'] = $entries[$key]['injected_count'];
+            }
+            if (($entries[$key]['injected_text'] ?? null) !== null) {
+                $b['_ai_injected_text'] = $entries[$key]['injected_text'];
+            }
             $candidates++; $pageHits++;
         });
         if ($pageHits > 0) {
@@ -399,9 +414,15 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
             return;
         }
         $fields[$id] = [
-            'ai_type_id' => $b['ai_type_id'] ?? '',
-            'input_hash' => $b['_ai_input_hash'],
-            'value'      => ms_ai_cached_value($b, $registry),
+            'ai_type_id'     => $b['ai_type_id'] ?? '',
+            'input_hash'     => $b['_ai_input_hash'],
+            'value'          => ms_ai_cached_value($b, $registry),
+            // Enrich (append/prepend) blocks need these to correctly re-merge next time —
+            // without them, a cache round-trip forgets how much of the restored value was
+            // this block's own last contribution and appends on top of ALL of it again,
+            // compounding on every Force Regen. No-op for replace/standalone blocks.
+            'injected_count' => $b['_ai_injected_count'] ?? null,
+            'injected_text'  => $b['_ai_injected_text']  ?? null,
         ];
     });
 
@@ -413,9 +434,11 @@ function ms_ai_extract_to_cache(string $workingDir, string $cacheFile, array $re
             if (($b['_ai_input_hash'] ?? '') === '') return;
             $key = ms_ai_page_key($base, $b['ai_type_id'] ?? '', $occ);
             $fields[$key] = [
-                'ai_type_id' => $b['ai_type_id'] ?? '',
-                'input_hash' => $b['_ai_input_hash'],
-                'value'      => ms_ai_cached_value($b, $registry),
+                'ai_type_id'     => $b['ai_type_id'] ?? '',
+                'input_hash'     => $b['_ai_input_hash'],
+                'value'          => ms_ai_cached_value($b, $registry),
+                'injected_count' => $b['_ai_injected_count'] ?? null,
+                'injected_text'  => $b['_ai_injected_text']  ?? null,
             ];
         });
     }
@@ -574,10 +597,15 @@ function ms_blog_inject_from_cache(string $workingDir, string $cacheFile): array
     foreach ($posts as $p) {
         if (is_array($p) && !empty($p['_blog_topic_slug'])) $existingSlugs[$p['_blog_topic_slug']] = true;
     }
+    // Slugs an admin explicitly deleted (admin/save/post_delete.php) must not come back
+    // from cache. Deletion only ever touches this domain's own site.json, so that's the
+    // one place both sides can check without a separate cache-file lookup.
+    $deletedSlugs = array_flip($site['blog_deleted_slugs'] ?? []);
     foreach ($cachedPosts as $key => $post) {
         if (!is_array($post)) continue;
         $slug = $post['_blog_topic_slug'] ?? '';
         if ($slug !== '' && isset($existingSlugs[$slug])) continue;   // already present, don't duplicate
+        if ($slug !== '' && isset($deletedSlugs[$slug])) continue;    // admin deleted this — don't resurrect
         $posts[$key] = $post;
         $hit['posts']++;
     }

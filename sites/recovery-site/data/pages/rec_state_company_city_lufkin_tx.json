@@ -52,7 +52,8 @@
     "content_blocks": [
         {
             "type": "custom_html",
-            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {state} that takes {company}? {business} helps {state} residents find treatment centers that accept {company} — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><div style=\"display:inline-block;font-weight:700;letter-spacing:.03em;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);color:#fff;padding:6px 16px;border-radius:999px;margin-bottom:18px;font-size:15px;\">{company}™</div><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Best Rehabs Accepting {company} in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Looking for a rehab in {state} that takes {company}? {business} helps {state} residents find treatment centers that accept {company} — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>",
+            "id": "custom_html_1"
         },
         {
             "type": "text",
@@ -63,7 +64,8 @@
             "photo": "",
             "photo_ratio": "landscape",
             "photo_position": "center",
-            "photo_alt": ""
+            "photo_alt": "",
+            "id": "text_1"
         },
         {
             "type": "text",
@@ -74,7 +76,8 @@
             "photo": "",
             "photo_ratio": "landscape",
             "photo_position": "center",
-            "photo_alt": ""
+            "photo_alt": "",
+            "id": "text_2"
         },
         {
             "type": "feature_columns",
@@ -113,7 +116,8 @@
                     "text": "Medication-assisted treatment and mental-health care may be included."
                 }
             ],
-            "ai_fill": "features"
+            "ai_fill": "features",
+            "id": "feature_columns_1"
         },
         {
             "type": "faq_two_col",
@@ -136,7 +140,8 @@
                     "answer": "Call for a free benefits check. We confirm your {company} coverage and connect you with {state} rehabs that accept it."
                 }
             ],
-            "ai_fill": "faq"
+            "ai_fill": "faq",
+            "id": "faq_two_col_1"
         },
         {
             "type": "text",
@@ -146,7 +151,8 @@
             "photo": "",
             "photo_ratio": "landscape",
             "photo_position": "center",
-            "photo_alt": ""
+            "photo_alt": "",
+            "id": "text_3"
         },
         {
             "type": "cta_banner",
@@ -157,7 +163,8 @@
             "cb_btn_url": "#featured-rehabs",
             "cb_bg": "header",
             "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+            "cb_padding": "normal",
+            "id": "cta_banner_1"
         },
         {
             "type": "map_info",
@@ -170,7 +177,8 @@
             "mi_info_credit": "",
             "mi_head_color": "header",
             "mi_map_side": "left",
-            "ai_fill": "local"
+            "ai_fill": "local",
+            "id": "map_info_1"
         }
     ],
     "seo": {

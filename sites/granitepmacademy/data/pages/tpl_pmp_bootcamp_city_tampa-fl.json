@@ -1,426 +1,438 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "tampa-fl",
-  "slug": "pmp-bootcamp-tampa-fl",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "tampa-fl",
-    "city": "Tampa",
-    "state": "Florida",
-    "SS": "FL",
-    "city_slug": "tampa-fl",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [],
-    "industries": [
-      "healthcare",
-      "finance/banking",
-      "technology",
-      "defense/military",
-      "insurance",
-      "logistics/distribution"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "tampa-fl",
+    "slug": "pmp-bootcamp-tampa-fl",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "tampa-fl",
+        "city": "Tampa",
+        "state": "Florida",
+        "SS": "FL",
+        "city_slug": "tampa-fl",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [],
+        "industries": [
+            "healthcare",
+            "finance/banking",
+            "technology",
+            "defense/military",
+            "insurance",
+            "logistics/distribution"
+        ],
+        "top_employers": [
+            "Tampa General Hospital",
+            "BayCare Health System",
+            "Raymond James Financial",
+            "Citigroup",
+            "USAA",
+            "Jabil",
+            "Tech Data",
+            "Hillsborough County Government",
+            "MacDill Air Force Base",
+            "Laser Spine Institute",
+            "WellCare Health Plans",
+            "Publix Super Markets"
+        ],
+        "salary_note": "PMP-certified project managers in Tampa, Florida typically earn between $95,000 and $125,000 annually, with professionals in finance, defense contracting, and enterprise technology often commanding salaries at the higher end of that range.",
+        "market_blurb": "Tampa has emerged as one of Florida's strongest markets for project management professionals, driven by a robust concentration of healthcare systems, financial services firms, and a growing technology sector anchored by companies like Raymond James and Jabil. The presence of MacDill Air Force Base also creates steady demand for credentialed PMs in defense and government contracting roles. PMP certification is particularly valuable in Tampa because major employers across healthcare, finance, and defense actively use it as a baseline hiring requirement and a basis for advancement into senior program and portfolio management positions.",
+        "city_spotlight": "<p>Tampa's healthcare and defense sectors drive consistent demand for credentialed project managers—Tampa General Hospital's ongoing facility expansions and MacDill Air Force Base infrastructure modernization are just two examples of major initiatives requiring PMP-certified leadership. Employers across healthcare, finance, and government contracting actively use PMP certification as a baseline hiring requirement and pathway to senior roles. Granite PM Academy delivers live-virtual Project Management Certification Training designed for Tampa professionals balancing work and study.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-tampa-fl.webp",
+        "city_image_alt": "Downtown Tampa, Florida, FL",
+        "city_image_credit": "Photo: Clément Bardot, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Tampa,_Florida.jpg",
+        "notable_projects": [
+            "Tampa General Hospital multi-year facility expansion and renovation projects",
+            "Water Street Tampa mixed-use urban redevelopment by Strategic Property Partners",
+            "Tampa International Airport expansion and terminal improvement program",
+            "MacDill Air Force Base infrastructure and facilities modernization projects"
+        ],
+        "credential_demand": "PMP certification is frequently listed as preferred or required in Tampa-area job postings, particularly within healthcare, finance, and defense/government contracting sectors. Employers in these industries often value formal project management credentials for roles overseeing large-scale operational, IT, or infrastructure initiatives."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Boot Camp in {city}, {SS}",
+            "hs_subtext": "<p>Tampa's thriving defense, aerospace, and shipbuilding sectors depend heavily on PMP-certified project managers to lead complex, regulated initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI-required 35 contact hours of instructor-led training on an accelerated schedule, positioning you to meet the credential's eligibility threshold and pass the exam. Earning your PMP certification opens doors across Tampa's largest employers and contractor networks, directly strengthening your earning potential and advancement in these high-demand industries.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP boot camp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:06.945459Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "ad745a182d91b864",
+            "_ai_locked": true,
+            "id": "hero_split_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Boot Camp Tampa: Certification for Healthcare & Defense Leaders",
+            "text": "<p>Tampa's healthcare sector—anchored by systems like Tampa General Hospital and BayCare—has made project management certification a cornerstone of career advancement, and the presence of MacDill Air Force Base amplifies demand for credentialed PMs across defense and government contracting roles. Major employers throughout Tampa's healthcare, finance, and technology sectors now treat PMP certification as a baseline hiring requirement and a direct pathway to senior program and portfolio management positions. If you work in one of these industries or are targeting them, PMP certification signals both technical competence and organizational readiness—qualities that set you apart in a competitive local market where project leadership directly impacts organizational outcomes.</p><p>Granite PM Academy delivers intensive, instructor-led PMP Boot Camp training as a PMI Authorized Training Partner, meeting the mandatory 35 contact hours required for PMP eligibility. Our live-virtual format accommodates Tampa's working professionals, taught by active certified practitioners who bring real-world experience from the sectors that dominate your region. We guide you through exam domains, practice assessments, and application strategies so you can sit for the PMP exam with confidence and move into the senior leadership roles your Tampa employers actively seek.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:12.498553Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "f73ab88762b51f12",
+            "_ai_locked": true,
+            "id": "ai_block_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "Tampa's Healthcare & Defense Sectors Need PMP-Certified Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI Authorization Ensures Credential Recognition",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner. Your 35 contact hours count directly toward PMP eligibility requirements—no additional validation needed. Employers across Tampa's healthcare, finance, and defense industries recognize PMI authorization as proof of rigorous, standardized instruction."
+                },
+                {
+                    "heading": "Live Instructors, Real-World Project Experience",
+                    "text": "Your instructors are active PMP-certified practitioners working on live projects in Tampa's major industries. They teach current frameworks and troubleshoot actual scenarios—not scripted case studies. This practical grounding prepares you for exam questions and day-one job performance alike."
+                },
+                {
+                    "heading": "Structured Exam Prep Built In",
+                    "text": "Granite's boot camp includes mock exams, domain-by-domain review, and targeted feedback on weak areas. You'll practice the PMBOK® framework and ITTOs in the exact format the PMP exam uses—reducing anxiety and improving first-attempt pass readiness."
+                },
+                {
+                    "heading": "Credential Unlocks Tampa's High-Demand Roles",
+                    "text": "Tampa General Hospital, BayCare Health System, Raymond James Financial, and MacDill Air Force Base actively hire PMP-certified project and program managers. The PMP credential signals advanced capability and discipline—directly competitive for leadership roles in healthcare operations, financial systems, and defense contracting."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:17.487299Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "74588ec8f3337e31",
+            "_ai_locked": true,
+            "id": "ai_block_2"
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ],
+            "id": "stats_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Tampa's Growth Sectors",
+            "text": "<p>Tampa's healthcare and financial services sectors are among the largest employers of certified project managers in Florida. Tampa General Hospital and BayCare Health System regularly hire PMs to oversee facility expansions, clinical IT implementations, and operational transformations—work that spans years and requires formal credentials. Similarly, Raymond James Financial, Citigroup, and USAA depend on PMP-certified professionals to manage enterprise technology rollouts and infrastructure upgrades. Beyond these anchors, the region's ongoing initiatives—including Water Street Tampa's mixed-use redevelopment and Tampa International Airport's terminal improvement program—create sustained demand for credentialed project leaders across construction, technology, and public administration.</p><p>The PMP® credential carries particular weight in Tampa's employment market, where healthcare, finance, and defense contracting employers routinely list it as preferred or required. Professionals who earn the PMP® here typically command salaries in the mid-to-upper range for the region, especially in finance and defense sectors where large-scale, highly regulated projects are the norm. Completing Granite PM Academy's PMP Boot Camp positions you to compete for these roles and advance within Tampa's established industries, giving you the focused training and exam preparation that local hiring managers recognize and expect.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:21.429073Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "779313aaff969f72",
+            "_ai_locked": true,
+            "id": "ai_block_3"
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Boot Camp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Boot Camp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ],
+            "id": "pricing_cards_1"
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]",
+            "id": "custom_html_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Tampa",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high school diploma plus five years. Review PMI's official requirements carefully and gather documentation of your work history before applying."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours",
+                    "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Tampa-focused cohorts deliver all 35 PMI-required contact hours in an accelerated format, taught by experienced practitioners who understand Florida's construction and technology project environments."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After finishing the boot camp, apply directly to PMI with your education and experience details. Pay the examination fee to PMI, and await approval of your application before scheduling your exam appointment."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Granite PM Academy provides exam-preparation support, including practice questions and strategy sessions. Schedule your computer-based PMP exam through Pearson VUE once PMI approves your application, and sit for the four-hour, 180-question assessment."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "After passing, you'll hold the PMP mark for three years. During your renewal cycle, earn Professional Development Units (PDUs) through training, volunteering, or published work in project management to keep your certification active."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:25.581772Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "9f40a7a725e033a2",
+            "_ai_locked": true,
+            "id": "ai_block_4"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
+                    "name": "David K.",
+                    "location": "Construction PM, Turner Corp",
+                    "initials": "DK",
+                    "avatar_color": "highlight",
+                    "result_badge": "✓ Entire team PMP® certified"
+                },
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                }
+            ],
+            "id": "testimonials_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Tampa healthcare project managers?",
+                    "answer": "<p>Yes. Tampa's major healthcare employers—Tampa General Hospital, BayCare Health System, WellCare Health Plans, and Laser Spine Institute—regularly list PMP as preferred or required for roles managing clinical IT systems, facility expansions, and operational initiatives. The credential strengthens advancement prospects and earning potential in one of Tampa's largest employment sectors.</p>"
+                },
+                {
+                    "question": "Which Tampa industries most value PMP project management certification?",
+                    "answer": "<p>Finance, defense contracting, and enterprise technology employers in Tampa—including Raymond James Financial, Citigroup, USAA, Jabil, Tech Data, and MacDill Air Force Base contractors—actively seek PMP-certified professionals for large-scale infrastructure and IT projects. Healthcare and government sectors also prioritize the credential for operational leadership roles.</p>"
+                },
+                {
+                    "question": "Can I attend live-virtual PMP Boot Camp from my Tampa workplace?",
+                    "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet. Many Tampa professionals in corporate and healthcare settings attend during scheduled boot camp hours from their workplaces. Confirm your employer's remote training policies beforehand to ensure uninterrupted participation.</p>"
+                },
+                {
+                    "question": "Should Tampa project managers pursue PMP certification now or wait?",
+                    "answer": "<p>Tampa's job market favors immediate certification. PMP appears frequently in active postings across healthcare, finance, and defense sectors—industries driving local hiring growth. Professionals who earn the credential now position themselves competitively for roles offering salaries in the upper range typical for Tampa's market, particularly in high-demand fields like enterprise technology and financial services.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Tampa healthcare project managers?",
+                    "answer": "<p>Yes. Tampa's major health systems—Tampa General Hospital and BayCare—routinely seek PMP-certified professionals to lead clinical IT, operational, and infrastructure initiatives. The credential signals readiness for high-stakes, large-scale project oversight in healthcare, directly supporting career advancement and salary growth in one of Tampa's largest employment sectors.</p>"
+                },
+                {
+                    "question": "Which Tampa employers most value PMP certification in job postings?",
+                    "answer": "<p>Finance, defense contracting, and enterprise technology sectors in Tampa most frequently list PMP as preferred or required. Raymond James Financial, USAA, Citigroup, and Jabil actively recruit certified project managers for complex programs. Additionally, MacDill Air Force Base contracting and Hillsborough County Government postings regularly demand the credential for leadership roles.</p>"
+                },
+                {
+                    "question": "Can I attend live online PMP boot camp from my Tampa workplace?",
+                    "answer": "<p>Yes. The live-virtual format is designed for working professionals and can be attended from your office, home, or any stable internet location in Tampa. Many local professionals use the flexibility to attend during business hours or after-hours—check with your employer about their policies on professional development during work time.</p>"
+                },
+                {
+                    "question": "Should Tampa PMs get certified now or wait for a job opening?",
+                    "answer": "<p>Certifying proactively is advantageous in Tampa's competitive market. PMP-certified professionals earn measurably higher salaries, and the credential is increasingly listed as preferred across healthcare, finance, and defense sectors. Obtaining certification before a job search positions you ahead of competing candidates and strengthens negotiating power with employers seeking certified talent.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:30.099974Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "a03192ecbf8f04b6",
+            "_ai_locked": true,
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Tampa's healthcare sector drives steady demand for credentialed project managers, with major systems like Tampa General Hospital and BayCare Health System anchoring large-scale facility expansions that require PMP-certified leadership. Finance, defense, and technology employers across the region—from Raymond James to MacDill Air Force Base—list PMP certification as a baseline requirement for advancement into senior program management roles. Granite PM Academy serves Tampa professionals with live-virtual PMP Boot Camp scheduling that fits working schedules.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:31.968254Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "0fae439ea3a8d8c8",
+            "_ai_locked": true,
+            "id": "map_info_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal",
+            "id": "cta_banner_1"
+        }
     ],
-    "top_employers": [
-      "Tampa General Hospital",
-      "BayCare Health System",
-      "Raymond James Financial",
-      "Citigroup",
-      "USAA",
-      "Jabil",
-      "Tech Data",
-      "Hillsborough County Government",
-      "MacDill Air Force Base",
-      "Laser Spine Institute",
-      "WellCare Health Plans",
-      "Publix Super Markets"
-    ],
-    "salary_note": "PMP-certified project managers in Tampa, Florida typically earn between $95,000 and $125,000 annually, with professionals in finance, defense contracting, and enterprise technology often commanding salaries at the higher end of that range.",
-    "market_blurb": "Tampa has emerged as one of Florida's strongest markets for project management professionals, driven by a robust concentration of healthcare systems, financial services firms, and a growing technology sector anchored by companies like Raymond James and Jabil. The presence of MacDill Air Force Base also creates steady demand for credentialed PMs in defense and government contracting roles. PMP certification is particularly valuable in Tampa because major employers across healthcare, finance, and defense actively use it as a baseline hiring requirement and a basis for advancement into senior program and portfolio management positions.",
-    "city_spotlight": "<p>Tampa's healthcare and defense sectors drive consistent demand for credentialed project managers—Tampa General Hospital's ongoing facility expansions and MacDill Air Force Base infrastructure modernization are just two examples of major initiatives requiring PMP-certified leadership. Employers across healthcare, finance, and government contracting actively use PMP certification as a baseline hiring requirement and pathway to senior roles. Granite PM Academy delivers live-virtual Project Management Certification Training designed for Tampa professionals balancing work and study.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-tampa-fl.webp",
-    "city_image_alt": "Downtown Tampa, Florida, FL",
-    "city_image_credit": "Photo: Clément Bardot, CC BY-SA 4.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Tampa,_Florida.jpg",
-    "notable_projects": [
-      "Tampa General Hospital multi-year facility expansion and renovation projects",
-      "Water Street Tampa mixed-use urban redevelopment by Strategic Property Partners",
-      "Tampa International Airport expansion and terminal improvement program",
-      "MacDill Air Force Base infrastructure and facilities modernization projects"
-    ],
-    "credential_demand": "PMP certification is frequently listed as preferred or required in Tampa-area job postings, particularly within healthcare, finance, and defense/government contracting sectors. Employers in these industries often value formal project management credentials for roles overseeing large-scale operational, IT, or infrastructure initiatives."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Boot Camp in {city}, {SS}",
-      "hs_subtext": "<p>Tampa's thriving defense, aerospace, and shipbuilding sectors depend heavily on PMP-certified project managers to lead complex, regulated initiatives. Granite PM Academy's live-virtual PMP Boot Camp delivers the PMI-required 35 contact hours of instructor-led training on an accelerated schedule, positioning you to meet the credential's eligibility threshold and pass the exam. Earning your PMP certification opens doors across Tampa's largest employers and contractor networks, directly strengthening your earning potential and advancement in these high-demand industries.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP boot camp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:06.945459Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "ad745a182d91b864",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-tampa-fl/",
+        "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Tampa, FL, PMP bootcamp Tampa, PMP certification boot camp Tampa, FL, PMP bootcamp near me, intensive PMP training Tampa",
+        "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Boot Camp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Boot Camp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\",\n      \"name\": \"PMP Boot Camp in Tampa, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Tampa, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Tampa, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/#course\",\n      \"name\": \"PMP Boot Camp in Tampa, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Tampa, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Boot Camp Tampa: Certification for Healthcare & Defense Leaders",
-      "text": "<p>Tampa's healthcare sector—anchored by systems like Tampa General Hospital and BayCare—has made project management certification a cornerstone of career advancement, and the presence of MacDill Air Force Base amplifies demand for credentialed PMs across defense and government contracting roles. Major employers throughout Tampa's healthcare, finance, and technology sectors now treat PMP certification as a baseline hiring requirement and a direct pathway to senior program and portfolio management positions. If you work in one of these industries or are targeting them, PMP certification signals both technical competence and organizational readiness—qualities that set you apart in a competitive local market where project leadership directly impacts organizational outcomes.</p><p>Granite PM Academy delivers intensive, instructor-led PMP Boot Camp training as a PMI Authorized Training Partner, meeting the mandatory 35 contact hours required for PMP eligibility. Our live-virtual format accommodates Tampa's working professionals, taught by active certified practitioners who bring real-world experience from the sectors that dominate your region. We guide you through exam domains, practice assessments, and application strategies so you can sit for the PMP exam with confidence and move into the senior leadership roles your Tampa employers actively seek.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:12.498553Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "f73ab88762b51f12",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "Tampa's Healthcare & Defense Sectors Need PMP-Certified Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI Authorization Ensures Credential Recognition",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner. Your 35 contact hours count directly toward PMP eligibility requirements—no additional validation needed. Employers across Tampa's healthcare, finance, and defense industries recognize PMI authorization as proof of rigorous, standardized instruction."
-        },
-        {
-          "heading": "Live Instructors, Real-World Project Experience",
-          "text": "Your instructors are active PMP-certified practitioners working on live projects in Tampa's major industries. They teach current frameworks and troubleshoot actual scenarios—not scripted case studies. This practical grounding prepares you for exam questions and day-one job performance alike."
-        },
-        {
-          "heading": "Structured Exam Prep Built In",
-          "text": "Granite's boot camp includes mock exams, domain-by-domain review, and targeted feedback on weak areas. You'll practice the PMBOK® framework and ITTOs in the exact format the PMP exam uses—reducing anxiety and improving first-attempt pass readiness."
-        },
-        {
-          "heading": "Credential Unlocks Tampa's High-Demand Roles",
-          "text": "Tampa General Hospital, BayCare Health System, Raymond James Financial, and MacDill Air Force Base actively hire PMP-certified project and program managers. The PMP credential signals advanced capability and discipline—directly competitive for leadership roles in healthcare operations, financial systems, and defense contracting."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:17.487299Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "74588ec8f3337e31",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Tampa's Growth Sectors",
-      "text": "<p>Tampa's healthcare and financial services sectors are among the largest employers of certified project managers in Florida. Tampa General Hospital and BayCare Health System regularly hire PMs to oversee facility expansions, clinical IT implementations, and operational transformations—work that spans years and requires formal credentials. Similarly, Raymond James Financial, Citigroup, and USAA depend on PMP-certified professionals to manage enterprise technology rollouts and infrastructure upgrades. Beyond these anchors, the region's ongoing initiatives—including Water Street Tampa's mixed-use redevelopment and Tampa International Airport's terminal improvement program—create sustained demand for credentialed project leaders across construction, technology, and public administration.</p><p>The PMP® credential carries particular weight in Tampa's employment market, where healthcare, finance, and defense contracting employers routinely list it as preferred or required. Professionals who earn the PMP® here typically command salaries in the mid-to-upper range for the region, especially in finance and defense sectors where large-scale, highly regulated projects are the norm. Completing Granite PM Academy's PMP Boot Camp positions you to compete for these roles and advance within Tampa's established industries, giving you the focused training and exam preparation that local hiring managers recognize and expect.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:21.429073Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "779313aaff969f72",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Boot Camp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Boot Camp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Tampa",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high school diploma plus five years. Review PMI's official requirements carefully and gather documentation of your work history before applying."
-        },
-        {
-          "heading": "Complete 35 Contact Hours",
-          "text": "Enroll in Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Tampa-focused cohorts deliver all 35 PMI-required contact hours in an accelerated format, taught by experienced practitioners who understand Florida's construction and technology project environments."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After finishing the boot camp, apply directly to PMI with your education and experience details. Pay the examination fee to PMI, and await approval of your application before scheduling your exam appointment."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Granite PM Academy provides exam-preparation support, including practice questions and strategy sessions. Schedule your computer-based PMP exam through Pearson VUE once PMI approves your application, and sit for the four-hour, 180-question assessment."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "After passing, you'll hold the PMP mark for three years. During your renewal cycle, earn Professional Development Units (PDUs) through training, volunteering, or published work in project management to keep your certification active."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:25.581772Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "9f40a7a725e033a2",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I sent my entire PM team through Granite PM Academy for PMP certification. Every single person passed. The group rate made it easy to justify, and the ROI was immediate.",
-          "name": "David K.",
-          "location": "Construction PM, Turner Corp",
-          "initials": "DK",
-          "avatar_color": "highlight",
-          "result_badge": "✓ Entire team PMP® certified"
-        },
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Tampa healthcare project managers?",
-          "answer": "<p>Yes. Tampa's major healthcare employers—Tampa General Hospital, BayCare Health System, WellCare Health Plans, and Laser Spine Institute—regularly list PMP as preferred or required for roles managing clinical IT systems, facility expansions, and operational initiatives. The credential strengthens advancement prospects and earning potential in one of Tampa's largest employment sectors.</p>"
-        },
-        {
-          "question": "Which Tampa industries most value PMP project management certification?",
-          "answer": "<p>Finance, defense contracting, and enterprise technology employers in Tampa—including Raymond James Financial, Citigroup, USAA, Jabil, Tech Data, and MacDill Air Force Base contractors—actively seek PMP-certified professionals for large-scale infrastructure and IT projects. Healthcare and government sectors also prioritize the credential for operational leadership roles.</p>"
-        },
-        {
-          "question": "Can I attend live-virtual PMP Boot Camp from my Tampa workplace?",
-          "answer": "<p>Yes. The live-virtual format allows you to join from your office, home, or any location with reliable internet. Many Tampa professionals in corporate and healthcare settings attend during scheduled boot camp hours from their workplaces. Confirm your employer's remote training policies beforehand to ensure uninterrupted participation.</p>"
-        },
-        {
-          "question": "Should Tampa project managers pursue PMP certification now or wait?",
-          "answer": "<p>Tampa's job market favors immediate certification. PMP appears frequently in active postings across healthcare, finance, and defense sectors—industries driving local hiring growth. Professionals who earn the credential now position themselves competitively for roles offering salaries in the upper range typical for Tampa's market, particularly in high-demand fields like enterprise technology and financial services.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Tampa healthcare project managers?",
-          "answer": "<p>Yes. Tampa's major health systems—Tampa General Hospital and BayCare—routinely seek PMP-certified professionals to lead clinical IT, operational, and infrastructure initiatives. The credential signals readiness for high-stakes, large-scale project oversight in healthcare, directly supporting career advancement and salary growth in one of Tampa's largest employment sectors.</p>"
-        },
-        {
-          "question": "Which Tampa employers most value PMP certification in job postings?",
-          "answer": "<p>Finance, defense contracting, and enterprise technology sectors in Tampa most frequently list PMP as preferred or required. Raymond James Financial, USAA, Citigroup, and Jabil actively recruit certified project managers for complex programs. Additionally, MacDill Air Force Base contracting and Hillsborough County Government postings regularly demand the credential for leadership roles.</p>"
-        },
-        {
-          "question": "Can I attend live online PMP boot camp from my Tampa workplace?",
-          "answer": "<p>Yes. The live-virtual format is designed for working professionals and can be attended from your office, home, or any stable internet location in Tampa. Many local professionals use the flexibility to attend during business hours or after-hours—check with your employer about their policies on professional development during work time.</p>"
-        },
-        {
-          "question": "Should Tampa PMs get certified now or wait for a job opening?",
-          "answer": "<p>Certifying proactively is advantageous in Tampa's competitive market. PMP-certified professionals earn measurably higher salaries, and the credential is increasingly listed as preferred across healthcare, finance, and defense sectors. Obtaining certification before a job search positions you ahead of competing candidates and strengthens negotiating power with employers seeking certified talent.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:30.099974Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "a03192ecbf8f04b6",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Tampa's healthcare sector drives steady demand for credentialed project managers, with major systems like Tampa General Hospital and BayCare Health System anchoring large-scale facility expansions that require PMP-certified leadership. Finance, defense, and technology employers across the region—from Raymond James to MacDill Air Force Base—list PMP certification as a baseline requirement for advancement into senior program management roles. Granite PM Academy serves Tampa professionals with live-virtual PMP Boot Camp scheduling that fits working schedules.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:31.968254Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "0fae439ea3a8d8c8",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-tampa-fl/",
-    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Tampa, FL, PMP bootcamp Tampa, PMP certification boot camp Tampa, FL, PMP bootcamp near me, intensive PMP training Tampa",
-    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Boot Camp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Boot Camp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\",\n      \"name\": \"PMP Boot Camp in Tampa, FL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Tampa, FL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Tampa, FL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/#course\",\n      \"name\": \"PMP Boot Camp in Tampa, FL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Tampa, FL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-tampa-fl/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-15T03:27:51+00:00",
-  "template_version": "304a0ba212ea05de5ff7a55d1756c48a"
+    "locked_blocks": [],
+    "generated_at": "2026-07-15T03:27:51+00:00",
+    "template_version": "304a0ba212ea05de5ff7a55d1756c48a"
 }

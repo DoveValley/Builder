@@ -170,7 +170,8 @@
             "_ai_generated_at": "2026-08-23T15:41:01.417701Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
-            "_ai_input_hash": "c22ea89cd6ef5d9b"
+            "_ai_input_hash": "c22ea89cd6ef5d9b",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -218,7 +219,8 @@
             "_ai_generated_at": "2026-08-23T15:41:06.452466Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
-            "_ai_input_hash": "f43aca9cd26a4b38"
+            "_ai_input_hash": "f43aca9cd26a4b38",
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -255,7 +257,8 @@
             "_ai_generated_at": "2026-08-23T15:41:09.706050Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "34d7dd541508fbcc"
+            "_ai_input_hash": "34d7dd541508fbcc",
+            "id": "ai_block_2"
         },
         {
             "type": "steps",
@@ -281,7 +284,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "3278945b558b1dd6",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -321,7 +325,8 @@
             "_it_photo_prechart": "sites/mold-site/uploads/media/clean-open-concept-living-room-kitchen-after-mold-remediation.webp",
             "it_caption": "{chart_group_intrusion_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_3"
         },
         {
             "type": "ai_block",
@@ -357,7 +362,8 @@
             "_ai_generated_at": "2026-08-23T15:41:19.301379Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "075e625605556391"
+            "_ai_input_hash": "075e625605556391",
+            "id": "ai_block_4"
         },
         {
             "type": "service_cards",
@@ -462,7 +468,8 @@
             "_ai_type": "faq_local",
             "_ai_input_hash": "0ac9a075ccc30c57",
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "cta_banner",

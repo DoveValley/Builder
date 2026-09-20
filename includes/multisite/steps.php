@@ -453,3 +453,85 @@ function ms_step_readiness(string $masterId, string $batchId): array {
 
     return $out;
 }
+
+/**
+ * How much real work a Generate run has left to do, for the pre-flight confirmation
+ * shown when "Generate sites" is clicked — separate from ms_step_readiness() above,
+ * which reports whether a step is SET UP, not how much of it is still pending.
+ *
+ * Deliberately covers only what's cheap and PRECISE to know without building anything:
+ * both blog posts and AI images key their cache by domain name + a fixed prompt/slot
+ * list from the master, so "does this exist yet" is a plain filesystem/cache read for
+ * every domain in the batch, no site.json needs to exist yet. Text-content and
+ * reword-flag readiness are NOT included here on purpose — getting an exact count for
+ * those would mean replicating generate.py's per-block hash logic outside Python, and a
+ * fuzzy/approximate number would be worse than none for a screen whose whole point is
+ * being trustworthy. Which of these counts actually gets SHOWN as "will happen" is a
+ * decision the confirmation UI makes from its own live checkbox state, not this
+ * function — this only ever answers "how much is left", never "is this turned on".
+ *
+ * @return array{domains_total:int, blog:array{domains_needing:int}, images:array{pending_slots:int,domains_affected:int}}
+ */
+function ms_batch_pending_summary(string $masterId, string $batchId): array {
+    $masterDir = ms_master_dir($masterId);
+    $batchDir  = ms_batch_dir($masterId, $batchId);
+    $cacheDir  = $masterDir . '/multisite/cache';
+
+    $domains = [];
+    $csv = $batchDir . '/params.csv';
+    if (is_file($csv)) {
+        $p = ms_parse_csv($csv);
+        if (empty($p['error'])) {
+            foreach ($p['rows'] as $r) {
+                $d = strtolower(trim((string) ($r['domain'] ?? '')));
+                if ($d !== '') $domains[] = $d;
+            }
+        }
+    }
+
+    // Same slug formula ms_generate_ai_images_for_domain() keys its persist cache
+    // with (includes/multisite/image_ai.php) — must stay identical or every domain
+    // would look like it needs regenerating even when it's already cached.
+    $domainSlug = function (string $domain): string {
+        $s = preg_replace('/[^a-z0-9]+/i', '-', strtolower(preg_replace('#^https?://#i', '', rtrim($domain, '/'))));
+        return trim((string) $s, '-');
+    };
+
+    // ── Blog posts: cache post count vs quota, per domain ───────────────────────
+    // 3 must match generate.py's BLOG_POSTS_PER_DOMAIN — no shared PHP/Python constant
+    // exists for this today, so if that number ever changes, change it here too.
+    $blogQuota   = 3;
+    $blogNeeding = 0;
+    foreach ($domains as $d) {
+        $cacheFile = $cacheDir . '/' . $domainSlug($d) . '.json';
+        $cache = is_file($cacheFile) ? (json_decode((string) @file_get_contents($cacheFile), true) ?: []) : [];
+        if (count($cache['blog_posts'] ?? []) < $blogQuota) $blogNeeding++;
+    }
+
+    // ── AI images: filesystem cache-hit check per domain × per configured slot ──
+    $imgPending  = 0;
+    $imgDomains  = [];
+    $templates   = function_exists('ms_image_ai_prompts_load') ? ms_image_ai_prompts_load($masterDir) : [];
+    if ($templates) {
+        foreach ($domains as $d) {
+            $slug = $domainSlug($d);
+            foreach ($templates as $slotKey => $entry) {
+                $basePrompt = is_array($entry) ? (string) ($entry['prompt'] ?? '') : (string) $entry;
+                // Identical formula to image_ai.php's own persist-file naming — a
+                // mismatch here would make this report either everything or nothing
+                // pending regardless of what's actually cached.
+                $filename = 'ai_' . substr(md5($slotKey . '|' . $basePrompt . '|edit-v1'), 0, 10) . '.webp';
+                if (!is_file($cacheDir . '/images/' . $slug . '/' . $filename)) {
+                    $imgPending++;
+                    $imgDomains[$slug] = true;
+                }
+            }
+        }
+    }
+
+    return [
+        'domains_total' => count($domains),
+        'blog'   => ['domains_needing' => $blogNeeding],
+        'images' => ['pending_slots' => $imgPending, 'domains_affected' => count($imgDomains)],
+    ];
+}

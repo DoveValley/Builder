@@ -1573,7 +1573,11 @@ function render_content_blocks_editor($blocks) {
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Background color</label>
-                            <input type="color" name="stats_bg_color[]" value="<?= h($block['stats_bg_color'] ?? '#1e3a5f') ?>">
+                            <?= color_mode_select('stats_bg_color', $block['stats_bg_color'] ?? 'custom', 'custom') ?>
+                        </div>
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Custom background (only if Custom selected above)</label>
+                            <input type="color" name="stats_bg_custom[]" value="<?= h($block['stats_bg_custom'] ?? '#1e3a5f') ?>">
                         </div>
                         <div class="form-group" style="flex:1 1 160px;">
                             <label>Text color</label>
@@ -1877,6 +1881,20 @@ function render_content_blocks_editor($blocks) {
                         </div>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 160px;">
+                            <label>Intro label (optional)</label>
+                            <input type="text" name="tm_label[]" value="<?= h($block['tm_label'] ?? '') ?>" placeholder="e.g. Testimonials">
+                        </div>
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Intro main heading (optional)</label>
+                            <input type="text" name="tm_main_heading[]" value="<?= h($block['tm_main_heading'] ?? '') ?>" placeholder="e.g. What Our Customers Say">
+                        </div>
+                        <div class="form-group" style="flex:2 1 220px;">
+                            <label>Intro subtext (optional)</label>
+                            <input type="text" name="tm_subtext[]" value="<?= h($block['tm_subtext'] ?? '') ?>">
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 130px;">
                             <label>Background color</label>
                             <input type="color" name="tm_bg_color[]" value="<?= h($block['tm_bg_color'] ?? '#f8fafc') ?>">
@@ -1889,6 +1907,11 @@ function render_content_blocks_editor($blocks) {
                             <label>Star color</label>
                             <?= color_mode_select('tm_accent', $block['tm_accent'] ?? 'accent', 'accent') ?>
                             <input type="color" name="tm_accent_custom[]" value="<?= h($block['tm_accent_custom'] ?? '#f59e0b') ?>" style="margin-top:4px;">
+                        </div>
+                        <div class="form-group" style="flex:1 1 130px;">
+                            <label>Badge color</label>
+                            <?= color_mode_select('tm_badge_accent', $block['tm_badge_accent'] ?? 'accent', 'accent') ?>
+                            <input type="color" name="tm_badge_accent_custom[]" value="<?= h($block['tm_badge_accent_custom'] ?? '#10b981') ?>" style="margin-top:4px;">
                         </div>
                         <div class="form-group" style="flex:0 0 90px;">
                             <label>Columns</label>

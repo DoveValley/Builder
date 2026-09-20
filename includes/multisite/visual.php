@@ -472,6 +472,21 @@ function ms_generate_logo(array &$data, string $workingDir, string $line1, strin
  * single-site apply, the multisite build, AND the preview) computes the same
  * values from the same two source colors, every time.
  */
+/**
+ * Derive accent2_color and the dark/accent skin colors from the CURRENT
+ * header_bg/accent_color. Split out of ms_apply_theme_preset() so it can be
+ * called a second time after palette jitter changes those two source colors —
+ * otherwise the derived skin colors stay stuck at their pre-jitter values and
+ * permanently mismatch the jittered header/accent chrome used everywhere else.
+ */
+function ms_derive_skin_colors(array &$data): void {
+    $dark   = $data['theme']['header_bg']    ?? '#0d1f3c';
+    $accent = $data['theme']['accent_color'] ?? '#fd783b';
+    $data['theme']['accent2_color']   = $accent;
+    $data['theme']['skins']['dark']   = ['bg' => $dark, 'heading' => '#ffffff', 'text' => '#e2e8f0'];
+    $data['theme']['skins']['accent'] = ['heading' => $dark, 'text' => '#ffffff'];
+}
+
 function ms_apply_theme_preset(array &$data, array $preset): void {
     foreach (($preset['theme'] ?? []) as $k => $v) {
         if ($k === 'skins' && is_array($v)) {
@@ -483,11 +498,7 @@ function ms_apply_theme_preset(array &$data, array $preset): void {
     foreach (($preset['header'] ?? []) as $k => $v) {
         $data['header'][$k] = $v;
     }
-    $dark   = $data['theme']['header_bg']    ?? '#0d1f3c';
-    $accent = $data['theme']['accent_color'] ?? '#fd783b';
-    $data['theme']['accent2_color']   = $accent;
-    $data['theme']['skins']['dark']   = ['bg' => $dark, 'heading' => '#ffffff', 'text' => '#e2e8f0'];
-    $data['theme']['skins']['accent'] = ['heading' => $dark, 'text' => '#ffffff'];
+    ms_derive_skin_colors($data);
 }
 
 /**
@@ -654,6 +665,10 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     $jittered = 0;
     if ($doJitter) {
         $jittered = ms_apply_palette_jitter($data, (string)($params['domain'] ?? $params['DOMAIN'] ?? ''));
+        // header_bg/accent_color may have just moved — re-derive accent2_color and the
+        // dark/accent skin colors so they track the jittered values instead of the
+        // pre-jitter ones ms_apply_theme_preset() computed above.
+        ms_derive_skin_colors($data);
     }
 
     // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors

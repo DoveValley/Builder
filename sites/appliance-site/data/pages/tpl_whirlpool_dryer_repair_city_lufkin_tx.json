@@ -139,7 +139,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "4d8ad43a25c2d959",
-            "hs_mobile_order": "img_first"
+            "hs_mobile_order": "img_first",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -184,7 +185,8 @@
             "_ai_generated_at": "2026-07-10T02:12:30.288871Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
-            "_ai_input_hash": "ff6050cbc1a2ff2c"
+            "_ai_input_hash": "ff6050cbc1a2ff2c",
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -225,7 +227,8 @@
             "_ai_generated_at": "2026-09-08T23:49:50.728375Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "common_problems",
-            "_ai_input_hash": "ee4b5ea0500c5dcf"
+            "_ai_input_hash": "ee4b5ea0500c5dcf",
+            "id": "ai_block_2"
         },
         {
             "type": "ai_block",
@@ -258,7 +261,8 @@
             "_ai_generated_at": "2026-07-10T02:12:38.890747Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "e7aa63286548406e"
+            "_ai_input_hash": "e7aa63286548406e",
+            "id": "ai_block_3"
         },
         {
             "type": "steps",
@@ -284,7 +288,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "6110ac5aac94b613",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -318,7 +323,8 @@
             "_it_photo_prechart": "sites/appliance-site/uploads/media/home-2.webp",
             "it_caption": "{chart_group_drying_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_4"
         },
         {
             "type": "faq_two_col",
@@ -367,7 +373,8 @@
             "_ai_type": "faq_local",
             "_ai_input_hash": "c82bbd3b97630b0a",
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "testimonials",

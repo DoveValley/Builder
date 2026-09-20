@@ -78,7 +78,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "78451d94ed23586c",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "hero_split_1"
         },
         {
             "type": "ai_block",
@@ -99,7 +100,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_market_intro",
             "_ai_input_hash": "0a861ed2b6a0dd85",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -137,7 +139,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
             "_ai_input_hash": "9f2459d2c0af8606",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "stats",
@@ -163,7 +166,8 @@
                     "number": "90",
                     "label": "Day pass guarantee — or your next course is free"
                 }
-            ]
+            ],
+            "id": "stats_1"
         },
         {
             "type": "ai_block",
@@ -184,7 +188,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "local_relevance",
             "_ai_input_hash": "d7e25c8e0bcadbc1",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "pricing_cards",
@@ -216,11 +221,13 @@
                     "btn_text": "Request a Quote",
                     "btn_url": "/contact-us"
                 }
-            ]
+            ],
+            "id": "pricing_cards_1"
         },
         {
             "type": "custom_html",
-            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]"
+            "html": "<div id=\"capm_schedule\"></div>[course_schedule type=\"CAPM Certification\"]",
+            "id": "custom_html_1"
         },
         {
             "type": "ai_block",
@@ -261,7 +268,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "capm_pathway",
             "_ai_input_hash": "317dde8560be1b0c",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "testimonials",
@@ -294,7 +302,8 @@
                     "avatar_color": "#0d9488",
                     "result_badge": "✓ PMP® + PMI-ACP® Certified"
                 }
-            ]
+            ],
+            "id": "testimonials_1"
         },
         {
             "type": "faq_two_col",
@@ -349,7 +358,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "faq_local",
             "_ai_input_hash": "d8449d1f4580c4ff",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "map_info",
@@ -372,7 +382,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_spotlight",
             "_ai_input_hash": "223c8456b9e75450",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "map_info_1"
         },
         {
             "type": "cta_banner",
@@ -383,7 +394,8 @@
             "cb_bg": "custom",
             "cb_bg_custom": "#1a2e5a",
             "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+            "cb_padding": "normal",
+            "id": "cta_banner_1"
         }
     ],
     "seo": {

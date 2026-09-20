@@ -619,9 +619,11 @@ function parse_blocks_from_post(): array {
                 $block['stats_heading'] = trim($_POST['stats_heading'][$i]    ?? '');
                 $saHlRaw = trim($_POST['stats_heading_level'][$i] ?? 'h2');
                 $block['stats_heading_level'] = in_array($saHlRaw, ['h2','h3','h4']) ? $saHlRaw : 'h2';
-                $sbc = trim($_POST['stats_bg_color'][$i]   ?? '#1e3a5f');
+                $sbcMode = in_array($_POST['stats_bg_color'][$i] ?? '', ['accent','header','footer','custom']) ? $_POST['stats_bg_color'][$i] : 'custom';
+                $block['stats_bg_color']   = $sbcMode;
+                $sbcc = trim($_POST['stats_bg_custom'][$i] ?? '#1e3a5f');
+                $block['stats_bg_custom']  = preg_match('/^#[0-9a-fA-F]{3,6}$/', $sbcc) ? $sbcc : '#1e3a5f';
                 $stc = trim($_POST['stats_text_color'][$i] ?? '#ffffff');
-                $block['stats_bg_color']   = preg_match('/^#[0-9a-fA-F]{3,6}$/', $sbc) ? $sbc : '#1e3a5f';
                 $block['stats_text_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $stc) ? $stc : '#ffffff';
                 $numbers = $_POST['stats_number'][$i] ?? [];
                 $labels  = $_POST['stats_label'][$i]  ?? [];
@@ -803,6 +805,9 @@ function parse_blocks_from_post(): array {
                 $block['tm_heading'] = trim($_POST['tm_heading'][$i]       ?? '');
                 $tmHlRaw = trim($_POST['tm_heading_level'][$i] ?? 'h2');
                 $block['tm_heading_level'] = in_array($tmHlRaw, ['h2','h3','h4']) ? $tmHlRaw : 'h2';
+                $block['tm_label']         = trim($_POST['tm_label'][$i]        ?? '');
+                $block['tm_main_heading']  = trim($_POST['tm_main_heading'][$i] ?? '');
+                $block['tm_subtext']       = trim($_POST['tm_subtext'][$i]      ?? '');
                 $block['tm_cols']          = in_array($_POST['tm_cols'][$i] ?? '3', ['2','3']) ? (int)$_POST['tm_cols'][$i] : 3;
                 $tmbg  = trim($_POST['tm_bg_color'][$i]      ?? '#f8fafc');
                 $block['tm_bg_color']      = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmbg)  ? $tmbg  : '#f8fafc';
@@ -812,6 +817,10 @@ function parse_blocks_from_post(): array {
                 $block['tm_accent']        = $tmac;
                 $tmacc = trim($_POST['tm_accent_custom'][$i] ?? '#f59e0b');
                 $block['tm_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmacc) ? $tmacc : '#f59e0b';
+                $tmbac = in_array($_POST['tm_badge_accent'][$i] ?? '', ['accent','header','custom']) ? $_POST['tm_badge_accent'][$i] : 'accent';
+                $block['tm_badge_accent']  = $tmbac;
+                $tmbacc = trim($_POST['tm_badge_accent_custom'][$i] ?? '#10b981');
+                $block['tm_badge_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $tmbacc) ? $tmbacc : '#10b981';
                 $tmQuotes      = $_POST['tm_quote'][$i]        ?? [];
                 $tmNames       = $_POST['tm_name'][$i]         ?? [];
                 $tmLocations   = $_POST['tm_location'][$i]     ?? [];

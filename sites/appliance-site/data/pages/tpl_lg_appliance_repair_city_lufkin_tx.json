@@ -139,7 +139,8 @@
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "6e1d575a2b6f63b5",
             "_ai_locked": true,
-            "hs_mobile_order": "img_first"
+            "hs_mobile_order": "img_first",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -188,7 +189,8 @@
             "_it_photo_prechart": "sites/appliance-site/uploads/media/tech-4.webp",
             "it_caption": "{chart_group_water_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_1"
         },
         {
             "type": "custom_html",
@@ -235,7 +237,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "common_problems",
             "_ai_input_hash": "cba81dc9230411e5",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "ai_block",
@@ -268,7 +271,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
             "_ai_input_hash": "7df2ed9d75726b98",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "cta_banner",
@@ -328,7 +332,8 @@
             "_ai_input_hash": "be6ecd81611452d0",
             "_ai_locked": true,
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "testimonials",

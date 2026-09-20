@@ -325,7 +325,17 @@ function generate_city_pages(array $options = []): array {
                 // Restore preserved blocks from the existing page
                 foreach ($preserveIndexes as $blockIdx => $_) {
                     if (isset($existingPage['content_blocks'][$blockIdx], $page['content_blocks'][$blockIdx])) {
-                        $page['content_blocks'][$blockIdx] = $existingPage['content_blocks'][$blockIdx];
+                        $restored = $existingPage['content_blocks'][$blockIdx];
+                        // The freshly-generated block may carry an id (assigned by
+                        // ensure_block_ids() above, when vary_layout is on) that the
+                        // stored copy predates and therefore lacks. Discarding it here
+                        // silently un-places the block for layout_apply(), which shoves
+                        // any id-less block to the end regardless of the chosen variant —
+                        // carry the fresh id forward instead of losing it.
+                        if (empty($restored['id']) && !empty($page['content_blocks'][$blockIdx]['id'])) {
+                            $restored['id'] = $page['content_blocks'][$blockIdx]['id'];
+                        }
+                        $page['content_blocks'][$blockIdx] = $restored;
                     }
                 }
             }

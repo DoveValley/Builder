@@ -2228,9 +2228,22 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
     if not isinstance(posts, dict):
         posts = {}
         site_data['posts'] = posts
+    # used_slugs = every topic already attempted (any status) — never re-pick these, so a
+    # topic that failed the quality gate isn't immediately retried with itself. Deleted-post
+    # topics are folded in too, via blog_deleted_slugs (set directly on site_data by
+    # admin/save/post_delete.php — no separate cache-file lookup needed), so a topic an
+    # admin rejected isn't picked again either.
     used_slugs = {p.get('_blog_topic_slug') for p in posts.values()
                   if isinstance(p, dict) and p.get('_blog_topic_slug')}
-    needed = BLOG_POSTS_PER_DOMAIN - len(used_slugs)
+    used_slugs |= set(site_data.get('blog_deleted_slugs') or [])
+    # published_count is what actually fills the quota. A draft that failed the quality
+    # gate still occupies used_slugs above (so its topic isn't retried) but must not block
+    # a DIFFERENT topic from filling that slot — otherwise a domain whose first 3 picks all
+    # fail is stuck at 3 drafts forever, with generate_blog_posts() refusing to run again.
+    published_count = sum(1 for p in posts.values()
+                           if isinstance(p, dict) and p.get('_blog_topic_slug')
+                           and p.get('status') == 'published')
+    needed = BLOG_POSTS_PER_DOMAIN - published_count
     if needed <= 0:
         return False
 

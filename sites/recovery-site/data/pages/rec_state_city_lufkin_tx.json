@@ -52,7 +52,8 @@
     "content_blocks": [
         {
             "type": "custom_html",
-            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {state}? {business} helps {state} residents find treatment centers that accept their insurance — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>"
+            "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:linear-gradient(120deg,#0e2a45 0%,#1f5c86 50%,#e8933f 100%);padding:76px 0;\"><div style=\"max-width:880px;margin:0 auto;padding:0 24px;color:#fff;text-align:center;\"><h1 style=\"font-size:2.5rem;line-height:1.15;margin:0 0 16px;color:#fff;\">Drug & Alcohol Rehabs in {state}</h1><div style=\"font-size:1.15rem;line-height:1.6;opacity:.96;max-width:700px;margin:0 auto 30px;\"><p>Searching for drug and alcohol rehabs in {state}? {business} helps {state} residents find treatment centers that accept their insurance — detox, inpatient, and outpatient. Free and confidential.</p></div><a href=\"#featured-rehabs\" style=\"display:inline-block;background:#fff;color:#0e2a45;font-weight:700;padding:15px 30px;border-radius:8px;text-decoration:none;font-size:1.05rem;\">Find a Covered Rehab</a></div></div></div>",
+            "id": "custom_html_1"
         },
         {
             "type": "text",
@@ -63,7 +64,8 @@
             "photo": "",
             "photo_ratio": "landscape",
             "photo_position": "center",
-            "photo_alt": ""
+            "photo_alt": "",
+            "id": "text_1"
         },
         {
             "type": "feature_columns",
@@ -95,7 +97,8 @@
                     "text": "We check your plan so you know your {state} options and costs before you go."
                 }
             ],
-            "ai_fill": "features"
+            "ai_fill": "features",
+            "id": "feature_columns_1"
         },
         {
             "type": "faq_two_col",
@@ -118,7 +121,8 @@
                     "answer": "Many {state} centers accept major carriers such as Aetna, Cigna, UnitedHealthcare, and Blue Cross Blue Shield. See the links below."
                 }
             ],
-            "ai_fill": "faq"
+            "ai_fill": "faq",
+            "id": "faq_two_col_1"
         },
         {
             "type": "cta_banner",
@@ -129,7 +133,8 @@
             "cb_btn_url": "#featured-rehabs",
             "cb_bg": "header",
             "cb_text_color": "#ffffff",
-            "cb_padding": "normal"
+            "cb_padding": "normal",
+            "id": "cta_banner_1"
         },
         {
             "type": "map_info",
@@ -142,7 +147,8 @@
             "mi_info_credit": "",
             "mi_head_color": "header",
             "mi_map_side": "left",
-            "ai_fill": "local"
+            "ai_fill": "local",
+            "id": "map_info_1"
         }
     ],
     "seo": {

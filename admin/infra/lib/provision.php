@@ -139,7 +139,9 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
                 // fails every deploy with "login incorrect".
                 $prov['ftp_user'] = $r['ftp_user'] ?: $ftpUser;
                 $prov['ftp_pass'] = $ftpPass;
-                $mark = ($r['restart_ok'] ?? true) ? '✓' : '⚠';
+                $restartFailed = !($r['restart_ok'] ?? true);
+                $mark = $restartFailed ? '⚠' : '✓';
+                if ($restartFailed) $ok = false;
                 $lines[] = "Host: {$mark} {$r['message']} (ftp {$prov['ftp_user']})";
                 // ⚠ The upload path, stated because it differs from Plesk and the
                 // difference is silent. On Hestia the FTP login lands IN the

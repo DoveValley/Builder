@@ -4712,20 +4712,55 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section.skin-dark   .ts-badge-outline { border-color: var(--skin-dark-heading)   !important; color: var(--skin-dark-heading)   !important; }
 .block-section.skin-accent .ts-badge-outline { border-color: var(--skin-accent-heading) !important; color: var(--skin-accent-heading) !important; }
 
+/* service_cards, faq_two_col, links_grid below all used a single
+   [class*="skin-"] attribute-substring selector here instead of the 4 plain
+   .skin-X class selectors every OTHER rule in this file uses. Per-domain builds
+   rename class TOKENS consistently in both the HTML and the CSS (class_vocab.php)
+   but deliberately leave quoted STRINGS — including the "skin-" substring inside
+   this attribute selector — untouched, to avoid corrupting url()/content/other
+   attribute values elsewhere. That made this one selector go permanently dead on
+   every built domain: no element's class= ever contains the literal substring
+   "skin-" anymore, while .skin-dark itself gets renamed on both sides and still
+   matches fine. Found live: this is exactly why the FAQ/service-card safety nets
+   below were doing nothing on a real built site while looking correct in this
+   source file — spelling out the 4 real skins avoids the substring match
+   entirely, the same way the blanket rules above already do successfully. */
+
 /* service_cards — the cards keep their own WHITE background, so their text must
    stay dark regardless of the section skin (the blanket p/hN overrides above
    were leaking the skin's light text onto the white card). */
-.block-section[class*="skin-"] .svc-card { background: #fff !important; }
-.block-section[class*="skin-"] .svc-card .svc-card-heading { color: #111 !important; }
-.block-section[class*="skin-"] .svc-card .svc-card-text    { color: #555 !important; }
+.block-section.skin-light .svc-card,
+.block-section.skin-dark .svc-card,
+.block-section.skin-accent .svc-card,
+.block-section.skin-subtle .svc-card { background: #fff !important; }
+.block-section.skin-light .svc-card .svc-card-heading,
+.block-section.skin-dark .svc-card .svc-card-heading,
+.block-section.skin-accent .svc-card .svc-card-heading,
+.block-section.skin-subtle .svc-card .svc-card-heading { color: #111 !important; }
+.block-section.skin-light .svc-card .svc-card-text,
+.block-section.skin-dark .svc-card .svc-card-text,
+.block-section.skin-accent .svc-card .svc-card-text,
+.block-section.skin-subtle .svc-card .svc-card-text { color: #555 !important; }
 
 /* faq_two_col — items are always light pills, so their question/answer text must
    stay dark under any skin (the blanket p/li override was leaking light text
    onto the pill, making open answers unreadable on Dark/Accent). */
-.block-section[class*="skin-"] .fq-item .fq-question { color: #1a2e5a !important; }
-.block-section[class*="skin-"] .fq-item .fq-answer,
-.block-section[class*="skin-"] .fq-item .fq-answer p,
-.block-section[class*="skin-"] .fq-item .fq-answer li { color: #374151 !important; }
+.block-section.skin-light .fq-item .fq-question,
+.block-section.skin-dark .fq-item .fq-question,
+.block-section.skin-accent .fq-item .fq-question,
+.block-section.skin-subtle .fq-item .fq-question { color: #1a2e5a !important; }
+.block-section.skin-light .fq-item .fq-answer,
+.block-section.skin-light .fq-item .fq-answer p,
+.block-section.skin-light .fq-item .fq-answer li,
+.block-section.skin-dark .fq-item .fq-answer,
+.block-section.skin-dark .fq-item .fq-answer p,
+.block-section.skin-dark .fq-item .fq-answer li,
+.block-section.skin-accent .fq-item .fq-answer,
+.block-section.skin-accent .fq-item .fq-answer p,
+.block-section.skin-accent .fq-item .fq-answer li,
+.block-section.skin-subtle .fq-item .fq-answer,
+.block-section.skin-subtle .fq-item .fq-answer p,
+.block-section.skin-subtle .fq-item .fq-answer li { color: #374151 !important; }
 
 /* image_features — phone label/number + intro carry dark colors that vanish on dark */
 .block-section.skin-dark .if-phone-label,
@@ -4736,8 +4771,14 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 
 /* links_grid — light-variant links on a dark skin */
 /* links_grid light-variant links are always light-gray pills, so keep their text
-   dark under any skin (the earlier rule wrongly forced light text -> unreadable) */
-.block-section[class*="skin-"] .lg-light-link { color: #1a1a1a !important; }
+   dark under any skin (the earlier rule wrongly forced light text -> unreadable).
+   Spelled out per-skin rather than [class*="skin-"] — see the note above
+   svc-card/fq-item for why that substring selector never actually matches on a
+   built domain. */
+.block-section.skin-light .lg-light-link,
+.block-section.skin-dark .lg-light-link,
+.block-section.skin-accent .lg-light-link,
+.block-section.skin-subtle .lg-light-link { color: #1a1a1a !important; }
 
 /* Skin picker UI (admin editor) */
 .skin-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }

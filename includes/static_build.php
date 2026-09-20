@@ -362,6 +362,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     $posts = $siteData['posts'] ?? [];
     $blogSettings = $siteData['blog_settings'] ?? [];
     $perPage = max(1, (int)($blogSettings['posts_per_page'] ?? 9));
+    $writtenBlogSlugs = []; // track every post slug written — used to prune stale blog/ dirs
 
     $allPosts = array_values(array_filter($posts, fn($p) => ($p['status'] ?? 'draft') === 'published'));
     usort($allPosts, fn($a, $b) => strcmp($b['published_at'] ?? '', $a['published_at'] ?? ''));
@@ -465,12 +466,55 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 
             gen_write($outputBase . 'blog/' . $postSlug . '/index.html', $html);
             $siteUrls[] = ['loc' => '/blog/' . $postSlug . '/', 'priority' => '0.6'];
+            $writtenBlogSlugs[$postSlug] = true;
             $postCount++;
             progress_tick(++$_preDone, $_preTotal);
         }
         progress_log("Blog: listing ({$totalPages} page" . ($totalPages > 1 ? 's' : '') . ") + {$postCount} post" . ($postCount !== 1 ? 's' : '') . " generated.");
     } else {
         progress_log('Blog: no published posts, skipping.');
+    }
+
+    // ── Prune stale blog/ directories ─────────────────────────────────────────────
+    // Mirrors the stale-slug prune above, scoped to blog/: nothing else ever cleans up
+    // a deleted/unpublished/renamed post's old directory or leftover pagination pages
+    // from a shrunk post count or a raised posts-per-page — both stay live indefinitely.
+    $blogBase = $outputBase . 'blog/';
+    if (is_dir($blogBase)) {
+        $blogPruned = 0;
+        foreach (glob($blogBase . '*', GLOB_ONLYDIR) ?: [] as $dir) {
+            $name = basename($dir);
+            if ($name === 'page') continue; // handled separately below
+            if (!isset($writtenBlogSlugs[$name])) {
+                $files = new RecursiveIteratorIterator(
+                    new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+                    RecursiveIteratorIterator::CHILD_FIRST
+                );
+                foreach ($files as $f) {
+                    $f->isDir() ? rmdir($f->getPathname()) : unlink($f->getPathname());
+                }
+                rmdir($dir);
+                $blogPruned++;
+            }
+        }
+        $pageBase = $blogBase . 'page/';
+        if (is_dir($pageBase)) {
+            foreach (glob($pageBase . '*', GLOB_ONLYDIR) ?: [] as $dir) {
+                $n = (int)basename($dir);
+                if ($n < 2 || $n > $totalPages) {
+                    $files = new RecursiveIteratorIterator(
+                        new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS),
+                        RecursiveIteratorIterator::CHILD_FIRST
+                    );
+                    foreach ($files as $f) {
+                        $f->isDir() ? rmdir($f->getPathname()) : unlink($f->getPathname());
+                    }
+                    rmdir($dir);
+                    $blogPruned++;
+                }
+            }
+        }
+        if ($blogPruned > 0) progress_log("Pruned {$blogPruned} stale blog director" . ($blogPruned === 1 ? 'y' : 'ies') . ' from output.', 'warn');
     }
 
     // ── 5. 404 page ───────────────────────────────────────────────────────────────
@@ -574,6 +618,22 @@ ErrorDocument 404 /404.html
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
+</IfModule>
+
+<!-- Belt-and-suspenders for the ExpiresByType text/html rule above: mod_expires isn't
+     guaranteed to be enabled on every box in the fleet, and an <IfModule> wrapper fails
+     SILENTLY when it isn't — the directive just never applies, with nothing on screen
+     saying so, and a rebuilt page can then sit in a visitor's browser cache indefinitely
+     since nothing ever told it to revalidate. mod_headers is far more commonly enabled,
+     so this reaches the same "never serve stale HTML from disk" outcome through a
+     second, independent mechanism. Matches the explicit Cache-Control header
+     site-template.php already sends for the live-PHP preview path — this is the same
+     fix for the static-deployed-output path, which has no PHP response to attach a
+     header to and only ever had .htaccess to rely on. -->
+<IfModule mod_headers.c>
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>

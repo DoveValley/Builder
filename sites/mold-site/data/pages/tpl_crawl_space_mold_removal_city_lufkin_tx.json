@@ -170,7 +170,8 @@
             "_ai_generated_at": "2026-08-23T15:41:01.425472Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
-            "_ai_input_hash": "79fe946058327810"
+            "_ai_input_hash": "79fe946058327810",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -218,7 +219,8 @@
             "_ai_generated_at": "2026-08-23T15:41:13.276465Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
-            "_ai_input_hash": "a3567c58c5be48d6"
+            "_ai_input_hash": "a3567c58c5be48d6",
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -255,7 +257,8 @@
             "_ai_generated_at": "2026-08-23T15:41:16.337600Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "f204fc9e8382abdb"
+            "_ai_input_hash": "f204fc9e8382abdb",
+            "id": "ai_block_2"
         },
         {
             "type": "steps",
@@ -281,7 +284,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "0e4512aab75364fb",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -321,7 +325,8 @@
             "_it_photo_prechart": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
             "it_caption": "{chart_group_moisture_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_3"
         },
         {
             "type": "ai_block",
@@ -357,7 +362,8 @@
             "_ai_generated_at": "2026-08-23T15:41:25.451790Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "612e6a215eab0c4d"
+            "_ai_input_hash": "612e6a215eab0c4d",
+            "id": "ai_block_4"
         },
         {
             "type": "service_cards",
@@ -462,7 +468,8 @@
             "_ai_type": "faq_local",
             "_ai_input_hash": "12a1514b39a9ab96",
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "cta_banner",

@@ -879,6 +879,13 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     </div>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 
+    <!-- Pre-flight confirmation, shown before a run actually starts — see msRun()/
+         msRenderPreflight() below. Hidden until populated; built fresh every click so
+         it always reflects whatever's checked in the panel at that exact moment. -->
+    <div id="ms-preflight-overlay" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.55);z-index:9000;align-items:center;justify-content:center;">
+        <div id="ms-preflight-box" style="background:#fff;border-radius:10px;max-width:640px;width:92%;max-height:85vh;overflow-y:auto;padding:24px 28px;box-shadow:0 20px 50px rgba(0,0,0,0.3);"></div>
+    </div>
+
     <!--
         Test server (FTP) — one fixed, reusable deploy target OUTSIDE the fleet: a real
         host + real domain + real HTTPS you already own, so "deploy to test server" next
@@ -1397,15 +1404,157 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             .catch(() => { if (msg) { msg.style.color = '#991b1b'; msg.style.opacity = '1'; msg.textContent = '✗ save failed'; } });
     };
 
-    window.msRun = function () {
-        // Force refreshes AI content across every domain in the batch (build_one.php's
-        // --refresh, driven straight from this flag) — the same class of real, whole-
-        // master API cost the research Force checkbox already confirms before running;
-        // this sibling control didn't.
-        if (document.getElementById('ms-force').checked
-            && !confirm('Force will refresh AI content and rebuild EVERY domain in this batch, even ones already complete — real API cost, not just gaps. Continue?')) {
-            return;
+    // Short display labels for the pre-flight confirmation only — deliberately NOT the
+    // long descriptive text $msTree carries for the panel itself (that's documentation,
+    // this needs to be readable in two seconds). Keyed the same as skip-list values, so
+    // there's no separate mapping to keep in sync with which checkbox controls what.
+    const msConfirmLabels = <?= json_encode([
+        'ai.legal_reword'      => 'Reword legal pages (Privacy/Terms/Contact)',
+        'ai.disclaimer_reword' => 'Reword footer disclaimer',
+        'ai.popup_reword'      => 'Reword info-popup disclosure',
+        'ai.tagline_reword'    => 'Reword footer tagline',
+        'ai.blog'              => 'Blog posts',
+        'visual.palette'       => 'Colour palette',
+        'visual.font'          => 'Font',
+        'visual.jitter'        => 'Palette jitter',
+        'structure.home'       => 'Section order — Home',
+        'structure.landing'    => 'Section order — Landing pages',
+        'structure.classvocab' => 'Class vocabulary',
+        'structure.schemashape'=> 'Schema shape',
+        'images.stamp_home'    => 'Photo differentiation — Home',
+        'images.stamp_landing' => 'Photo differentiation — Landing pages',
+        'images.metadata'      => 'Image metadata stripping',
+        'images.ai_photos'     => 'AI-generated photos',
+    ]) ?>;
+    const msConfirmGroups = [
+        { key: 'ai',        label: 'AI Content',       subs: ['ai.legal_reword','ai.disclaimer_reword','ai.popup_reword','ai.tagline_reword','ai.blog'] },
+        { key: 'visual',    label: 'Colours & Fonts',   subs: ['visual.palette','visual.font','visual.jitter'] },
+        { key: 'structure', label: 'Site Structure',    subs: ['structure.home','structure.landing','structure.classvocab','structure.schemashape'] },
+        { key: 'images',    label: 'Images',            subs: ['images.stamp_home','images.stamp_landing','images.metadata','images.ai_photos'] },
+        { key: 'tags',      label: 'Site tags',         subs: [] },
+        { key: 'landing',   label: 'Landing pages',     subs: [] },
+        { key: 'pagepool',  label: 'Page pool',         subs: [] },
+    ];
+
+    // Reads the SAME live checkboxes msRunActual() reads to build the real skip list —
+    // one function, used by both the confirmation display and the actual run, so the
+    // two can never disagree about what's actually about to happen.
+    function msBuildSkipList() {
+        const skip = Array.from(document.querySelectorAll('.ms-step-opt'))
+            .filter(cb => !cb.checked).map(cb => cb.value);
+        Array.from(document.querySelectorAll('.ms-sub-opt')).forEach(cb => {
+            if (skip.includes(cb.dataset.parent)) return;
+            if (!cb.checked) skip.push(cb.value);
+        });
+        return skip;
+    }
+
+    // A count-aware line for the handful of items where a real number is cheap and
+    // exact to know upfront (see ms_batch_pending_summary() in steps.php for why only
+    // these two — an approximate number for the rest would be worse than none).
+    function msConfirmLine(key, summary) {
+        const label = msConfirmLabels[key] || key;
+        if (!summary) return label;
+        if (key === 'ai.blog' && summary.blog) {
+            const need = summary.blog.domains_needing, total = summary.domains_total;
+            if (total === 0) return label;
+            return 'Blog posts — ' + need + ' of ' + total + ' domain' + (total === 1 ? '' : 's')
+                 + ' need new posts (' + (total - need) + ' already at full quota)';
         }
+        if (key === 'images.ai_photos' && summary.images) {
+            const pending = summary.images.pending_slots, doms = summary.images.domains_affected;
+            if (pending === 0) return 'AI-generated photos — nothing pending, all already generated';
+            return 'AI-generated photos — ~' + pending + ' new photo' + (pending === 1 ? '' : 's')
+                 + ' across ' + doms + ' domain' + (doms === 1 ? '' : 's') + ' (rest already cached)';
+        }
+        return label;
+    }
+
+    window.msClosePreflight = function () {
+        document.getElementById('ms-preflight-overlay').style.display = 'none';
+    };
+
+    // Held here rather than embedded into the Confirm button's onclick — JSON.stringify()
+    // uses double quotes, which would close an onclick="..." attribute early the moment
+    // the skip list had more than one entry. A plain variable read on click sidesteps the
+    // quoting problem entirely instead of trying to escape around it.
+    let msPendingSkip = [];
+    let msPendingForce = false;
+    window.msConfirmGenerate = function () {
+        msClosePreflight();
+        msRunActual(msPendingSkip, msPendingForce);
+    };
+
+    function msRenderPreflight(skip, force, summary) {
+        msPendingSkip = skip;
+        msPendingForce = force;
+        const willHappen = [];
+        const willNot = [];
+
+        if (force) {
+            willHappen.push('&#9888; <strong>Force is ON</strong> — refreshes AI content and rebuilds EVERY domain in this batch, even ones already complete (real API cost, not just gaps)');
+        }
+
+        msConfirmGroups.forEach(g => {
+            const offSubs = g.subs.filter(s => skip.includes(s));
+            const onSubs  = g.subs.filter(s => !skip.includes(s));
+            if (skip.includes(g.key) || onSubs.length === 0) {
+                willNot.push(g.label + ' — off');
+                return;
+            }
+            if (offSubs.length === 0) {
+                // Whole group on — one line per item still (each may carry its own
+                // count), just not split out as a "mixed" case visually.
+                onSubs.forEach(s => willHappen.push(msConfirmLine(s, summary)));
+                return;
+            }
+            // Mixed within the group: show exactly what's on and what's off, since a
+            // single collapsed line couldn't say which half applies.
+            onSubs.forEach(s => willHappen.push(msConfirmLine(s, summary)));
+            offSubs.forEach(s => willNot.push(msConfirmLabels[s] + ' — off'));
+        });
+
+        const only = document.getElementById('ms-run-only').value.trim();
+        const limit = document.getElementById('ms-limit').value;
+
+        const box = document.getElementById('ms-preflight-box');
+        box.innerHTML =
+            '<h3 style="margin-top:0;">Before you generate…</h3>' +
+            (summary ? '' : '<p class="hint" style="color:#b45309;">Could not load exact counts — showing settings only.</p>') +
+            (only ? '<p class="hint">Limited to: <strong>' + esc(only) + '</strong></p>' : '') +
+            (limit && limit !== '0' ? '<p class="hint">Capped at ' + esc(limit) + ' domain(s) this run.</p>' : '') +
+            '<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0;">' +
+              '<div><div style="font-weight:700;color:#166534;margin-bottom:8px;">&#10003; Will happen</div>' +
+                '<ul style="margin:0;padding-left:18px;font-size:0.88rem;line-height:1.6;">' +
+                    (willHappen.length ? willHappen.map(l => '<li>' + l + '</li>').join('') : '<li class="hint">Nothing — every step is off</li>') +
+                '</ul></div>' +
+              '<div><div style="font-weight:700;color:#6b7280;margin-bottom:8px;">&#10007; Will NOT happen</div>' +
+                '<ul style="margin:0;padding-left:18px;font-size:0.88rem;line-height:1.6;color:#6b7280;">' +
+                    (willNot.length ? willNot.map(l => '<li>' + l + '</li>').join('') : '<li>Nothing — every step is on</li>') +
+                '</ul></div>' +
+            '</div>' +
+            '<div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">' +
+              '<button type="button" class="btn sec" onclick="msClosePreflight()">Cancel</button>' +
+              '<button type="button" class="btn btn-primary" onclick="msConfirmGenerate()">Confirm &amp; Generate</button>' +
+            '</div>';
+
+        document.getElementById('ms-preflight-overlay').style.display = 'flex';
+    }
+
+    window.msRun = function () {
+        const skip  = msBuildSkipList();
+        const force = document.getElementById('ms-force').checked;
+        fetch('multisite_api.php?action=preflight_summary')
+            .then(r => r.json())
+            .then(summary => msRenderPreflight(skip, force, summary.error ? null : summary))
+            .catch(() => msRenderPreflight(skip, force, null));
+    };
+
+    // The actual launch — unchanged from the old msRun() body, just parameterized on
+    // the skip list / force flag the confirmation step already computed and showed,
+    // instead of re-reading the DOM a second time (which could theoretically disagree
+    // if something re-rendered a checkbox between the two calls).
+    window.msRunActual = function (skip, force) {
         const btn = document.getElementById('ms-run-btn');
         const fd = new FormData();
         fd.append('csrf_token', csrfToken);
@@ -1413,17 +1562,6 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         // Generating never uploads now — sending is step 5, and the built sites are
         // kept under the batch so that step has something to send.
         fd.append('no_deploy', '1');
-        // Unticked steps become the skip list. 'ai' also sets no_ai so the runner has
-        // one mechanism for it rather than two that could disagree.
-        const skip = Array.from(document.querySelectorAll('.ms-step-opt'))
-            .filter(cb => !cb.checked).map(cb => cb.value);
-        // Sub-switches use the same skip list, keyed "parent.child". A sub-switch under a
-        // parent that's already off is NOT added — the parent skip already covers it, and
-        // sending both would just be noise.
-        Array.from(document.querySelectorAll('.ms-sub-opt')).forEach(cb => {
-            if (skip.includes(cb.dataset.parent)) return;
-            if (!cb.checked) skip.push(cb.value);
-        });
         if (skip.length) fd.append('skip', skip.join(','));
         if (skip.includes('ai')) fd.append('no_ai', '1');
         // Rotation pin counts — sent regardless of the structure toggles above; the server
@@ -1431,7 +1569,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         Array.from(document.querySelectorAll('.ms-rot-opt')).forEach(inp => {
             fd.append(inp.dataset.field, inp.value);
         });
-        if (document.getElementById('ms-force').checked) fd.append('force', '1');
+        if (force) fd.append('force', '1');
         const only = document.getElementById('ms-run-only').value.trim();
         if (only) fd.append('only', only);
         btn.disabled = true;

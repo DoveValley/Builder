@@ -170,7 +170,8 @@
             "_ai_generated_at": "2026-08-23T15:41:27.219005Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
-            "_ai_input_hash": "9e95c39d64f04dc8"
+            "_ai_input_hash": "9e95c39d64f04dc8",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -218,7 +219,8 @@
             "_ai_generated_at": "2026-08-23T15:41:31.404510Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
-            "_ai_input_hash": "f9482462bb8bcda5"
+            "_ai_input_hash": "f9482462bb8bcda5",
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -255,7 +257,8 @@
             "_ai_generated_at": "2026-08-23T15:41:35.436099Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "7763c1391ead2db5"
+            "_ai_input_hash": "7763c1391ead2db5",
+            "id": "ai_block_2"
         },
         {
             "type": "steps",
@@ -281,7 +284,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "cab2fcd6551e0fa6",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -321,7 +325,8 @@
             "_it_photo_prechart": "sites/mold-site/uploads/media/about-reliable-mold-removal.webp",
             "it_caption": "{chart_group_structure_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_3"
         },
         {
             "type": "ai_block",
@@ -357,7 +362,8 @@
             "_ai_generated_at": "2026-08-23T15:41:46.705272Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "993d99e02fa5f1a4"
+            "_ai_input_hash": "993d99e02fa5f1a4",
+            "id": "ai_block_4"
         },
         {
             "type": "service_cards",
@@ -462,7 +468,8 @@
             "_ai_type": "faq_local",
             "_ai_input_hash": "a287a64fb90b60e6",
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "cta_banner",

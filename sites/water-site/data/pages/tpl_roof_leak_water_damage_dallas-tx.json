@@ -212,7 +212,8 @@
             "_ai_generated_at": "2026-09-07T15:18:47.370192Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
-            "_ai_input_hash": "f72d8eadb8f4a525"
+            "_ai_input_hash": "f72d8eadb8f4a525",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -260,7 +261,8 @@
             "_ai_generated_at": "2026-09-07T15:18:51.934587Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
-            "_ai_input_hash": "cbb19c74ec39d571"
+            "_ai_input_hash": "cbb19c74ec39d571",
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -297,7 +299,8 @@
             "_ai_generated_at": "2026-09-07T15:18:56.087594Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
-            "_ai_input_hash": "763810784d1c3d64"
+            "_ai_input_hash": "763810784d1c3d64",
+            "id": "ai_block_2"
         },
         {
             "type": "steps",
@@ -325,7 +328,8 @@
             "_ai_input_hash": "970749fbc82952c1",
             "_ai_locked": true,
             "steps_subtext": "From your initial call to the final inspection, we provide a structured, professional, and efficient process to ensure your property is fully restored after {service}.",
-            "steps_style": "card"
+            "steps_style": "card",
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -365,7 +369,8 @@
             "_ai_generated_at": "2026-09-07T15:19:04.158424Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "local_relevance",
-            "_ai_input_hash": "aa106aaa695f421c"
+            "_ai_input_hash": "aa106aaa695f421c",
+            "id": "ai_block_3"
         },
         {
             "type": "ai_block",
@@ -401,7 +406,8 @@
             "_ai_generated_at": "2026-09-07T15:19:08.749177Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "seasonal_calendar",
-            "_ai_input_hash": "818f25b17503c128"
+            "_ai_input_hash": "818f25b17503c128",
+            "id": "ai_block_4"
         },
         {
             "type": "service_cards",
@@ -490,7 +496,8 @@
             "_ai_generated_at": "2026-09-07T15:19:17.848263Z",
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "faq_local",
-            "_ai_input_hash": "9c95bb65c34ba8ce"
+            "_ai_input_hash": "9c95bb65c34ba8ce",
+            "id": "faq_two_col_1"
         },
         {
             "type": "cta_banner",

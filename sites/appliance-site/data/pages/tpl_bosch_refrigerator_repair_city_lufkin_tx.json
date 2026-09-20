@@ -139,7 +139,8 @@
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "f98b01d6aa07523d",
             "_ai_locked": true,
-            "hs_mobile_order": "img_first"
+            "hs_mobile_order": "img_first",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -184,7 +185,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
             "_ai_input_hash": "d2a6f81d4d03e180",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -225,7 +227,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "common_problems",
             "_ai_input_hash": "3d387575784f1bec",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "ai_block",
@@ -258,7 +261,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
             "_ai_input_hash": "3be631da7526f09f",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "steps",
@@ -284,7 +288,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "dc5c35a749d70150",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -318,7 +323,8 @@
             "_it_photo_prechart": "sites/appliance-site/uploads/media/home-3.webp",
             "it_caption": "{chart_group_cooling_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_4"
         },
         {
             "type": "faq_two_col",
@@ -367,7 +373,8 @@
             "_ai_input_hash": "6591171e193df438",
             "_ai_locked": true,
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "testimonials",

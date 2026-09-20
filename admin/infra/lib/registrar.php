@@ -1101,7 +1101,7 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
     switch ($type) {
         case 'gandi':
             $r = infra_reg_gandi_register($domain, $years, $cfg, $opts);
-            return ['ok' => $r['ok'], 'message' => $r['message']];
+            return ['ok' => $r['ok'], 'message' => $r['message'], 'pending' => $r['pending'] ?? false];
         case 'spaceship':
             $r = infra_reg_spaceship_register($domain, $years, $cfg, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];

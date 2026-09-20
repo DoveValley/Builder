@@ -1,426 +1,438 @@
 {
-  "template_id": "tpl_pmp_bootcamp_city",
-  "city_id": "huntsville-al",
-  "slug": "pmp-bootcamp-huntsville-al",
-  "title": "PMP Bootcamp {city}",
-  "city_vars": {
-    "id": "huntsville-al",
-    "city": "Huntsville",
-    "state": "Alabama",
-    "SS": "AL",
-    "city_slug": "huntsville-al",
-    "phone": "",
-    "tel": "",
-    "zip": "",
-    "address": "",
-    "lat": "",
-    "lng": "",
-    "website": "",
-    "tags": [],
-    "industries": [
-      "defense/military",
-      "aerospace",
-      "technology",
-      "government",
-      "manufacturing",
-      "cybersecurity"
+    "template_id": "tpl_pmp_bootcamp_city",
+    "city_id": "huntsville-al",
+    "slug": "pmp-bootcamp-huntsville-al",
+    "title": "PMP Bootcamp {city}",
+    "city_vars": {
+        "id": "huntsville-al",
+        "city": "Huntsville",
+        "state": "Alabama",
+        "SS": "AL",
+        "city_slug": "huntsville-al",
+        "phone": "",
+        "tel": "",
+        "zip": "",
+        "address": "",
+        "lat": "",
+        "lng": "",
+        "website": "",
+        "tags": [],
+        "industries": [
+            "defense/military",
+            "aerospace",
+            "technology",
+            "government",
+            "manufacturing",
+            "cybersecurity"
+        ],
+        "top_employers": [
+            "Redstone Arsenal",
+            "NASA Marshall Space Flight Center",
+            "Boeing",
+            "Lockheed Martin",
+            "Raytheon Technologies",
+            "Northrop Grumman",
+            "Leidos",
+            "SAIC",
+            "Dynetics",
+            "Huntsville Hospital",
+            "BAE Systems",
+            "Jacobs Engineering"
+        ],
+        "salary_note": "PMP-certified project managers in Huntsville, Alabama typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range.",
+        "market_blurb": "Huntsville is one of the fastest-growing tech and defense hubs in the southeastern United States, home to a dense concentration of federal agencies, military commands, and defense contractors centered around Redstone Arsenal and NASA Marshall Space Flight Center. The city's dominant industries of aerospace, defense, and government contracting place a high premium on structured project delivery, making PMP certification a recognized credential that directly supports contract compliance and program execution requirements. Professionals holding PMP certification in Huntsville gain a measurable competitive advantage when pursuing roles with major contractors and government clients who frequently require or strongly prefer certified project managers on federally funded programs.",
+        "city_spotlight": "<p>Huntsville's aerospace and defense sector—anchored by NASA Marshall Space Flight Center, Redstone Arsenal, and major contractors like Boeing and Lockheed Martin—relies heavily on PMP-certified project managers to meet federal compliance and contract delivery standards. Professionals pursuing roles on programs such as the Space Launch System or supporting government clients gain measurable competitive advantage with PMP certification. Granite PM Academy delivers live-virtual Project Management Certification Training to Huntsville professionals seeking to advance in this high-demand market.</p>",
+        "city_image": "sites/granitepmacademy/uploads/media/city-scenic-huntsville-al.webp",
+        "city_image_alt": "Huntsville Art Museum - front façade and stairs 2023, AL",
+        "city_image_credit": "Photo: American Diabetio, CC BY-SA 4.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Huntsville_Art_Museum_-_front_fa%C3%A7ade_and_stairs_2023.jpg",
+        "notable_projects": [
+            "NASA Marshall Space Flight Center's Space Launch System (SLS) program",
+            "FBI's new campus and relocation of operations to Redstone Arsenal",
+            "Mazda Toyota Manufacturing USA assembly plant in Huntsville",
+            "Blue Origin's rocket engine manufacturing facility in Huntsville"
+        ],
+        "credential_demand": "Given the concentration of aerospace, defense, and government contracting employers in Huntsville, PMP certification is commonly listed as a preferred or required qualification in project and program manager job postings from firms like Boeing, Lockheed Martin, Northrop Grumman, and Leidos, while CAPM is often valued for entry-level roles supporting these programs."
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "PMP Boot Camp in {city}, {SS}",
+            "hs_subtext": "<p>Huntsville's aerospace and defense sector drives consistent demand for credentialed project managers who can navigate complex, regulated environments. Granite PM Academy's live-virtual PMP Boot Camp delivers the 35 contact hours required by PMI in an accelerated format, letting you earn your PMP certification without leaving your job. In Huntsville's competitive contractor ecosystem, PMP designation directly strengthens your advancement prospects and earning potential.</p>",
+            "hs_btn_text": "See Upcoming Dates",
+            "hs_btn_url": "#pmp_boot_schedule",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "PMP boot camp {city} {SS}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f0f4f8",
+            "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
+            "hs_bg_photo": "",
+            "hs_mobile_order": "",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:06.549810Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "hero_subtext",
+            "_ai_input_hash": "ed4dc6ccee433502",
+            "_ai_locked": true,
+            "id": "hero_split_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_market_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "PMP Boot Camp in Huntsville: Certified Project Managers for Defense & Aerospace",
+            "text": "<p>Huntsville's aerospace and defense sector—anchored by Redstone Arsenal, NASA Marshall Space Flight Center, and major contractors including Boeing, Lockheed Martin, Raytheon Technologies, and Northrop Grumman—operates under rigorous federal compliance and contract delivery frameworks that demand structured project management. PMP certification has become a recognized credential across these organizations and their supply chains, often required or strongly preferred for roles managing federally funded programs. Professionals in Huntsville pursuing advancement with government agencies, prime contractors, and their subcontractors gain measurable competitive advantage by holding PMP credentials, directly supporting contract compliance, program execution requirements, and eligibility for leadership roles on high-stakes projects.</p><p>Granite PM Academy delivers PMP Boot Camp as an intensive, instructor-led program taught by active certified practitioners with real-world project management experience. As a PMI Authorized Training Partner, we satisfy the mandatory 35 contact hours required for PMP eligibility through live-virtual sessions designed for working professionals. Our curriculum covers the PMBOK® Guide framework, exam strategy, and practical application—preparing you to sit for the PMP exam with confidence and the knowledge to apply project management discipline across defense, aerospace, government, and commercial sectors in Huntsville and beyond.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:10.344781Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_market_intro",
+            "_ai_input_hash": "5466a4bdfb0e5b4c",
+            "_ai_locked": true,
+            "id": "ai_block_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "fc_heading": "PMP Certification Tailored for Huntsville's Defense and Aerospace Leaders",
+            "fc_num_cols": 4,
+            "columns": [
+                {
+                    "heading": "PMI-Authorized Training You Can Trust",
+                    "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your 35 contact hours count directly toward PMP eligibility. No haggling with PMI over course validity—your enrollment receipt is your proof of authorized instruction."
+                },
+                {
+                    "heading": "Live Instruction, Real Flexibility",
+                    "text": "Our live-virtual instructor-led format delivers all 35 required contact hours online. Attend from your office, home, or anywhere—no commute, no rigid classroom schedule, no recorded playback gaps. You interact with instructors and peers in real time."
+                },
+                {
+                    "heading": "Practitioners Teaching Practitioners",
+                    "text": "Your instructors are active PMP-certified project and program managers working in defense, aerospace, and government sectors. They bring current case studies, real constraints, and hands-on problem-solving—not textbook theory alone."
+                },
+                {
+                    "heading": "Credential Demanded by Huntsville Employers",
+                    "text": "Redstone Arsenal, NASA Marshall, Boeing, Lockheed Martin, Raytheon, Northrop Grumman, and other regional leaders hire and promote professionals who hold the PMP credential. The boot camp prepares you to pass the exam and qualify for advancement in Huntsville's competitive defense and aerospace job market."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:14.360204Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "feature_columns_local",
+            "_ai_input_hash": "f5eb16bc4b534a37",
+            "_ai_locked": true,
+            "id": "ai_block_2"
+        },
+        {
+            "type": "stats",
+            "stats_heading": "",
+            "stats_bg_color": "accent",
+            "stats_text_color": "#ffffff",
+            "stats_bg_custom": "#2563eb",
+            "skin": "accent",
+            "stats_items": [
+                {
+                    "number": "6",
+                    "label": "PMI certifications offered"
+                },
+                {
+                    "number": "<1%",
+                    "label": "Of organizations hold PMI Premier ATP status — we do"
+                },
+                {
+                    "number": "35",
+                    "label": "PMI contact hours included with every PMP course"
+                },
+                {
+                    "number": "90",
+                    "label": "Day pass guarantee — or your next course is free"
+                }
+            ],
+            "id": "stats_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "text",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "heading_level": "h2",
+            "heading_text": "Project Management Careers in Huntsville's Aerospace and Defense Hub",
+            "text": "<p>Huntsville's economy is anchored by aerospace and defense contractors who consistently hire certified project managers to lead complex, mission-critical programs. Boeing, Lockheed Martin, Northrop Grumman, and Leidos maintain significant operations here, managing initiatives ranging from NASA Marshall Space Flight Center's Space Launch System (SLS) program to the FBI's relocation of operations to Redstone Arsenal. These employers—along with Raytheon Technologies, BAE Systems, and specialized firms like Blue Origin—regularly list PMP® certification as a preferred or required qualification in their project and program manager job postings. For early-career professionals, CAPM® certification is also valued in support roles across these same organizations.</p><p>The PMP® credential translates directly to earning potential and advancement opportunity in Huntsville's concentrated defense and aerospace market. Certified project managers here typically command salaries in the $95,000–$130,000 range, with contractors at the higher end competing for talent on complex government and commercial programs. Completing Granite PM Academy's PMP Boot Camp positions you to meet the credential demand that defines Huntsville's job market, equipping you with both the certification and the practical knowledge these employers expect. In a city where project management expertise is foundational to nearly every major employer's operations, the PMP® becomes not just a resume credential but a direct pathway to roles managing the programs and infrastructure that define modern aerospace and defense.</p>",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:18.198174Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "local_relevance",
+            "_ai_input_hash": "cfd6d08663f71037",
+            "_ai_locked": true,
+            "id": "ai_block_3"
+        },
+        {
+            "type": "pricing_cards",
+            "pc_heading": "PMP Boot Camp — Enrollment Options",
+            "pc_cols": "2",
+            "pc_bg": "#f0f4f8",
+            "pc_items": [
+                {
+                    "name": "PMP Boot Camp",
+                    "badge": "INTENSIVE",
+                    "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
+                    "sublabel": "",
+                    "meta": "Next cohort: see schedule below",
+                    "price": "$2,495",
+                    "period": "per person",
+                    "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
+                    "btn_text": "See Upcoming Dates",
+                    "btn_url": "#pmp_boot_schedule"
+                },
+                {
+                    "name": "Group / Corporate Training",
+                    "badge": "5+ SEATS",
+                    "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
+                    "sublabel": "",
+                    "meta": "Contact us for a quote",
+                    "price": "Custom",
+                    "period": "per engagement",
+                    "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
+                    "btn_text": "Request a Quote",
+                    "btn_url": "/contact-us"
+                }
+            ],
+            "id": "pricing_cards_1"
+        },
+        {
+            "type": "custom_html",
+            "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]",
+            "id": "custom_html_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "pmp_pathway",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "skin": "light",
+            "steps_heading": "Your Path to PMP Certification in Huntsville",
+            "steps_items": [
+                {
+                    "heading": "Confirm Your Eligibility",
+                    "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years of experience. Review PMI's official requirements and gather documentation of your education and work history before applying."
+                },
+                {
+                    "heading": "Complete 35 Contact Hours",
+                    "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Huntsville-focused cohorts deliver all 35 PMI-required contact hours of formal project-management education, with flexible scheduling to fit your work calendar."
+                },
+                {
+                    "heading": "Submit Your PMI Application",
+                    "text": "After completing the 35-hour course, submit your PMP application directly to PMI. You'll provide your education and experience credentials, pay the PMI exam fee, and await PMI's approval before scheduling your exam."
+                },
+                {
+                    "heading": "Prepare and Sit for the Exam",
+                    "text": "Granite PM Academy provides exam-preparation resources, practice questions, and review sessions to reinforce the PMBOK Guide framework and exam domains. Schedule your proctored exam through PMI's testing partner at a location convenient to Huntsville."
+                },
+                {
+                    "heading": "Maintain Your PMP Credential",
+                    "text": "The PMP credential is valid for three years. During each renewal cycle, earn 60 professional development units (PDUs) through training, volunteering, and project work to keep your certification active and current."
+                }
+            ],
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:22.537108Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "pmp_pathway",
+            "_ai_input_hash": "bf4f70084c864f13",
+            "_ai_locked": true,
+            "id": "ai_block_4"
+        },
+        {
+            "type": "testimonials",
+            "tm_label": "STUDENT RESULTS",
+            "tm_main_heading": "They passed. You can too.",
+            "tm_heading": "",
+            "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
+            "tm_bg_color": "#ffffff",
+            "tm_text_color": "#1a2e5a",
+            "tm_accent": "highlight",
+            "tm_accent_custom": "#ffc000",
+            "tm_badge_accent": "custom",
+            "tm_badge_accent_custom": "#10b981",
+            "tm_cols": 3,
+            "skin": "subtle",
+            "tm_items": [
+                {
+                    "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
+                    "name": "Marcus R.",
+                    "location": "Senior PM, Deloitte",
+                    "initials": "MR",
+                    "avatar_color": "accent",
+                    "result_badge": "✓ PMP® — Passed first attempt"
+                },
+                {
+                    "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
+                    "name": "Sarah L.",
+                    "location": "IT Project Lead, Microsoft",
+                    "initials": "SL",
+                    "avatar_color": "#0d9488",
+                    "result_badge": "✓ PMP® + PMI-ACP® Certified"
+                }
+            ],
+            "id": "testimonials_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
+            "fq_bg_color": "#f0f4f8",
+            "fq_item_bg": "#ffffff",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#1a2e5a",
+            "fq_icon_bg_custom": "#c8960a",
+            "fq_items": [
+                {
+                    "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
+                    "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
+                },
+                {
+                    "question": "Can I complete the PMP Bootcamp online from {city}?",
+                    "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
+                },
+                {
+                    "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
+                    "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
+                },
+                {
+                    "question": "What is your pass guarantee?",
+                    "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth pursuing for Huntsville aerospace and defense careers?",
+                    "answer": "<p>Yes. Huntsville's dominant employers—Boeing, Lockheed Martin, Northrop Grumman, Raytheon Technologies, and NASA Marshall Space Flight Center—routinely list PMP as a preferred or required qualification in project and program manager postings. The credential directly aligns with how these firms structure and govern complex, regulated programs, making it a competitive advantage for advancement and salary growth in the local market.</p>"
+                },
+                {
+                    "question": "Can I attend Huntsville PMP Boot Camp live-virtual from my workplace?",
+                    "answer": "<p>Yes. Our live-virtual format allows you to attend from your office, home, or any location with a stable internet connection. This is particularly convenient for Huntsville professionals working at Redstone Arsenal, Boeing, Leidos, SAIC, or other major employers, since you can join sessions without commuting while maintaining your regular work schedule.</p>"
+                },
+                {
+                    "question": "What salary range do PMP-certified project managers earn in Huntsville?",
+                    "answer": "<p>PMP-certified project managers in Huntsville typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end. Huntsville's concentration of federal contracting and government-adjacent work means certified professionals command premium compensation, particularly those supporting programs at Redstone Arsenal, Marshall, or major defense firms.</p>"
+                },
+                {
+                    "question": "Should I pursue PMP or CAPM certification in today's Huntsville job market?",
+                    "answer": "<p>If you're an experienced project manager or engineer at a Huntsville defense/aerospace firm, PMP is the stronger choice—most mid-to-senior roles require it. If you're early-career or supporting programs at Huntsville Hospital, manufacturing, or cybersecurity firms, CAPM is often valued as a stepping stone. Both credentials are in demand; your experience level and current role should guide your timing.</p>"
+                },
+                {
+                    "question": "Is PMP certification worth it for Huntsville aerospace and defense careers?",
+                    "answer": "<p>Yes. Huntsville's largest employers—Redstone Arsenal, NASA Marshall, Boeing, Lockheed Martin, Northrop Grumman, and Raytheon—regularly list PMP as preferred or required for project manager roles. The credential directly supports advancement in these government contracting and aerospace environments, where structured project governance is non-negotiable. PMP-certified professionals in Huntsville typically earn between $95,000–$130,000 annually, with defense contractors often at the higher end.</p>"
+                },
+                {
+                    "question": "Do Huntsville professionals need PMP or CAPM for local job openings?",
+                    "answer": "<p>Both are valued, but differently. Major Huntsville firms like Leidos, SAIC, Jacobs Engineering, and BAE Systems commonly require PMP for mid-level and senior project manager roles. CAPM is often preferred for entry-level positions supporting defense and government programs. Your target role and experience level determine which credential to pursue first; PMP Boot Camp is ideal if you have 3+ years of project experience.</p>"
+                },
+                {
+                    "question": "Can I attend Huntsville PMP Boot Camp online from my workplace?",
+                    "answer": "<p>Yes. Our live-virtual format allows Huntsville professionals to join from their office, home, or any location with reliable internet. Many participants from Redstone Arsenal, Boeing, and other local contractors attend during or around their work schedule. Confirm with your employer's IT and compliance policies beforehand, especially if you work in secure facilities or government buildings.</p>"
+                },
+                {
+                    "question": "When should Huntsville project managers get PMP certified?",
+                    "answer": "<p>Huntsville's defense and aerospace market moves quickly. If you're in a role supporting programs at Northrop Grumman, Dynetics, or other contractors, earning PMP before a promotion cycle or project transition strengthens your candidacy significantly. Many local professionals pursue certification within their first 3–5 years of project management experience, when employer tuition support is often available and credential demand is highest.</p>"
+                }
+            ],
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "append",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "fq_open": true,
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:28.433272Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "faq_local",
+            "_ai_input_hash": "052f0323768bbdb4",
+            "_ai_locked": true,
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "{city}, {state} Map",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "<p>Huntsville's aerospace and defense ecosystem—anchored by NASA Marshall Space Flight Center, Redstone Arsenal, and contractors like Boeing and Lockheed Martin—depends on certified project managers to lead federally funded programs and meet contract compliance standards. PMP certification is a recognized credential that directly strengthens candidacy for roles across this sector. Granite PM Academy delivers live-virtual PMP Boot Camp to Huntsville professionals seeking competitive advantage in this high-demand market.</p>",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#1f2937",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "left",
+            "ai_type_id": "city_spotlight",
+            "ai_inject_field": "mi_info_text",
+            "ai_inject_mode": "replace",
+            "ai_model": "claude-haiku-4-5-20251001",
+            "_ai_generated": true,
+            "_ai_generated_at": "2026-07-15T03:36:29.847938Z",
+            "_ai_model": "claude-haiku-4-5-20251001",
+            "_ai_type": "city_spotlight",
+            "_ai_input_hash": "325a63927dd11e59",
+            "_ai_locked": true,
+            "id": "map_info_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Intensive PMP Prep — Right from {city}",
+            "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
+            "cb_btn_text": "See Upcoming Dates",
+            "cb_btn_url": "#pmp_boot_schedule",
+            "cb_bg": "custom",
+            "cb_bg_custom": "#1a2e5a",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "normal",
+            "id": "cta_banner_1"
+        }
     ],
-    "top_employers": [
-      "Redstone Arsenal",
-      "NASA Marshall Space Flight Center",
-      "Boeing",
-      "Lockheed Martin",
-      "Raytheon Technologies",
-      "Northrop Grumman",
-      "Leidos",
-      "SAIC",
-      "Dynetics",
-      "Huntsville Hospital",
-      "BAE Systems",
-      "Jacobs Engineering"
-    ],
-    "salary_note": "PMP-certified project managers in Huntsville, Alabama typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end of that range.",
-    "market_blurb": "Huntsville is one of the fastest-growing tech and defense hubs in the southeastern United States, home to a dense concentration of federal agencies, military commands, and defense contractors centered around Redstone Arsenal and NASA Marshall Space Flight Center. The city's dominant industries of aerospace, defense, and government contracting place a high premium on structured project delivery, making PMP certification a recognized credential that directly supports contract compliance and program execution requirements. Professionals holding PMP certification in Huntsville gain a measurable competitive advantage when pursuing roles with major contractors and government clients who frequently require or strongly prefer certified project managers on federally funded programs.",
-    "city_spotlight": "<p>Huntsville's aerospace and defense sector—anchored by NASA Marshall Space Flight Center, Redstone Arsenal, and major contractors like Boeing and Lockheed Martin—relies heavily on PMP-certified project managers to meet federal compliance and contract delivery standards. Professionals pursuing roles on programs such as the Space Launch System or supporting government clients gain measurable competitive advantage with PMP certification. Granite PM Academy delivers live-virtual Project Management Certification Training to Huntsville professionals seeking to advance in this high-demand market.</p>",
-    "city_image": "sites/granitepmacademy/uploads/media/city-scenic-huntsville-al.webp",
-    "city_image_alt": "Huntsville Art Museum - front façade and stairs 2023, AL",
-    "city_image_credit": "Photo: American Diabetio, CC BY-SA 4.0",
-    "city_image_source": "https://commons.wikimedia.org/wiki/File:Huntsville_Art_Museum_-_front_fa%C3%A7ade_and_stairs_2023.jpg",
-    "notable_projects": [
-      "NASA Marshall Space Flight Center's Space Launch System (SLS) program",
-      "FBI's new campus and relocation of operations to Redstone Arsenal",
-      "Mazda Toyota Manufacturing USA assembly plant in Huntsville",
-      "Blue Origin's rocket engine manufacturing facility in Huntsville"
-    ],
-    "credential_demand": "Given the concentration of aerospace, defense, and government contracting employers in Huntsville, PMP certification is commonly listed as a preferred or required qualification in project and program manager job postings from firms like Boeing, Lockheed Martin, Northrop Grumman, and Leidos, while CAPM is often valued for entry-level roles supporting these programs."
-  },
-  "content_blocks": [
-    {
-      "type": "hero_split",
-      "hs_heading": "PMP Boot Camp in {city}, {SS}",
-      "hs_subtext": "<p>Huntsville's aerospace and defense sector drives consistent demand for credentialed project managers who can navigate complex, regulated environments. Granite PM Academy's live-virtual PMP Boot Camp delivers the 35 contact hours required by PMI in an accelerated format, letting you earn your PMP certification without leaving your job. In Huntsville's competitive contractor ecosystem, PMP designation directly strengthens your advancement prospects and earning potential.</p>",
-      "hs_btn_text": "See Upcoming Dates",
-      "hs_btn_url": "#pmp_boot_schedule",
-      "hs_caption1": "",
-      "hs_caption2": "",
-      "hs_photo_alt": "PMP boot camp {city} {SS}",
-      "hs_image_side": "right",
-      "hs_bg_color": "#f0f4f8",
-      "hs_photo": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
-      "hs_bg_photo": "",
-      "hs_mobile_order": "",
-      "ai_type_id": "hero_subtext",
-      "ai_inject_field": "hs_subtext",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:06.549810Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "hero_subtext",
-      "_ai_input_hash": "ed4dc6ccee433502",
-      "_ai_locked": true
+    "seo": {
+        "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-huntsville-al/",
+        "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "meta_keywords": "PMP boot camp Huntsville, AL, PMP bootcamp Huntsville, PMP certification boot camp Huntsville, AL, PMP bootcamp near me, intensive PMP training Huntsville",
+        "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
+        "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
+        "og_image": "",
+        "service_name": "PMP Boot Camp",
+        "service_type": "Professional Certification Training",
+        "service_area": "{city}, {SS}",
+        "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
+        "bc_label": "PMP Boot Camp {city}",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\",\n      \"name\": \"PMP Boot Camp in Huntsville, AL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Huntsville, AL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Huntsville, AL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/#course\",\n      \"name\": \"PMP Boot Camp in Huntsville, AL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Huntsville, AL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\"\n    }\n  ]\n}",
+        "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
     },
-    {
-      "type": "ai_block",
-      "ai_type_id": "city_market_intro",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "PMP Boot Camp in Huntsville: Certified Project Managers for Defense & Aerospace",
-      "text": "<p>Huntsville's aerospace and defense sector—anchored by Redstone Arsenal, NASA Marshall Space Flight Center, and major contractors including Boeing, Lockheed Martin, Raytheon Technologies, and Northrop Grumman—operates under rigorous federal compliance and contract delivery frameworks that demand structured project management. PMP certification has become a recognized credential across these organizations and their supply chains, often required or strongly preferred for roles managing federally funded programs. Professionals in Huntsville pursuing advancement with government agencies, prime contractors, and their subcontractors gain measurable competitive advantage by holding PMP credentials, directly supporting contract compliance, program execution requirements, and eligibility for leadership roles on high-stakes projects.</p><p>Granite PM Academy delivers PMP Boot Camp as an intensive, instructor-led program taught by active certified practitioners with real-world project management experience. As a PMI Authorized Training Partner, we satisfy the mandatory 35 contact hours required for PMP eligibility through live-virtual sessions designed for working professionals. Our curriculum covers the PMBOK® Guide framework, exam strategy, and practical application—preparing you to sit for the PMP exam with confidence and the knowledge to apply project management discipline across defense, aerospace, government, and commercial sectors in Huntsville and beyond.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:10.344781Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_market_intro",
-      "_ai_input_hash": "5466a4bdfb0e5b4c",
-      "_ai_locked": true
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "feature_columns_local",
-      "ai_mode": "standalone",
-      "ai_render_as": "feature_columns",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "fc_heading": "PMP Certification Tailored for Huntsville's Defense and Aerospace Leaders",
-      "fc_num_cols": 4,
-      "columns": [
-        {
-          "heading": "PMI-Authorized Training You Can Trust",
-          "text": "Granite PM Academy is a PMI Authorized Training Partner, meaning your 35 contact hours count directly toward PMP eligibility. No haggling with PMI over course validity—your enrollment receipt is your proof of authorized instruction."
-        },
-        {
-          "heading": "Live Instruction, Real Flexibility",
-          "text": "Our live-virtual instructor-led format delivers all 35 required contact hours online. Attend from your office, home, or anywhere—no commute, no rigid classroom schedule, no recorded playback gaps. You interact with instructors and peers in real time."
-        },
-        {
-          "heading": "Practitioners Teaching Practitioners",
-          "text": "Your instructors are active PMP-certified project and program managers working in defense, aerospace, and government sectors. They bring current case studies, real constraints, and hands-on problem-solving—not textbook theory alone."
-        },
-        {
-          "heading": "Credential Demanded by Huntsville Employers",
-          "text": "Redstone Arsenal, NASA Marshall, Boeing, Lockheed Martin, Raytheon, Northrop Grumman, and other regional leaders hire and promote professionals who hold the PMP credential. The boot camp prepares you to pass the exam and qualify for advancement in Huntsville's competitive defense and aerospace job market."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:14.360204Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "feature_columns_local",
-      "_ai_input_hash": "f5eb16bc4b534a37",
-      "_ai_locked": true
-    },
-    {
-      "type": "stats",
-      "stats_heading": "",
-      "stats_bg_color": "accent",
-      "stats_text_color": "#ffffff",
-      "stats_bg_custom": "#2563eb",
-      "skin": "accent",
-      "stats_items": [
-        {
-          "number": "6",
-          "label": "PMI certifications offered"
-        },
-        {
-          "number": "<1%",
-          "label": "Of organizations hold PMI Premier ATP status — we do"
-        },
-        {
-          "number": "35",
-          "label": "PMI contact hours included with every PMP course"
-        },
-        {
-          "number": "90",
-          "label": "Day pass guarantee — or your next course is free"
-        }
-      ]
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "local_relevance",
-      "ai_mode": "standalone",
-      "ai_render_as": "text",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "heading_level": "h2",
-      "heading_text": "Project Management Careers in Huntsville's Aerospace and Defense Hub",
-      "text": "<p>Huntsville's economy is anchored by aerospace and defense contractors who consistently hire certified project managers to lead complex, mission-critical programs. Boeing, Lockheed Martin, Northrop Grumman, and Leidos maintain significant operations here, managing initiatives ranging from NASA Marshall Space Flight Center's Space Launch System (SLS) program to the FBI's relocation of operations to Redstone Arsenal. These employers—along with Raytheon Technologies, BAE Systems, and specialized firms like Blue Origin—regularly list PMP® certification as a preferred or required qualification in their project and program manager job postings. For early-career professionals, CAPM® certification is also valued in support roles across these same organizations.</p><p>The PMP® credential translates directly to earning potential and advancement opportunity in Huntsville's concentrated defense and aerospace market. Certified project managers here typically command salaries in the $95,000–$130,000 range, with contractors at the higher end competing for talent on complex government and commercial programs. Completing Granite PM Academy's PMP Boot Camp positions you to meet the credential demand that defines Huntsville's job market, equipping you with both the certification and the practical knowledge these employers expect. In a city where project management expertise is foundational to nearly every major employer's operations, the PMP® becomes not just a resume credential but a direct pathway to roles managing the programs and infrastructure that define modern aerospace and defense.</p>",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:18.198174Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "local_relevance",
-      "_ai_input_hash": "cfd6d08663f71037",
-      "_ai_locked": true
-    },
-    {
-      "type": "pricing_cards",
-      "pc_heading": "PMP Boot Camp — Enrollment Options",
-      "pc_cols": "2",
-      "pc_bg": "#f0f4f8",
-      "pc_items": [
-        {
-          "name": "PMP Boot Camp",
-          "badge": "INTENSIVE",
-          "desc": "Four intensive days of live-virtual PMP exam prep. 35 contact hours, 500+ practice questions, and a 90-day pass guarantee.",
-          "sublabel": "",
-          "meta": "Next cohort: see schedule below",
-          "price": "$2,495",
-          "period": "per person",
-          "features": "35 PMI contact hours included\n500+ practice exam questions\nFull exam simulation\n90-day pass guarantee\nLive-virtual — no travel",
-          "btn_text": "See Upcoming Dates",
-          "btn_url": "#pmp_boot_schedule"
-        },
-        {
-          "name": "Group / Corporate Training",
-          "badge": "5+ SEATS",
-          "desc": "Dedicated cohort for your team. Custom scheduling, volume pricing, and group coaching available.",
-          "sublabel": "",
-          "meta": "Contact us for a quote",
-          "price": "Custom",
-          "period": "per engagement",
-          "features": "Dedicated instructor session\nFlexible scheduling\nVolume pricing\nInvoicing available",
-          "btn_text": "Request a Quote",
-          "btn_url": "/contact-us"
-        }
-      ]
-    },
-    {
-      "type": "custom_html",
-      "html": "<div id=\"pmp_boot_schedule\"></div>[course_schedule type=\"PMP Bootcamp\"]"
-    },
-    {
-      "type": "ai_block",
-      "ai_type_id": "pmp_pathway",
-      "ai_mode": "standalone",
-      "ai_render_as": "steps",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "ai_inject_target": null,
-      "ai_inject_field": null,
-      "ai_inject_mode": null,
-      "ai_prompt_override": "",
-      "skin": "light",
-      "steps_heading": "Your Path to PMP Certification in Huntsville",
-      "steps_items": [
-        {
-          "heading": "Confirm Your Eligibility",
-          "text": "PMI requires either a bachelor's degree plus three years of project-management experience, or a high-school diploma plus five years of experience. Review PMI's official requirements and gather documentation of your education and work history before applying."
-        },
-        {
-          "heading": "Complete 35 Contact Hours",
-          "text": "Attend Granite PM Academy's live-virtual, instructor-led PMP Boot Camp. Our Huntsville-focused cohorts deliver all 35 PMI-required contact hours of formal project-management education, with flexible scheduling to fit your work calendar."
-        },
-        {
-          "heading": "Submit Your PMI Application",
-          "text": "After completing the 35-hour course, submit your PMP application directly to PMI. You'll provide your education and experience credentials, pay the PMI exam fee, and await PMI's approval before scheduling your exam."
-        },
-        {
-          "heading": "Prepare and Sit for the Exam",
-          "text": "Granite PM Academy provides exam-preparation resources, practice questions, and review sessions to reinforce the PMBOK Guide framework and exam domains. Schedule your proctored exam through PMI's testing partner at a location convenient to Huntsville."
-        },
-        {
-          "heading": "Maintain Your PMP Credential",
-          "text": "The PMP credential is valid for three years. During each renewal cycle, earn 60 professional development units (PDUs) through training, volunteering, and project work to keep your certification active and current."
-        }
-      ],
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:22.537108Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "pmp_pathway",
-      "_ai_input_hash": "bf4f70084c864f13",
-      "_ai_locked": true
-    },
-    {
-      "type": "testimonials",
-      "tm_label": "STUDENT RESULTS",
-      "tm_main_heading": "They passed. You can too.",
-      "tm_heading": "",
-      "tm_subtext": "Real project managers. Real certifications. Every career stage, every industry.",
-      "tm_bg_color": "#ffffff",
-      "tm_text_color": "#1a2e5a",
-      "tm_accent": "highlight",
-      "tm_accent_custom": "#ffc000",
-      "tm_badge_accent": "custom",
-      "tm_badge_accent_custom": "#10b981",
-      "tm_cols": 3,
-      "skin": "subtle",
-      "tm_items": [
-        {
-          "quote": "I had failed the PMP twice elsewhere. Granite PM Academy live class was completely different — the instructor knew exactly how the exam thinks. Passed with Above Target scores on my very next attempt.",
-          "name": "Marcus R.",
-          "location": "Senior PM, Deloitte",
-          "initials": "MR",
-          "avatar_color": "accent",
-          "result_badge": "✓ PMP® — Passed first attempt"
-        },
-        {
-          "quote": "I earned both my PMI-ACP and PMP through Granite PM Academy. Same quality instructor, same pass guarantee, same live format. I’m now going back for my PgMP. There’s nowhere else I’d go.",
-          "name": "Sarah L.",
-          "location": "IT Project Lead, Microsoft",
-          "initials": "SL",
-          "avatar_color": "#0d9488",
-          "result_badge": "✓ PMP® + PMI-ACP® Certified"
-        }
-      ]
-    },
-    {
-      "type": "faq_two_col",
-      "fq_heading": "PMP Bootcamp FAQs — {city} Professionals",
-      "fq_bg_color": "#f0f4f8",
-      "fq_item_bg": "#ffffff",
-      "fq_head_color": "header",
-      "fq_icon_bg": "accent",
-      "fq_head_color_custom": "#1a2e5a",
-      "fq_icon_bg_custom": "#c8960a",
-      "fq_items": [
-        {
-          "question": "What’s the difference between the PMP Bootcamp and PMP Certification Training?",
-          "answer": "<p>Both courses deliver 35 PMI contact hours and the same 90-day pass guarantee. The bootcamp condenses the content into four intensive days with a heavier focus on exam strategy and practice questions &mdash; ideal for professionals who want an accelerated experience.</p>"
-        },
-        {
-          "question": "Can I complete the PMP Bootcamp online from {city}?",
-          "answer": "<p>Yes. The bootcamp is 100% live-virtual. {city} professionals attend via video conference from their home or office &mdash; no travel, no hotel.</p>"
-        },
-        {
-          "question": "Does the bootcamp satisfy PMI’s 35 contact hour requirement?",
-          "answer": "<p>Yes. Our PMP Bootcamp includes the full 35 PMI contact hours required to apply for the PMP exam. You’ll receive a certificate of completion immediately after the course.</p>"
-        },
-        {
-          "question": "What is your pass guarantee?",
-          "answer": "<p>If you complete our bootcamp and do not pass the PMP exam within 90 days, we provide additional coaching sessions at no additional cost until you pass.</p>"
-        },
-        {
-          "question": "Is PMP certification worth pursuing for Huntsville aerospace and defense careers?",
-          "answer": "<p>Yes. Huntsville's dominant employers—Boeing, Lockheed Martin, Northrop Grumman, Raytheon Technologies, and NASA Marshall Space Flight Center—routinely list PMP as a preferred or required qualification in project and program manager postings. The credential directly aligns with how these firms structure and govern complex, regulated programs, making it a competitive advantage for advancement and salary growth in the local market.</p>"
-        },
-        {
-          "question": "Can I attend Huntsville PMP Boot Camp live-virtual from my workplace?",
-          "answer": "<p>Yes. Our live-virtual format allows you to attend from your office, home, or any location with a stable internet connection. This is particularly convenient for Huntsville professionals working at Redstone Arsenal, Boeing, Leidos, SAIC, or other major employers, since you can join sessions without commuting while maintaining your regular work schedule.</p>"
-        },
-        {
-          "question": "What salary range do PMP-certified project managers earn in Huntsville?",
-          "answer": "<p>PMP-certified project managers in Huntsville typically earn between $95,000 and $130,000 annually, with defense and aerospace contractors often paying at the higher end. Huntsville's concentration of federal contracting and government-adjacent work means certified professionals command premium compensation, particularly those supporting programs at Redstone Arsenal, Marshall, or major defense firms.</p>"
-        },
-        {
-          "question": "Should I pursue PMP or CAPM certification in today's Huntsville job market?",
-          "answer": "<p>If you're an experienced project manager or engineer at a Huntsville defense/aerospace firm, PMP is the stronger choice—most mid-to-senior roles require it. If you're early-career or supporting programs at Huntsville Hospital, manufacturing, or cybersecurity firms, CAPM is often valued as a stepping stone. Both credentials are in demand; your experience level and current role should guide your timing.</p>"
-        },
-        {
-          "question": "Is PMP certification worth it for Huntsville aerospace and defense careers?",
-          "answer": "<p>Yes. Huntsville's largest employers—Redstone Arsenal, NASA Marshall, Boeing, Lockheed Martin, Northrop Grumman, and Raytheon—regularly list PMP as preferred or required for project manager roles. The credential directly supports advancement in these government contracting and aerospace environments, where structured project governance is non-negotiable. PMP-certified professionals in Huntsville typically earn between $95,000–$130,000 annually, with defense contractors often at the higher end.</p>"
-        },
-        {
-          "question": "Do Huntsville professionals need PMP or CAPM for local job openings?",
-          "answer": "<p>Both are valued, but differently. Major Huntsville firms like Leidos, SAIC, Jacobs Engineering, and BAE Systems commonly require PMP for mid-level and senior project manager roles. CAPM is often preferred for entry-level positions supporting defense and government programs. Your target role and experience level determine which credential to pursue first; PMP Boot Camp is ideal if you have 3+ years of project experience.</p>"
-        },
-        {
-          "question": "Can I attend Huntsville PMP Boot Camp online from my workplace?",
-          "answer": "<p>Yes. Our live-virtual format allows Huntsville professionals to join from their office, home, or any location with reliable internet. Many participants from Redstone Arsenal, Boeing, and other local contractors attend during or around their work schedule. Confirm with your employer's IT and compliance policies beforehand, especially if you work in secure facilities or government buildings.</p>"
-        },
-        {
-          "question": "When should Huntsville project managers get PMP certified?",
-          "answer": "<p>Huntsville's defense and aerospace market moves quickly. If you're in a role supporting programs at Northrop Grumman, Dynetics, or other contractors, earning PMP before a promotion cycle or project transition strengthens your candidacy significantly. Many local professionals pursue certification within their first 3–5 years of project management experience, when employer tuition support is often available and credential demand is highest.</p>"
-        }
-      ],
-      "ai_type_id": "faq_local",
-      "ai_inject_field": "fq_items",
-      "ai_inject_mode": "append",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "fq_open": true,
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:28.433272Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "faq_local",
-      "_ai_input_hash": "052f0323768bbdb4",
-      "_ai_locked": true
-    },
-    {
-      "type": "map_info",
-      "mi_map_heading": "{city}, {state} Map",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "<p>Huntsville's aerospace and defense ecosystem—anchored by NASA Marshall Space Flight Center, Redstone Arsenal, and contractors like Boeing and Lockheed Martin—depends on certified project managers to lead federally funded programs and meet contract compliance standards. PMP certification is a recognized credential that directly strengthens candidacy for roles across this sector. Granite PM Academy delivers live-virtual PMP Boot Camp to Huntsville professionals seeking competitive advantage in this high-demand market.</p>",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_info_credit": "{city_image_credit}",
-      "mi_map_embed": "<iframe src=\"https://maps.google.com/maps?q={city},+{SS}&z=11&output=embed\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#1f2937",
-      "mi_info_photo": "{city_image}",
-      "mi_map_side": "left",
-      "ai_type_id": "city_spotlight",
-      "ai_inject_field": "mi_info_text",
-      "ai_inject_mode": "replace",
-      "ai_model": "claude-haiku-4-5-20251001",
-      "_ai_generated": true,
-      "_ai_generated_at": "2026-07-15T03:36:29.847938Z",
-      "_ai_model": "claude-haiku-4-5-20251001",
-      "_ai_type": "city_spotlight",
-      "_ai_input_hash": "325a63927dd11e59",
-      "_ai_locked": true
-    },
-    {
-      "type": "cta_banner",
-      "cb_text": "Intensive PMP Prep — Right from {city}",
-      "cb_subtext": "Skip the commute. Our live-virtual bootcamp gives {city} professionals everything they need to pass the PMP exam.",
-      "cb_btn_text": "See Upcoming Dates",
-      "cb_btn_url": "#pmp_boot_schedule",
-      "cb_bg": "custom",
-      "cb_bg_custom": "#1a2e5a",
-      "cb_text_color": "#ffffff",
-      "cb_padding": "normal"
-    }
-  ],
-  "seo": {
-    "seo_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "canonical_url": "https://granitepmacademy.com/pmp-bootcamp-huntsville-al/",
-    "meta_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "meta_keywords": "PMP boot camp Huntsville, AL, PMP bootcamp Huntsville, PMP certification boot camp Huntsville, AL, PMP bootcamp near me, intensive PMP training Huntsville",
-    "og_title": "PMP Boot Camp in {city}, {SS} | Intensive PMP Training | Granite PM Academy",
-    "og_description": "Accelerated PMP Boot Camp for {city}, {SS} professionals — a 4-day live-virtual intensive from a PMI Authorized Training Partner. 35 contact hours, exam-prep support, pass guarantee.",
-    "og_image": "",
-    "service_name": "PMP Boot Camp",
-    "service_type": "Professional Certification Training",
-    "service_area": "{city}, {SS}",
-    "service_description": "Intensive 4-day live-virtual PMP Boot Camp for professionals in {city}, {SS}, including 35 contact hours and exam preparation.",
-    "bc_label": "PMP Boot Camp {city}",
-    "bc_mid_label": "",
-    "bc_mid_url": "",
-    "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/#webpage\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\",\n      \"name\": \"PMP Boot Camp in Huntsville, AL | Granite PM Academy\",\n      \"description\": \"PMI Premier Authorized PMP bootcamp in Huntsville, AL. 4-day intensive instructor-led training, money-back pass guarantee, 35 contact hours included.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMP Boot Camp in Huntsville, AL\",\n            \"item\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/#course\",\n      \"name\": \"PMP Boot Camp in Huntsville, AL\",\n      \"description\": \"Intensive 4-day PMI Premier Authorized PMP bootcamp for project managers in Huntsville, AL. Live instructor-led training covering all PMP exam domains. Includes 35 contact hours, 800+ practice questions, mock exams, PMI application walkthrough, and money-back Pass Guarantee.\",\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (4-Day Intensive)\",\n          \"price\": \"2495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/#credential\",\n      \"name\": \"Project Management Professional (PMP)\",\n      \"description\": \"The PMP is the world's leading project management certification, issued by PMI and recognized globally across government, technology, defense, and enterprise industries.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/pmp-bootcamp-huntsville-al/\"\n    }\n  ]\n}",
-    "secondary_keywords": "PMP boot camp {city}, PMP bootcamp {city} {SS}, PMP certification boot camp {city}, live online PMP boot camp {city}, PMP bootcamp near me"
-  },
-  "locked_blocks": [],
-  "generated_at": "2026-07-15T03:27:51+00:00",
-  "template_version": "304a0ba212ea05de5ff7a55d1756c48a"
+    "locked_blocks": [],
+    "generated_at": "2026-07-15T03:27:51+00:00",
+    "template_version": "304a0ba212ea05de5ff7a55d1756c48a"
 }

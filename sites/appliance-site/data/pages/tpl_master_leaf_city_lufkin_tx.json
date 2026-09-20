@@ -140,7 +140,8 @@
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "ba93f1a918437c28",
             "_ai_locked": true,
-            "hs_mobile_order": "img_first"
+            "hs_mobile_order": "img_first",
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -185,7 +186,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
             "_ai_input_hash": "359a77e33cc5a9a2",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -226,7 +228,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "common_problems",
             "_ai_input_hash": "41de8670549e336b",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "ai_block",
@@ -259,7 +262,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
             "_ai_input_hash": "07933a58af350daa",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_3"
         },
         {
             "type": "steps",
@@ -285,7 +289,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "656d17c9c6872a03",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -319,7 +324,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "local_relevance",
             "_ai_input_hash": "8b20207926b3cca4",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_4"
         },
         {
             "type": "faq_two_col",
@@ -359,7 +365,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "faq_local",
             "_ai_input_hash": "b3f46265847dd88c",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "testimonials",

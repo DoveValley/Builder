@@ -416,7 +416,7 @@ function trust_bar_safe_badges(): array {
 /* ============================================================
    FRONTEND: render a single block
    ============================================================ */
-function render_content_block($block, $pathPrefix = '') {
+function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
     $block = apply_shortcodes_to_block($block);
     $type  = $block['type'] ?? 'text';
     $text  = $block['text'] ?? '';
@@ -2034,7 +2034,7 @@ function render_content_block($block, $pathPrefix = '') {
                 // notice into the HTML — same reason contact_mail.php carries no CSRF
                 // token. Mirrors the wording/classes the non-static branch below uses.
                 echo '<div class="cf-notice cf-static-notice" style="display:none;"></div>';
-                echo '<script>(function(){var p=new URLSearchParams(location.search),m=p.get("cf_msg");if(!m)return;var n=document.currentScript.previousElementSibling,t={success:["cf-success","Thank you! Your message has been sent — we\'ll be in touch shortly."],limit:["cf-error","Too many submissions. Please try again in an hour."],error:["cf-error","Something went wrong. Please check your details and try again."]}[m];if(!t)return;n.className="cf-notice "+t[0];n.textContent=t[1];n.style.display="";})();</script>';
+                echo '<script>(function(){var p=new URLSearchParams(location.search),m=p.get("cf_msg");if(!m)return;var n=document.currentScript.previousElementSibling,msgs={success:"Thank you! Your message has been sent — we\'ll be in touch shortly.",limit:"Too many submissions. Please try again in an hour.",error:"Something went wrong. Please check your details and try again."},txt=msgs[m];if(!txt)return;if(m==="success"){n.classList.add("cf-success");}else{n.classList.add("cf-error");}n.textContent=txt;n.style.display="";})();</script>';
 
                 $staticEmail = $GLOBALS['_static_contact_email'] ?? '';
                 $w3fKey      = $GLOBALS['_static_web3forms_key'] ?? '';
@@ -2103,7 +2103,11 @@ function render_content_block($block, $pathPrefix = '') {
                 : [];
             // Fewer than 2 real matches isn't worth a whole section — same "disappear
             // rather than show thin/broken" rule used elsewhere (fake ratings, safe badges).
-            if (count($rlLinks) < 2) break;
+            // Blog posts are the one exception: a single relevant internal link is the
+            // whole point of the feature there (Page Pool often leaves a topic with only
+            // one real candidate on a given domain), not a thin/incomplete-looking list —
+            // unlike ratings/badges, "Related: one link" doesn't read as broken.
+            if (count($rlLinks) < ($isBlogPost ? 1 : 2)) break;
             echo '<div class="content-block block-related-links"' . $anchorAttr . '><div class="container">';
             if ($rlHeading) echo '<h2 class="section-heading">' . h($rlHeading) . '</h2>';
             echo '<ul class="related-links-list">';

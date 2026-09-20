@@ -395,6 +395,10 @@ if ($firstBlockHero) {
     // Fix 4: gate debug overlay on admin session so public visitors can't trigger it
     $showBlocks = !empty($_GET['show_blocks']) && !empty($_SESSION['admin_logged_in']);
     $blockIdx = 0;
+    // blog.php always prepends a 'post_meta' pseudo-block as element 0 for a single
+    // post (never for the blog listing or any other page) — reusing it as the
+    // signal costs nothing new to track and can't drift out of sync with it.
+    $isBlogPost = ($contentBlocks[0]['type'] ?? '') === 'post_meta';
     foreach ($contentBlocks as $block):
         $btype = $block['type'] ?? '';
         // Blocks that manage their own .container must be full-width here to avoid double-wrapping
@@ -424,7 +428,7 @@ if ($firstBlockHero) {
         <?php if (!$isFullWidth): ?>
         <div class="container<?= $noContainerVPad ? ' container-tight-v' : '' ?>">
         <?php endif; ?>
-            <?php render_content_block($block, $assetPathPrefix ?? ''); ?>
+            <?php render_content_block($block, $assetPathPrefix ?? '', $isBlogPost); ?>
         <?php if (!$isFullWidth): ?>
         </div>
         <?php endif; ?>
@@ -735,6 +739,15 @@ if ($firstBlockHero) {
             // 8px short once the margin actually disappeared.
             nav.style.marginTop = '0';
             nav.style.borderTop = 'none';
+            // Services (and any other accordion item) starts expanded on mobile —
+            // no second tap needed after opening the hamburger menu. Reuses the
+            // same 'open' class/aria-expanded wiring the accordion toggle below
+            // already uses, so this can't drift out of sync with it.
+            nav.querySelectorAll('a[aria-haspopup="true"]').forEach(function(a) {
+                var li = a.closest('li');
+                if (li) li.classList.add('open');
+                a.setAttribute('aria-expanded', 'true');
+            });
             var navRect = nav.getBoundingClientRect();
             // The mobile sticky call bar is also position:fixed at the bottom of the
             // viewport, on top of the nav (higher z-index) — reserve its height so the
@@ -787,9 +800,16 @@ if ($firstBlockHero) {
         });
     });
 
-    // Close all dropdowns when clicking outside the nav
+    // Close all dropdowns when clicking outside the nav.
+    // #navToggle is a SIBLING of #siteNav, not a descendant, so its own click
+    // bubbles to this document listener same as any outside click — it was
+    // stripping the 'open' class the hamburger handler above had just added,
+    // in the same click event, which is why auto-expanding Services on open
+    // silently did nothing. Ignoring clicks on the toggle itself fixes it
+    // without weakening this handler's real job (closing dropdowns for an
+    // ACTUAL outside click, e.g. tapping the page behind the menu).
     document.addEventListener('click', function(e) {
-        if (!nav.contains(e.target)) {
+        if (!nav.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
             nav.querySelectorAll('a[aria-haspopup="true"]').forEach(function(a) { a.closest('li').classList.remove('open'); });
         }
     });

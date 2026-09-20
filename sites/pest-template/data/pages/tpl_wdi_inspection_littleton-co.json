@@ -199,7 +199,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "hero_subtext",
             "_ai_input_hash": "b29a8db15d949eda",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -247,7 +248,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "city_intro",
             "_ai_input_hash": "401f96f28c02ba7f",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_1"
         },
         {
             "type": "ai_block",
@@ -284,7 +286,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "feature_columns_local",
             "_ai_input_hash": "eed09a169d90199b",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "ai_block_2"
         },
         {
             "type": "steps",
@@ -310,7 +313,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "steps_local",
             "_ai_input_hash": "ba8860db2b6194d7",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "steps_1"
         },
         {
             "type": "cta_banner",
@@ -350,7 +354,8 @@
             "_it_photo_prechart": "sites/pest-template/uploads/media/best-wdi-inspection-katy_8574ff.webp",
             "it_caption": "{chart_group_structure_caption}",
             "it_ratio": "auto",
-            "it_layout": "stacked"
+            "it_layout": "stacked",
+            "id": "ai_block_3"
         },
         {
             "type": "feature_columns",
@@ -487,7 +492,8 @@
             "_ai_input_hash": "7de3aa1d65e4a7f5",
             "_ai_locked": true,
             "skin": "dark",
-            "fq_open": true
+            "fq_open": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "cta_banner",
