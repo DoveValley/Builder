@@ -561,7 +561,19 @@ switch ($action) {
         $gDom  = strtolower(trim((string) ($_POST['domain'] ?? '')));
         if (!in_array($gStep, infra_pipeline_step_keys(), true)) { echo json_encode(['error' => 'Unknown step.']); break; }
         set_time_limit(0);
-        echo json_encode(infra_pipeline_refresh($gStep, $masterId . '/' . $batchId, $gDom));
+        // The 'zone' cell reads infra_cf_zone_index(), a cached fleet-wide Cloudflare
+        // sweep — without forcing it fresh here, a manual "check now" on this one
+        // domain kept reporting the cached answer and the button's "0s ago" timestamp
+        // was true of the CHECK, not of what it found. 'live' never had this problem
+        // (infra_site_check_run() is a real per-domain HTTP request, no cache to
+        // bypass) which is why the bug stayed invisible until 'zone' got a refresh
+        // button too. Same bracketing infra_pipeline_do() already uses around its own
+        // post-action refresh.
+        require_once __DIR__ . '/infra/lib/cache.php';
+        infra_cache_force(true);
+        $result = infra_pipeline_refresh($gStep, $masterId . '/' . $batchId, $gDom);
+        infra_cache_force(false);
+        echo json_encode($result);
         break;
 
     case 'create_hosts_status':

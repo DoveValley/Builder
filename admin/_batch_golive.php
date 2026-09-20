@@ -171,7 +171,14 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         await loadGoLive();
     };
 
-    window.msGoLiveRefreshLive = async function (domain, btn) {
+    // Generic re-check for any step's cell — golive_refresh already accepted any
+    // step key, only the 'live' column ever had a button wired to it. The CF Zone
+    // column had no way to notice a zone deleted outside this page (e.g. the
+    // Infra console's Danger Zone) other than reloading and waiting for whatever
+    // cron/sweep happens to touch it — the row just kept showing "Take offline"
+    // for an account-move that had already deleted the zone underneath it, since
+    // the button choice reads the STORED cell, not a live Cloudflare check.
+    window.msGoLiveRefreshStep = async function (step, domain, btn) {
         btn.disabled = true;
         // POST + csrf_token via the shared post() helper — this used to be a bare,
         // tokenless GET, the one action on this page that never rode the file's CSRF
@@ -179,7 +186,7 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         // request here still falls through to loadGoLive() below, which fully
         // re-renders this row (a fresh button included) rather than leaving the ↻
         // button stuck disabled.
-        await post('golive_refresh', { step: 'live', domain: domain });
+        await post('golive_refresh', { step: step, domain: domain });
         await loadGoLive();
     };
 
@@ -252,12 +259,18 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
 
     function renderRow(r) {
         const zoneOk = r.zone.state === 'ok';
-        const zoneBtn = zoneOk
+        const zoneBtn = (zoneOk
             ? '<button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msGoLiveOffline(\'' + esc(r.domain) + '\', this)">Take offline</button>'
-            : '<button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msGoLiveZone(\'' + esc(r.domain) + '\', this)">Create zone</button>';
+            : '<button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msGoLiveZone(\'' + esc(r.domain) + '\', this)">Create zone</button>') +
+            ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Re-check with Cloudflare now — this cell can go stale if the zone changed outside this page" onclick="msGoLiveRefreshStep(\'zone\', \'' + esc(r.domain) + '\', this)">↻</button>';
 
         const canRelease = zoneOk && r.upload_ok && r.golive.state !== 'ok';
-        let goLiveCell = badge(r.golive);
+        let goLiveCell = badge(r.golive) +
+            // Same class of staleness as the Zone column's ↻: this cell is a stored
+            // checkpoint, not a live read, so a status change made elsewhere (e.g.
+            // resetting to awaiting-ns on the domain's own Edit card after a zone
+            // move) sits invisible here until something re-checks it.
+            ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Re-check now — this cell is a stored checkpoint and can go stale" onclick="msGoLiveRefreshStep(\'golive\', \'' + esc(r.domain) + '\', this)">↻</button>';
         if (r.golive.state !== 'ok') {
             const why = !zoneOk ? 'needs the Cloudflare zone first' : (!r.upload_ok ? 'needs Upload sites (card 5) first' : '');
             goLiveCell += ' <button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;"' +
@@ -271,7 +284,7 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
                 esc(r.domain) + ' ↗</a>';
         } else {
             liveCell = badge(r.live) +
-                ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Check now" onclick="msGoLiveRefreshLive(\'' + esc(r.domain) + '\', this)">↻</button>';
+                ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Check now" onclick="msGoLiveRefreshStep(\'live\', \'' + esc(r.domain) + '\', this)">↻</button>';
         }
 
         return '<tr>' +

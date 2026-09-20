@@ -102,7 +102,29 @@ switch ($action) {
         header('Location: ' . $back); exit;
 
     case 'delete_zone':
-        if (!$account || ($rec['cf_zone_id'] ?? '') === '') { infra_set_flash('warn', 'No Cloudflare zone on record.'); header('Location: ' . $back); exit; }
+        $zoneId = trim((string) ($rec['cf_zone_id'] ?? ''));
+        if ($zoneId === '') {
+            // Nothing left at Cloudflare to delete, but a stale cf_account_id can be
+            // sitting here from an earlier deletion done before this field was
+            // included in the clear-out below. Fix it right here, on the SAME
+            // button, rather than leaving a domain that needs a one-off CLI/DB
+            // patch to recover from — "Create zone" reuses whatever account_id is
+            // on record, so a leftover one silently sends a fresh zone right back
+            // to the same (possibly closed) account. Found moving
+            // baileyrestoration.com off a closed account, 2026-09-20.
+            if (($rec['cf_account_id'] ?? '') !== '') {
+                infra_state_upsert_domain(['domain' => $domain, 'cf_account_id' => '']);
+                infra_cache_flush();
+                infra_set_flash('ok', 'No Cloudflare zone to delete, but cleared a stale account reference on this domain — "Create zone" will pick a fresh account now.');
+            } else {
+                infra_set_flash('warn', 'No Cloudflare zone on record.');
+            }
+            header('Location: ' . $back); exit;
+        }
+        if (!$account) {
+            infra_set_flash('err', 'A zone id is on record but its Cloudflare account is unknown — check the account binding before deleting.');
+            header('Location: ' . $back); exit;
+        }
         // A domain registered AT Cloudflare is permanently pinned to Cloudflare's own
         // nameservers by the registration itself — its zone can never be deleted via
         // the API, full stop (see docs.php's Registrars section). Checking this up
@@ -113,7 +135,15 @@ switch ($action) {
             header('Location: ' . $back); exit;
         }
         $r = cf_delete_zone($account, $rec['cf_zone_id']);
-        if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'cf_zone_id' => '', 'nameservers' => '']);
+        // cf_account_id goes blank too, not just cf_zone_id/nameservers. The 'zone'
+        // pipeline step reuses whatever account_id is on record — sensibly, so an
+        // existing zone never gets silently relocated — but with the zone gone
+        // there is nothing left to preserve continuity with, and leaving it behind
+        // meant "Create zone" just recreated the deleted zone in the SAME account
+        // (even a closed one) instead of letting the box's currently open account
+        // be picked fresh. Found the hard way moving baileyrestoration.com off a
+        // closed account, 2026-09-20.
+        if ($r['ok']) infra_state_upsert_domain(['domain' => $domain, 'cf_zone_id' => '', 'cf_account_id' => '', 'nameservers' => '']);
         infra_cache_flush();
         infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete CF zone: {$r['message']}");
         header('Location: ' . $back); exit;
