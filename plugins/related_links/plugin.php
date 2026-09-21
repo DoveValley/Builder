@@ -47,7 +47,10 @@ function related_links_resolve(array $candidates, int $max = 3): array {
         $resolvedUrl = resolve_shortcodes($url);
         if (isset($resolvedUrl[0]) && $resolvedUrl[0] === '/') {
             $slug = trim((string) parse_url($resolvedUrl, PHP_URL_PATH), '/');
-            if ($slug !== '' && strpos($slug, '/') === false && !ms_page_slug_exists($slug)) {
+            // ms_page_slug_exists() only knows flat top-level page slugs, so a nested-path
+            // candidate (e.g. blog/some-post) naturally never matches and falls through to
+            // skip below — no special-case exemption for it needed or wanted.
+            if ($slug !== '' && !ms_page_slug_exists($slug)) {
                 continue; // this candidate was not built for this domain — skip, never guess
             }
         }

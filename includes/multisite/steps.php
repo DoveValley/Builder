@@ -472,7 +472,7 @@ function ms_step_readiness(string $masterId, string $batchId): array {
  *
  * @return array{domains_total:int, blog:array{domains_needing:int}, images:array{pending_slots:int,domains_affected:int}}
  */
-function ms_batch_pending_summary(string $masterId, string $batchId): array {
+function ms_batch_pending_summary(string $masterId, string $batchId, string $only = '', int $limit = 0): array {
     $masterDir = ms_master_dir($masterId);
     $batchDir  = ms_batch_dir($masterId, $batchId);
     $cacheDir  = $masterDir . '/multisite/cache';
@@ -488,6 +488,16 @@ function ms_batch_pending_summary(string $masterId, string $batchId): array {
             }
         }
     }
+
+    // Same --only/--limit semantics run_campaign.php itself applies (multisite/run_campaign.php)
+    // — a scoped run's pre-flight summary must count exactly what that run will touch, not the
+    // whole batch, or the confirmation dialog overstates pending work for a limited/single-domain
+    // test run.
+    if ($only !== '') {
+        $onlyList = array_map('trim', array_map('strtolower', explode(',', $only)));
+        $domains  = array_values(array_filter($domains, fn($d) => in_array($d, $onlyList, true)));
+    }
+    if ($limit > 0) $domains = array_slice($domains, 0, $limit);
 
     // Same slug formula ms_generate_ai_images_for_domain() keys its persist cache
     // with (includes/multisite/image_ai.php) — must stay identical or every domain

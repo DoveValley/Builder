@@ -96,7 +96,10 @@ function services_links_resolve(array $cfg, array $filter = ['brand' => '', 'typ
         if ($name === '') continue;
         if (isset($url[0]) && $url[0] === '/') {
             $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
-            if ($slug !== '' && strpos($slug, '/') === false && !ms_page_slug_exists($slug)) continue;
+            // ms_page_slug_exists() only knows flat top-level page slugs, so a nested-path
+            // candidate naturally never matches and falls through to skip below — no
+            // special-case exemption for it needed or wanted.
+            if ($slug !== '' && !ms_page_slug_exists($slug)) continue;
         }
         $links[] = [$name, $url];
     }

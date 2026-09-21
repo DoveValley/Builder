@@ -1544,7 +1544,13 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     window.msRun = function () {
         const skip  = msBuildSkipList();
         const force = document.getElementById('ms-force').checked;
-        fetch('multisite_api.php?action=preflight_summary')
+        // Scope the counts to what THIS run will actually touch — otherwise a
+        // single-domain test run's dialog shows pending counts for the whole batch,
+        // even while the same dialog correctly says "Limited to: ...".
+        const only  = document.getElementById('ms-run-only').value.trim();
+        const limit = document.getElementById('ms-limit').value;
+        const qs = new URLSearchParams({ action: 'preflight_summary', only, limit });
+        fetch('multisite_api.php?' + qs.toString())
             .then(r => r.json())
             .then(summary => msRenderPreflight(skip, force, summary.error ? null : summary))
             .catch(() => msRenderPreflight(skip, force, null));

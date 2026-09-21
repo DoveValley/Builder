@@ -61,6 +61,13 @@ $research      = !empty($_POST['research']);
 $refresh       = !empty($_POST['refresh']);
 $dryRun        = !empty($_POST['dry_run']);
 $force         = !empty($_POST['force']);
+// Each defaults to checked in the tab (see admin/tabs/ai.php ai-reword-wrap) so an
+// unmodified form keeps today's behavior — only an explicit uncheck skips a pass.
+$skipLegal       = empty($_POST['legal_reword']);
+$skipDisclaimer  = empty($_POST['disclaimer_reword']);
+$skipTagline     = empty($_POST['tagline_reword']);
+$skipPopup       = empty($_POST['popup_reword']);
+$skipBlog        = empty($_POST['blog_posts']);
 $modelOverride = '';
 $_mo = trim($_POST['model_override'] ?? '');
 if (model_is_valid($_mo)) {
@@ -127,6 +134,14 @@ switch ($action) {
         if ($tag    && ($scope === 'landing' || $scope === 'all')) { $parts[] = '--tag';  $parts[] = escapeshellarg($tag); }
         if ($dryRun)         $parts[] = '--dry-run';
         if ($modelOverride)  { $parts[] = '--model'; $parts[] = escapeshellarg($modelOverride); }
+        // Only take effect for core/all scope (generate.py's own gate), but harmless to
+        // always pass — lets the operator skip any of the 4 one-time reword passes or
+        // blog generation instead of them silently firing with no way to opt out.
+        if ($skipLegal)      $parts[] = '--no-legal-reword';
+        if ($skipDisclaimer) $parts[] = '--no-disclaimer-reword';
+        if ($skipTagline)    $parts[] = '--no-tagline-reword';
+        if ($skipPopup)      $parts[] = '--no-popup-reword';
+        if ($skipBlog)       $parts[] = '--no-blog';
         break;
 }
 

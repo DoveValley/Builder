@@ -920,10 +920,13 @@ function infra_reg_cloudflare_register(string $domain, int $years, array $cfg, a
     if (empty($j['success'])) {
         return ['ok' => false, 'message' => 'Cloudflare: ' . ($j['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
     }
-    // 201 = done; 202 = accepted and still running, which must not be read as owned.
+    // 201 = done; 202 = accepted and still running, which must not be read as owned yet
+    // — same event Gandi/Spaceship report as pending, not a failure. A plain ok=false
+    // here used to get this recorded as buy-failed for a purchase that may still land.
     $state = (string) ($j['result']['state'] ?? '');
     if ($state !== 'succeeded' && empty($j['result']['completed'])) {
-        return ['ok' => false, 'message' => "Cloudflare: registration accepted but not confirmed (state '{$state}') — check the dashboard before treating it as owned"];
+        return ['ok' => true, 'pending' => true,
+                'message' => "Cloudflare: registration accepted (state '{$state}') — it completes asynchronously, check the dashboard before treating it as owned"];
     }
     $msg = "Cloudflare: registered {$domain} at cost, contact from " . $c['_source'];
 
@@ -1104,7 +1107,7 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
             return ['ok' => $r['ok'], 'message' => $r['message'], 'pending' => $r['pending'] ?? false];
         case 'spaceship':
             $r = infra_reg_spaceship_register($domain, $years, $cfg, $opts);
-            return ['ok' => $r['ok'], 'message' => $r['message']];
+            return ['ok' => $r['ok'], 'message' => $r['message'], 'pending' => $r['pending'] ?? false];
         case 'namesilo':
             $r = infra_reg_namesilo_register($domain, $years, $cfg, $ns, $opts);
             return ['ok' => $r['ok'], 'message' => $r['message']];
@@ -1119,7 +1122,7 @@ function infra_registrar_register(string $domain, int $years, string $registrarN
             return ['ok' => $r['ok'], 'message' => $r['message']];
         case 'cloudflare':
             $r = infra_reg_cloudflare_register($domain, $years, $cfg, $opts);
-            return ['ok' => $r['ok'], 'message' => $r['message']];
+            return ['ok' => $r['ok'], 'message' => $r['message'], 'pending' => $r['pending'] ?? false];
         default:
             return ['ok' => false, 'message' => "auto-registration not wired for '{$registrarName}' — register manually"];
     }
@@ -1508,7 +1511,11 @@ function infra_reg_spaceship_register(string $domain, int $years, array $cfg, ar
             $msg .= $a['ok'] ? ', auto-renew ON'
                              : ' ⚠ auto-renew NOT confirmed (' . $a['message'] . ') — set it before the term lapses';
         }
-        return ['ok' => true, 'message' => $msg];
+        // Accepted is not registered — same as Gandi below. Without 'pending' here,
+        // infra_domain_buy()'s confirm-before-receipt polling never triggers for
+        // Spaceship at all, and an order that's merely accepted gets a receipt
+        // written immediately, same risk the Gandi comment describes.
+        return ['ok' => true, 'pending' => true, 'message' => $msg];
     }
     return ['ok' => false, 'message' => 'Spaceship error: ' . $r['message']];
 }
@@ -1541,6 +1548,9 @@ function infra_reg_spaceship_set_autorenew(string $domain, bool $on, array $cfg)
 function infra_reg_dynadot_set_ns(string $domain, array $ns, array $cfg): array
 {
     $ns = array_values(array_filter(array_map('trim', $ns)));
+    if (count($ns) < 2) {
+        return ['ok' => false, 'manual' => false, 'message' => 'Dynadot requires at least 2 nameservers'];
+    }
     $q  = ['key' => $cfg['api_key'] ?? '', 'command' => 'set_ns', 'domain' => $domain];
     foreach (array_slice($ns, 0, 13) as $i => $n) $q['ns' . $i] = $n;   // ns0..ns12
     $r = infra_http('GET', 'https://api.dynadot.com/api3.json?' . http_build_query($q), ['verify' => true, 'timeout' => 30]);
@@ -1563,6 +1573,9 @@ function infra_reg_dynadot_set_ns(string $domain, array $ns, array $cfg): array
 function infra_reg_namecheap_set_ns(string $domain, array $ns, array $cfg): array
 {
     $ns    = array_values(array_filter(array_map('trim', $ns)));
+    if (count($ns) < 2) {
+        return ['ok' => false, 'manual' => false, 'message' => 'Namecheap requires at least 2 nameservers'];
+    }
     $parts = explode('.', $domain, 2);
     $sld   = $parts[0];
     $tld   = $parts[1] ?? '';

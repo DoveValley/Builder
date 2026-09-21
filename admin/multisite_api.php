@@ -665,7 +665,7 @@ switch ($action) {
             'ftp_pass'     => $newPass !== '' ? $newPass : ($existing['ftp_pass'] ?? ''),
             'ftp_path'     => trim((string) ($_POST['ftp_path'] ?? '')),
             'ftp_passive'  => !empty($_POST['ftp_passive']),
-            'view_url'     => trim((string) ($_POST['view_url'] ?? '')),
+            'view_url'     => sanitize_url((string) ($_POST['view_url'] ?? '')),
         ];
         $ok = @file_put_contents(ms_test_deploy_path(), json_encode($cfg, JSON_PRETTY_PRINT)) !== false;
         if ($ok) @chmod(ms_test_deploy_path(), 0600);
@@ -858,7 +858,9 @@ switch ($action) {
     case 'preflight_summary':
         require_once __DIR__ . '/../includes/multisite/image_ai.php';
         require_once __DIR__ . '/../includes/multisite/steps.php';
-        echo json_encode(ms_batch_pending_summary($masterId, $batchId));
+        $pfOnly  = trim((string) ($_POST['only'] ?? $_GET['only'] ?? ''));
+        $pfLimit = (int) ($_POST['limit'] ?? $_GET['limit'] ?? 0);
+        echo json_encode(ms_batch_pending_summary($masterId, $batchId, $pfOnly, $pfLimit));
         break;
 
     // Launch a batch run as a detached background process.

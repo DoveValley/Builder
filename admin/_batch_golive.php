@@ -287,11 +287,14 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
                 ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Check now" onclick="msGoLiveRefreshStep(\'live\', \'' + esc(r.domain) + '\', this)">↻</button>';
         }
 
+        const dnsCell = badge(r.dns) +
+            ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Re-check with Cloudflare now — this cell can go stale the same way Zone/Go Live can" onclick="msGoLiveRefreshStep(\'dns\', \'' + esc(r.domain) + '\', this)">↻</button>';
+
         return '<tr>' +
             '<td>' + esc(r.domain) + '</td>' +
             '<td>' + badge(r.zone) + ' ' + zoneBtn + '</td>' +
             '<td>' + goLiveCell + '</td>' +
-            '<td>' + badge(r.dns) + '</td>' +
+            '<td>' + dnsCell + '</td>' +
             '<td>' + liveCell + '</td>' +
             '</tr>';
     }

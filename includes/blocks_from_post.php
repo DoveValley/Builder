@@ -255,6 +255,7 @@ function parse_blocks_from_post(): array {
                 $block['mi_info_heading'] = trim($_POST['mi_info_heading'][$i] ?? '');
                 $block['mi_info_text']    = trim($_POST['mi_info_text'][$i]    ?? '');
                 $block['mi_info_alt']     = trim($_POST['mi_info_alt'][$i]     ?? '');
+                $block['mi_info_credit']  = trim($_POST['mi_info_credit'][$i]  ?? '');
                 // Sanitize map embed — only allow iframe tag, strip event attributes
                 $rawEmbed = trim($_POST['mi_map_embed'][$i] ?? '');
                 $rawEmbed = preg_replace('/\s+on\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]*)/i', '', $rawEmbed);

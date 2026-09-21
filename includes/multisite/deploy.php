@@ -570,6 +570,18 @@ function deploy_site(array $ftp, string $outputBase, string $manifestFile, bool 
             } else {
                 $failed++;
                 progress_log("Failed:   {$rel}", 'error');
+                // A dropped connection makes every remaining put() fail the same way —
+                // stop early rather than grind through the whole list, same reasoning as
+                // the SFTP branch above. Classic FTP has no isConnected(); ftp_pwd() is a
+                // cheap round-trip that fails the same way a put() would once the link is
+                // actually gone, without touching any file.
+                if (@ftp_pwd($conn) === false) {
+                    $remaining = $ftpTotal - ($uploaded + $failed);
+                    if ($remaining > 0) $failed += $remaining;
+                    progress_log("FTP connection lost — {$remaining} file(s) not uploaded.", 'error');
+                    progress_tick($uploaded + $failed, $ftpTotal);
+                    break;
+                }
             }
             progress_tick($uploaded + $failed, $ftpTotal);
         }

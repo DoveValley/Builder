@@ -247,6 +247,29 @@ function fmt_dur(int $ms): string {
                 Dry run (no API calls)
             </label>
         </div>
+        <div class="ai-trigger-row" id="ai-reword-wrap" style="display:none;margin-bottom:16px;flex-wrap:wrap;gap:14px 20px;align-items:center;">
+            <span class="hint" style="font-weight:600;">Core/All also runs, once per domain unless unchecked:</span>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="legal_reword" value="1" checked>
+                Reword legal pages
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="disclaimer_reword" value="1" checked>
+                Reword footer disclaimer
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="tagline_reword" value="1" checked>
+                Reword footer tagline
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="popup_reword" value="1" checked>
+                Reword info-popup disclosure
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;font-weight:500;font-size:.83rem;cursor:pointer;margin:0;">
+                <input type="checkbox" name="blog_posts" value="1" checked>
+                Generate blog posts
+            </label>
+        </div>
         <div style="display:flex;align-items:center;gap:12px;">
             <button type="submit" class="ai-run-btn" id="ai-run-btn">&#9654; Run</button>
             <div class="ai-spinner" id="ai-spinner"></div>
@@ -452,6 +475,7 @@ function fmt_dur(int $ms): string {
     }
     var scopeWrap    = document.getElementById('ai-scope-wrap');
     var researchWrap = document.getElementById('ai-research-wrap');
+    var rewordWrap   = document.getElementById('ai-reword-wrap');
 
     var scopeSelEl = document.getElementById('ai-scope');
     function updateVisibility() {
@@ -463,6 +487,13 @@ function fmt_dur(int $ms): string {
         if (tagWrap) tagWrap.style.display = cityApplies ? '' : 'none';
         scopeWrap.style.display    = action === 'generate' ? '' : 'none';
         researchWrap.style.display = action === 'generate' ? '' : 'none';
+        // The 4 reword passes + blog generation only fire for core/all scope (see
+        // generate.py's `if args.all or args.page == 'core':` gate) — hide the
+        // checkboxes the rest of the time so they can't be mistaken for controlling
+        // homepage/landing runs, which never touch them regardless of checked state.
+        if (rewordWrap) {
+            rewordWrap.style.display = (action === 'generate' && (scope === 'core' || scope === 'all')) ? '' : 'none';
+        }
     }
     actionSel.addEventListener('change', updateVisibility);
     if (scopeSelEl) scopeSelEl.addEventListener('change', updateVisibility);

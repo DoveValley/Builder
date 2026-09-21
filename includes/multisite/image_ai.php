@@ -184,6 +184,14 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         $persistFile = $persistDir . '/' . $filename;
         $url         = 'uploads/media/' . $filename;
 
+        // Checked BEFORE the cache-hit branch too, not just the needs-generation path
+        // below — a field currently holding a locked {token} placeholder is not ours to
+        // overwrite, whether or not a matching cache entry happens to exist for this slot.
+        $currentValue = (string) $block[$field];
+        if (str_contains($currentValue, '{')) {
+            $out['failed']++; $out['errors'][] = "$slotKey: current value is a locked {token}, not ours to touch"; continue;
+        }
+
         if (is_file($persistFile)) {
             if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
             if (!copy($persistFile, $mediaDir . $filename)) {
@@ -194,11 +202,6 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             $dirty = true;
             $out['cached']++;
             continue;
-        }
-
-        $currentValue = (string) $block[$field];
-        if (str_contains($currentValue, '{')) {
-            $out['failed']++; $out['errors'][] = "$slotKey: current value is a locked {token}, not ours to touch"; continue;
         }
 
         $refPath = $workingDir . '/' . ltrim($currentValue, '/');

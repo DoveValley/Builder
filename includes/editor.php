@@ -606,6 +606,10 @@ function render_content_blocks_editor($blocks) {
                         <label>Image alt text (SEO)</label>
                         <input type="text" name="it_alt[]" value="<?= h($block['it_alt'] ?? '') ?>" placeholder="Describe the image for search engines">
                     </div>
+                    <div class="form-group">
+                        <label>Caption (optional)</label>
+                        <input type="text" name="it_caption[]" value="<?= h($block['it_caption'] ?? '') ?>" placeholder="Shown under the image">
+                    </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div style="flex:1 1 160px;">
                             <label>Picture shape</label>
@@ -756,6 +760,10 @@ function render_content_blocks_editor($blocks) {
                         <textarea name="mi_map_embed[]" rows="4" placeholder='Paste your Google Maps <iframe ...> embed code here'><?= h($block['mi_map_embed'] ?? '') ?></textarea>
                         <span class="hint">Go to Google Maps → Share → Embed a map → copy the &lt;iframe&gt; code.</span>
                     </div>
+                    <div class="form-group">
+                        <label>Map caption (optional)</label>
+                        <input type="text" name="mi_map_caption[]" value="<?= h($block['mi_map_caption'] ?? '') ?>" placeholder="Shown under the map">
+                    </div>
 
                     <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Info Panel</h4>
                     <div class="form-group">
@@ -779,6 +787,10 @@ function render_content_blocks_editor($blocks) {
                     <div class="form-group">
                         <label>Photo alt text</label>
                         <input type="text" name="mi_info_alt[]" value="<?= h($block['mi_info_alt'] ?? '') ?>" placeholder="e.g. Katy TX shopping center">
+                    </div>
+                    <div class="form-group">
+                        <label>Photo credit (optional)</label>
+                        <input type="text" name="mi_info_credit[]" value="<?= h($block['mi_info_credit'] ?? '') ?>" placeholder="e.g. Photo courtesy of...">
                     </div>
                 </div>
 

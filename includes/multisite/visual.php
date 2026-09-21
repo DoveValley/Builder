@@ -630,6 +630,18 @@ function ms_apply_palette_jitter(array &$data, string $domain): int {
         // legibility change, it is arithmetic.
         if ($now < 4.5) { $theme[$bgKey] = $old; $n--; }
     }
+    // heading_color is jittered above like any other key, but it's a TEXT color used as
+    // --skin-light-heading / --skin-subtle-heading (includes/theme.php) against two
+    // STATIC backgrounds (#ffffff, #f8fafc) — not another theme key, so it can't be
+    // expressed as a [$textKey, $bgKey] pair the way header_text/footer_text are. The
+    // generic loop above also only knows how to revert a jittered BACKGROUND; here the
+    // jittered side IS the text, so a failing check reverts heading_color itself.
+    $hcOld = (string) ($before['heading_color'] ?? '');
+    $hcNow = (string) ($theme['heading_color']  ?? '');
+    if ($hcOld !== '' && $hcNow !== '' && ms_hex_to_rgb($hcOld)) {
+        $worst = min(ms_contrast_ratio($hcNow, '#ffffff'), ms_contrast_ratio($hcNow, '#f8fafc'));
+        if ($worst < 4.5) { $theme['heading_color'] = $hcOld; $n--; }
+    }
     $data['theme'] = $theme;
     return max($n, 0);
 }
