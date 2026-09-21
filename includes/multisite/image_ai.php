@@ -178,8 +178,14 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             $out['failed']++; $out['errors'][] = "$slotKey: $msg"; continue;
         }
 
+        // picdrop_get()/picdrop_set() (includes/picdrop.php), not plain array access —
+        // $field can be a dotted path into a repeater row (e.g. "ts_tabs.0.photo"), which
+        // a bare $block[$field] treats as one literal (nonexistent) key instead of
+        // descending into it. Every tab_services slot silently failed with "field not
+        // present" until this was fixed — found while backfilling block ids for a
+        // different bug, confirmed the failure predates this change entirely.
         $field = $parts['field'];
-        if (!array_key_exists($field, $block)) {
+        if (picdrop_get($block, $field) === null) {
             $out['failed']++; $out['errors'][] = "$slotKey: field '$field' not present on that block"; continue;
         }
 
@@ -200,7 +206,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // Checked BEFORE the cache-hit branch too, not just the needs-generation path
         // below — a field currently holding a locked {token} placeholder is not ours to
         // overwrite, whether or not a matching cache entry happens to exist for this slot.
-        $currentValue = (string) $block[$field];
+        $currentValue = (string) picdrop_get($block, $field);
         if (str_contains($currentValue, '{')) {
             $out['failed']++; $out['errors'][] = "$slotKey: current value is a locked {token}, not ours to touch"; continue;
         }
@@ -210,7 +216,9 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             if (!copy($persistFile, $mediaDir . $filename)) {
                 $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but could not be copied into this build"; continue;
             }
-            $block[$field]   = $url;
+            if (!picdrop_set($block, $field, $url)) {
+                $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but the field path could not be written"; continue;
+            }
             $cache[$slotKey] = ($cache[$slotKey] ?? []) + ['url' => $url];
             $dirty = true;
             $out['cached']++;
@@ -302,7 +310,9 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
                 // photo is already made and cached, so fail loudly rather than lose it.
                 $out['failed']++; $out['errors'][] = "$slotKey: generated but the block moved before it could be written — file is cached at {$p['persistFile']} for the next attempt"; continue;
             }
-            $block[$p['field']] = $p['url'];
+            if (!picdrop_set($block, $p['field'], $p['url'])) {
+                $out['failed']++; $out['errors'][] = "$slotKey: generated but the field path could not be written — file is cached at {$p['persistFile']} for the next attempt"; continue;
+            }
             unset($block);
 
             $cache[$slotKey] = ['url' => $p['url'], 'prompt' => $p['prompt'], 'generated_at' => date('Y-m-d H:i:s')];
@@ -358,9 +368,13 @@ function &ms_image_ai_resolve_block(array &$site, array $parts, string $blockTyp
     // saved a cache entry claiming success while site.json quietly kept the old photo.
     $blocks = &$site['content_blocks'];
 
+    // picdrop_get() not array_key_exists() — $parts['field'] can be a dotted path into a
+    // repeater row (e.g. "ts_tabs.0.photo"), which array_key_exists() only ever checks as
+    // one literal (nonexistent) top-level key. Every tab_services slot failed "field not
+    // present" until this was fixed, regardless of id/type matching.
     if ($blockId !== '') {
         foreach ($blocks as $i => $candidate) {
-            if (is_array($candidate) && ($candidate['id'] ?? '') === $blockId && array_key_exists($parts['field'], $candidate)) {
+            if (is_array($candidate) && ($candidate['id'] ?? '') === $blockId && picdrop_get($candidate, $parts['field']) !== null) {
                 return $blocks[$i];
             }
         }
@@ -372,7 +386,7 @@ function &ms_image_ai_resolve_block(array &$site, array $parts, string $blockTyp
     $matchIndex = null;
     $matchCount = 0;
     foreach ($blocks as $i => $candidate) {
-        if (is_array($candidate) && ($candidate['type'] ?? '') === $blockType && array_key_exists($parts['field'], $candidate)) {
+        if (is_array($candidate) && ($candidate['type'] ?? '') === $blockType && picdrop_get($candidate, $parts['field']) !== null) {
             $matchCount++;
             if ($matchIndex === null) $matchIndex = $i;
         }
