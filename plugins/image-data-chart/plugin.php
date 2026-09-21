@@ -58,6 +58,38 @@ function city_chart_current_city(): array
     return $city;
 }
 
+/**
+ * The data table + methodology line for a chart image, given the photo value a block is about
+ * to render — or '' when that photo isn't one of this plugin's charts, or the current page's
+ * city has no data for it.
+ *
+ * Called from includes/blocks.php's render_content_photo(), which has no idea what a "chart"
+ * is — it only knows an image and a caption. Recovering the chart id from the filename (rather
+ * than plumbing one through every block type that can hold a photo) keeps that function
+ * ignorant of this plugin's existence, guarded by function_exists() the same way the rest of
+ * this codebase treats an optional plugin.
+ */
+function city_chart_table_for_photo(string $photo): string
+{
+    if (!defined('ACTIVE_SITE_DIR') || !ACTIVE_SITE_DIR) return '';
+    // Chart ids are always [a-z][a-z0-9_]* (city_chart_definitions() enforces it) and never
+    // contain a hyphen, so the first hyphen after "chart-" is always the id/city-slug boundary.
+    // city_chart_render() bakes a "?v=<mtime>" cache-buster onto the resolved path (render.php),
+    // so this can't anchor strictly on ".webp" at end-of-string — it has to tolerate a trailing
+    // query string too.
+    if (!preg_match('#chart-([a-z][a-z0-9_]*)-[^/?]+\.webp(?:\?.*)?$#', basename($photo), $m)) return '';
+
+    $niche = city_chart_niche(ACTIVE_SITE_DIR);
+    $def   = city_chart_definitions($niche)[$m[1]] ?? null;
+    if (!$def) return '';
+
+    $city   = city_chart_current_city();
+    $series = city_chart_series($def, $city);
+    if (!$series) return '';
+
+    return city_chart_table_html($def, $series, $city);
+}
+
 /** Site theme colours, so a chart matches the site it sits on. */
 function city_chart_theme(): array
 {

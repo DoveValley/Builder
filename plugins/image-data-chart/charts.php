@@ -180,6 +180,16 @@ function city_chart_timeline_series(array $def, array $city): ?array
     ];
 }
 
+/**
+ * Trim to at most 1 decimal, dropping trailing zeros/dot ("3.0" -> "3", "3.5" stays "3.5").
+ * Shared between the chart's own text/captions and its data table, so a number can never
+ * print differently in one place than the other.
+ */
+function city_chart_format_number(float $n): string
+{
+    return rtrim(rtrim(number_format($n, 1), '0'), '.');
+}
+
 /** Fill {city}/{SS}/{unit}/{summary} in a definition's title or alt string. */
 function city_chart_text(string $tpl, array $city, array $def, array $series): string
 {
@@ -190,7 +200,7 @@ function city_chart_text(string $tpl, array $city, array $def, array $series): s
     $u = $unit === '' ? '' : ($unit === '%' ? '%' : ' ' . $unit);
     $maxI = array_keys($vals, max($vals))[0];
     $minI = array_keys($vals, min($vals))[0];
-    $fmt = fn($n) => rtrim(rtrim(number_format($n, 1), '0'), '.');
+    $fmt = fn($n) => city_chart_format_number($n);
 
     // A comparison's point is the gap, not the extremes. "Highest Lufkin, lowest US average" is
     // true and says nothing; describe it the way the picture does, so the alt text carries the
@@ -285,6 +295,66 @@ function city_chart_caption(array $def, array $city, array $series, string $doma
     $src = trim((string) ($series['source'] ?? ''));
     if ($src !== '' && stripos($text, $src) === false) $text .= ' Source: ' . $src . '.';
     return trim($text);
+}
+
+/**
+ * An HTML data table + methodology line for one chart, built from the exact same series the
+ * picture was drawn from — so the table can never disagree with the image, and the numbers
+ * become real, indexable text instead of pixels a crawler (or a screen reader) cannot read.
+ *
+ * Fully generic over `type` (bars/compare/timeline), same as the rest of this file: a new
+ * chart JSON gets a correct table for free, with no PHP change.
+ *
+ * @return string  '' when there is nothing to build.
+ */
+function city_chart_table_html(array $def, array $series, array $city): string
+{
+    $vals   = array_values($series['values'] ?? []);
+    $labels = array_values($series['labels'] ?? []);
+    if (!$vals) return '';
+
+    $type      = (string) ($def['type'] ?? 'bars');
+    $unit      = (string) ($def['unit'] ?? '');
+    $name      = (string) ($def['name'] ?? 'Data');
+    $isTimeline = $type === 'timeline';
+    $ss        = trim((string) ($city['SS'] ?? ''));
+    $cityLabel = trim((string) ($city['city'] ?? '')) . ($ss !== '' ? ', ' . $ss : '');
+
+    // A comparison's rows are places; a timeline's rows are the years themselves (no separate
+    // value column — the year IS the fact); everything else is some kind of period (a month, a
+    // decade bracket) paired with its own number.
+    $rowHeader = $type === 'compare' ? 'Location' : ($isTimeline ? 'Year' : 'Period');
+    $valHeader = $name . ($unit !== '' ? ' (' . $unit . ')' : '');
+
+    $head = '<tr><th scope="col">' . h($rowHeader) . '</th>'
+          . ($isTimeline ? '' : '<th scope="col">' . h($valHeader) . '</th>')
+          . '</tr>';
+
+    $rows = '';
+    foreach ($vals as $i => $v) {
+        $label = (string) ($labels[$i] ?? ($i + 1));
+        // The comparison's own city is always index 0 (city_chart_compare_series()) — worth a
+        // visual anchor so the reader's own number stands out from the benchmarks around it.
+        $rowClass = ($type === 'compare' && $i === 0) ? ' class="chart-row-self"' : '';
+        $rows .= '<tr' . $rowClass . '><th scope="row">' . h($label) . '</th>';
+        if (!$isTimeline) $rows .= '<td class="chart-data-num">' . h(city_chart_format_number($v)) . '</td>';
+        $rows .= '</tr>';
+    }
+
+    $caption = h($name . ($cityLabel !== '' ? ': ' . $cityLabel : ''));
+
+    // Only ever names a source cities.json actually carries for this chart — never invented,
+    // same rule as the chart's own numbers.
+    $source = trim((string) ($series['source'] ?? ''));
+    $method = 'Retrieved ' . date('F j, Y') . '.';
+    if ($source !== '') $method = 'Source: ' . $source . '. ' . $method;
+
+    return '<div class="chart-table-wrap"><table class="chart-data-table">'
+         . '<caption>' . $caption . '</caption>'
+         . '<thead>' . $head . '</thead>'
+         . '<tbody>' . $rows . '</tbody>'
+         . '</table></div>'
+         . '<p class="chart-method">' . h($method) . '</p>';
 }
 
 /**

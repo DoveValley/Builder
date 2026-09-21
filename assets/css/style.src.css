@@ -4831,6 +4831,56 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 /* Match the image's own box so the caption cannot be wider than the picture it describes. */
 .content-figcaption { max-width: 900px; }
 
+/* Chart data table + methodology line — the same facts as the picture above it, as real text a
+   crawler and a screen reader can both read. Same column width as the image/caption above it,
+   never wider, and wrapped in a scroll container (not the page body) so a table with more rows
+   than fit on a narrow screen scrolls itself instead of forcing horizontal scroll on everything
+   else on the page. */
+.chart-table-wrap {
+    max-width: 900px;
+    margin: 14px auto 0;
+    overflow-x: auto;
+}
+.chart-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+.chart-data-table caption {
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-heading, #12314f);
+    margin-bottom: 6px;
+}
+.chart-data-table th,
+.chart-data-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+.chart-data-table thead th {
+    font-weight: 600;
+    color: #64748b;
+    border-bottom-width: 2px;
+}
+.chart-data-table .chart-data-num,
+.chart-data-table thead th:last-child {
+    text-align: right;
+}
+.chart-data-table tr.chart-row-self th,
+.chart-data-table tr.chart-row-self td {
+    font-weight: 700;
+}
+.chart-method {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #64748b;
+    margin: 8px auto 0;
+    max-width: 900px;
+    font-style: italic;
+}
+
 /* Related Links block — pill/chip grid, same visual family as .lg-link (Links Grid) so it
    reads as "part of this site" rather than a bare list of blue underlined text. Anchor text
    is still full, descriptive prose (the actual SEO value) — the chip just gives it a real

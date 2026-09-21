@@ -70,11 +70,18 @@ function render_content_photo($photo, $ratio, $position, $alt = '', $pathPrefix 
     $html  = '<div class="' . $class . '"' . ($style !== '' ? ' style="' . h($style) . '"' : '') . '>';
     $html .= '<img src="' . h($src) . '" alt="' . $altAttr . '" ' . img_intrinsic_attrs($photo) . img_srcset($photo, $pathPrefix) . 'loading="lazy" style="object-position:' . h($position) . ';">';
     $html .= '</div>';
+    // A data chart carries a table of its own numbers + a source line right under it — the
+    // pixels are decorative once the numbers exist as real, indexable text. function_exists()
+    // guards this the way the rest of the codebase treats an optional plugin: this function
+    // never requires image-data-chart to exist, and does nothing for a non-chart photo.
+    $chartExtra = function_exists('city_chart_table_for_photo') ? city_chart_table_for_photo($photo) : '';
     // A <figcaption> belongs to its image, which is what makes the text and the picture read as
     // one thing to a person and to a crawler.
-    if (trim((string) $caption) !== '') {
+    if (trim((string) $caption) !== '' || $chartExtra !== '') {
         $html = '<figure class="content-figure">' . $html
-              . '<figcaption class="content-figcaption">' . h(trim((string) $caption)) . '</figcaption></figure>';
+              . (trim((string) $caption) !== '' ? '<figcaption class="content-figcaption">' . h(trim((string) $caption)) . '</figcaption>' : '')
+              . $chartExtra
+              . '</figure>';
     }
     return $html;
 }
