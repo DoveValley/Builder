@@ -26,6 +26,7 @@
 
     <div style="margin-top:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
         <button type="button" class="btn btn-primary" id="ms-srv-save" onclick="msSaveServers()">Save plan</button>
+        <button type="button" class="btn" onclick="msDistributeRoundRobin()">&#8646; Distribute round-robin</button>
         <button type="button" class="btn" onclick="msLoadServers(true)">&#8635; Re-read fleet</button>
         <span id="ms-srv-msg" class="hint"></span>
     </div>
@@ -147,6 +148,28 @@
         });
         return out;
     }
+
+    // One click instead of hand-typing counts: spread the batch's targets one at a time
+    // across every CHECKED server in the order they appear on screen, then wrap back to
+    // the front for the remainder — the same "fill each box once before any box twice"
+    // shape as spreading 7 sites over 5 servers (2,2,1,1,1), or 12 over 5 (3,3,2,2,2).
+    // Only fills counts locally; Save plan still persists it, same as a hand-typed count.
+    window.msDistributeRoundRobin = function () {
+        const boxes = Array.from(document.querySelectorAll('.ms-srv-use')).filter(cb => cb.checked);
+        const msg = document.getElementById('ms-srv-msg');
+        if (!boxes.length) { msg.textContent = 'Check at least one server first.'; msg.style.color = '#b91c1c'; return; }
+        if (!msTargets) { msg.textContent = 'No targets on this batch to distribute.'; msg.style.color = '#b91c1c'; return; }
+        const n = boxes.length;
+        const base = Math.floor(msTargets / n);
+        const extra = msTargets % n;               // first `extra` servers (on-screen order) get one more
+        boxes.forEach(function (cb, i) {
+            const cEl = document.querySelector('.ms-srv-count[data-id="' + cb.dataset.id + '"]');
+            if (cEl) cEl.value = base + (i < extra ? 1 : 0);
+        });
+        tally();
+        msg.textContent = 'Distributed ' + msTargets + ' across ' + n + ' server' + (n === 1 ? '' : 's') + ' — review, then Save plan.';
+        msg.style.color = '#475569';
+    };
 
     // Drop a planned server the fleet no longer has, and persist immediately — the
     // point of surfacing it is to be able to clear it.
