@@ -581,7 +581,7 @@ if ($as === 'ai') {
     require_once __DIR__ . '/../includes/multisite/image_ai.php';
     $usedPrompt = $prompt !== '' ? $prompt : $sourcePrompt;
     if ($usedPrompt !== '' && ACTIVE_SITE_DIR !== '') {
-        ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $usedPrompt);
+        ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $usedPrompt, (string) ($slot['block_id'] ?? ''));
     }
 }
 

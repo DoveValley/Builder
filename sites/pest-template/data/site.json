@@ -208,7 +208,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "homepage_feature_intro",
             "_ai_input_hash": "9de4519fc6b0263b",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "feature_split_1"
         },
         {
             "type": "split_cta",
@@ -228,7 +229,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "homepage_service_area",
             "_ai_input_hash": "406bb8abaa49613b",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "split_cta_1"
         },
         {
             "type": "tab_services",
@@ -267,7 +269,8 @@
                     "desc": "Flying insects known for their itchy bites and ability to transmit diseases like West Nile Virus."
                 }
             ],
-            "skin": "light"
+            "skin": "light",
+            "id": "tab_services_1"
         },
         {
             "type": "hero_grid",
@@ -328,7 +331,8 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "homepage_grid_intro",
             "_ai_input_hash": "21e8b5316796e505",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "hero_grid_1"
         },
         {
             "type": "related_links",
@@ -386,7 +390,8 @@
             "wb_badge_bg_custom": "#fd783b",
             "wb_photo": "sites/pest-template/uploads/media/bg-4-katy_home.webp",
             "skin": "dark",
-            "wb_bg_mode": "header"
+            "wb_bg_mode": "header",
+            "id": "wide_banner_1"
         },
         {
             "type": "image_features",
@@ -409,7 +414,8 @@
                 "Specialty pest services",
                 "Entry point inspections and sealing"
             ],
-            "skin": "light"
+            "skin": "light",
+            "id": "image_features_1"
         },
         {
             "id": "home_seasonal",
@@ -555,7 +561,8 @@
             "cb_bg_custom": "#fd783b",
             "cb_text_color": "#ffffff",
             "cb_padding": "normal",
-            "skin": "accent"
+            "skin": "accent",
+            "id": "cta_banner_1"
         },
         {
             "type": "cta_card",
@@ -568,7 +575,8 @@
             "cc_bg": "accent",
             "cc_bg_custom": "#fd783b",
             "cc_radius": 12,
-            "skin": "dark"
+            "skin": "dark",
+            "id": "cta_card_1"
         },
         {
             "type": "map_info",
@@ -583,7 +591,8 @@
             "mi_info_photo": "{city_image}",
             "skin": "light",
             "mi_map_side": "top",
-            "mi_map_caption": "{city_map_caption}"
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
         },
         {
             "ai_mode": "standalone",
@@ -612,7 +621,8 @@
             "cc_bg": "accent",
             "cc_bg_custom": "#fd783b",
             "cc_radius": 0,
-            "skin": "accent"
+            "skin": "accent",
+            "id": "cta_card_2"
         }
     ],
     "seo": {

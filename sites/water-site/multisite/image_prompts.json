@@ -1,42 +1,52 @@
 {
     "home::2:fs_photo": {
         "prompt": "A tidy storage shelving workshop room with labeled bins, photorealistic, no text or logos.",
-        "block_type": "feature_split"
+        "block_type": "feature_split",
+        "block_id": "feature_split_1"
     },
     "home::0:hs_photo": {
         "prompt": "Photorealistic photo for: Hero Split \u2014 Hero photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "hero_split"
+        "block_type": "hero_split",
+        "block_id": "hero_split_1"
     },
     "home::3:fs_photo": {
         "prompt": "Photorealistic photo for: Feature Split \u2014 Feature split. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "feature_split"
+        "block_type": "feature_split",
+        "block_id": "feature_split_1"
     },
     "home::5:ts_tabs.0.photo": {
         "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "tab_services"
+        "block_type": "tab_services",
+        "block_id": ""
     },
     "home::5:ts_tabs.2.photo": {
         "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "tab_services"
+        "block_type": "tab_services",
+        "block_id": ""
     },
     "home::5:ts_tabs.3.photo": {
         "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "tab_services"
+        "block_type": "tab_services",
+        "block_id": ""
     },
     "home::5:ts_tabs.1.photo": {
         "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "tab_services"
+        "block_type": "tab_services",
+        "block_id": ""
     },
     "home::9:if_photo": {
         "prompt": "Photorealistic photo for: Image Features \u2014 Image features. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
-        "block_type": "image_features"
+        "block_type": "image_features",
+        "block_id": "image_features_1"
     },
     "home::6:hg_photo": {
         "prompt": "Photorealistic photo for: Hero Grid \u2014 Hero grid. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing. If tools or machinery are part of the scene, keep them fully in frame \u2014 do not crop them off.",
-        "block_type": "hero_grid"
+        "block_type": "hero_grid",
+        "block_id": "hero_grid_1"
     },
     "home::8:wb_photo": {
         "prompt": "Photorealistic photo for: Wide Banner \u2014 Wide banner. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing. If tools or machinery are part of the scene, keep them fully in frame \u2014 do not crop them off.",
-        "block_type": "wide_banner"
+        "block_type": "wide_banner",
+        "block_id": "wide_banner_1"
     }
 }

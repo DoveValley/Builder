@@ -42,14 +42,19 @@ function ms_image_ai_prompts_load(string $masterDir): array {
  *
  * Stores $blockType alongside the prompt — see ms_generate_ai_images_for_domain()'s
  * docblock for why a bare block INDEX turned out not to be safe even on the homepage.
+ * Also stores $blockId when the captured block has one (ensure_block_ids(), already
+ * assigned to homepage blocks on every normal admin content save) — this is what lets
+ * ms_image_ai_resolve_block() tell two same-type/same-field blocks apart, which type+
+ * field alone cannot. Empty when the block predates the id scheme; resolution falls
+ * back to today's type+field matching for those.
  */
-function ms_image_ai_prompt_capture(string $masterDir, string $slotKey, string $blockType, string $prompt): void {
+function ms_image_ai_prompt_capture(string $masterDir, string $slotKey, string $blockType, string $prompt, string $blockId = ''): void {
     if (trim($prompt) === '') return;
     $parts = picdrop_parse_key($slotKey);
     if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) return;
 
     $all = ms_image_ai_prompts_load($masterDir);
-    $all[$slotKey] = ['prompt' => $prompt, 'block_type' => $blockType];
+    $all[$slotKey] = ['prompt' => $prompt, 'block_type' => $blockType, 'block_id' => $blockId];
     $f = ms_image_ai_prompts_file($masterDir);
     if (!is_dir(dirname($f))) mkdir(dirname($f), 0775, true);
     file_put_contents($f, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
@@ -138,6 +143,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // clean failure rather than silently guessing.
         $basePrompt = is_array($entry) ? (string) ($entry['prompt'] ?? '') : (string) $entry;
         $blockType  = is_array($entry) ? (string) ($entry['block_type'] ?? '') : '';
+        $blockId    = is_array($entry) ? (string) ($entry['block_id']   ?? '') : '';
 
         $parts = picdrop_parse_key($slotKey);
         if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) continue;
@@ -157,11 +163,18 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         if ($parts['scope'] !== 'global' && $blockType === '') {
             $out['failed']++; $out['errors'][] = "$slotKey: no block_type recorded for this template (captured before this fix) — re-confirm the AI photo in Pic Drop once to re-capture it"; continue;
         }
-        $block = &ms_image_ai_resolve_block($site, $parts, $blockType);
+        $ambiguous = false;
+        $block = &ms_image_ai_resolve_block($site, $parts, $blockType, $blockId, $ambiguous);
         if ($block === null) {
-            $msg = $parts['scope'] === 'global'
-                ? "no services_links block in this domain's site.json"
-                : "no '$blockType' block with field '{$parts['field']}' found on this domain's homepage";
+            if ($ambiguous) {
+                $msg = "more than one '$blockType' block with field '{$parts['field']}' found on this domain's "
+                     . "homepage and this slot has no recorded id to disambiguate — re-confirm the AI photo in "
+                     . "Pic Drop once to re-capture it with a stable id";
+            } else {
+                $msg = $parts['scope'] === 'global'
+                    ? "no services_links block in this domain's site.json"
+                    : "no '$blockType' block with field '{$parts['field']}' found on this domain's homepage";
+            }
             $out['failed']++; $out['errors'][] = "$slotKey: $msg"; continue;
         }
 
@@ -240,7 +253,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // array touches the array between now and Pass 2; re-resolving by type+field
         // there is cheap and exactly what the single-request path already did.
         $pending[] = [
-            'slotKey' => $slotKey, 'parts' => $parts, 'blockType' => $blockType, 'field' => $field,
+            'slotKey' => $slotKey, 'parts' => $parts, 'blockType' => $blockType, 'blockId' => $blockId, 'field' => $field,
             'filename' => $filename, 'persistFile' => $persistFile, 'url' => $url, 'refPath' => $refPath,
             'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size,
         ];
@@ -283,7 +296,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             if (!is_dir($persistDir)) mkdir($persistDir, 0775, true);
             copy($dest, $p['persistFile']);
 
-            $block = &ms_image_ai_resolve_block($site, $p['parts'], $p['blockType']);
+            $block = &ms_image_ai_resolve_block($site, $p['parts'], $p['blockType'], $p['blockId'] ?? '');
             if ($block === null) {
                 // Vanishingly unlikely (Pass 1 just resolved this same slot) — but the
                 // photo is already made and cached, so fail loudly rather than lose it.
@@ -317,32 +330,54 @@ function ms_image_ai_concurrency(): int {
 }
 
 /**
- * Resolves a slot's block BY REFERENCE, matching by TYPE + field rather than the
- * block INDEX the key carries — block order can shift per domain (structure.home),
- * so "index 2" does not reliably mean the same block it meant when the prompt was
- * captured. Returns a null-valued reference when nothing matches (PHP has no
- * nullable reference return otherwise). Used from both passes above: once to
+ * Resolves a slot's block BY REFERENCE. Tries $blockId first — stable across
+ * structure.home's per-domain rotation (see ensure_block_ids(),
+ * includes/layout_variations.php: rotation moves whole blocks via array_slice/
+ * array_merge, it never rebuilds one, so an id set on a block rides along
+ * unchanged) — falling back to matching by TYPE + field for slots captured before
+ * the id scheme existed. The type+field fallback refuses to guess when more than
+ * one block matches (sets $ambiguous = true, returns null) rather than silently
+ * picking the first one: that silent pick was the actual bug an id lookup exists
+ * to avoid, so the fallback exists only to cover old data, not as a second way to
+ * accept ambiguity. Returns a null-valued reference when nothing matches (PHP has
+ * no nullable reference return otherwise). Used from both passes above: once to
  * decide what needs generating, once again to write each result back.
  */
-function &ms_image_ai_resolve_block(array &$site, array $parts, string $blockType) {
+function &ms_image_ai_resolve_block(array &$site, array $parts, string $blockType, string $blockId = '', bool &$ambiguous = false) {
     $null = null;
+    $ambiguous = false;
     if ($parts['scope'] === 'global') {
         if (!isset($site['services_links']) || !is_array($site['services_links'])) return $null;
         return $site['services_links'];
     }
     if ($blockType === '' || !isset($site['content_blocks']) || !is_array($site['content_blocks'])) return $null;
-    // Reference must chain through a bare variable — foreach-by-reference over an
-    // expression like `$site['content_blocks'] ?? []` silently breaks the reference
-    // back to $site, so a later `$block[$field] = ...` writes into a throwaway copy
-    // and never reaches $site at all. Confirmed with a standalone repro before
-    // trusting this: the `?? []` form saved a cache entry claiming success while
-    // site.json quietly kept the old photo.
+    // Reference must chain through a bare variable — indexing an expression like
+    // `$site['content_blocks'] ?? []` silently breaks the reference back to $site, so a
+    // later `$block[$field] = ...` writes into a throwaway copy and never reaches $site
+    // at all. Confirmed with a standalone repro before trusting this: the `?? []` form
+    // saved a cache entry claiming success while site.json quietly kept the old photo.
     $blocks = &$site['content_blocks'];
-    foreach ($blocks as &$candidate) {
+
+    if ($blockId !== '') {
+        foreach ($blocks as $i => $candidate) {
+            if (is_array($candidate) && ($candidate['id'] ?? '') === $blockId && array_key_exists($parts['field'], $candidate)) {
+                return $blocks[$i];
+            }
+        }
+        // A recorded id that no longer matches anything (e.g. the block was rebuilt
+        // without ids surviving) falls through to the fallback below, same
+        // graceful-degradation the no-id case already gets.
+    }
+
+    $matchIndex = null;
+    $matchCount = 0;
+    foreach ($blocks as $i => $candidate) {
         if (is_array($candidate) && ($candidate['type'] ?? '') === $blockType && array_key_exists($parts['field'], $candidate)) {
-            return $candidate;
+            $matchCount++;
+            if ($matchIndex === null) $matchIndex = $i;
         }
     }
-    unset($candidate);
+    if ($matchCount > 1) { $ambiguous = true; return $null; }
+    if ($matchCount === 1) return $blocks[$matchIndex];
     return $null;
 }

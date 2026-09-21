@@ -270,6 +270,13 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
                 'block'      => $bi,
                 'field'      => $path,
                 'block_type' => $type,
+                // Stable identity for this exact block (see ensure_block_ids(),
+                // includes/layout_variations.php), NOT the index $bi — home-page section
+                // order can rotate per domain (structure.home) but this survives it, since
+                // rotation moves whole blocks and never rebuilds them. Empty for a block
+                // that predates the id scheme; ms_image_ai_resolve_block() falls back to
+                // type+field matching in that case.
+                'block_id'   => (string) ($block['id'] ?? ''),
                 'block_label'=> picdrop_block_label($type),
                 'label'      => $spec['label'],
                 'kind'       => $spec['kind'],

@@ -1463,9 +1463,18 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         }
         if (key === 'images.ai_photos' && summary.images) {
             const pending = summary.images.pending_slots, doms = summary.images.domains_affected;
-            if (pending === 0) return 'AI-generated photos — nothing pending, all already generated';
+            const willFail = summary.images.slots_will_fail || 0;
+            // Checked once against the MASTER, so this count applies to every domain in
+            // the batch identically — a slot that can't resolve on the master can't
+            // resolve on any clone of it either (see ms_batch_pending_summary()).
+            const failNote = willFail > 0
+                ? ' &#9888; ' + willFail + ' configured photo slot' + (willFail === 1 ? '' : 's')
+                    + " can't be resolved right now (" + esc((summary.images.fail_samples || []).join(', '))
+                    + ') — will fail on every domain, re-confirm in Pic Drop before running'
+                : '';
+            if (pending === 0) return 'AI-generated photos — nothing pending, all already generated' + failNote;
             return 'AI-generated photos — ~' + pending + ' new photo' + (pending === 1 ? '' : 's')
-                 + ' across ' + doms + ' domain' + (doms === 1 ? '' : 's') + ' (rest already cached)';
+                 + ' across ' + doms + ' domain' + (doms === 1 ? '' : 's') + ' (rest already cached)' + failNote;
         }
         return label;
     }

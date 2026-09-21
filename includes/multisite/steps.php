@@ -539,9 +539,43 @@ function ms_batch_pending_summary(string $masterId, string $batchId, string $onl
         }
     }
 
+    // ── AI images: would any configured slot actually fail to resolve? ─────────
+    // Checked ONCE against the MASTER's own blocks, not per domain — a domain never
+    // adds/removes blocks relative to its master (structure.home only reorders them),
+    // so a slot that can't resolve on the master can't resolve on any domain cloned
+    // from it either. Surfaced here so an unresolvable slot (ambiguous type+field
+    // match with no recorded id, or a recorded id that no longer exists) shows up
+    // before a batch runs, not just as a 'warn' line buried in each domain's build
+    // log afterward, where nobody watching an unattended multi-domain run would see it.
+    $imgWillFail    = 0;
+    $imgFailSamples = [];
+    if ($templates && function_exists('ms_image_ai_resolve_block') && function_exists('picdrop_parse_key')) {
+        $masterSiteFile = $masterDir . '/data/site.json';
+        $masterSite = is_file($masterSiteFile)
+            ? (json_decode((string) @file_get_contents($masterSiteFile), true) ?: [])
+            : [];
+        if (is_array($masterSite)) {
+            foreach ($templates as $slotKey => $entry) {
+                $blockType = is_array($entry) ? (string) ($entry['block_type'] ?? '') : '';
+                $blockId   = is_array($entry) ? (string) ($entry['block_id']   ?? '') : '';
+                if ($blockType === '') continue;   // pre-fix shape, already a distinct known failure
+                $parts = picdrop_parse_key($slotKey);
+                if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) continue;
+                $ambiguous = false;
+                $block = &ms_image_ai_resolve_block($masterSite, $parts, $blockType, $blockId, $ambiguous);
+                if ($block === null) {
+                    $imgWillFail++;
+                    if (count($imgFailSamples) < 5) $imgFailSamples[] = $slotKey;
+                }
+                unset($block);
+            }
+        }
+    }
+
     return [
         'domains_total' => count($domains),
         'blog'   => ['domains_needing' => $blogNeeding],
-        'images' => ['pending_slots' => $imgPending, 'domains_affected' => count($imgDomains)],
+        'images' => ['pending_slots' => $imgPending, 'domains_affected' => count($imgDomains),
+                     'slots_will_fail' => $imgWillFail, 'fail_samples' => $imgFailSamples],
     ];
 }

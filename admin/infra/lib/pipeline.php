@@ -679,10 +679,19 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
     $rec = infra_state_get_domain($domain);
     if (!$rec) return ['ok' => false, 'msg' => 'not in fleet state', 'state' => ''];
 
-    // Already done, already running, and the mark-running that follows all have to
-    // happen as one atomic step — see infra_pipeline_lock()'s docblock for what goes
-    // wrong when they don't. $claim is non-null only when the caller should stop.
-    $claim = infra_pipeline_lock($domain, $step, function () use ($domain, $step) {
+    // The claim (already-done / already-running / mark-running) and the actual work
+    // below now share ONE lock acquisition, not two separate ones. Splitting them used
+    // to leave a gap right after the claim released the lock where
+    // infra_provision_locked() (the New Site form / bulk runner's own locking wrapper,
+    // admin/infra/lib/provision.php) could acquire the SAME lock file for the same
+    // domain+step and run infra_provision_one() concurrently with this function's own,
+    // by-then-unlocked call to it — the exact race the lock exists to prevent, just
+    // narrowed to a smaller window. Both wrappers already contend for the identical
+    // flock() via infra_pipeline_lock(), so widening what this one closure covers is
+    // enough to close it — no need to touch infra_provision_locked() or unify the two
+    // callers. See infra_pipeline_lock()'s docblock for why the claim steps themselves
+    // must happen atomically.
+    return infra_pipeline_lock($domain, $step, function () use ($domain, $step, $batch, $opts, $rec) {
         // Already done? Say so and do nothing. Idempotency starts here rather than
         // relying on every underlying call to be a no-op.
         $cur = infra_pipeline_stored([$domain])[$domain][$step] ?? null;
@@ -712,17 +721,14 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
         }
 
         infra_pipeline_set($domain, $step, INFRA_STEP_RUNNING, 'started ' . date('H:i:s'), true);
-        return null;
-    });
-    if ($claim !== null) return $claim;
 
-    require_once __DIR__ . '/hestia_fleet.php';
-    require_once __DIR__ . '/provision.php';
-    require_once __DIR__ . '/golive.php';
+        require_once __DIR__ . '/hestia_fleet.php';
+        require_once __DIR__ . '/provision.php';
+        require_once __DIR__ . '/golive.php';
 
-    $msg = '';
-    try {
-        switch ($step) {
+        $msg = '';
+        try {
+            switch ($step) {
 
             case 'assign':
                 require_once __DIR__ . '/cf_alloc.php';
@@ -836,26 +842,27 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
                 $msg = $r['message'];
                 break;
         }
-    } catch (Throwable $e) {
-        // A thrown error must not leave the cell stuck at `running` — that reads as
-        // "in progress" forever and hides the fault completely.
-        infra_pipeline_set($domain, $step, INFRA_STEP_FAIL, 'error: ' . $e->getMessage());
-        return ['ok' => false, 'msg' => $e->getMessage(), 'state' => INFRA_STEP_FAIL];
-    }
+        } catch (Throwable $e) {
+            // A thrown error must not leave the cell stuck at `running` — that reads as
+            // "in progress" forever and hides the fault completely.
+            infra_pipeline_set($domain, $step, INFRA_STEP_FAIL, 'error: ' . $e->getMessage());
+            return ['ok' => false, 'msg' => $e->getMessage(), 'state' => INFRA_STEP_FAIL];
+        }
 
-    // THE CHECK HAS THE LAST WORD. Whatever the action said, this is what goes in.
-    // $batch (this function's own parameter) was hardcoded to '' here — silently
-    // dropped rather than unused-and-removed. infra_pipeline_refresh() now has its
-    // own fallback for a domain the batch/acquisition filter excludes (see its own
-    // comment), so this no longer strictly needs $batch to be correct — but passing
-    // it through is still the more direct, less surprising path when it's known.
-    infra_cache_force(true);
-    $after = infra_pipeline_refresh($step, $batch, $domain);
-    infra_cache_force(false);
+        // THE CHECK HAS THE LAST WORD. Whatever the action said, this is what goes in.
+        // $batch (this function's own parameter) was hardcoded to '' here — silently
+        // dropped rather than unused-and-removed. infra_pipeline_refresh() now has its
+        // own fallback for a domain the batch/acquisition filter excludes (see its own
+        // comment), so this no longer strictly needs $batch to be correct — but passing
+        // it through is still the more direct, less surprising path when it's known.
+        infra_cache_force(true);
+        $after = infra_pipeline_refresh($step, $batch, $domain);
+        infra_cache_force(false);
 
-    $state = $after['ok'] > 0 ? INFRA_STEP_OK : ($after['fail'] > 0 ? INFRA_STEP_FAIL : INFRA_STEP_TODO);
-    return ['ok' => $state === INFRA_STEP_OK, 'state' => $state,
-            'msg' => ($msg !== '' ? $msg . ' — ' : '') . 'checked: ' . $state];
+        $state = $after['ok'] > 0 ? INFRA_STEP_OK : ($after['fail'] > 0 ? INFRA_STEP_FAIL : INFRA_STEP_TODO);
+        return ['ok' => $state === INFRA_STEP_OK, 'state' => $state,
+                'msg' => ($msg !== '' ? $msg . ' — ' : '') . 'checked: ' . $state];
+    });
 }
 
 /**

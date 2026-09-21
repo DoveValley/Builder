@@ -181,7 +181,8 @@
             "hs_bg_photo": "",
             "hs_mobile_order": "",
             "hs_tagline": "6 PMI Certifications. Live Online. <span style=\"color:var(--color-highlight)\">Pass Guaranteed.</span>",
-            "skin": "dark"
+            "skin": "dark",
+            "id": "hero_split_1"
         },
         {
             "type": "ai_block",
@@ -202,7 +203,8 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "id": "ai_block_1"
         },
         {
             "type": "feature_columns",
@@ -240,7 +242,8 @@
                     "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 19.5A2.5 2.5 0 016.5 17H20\"/><path d=\"M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z\"/></svg>"
                 }
             ],
-            "skin": "subtle"
+            "skin": "subtle",
+            "id": "feature_columns_1"
         },
         {
             "type": "stats",
@@ -266,7 +269,8 @@
                 }
             ],
             "stats_bg_custom": "#2563eb",
-            "skin": "accent"
+            "skin": "accent",
+            "id": "stats_1"
         },
         {
             "type": "cards",
@@ -347,7 +351,8 @@
             "cards_border": "#1e3a5f",
             "cards_accent": "highlight",
             "cards_accent_custom": "#ffc000",
-            "skin": "dark"
+            "skin": "dark",
+            "id": "cards_1"
         },
         {
             "type": "pricing_cards",
@@ -443,7 +448,8 @@
                 }
             ],
             "pc_label": "ALL PMI CERTIFICATIONS",
-            "skin": "subtle"
+            "skin": "subtle",
+            "id": "pricing_cards_1"
         },
         {
             "type": "ai_block",
@@ -464,7 +470,8 @@
             "ai_inject_target": null,
             "ai_inject_field": null,
             "ai_inject_mode": null,
-            "ai_prompt_override": ""
+            "ai_prompt_override": "",
+            "id": "ai_block_2"
         },
         {
             "type": "stage_cards",
@@ -502,7 +509,8 @@
                     "items": "PgMP®::Direct multiple related projects and deliver enterprise-level outcomes.|/all-courses\nOrganizational Agility::Advance your team’s agile maturity at scale.|/all-courses"
                 }
             ],
-            "skin": "subtle"
+            "skin": "subtle",
+            "id": "stage_cards_1"
         },
         {
             "type": "cards",
@@ -583,7 +591,8 @@
             "cards_border": "#1e3a5f",
             "cards_accent": "highlight",
             "cards_accent_custom": "#ffc000",
-            "skin": "dark"
+            "skin": "dark",
+            "id": "cards_2"
         },
         {
             "type": "email_banner",
@@ -596,7 +605,8 @@
             "eb_form_action": "",
             "eb_badge_image": "sites/granitepmacademy/uploads/media/pmi_premier_atp_badge.webp",
             "eb_badge_text": "Premier Authorized Training Partner (ATP) of the Project Management Institute®",
-            "skin": "accent"
+            "skin": "accent",
+            "id": "email_banner_1"
         },
         {
             "type": "cards",
@@ -660,7 +670,8 @@
                     "btn_text": "Read More"
                 }
             ],
-            "skin": "subtle"
+            "skin": "subtle",
+            "id": "cards_3"
         },
         {
             "type": "testimonials",
@@ -701,12 +712,14 @@
                     "result_badge": "✓ Entire team PMP® certified"
                 }
             ],
-            "skin": "subtle"
+            "skin": "subtle",
+            "id": "testimonials_1"
         },
         {
             "type": "custom_html",
             "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:var(--skin-dark-bg);padding:72px 0;text-align:center;box-sizing:border-box;\"><div style=\"max-width:860px;margin:0 auto;padding:0 24px;box-sizing:border-box;text-align:center;\"><p style=\"font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-highlight);margin:0 0 24px;text-align:center;\">OUR PROMISE</p><div style=\"width:88px;height:88px;border-radius:50%;border:2.5px solid var(--color-highlight);display:inline-flex;align-items:center;justify-content:center;margin:0 auto 28px;font-size:2.6rem;line-height:1;\">&#127885;</div><h2 style=\"font-size:clamp(2rem,5vw,2.9rem);font-weight:900;line-height:1.1;margin:0 0 20px;color:#fff;text-align:center;\">Pass Guarantee. Every Class. Every Cert.</h2><p style=\"font-size:1rem;color:var(--skin-dark-text);max-width:640px;margin:0 auto 36px;line-height:1.75;text-align:center;\">Attend all sessions of any Granite PM Academy course and don't pass your PMI exam within 90 days — we give you full access to the next class, free. No fine print. We back every one of our six certifications with the same promise.</p><div style=\"display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin:0 auto 40px;max-width:760px;\"><span style=\"border:1.5px solid rgba(255,255,255,0.3);border-radius:6px;padding:10px 20px;font-size:0.875rem;color:#fff;background:rgba(255,255,255,0.06);white-space:nowrap;\">&#10003; 100% money-back option</span><span style=\"border:1.5px solid rgba(255,255,255,0.3);border-radius:6px;padding:10px 20px;font-size:0.875rem;color:#fff;background:rgba(255,255,255,0.06);white-space:nowrap;\">&#10003; Free repeat class access</span><span style=\"border:1.5px solid rgba(255,255,255,0.3);border-radius:6px;padding:10px 20px;font-size:0.875rem;color:#fff;background:rgba(255,255,255,0.06);white-space:nowrap;\">&#10003; 90-day exam window</span><span style=\"border:1.5px solid rgba(255,255,255,0.3);border-radius:6px;padding:10px 20px;font-size:0.875rem;color:#fff;background:rgba(255,255,255,0.06);white-space:nowrap;\">&#10003; All 6 certifications covered</span><span style=\"border:1.5px solid rgba(255,255,255,0.3);border-radius:6px;padding:10px 20px;font-size:0.875rem;color:#fff;background:rgba(255,255,255,0.06);white-space:nowrap;\">&#10003; No fine print</span></div><div style=\"text-align:center;\"><a href=\"/pmp-certification-training\" style=\"display:inline-block;background:var(--color-accent);color:#fff;font-weight:700;font-size:1rem;padding:14px 32px;border-radius:6px;text-decoration:none;\">Browse all PMI classes &#8594;</a></div></div></div></div>",
-            "skin": "dark"
+            "skin": "dark",
+            "id": "custom_html_1"
         },
         {
             "type": "faq_two_col",
@@ -770,12 +783,14 @@
             "_ai_model": "claude-haiku-4-5-20251001",
             "_ai_type": "national_faq",
             "_ai_input_hash": "631865aaa9a7a39b",
-            "_ai_locked": true
+            "_ai_locked": true,
+            "id": "faq_two_col_1"
         },
         {
             "type": "custom_html",
             "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\"><div id=\"gpma-cta-bottom\" style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:var(--color-accent);padding:80px 0;text-align:center;box-sizing:border-box;\"><div style=\"max-width:900px;margin:0 auto;padding:0 24px;box-sizing:border-box;text-align:center;\"><p style=\"font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#fff;margin:0 0 20px;\">GRANITE PM ACADEMY</p><h2 style=\"font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;line-height:1.08;margin:0 0 24px;color:#fff;text-align:center;\">Where Project Managers Become Certified Leaders.</h2><p style=\"font-size:1.05rem;font-weight:700;color:#fff;margin:0 0 14px;text-align:center;\">Six PMI certifications. Live online. Pass guaranteed.</p><p style=\"font-size:1rem;color:rgba(255,255,255,0.85);max-width:740px;margin:0 auto 36px;line-height:1.7;text-align:center;\">At every stage of your career — from CAPM to PgMP — Granite PM Academy is the live online training partner that gets you certified and moves you forward.</p><div style=\"text-align:center;margin-bottom:36px;\"><a href=\"/pmp-certification-training\" style=\"display:inline-block;background:var(--skin-dark-bg);color:#fff;font-weight:700;font-size:1.05rem;padding:16px 36px;border-radius:6px;text-decoration:none;\">Get certified today &#8594;</a></div><div style=\"display:flex;flex-wrap:wrap;gap:12px;justify-content:center;\"><span style=\"border:2px solid rgba(255,255,255,0.7);border-radius:24px;padding:8px 22px;font-size:0.9rem;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);white-space:nowrap;\">PMP&#174;</span><span style=\"border:2px solid rgba(255,255,255,0.7);border-radius:24px;padding:8px 22px;font-size:0.9rem;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);white-space:nowrap;\">CAPM&#174;</span><span style=\"border:2px solid rgba(255,255,255,0.7);border-radius:24px;padding:8px 22px;font-size:0.9rem;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);white-space:nowrap;\">PMI-ACP&#174;</span><span style=\"border:2px solid rgba(255,255,255,0.7);border-radius:24px;padding:8px 22px;font-size:0.9rem;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);white-space:nowrap;\">PMI-RMP&#174;</span><span style=\"border:2px solid rgba(255,255,255,0.7);border-radius:24px;padding:8px 22px;font-size:0.9rem;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);white-space:nowrap;\">PgMP&#174;</span><span style=\"border:2px solid rgba(255,255,255,0.7);border-radius:24px;padding:8px 22px;font-size:0.9rem;font-weight:600;color:#fff;background:rgba(255,255,255,0.08);white-space:nowrap;\">PMI-PBA&#174;</span></div></div></div></div>",
-            "skin": "dark"
+            "skin": "dark",
+            "id": "custom_html_2"
         }
     ],
     "seo": {
