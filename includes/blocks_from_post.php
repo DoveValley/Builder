@@ -665,8 +665,12 @@ function parse_blocks_from_post(): array {
                 $block['cards_accent'] = $cacc;
                 $caccc = trim($_POST['cards_accent_custom'][$i] ?? '');
                 $block['cards_accent_custom'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $caccc) ? $caccc : '';
+                // A plain <input type="color"> always submits a real hex, so whether a
+                // border shows at all is tracked by its own checkbox — otherwise simply
+                // opening and re-saving the editor would silently add a border to every
+                // card block that never had one (cards_border defaults to '' = no border).
                 $cbc2 = trim($_POST['cards_border'][$i] ?? '');
-                $block['cards_border'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbc2) ? $cbc2 : '';
+                $block['cards_border'] = (!empty($_POST['cards_border_on'][$i]) && preg_match('/^#[0-9a-fA-F]{3,6}$/', $cbc2)) ? $cbc2 : '';
                 $cbac = in_array($_POST['cards_badge_accent'][$i] ?? '', ['accent','header','custom']) ? $_POST['cards_badge_accent'][$i] : '';
                 $block['cards_badge_accent'] = $cbac;
                 $cbacc = trim($_POST['cards_badge_accent_custom'][$i] ?? '');

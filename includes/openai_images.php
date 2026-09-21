@@ -64,6 +64,56 @@ function openai_images_headers(): array
 }
 
 /**
+ * Builds (but does not execute) a ready-to-run curl handle for one /images/generations
+ * request. Shared by openai_images_generate() (executes it directly) and
+ * openai_images_generate_many()'s job-builder (hands it, unexecuted, to the
+ * concurrency engine) — this was previously duplicated between the two.
+ */
+function openai_images_build_generate_ch(string $prompt, array $opts)
+{
+    $ch = curl_init(OPENAI_IMAGES_API_URL);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        CURLOPT_HTTPHEADER     => openai_images_headers(),
+        CURLOPT_POSTFIELDS     => openai_images_payload($prompt, $opts),
+        CURLOPT_TIMEOUT        => max(10, (int) ($opts['timeout'] ?? 90)),
+    ]);
+    return $ch;
+}
+
+/**
+ * Builds (but does not execute) a ready-to-run curl handle for one /images/edits
+ * (multipart, edit-from-reference) request. Shared by openai_images_edit() and
+ * openai_images_edit_many()'s job-builder — this was previously duplicated between
+ * the two.
+ */
+function openai_images_build_edit_ch(string $prompt, string $refImagePath, array $opts)
+{
+    $mime = (string) (@getimagesize($refImagePath)['mime'] ?? 'image/webp');
+    $fields = [
+        'model'  => (string) ($opts['model'] ?? OPENAI_IMAGE_MODEL),
+        'prompt' => $prompt,
+        'image'  => new CURLFile($refImagePath, $mime, basename($refImagePath)),
+    ];
+    foreach (['size', 'quality', 'output_format'] as $k) {
+        if (isset($opts[$k]) && $opts[$k] !== '') $fields[$k] = $opts[$k];
+    }
+    $ch = curl_init(OPENAI_IMAGES_EDIT_URL);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        // No content-type header — cURL sets the multipart boundary itself when
+        // POSTFIELDS is an array containing a CURLFile. Forcing a JSON content-type
+        // (openai_images_headers() does that) would break the upload silently.
+        CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . openai_images_key()],
+        CURLOPT_POSTFIELDS     => $fields,
+        CURLOPT_TIMEOUT        => max(10, (int) ($opts['timeout'] ?? 90)),
+    ]);
+    return $ch;
+}
+
+/**
  * One image. The whole point: callers get decoded bytes or a decided error,
  * never a raw HTTP/base64 problem to untangle themselves.
  *
@@ -78,14 +128,7 @@ function openai_images_generate(string $prompt, array $opts = []): array
     $ready = openai_images_ready();
     if (!$ready['ok']) return $fail($ready['error']);
 
-    $ch = curl_init(OPENAI_IMAGES_API_URL);
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST           => true,
-        CURLOPT_HTTPHEADER     => openai_images_headers(),
-        CURLOPT_POSTFIELDS     => openai_images_payload($prompt, $opts),
-        CURLOPT_TIMEOUT        => max(10, (int) ($opts['timeout'] ?? 90)),
-    ]);
+    $ch = openai_images_build_generate_ch($prompt, $opts);
     $resp = curl_exec($ch);
     $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $cErr = curl_error($ch);
@@ -117,18 +160,7 @@ function openai_images_generate_many(array $jobs, int $concurrency = 5, ?callabl
 {
     return openai_images_run_concurrent(
         $jobs, $concurrency, $onEach,
-        function (array $job) {
-            $opts = $job['opts'] ?? [];
-            $ch = curl_init(OPENAI_IMAGES_API_URL);
-            curl_setopt_array($ch, [
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST           => true,
-                CURLOPT_HTTPHEADER     => openai_images_headers(),
-                CURLOPT_POSTFIELDS     => openai_images_payload($job['prompt'], $opts),
-                CURLOPT_TIMEOUT        => max(10, (int) ($opts['timeout'] ?? 90)),
-            ]);
-            return $ch;
-        }
+        fn(array $job) => openai_images_build_generate_ch($job['prompt'], $job['opts'] ?? [])
     );
 }
 
@@ -144,30 +176,7 @@ function openai_images_edit_many(array $jobs, int $concurrency = 5, ?callable $o
 {
     return openai_images_run_concurrent(
         $jobs, $concurrency, $onEach,
-        function (array $job) {
-            $opts = $job['opts'] ?? [];
-            $mime = (string) (@getimagesize($job['ref_path'])['mime'] ?? 'image/webp');
-            $fields = [
-                'model'  => (string) ($opts['model'] ?? OPENAI_IMAGE_MODEL),
-                'prompt' => $job['prompt'],
-                'image'  => new CURLFile($job['ref_path'], $mime, basename($job['ref_path'])),
-            ];
-            foreach (['size', 'quality', 'output_format'] as $k) {
-                if (isset($opts[$k]) && $opts[$k] !== '') $fields[$k] = $opts[$k];
-            }
-            $ch = curl_init(OPENAI_IMAGES_EDIT_URL);
-            curl_setopt_array($ch, [
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST           => true,
-                // No content-type header — cURL sets the multipart boundary itself
-                // when POSTFIELDS is an array containing a CURLFile (see the single-
-                // request openai_images_edit() for the same note).
-                CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . openai_images_key()],
-                CURLOPT_POSTFIELDS     => $fields,
-                CURLOPT_TIMEOUT        => max(10, (int) ($opts['timeout'] ?? 90)),
-            ]);
-            return $ch;
-        }
+        fn(array $job) => openai_images_build_edit_ch($job['prompt'], $job['ref_path'], $job['opts'] ?? [])
     );
 }
 
@@ -283,28 +292,7 @@ function openai_images_edit(string $prompt, string $refImagePath, array $opts = 
     if (!$ready['ok']) return $fail($ready['error']);
     if (!is_file($refImagePath)) return $fail('Reference image not found on disk.');
 
-    $mime = (string) (@getimagesize($refImagePath)['mime'] ?? 'image/webp');
-
-    $fields = [
-        'model'  => (string) ($opts['model'] ?? OPENAI_IMAGE_MODEL),
-        'prompt' => $prompt,
-        'image'  => new CURLFile($refImagePath, $mime, basename($refImagePath)),
-    ];
-    foreach (['size', 'quality', 'output_format'] as $k) {
-        if (isset($opts[$k]) && $opts[$k] !== '') $fields[$k] = $opts[$k];
-    }
-
-    $ch = curl_init(OPENAI_IMAGES_EDIT_URL);
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST           => true,
-        // No content-type header here — cURL sets the multipart boundary itself when
-        // POSTFIELDS is an array containing a CURLFile. Forcing a JSON content-type
-        // (openai_images_headers() does that) would break the upload silently.
-        CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . openai_images_key()],
-        CURLOPT_POSTFIELDS     => $fields,
-        CURLOPT_TIMEOUT        => max(10, (int) ($opts['timeout'] ?? 90)),
-    ]);
+    $ch = openai_images_build_edit_ch($prompt, $refImagePath, $opts);
     $resp = curl_exec($ch);
     $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $cErr = curl_error($ch);

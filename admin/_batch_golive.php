@@ -325,7 +325,6 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         render(r.rows || []);
     }
 
-    window.msGoLiveRefreshAll = () => loadGoLive();
     loadGoLive();
     // Resume any "▶ all" run already in progress for this batch — reloading the
     // page mid-run used to show nothing at all until it finished on its own, the

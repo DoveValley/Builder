@@ -176,10 +176,16 @@ function ms_layout_variation_settings(array $raw): array {
 /**
  * Defaults for the section-order rotation pin counts (see layout_rotate_blocks()) — 1/1 for
  * both scopes, the original hardcoded pin behaviour (hero stays first, closing block stays
- * last). Saved per master in multisite/section_rotation.json (admin/rotation_settings_save.php),
- * same read/write helpers as Gen-Mod's layout_variation.json — a missing/invalid value always
- * falls back to these, so a master that's never touched this setting builds exactly as it
- * always has.
+ * last). A missing/invalid value always falls back to these, so a master that's never
+ * touched this setting builds exactly as it always has.
+ *
+ * NOT the same scope or helpers as Gen-Mod's layout_variation.json, despite looking like a
+ * sibling setting: section_rotation.json is saved PER-BATCH
+ * (sites/{master}/batches/{batch}/section_rotation.json) via ms_batch_file_write() /
+ * ms_batch_file_read() (admin/rotation_settings_save.php), while layout_variation.json is
+ * saved PER-MASTER via ms_image_settings_write() / ms_image_settings_read() /
+ * ms_image_settings_locate(). Two different helper families, two different scopes — don't
+ * assume one's behavior (e.g. its CLI fallback) applies to the other.
  */
 function ms_rotation_defaults(): array {
     return ['home_top' => 1, 'home_bottom' => 1, 'landing_top' => 1, 'landing_bottom' => 1];

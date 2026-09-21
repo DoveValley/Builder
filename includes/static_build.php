@@ -338,7 +338,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 
     // ── Prune stale slug directories ──────────────────────────────────────────────
     // Directories in output/ that aren't from this run are leftovers from deleted pages/cities.
-    $reserved = ['blog', 'assets', 'uploads', 'blog'];
+    $reserved = ['blog', 'assets', 'uploads'];
     $pruned = 0;
     foreach (glob($outputBase . '*', GLOB_ONLYDIR) ?: [] as $dir) {
         $slug = basename($dir);

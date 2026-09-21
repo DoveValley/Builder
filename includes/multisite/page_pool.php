@@ -221,9 +221,16 @@ function ms_page_pool_apply_to_working_dir(string $workingDir, string $masterId,
         $tid     = (string) ($tpl['id'] ?? '');
         $pattern = (string) ($tpl['slug_pattern'] ?? '');
         if ($tid === '') continue;
+        // Longest match wins, not first — $poolSlugs is declaration order in
+        // keyword_map.json, not sorted by specificity. A short slug that happens to
+        // come first (e.g. "pest" before "pest-control") would otherwise steal every
+        // template whose pattern it's merely a prefix of, before the more specific
+        // slug ever gets a chance to match.
         $matched = null;
         foreach ($poolSlugs as $slug) {
-            if (str_starts_with($pattern, $slug . '-')) { $matched = $slug; break; }
+            if (str_starts_with($pattern, $slug . '-') && ($matched === null || strlen($slug) > strlen($matched))) {
+                $matched = $slug;
+            }
         }
         if ($matched === null) { $keepIds[] = $tid; continue; }   // no pool opinion — always keep
         $available++;

@@ -2,13 +2,16 @@
 /**
  * Generate Sites · Site structure variance card · save the section-order rotation pin
  * counts ("Don't rotate top/bottom", both scopes). Auth + CSRF. Writes THIS BATCH's own
- * sites/{master}/batches/{batch}/section_rotation.json — the copy build_one.php's own
- * --rot-*= flags default to when the batch panel doesn't send an explicit value (it
- * always does today, but a hand-run CLI build without them falls back to this). A missing
- * file means the original hardcoded default — see ms_rotation_defaults() in
- * includes/layout_variations.php. Which batch is derived from the SESSION (same active-
- * batch state admin/batch.php itself uses), never trusted from the client, so a request
- * can only ever write the batch the operator actually has open.
+ * sites/{master}/batches/{batch}/section_rotation.json via ms_batch_file_write(), read
+ * back by the batch panel via ms_batch_file_read() and passed to build_one.php as its
+ * --rot-*= flag values. build_one.php itself never opens this file — a hand-run CLI
+ * build with no --rot-*= flags does NOT fall back to it; it falls straight to the
+ * hardcoded 1/1/1/1 literal in ms_rotation_defaults() (includes/layout_variations.php),
+ * completely bypassing whatever this file has saved. This file only matters for runs
+ * launched through the batch panel, which always sends the flags explicitly. Which
+ * batch is derived from the SESSION (same active-batch state admin/batch.php itself
+ * uses), never trusted from the client, so a request can only ever write the batch the
+ * operator actually has open.
  */
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php'; // ms_rotation_settings()

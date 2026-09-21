@@ -124,7 +124,13 @@ function resolve_color($which, $custom = '#333333') {
     global $data;
     $theme = $data['theme'] ?? [];
     if (empty($theme)) {
-        $file = __DIR__ . '/../data/site.json';
+        // DATA_FILE, not a hardcoded legacy path — this must resolve to whatever site is
+        // actually active (worker clone, session-selected multisite, or true single-site),
+        // the same reasoning the big comment above already established for not caching
+        // $data['theme'] in a static. A hardcoded path here would silently read the wrong
+        // site's theme in exactly the same way, just on the cold-fallback branch instead
+        // of on every call.
+        $file = defined('DATA_FILE') ? DATA_FILE : __DIR__ . '/../data/site.json';
         if (file_exists($file)) {
             $d = json_decode(file_get_contents($file), true);
             $theme = $d['theme'] ?? [];

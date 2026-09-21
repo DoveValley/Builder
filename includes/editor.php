@@ -1687,6 +1687,23 @@ function render_content_blocks_editor($blocks) {
                             <input type="color" name="cards_text_color[]" value="<?= $ctcVal ?>" oninput="this.nextElementSibling.value=this.value;">
                             <input type="text" value="<?= $ctcVal ?>" placeholder="#333333" style="width:90px;margin-left:6px;font-size:0.82rem;" oninput="var c=this.previousElementSibling;if(/^#[0-9a-fA-F]{6}$/.test(this.value))c.value=this.value;">
                         </div>
+                        <div class="form-group">
+                            <label>Icon/accent color</label>
+                            <?= color_mode_select('cards_accent', $block['cards_accent'] ?? 'accent', 'accent') ?>
+                            <input type="color" name="cards_accent_custom[]" value="<?= h($block['cards_accent_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
+                        </div>
+                        <div class="form-group">
+                            <label>Badge color</label>
+                            <?= color_mode_select('cards_badge_accent', $block['cards_badge_accent'] ?? 'accent', 'accent') ?>
+                            <input type="color" name="cards_badge_accent_custom[]" value="<?= h($block['cards_badge_accent_custom'] ?? '#fd783b') ?>" style="margin-top:4px;">
+                        </div>
+                        <div class="form-group">
+                            <label><input type="checkbox" name="cards_border_on[]" value="1" <?= ($block['cards_border'] ?? '') !== '' ? 'checked' : '' ?> onchange="this.nextElementSibling.style.display=this.checked?'inline-block':'none';"> Card border color</label>
+                            <input type="color" name="cards_border[]" value="<?= h($block['cards_border'] ?: '#e5e7eb') ?>" style="display:<?= ($block['cards_border'] ?? '') !== '' ? 'inline-block' : 'none' ?>;margin-top:4px;">
+                        </div>
+                        <div class="form-group" style="display:flex;align-items:flex-end;">
+                            <label><input type="checkbox" name="cards_centered[]" value="1" <?= !empty($block['cards_centered']) ? 'checked' : '' ?>> Center all text</label>
+                        </div>
                     </div>
                     <div class="cards-items-editor" id="cards_items_<?= $i ?>">
                         <?php foreach (($block['cards_items'] ?? []) as $ci => $card): ?>

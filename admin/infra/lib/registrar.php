@@ -1485,7 +1485,10 @@ function infra_reg_spaceship_register(string $domain, int $years, array $cfg, ar
     if (!$c['ok']) return ['ok' => false, 'message' => $c['message']];
 
     $r = infra_reg_spaceship_call($cfg, 'POST', '/domains/' . rawurlencode($domain), [
-        'autoRenew' => !empty($opts['auto_renew']),
+        // Default ON when the key is genuinely absent, same convention as
+        // infra_reg_namesilo_register() — the fleet-wide policy is auto-renew ON, a
+        // lapsed domain is a dead site. Still honors an explicit false.
+        'autoRenew' => array_key_exists('auto_renew', $opts) ? (bool) $opts['auto_renew'] : true,
         'years'     => max(1, min(10, $years)),
         // level "high" is WHOIS privacy on; userConsent is required and asserts the
         // account holder accepted the registration terms.

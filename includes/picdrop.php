@@ -74,9 +74,17 @@ function picdrop_pairs_get(string $key): array {
  *   logo, favicon,
  *   lb_logo         branding, owned by the Header and Gen-Visual tabs
  *   og_image        social-share only, never rendered on the page; SEO tab owns it
- *   image           popups, owned by the Popups tab
  *   featured_image  blog posts, which are not pages
  *   city_image      a site_vars token, not a block field
+ *
+ * `image` was excluded here too, under the belief it belonged to popups — it does
+ * not: the info popup's image lives at $data['popups']['info']['image'], a
+ * completely separate top-level structure Pic Drop's block-scanning functions
+ * (picdrop_slots_for_blocks() and friends) never walk, so that exclusion protected
+ * nothing. What it actually did was hide the real per-item photo used by cards,
+ * steps, feature_columns, and logo_bar (each repeater row's own `image` key) from
+ * Pic Drop entirely. Enabled below with the shared 'alt' sibling key every one of
+ * those four repeaters already uses.
  *
  * Note the alt keys are NOT uniformly "<field>_alt" — image_text pairs it_photo with
  * it_alt. Assuming the pattern would have written a field the renderer never reads.
@@ -95,6 +103,7 @@ function picdrop_fields(): array {
         'mi_photo'      => ['label' => 'Map photo',       'alt' => 'mi_info_alt',  'kind' => 'photo'],
         'photo'         => ['label' => 'Tab photo',       'alt' => 'photo_alt',    'kind' => 'photo'],
         'bg_photo'      => ['label' => 'Background',      'alt' => null,           'kind' => 'background'],
+        'image'         => ['label' => 'Item photo',      'alt' => 'alt',          'kind' => 'photo'],
     ];
 }
 
