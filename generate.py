@@ -39,7 +39,7 @@ import threading
 import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 INDENT = 2
 
@@ -2204,6 +2204,15 @@ def generate_blog_post_text(topic, brief, business, api_key, dry_run=False):
         return None
     return result
 
+def _blog_post_backdate_days(domain_seed, slug):
+    """Deterministic per-domain-per-topic offset so a domain's posts land spread across a
+    plausible posting history instead of every post (and every domain built in the same
+    batch run) sharing the literal generation date. Hash-based rather than random.seed(),
+    so a later rerun that tops off a domain's remaining quota doesn't reshuffle dates
+    already written and deployed for that domain's earlier posts."""
+    h = hashlib.md5(f'blogdate|{domain_seed}|{slug}'.encode('utf-8')).hexdigest()
+    return 14 + (int(h[:8], 16) % 257)  # 14..270 days ago
+
 def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -> bool:
     """Runs toward BLOG_POSTS_PER_DOMAIN published/drafted posts per domain: picks topics
     from brief['blog_topics'] this domain hasn't used yet, one Claude call per post. Topic
@@ -2301,14 +2310,15 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
                 'rl_items': link_candidates,
             })
 
-        today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+        days_ago = _blog_post_backdate_days(domain_seed, topic.get('slug', ''))
+        post_date = (datetime.now(timezone.utc) - timedelta(days=days_ago)).strftime('%Y-%m-%d')
         title = ai.get('title') or topic.get('title', '')
         post = {
             'title': title,
             'slug': topic.get('slug', ''),
             'status': status,
-            'published_at': today,
-            'updated_at': today,
+            'published_at': post_date,
+            'updated_at': post_date,
             'author': '{business} Team',
             'tag': topic.get('tag', ''),
             'excerpt': ai.get('excerpt', ''),
