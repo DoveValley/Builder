@@ -128,15 +128,18 @@
                 <li>Go to <strong>Manage Account &rarr; Account API Tokens</strong> &mdash; not
                     <em>My Profile &rarr; API Tokens</em>, which makes a token that reaches every account your
                     login can see, not just this one.</li>
-                <li><strong>Create Token &rarr; Custom Token</strong>, and add these 5 permissions exactly:
+                <li><strong>Create Token &rarr; Custom Token</strong>, and add these 4 permissions exactly:
                     <ul style="margin:6px 0 6px 18px;line-height:1.8">
-                        <li><code>Account &rarr; Zone &rarr; Edit</code> &mdash; easy to miss: without this,
-                            creating a zone fails with a permission error even though the item below looks the same.</li>
                         <li><code>Account &rarr; Account Settings &rarr; Read</code></li>
                         <li><code>Zone &rarr; Zone &rarr; Edit</code></li>
-                        <li><code>Zone &rarr; DNS &rarr; Edit</code></li>
+                        <li><code>Zone &rarr; DNS &rarr; Edit</code> &mdash; not "DNS Settings", which looks
+                            similar but fails A-record writes with an authentication error.</li>
                         <li><code>Zone &rarr; Zone Settings &rarr; Edit</code></li>
                     </ul>
+                    Zone Resources: <strong>Include &rarr; All zones</strong> &mdash; this is what lets the
+                    token create a brand-new zone (Cloudflare removed the separate
+                    <code>Account &rarr; Zone &rarr; Edit</code> permission group in ~September 2026; zone
+                    creation now comes from this Resources setting instead, not an extra permission line).
                 </li>
                 <li>Leave the token's <strong>Start / End date empty</strong> &mdash; a past start date makes
                     Cloudflare reject it with an unhelpful "unknown error".</li>
@@ -440,7 +443,7 @@
         <h2>Add a Cloudflare account</h2>
         <div class="body">
             <div class="ic-note">Cloudflare limits how many domains one account can hold, so a large fleet is normally spread over several. Each one you add here is listed separately above.
-                Need the Cloudflare-side steps (creating the account's token, which 5 permissions it needs)? See
+                Need the Cloudflare-side steps (creating the account's token, which 4 permissions it needs)? See
                 <strong>"How to add a Cloudflare account"</strong> at the top of this page.</div>
             <?php infra_cf_form(null); ?>
         </div>
