@@ -525,7 +525,8 @@
                     }
                     acts.innerHTML =
                         '<a href="#" data-view="/' + d.url + '" data-name="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>' +
-                        '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>';
+                        '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>' +
+                        '<a href="#" data-adjust="' + key + '" data-sid="' + sid + '" style="color:#2563eb;text-decoration:none;">&#9635; Adjust view</a>';
 
                     var msg = d.width + '×' + d.height + ' · ' + d.note + (extraMsg ? ' · ' + extraMsg : '');
                     if (d.propagated) msg += ' · also applied to ' + d.propagated + ' other page' + (d.propagated === 1 ? '' : 's');
