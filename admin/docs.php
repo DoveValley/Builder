@@ -2717,6 +2717,7 @@ Output valid JSON only — no explanation.</code></pre>
         <li><strong>Neighborhoods feature</strong> — population-gated, woven per city (see above).</li>
         <li><strong><code>call_claude</code> crash</strong> — fixed the <code>ThinkingBlock</code> error that blocked all generation on current models.</li>
         <li><strong>P1 · multisite research-strip</strong> <em>(multisite-only)</em> — <code>build_one.php</code> was overwriting the working <code>cities.json</code> with bare landing rows, discarding master research (neighborhoods/industries/employers) → generate.py saw bare rows → generic copy on every deployed landing page. Fixed via <code>ms_merge_research_into_landing()</code>.</li>
+        <li><strong>Auto-generated blog post dates all identical</strong> <em>(multisite-only)</em> — <strong>✅ fixed.</strong> <code>generate_blog_posts()</code> stamped every post's <code>published_at</code>/<code>updated_at</code> with the literal build-moment timestamp, so all posts on one domain — and every domain built in the same batch run — shared the same visible date on the rendered blog card. Fixed with <code>_blog_post_backdate_days()</code>: a deterministic hash of <code>domain_seed + topic slug</code> spreads each post 14–270 days in the past, same pattern as the existing <code>ms_jitter_color()</code> per-domain jitter. Idempotent across reruns/retries.</li>
     </ul>
 
     <h3>Tier 1 — correctness (ships wrong output)</h3>

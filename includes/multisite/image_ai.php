@@ -243,10 +243,25 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // Drop — a different subject entirely, say — still has a say), but the
         // instruction now leads with "stay close to the reference," not "here's a
         // scene, go describe it" — that framing is what let results wander.
+        //
+        // The home hero is the one slot where "stay close" cuts the other way: it's
+        // the single highest-visibility photo on the domain, so a tight "same
+        // composition, same framing" instruction — while it defeats hash/dedup
+        // checks by producing a genuinely separate generation — still reads as the
+        // same photo under reverse image search, which compares visual structure,
+        // not bytes. Every other slot keeps the tight instruction; only the home
+        // hero is allowed to actually vary composition/framing/angle.
+        $isHomeHero = $parts['scope'] === 'home'
+            && in_array($blockType, ['hero', 'hero_split', 'hero_grid'], true);
         $styleIdx = ms_variant($domain, count(ms_image_ai_style_pool()), 'image_style');
-        $prompt   = ms_image_ai_fill_tokens($basePrompt, $siteVars) . '. Keep this photo nearly identical to '
-                  . 'the reference — same subject, same composition, same framing. Make only one small, '
-                  . 'subtle change: ' . ms_image_ai_style_pool()[$styleIdx] . '.';
+        $instruction = $isHomeHero
+            ? '. Keep the same subject and general setting as the reference, but vary the framing, '
+              . 'angle, or composition — it should read as a distinct photograph, not a copy of the '
+              . 'reference. Also reflect this stylistic touch: '
+            : '. Keep this photo nearly identical to the reference — same subject, same composition, '
+              . 'same framing. Make only one small, subtle change: ';
+        $prompt = ms_image_ai_fill_tokens($basePrompt, $siteVars) . $instruction
+                . ms_image_ai_style_pool()[$styleIdx] . '.';
 
         $size = ($tw > 0 && $th > 0)
             ? ($tw >= $th * 1.2 ? '1536x1024' : ($th >= $tw * 1.2 ? '1024x1536' : '1024x1024'))
