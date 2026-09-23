@@ -264,7 +264,24 @@
                                             &#128274; Set per city<br><span style="font-size:.72rem;">City Image plugin</span>
                                         </div>
                                     <?php else: ?>
-                                        <?php $aiDefault = 'Photorealistic photo for: ' . $s['block_label'] . ' — ' . $s['label'] . '. Wide or medium-wide shot that shows the full scene — do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person — do not crop it off or leave it out. This photo will be cropped to fit its slot afterward, so leave margin around the subject and any equipment — do not compose it edge-to-edge. Bright, well-lit scene with natural daylight — not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression — not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.'; ?>
+                                        <?php
+                                        // The alt text (when there is one) is a real description of what's
+                                        // actually supposed to be in the shot — often written by the AI content
+                                        // generator itself, e.g. "Water damage restoration technician using a
+                                        // wet-vac beside a marked service van in {city}, {SS}". The block/field
+                                        // label ("Feature Split — Feature split") is just a UI name for the slot
+                                        // and says nothing about the subject, which is exactly why a generic
+                                        // default led the model to invent unrelated equipment instead of the
+                                        // vehicle that belonged in frame.
+                                        $subjectDesc = trim($s['alt']) !== '' ? $s['alt'] : ($s['block_label'] . ' — ' . $s['label']);
+                                        // Alt text carries {city}/{SS}-style shortcodes meant for the page
+                                        // render, not an image prompt — strip them so the model isn't handed
+                                        // literal curly-brace text to puzzle over.
+                                        $subjectDesc = trim((string) preg_replace('/\s*\{[a-z_]+\}/i', '', $subjectDesc));
+                                        $subjectDesc = trim((string) preg_replace('/,\s*$/', '', $subjectDesc));
+                                        $subjectDesc = trim((string) preg_replace('/\bin\s*$/i', '', $subjectDesc));
+                                        $aiDefault = 'Photorealistic photo for: ' . $subjectDesc . '. Wide or medium-wide shot that shows the full scene — do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person — do not crop it off or leave it out. This photo will be cropped to fit its slot afterward, so leave margin around the subject and any equipment — do not compose it edge-to-edge. Bright, well-lit scene with natural daylight — not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression — not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.';
+                                        ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
                                                  style="border:2px dashed #d1d5db;border-radius:7px;padding:14px 10px;text-align:center;cursor:pointer;font-size:.8rem;color:#6b7280;transition:border-color .15s,background .15s;">

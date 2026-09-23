@@ -459,7 +459,17 @@ if ($action === 'place') {
         // doesn't inherit boilerplate it didn't ask for). The "leave margin, don't
         // compose edge-to-edge" guidance already lives in the default prompt text
         // itself (picdrop.php's $aiDefault) rather than being duplicated here.
-        $refPrompt = $prompt . ' If there is a technician or other person in the photo, give them a different face and hairstyle than the reference photo.';
+        //
+        // "Keep everything else the same" was missing here entirely — unlike the
+        // batch pipeline's edit instruction (includes/multisite/image_ai.php), which
+        // has always told the model to hold the reference's composition close. On
+        // this manual path the model only ever saw $prompt plus the note below, with
+        // nothing telling it to preserve what's actually IN the reference (a work
+        // van, equipment, etc.) — it was as free to invent as a from-scratch
+        // generation, just starting from this image instead of a blank one.
+        $refPrompt = $prompt . ' Keep this photo close to the reference — same setting, same equipment, '
+            . 'same vehicle if one is visible — and apply only the change described above. '
+            . 'If there is a technician or other person in the photo, give them a different face and hairstyle than the reference photo.';
         $r = openai_images_edit($refPrompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
         $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
