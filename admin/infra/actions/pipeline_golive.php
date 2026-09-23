@@ -92,16 +92,23 @@ switch ($action) {
         break;
 
     case 'save_dates':
-        // Only rows whose date actually changed are written, so saving does not stamp
-        // updated_at across sixty-five untouched rows.
+        // Only rows whose date or time actually changed are written, so saving does
+        // not stamp updated_at across sixty-five untouched rows.
+        $times = (array) ($_POST['time'] ?? []);
         $n = 0;
         foreach ((array) ($_POST['date'] ?? []) as $dom => $val) {
             $dom = strtolower(trim((string) $dom));
             $val = trim((string) $val);
             if ($val !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $val)) continue;
+            // A time only ever means something paired with a date — clearing the date
+            // clears any time typed alongside it too, rather than leaving an orphaned
+            // go_live_time that would silently apply if a date were typed back in later.
+            $time = $val === '' ? '' : trim((string) ($times[$dom] ?? ''));
+            if ($time !== '' && !preg_match('/^\d{2}:\d{2}$/', $time)) $time = '';
             $rec = infra_state_get_domain($dom);
-            if (!$rec || (string) ($rec['go_live_at'] ?? '') === $val) continue;
-            infra_state_upsert_domain(['domain' => $dom, 'go_live_at' => $val,
+            if (!$rec) continue;
+            if ((string) ($rec['go_live_at'] ?? '') === $val && (string) ($rec['go_live_time'] ?? '') === $time) continue;
+            infra_state_upsert_domain(['domain' => $dom, 'go_live_at' => $val, 'go_live_time' => $time,
                                        'status' => $val === '' ? ($rec['status'] ?: '') : 'queued']);
             $n++;
         }

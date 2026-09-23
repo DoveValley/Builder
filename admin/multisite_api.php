@@ -455,6 +455,7 @@ switch ($action) {
         foreach (infra_pipeline_rows($tag) as $r) {
             $c = $r['cells'];
             $cell = fn(string $k) => ['state' => $c[$k]['state'] ?? '', 'note' => $c[$k]['note'] ?? '', 'at' => (int) ($c[$k]['at'] ?? 0)];
+            $rec = infra_state_get_domain($r['domain']) ?: [];
             $out[] = [
                 'domain'    => $r['domain'],
                 'zone'      => $cell('zone'),
@@ -463,10 +464,38 @@ switch ($action) {
                 'live'      => $cell('live'),
                 // Go Live's own gate reads the Upload cell — surfaced here so the button
                 // can explain itself instead of just failing when pressed.
-                'upload_ok' => ($c['upload']['state'] ?? '') === INFRA_STEP_OK,
+                'upload_ok'    => ($c['upload']['state'] ?? '') === INFRA_STEP_OK,
+                'go_live_at'   => (string) ($rec['go_live_at'] ?? ''),
+                'go_live_time' => (string) ($rec['go_live_time'] ?? ''),
             ];
         }
         echo json_encode(['rows' => $out]);
+        break;
+
+    // One row's own release date/time, set right from the batch card — the same
+    // fields Infra → Bulk's per-row date/time inputs write, so either screen can
+    // schedule a domain and the other sees it immediately. Kept separate from
+    // 'golive_schedule' (the bulk N/day spreader): that one assigns a computed date
+    // to every eligible domain in the batch at once and never touches time-of-day;
+    // this one is a single domain's own explicit date+time, typed by hand.
+    case 'golive_save_date':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        $sDom  = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $sDate = trim((string) ($_POST['date'] ?? ''));
+        $sTime = trim((string) ($_POST['time'] ?? ''));
+        if ($sDate !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $sDate)) { echo json_encode(['error' => 'Invalid date.']); break; }
+        // Same "a time only means something paired with a date" rule save_dates uses.
+        if ($sDate === '' || !preg_match('/^\d{2}:\d{2}$/', $sTime)) $sTime = '';
+        $rec = infra_state_get_domain($sDom);
+        // Only a domain this batch actually tagged — a hand-crafted POST must not be
+        // able to reach into another batch's (or another master's) domains.
+        if (!$rec || (string) ($rec['batch'] ?? '') !== ($masterId . '/' . $batchId)) {
+            echo json_encode(['error' => 'Not a domain in this batch.']); break;
+        }
+        infra_state_upsert_domain(['domain' => $sDom, 'go_live_at' => $sDate, 'go_live_time' => $sTime,
+                                   'status' => $sDate === '' ? ($rec['status'] ?: '') : 'queued']);
+        echo json_encode(['success' => true]);
         break;
 
     // One step, one domain: 'zone' (stage/restore the Cloudflare zone) or 'golive'

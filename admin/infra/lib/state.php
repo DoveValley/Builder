@@ -133,7 +133,12 @@ function infra_state_counter_next(string $key): int
 }
 
 const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_id',
-    'nameservers','ftp_user','ftp_pass','registrar','status','go_live_at','created_at','updated_at',
+    'nameservers','ftp_user','ftp_pass','registrar','status','go_live_at',
+    // Optional 'HH:MM' (INFRA_TZ, same as go_live_at's day) paired with go_live_at —
+    // blank means "any time that day", exactly the old behaviour, so every domain
+    // scheduled before this column existed keeps working unchanged. See
+    // infra_golive_due()'s docblock for how the two combine.
+    'go_live_time', 'created_at','updated_at',
     // ── acquisition stage (begin → ready → owned), all TEXT ──
     'ready_to_buy',      // 'yes' | 'no' | ''      col 2 — set by the availability check, manually overridable
     'buy_registrar',     // registrar.json key     col 3 — which registrar will buy it

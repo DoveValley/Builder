@@ -99,15 +99,39 @@ function infra_golive_schedule(int $perDay, string $startDate, array $opts = [])
     return ['scheduled' => $i, 'skipped' => $skipped, 'first' => $first, 'last' => $last];
 }
 
-/** Domains scheduled on/before $date and not yet live. @return array domain=>record */
-function infra_golive_due(?string $date = null): array
+/**
+ * Domains scheduled on/before $now's day (and, for the day they're scheduled on, at
+ * or past $now's time-of-day) and not yet live.
+ *
+ * go_live_time is optional per domain — blank means "any time that day" (the
+ * original, only behaviour before go_live_time existed), so a domain scheduled by
+ * date alone is due the instant its day starts, same as always. A domain that also
+ * carries a time is due only once that clock time has passed ON its scheduled day —
+ * a future day with a time set is not due early just because the time looks past
+ * relative to today, and a past day is due regardless of time (never got released,
+ * still overdue).
+ *
+ * $now is a full 'Y-m-d H:i(:s)?' string in INFRA_TZ (infra_now()'s own format) — NOT
+ * just a date — so a caller wanting the old date-only semantics can still get it by
+ * passing e.g. "$date 23:59".
+ *
+ * @return array domain=>record
+ */
+function infra_golive_due(?string $now = null): array
 {
-    $date = $date ?: gmdate('Y-m-d');
+    $now     = $now ?: infra_now();
+    $nowDate = substr($now, 0, 10);
+    $nowTime = substr($now, 11, 5); // 'H:i', empty string if $now had no time part
     $due = [];
     foreach (infra_state_all_domains() as $dom => $r) {
         if (($r['status'] ?? '') === 'live') continue;
-        $gla = $r['go_live_at'] ?? '';
-        if ($gla !== '' && $gla <= $date) $due[$dom] = $r;
+        $gla = (string) ($r['go_live_at'] ?? '');
+        if ($gla === '' || $gla > $nowDate) continue;
+        if ($gla === $nowDate) {
+            $glt = trim((string) ($r['go_live_time'] ?? ''));
+            if ($glt !== '' && $nowTime !== '' && $glt > $nowTime) continue;
+        }
+        $due[$dom] = $r;
     }
     return $due;
 }

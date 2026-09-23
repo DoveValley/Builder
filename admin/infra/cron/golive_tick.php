@@ -1,12 +1,22 @@
 <?php
 /**
- * infra/cron/golive_tick.php — daily go-live batch runner (CLI only).
+ * infra/cron/golive_tick.php — go-live batch runner (CLI only).
  *
- * Run from real cron as www-data, e.g.:
+ * Run from real cron as www-data, once a day if every domain's go_live_time is left
+ * blank (date-only scheduling, the original behaviour):
  *   0 9 * * *  www-data  php /var/www/homepage-builder-new/admin/infra/cron/golive_tick.php 20 >> /var/log/infra-golive.log 2>&1
  *
+ * A domain that DOES carry a go_live_time (set from either the batch card or Infra →
+ * Bulk) is only actually due once that clock time passes on its scheduled day — see
+ * infra_golive_due()'s docblock. Cron itself still only calls this script on whatever
+ * schedule the crontab line says; a once-daily cron will pick up a same-day timed
+ * domain the next time it happens to run that day, not at the exact minute typed in.
+ * For real same-day, different-time releases, change the crontab line to run more
+ * often (e.g. every 15 minutes) — this script is idempotent and safe to run that
+ * often; it just does nothing on a tick where nothing is due yet.
+ *
  * Each run: (1) refresh live status from Cloudflare, (2) release up to <cap>
- * domains that are due today, (3) refresh again. Idempotent and safe to re-run.
+ * domains that are due right now, (3) refresh again. Idempotent and safe to re-run.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(1); }
 

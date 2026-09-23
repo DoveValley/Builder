@@ -171,6 +171,23 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         await loadGoLive();
     };
 
+    // Save one row's own date/time, typed right on this card — the batch-scoped twin
+    // of Infra → Bulk's "Save dates" button, minus the whole-form submit since this
+    // card is already per-row/fetch-driven everywhere else.
+    window.msGoLiveSaveDate = async function (domain, btn) {
+        const dateEl = document.getElementById('gl-date-' + domain);
+        const timeEl = document.getElementById('gl-time-' + domain);
+        const msgEl  = btn.parentElement.querySelector('.gl-sched-msg');
+        btn.disabled = true;
+        const r = await post('golive_save_date', { domain: domain, date: dateEl.value, time: timeEl.value });
+        btn.disabled = false;
+        if (!msgEl) { await loadGoLive(); return; }
+        if (r.error) { msgEl.textContent = r.error; msgEl.style.color = '#b91c1c'; return; }
+        msgEl.textContent = 'saved';
+        msgEl.style.color = '#166534';
+        setTimeout(() => { msgEl.textContent = ''; }, 2500);
+    };
+
     // Generic re-check for any step's cell — golive_refresh already accepted any
     // step key, only the 'live' column ever had a button wired to it. The CF Zone
     // column had no way to notice a zone deleted outside this page (e.g. the
@@ -290,10 +307,21 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         const dnsCell = badge(r.dns) +
             ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" title="Re-check with Cloudflare now — this cell can go stale the same way Zone/Go Live can" onclick="msGoLiveRefreshStep(\'dns\', \'' + esc(r.domain) + '\', this)">↻</button>';
 
+        // Same fields, same validation as Infra → Bulk's per-row date/time inputs
+        // (admin/infra/views/_pipeline_grid.php) — either screen schedules the same
+        // underlying domain record, so whichever one you're already on works.
+        const domAttr = esc(r.domain).replace(/'/g, "\\'");
+        const schedCell = r.golive.state === 'ok' ? '<span style="color:#94a3b8">released</span>' :
+            '<input type="date" id="gl-date-' + esc(r.domain) + '" value="' + esc(r.go_live_at || '') + '" style="width:130px;">' +
+            '<input type="time" id="gl-time-' + esc(r.domain) + '" value="' + esc(r.go_live_time || '') + '" style="width:88px;" title="Optional — blank means any time that day">' +
+            ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" onclick="msGoLiveSaveDate(\'' + domAttr + '\', this)">Save</button>' +
+            ' <span class="gl-sched-msg" style="font-size:11px;"></span>';
+
         return '<tr>' +
             '<td>' + esc(r.domain) + '</td>' +
             '<td>' + badge(r.zone) + ' ' + zoneBtn + '</td>' +
             '<td>' + goLiveCell + '</td>' +
+            '<td>' + schedCell + '</td>' +
             '<td>' + dnsCell + '</td>' +
             '<td>' + liveCell + '</td>' +
             '</tr>';
@@ -313,6 +341,7 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
             '<th style="text-align:left;">Domain</th>' +
             '<th style="text-align:left;">CF Zone <button type="button" class="btn" style="padding:0 6px;font-size:0.7rem;" onclick="msGoLiveRunColumn(\'zone\')">▶ all</button></th>' +
             '<th style="text-align:left;">Go Live <button type="button" class="btn" style="padding:0 6px;font-size:0.7rem;" onclick="msGoLiveRunColumn(\'golive\')">▶ all</button></th>' +
+            '<th style="text-align:left;">Scheduled</th>' +
             '<th style="text-align:left;">DNS</th>' +
             '<th style="text-align:left;">Live</th>' +
             '</tr></thead><tbody>' + rows.map(renderRow).join('') + '</tbody></table></div>';

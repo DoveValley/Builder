@@ -287,6 +287,9 @@ function pg_cell(array $c): string
                   <input class="pg-date<?= $late ? ' pg-late' : '' ?>" type="date"
                          name="date[<?= ih($dom) ?>]" value="<?= ih($when) ?>"
                          title="<?= $late ? 'This date has passed and the domain has not been released' : 'Release date — blank means unscheduled' ?>">
+                  <input class="pg-date" type="time"
+                         name="time[<?= ih($dom) ?>]" value="<?= ih(trim((string) ($rec['go_live_time'] ?? ''))) ?>"
+                         title="Optional release time (this box's own timezone) — blank means any time that day, same as before this field existed. Only as accurate as how often the cron actually runs; see golive_tick.php's docblock.">
                   <?php if ($late): ?><span class="pg-late" style="font-size:10px"> overdue</span><?php endif; ?>
                   <div>
                     <?php // The one outward-facing action on this page. Confirmed, because
@@ -316,7 +319,7 @@ function pg_cell(array $c): string
           <button class="btn sec" type="submit" name="action" value="tag">Tag</button>
         </div>
         <div>
-          <label>Release dates you have typed above</label>
+          <label>Release dates/times you have typed above</label>
           <button class="btn sec" type="submit" name="action" value="save_dates">Save dates</button>
         </div>
         <div>
