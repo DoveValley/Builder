@@ -282,11 +282,18 @@ if (!empty($slot['token'])) {
  * has always returned. $destForCleanup is only non-null when this call just finished
  * processing a brand new file — set_active is re-pointing at a file that's already
  * live elsewhere, so a write failure there must not delete it.
+ *
+ * $onSuccess runs ONLY after picdrop_apply_edits() confirms the page itself was
+ * actually written — never before. The real/ai pairs sidecar and the batch
+ * prompt-capture cache both used to be saved unconditionally before this call, so a
+ * failed (or even a cleanly-rejected) page write left them recording a side as
+ * "active"/"approved" that the real page never received — the tab would then show
+ * that photo as live, even after a reload reading straight from disk.
  */
 function pd_commit(
     array $parts, array $slot, string $key, string $newValue,
     ?int $nw, ?int $nh, ?string $note, ?string $screened, string $prompt, ?float $cost,
-    ?string $destForCleanup
+    ?string $destForCleanup, ?callable $onSuccess = null
 ): never {
     if ($nw === null || $nh === null) {
         $resolved = picdrop_resolve($newValue);
@@ -346,6 +353,8 @@ function pd_commit(
         pd_fail($res['errors'][0] ?? 'The image was processed but nothing could be written.');
     }
 
+    if ($onSuccess !== null) $onSuccess();
+
     echo json_encode([
         'success'    => true,
         'url'        => $newValue,
@@ -378,8 +387,8 @@ if ($action === 'set_active') {
         pd_fail('There is no ' . ($which === 'ai' ? 'AI' : 'real') . ' photo saved for this slot yet.');
     }
     $pairsAll[$key]['active'] = $which;
-    picdrop_pairs_save($pairsAll);
-    pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null);
+    pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null,
+        function () use ($pairsAll) { picdrop_pairs_save($pairsAll); });
 }
 
 $screened     = null;
@@ -573,18 +582,20 @@ if ($as === 'ai' && $pairsRow['real'] === null && $slot['value'] !== '' && $slot
 $pairsRow[$as]      = $newValue;
 $pairsRow['active'] = $as;
 $pairsAll[$key]     = $pairsRow;
-picdrop_pairs_save($pairsAll);
 
-// The moment an AI photo is confirmed, its prompt becomes this slot's standing
-// template for batch — see includes/multisite/image_ai.php. media_register() already
-// stored the prompt on the candidate when it was generated, so it's read back here
-// rather than threaded through a second time.
-if ($as === 'ai') {
-    require_once __DIR__ . '/../includes/multisite/image_ai.php';
-    $usedPrompt = $prompt !== '' ? $prompt : $sourcePrompt;
-    if ($usedPrompt !== '' && ACTIVE_SITE_DIR !== '') {
-        ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $usedPrompt, (string) ($slot['block_id'] ?? ''));
-    }
-}
+pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest,
+    function () use ($pairsAll, $as, $key, $slot, $prompt, $sourcePrompt) {
+        picdrop_pairs_save($pairsAll);
 
-pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest);
+        // The moment an AI photo is confirmed, its prompt becomes this slot's standing
+        // template for batch — see includes/multisite/image_ai.php. media_register()
+        // already stored the prompt on the candidate when it was generated, so it's
+        // read back here rather than threaded through a second time.
+        if ($as === 'ai') {
+            require_once __DIR__ . '/../includes/multisite/image_ai.php';
+            $usedPrompt = $prompt !== '' ? $prompt : $sourcePrompt;
+            if ($usedPrompt !== '' && ACTIVE_SITE_DIR !== '') {
+                ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $usedPrompt, (string) ($slot['block_id'] ?? ''));
+            }
+        }
+    });

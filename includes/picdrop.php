@@ -522,6 +522,13 @@ function picdrop_apply_edits(array $edits): array {
         if (!is_array($doc)) { $errors[] = basename($file) . ': unparseable'; continue; }
 
         $dirty = false;
+        // Counted per-file, added to $ok only once the write below actually succeeds
+        // — picdrop_set() below only mutates $doc in memory. Counting straight into
+        // $ok there let a failed picdrop_json_write() (permission issue, disk full,
+        // a losing race) still report success: the in-memory edit "worked," so $ok
+        // was already > 0 by the time the write was even attempted, and pd_commit()
+        // (admin/picdrop_api.php) treats any ok > 0 as full success.
+        $fileOk = 0;
         foreach ($fileEdits as $e) {
             // Two kinds of edit. A block edit addresses one block inside a document;
             // a ROOT edit ($e['root']) addresses the document itself, which is how
@@ -556,15 +563,19 @@ function picdrop_apply_edits(array $edits): array {
                 else { $target = &$doc['content_blocks'][$e['block']]; }
             }
 
-            if (picdrop_set($target, $e['field'], $e['value'])) { $dirty = true; $ok++; }
+            if (picdrop_set($target, $e['field'], $e['value'])) { $dirty = true; $fileOk++; }
             else $errors[] = basename($file) . ': field ' . $e['field'] . ' not present'
                            . ($root ? ' on ' . ($e['id'] ?: 'the document') : ' on block ' . $e['block']);
 
             unset($target);
         }
 
-        if ($dirty && !picdrop_json_write($file, $doc)) {
-            $errors[] = basename($file) . ': could not be written';
+        if ($dirty) {
+            if (picdrop_json_write($file, $doc)) {
+                $ok += $fileOk;
+            } else {
+                $errors[] = basename($file) . ': could not be written';
+            }
         }
     }
 
