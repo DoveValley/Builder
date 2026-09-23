@@ -5,17 +5,22 @@
  *
  * The moment an AI photo is confirmed in Pic Drop (picdrop_api.php), the prompt that
  * produced it is captured here as that slot's standing template for the master
- * (multisite/image_prompts.json). A batch run with images.ai_photos on then EDITS
- * each domain's own copy of that approved photo (not a from-scratch description of
- * it) with one small, domain-deterministic change — staying close to what was
- * actually approved instead of drifting wherever a fresh description happens to
- * land — generates once, and caches the result — same "never re-bill a rebuild"
- * rule as every other per-domain AI step in this pipeline.
+ * (multisite/image_prompts.json). A batch run with the relevant images.ai_photos_*
+ * checkbox on then EDITS each domain's own copy of that approved photo (not a
+ * from-scratch description of it) with one small, domain-deterministic change —
+ * staying close to what was actually approved instead of drifting wherever a fresh
+ * description happens to land — generates once, and caches the result — same "never
+ * re-bill a rebuild" rule as every other per-domain AI step in this pipeline.
  *
- * SCOPE: home-page and site-wide (services_links) slots only. A landing page's block
- * order can shift under page-pool pruning, and trusting a block INDEX there without
- * checking it still means the same field would risk writing an image into the wrong
- * spot. Not a silent gap — the batch card says exactly this.
+ * SCOPE: home-page, site-wide (services_links), and landing/service-page slots.
+ * Landing slots are matched by TEMPLATE ID (recorded on capture, read back off the
+ * master's own generated page file), never by the master's page FILENAME — a clone's
+ * own page file is named after ITS OWN city, not the master's, so filename matching
+ * would never hit on any real domain. A domain that doesn't build a given page at all
+ * (Page Pool excluded it) is skipped silently — that's an expected, routine outcome,
+ * not a failure. Block order can still shift under structure.landing's rotation, so
+ * resolution goes by stable block id first, same as the homepage (see
+ * ms_image_ai_resolve_block()).
  */
 
 require_once __DIR__ . '/../openai_images.php';
@@ -36,10 +41,42 @@ function ms_image_ai_prompts_load(string $masterDir): array {
 }
 
 /**
- * Called from Pic Drop the instant an AI photo is confirmed for a home/global slot —
- * records the prompt that produced it as this slot's standing template for every
- * future domain build. Landing/core slots are silently ignored here on purpose: they
- * are out of batch scope (see module docblock), so there is nothing to remember yet.
+ * Classifies a captured slot into one of the batch panel's four independent "AI photo"
+ * checkboxes: hero_home, hero_landing, other_home, other_landing. Shared by
+ * ms_generate_ai_images_for_domain() (to gate + pick the "vary composition" vs "stay
+ * close" instruction) and ms_batch_pending_summary() (includes/multisite/steps.php,
+ * the pre-flight cost preview) — one classification, so the checkboxes and the
+ * numbers next to them can never disagree about what a run will actually do.
+ *
+ * A global (services_links) slot has no page of its own to be "landing" about, so it
+ * always buckets with home — same reasoning "hero" only ever means the single home
+ * hero, never the services block, whatever its block type.
+ */
+function ms_image_ai_slot_category(array $parts, string $blockType): string {
+    $isHero = in_array($blockType, ['hero', 'hero_split', 'hero_grid'], true);
+    if ($parts['scope'] === 'landing') return $isHero ? 'hero_landing' : 'other_landing';
+    return $isHero ? 'hero_home' : 'other_home';
+}
+
+/**
+ * Reads back the TEMPLATE id a master's own generated landing page file carries
+ * (data/pages/{filename} — same relative path a domain's clone uses, see module
+ * docblock). This, not the filename itself, is what a landing-scope slot is captured
+ * and later matched against: a clone's page file is named after ITS OWN city, so only
+ * the page's internal `template_id` field is stable across every domain that builds it.
+ */
+function ms_image_ai_landing_template_id(string $masterDir, string $pageFilename): string {
+    $f = $masterDir . '/data/pages/' . basename($pageFilename);
+    if (!is_file($f)) return '';
+    $d = json_decode((string) @file_get_contents($f), true);
+    return is_array($d) ? (string) ($d['template_id'] ?? '') : '';
+}
+
+/**
+ * Called from Pic Drop the instant an AI photo is confirmed for a home/global/landing
+ * slot — records the prompt that produced it as this slot's standing template for
+ * every future domain build. Core/template scopes are silently ignored here on
+ * purpose: they are out of batch scope, so there is nothing to remember yet.
  *
  * Stores $blockType alongside the prompt — see ms_generate_ai_images_for_domain()'s
  * docblock for why a bare block INDEX turned out not to be safe even on the homepage.
@@ -48,14 +85,28 @@ function ms_image_ai_prompts_load(string $masterDir): array {
  * ms_image_ai_resolve_block() tell two same-type/same-field blocks apart, which type+
  * field alone cannot. Empty when the block predates the id scheme; resolution falls
  * back to today's type+field matching for those.
+ *
+ * For a landing slot, also captures `template_id` (read off the master's OWN page
+ * file this exact moment — see ms_image_ai_landing_template_id()) — this, not
+ * $slotKey's embedded filename, is what ms_generate_ai_images_for_domain() matches
+ * against each domain's own page files. A slot whose page has no readable
+ * `template_id` right now (shouldn't happen for a normally-generated page) is not
+ * captured — there would be nothing for a future domain build to match it against.
  */
 function ms_image_ai_prompt_capture(string $masterDir, string $slotKey, string $blockType, string $prompt, string $blockId = ''): void {
     if (trim($prompt) === '') return;
     $parts = picdrop_parse_key($slotKey);
-    if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) return;
+    if ($parts === null || !in_array($parts['scope'], ['home', 'global', 'landing'], true)) return;
+
+    $entry = ['prompt' => $prompt, 'block_type' => $blockType, 'block_id' => $blockId];
+    if ($parts['scope'] === 'landing') {
+        $templateId = ms_image_ai_landing_template_id($masterDir, $parts['id']);
+        if ($templateId === '') return;
+        $entry['template_id'] = $templateId;
+    }
 
     $all = ms_image_ai_prompts_load($masterDir);
-    $all[$slotKey] = ['prompt' => $prompt, 'block_type' => $blockType, 'block_id' => $blockId];
+    $all[$slotKey] = $entry;
     $f = ms_image_ai_prompts_file($masterDir);
     if (!is_dir(dirname($f))) mkdir(dirname($f), 0775, true);
     file_put_contents($f, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
@@ -89,8 +140,9 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
 }
 
 /**
- * Generates (or reuses a cached) AI photo for every home/global slot the master has a
- * locked prompt for, writing each straight into the working dir's own site.json.
+ * Generates (or reuses a cached) AI photo for every home/global/landing slot the
+ * master has a locked prompt for, writing each straight into the working dir's own
+ * site.json (home/global) or its own data/pages/*.json file (landing).
  *
  * Cache hits and locked/missing slots are resolved immediately (cheap, no network).
  * Everything that actually needs a new photo is generated in one concurrent batch
@@ -102,17 +154,50 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
  *        the concurrent batch finishes — purely for progress reporting, e.g. a
  *        "generating photo 3 of 12" line in a batch run's status. $total counts
  *        only the photos that actually needed generating (cache hits aren't in it).
+ * @param bool $genHeroHome whether the homepage hero (hero/hero_split/hero_grid) gets
+ *        a new AI photo — the batch panel's "AI photo — hero (home)" checkbox.
+ * @param bool $genHeroLanding same, for each service page's own hero.
+ * @param bool $genOtherHome whether every other home-page slot (+ the site-wide
+ *        services_links block) gets one — "AI photo — other images (home)".
+ * @param bool $genOtherLanding same, for every other slot on service pages.
+ *        All four are independent; any combination may be true.
  * @return array{generated:int,cached:int,failed:int}
  */
-function ms_generate_ai_images_for_domain(string $workingDir, string $domain, string $masterDir, ?callable $onProgress = null): array {
+function ms_generate_ai_images_for_domain(
+    string $workingDir, string $domain, string $masterDir, ?callable $onProgress = null,
+    bool $genHeroHome = true, bool $genHeroLanding = true, bool $genOtherHome = true, bool $genOtherLanding = true
+): array {
     $out = ['generated' => 0, 'cached' => 0, 'failed' => 0, 'errors' => []];
     $templates = ms_image_ai_prompts_load($masterDir);
     if (!$templates) return $out;
+
+    $catFlags = [
+        'hero_home' => $genHeroHome, 'hero_landing' => $genHeroLanding,
+        'other_home' => $genOtherHome, 'other_landing' => $genOtherLanding,
+    ];
 
     $siteFile = $workingDir . '/data/site.json';
     $site = json_decode((string) @file_get_contents($siteFile), true);
     if (!is_array($site)) return $out;
     $siteVars = $site['site_vars'] ?? [];
+
+    // Every landing page THIS domain actually built, read once up front and cached
+    // by template_id — a landing slot is matched against this, never against the
+    // master's page filename (see module docblock: a clone's own page is named after
+    // its own city). A template_id with no entry here means Page Pool didn't build
+    // that page for this domain — routine, not a failure, handled below by a plain skip.
+    $pageCache = [];          // pageFile path => decoded array, mutated in place below
+    $templateToPageFile = []; // template_id => pageFile path
+    $pagesDir = $workingDir . '/data/pages';
+    if (is_dir($pagesDir)) {
+        foreach (glob($pagesDir . '/*.json') ?: [] as $pf) {
+            $pd = json_decode((string) @file_get_contents($pf), true);
+            if (!is_array($pd)) continue;
+            $pageCache[$pf] = $pd;
+            if (!empty($pd['template_id'])) $templateToPageFile[(string) $pd['template_id']] = $pf;
+        }
+    }
+    $pageDirty = []; // pageFile path => bool
 
     $cacheDir = $masterDir . '/multisite/cache';
     if (!is_dir($cacheDir)) mkdir($cacheDir, 0775, true);
@@ -147,34 +232,61 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         $blockId    = is_array($entry) ? (string) ($entry['block_id']   ?? '') : '';
 
         $parts = picdrop_parse_key($slotKey);
-        if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) continue;
+        if ($parts === null || !in_array($parts['scope'], ['home', 'global', 'landing'], true)) continue;
+
+        // Which of the four checkboxes governs this slot is decided BEFORE any
+        // resolve/cache work below — an unchecked box means this slot is untouched,
+        // not "resolve it and then discard the result".
+        $category = ms_image_ai_slot_category($parts, $blockType);
+        if (!$catFlags[$category]) continue;
+
+        // A landing slot is matched by TEMPLATE ID against this domain's own already-
+        // generated pages (module docblock) — never by the master's page filename,
+        // which bakes in the MASTER's own city. A domain that didn't build a page for
+        // this template at all (Page Pool excluded it) has nothing to do here — that's
+        // routine, not a failure, so it's a plain skip with no error recorded.
+        $pageFile = null;
+        if ($parts['scope'] === 'landing') {
+            $templateId = is_array($entry) ? (string) ($entry['template_id'] ?? '') : '';
+            if ($templateId === '') {
+                $out['failed']++; $out['errors'][] = "$slotKey: no template_id recorded for this landing slot (captured before this fix) — re-confirm the AI photo in Pic Drop once to re-capture it"; continue;
+            }
+            $pageFile = $templateToPageFile[$templateId] ?? null;
+            if ($pageFile === null) continue;
+        }
+        // The array a block gets resolved/written against — this domain's site.json
+        // for home/global, or its own page file for landing. MUST be a real reference
+        // (=&, not a value copy) — a later write through $block only reaches $pageCache
+        // if $target is the SAME array, not a snapshot of it taken before the write.
+        if ($pageFile !== null) { $target = &$pageCache[$pageFile]; } else { $target = &$site; }
 
         // Resolve the block + field this key points at, directly in this domain's own
-        // site.json. NOT by the block INDEX the key carries — the homepage's own section
-        // order (structure.home) can and does reorder content_blocks per domain, so
-        // "index 2" does not reliably mean the same block it meant on the master. Found
-        // live: 2 of 5 real test domains had a different block at that index, both
-        // failing with "field not present" until this was fixed to match by TYPE + field
-        // name instead — the same field name won't collide across an unrelated block
-        // type, and this is the same field-name-is-block-specific assumption
-        // picdrop_fields() already relies on. Resolved BEFORE the cache check below —
-        // even a cache hit must still write the cached photo into THIS build's
-        // site.json, since a fresh clone's block field holds the master's placeholder,
-        // not last time's generated photo, until that write happens.
+        // copy of that page. NOT by the block INDEX the key carries — section-order
+        // rotation (structure.home / structure.landing) can and does reorder blocks per
+        // domain, so "index 2" does not reliably mean the same block it meant on the
+        // master. Found live: 2 of 5 real test domains had a different block at that
+        // index, both failing with "field not present" until this was fixed to match by
+        // TYPE + field name instead — the same field name won't collide across an
+        // unrelated block type, and this is the same field-name-is-block-specific
+        // assumption picdrop_fields() already relies on. Resolved BEFORE the cache check
+        // below — even a cache hit must still write the cached photo into THIS build's
+        // copy, since a fresh clone's block field holds the master's placeholder, not
+        // last time's generated photo, until that write happens.
         if ($parts['scope'] !== 'global' && $blockType === '') {
             $out['failed']++; $out['errors'][] = "$slotKey: no block_type recorded for this template (captured before this fix) — re-confirm the AI photo in Pic Drop once to re-capture it"; continue;
         }
         $ambiguous = false;
-        $block = &ms_image_ai_resolve_block($site, $parts, $blockType, $blockId, $ambiguous);
+        $block = &ms_image_ai_resolve_block($target, $parts, $blockType, $blockId, $ambiguous);
         if ($block === null) {
+            $where = $parts['scope'] === 'landing' ? "this domain's copy of that page" : "this domain's homepage";
             if ($ambiguous) {
-                $msg = "more than one '$blockType' block with field '{$parts['field']}' found on this domain's "
-                     . "homepage and this slot has no recorded id to disambiguate — re-confirm the AI photo in "
+                $msg = "more than one '$blockType' block with field '{$parts['field']}' found on $where "
+                     . "and this slot has no recorded id to disambiguate — re-confirm the AI photo in "
                      . "Pic Drop once to re-capture it with a stable id";
             } else {
                 $msg = $parts['scope'] === 'global'
                     ? "no services_links block in this domain's site.json"
-                    : "no '$blockType' block with field '{$parts['field']}' found on this domain's homepage";
+                    : "no '$blockType' block with field '{$parts['field']}' found on $where";
             }
             $out['failed']++; $out['errors'][] = "$slotKey: $msg"; continue;
         }
@@ -227,9 +339,18 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         }
         if ($stem === '') $stem = 'photo';
 
-        $siteCitySlug   = ms_slug_city((string) ($siteVars['city'] ?? ''), (string) ($siteVars['SS'] ?? ''));
+        // A landing page carries its OWN city_vars (a domain can build service pages
+        // targeting nearby towns, not only its home city — see module docblock), so its
+        // photo's local-SEO filename stamp and its {city}/{SS} prompt tokens both use
+        // the PAGE's own city, falling back to the domain's site_vars for {business}
+        // (a page has no business name of its own) and for home/global slots outright.
+        $tokenVars = $siteVars;
+        if ($pageFile !== null && is_array($target['city_vars'] ?? null)) {
+            $tokenVars = array_merge($siteVars, $target['city_vars']);
+        }
+        $slugCitySlug   = ms_slug_city((string) ($tokenVars['city'] ?? ''), (string) ($tokenVars['SS'] ?? ''));
         $shortHash      = substr(md5($slotKey), 0, 6);
-        $publicFilename = $stem . ($siteCitySlug !== '' ? '-' . $siteCitySlug : '') . '-' . $shortHash . '.webp';
+        $publicFilename = $stem . ($slugCitySlug !== '' ? '-' . $slugCitySlug : '') . '-' . $shortHash . '.webp';
         $url            = 'uploads/media/' . $publicFilename;
 
         // Checked BEFORE the cache-hit branch too, not just the needs-generation path
@@ -249,7 +370,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
                 $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but the field path could not be written"; continue;
             }
             $cache[$slotKey] = ($cache[$slotKey] ?? []) + ['url' => $url];
-            $dirty = true;
+            if ($pageFile !== null) { $pageDirty[$pageFile] = true; } else { $dirty = true; }
             $out['cached']++;
             continue;
         }
@@ -273,22 +394,21 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // instruction now leads with "stay close to the reference," not "here's a
         // scene, go describe it" — that framing is what let results wander.
         //
-        // The home hero is the one slot where "stay close" cuts the other way: it's
-        // the single highest-visibility photo on the domain, so a tight "same
+        // A hero slot — home OR landing — is the one place "stay close" cuts the other
+        // way: it's the highest-visibility photo on its page, so a tight "same
         // composition, same framing" instruction — while it defeats hash/dedup
         // checks by producing a genuinely separate generation — still reads as the
         // same photo under reverse image search, which compares visual structure,
-        // not bytes. Every other slot keeps the tight instruction; only the home
-        // hero is allowed to actually vary composition/framing/angle.
-        $isHomeHero = $parts['scope'] === 'home'
-            && in_array($blockType, ['hero', 'hero_split', 'hero_grid'], true);
+        // not bytes. Every non-hero slot keeps the tight instruction; only a hero is
+        // allowed to actually vary composition/framing/angle.
+        $isHero = $category === 'hero_home' || $category === 'hero_landing';
         $styleIdx = ms_variant($domain, count(ms_image_ai_style_pool()), 'image_style');
         // "Leave margin" tells the model up front that this result gets cropped to
         // fit a fixed slot afterward — the API only accepts 3 fixed output ratios,
         // so a reference's real shape rarely survives untouched, and a subject or
         // piece of equipment composed edge-to-edge is exactly what a later crop
         // cuts into. Cheaper than trying to computationally prevent the mismatch.
-        $instruction = $isHomeHero
+        $instruction = $isHero
             ? '. Keep the same subject and general setting as the reference, but vary the framing, '
               . 'angle, or composition — it should read as a distinct photograph, not a copy of the '
               . 'reference. This photo will be cropped to fit its slot afterward, so leave margin '
@@ -298,7 +418,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
               . 'same framing. This photo will be cropped to fit its slot afterward, so leave margin '
               . 'around the subject and any equipment — do not compose it edge-to-edge. Make only one '
               . 'small, subtle change: ';
-        $prompt = ms_image_ai_fill_tokens($basePrompt, $siteVars) . $instruction
+        $prompt = ms_image_ai_fill_tokens($basePrompt, $tokenVars) . $instruction
                 . ms_image_ai_style_pool()[$styleIdx] . '.';
 
         $size = ($tw > 0 && $th > 0)
@@ -316,7 +436,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         $pending[] = [
             'slotKey' => $slotKey, 'parts' => $parts, 'blockType' => $blockType, 'blockId' => $blockId, 'field' => $field,
             'filename' => $publicFilename, 'persistFile' => $persistFile, 'url' => $url, 'refPath' => $refPath,
-            'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size,
+            'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size, 'pageFile' => $pageFile,
         ];
     }
     unset($block);
@@ -357,7 +477,13 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             if (!is_dir($persistDir)) mkdir($persistDir, 0775, true);
             copy($dest, $p['persistFile']);
 
-            $block = &ms_image_ai_resolve_block($site, $p['parts'], $p['blockType'], $p['blockId'] ?? '');
+            // Same target-array rule as Pass 1 (real reference, not a value copy) —
+            // re-resolved fresh rather than reusing Pass 1's $block, which content_blocks
+            // being a plain array can invalidate between the two passes (see the comment
+            // above where $pending is built).
+            $pf = $p['pageFile'];
+            if ($pf !== null) { $target = &$pageCache[$pf]; } else { $target = &$site; }
+            $block = &ms_image_ai_resolve_block($target, $p['parts'], $p['blockType'], $p['blockId'] ?? '');
             if ($block === null) {
                 // Vanishingly unlikely (Pass 1 just resolved this same slot) — but the
                 // photo is already made and cached, so fail loudly rather than lose it.
@@ -369,7 +495,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             unset($block);
 
             $cache[$slotKey] = ['url' => $p['url'], 'prompt' => $p['prompt'], 'generated_at' => date('Y-m-d H:i:s')];
-            $dirty = true;
+            if ($pf !== null) { $pageDirty[$pf] = true; } else { $dirty = true; }
             $out['generated']++;
         }
     }
@@ -377,7 +503,10 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
     if ($dirty) {
         file_put_contents($siteFile, json_encode($site, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     }
-    if ($dirty || $out['failed'] > 0) {
+    foreach ($pageDirty as $pf => $isDirty) {
+        if ($isDirty) file_put_contents($pf, json_encode($pageCache[$pf], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    }
+    if ($dirty || $pageDirty || $out['failed'] > 0) {
         file_put_contents($cacheFile, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
     return $out;

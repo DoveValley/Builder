@@ -449,16 +449,23 @@ if ($skipped('images')) {
         progress_log("Images: {$metaRes['remaining']} image(s) STILL carry metadata after stripping — investigate before deploying.", 'warn');
     }
 
-    // AI photo per domain — its own switch under Images, same reasoning as the metadata
-    // strip above: untick Images and this stops too. Only runs for slots that have a
+    // AI photo per domain — four independent switches under Images, same reasoning as the
+    // metadata strip above: untick Images and all four stop too. Only runs for slots that have a
     // locked prompt (approved in Pic Drop); a master with none configured costs nothing.
     // Real cost otherwise — a live paid call per slot per domain, cached after the first.
     $aiImgRes = ['generated' => 0, 'cached' => 0, 'failed' => 0];
-    if ($skipped('images.ai_photos')) {
-        progress_log('Images: AI photo skipped — turned off for this run.', 'warn');
-    } else {
+    $genHeroHome    = !$skipped('images.ai_photos_hero_home');
+    $genHeroLanding = !$skipped('images.ai_photos_hero_landing');
+    $genOtherHome   = !$skipped('images.ai_photos_other_home');
+    $genOtherLanding = !$skipped('images.ai_photos_other_landing');
+    if (!$genHeroHome)     progress_log('Images: AI photo (hero, home) skipped — turned off for this run.', 'warn');
+    if (!$genHeroLanding)  progress_log('Images: AI photo (hero, service pages) skipped — turned off for this run.', 'warn');
+    if (!$genOtherHome)    progress_log('Images: AI photo (other images, home) skipped — turned off for this run.', 'warn');
+    if (!$genOtherLanding) progress_log('Images: AI photo (other images, service pages) skipped — turned off for this run.', 'warn');
+    if ($genHeroHome || $genHeroLanding || $genOtherHome || $genOtherLanding) {
         $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir,
-            function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); });
+            function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); },
+            $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding);
         if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
             progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
                 . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',

@@ -38,7 +38,9 @@ function ms_batch_options_defaults(): array {
             'structure.home' => true, 'structure.landing' => true,
             'structure.classvocab' => true, 'structure.schemashape' => true,
             'images.stamp_home' => true, 'images.stamp_landing' => true,
-            'images.metadata' => true, 'images.ai_photos' => true,
+            'images.metadata' => true,
+            'images.ai_photos_hero_home' => true, 'images.ai_photos_hero_landing' => true,
+            'images.ai_photos_other_home' => true, 'images.ai_photos_other_landing' => true,
         ],
     ];
 }

@@ -325,13 +325,37 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         // Same "real numbers for THIS master" rule as page pool above. Cost shown up
         // front rather than discovered on a bill: each locked slot is one real paid
         // call PER DOMAIN the first time it's built, free on every rebuild after.
+        // Split into the same four buckets ms_generate_ai_images_for_domain() gates on
+        // (ms_image_ai_slot_category()) — hero vs. other, home vs. service page — so
+        // each of the four checkboxes below shows an accurate count for exactly what
+        // IT controls.
         $aiImgMasterDir = isset($masterId) ? BASE_DIR . '/sites/' . $masterId : '';
         $aiImgPrompts   = $aiImgMasterDir !== '' ? ms_image_ai_prompts_load($aiImgMasterDir) : [];
-        $aiImgCount     = count($aiImgPrompts);
-        $aiImgLabel = $aiImgCount > 0
-            ? "AI photo per domain — <strong>{$aiImgCount}</strong> slot(s) with an approved prompt from Pic Drop, ~\$0.04 each the first time a domain is built, free on every rebuild after"
-            : 'AI photo per domain — no prompts approved yet; go to Pic Drop, generate + confirm an AI photo for a home-page slot, and it appears here automatically';
-        $aiImgMode = $aiImgCount > 0 ? 'control' : 'todo';
+        $aiImgCounts = ['hero_home' => 0, 'hero_landing' => 0, 'other_home' => 0, 'other_landing' => 0];
+        foreach ($aiImgPrompts as $aiImgSlotKey => $aiImgEntry) {
+            $aiImgBlockType = is_array($aiImgEntry) ? (string) ($aiImgEntry['block_type'] ?? '') : '';
+            $aiImgParts = picdrop_parse_key($aiImgSlotKey);
+            if ($aiImgParts === null) continue;
+            $aiImgCounts[ms_image_ai_slot_category($aiImgParts, $aiImgBlockType)]++;
+        }
+        $aiImgSpecs = [
+            'hero_home'     => ['AI photo per domain — hero (home)',
+                                 'no hero prompts approved yet; go to Pic Drop, generate + confirm an AI photo for the homepage hero, and it appears here automatically'],
+            'hero_landing'  => ['AI photo per domain — hero (service pages)',
+                                 'no service-page hero prompts approved yet; go to Pic Drop, generate + confirm an AI photo for a service page\'s hero, and it appears here automatically'],
+            'other_home'    => ['AI photo per domain — other images (home)',
+                                 'no other homepage prompts approved yet; go to Pic Drop, generate + confirm an AI photo for another homepage slot, and it appears here automatically'],
+            'other_landing' => ['AI photo per domain — other images (service pages)',
+                                 'no other service-page prompts approved yet; go to Pic Drop, generate + confirm an AI photo for another service-page slot, and it appears here automatically'],
+        ];
+        $aiImgLabels = []; $aiImgModes = [];
+        foreach ($aiImgSpecs as $aiImgCat => [$aiImgTitle, $aiImgEmptyNote]) {
+            $aiImgN = $aiImgCounts[$aiImgCat];
+            $aiImgLabels[$aiImgCat] = $aiImgN > 0
+                ? "{$aiImgTitle} — <strong>{$aiImgN}</strong> slot(s) with an approved prompt from Pic Drop, ~\$0.04 each the first time a domain is built, free on every rebuild after"
+                : "{$aiImgTitle} — {$aiImgEmptyNote}";
+            $aiImgModes[$aiImgCat] = $aiImgN > 0 ? 'control' : 'todo';
+        }
 
         $msTree = [
             ['section' => '1 &middot; Content', 'facet' => 'What the words say &mdash; the facet that actually costs rankings',
@@ -406,7 +430,10 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                     ['Data charts from the research figures — 8 water restoration &middot; 7 pest &middot; 7 mold &middot; 4 appliance', 'auto'],
                     ['Caption under each graphic, phrasing varied per domain', 'auto'],
                     ['Chart rotation — which chart a page gets is picked per domain from its topic group', 'auto'],
-                    $aiImgMode === 'control' ? [$aiImgLabel, 'control', 'images.ai_photos'] : [$aiImgLabel, 'todo'],
+                    $aiImgModes['hero_home'] === 'control' ? [$aiImgLabels['hero_home'], 'control', 'images.ai_photos_hero_home'] : [$aiImgLabels['hero_home'], 'todo'],
+                    $aiImgModes['hero_landing'] === 'control' ? [$aiImgLabels['hero_landing'], 'control', 'images.ai_photos_hero_landing'] : [$aiImgLabels['hero_landing'], 'todo'],
+                    $aiImgModes['other_home'] === 'control' ? [$aiImgLabels['other_home'], 'control', 'images.ai_photos_other_home'] : [$aiImgLabels['other_home'], 'todo'],
+                    $aiImgModes['other_landing'] === 'control' ? [$aiImgLabels['other_landing'], 'control', 'images.ai_photos_other_landing'] : [$aiImgLabels['other_landing'], 'todo'],
                  ]],
              ]],
             ['section' => '3 &middot; Identity &amp; setup', 'facet' => 'Who the business is &mdash; already solved &mdash; plus what the run builds',
@@ -1424,13 +1451,16 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         'images.stamp_home'    => 'Photo differentiation — Home',
         'images.stamp_landing' => 'Photo differentiation — Landing pages',
         'images.metadata'      => 'Image metadata stripping',
-        'images.ai_photos'     => 'AI-generated photos',
+        'images.ai_photos_hero_home'     => 'AI-generated photos — hero (home)',
+        'images.ai_photos_hero_landing'  => 'AI-generated photos — hero (service pages)',
+        'images.ai_photos_other_home'    => 'AI-generated photos — other images (home)',
+        'images.ai_photos_other_landing' => 'AI-generated photos — other images (service pages)',
     ]) ?>;
     const msConfirmGroups = [
         { key: 'ai',        label: 'AI Content',       subs: ['ai.legal_reword','ai.disclaimer_reword','ai.popup_reword','ai.tagline_reword','ai.blog'] },
         { key: 'visual',    label: 'Colours & Fonts',   subs: ['visual.palette','visual.font','visual.jitter'] },
         { key: 'structure', label: 'Site Structure',    subs: ['structure.home','structure.landing','structure.classvocab','structure.schemashape'] },
-        { key: 'images',    label: 'Images',            subs: ['images.stamp_home','images.stamp_landing','images.metadata','images.ai_photos'] },
+        { key: 'images',    label: 'Images',            subs: ['images.stamp_home','images.stamp_landing','images.metadata','images.ai_photos_hero_home','images.ai_photos_hero_landing','images.ai_photos_other_home','images.ai_photos_other_landing'] },
         { key: 'tags',      label: 'Site tags',         subs: [] },
         { key: 'landing',   label: 'Landing pages',     subs: [] },
         { key: 'pagepool',  label: 'Page pool',         subs: [] },
@@ -1461,19 +1491,25 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             return 'Blog posts — ' + need + ' of ' + total + ' domain' + (total === 1 ? '' : 's')
                  + ' need new posts (' + (total - need) + ' already at full quota)';
         }
-        if (key === 'images.ai_photos' && summary.images) {
-            const pending = summary.images.pending_slots, doms = summary.images.domains_affected;
-            const willFail = summary.images.slots_will_fail || 0;
+        const aiImgKeyToCat = {
+            'images.ai_photos_hero_home': 'hero_home', 'images.ai_photos_hero_landing': 'hero_landing',
+            'images.ai_photos_other_home': 'other_home', 'images.ai_photos_other_landing': 'other_landing',
+        };
+        if (aiImgKeyToCat[key] && summary.images) {
+            const scopeLabel = msConfirmLabels[key] || key;
+            const s = summary.images[aiImgKeyToCat[key]] || {};
+            const pending = s.pending_slots || 0, doms = s.domains_affected || 0;
+            const willFail = s.slots_will_fail || 0;
             // Checked once against the MASTER, so this count applies to every domain in
             // the batch identically — a slot that can't resolve on the master can't
             // resolve on any clone of it either (see ms_batch_pending_summary()).
             const failNote = willFail > 0
                 ? ' &#9888; ' + willFail + ' configured photo slot' + (willFail === 1 ? '' : 's')
-                    + " can't be resolved right now (" + esc((summary.images.fail_samples || []).join(', '))
+                    + " can't be resolved right now (" + esc((s.fail_samples || []).join(', '))
                     + ') — will fail on every domain, re-confirm in Pic Drop before running'
                 : '';
-            if (pending === 0) return 'AI-generated photos — nothing pending, all already generated' + failNote;
-            return 'AI-generated photos — ~' + pending + ' new photo' + (pending === 1 ? '' : 's')
+            if (pending === 0) return scopeLabel + ' — nothing pending, all already generated' + failNote;
+            return scopeLabel + ' — ~' + pending + ' new photo' + (pending === 1 ? '' : 's')
                  + ' across ' + doms + ' domain' + (doms === 1 ? '' : 's') + ' (rest already cached)' + failNote;
         }
         return label;

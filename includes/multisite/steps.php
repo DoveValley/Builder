@@ -470,7 +470,7 @@ function ms_step_readiness(string $masterId, string $batchId): array {
  * decision the confirmation UI makes from its own live checkbox state, not this
  * function — this only ever answers "how much is left", never "is this turned on".
  *
- * @return array{domains_total:int, blog:array{domains_needing:int}, images:array{pending_slots:int,domains_affected:int}}
+ * @return array{domains_total:int, blog:array{domains_needing:int}, images:array{hero_home:array{pending_slots:int,domains_affected:int},hero_landing:array{pending_slots:int,domains_affected:int},other_home:array{pending_slots:int,domains_affected:int},other_landing:array{pending_slots:int,domains_affected:int}}}
  */
 function ms_batch_pending_summary(string $masterId, string $batchId, string $only = '', int $limit = 0): array {
     $masterDir = ms_master_dir($masterId);
@@ -519,63 +519,107 @@ function ms_batch_pending_summary(string $masterId, string $batchId, string $onl
     }
 
     // ── AI images: filesystem cache-hit check per domain × per configured slot ──
-    $imgPending  = 0;
-    $imgDomains  = [];
+    // Split into the same four buckets the batch panel's four "AI photo" checkboxes
+    // gate on (ms_image_ai_slot_category()) — hero vs. other, home vs. landing/service
+    // page — so each checkbox's cost preview is accurate on its own instead of one
+    // combined number that overstates whichever boxes are actually unticked.
+    // NOTE on landing slots specifically: this counts a slot as "pending" per domain
+    // without knowing whether that domain's Page Pool selection will even build the
+    // page it lives on (that's only known once landing generation actually runs) — an
+    // honest over-estimate, same spirit as the "checked once against the master" note
+    // below, not a promise every counted photo will actually be generated.
+    $imgCats     = ['hero_home', 'hero_landing', 'other_home', 'other_landing'];
+    $imgPending  = array_fill_keys($imgCats, 0);
+    $imgDomains  = array_fill_keys($imgCats, []);
     $templates   = function_exists('ms_image_ai_prompts_load') ? ms_image_ai_prompts_load($masterDir) : [];
-    if ($templates) {
+    if ($templates && function_exists('picdrop_parse_key') && function_exists('ms_image_ai_slot_category')) {
         foreach ($domains as $d) {
             $slug = $domainSlug($d);
             foreach ($templates as $slotKey => $entry) {
                 $basePrompt = is_array($entry) ? (string) ($entry['prompt'] ?? '') : (string) $entry;
+                $blockType  = is_array($entry) ? (string) ($entry['block_type'] ?? '') : '';
+                $parts = picdrop_parse_key($slotKey);
+                if ($parts === null) continue;
+                $cat = ms_image_ai_slot_category($parts, $blockType);
                 // Identical formula to image_ai.php's own persist-file naming — a
                 // mismatch here would make this report either everything or nothing
                 // pending regardless of what's actually cached.
                 $filename = 'ai_' . substr(md5($slotKey . '|' . $basePrompt . '|edit-v1'), 0, 10) . '.webp';
                 if (!is_file($cacheDir . '/images/' . $slug . '/' . $filename)) {
-                    $imgPending++;
-                    $imgDomains[$slug] = true;
+                    $imgPending[$cat]++;
+                    $imgDomains[$cat][$slug] = true;
                 }
             }
         }
     }
 
     // ── AI images: would any configured slot actually fail to resolve? ─────────
-    // Checked ONCE against the MASTER's own blocks, not per domain — a domain never
-    // adds/removes blocks relative to its master (structure.home only reorders them),
-    // so a slot that can't resolve on the master can't resolve on any domain cloned
-    // from it either. Surfaced here so an unresolvable slot (ambiguous type+field
-    // match with no recorded id, or a recorded id that no longer exists) shows up
-    // before a batch runs, not just as a 'warn' line buried in each domain's build
-    // log afterward, where nobody watching an unattended multi-domain run would see it.
-    $imgWillFail    = 0;
-    $imgFailSamples = [];
-    if ($templates && function_exists('ms_image_ai_resolve_block') && function_exists('picdrop_parse_key')) {
+    // Checked ONCE against the MASTER's own blocks/pages, not per domain — a domain
+    // never adds/removes blocks relative to its master (structure.home/.landing only
+    // reorder them), so a slot that can't resolve on the master can't resolve on any
+    // domain cloned from it either. For a landing slot this checks the MASTER's own
+    // copy of that exact page (its filename is $parts['id']) — it says nothing about
+    // whether a given domain will build that page at all (Page Pool decides that per
+    // domain, not checked here), only whether the block/field is genuinely still there.
+    // Surfaced here so an unresolvable slot (ambiguous type+field match with no
+    // recorded id, a recorded id that no longer exists, or a template whose page was
+    // deleted) shows up before a batch runs, not just as a 'warn' line buried in each
+    // domain's build log afterward, where nobody watching an unattended multi-domain
+    // run would see it.
+    $imgWillFail    = array_fill_keys($imgCats, 0);
+    $imgFailSamples = array_fill_keys($imgCats, []);
+    if ($templates && function_exists('ms_image_ai_resolve_block') && function_exists('picdrop_parse_key')
+        && function_exists('ms_image_ai_slot_category')) {
         $masterSiteFile = $masterDir . '/data/site.json';
         $masterSite = is_file($masterSiteFile)
             ? (json_decode((string) @file_get_contents($masterSiteFile), true) ?: [])
             : [];
+        $masterPageCache = []; // master page filename => decoded array, loaded lazily
         if (is_array($masterSite)) {
             foreach ($templates as $slotKey => $entry) {
                 $blockType = is_array($entry) ? (string) ($entry['block_type'] ?? '') : '';
                 $blockId   = is_array($entry) ? (string) ($entry['block_id']   ?? '') : '';
                 if ($blockType === '') continue;   // pre-fix shape, already a distinct known failure
                 $parts = picdrop_parse_key($slotKey);
-                if ($parts === null || !in_array($parts['scope'], ['home', 'global'], true)) continue;
-                $ambiguous = false;
-                $block = &ms_image_ai_resolve_block($masterSite, $parts, $blockType, $blockId, $ambiguous);
-                if ($block === null) {
-                    $imgWillFail++;
-                    if (count($imgFailSamples) < 5) $imgFailSamples[] = $slotKey;
+                if ($parts === null || !in_array($parts['scope'], ['home', 'global', 'landing'], true)) continue;
+                $cat = ms_image_ai_slot_category($parts, $blockType);
+                if ($parts['scope'] === 'landing') {
+                    $pf = $masterDir . '/data/pages/' . basename($parts['id']);
+                    if (!array_key_exists($pf, $masterPageCache)) {
+                        $pd = is_file($pf) ? json_decode((string) @file_get_contents($pf), true) : null;
+                        $masterPageCache[$pf] = is_array($pd) ? $pd : null;
+                    }
+                    if ($masterPageCache[$pf] === null) {
+                        $imgWillFail[$cat]++;
+                        if (count($imgFailSamples[$cat]) < 5) $imgFailSamples[$cat][] = $slotKey;
+                        continue;
+                    }
+                    $masterTarget = &$masterPageCache[$pf];
+                } else {
+                    $masterTarget = &$masterSite;
                 }
-                unset($block);
+                $ambiguous = false;
+                $block = &ms_image_ai_resolve_block($masterTarget, $parts, $blockType, $blockId, $ambiguous);
+                if ($block === null) {
+                    $imgWillFail[$cat]++;
+                    if (count($imgFailSamples[$cat]) < 5) $imgFailSamples[$cat][] = $slotKey;
+                }
+                unset($block, $masterTarget);
             }
         }
+    }
+
+    $imgOut = [];
+    foreach ($imgCats as $cat) {
+        $imgOut[$cat] = [
+            'pending_slots' => $imgPending[$cat], 'domains_affected' => count($imgDomains[$cat]),
+            'slots_will_fail' => $imgWillFail[$cat], 'fail_samples' => $imgFailSamples[$cat],
+        ];
     }
 
     return [
         'domains_total' => count($domains),
         'blog'   => ['domains_needing' => $blogNeeding],
-        'images' => ['pending_slots' => $imgPending, 'domains_affected' => count($imgDomains),
-                     'slots_will_fail' => $imgWillFail, 'fail_samples' => $imgFailSamples],
+        'images' => $imgOut,
     ];
 }

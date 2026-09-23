@@ -48,5 +48,11 @@
         "prompt": "Photorealistic photo for: Wide Banner \u2014 Wide banner. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing. If tools or machinery are part of the scene, keep them fully in frame \u2014 do not crop them off.",
         "block_type": "wide_banner",
         "block_id": "wide_banner_1"
+    },
+    "landing:tpl_burst_pipe_water_damage_dallas-tx.json:0:hs_photo": {
+        "prompt": "A technician inspecting a burst pipe water damage site in a home, photorealistic, no text or logos.",
+        "block_type": "hero_split",
+        "block_id": "hero_split_1",
+        "template_id": "tpl_burst_pipe_water_damage"
     }
 }
