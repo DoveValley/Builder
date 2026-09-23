@@ -2620,8 +2620,10 @@ Output valid JSON only — no explanation.</code></pre>
         <li><strong>Clone</strong> the master snapshot into an ephemeral working dir.</li>
         <li><strong>Inject identity</strong> — rewrite business name / domain / phone / schema to this deploy.</li>
         <li><strong>Scope landing cities</strong> to the row's <code>landing_cities</code> — <em>merging in the master's research</em> for those cities (so neighborhoods, industries, etc. reach the deployed page; a city the master never researched stays generic).</li>
-        <li><strong>Structure</strong> the landing pages (<code>engine.php</code>), then <strong>fill AI content</strong> (<code>generate.py --all</code>) — home, core, and landing.</li>
-        <li><strong>Differentiate images</strong>, <strong>build static</strong> (the same render path as single-site), and <strong>FTP-deploy</strong> (skipped if the row has no FTP credentials — build-only).</li>
+        <li><strong>Structure</strong> the landing pages (<code>engine.php</code>), <strong>prune to this domain's Page Pool selection</strong> when the master has one configured (<a href="#ms-pagepool">Page Pool</a>), then <strong>fill AI content</strong> (<code>generate.py --all</code>) — home, core, and landing.</li>
+        <li><strong>Differentiate images</strong>, apply <strong>visual identity</strong> (Theme Preset + generated logo/favicon), and generate any approved <strong>AI photos</strong> (<a href="#spec-image-assign">4c</a>).</li>
+        <li><strong>Build static</strong> (the same render path as single-site), then the <strong>post-build passes</strong> — class-vocabulary rotation, cache-busting, schema-shape rotation, and the SEO gate.</li>
+        <li><strong>FTP-deploy</strong> (skipped if the row has no FTP credentials — build-only).</li>
     </ol>
     <p><strong>Registry:</strong> a master's registry is <em>compiled</em> from the shared archetype library (<code>multisite/ai/archetypes.json</code>) + the master's <a href="#ai-niche">Niche Brief</a>, via <code>compile.php</code>. Compile is <strong>non-destructive</strong> — it never overwrites or deletes a hand-authored block type. See <a href="#ai-hardening">AI hardening</a>.</p>
     <p><strong>Per-domain cache:</strong> generated copy is frozen per deployed domain and re-used on rebuild — zero API calls, identical output — <em>unless</em> an input actually changed. Staleness is keyed on a hash of the <strong>fully-resolved prompt + model</strong>, so a change to a city's research, the prompt, or the model regenerates just the affected blocks. See <a href="#ms-cache">the content cache</a>.</p>
@@ -4608,7 +4610,8 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         ↓
 [ campaign ]  lock → validate → pre-flight → snapshot master ONCE → per-row loop → teardown
         ↓
-[ per row ]   clone → inject → differentiate → visual identity → AI-generate → build → deploy → delete temp
+[ per row ]   clone → inject → landing pages → page pool → differentiate → visual identity → AI-generate
+              → images → build → post-build (class vocab, cache-bust, schema shape, SEO gate) → deploy → delete temp
         ↓
 100+ live, independent single-city sites</code></pre>
 
@@ -4630,10 +4633,13 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ol>
         <li><strong>Clone</strong> a cheap working copy from the one-time master snapshot.</li>
         <li><strong>Inject identity</strong> — write the row's business/phone/city/etc. into <code>site_vars</code>.</li>
-        <li><strong>Differentiate</strong> — rewrite schema/URLs to this site, inject a LocalBusiness JSON-LD with geo, isolate analytics. See <a href="#ms-differentiation">Per-site differentiation</a>.</li>
+        <li><strong>Landing pages</strong> — when <code>landing_cities</code> is set, regenerate one service landing page per listed city from the master's landing template (<code>generate_landing.php</code>). See <a href="#ms-landing">Landing pages</a>.</li>
+        <li><strong>Page Pool</strong> — when the master has Page Pool configured, prune the just-generated landing pages down to this domain's own pinned + rotated selection (fewer pages per site than the master's full page list). See <a href="#ms-pagepool">Page Pool</a>.</li>
+        <li><strong>Differentiate</strong> — rewrite schema/URLs to this site, inject a LocalBusiness JSON-LD with geo, isolate analytics, and run photo/section-order differentiation. See <a href="#ms-differentiation">Per-site differentiation</a>.</li>
         <li><strong>Visual identity</strong> — apply the row's <a href="#ms-visual-identity">Theme Preset</a> (colors + font + radius) and generate a per-site logo + favicon in those colors, replacing the master's wordmark. See <a href="#ms-visual-identity">Visual identity</a>.</li>
-        <li><strong>AI-generate</strong> the city-specific copy, or reuse it from <a href="#ms-cache">the cache</a> — free.</li>
-        <li><strong>Build</strong> the whole site to static HTML.</li>
+        <li><strong>AI-generate</strong> the city-specific copy, or reuse it from <a href="#ms-cache">the cache</a> — free. See <a href="#ms-ai">AI content</a> for the individually-toggleable reword/blog sub-steps.</li>
+        <li><strong>Images</strong> — hero/photo text-stamp, metadata stripping, and the four independent AI-photo checkboxes. See <a href="#spec-image-assign">AI-generated photos</a>.</li>
+        <li><strong>Build</strong> the whole site to static HTML, then run the post-build passes: class-vocabulary rotation, cache-busting, schema-shape rotation, and the SEO gate (reports, doesn't block, by default). See <a href="#ms-seo">Site differentiation &amp; SEO</a>.</li>
         <li><strong>Deploy</strong> over FTP (only changed files), then delete the temp copy.</li>
     </ol>
 
@@ -4669,7 +4675,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <ul>
         <li><strong>Every home &amp; core page already exists in the master.</strong> Homepage and all core pages are authored in the admin panel (in <code>site.json</code>), exactly like a normal single site — each with its own SEO and keyword focus.</li>
         <li><strong>MultiSite never authors new home or core pages.</strong> It takes the master's existing home/core pages, localizes them, and deploys — if a home/core page should exist on the generated sites, it must exist in the master first. It <em>does</em>, however, drop the master's pre-generated in-site city pages and — when the deploy row's <code>landing_cities</code> column is set — regenerate one service landing page per city from the master's landing template (via <code>generate_landing.php</code>).</li>
-        <li><strong>The pipeline is clone → inject → (regenerate landing pages) → differentiate → AI-fill → build → deploy.</strong> No home/core page is authored during the run; only the master's existing pages are localized, plus any per-deploy city landing pages built from the master's landing template. (See <a href="#ms-howitworks">How it works</a>.)</li>
+        <li><strong>The pipeline is clone → inject → (regenerate landing pages) → page pool → differentiate → visual identity → AI-fill → images → build → post-build (class vocab, cache-bust, schema shape, SEO gate) → deploy.</strong> No home/core page is authored during the run; only the master's existing pages are localized, plus any per-deploy city landing pages built from the master's landing template. (See <a href="#ms-howitworks">How it works</a>.)</li>
         <li><strong>Shortcodes are already throughout the master.</strong> Titles, headings, body copy, and schema use <code>{city}</code>, <code>{SS}</code>, <code>{business}</code>, <code>{primary_keyword}</code>, and the rest. "Adjust" is really just <em>setting this site's <code>site_vars</code></em> (city, business, phone, geo) — and every shortcode across the whole site then resolves to that city.</li>
         <li><strong>Titles come from each page's own SEO panel — the single source of truth.</strong> MultiSite doesn't assemble titles behind the scenes. A master page titled <code>{primary_keyword} {city_state} | {business}</code> renders as "Pest Control Dallas, TX | Dallas Pest Pros" on the Dallas clone. The <a href="#ms-admin-multisite">Title preview</a> card shows exactly what each clone will publish — verify it there before running.</li>
         <li><strong>The keyword is one field.</strong> Each page's <em>Keyword focus → Primary keyword</em> feeds <code>{primary_keyword}</code> into the title, H1, and schema, so the keyword stays consistent and can't drift.</li>
@@ -4767,6 +4773,9 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>gsc_verification</code></td><td>Optional</td><td>Per-site Google Search Console verification meta token (blank = none)</td></tr>
         <tr><td><code>web3forms_key</code></td><td>Optional</td><td>Per-site contact-form (Web3Forms) access key</td></tr>
         <tr class="ms-rec"><td><code>theme_preset</code></td><td>Recommended</td><td>Which <a href="#ms-visual-identity">Theme Preset</a> (colors + font + logo) to apply — id, name, or 1-based index; blank = deterministic hash rotation off the domain</td></tr>
+        <tr><td><code>logo_config</code></td><td>Optional</td><td>Which Logo Config (<code>sites/{master}/multisite/logo_configs.json</code>) to apply — id, name, or 1-based index; blank = deterministic hash rotation off the domain, same pattern as <code>theme_preset</code></td></tr>
+        <tr><td><code>business_short</code></td><td>Optional</td><td>Shorter brand form for space-constrained fields like <code>&lt;title&gt;</code> (e.g. "Bailey Restoration" instead of "Bailey Water Damage Restoration"); blank = falls back to the full <code>business</code> name at render time</td></tr>
+        <tr><td><code>years_in_business</code>, <code>mission_statement</code></td><td>Optional</td><td>Real, operator-entered trust facts for THIS domain's actual business (About Us page). Blank on purpose for most rows — the AI is instructed to write around a blank fact, never invent one. <strong style="color:#c0392b;">Never fill these in with a guess or another site's numbers just to avoid a blank cell.</strong></td></tr>
         <tr class="ms-rec"><td><code>ftp_host</code>, <code>ftp_user</code>, <code>ftp_pass</code></td><td>Recommended</td><td>Deploy target + auth (all three or none)</td></tr>
         <tr class="ms-rec"><td><code>ftp_port</code>, <code>ftp_path</code>, <code>ftp_passive</code></td><td>Recommended</td><td>Deploy target details (<code>ftp_passive</code> is FTP-only; ignored for SFTP)</td></tr>
         <tr><td><code>ftp_protocol</code></td><td>Optional</td><td><code>ftp</code> (default) or <code>sftp</code>. SFTP uploads over SSH via phpseclib; port defaults to 22, remote path is relative to the login user's home</td></tr>
@@ -4857,12 +4866,45 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <div class="callout tip">Edit the master → rebuild → redeploy. There are no per-site overrides and no per-site stored content by design.</div>
 </section>
 
+<section id="ms-ai-reword">
+    <h2>Reword sub-steps (legal, footer, popup, blog)</h2>
+    <p class="bc-meta">✅ BUILT — 5 independently toggleable sub-checkboxes under the batch panel's <strong>AI content</strong> step</p>
+    <p>Five per-domain AI passes that are NOT <code>ai_block</code> placeholders, so <a href="#ms-cache">the content cache</a> above never sees them — each has its own cache-check/extract pair, its own <code>generate.py</code> flag, and its own batch-panel checkbox:</p>
+    <table>
+        <tr><th>Checkbox</th><th><code>generate.py</code> flag when off</th><th>What it rewords</th></tr>
+        <tr><td><code>ai.legal_reword</code></td><td><code>--no-legal-reword</code></td><td>The opening paragraph of the Privacy Policy, Terms, and Contact Us pages — per domain, so the fleet doesn't carry byte-identical legal boilerplate. The merged body + structure of these pages is otherwise untouched.</td></tr>
+        <tr><td><code>ai.disclaimer_reword</code></td><td><code>--no-disclaimer-reword</code></td><td>The footer disclaimer text. <strong>Always reinjects</strong> from cache on a normal rebuild (a permanent per-domain lock) — only <code>--force</code>/Force actually gets a domain a fresh variation.</td></tr>
+        <tr><td><code>ai.tagline_reword</code></td><td><code>--no-tagline-reword</code></td><td>The footer tagline. Unlike the disclaimer, this one <strong>skips</strong> cache reinjection when Force is set, so Force is specifically what rerolls it.</td></tr>
+        <tr><td><code>ai.popup_reword</code></td><td><code>--no-popup-reword</code></td><td>The "How Your Calls Are Handled" info-popup disclosure text.</td></tr>
+        <tr><td><code>ai.blog</code></td><td><code>--no-blog</code></td><td>Auto-generates blog posts from the master's <code>niche_brief.json</code> <code>blog_topics[]</code> pool (3 per domain, quality-gated before auto-publish) — see "Blog posts" further up this page.</td></tr>
+    </table>
+    <p>Each is a real, separately cached AI call — a domain that already has all five cached costs nothing extra on a rebuild; only a fresh domain, or one with <code>--force</code>, pays for them. Cache extraction (<code>ms_footer_reword_extract_to_cache()</code>, <code>ms_blog_extract_to_cache()</code>) must run AFTER the main <code>ai_block</code> cache extraction in <code>build_one.php</code>, since that call overwrites the whole per-domain cache file.</p>
+</section>
+
 <section id="ms-landing">
     <h2>Per-deploy landing pages</h2>
     <p>Besides its single home/core city, a deploy can get extra service <strong>landing pages</strong> — one per nearby city — via the optional <code>landing_cities</code> column. Its value is a <code>;</code>-separated list of <code>City, ST</code> entries:</p>
     <pre><code>landing_cities = "Katy, TX; Fulshear, TX; Richmond, TX"</code></pre>
     <p>During the build, <code>ms_parse_landing_cities()</code> turns that cell into <code>cities.json</code> rows and <code>multisite/generate_landing.php</code> renders a city-targeted service landing page for each, from the master's reusable landing template. Their AI copy is cached per-domain exactly like the home page, so rebuilds stay free. A blank cell = no landing pages (just home + core).</p>
     <div class="callout tip">Landing cities are per-deploy — different sites in one campaign can target different surrounding towns. This is distinct from the master's own in-site <code>data/pages/</code>, which the clone drops.</div>
+</section>
+
+<section id="ms-pagepool">
+    <h2>Page Pool</h2>
+    <p class="bc-meta">✅ BUILT</p>
+    <p>Runs right after landing generation, in <code>build_one.php</code>'s own <code>pagepool</code> step, gated by the batch panel's <strong>Page pool</strong> checkbox. Decides which of a niche's landing pages a given domain actually keeps — fewer pages per site than the master's full page list (doorway-page risk), and a different mix of pages between sites instead of an identical inventory fleet-wide. This is opt-in per master: a master whose <code>keyword_map.json</code> has no <code>page_pool.enabled = true</code> is untouched — every domain simply keeps every landing page it generated, same as before this feature existed.</p>
+
+    <h3>Where it's configured</h3>
+    <p>Each service in the <strong>Keywords</strong> tab's <code>keyword_map.json</code> carries a <code>pool</code> value — <code>pinned</code> (always included, every domain), <code>rotate</code> (fills the remaining slots, picked per domain), or <code>skip</code> (never included, anywhere). A service that has never had one explicitly set defaults from its <strong>tier</strong> (<code>ms_page_pool_default_for_tier()</code>): <code>high-1</code> → pinned, any <code>low*</code> tier → skip, everything else → rotate. <code>page_pool.counts</code> (default <code>[10, 12, 14]</code>) is the small set of possible page-count TOTALS a domain can land on — never one fixed number, so the fleet doesn't all carry the identical page count either.</p>
+
+    <h3>How a domain's selection is picked</h3>
+    <p><code>ms_page_pool_select()</code>: pick a target count from <code>page_pool.counts</code> by a per-domain hash (<code>ms_variant()</code>, salt <code>pagepool_count</code>), keep every <code>pinned</code> slug, then fill the remaining slots from the <code>rotate</code> pool by a second per-domain hash (<code>ms_page_pool_pick()</code>, salt <code>pagepool_fill</code>) — never random, so the same domain always computes the same selection.</p>
+
+    <h3>The selection LOCKS IN on first build</h3>
+    <p>The computed selection is persisted to a per-domain manifest (<code>sites/{master}/multisite/cache/{domain-slug}.pagepool.json</code>, <code>ms_page_pool_selected_for_domain()</code>) and reused on every rebuild after — editing pool settings later (tiers, pinned/rotate/skip, counts) never silently adds or removes a page from a domain that's already been built, deployed or not. Only a domain that has never been built yet gets a fresh pick under the current settings.</p>
+
+    <h3>What actually happens to a page that's out</h3>
+    <p><code>ms_prune_pages_outside_pool()</code> (called from <code>ms_page_pool_apply_to_working_dir()</code>, right after landing generation) deletes the generated page file for every template NOT in the domain's locked-in selection, plus its entry in <code>page-index.json</code> and any matching footer link — so an excluded page is not merely unlinked, it does not exist on that domain's build at all. This is also why a landing-scope AI photo (<a href="#spec-image-assign">4c</a>) can legitimately find no matching page on some domains: Page Pool excluding a template is a routine, expected outcome, not a failure.</p>
 </section>
 
 <section id="ms-contact-forms">
@@ -4949,6 +4991,21 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     </ul>
     <p><strong>Bottom line:</strong> cloning would leave every site wearing the master's identity. Differentiation strips that off and gives each one its own name, contact info, Google listing, analytics, and canonical — so they stand as separate businesses.</p>
     <div class="callout tip">The non-destructive image and layout differentiation <em>cores</em> here (<code>ms_process_blocks_images</code>, the <code>ms_variant</code> / layout helpers) are now shared with single-site city generation — see <a href="#cities-differentiation">City Pages — Per-city differentiation</a>. The multisite-only destructive parts (the image orchestrator + the unreferenced-uploads prune) are not. The image core is <strong>original-tracking</strong>: every differentiated field records a sibling <code>_&lt;field&gt;_orig</code> and always re-derives from that recorded original, so runs are idempotent (no compounding perturbation, no hero text-over-text). The MultiSite build strips <code>_orig</code> before its prune (<code>ms_unset_orig_keys</code>), keeping build output byte-identical.</div>
+</section>
+
+<section id="ms-seo-gate">
+    <h2>The SEO gate</h2>
+    <p class="bc-meta">✅ BUILT — always runs, <strong>reports, does not block</strong> (by design, for now)</p>
+    <p><code>ms_seo_gate()</code> (<code>includes/multisite/seo_gate.php</code>) is the last step in <code>build_one.php</code>, running on the BUILT output after everything else — it checks the real, rendered pages directly rather than diffing two renders (one build instead of two, and a diff would happily pass a page whose keyword was never in the H1 to begin with). Five checks, in the same words the batch panel uses:</p>
+    <ol>
+        <li>Every page keeps its primary keyword in the H1 — tested as an ordered word <em>subsequence</em>, not an exact substring, so "Water Damage Restoration in Overland Park, KS" correctly matches keyword "water damage restoration {city}, {ST}".</li>
+        <li>Exactly one H1 per page.</li>
+        <li>Titles and meta descriptions are present, fully resolved (no leftover <code>{shortcode}</code>), and not duplicated across pages. <strong>Two tiers here:</strong> missing/unresolved/duplicated is a FAILURE; differing from the value the master itself would compose for that page is only a WARNING — composed the exact same way the renderer composes it (<code>static_build.php</code> → <code>site-template.php</code>), so as not to become a second, drifting copy of the title rule.</li>
+        <li>Schema types are unchanged from the master.</li>
+        <li>Same set of pages as the master (accounting for Page Pool exclusions).</li>
+    </ol>
+    <p>Also checks that each page's canonical points at this site's own domain. Expected values are computed from the WORKING DIRECTORY's own JSON — the same clone the renderer just read — resolved with the same <code>resolve_shortcodes()</code> the renderer itself uses, for the same "one source of the rule" reason as check 3 above.</p>
+    <p><strong>Why it only reports today.</strong> <code>ms_seo_gate_blocks()</code> is a single hardcoded <code>false</code> — until the gate has run against enough real batches to know its false-positive rate, a check that fails fifty good builds is worse than the thing it's guarding against. Flip that one function to <code>true</code> once it's provably quiet, and a failure genuinely stops the row instead of just logging a warning.</p>
 </section>
 
 <section id="ms-visual-identity">
@@ -5070,7 +5127,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <h3 id="ms-roadmap" style="margin-top:26px;border-top:2px solid #0f172a;padding-top:14px;color:#0f172a;">Build roadmap — suggested phases</h3>
     <p>Grouped by <strong>shared infrastructure and priority, not by area</strong>. Phase 1 first builds a deterministic variant-selector helper — <code>variants[ crc32(domain) % n ]</code> — that the structural items reuse; the visual/asset items cluster in Phase 3. Each variation item is <strong>code + authoring</strong> (the 3–4 variants must be written into the master); budget the authoring separately, in parallel with the code. <strong>Verify after each phase</strong> by building 2–3 sample domains and diffing their output — it must differ <em>and</em> be rebuild-stable (deterministic per domain).</p>
 
-    <div class="callout" style="border-left:4px solid #16a34a;"><strong>At a glance (updated 2026-07-04):</strong> Phase 1 ✅ complete · Phase 2 done (1e, 1d, 5c; 1f = QA guardrail) · Phase 3 done (4c, 2d, and now the whole <a href="#ms-visual-identity">visual-identity step</a> — <a href="#spec-logo">4b</a> logo, <a href="#spec-favicon">4a</a> favicon, <a href="#spec-theme-colors">4d</a> theme colors). <strong>The differentiation build is complete.</strong> What shipped as a coordinated <strong>visual-identity step</strong>: a per-master library of <a href="#ms-visual-identity">Theme Presets</a> (palette + font + radius + bug icon), assigned per site (column or domain hash), that generates a per-site logo + favicon in those colors. This closed <a href="#spec-logo">4b</a> — the real one: the master logo is a <em>wordmark</em> ("KATY PEST PROS"), so leaving it identical leaked the master brand on every clone (identity issue, not cosmetic) — and folded in the cosmetic <a href="#spec-theme-colors">4d</a>/<a href="#spec-favicon">4a</a> as a bonus. Still <strong>⏭️ decided against:</strong> <a href="#spec-css-skins">2c</a> CSS class-vocabulary rotation and <a href="#spec-vary-copy">1g</a> copy templates — pure fingerprint obfuscation Google's doorway detection doesn't weight. <strong>Real remaining leverage is off this tool:</strong> (1) validate a small batch — ship 3–5 sites, watch indexation; (2) network / hosting / IP diversity; (3) content substance.</div>
+    <div class="callout" style="border-left:4px solid #16a34a;"><strong>At a glance (updated 2026-07-04):</strong> Phase 1 ✅ complete · Phase 2 done (1e, 1d, 5c; 1f = QA guardrail) · Phase 3 done (4c, 2d, and now the whole <a href="#ms-visual-identity">visual-identity step</a> — <a href="#spec-logo">4b</a> logo, <a href="#spec-favicon">4a</a> favicon, <a href="#spec-theme-colors">4d</a> theme colors). <strong>The differentiation build is complete.</strong> What shipped as a coordinated <strong>visual-identity step</strong>: a per-master library of <a href="#ms-visual-identity">Theme Presets</a> (palette + font + radius + bug icon), assigned per site (column or domain hash), that generates a per-site logo + favicon in those colors. This closed <a href="#spec-logo">4b</a> — the real one: the master logo is a <em>wordmark</em> ("KATY PEST PROS"), so leaving it identical leaked the master brand on every clone (identity issue, not cosmetic) — and folded in the cosmetic <a href="#spec-theme-colors">4d</a>/<a href="#spec-favicon">4a</a> as a bonus. <a href="#spec-css-skins">2c</a> CSS class-vocabulary rotation and <a href="#spec-schema">2b</a> schema-shape rotation were both later built anyway (see their own cards) despite this same "pure fingerprint obfuscation Google's doorway detection doesn't weight" reasoning — an anti-fingerprint pass has value against a byte-level network diff even when it changes nothing a search engine's own parser sees. Still <strong>⏭️ decided against:</strong> <a href="#spec-vary-copy">1g</a> copy templates. <strong>Real remaining leverage is off this tool:</strong> (1) validate a small batch — ship 3–5 sites, watch indexation; (2) network / hosting / IP diversity; (3) content substance.</div>
 
     <p style="margin:14px 0 2px;"><strong>Phase 1 — Variation engine + structural Musts</strong> <span style="color:#64748b;">· the anti-fingerprint core · ✅ COMPLETE (2b intentionally skipped)</span></p>
     <ul>
@@ -5100,7 +5157,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li>✅ <a href="#spec-image-paths">2d</a> · Randomize image filename — folded into 4c (site city appended, master city stripped, on every image).</li>
     </ul>
 
-    <div class="callout tip"><strong>Status:</strong> The build is <strong>done</strong>. Shipped: 1c, 3g, 2a (Phase 1); 1e, 1d, 5c + the 1f authoring-lint guardrail (Phase 2); 4c, 2d + the <a href="#ms-visual-identity">visual-identity step</a> (4b logo, 4a favicon, 4d Theme Presets) (Phase 3). <strong>Decided against (⏭️, 2026-07-04):</strong> 2c CSS class-vocabulary rotation, 1g copy templates, 2b schema-shape — pure fingerprint obfuscation Google's doorway detection doesn't weight (it looks at content, links, structure, network). <strong>Only remaining leverage is off this tool:</strong> validate a batch (ship 3–5, watch indexation), network/hosting/IP diversity, and content substance. There is no meaningful on-page differentiation code left to write.</div>
+    <div class="callout tip"><strong>Status:</strong> The build is <strong>done</strong>. Shipped: 1c, 3g, 2a (Phase 1); 1e, 1d, 5c + the 1f authoring-lint guardrail (Phase 2); 4c, 2d + the <a href="#ms-visual-identity">visual-identity step</a> (4b logo, 4a favicon, 4d Theme Presets) (Phase 3); 2c class-vocabulary rotation and 2b schema-shape rotation (both later built as pure anti-fingerprint passes — see their own cards). <strong>Decided against (⏭️, 2026-07-04):</strong> 1g copy templates — pure fingerprint obfuscation Google's doorway detection doesn't weight (it looks at content, links, structure, network). <strong>Only remaining leverage is off this tool:</strong> validate a batch (ship 3–5, watch indexation), network/hosting/IP diversity, and content substance.</div>
 
     <h3 style="margin-top:26px;border-top:2px solid #e2e8f0;padding-top:14px;color:#0f172a;">Area 1 · Content</h3>
 
@@ -5168,18 +5225,16 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
     <div class="block-card-doc" id="spec-schema">
         <h3>2b · Vary JSON-LD schema shape <span class="pri must">Must</span> <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
-        <p class="bc-meta">⏭️ decided against — kept for the record</p>
-        <p><strong>Description.</strong> Rotate 3–4 JSON-LD variants per page type that differ in field order and boilerplate phrasing, so structured data isn't byte-identical across the network.</p>
-        <p><strong>Decision (not building).</strong> Under the clone model this is near-zero value: (1) each site's schema <em>already</em> differs — identity rewrite swaps business/domain/city, fabricated ratings are stripped, and a <strong>unique LocalBusiness node</strong> (address + geo) is injected per site; (2) JSON-LD is <strong>order-agnostic to Google</strong> — it parses the doc into a graph, so reordering fields changes bytes but not what Google sees, and identical schema <em>shape</em> across same-industry sites is normal, not a doorway signal. So rotating field order/boilerplate is effort for ~no SEO gain. Revisit only if a concrete need appears; the real anti-clone lever (visible section order) is handled by <a href="#spec-layout-skeletons">2a</a>.</p>
+        <p class="bc-meta">✅ BUILT — superseded the original "decided against" call below</p>
+        <p><strong>Reversed (was ⏭️ decided against, now shipped).</strong> The original reasoning still holds — JSON-LD is order-agnostic to Google, so this buys zero SEO effect either way — but it was rebuilt anyway as a pure anti-fingerprint pass once class-vocabulary rotation (2c) shipped for the same reason: a byte-level diff or hash across the network shouldn't find identical structured-data blocks, even though a search engine's own parser never sees the difference. <code>ms_schema_shape_apply()</code> (<code>includes/multisite/schema_shape.php</code>) reorders the KEYS of every JSON-LD object, deterministically per domain (<code>ms_schema_seeded_order()</code>) — it does not touch a single value, and list order (e.g. FAQ entries) is left alone since reordering those would be a content change, not a shape change. Runs post-build in <code>build_one.php</code>, gated by the <code>structure.schemashape</code> batch-panel checkbox.</p>
+        <p><strong>Original description, still accurate.</strong> Rotate the JSON-LD field/node order per site, so structured data isn't byte-identical across the network.</p>
     </div>
 
     <div class="block-card-doc" id="spec-css-skins">
         <h3>2c · CSS skins / vary class vocabulary <span class="where preauthor" style="float:none;margin-left:6px;">Pre-authoring (+ Per-row)</span></h3>
-        <p class="bc-meta">⏭️ class-vocabulary rotation decided against — but "different palette per site" now shipped as <a href="#ms-visual-identity">Theme Presets</a></p>
-        <p><strong>Superseded in part.</strong> The "give each site a different color scheme + font" goal is now <strong>built</strong> as <a href="#ms-visual-identity">Theme Presets</a> — a per-master library of color/font/radius bundles, assigned per site (column or domain hash), that also drives a generated logo + favicon. What remains ⏭️ decided-against below is the narrower <em>class-name-vocabulary</em> rotation, which is pure fingerprint obfuscation with no user-facing value.</p>
-        <p><strong>Decision (class rotation).</strong> Considered building a per-site "skin" system (color scheme + fonts + component styling as a few designed presets) so sites look like different themes. The <em>looks-different</em> part is now Theme Presets. Rotating <em>class names</em> under identical CSS was <strong>decided against:</strong> visual/theme variation is a <em>human-perception</em> signal — it changes what a person sees, not what Google's doorway/scaled-content detection measures (content, links, structure, network). The goal here is avoiding <em>algorithmic</em> classification, not fooling a manual reviewer, so this is a dead end for the objective. (Random per-site CSS jitter would also read as auto-generated/spammy — worse, not better.) Kept for the record.</p>
-        <p><strong>Description.</strong> 3–4 "skins" — the same visual layout and CSS rules under different class-name vocabularies — rotated per site.</p>
-        <p><strong>Build.</strong> Author skin maps (canonical name → skin class names) in the master. At render, rewrite class attributes and the matching selectors in the emitted stylesheet using the skin selected by domain hash; ensure markup + CSS use the same skin. <strong>Effort:</strong> ~2 days.</p>
+        <p class="bc-meta">✅ BUILT (class vocabulary) — "different palette per site" separately shipped as <a href="#ms-visual-identity">Theme Presets</a></p>
+        <p><strong>Two separate things, both now built.</strong> The "give each site a different color scheme + font" goal shipped as <a href="#ms-visual-identity">Theme Presets</a> — a per-master library of color/font/radius bundles, assigned per site (column or domain hash), that also drives a generated logo + favicon. The narrower <em>class-name-vocabulary</em> rotation described below was originally decided against as pure fingerprint obfuscation with no user-facing value — but was rebuilt anyway alongside 2b and 2d, on the same "no algorithmic detection value, but still a real byte-level fingerprint across the network" reasoning.</p>
+        <p><strong>Build (today).</strong> <code>ms_class_vocab_apply()</code> (<code>includes/multisite/class_vocab.php</code>) runs on the BUILT OUTPUT, after render — a rename pass over that site's own copy of the CSS and HTML, not parallel template sets (avoiding the "every future block written N times" trap a pre-authored skin-map approach would have meant). Deterministic per domain, so a rebuild doesn't churn class names. Detects (rather than hardcodes) classes referenced from inline <code>&lt;script&gt;</code> and leaves those untouched, along with any class with no CSS rule and a reserved list of framework/utility names — renaming a class the JS looks up by string would leave a page that looks right and does nothing. Runs post-build in <code>build_one.php</code>, gated by the <code>structure.classvocab</code> batch-panel checkbox.</p>
     </div>
 
     <div class="block-card-doc" id="spec-image-paths">
@@ -5370,25 +5425,23 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
 <section id="ms-variation">
     <h2>Deterministic variation (anti-fingerprint)</h2>
-    <p>Four checklist items above — <strong>schema shape, body copy, CSS class names, and DOM order</strong> — are the same move: instead of one template repeated across every site, build <strong>3–4 variants</strong> and assign one per domain. The assignment must be by a <strong>stable hash of the domain</strong>, never random — so a rebuild always picks the same variant and SEO signals don't churn. Random-per-build is the one way to get this wrong.</p>
-
-    <div class="callout tip"><strong>The rule:</strong> <code>variant = variants[ hash(domain) % count ]</code> — same domain picks the same variant forever; different domains spread evenly across the set.</div>
+    <p>This section originally proposed all four items below as a pool-of-authored-variants design (<code>variant = variants[ hash(domain) % count ]</code> — pre-write 3–4 fixed versions, assign one per domain). <strong>That is not how any of them actually shipped.</strong> Three of the four are built as an <strong>algorithmic transform of the SAME content/markup/data</strong>, seeded per domain (<code>ms_variant()</code> / a seeded shuffle), not a selection from a hand-authored pool — no extra authoring, and no fixed count to run out of. What's common to all four, built or not, still holds: the seed must be a <strong>stable hash of the domain</strong>, never random, so a rebuild never churns the result.</p>
 
     <h3>Schema shape <span class="pri must">Must</span></h3>
-    <p>Build 3–4 JSON-LD variants per page type that differ in field order and boilerplate phrasing — same facts, different shape.</p>
-    <p style="color:#475569;"><em>Example:</em> Variant 1 leads <code>serviceType → provider → description</code>; Variant 2 leads <code>description → name → areaServed</code>.</p>
+    <p class="bc-meta">✅ BUILT — see <a href="#spec-schema">2b</a></p>
+    <p>Every JSON-LD object's own keys are reordered, deterministically per domain (<code>ms_schema_shape_apply()</code>, <code>includes/multisite/schema_shape.php</code>) — same facts, different shape, no authored variants to write or maintain.</p>
 
     <h3>Body copy <span class="pri must">Must</span></h3>
-    <p>Write 3–4 sentence-structure patterns per content block instead of one fill-in-the-blank line repeated hundreds of times. The AI generator already produces unique per-city copy; this hardens any templated fallback.</p>
-    <p style="color:#475569;"><em>Example:</em> "Struggling with {pest} in {city}? Our licensed techs…" vs. "{pest} problems need fast action — we offer same-week service in {city}…"</p>
+    <p class="bc-meta">Not built as a distinct hardening pass — mitigated by the AI content engine</p>
+    <p>The AI generator already produces unique per-city copy for every block, so there is no repeated fill-in-the-blank line to harden today. Worth revisiting only if a specific templated fallback is found repeating verbatim across sites.</p>
 
     <h3>CSS class vocabulary <span class="pri should">Should</span></h3>
-    <p>Create 3–4 "skins": the same visual layout and CSS rules under different class-name vocabularies, rotated per site.</p>
-    <p style="color:#475569;"><em>Example:</em> Skin 1 uses <code>.hero-wrap</code> / <code>.service-card</code>; Skin 2 uses <code>.banner-section</code> / <code>.offering-tile</code>.</p>
+    <p class="bc-meta">✅ BUILT — see <a href="#spec-css-skins">2c</a></p>
+    <p>A rename pass over the built output's own HTML + CSS, deterministic per domain (<code>ms_class_vocab_apply()</code>, <code>includes/multisite/class_vocab.php</code>) — not a pool of pre-authored "skins".</p>
 
     <h3>DOM section order <span class="pri should">Should</span></h3>
-    <p>Build each section as an independent block, then define 3–4 orderings and assign one per site.</p>
-    <p style="color:#475569;"><em>Example:</em> Skeleton A: Header → Hero → Services → Testimonials → FAQ → CTA → Footer. Skeleton B: Header → Hero → FAQ → Services → Testimonials → CTA → Footer.</p>
+    <p class="bc-meta">✅ BUILT (Home + Landing pages) — see <a href="#spec-layout-skeletons">2a</a></p>
+    <p>Each page's own current blocks are reordered live by a seeded shuffle (<code>layout_rotate_blocks()</code>, <code>includes/layout_variations.php</code>) with configurable top/bottom pin counts — not a fixed set of hand-authored skeletons.</p>
 </section>
 
 <section id="ms-hosting">
@@ -5423,7 +5476,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 <section id="ms-admin-multisite">
     <h2>The MultiSite tab</h2>
     <p>The whole campaign runs from the admin <strong>MultiSite</strong> tab (the active site is the campaign master) — no shell needed. It wraps the same cores documented under Command Line below.</p>
-    <p>A collapsible <strong>"How a multisite run works"</strong> card sits at the top of the tab — a setup/verify checklist (Master site, Niche Brief, Keywords, <a href="#ms-visual-identity">Visual Identity</a>, Block/layout order, Params CSV, each linked to its tab), the per-row pipeline (clone → identity → landing → differentiate → visual → AI → build → deploy), and the finish. Read it once to see how the pieces fit before your first run.</p>
+    <p>A collapsible <strong>"How a multisite run works"</strong> card sits at the top of the tab — a setup/verify checklist (Master site, Niche Brief, Keywords, <a href="#ms-visual-identity">Visual Identity</a>, Block/layout order, Params CSV, each linked to its tab), the per-row pipeline (clone → identity → landing → page pool → differentiate → visual → AI → images → build → post-build → deploy), and the finish. Read it once to see how the pieces fit before your first run.</p>
     <ol>
         <li><strong>Set up the master</strong> — before uploading params, author the master, the <a href="#ai-niche">Niche Brief</a> + keywords, and the <a href="#ms-visual-identity">Visual Identity — Presets</a> library (edited on the <strong><a href="#tab-genvisual">Gen-Visual</a></strong> tab; up to 10 presets with live logo + favicon previews). Flag which presets are <em>in rotation</em> — each generated site draws its palette + logo/favicon from a rotation preset. (This tab shows a read-only rotation summary.)</li>
         <li><strong>Upload params</strong> — download the sample CSV, edit it, and upload. The table is validated inline (per-row ok / warn / error, plus an unknown-column report) and stored only when every row is error-free; rows with warnings are kept.</li>
@@ -5474,6 +5527,10 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <tr><td><code>--limit=N</code></td><td>Process at most N rows.</td></tr>
         <tr><td><code>--no-preflight</code></td><td>Skip the FTP reachability check.</td></tr>
         <tr><td><code>--verbose</code></td><td>Stream each row's raw progress.</td></tr>
+        <tr><td><code>--no-deploy</code></td><td>Build only — keep the rendered output, skip the FTP upload entirely. What the batch panel's "Generate" button uses (as opposed to the separate "Send" step); also useful for testing a checkbox combination without touching a live FTP target.</td></tr>
+        <tr><td><code>--skip=a,b,c</code></td><td>Turn off optional steps for this run — the flag every batch-panel checkbox tree ultimately compiles down to. Two shapes: a whole step (<code>images</code>) or one sub-switch inside it (<code>images.ai_photos_hero_home</code>). The 7 skippable parent steps: <code>landing, visual, ai, images, tags, structure, pagepool</code> — clone/identity/build/deploy are structural and have no switch. See <a href="#ms-admin-multisite">The MultiSite tab</a> for the full checkbox tree.</td></tr>
+        <tr><td><code>--rot-home-top=N</code>, <code>--rot-home-bottom=N</code></td><td>How many leading/trailing homepage blocks section-order rotation never moves (default 1/1 — hero pinned first, closing block pinned last). See <a href="#spec-layout-skeletons">2a</a>.</td></tr>
+        <tr><td><code>--rot-landing-top=N</code>, <code>--rot-landing-bottom=N</code></td><td>Same pin counts, for landing pages.</td></tr>
     </table>
 </section>
 
@@ -5499,7 +5556,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
     <table>
         <tr><th>File</th><th>Role</th></tr>
         <tr><td><code>multisite/run_campaign.php</code></td><td>Orchestrator — runs the whole table (pool, retry, run log)</td></tr>
-        <tr><td><code>multisite/build_one.php</code></td><td>Per-row worker: clone → inject → landing → differentiate → visual → AI → images → build → deploy</td></tr>
+        <tr><td><code>multisite/build_one.php</code></td><td>Per-row worker: clone → inject → landing → page pool → differentiate → visual → AI → images → build → post-build (class vocab, cache-bust, schema shape, SEO gate) → deploy</td></tr>
         <tr><td><code>multisite/render_site.php</code></td><td>Worker-mode child that renders one site to static HTML</td></tr>
         <tr><td><code>multisite/params_check.php</code></td><td>CSV intake: parse, validate, pre-flight, store</td></tr>
         <tr><td><code>includes/multisite/clone.php</code></td><td>Snapshot + working-dir clone</td></tr>

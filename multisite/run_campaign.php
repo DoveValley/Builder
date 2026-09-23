@@ -12,7 +12,7 @@
  *     --no-ai         skip AI generation (identity + build + deploy only)
  *     --no-deploy     generate only — keep each build under the batch's output/ so
  *                     the upload step can send it later
- *     --skip=a,b      skip optional steps: landing, visual, ai, images, tags
+ *     --skip=a,b      skip optional steps: landing, visual, ai, images, tags, structure, pagepool
  *                     (clone, identity and build are structural and cannot be skipped;
  *                      nor can the identity scrub inside differentiate)
  *     --force         force AI refresh + full FTP re-upload
