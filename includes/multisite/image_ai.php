@@ -318,7 +318,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             fn($p) => [
                 'prompt'   => $p['prompt'],
                 'ref_path' => $p['padInfo']['path'] ?? $p['refPath'],
-                'opts'     => ['size' => $p['size'], 'quality' => 'medium', 'output_format' => 'webp', 'input_fidelity' => 'high'],
+                'opts'     => ['size' => $p['size'], 'quality' => 'medium', 'output_format' => 'webp'],
             ],
             $pending
         );

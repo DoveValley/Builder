@@ -105,7 +105,11 @@ function openai_images_build_edit_ch(string $prompt, string $refImagePath, array
         'prompt' => $prompt,
         'image'  => new CURLFile($refImagePath, $mime, basename($refImagePath)),
     ];
-    foreach (['size', 'quality', 'output_format', 'input_fidelity'] as $k) {
+    // input_fidelity is deliberately NOT in this list — gpt-image-2 (the configured
+    // model) rejects it outright ("does not support the 'input_fidelity' parameter"),
+    // confirmed by a real failed call. That's a gpt-image-1-only parameter; don't
+    // re-add it here without re-checking against whatever model is configured.
+    foreach (['size', 'quality', 'output_format'] as $k) {
         if (isset($opts[$k]) && $opts[$k] !== '') $fields[$k] = $opts[$k];
     }
     $ch = curl_init(OPENAI_IMAGES_EDIT_URL);
@@ -289,7 +293,7 @@ function openai_images_parse_response($resp, int $code, string $cErr, array $opt
  * was wired in: same technician, same pose, same uniform, different equipment.
  *
  * @param string $refImagePath absolute path to an existing image on disk
- * @param array  $opts model, size, quality, output_format, input_fidelity, timeout
+ * @param array  $opts model, size, quality, output_format, timeout
  * @return array{ok:bool,bytes:string,format:string,revised_prompt:string,error:string,code:int}
  */
 function openai_images_edit(string $prompt, string $refImagePath, array $opts = []): array

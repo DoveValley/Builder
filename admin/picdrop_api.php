@@ -467,7 +467,7 @@ if ($action === 'place') {
         $padInfo  = img_pad_to_ratio($refPath, $bw, $bh);
         $sendPath = $padInfo['path'] ?? $refPath;
 
-        $r = openai_images_edit($refPrompt, $sendPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp', 'input_fidelity' => 'high']);
+        $r = openai_images_edit($refPrompt, $sendPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
         $size = $slotSize;
         $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
