@@ -976,6 +976,16 @@ tr.ms-rec td { background: #fff3cd !important; }
         <li>Writes the path into the page JSON.</li>
     </ol>
 
+    <h3>AI generate</h3>
+    <p>Each slot's <strong>&#10024; AI generate</strong> link opens a prompt box, pre-filled with a generic default naming the block and slot. Generating with no existing photo describes a scene from nothing; checking <strong>"Use current photo as reference"</strong> instead <em>edits</em> the slot's current photo (OpenAI's image-edit API, not a from-scratch description) — keeping the real subject and setting instead of drifting to whatever the model feels like that day. The prompt that produced an approved home/site-wide photo is remembered as that slot's standing template for the multisite batch pipeline (<code>ms_image_ai_prompt_capture()</code>, <code>includes/multisite/image_ai.php</code>).</p>
+    <p><strong>What actually belongs in the prompt</strong> — the default text already asks for these; worth keeping if you rewrite it:</p>
+    <ul>
+        <li><strong>Name the actual equipment or vehicle, specifically.</strong> "If tools are part of the scene, keep them in frame" is a preservation instruction, not a directive — it does nothing if the model wasn't already going to include a tool. Say what it actually is: a wet-vac, a dehumidifier, an extraction wand, a work van.</li>
+        <li><strong>Ask for a wide or medium-wide shot, explicitly.</strong> Left unstated, results tend toward a tighter, portrait-style crop that leaves equipment and surroundings out of frame.</li>
+        <li><strong>Keep the lighting / expression / no-text-or-logo lines.</strong> They stop dark or "distressed"-looking scenes, oversmiling, and any burned-in text or logo on clothing.</li>
+    </ul>
+    <p><strong>Reference-edit geometry (fixed 2026-09-23).</strong> The edit API only accepts 3 fixed output aspect ratios, and a real reference photo rarely matches one exactly. Bucketing it into the nearest one used to force the model to re-compose the shot to fit a differently-shaped canvas — read in practice as "zoomed in," dropping whatever sat near the edges (the equipment, most often) — and the old code then centre-cropped the mismatch away a second time on top of that. Fixed by padding the reference to the bucket's exact ratio before it's sent (mirrored-edge canvas extension via ImageMagick, stripped back off with an exact pixel-rect crop once the edit comes back — see <code>img_pad_to_ratio()</code> / <code>img_crop_exact()</code>, <code>includes/media_lib.php</code>), and by setting <code>input_fidelity: high</code> on the edit call so the model holds closer to the reference's real structure. Applies to both this tab's Generate button (<code>admin/picdrop_api.php</code>) and the automated batch pipeline (<code>includes/multisite/image_ai.php</code>) — the same underlying helpers, not two implementations.</p>
+
     <h3>Why it is a separate tab and not part of the block editor</h3>
     <p>The Home tab posts every field of every block in one form — around 6,200 inputs on a busy site — and PHP silently discards anything past <code>max_input_vars</code> / <code>max_multipart_body_parts</code>. Pic Drop posts <strong>one field per drop</strong> to <code>admin/picdrop_api.php</code>, so no amount of page growth can truncate it.</p>
 

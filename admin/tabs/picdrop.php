@@ -1,6 +1,16 @@
     <div class="tab-content" style="<?= $tab === 'picdrop' ? '' : 'display:none;' ?>">
         <?php tab_header('Pic Drop', 'Every picture on the site, page by page. Drop a new image onto any slot and it is optimised, resized to fit that slot, filed in the media library and written straight into the page.', 'tab-picdrop'); ?>
 
+        <div class="callout tip" style="margin-bottom:16px;">
+            <p style="margin:0 0 6px;"><strong>Writing a good AI-generate prompt.</strong> The default text pre-filled below already asks for these — worth keeping if you rewrite it:</p>
+            <ul style="margin:0 0 6px 18px;padding:0;">
+                <li><strong>Name the actual equipment or vehicle</strong> that belongs in the shot — a wet-vac, dehumidifier, extraction wand, work van, whatever it really is. Left unnamed, the model won't invent it.</li>
+                <li><strong>Ask for a wide or medium-wide shot, explicitly.</strong> Left unstated, results tend toward a tight portrait crop that leaves the equipment and surroundings out of frame.</li>
+                <li><strong>Keep the lighting / expression / no-text-or-logo lines</strong> from the default — they stop dark or "distressed"-looking scenes and any burned-in text.</li>
+            </ul>
+            <p style="margin:0;font-size:.85rem;color:#475569;">When <strong>"Use current photo as reference"</strong> is checked, the reference is now padded to match the API's own output shape before it's sent (instead of being force-cropped into a mismatched one) — the fix for results that used to zoom in and crop equipment out. See the <a href="/admin/docs.php#tab-picdrop" target="_blank">Pic Drop docs</a> for the full mechanics.</p>
+        </div>
+
         <?php if ($tab !== 'picdrop'): ?>
             <?php /* Enumerating slots means parsing every landing page file — 153 of them on
                      appliance-site. index.php renders all tabs into one document, so doing that
@@ -254,7 +264,7 @@
                                             &#128274; Set per city<br><span style="font-size:.72rem;">City Image plugin</span>
                                         </div>
                                     <?php else: ?>
-                                        <?php $aiDefault = 'Photorealistic photo for: ' . $s['block_label'] . ' — ' . $s['label'] . '. Bright, well-lit scene with natural daylight — not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression — not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing. If tools or machinery are part of the scene, keep them fully in frame — do not crop them off.'; ?>
+                                        <?php $aiDefault = 'Photorealistic photo for: ' . $s['block_label'] . ' — ' . $s['label'] . '. Wide or medium-wide shot that shows the full scene — do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person — do not crop it off or leave it out. Bright, well-lit scene with natural daylight — not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression — not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.'; ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
                                                  style="border:2px dashed #d1d5db;border-radius:7px;padding:14px 10px;text-align:center;cursor:pointer;font-size:.8rem;color:#6b7280;transition:border-color .15s,background .15s;">

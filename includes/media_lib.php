@@ -262,6 +262,85 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
 }
 
 /**
+ * Extends $srcPath's own canvas (mirrored-edge fill) to exactly match $targetW:
+ * $targetH, so a caller sending it to a fixed-aspect-ratio API (an image edit
+ * endpoint that only accepts a few exact sizes, say) doesn't force that API to
+ * re-compose the real photo to fit a mismatched frame. The padding region is
+ * meant to be thrown away afterward — see the returned offsets — so its visual
+ * quality only has to be plausible enough that the API doesn't treat it as a hard
+ * edge worth preserving as a border; mirrored edge content does that cheaply.
+ *
+ * Returns null (caller falls back to using $srcPath as-is) when the ratio already
+ * matches within tolerance, when the source size can't be read, or when
+ * ImageMagick isn't available — never a hard failure.
+ *
+ * @return array{path:string,ow:int,oh:int,pad_w:int,pad_h:int,off_x:int,off_y:int}|null
+ */
+function img_pad_to_ratio(string $srcPath, int $targetW, int $targetH, float $tolerance = 0.01): ?array {
+    if ($targetW < 1 || $targetH < 1) return null;
+    [$ow, $oh] = @getimagesize($srcPath) ?: [0, 0];
+    if ($ow < 1 || $oh < 1) return null;
+
+    $targetRatio = $targetW / $targetH;
+    $origRatio   = $ow / $oh;
+    if (abs($origRatio - $targetRatio) / $targetRatio < $tolerance) return null; // near enough already
+
+    $padW = $ow; $padH = $oh;
+    if ($origRatio < $targetRatio) {
+        $padW = (int) round($oh * $targetRatio);
+    } else {
+        $padH = (int) round($ow / $targetRatio);
+    }
+    $offX = (int) round(($padW - $ow) / 2);
+    $offY = (int) round(($padH - $oh) / 2);
+
+    $bin = ms_convert_bin();
+    if ($bin === null) return null;
+
+    $padded = tempnam(sys_get_temp_dir(), 'imgpad') . '.png';
+    $viewport = $padW . 'x' . $padH . '+' . (-$offX) . '+' . (-$offY);
+    $ok = media_magick($srcPath, $padded, [
+        '-virtual-pixel', 'Mirror',
+        '-filter', 'point',
+        '-set', 'option:distort:viewport', escapeshellarg($viewport),
+        '-distort', 'SRT', '0',
+        '+repage',
+    ]);
+    if (!$ok || !is_file($padded) || filesize($padded) === 0) { @unlink($padded); return null; }
+
+    return ['path' => $padded, 'ow' => $ow, 'oh' => $oh, 'pad_w' => $padW, 'pad_h' => $padH, 'off_x' => $offX, 'off_y' => $offY];
+}
+
+/**
+ * Maps the real-content rectangle from img_pad_to_ratio()'s padded-canvas pixel
+ * space into whatever pixel space the caller's actual output landed in ($outW x
+ * $outH — e.g. a fixed API size, which need not match $pad['pad_w']/['pad_h']
+ * numerically as long as the ratio is the same). One uniform scale covers both
+ * axes because padding was built to match $outW:$outH's ratio exactly.
+ *
+ * @param array $pad as returned by img_pad_to_ratio()
+ * @return array{x:int,y:int,w:int,h:int}
+ */
+function img_pad_crop_rect(array $pad, int $outW, int $outH): array {
+    $scale = $outW / $pad['pad_w'];
+    return [
+        'x' => (int) round($pad['off_x'] * $scale),
+        'y' => (int) round($pad['off_y'] * $scale),
+        'w' => (int) round($pad['ow']    * $scale),
+        'h' => (int) round($pad['oh']    * $scale),
+    ];
+}
+
+/** Crops $src to an exact pixel rect (no scaling, no cover-crop) and writes $dest. */
+function img_crop_exact(string $src, string $dest, array $rect): bool {
+    if ($rect['w'] < 1 || $rect['h'] < 1) return false;
+    return media_magick($src, $dest, [
+        '-crop', escapeshellarg($rect['w'] . 'x' . $rect['h'] . '+' . $rect['x'] . '+' . $rect['y']),
+        '+repage',
+    ]);
+}
+
+/**
  * Place a picture into a slot at a given zoom and offset, and write it as webp.
  *
  * ONE model for both directions, because the split version could only ever crop:

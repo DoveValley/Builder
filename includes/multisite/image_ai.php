@@ -88,6 +88,28 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
 }
 
 /**
+ * Pads $refPath to the bucket size ($size — one of OpenAI's 3 fixed edit-API output
+ * sizes) and returns crop info scaled into that bucket's exact output pixel space,
+ * ready to hand straight to img_crop_exact() once the edit comes back. Thin wrapper
+ * around the generic img_pad_to_ratio() (includes/media_lib.php) — see that
+ * function's docblock for why this exists: the API's fixed aspect ratios rarely
+ * match a reference photo's real shape, and bucketing into the nearest one forces
+ * the model to re-compose the shot to fit (in practice: a wide "show the whole
+ * van/equipment" reference squeezed toward a narrower bucket reads as a tighter,
+ * zoomed-in result) — padding first means the model edits a canvas shaped like its
+ * own output instead.
+ *
+ * @return array{path:string,crop:array{x:int,y:int,w:int,h:int}}|null
+ */
+function ms_image_ai_pad_reference(string $refPath, string $size): ?array {
+    [$bw, $bh] = openai_image_bucket_dims($size);
+    $pad = img_pad_to_ratio($refPath, $bw, $bh);
+    if ($pad === null) return null;
+
+    return ['path' => $pad['path'], 'crop' => img_pad_crop_rect($pad, $bw, $bh)];
+}
+
+/**
  * Generates (or reuses a cached) AI photo for every home/global slot the master has a
  * locked prompt for, writing each straight into the working dir's own site.json.
  *
@@ -267,6 +289,13 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             ? ($tw >= $th * 1.2 ? '1536x1024' : ($th >= $tw * 1.2 ? '1024x1536' : '1024x1024'))
             : '1024x1024';
 
+        // Pad the reference to the bucket's own ratio before it's sent, so the model
+        // edits a canvas shaped like its output instead of squeezing the real photo
+        // to fit a mismatched one — see ms_image_ai_pad_reference()'s docblock. null
+        // when the ratio already matches closely or ImageMagick isn't available;
+        // either way Pass 2 below falls back to sending $refPath as-is.
+        $padInfo = ms_image_ai_pad_reference($refPath, $size);
+
         // Not generated here — queued. Pass 2 below fires every queued slot through
         // openai_images_edit_many() together, instead of waiting on each one in
         // turn (see that function's docblock for why this used to be slow: a domain
@@ -278,7 +307,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         $pending[] = [
             'slotKey' => $slotKey, 'parts' => $parts, 'blockType' => $blockType, 'blockId' => $blockId, 'field' => $field,
             'filename' => $filename, 'persistFile' => $persistFile, 'url' => $url, 'refPath' => $refPath,
-            'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size,
+            'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size, 'padInfo' => $padInfo,
         ];
     }
     unset($block);
@@ -286,7 +315,11 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
     // ── Pass 2: generate every queued slot concurrently, apply each as it lands ──
     if ($pending) {
         $jobs = array_map(
-            fn($p) => ['prompt' => $p['prompt'], 'ref_path' => $p['refPath'], 'opts' => ['size' => $p['size'], 'quality' => 'medium', 'output_format' => 'webp']],
+            fn($p) => [
+                'prompt'   => $p['prompt'],
+                'ref_path' => $p['padInfo']['path'] ?? $p['refPath'],
+                'opts'     => ['size' => $p['size'], 'quality' => 'medium', 'output_format' => 'webp', 'input_fidelity' => 'high'],
+            ],
             $pending
         );
 
@@ -301,6 +334,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             $slotKey = $p['slotKey'];
             $r = $results[$i];
             if (!$r['ok']) {
+                if ($p['padInfo'] !== null) @unlink($p['padInfo']['path']);
                 $out['failed']++; $out['errors'][] = "$slotKey: openai_images_generate failed (HTTP {$r['code']}): {$r['error']}"; continue;
             }
 
@@ -308,8 +342,26 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             file_put_contents($tmpFile, $r['bytes']);
             if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
             $dest = $mediaDir . $p['filename'];
-            [$fitOk] = img_fit_to($tmpFile, $dest, 'image/webp', $p['tw'], $p['th']);
+
+            // Undo the pad from Pass 1 BEFORE img_fit_to() ever sees this — an exact
+            // pixel-rect crop back to the real photo's content, not the lossy
+            // cover-crop img_fit_to() falls back to when shapes don't match. With
+            // the pad removed the shape already matches $tw/$th (both derived from
+            // the same ratio), so img_fit_to() below takes its plain-resize path.
+            $sourceForFit = $tmpFile;
+            if ($p['padInfo'] !== null) {
+                $croppedFile = tempnam(sys_get_temp_dir(), 'msaicrop') . '.webp';
+                if (img_crop_exact($tmpFile, $croppedFile, $p['padInfo']['crop'])) {
+                    $sourceForFit = $croppedFile;
+                } else {
+                    @unlink($croppedFile);
+                }
+            }
+
+            [$fitOk] = img_fit_to($sourceForFit, $dest, 'image/webp', $p['tw'], $p['th']);
             @unlink($tmpFile);
+            if ($sourceForFit !== $tmpFile) @unlink($sourceForFit);
+            if ($p['padInfo'] !== null) @unlink($p['padInfo']['path']);
             if (!$fitOk) {
                 $out['failed']++; $out['errors'][] = "$slotKey: img_fit_to() could not process the generated image"; continue;
             }
