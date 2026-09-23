@@ -8,6 +8,7 @@
                 <li><strong>Ask for a wide or medium-wide shot, explicitly.</strong> Left unstated, results tend toward a tight portrait crop that leaves the equipment and surroundings out of frame.</li>
                 <li><strong>Keep the lighting / expression / no-text-or-logo lines</strong> from the default — they stop dark or "distressed"-looking scenes and any burned-in text.</li>
             </ul>
+            <p style="margin:0 0 6px;"><strong>"Use current photo as reference" uses whichever side is currently active — not always Real.</strong> Each slot can hold a Real photo and an AI photo side by side; whichever one shows the blue border and the &#10003; checkmark (Real or AI) is what's actually live on the page right now, and that is exactly what gets sent as the reference — not necessarily the original Real photo. Switch the active side first (the "use Real" / "use AI" link under the other thumbnail) if you want to generate from a different starting photo.</p>
             <p style="margin:0;font-size:.85rem;color:#475569;">The result always gets cropped to fit this slot's exact box afterward, so a subject or piece of equipment composed edge-to-edge is exactly what that crop cuts into — the default prompt now says so explicitly ("leave margin around the subject... do not compose it edge-to-edge") when <strong>"Use current photo as reference"</strong> is checked. See the <a href="/admin/docs.php#tab-picdrop" target="_blank">Pic Drop docs</a> for more.</p>
         </div>
 
