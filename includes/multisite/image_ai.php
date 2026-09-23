@@ -22,6 +22,7 @@ require_once __DIR__ . '/../openai_images.php';
 require_once __DIR__ . '/../picdrop.php';   // picdrop_parse_key()
 require_once __DIR__ . '/../media_lib.php'; // img_fit_to()
 require_once __DIR__ . '/../layout_variations.php'; // ms_variant()
+require_once __DIR__ . '/image_overlay.php'; // ms_slug_city()
 
 function ms_image_ai_prompts_file(string $masterDir): string {
     return $masterDir . '/multisite/image_prompts.json';
@@ -189,19 +190,47 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
             $out['failed']++; $out['errors'][] = "$slotKey: field '$field' not present on that block"; continue;
         }
 
-        // Filename is keyed by slot + the MASTER TEMPLATE prompt (not the per-domain
-        // filled-in one, which always differs by city/business) — same convention the
-        // AI text cache already uses. A domain never changes filename on rebuild, but
-        // editing the prompt in Pic Drop changes this hash, so it regenerates once
-        // rather than silently reusing a photo made from a prompt Scott has since
-        // replaced. The 'edit-v1' tag does the same job for the METHOD, not just the
-        // prompt — bumps every previously-cached photo (made by describing a scene
-        // from scratch, which is what was drifting "way off") so it regenerates once
-        // under the new edit-from-reference approach instead of being served forever
-        // from a cache keyed the old way.
-        $filename    = 'ai_' . substr(md5($slotKey . '|' . $basePrompt . '|edit-v1'), 0, 10) . '.webp';
-        $persistFile = $persistDir . '/' . $filename;
-        $url         = 'uploads/media/' . $filename;
+        // The CACHE filename is keyed by slot + the MASTER TEMPLATE prompt (not the
+        // per-domain filled-in one, which always differs by city/business) — same
+        // convention the AI text cache already uses. A domain never changes this on
+        // rebuild, but editing the prompt in Pic Drop changes the hash, so it
+        // regenerates once rather than silently reusing a photo made from a prompt
+        // Scott has since replaced. The 'edit-v1' tag does the same job for the
+        // METHOD, not just the prompt — bumps every previously-cached photo (made by
+        // describing a scene from scratch, which is what was drifting "way off") so
+        // it regenerates once under the new edit-from-reference approach instead of
+        // being served forever from a cache keyed the old way. Purely an internal
+        // lookup key — never seen by a visitor or a search engine.
+        $cacheFilename = 'ai_' . substr(md5($slotKey . '|' . $basePrompt . '|edit-v1'), 0, 10) . '.webp';
+        $persistFile   = $persistDir . '/' . $cacheFilename;
+
+        // The PUBLIC filename is separate and carries real local-SEO signal — same
+        // city-based convention the other two image-differentiation schemes already
+        // use (ms_slug_city(), includes/multisite/image_overlay.php) — instead of an
+        // opaque hash, which had none at all. The stem comes from the slot's own alt
+        // text when one exists (already a real description, e.g. "Water damage
+        // restoration technician"), falling back to the block type; {city}/{SS}-style
+        // page shortcodes mean nothing in a filename and are stripped first. A short
+        // hash stays appended — unlike a hand-named upload, two AI slots can easily
+        // share near-identical alt text, and this is the only thing guaranteeing the
+        // filename stays unique on this domain.
+        $altKeyName = picdrop_fields()[picdrop_leaf($field)]['alt'] ?? null;
+        $altPath    = $altKeyName !== null ? picdrop_alt_path($field, $altKeyName) : null;
+        $altText    = $altPath !== null ? (string) picdrop_get($block, $altPath) : '';
+        $stemSource = trim((string) preg_replace('/\s*\{[a-z_]+\}/i', '', $altText));
+        $stem = trim((string) preg_replace('/[^a-z0-9]+/i', '-', strtolower($stemSource)), '-');
+        // Falls back to the block type both when there was no alt text at all AND when
+        // stripping shortcodes left only punctuation (e.g. alt text of just
+        // "{city}, {SS}" leaves a lone comma — not empty, but not a usable stem either).
+        if ($stem === '') {
+            $stem = trim((string) preg_replace('/[^a-z0-9]+/i', '-', strtolower($blockType)), '-');
+        }
+        if ($stem === '') $stem = 'photo';
+
+        $siteCitySlug   = ms_slug_city((string) ($siteVars['city'] ?? ''), (string) ($siteVars['SS'] ?? ''));
+        $shortHash      = substr(md5($slotKey), 0, 6);
+        $publicFilename = $stem . ($siteCitySlug !== '' ? '-' . $siteCitySlug : '') . '-' . $shortHash . '.webp';
+        $url            = 'uploads/media/' . $publicFilename;
 
         // Checked BEFORE the cache-hit branch too, not just the needs-generation path
         // below — a field currently holding a locked {token} placeholder is not ours to
@@ -213,7 +242,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
 
         if (is_file($persistFile)) {
             if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
-            if (!copy($persistFile, $mediaDir . $filename)) {
+            if (!copy($persistFile, $mediaDir . $publicFilename)) {
                 $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but could not be copied into this build"; continue;
             }
             if (!picdrop_set($block, $field, $url)) {
@@ -286,7 +315,7 @@ function ms_generate_ai_images_for_domain(string $workingDir, string $domain, st
         // there is cheap and exactly what the single-request path already did.
         $pending[] = [
             'slotKey' => $slotKey, 'parts' => $parts, 'blockType' => $blockType, 'blockId' => $blockId, 'field' => $field,
-            'filename' => $filename, 'persistFile' => $persistFile, 'url' => $url, 'refPath' => $refPath,
+            'filename' => $publicFilename, 'persistFile' => $persistFile, 'url' => $url, 'refPath' => $refPath,
             'prompt' => $prompt, 'tw' => $tw, 'th' => $th, 'size' => $size,
         ];
     }
