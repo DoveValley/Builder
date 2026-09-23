@@ -602,6 +602,31 @@ function ms_jitter_color(string $hex, string $domain, string $key): string {
 }
 
 /**
+ * hero_split's `hs_bg_color` is a literal hex stored on the BLOCK, not one of
+ * resolve_color()'s theme-mode values (accent/header/footer) — so unlike every color
+ * ms_apply_palette_jitter() touches, it was never varying per domain at all. Every
+ * site cloned from the same master shared the exact same byte-identical hero
+ * background. Jittered here with the same trusted primitive (ms_jitter_color()) and
+ * a key of its own ('hero_bg_color') so it doesn't move in lockstep with the theme's
+ * own jitter — but with NO separate contrast gate: hero_split picks its text color
+ * from the ACTUAL rendered background's luminance at render time (includes/blocks.php
+ * hero_split case), not a fixed pairing the way theme colors are, so it's already
+ * self-correcting no matter what this produces.
+ */
+function ms_jitter_hero_bg_blocks(array &$blocks, string $domain): int {
+    $n = 0;
+    foreach ($blocks as &$b) {
+        if (!is_array($b) || ($b['type'] ?? '') !== 'hero_split') continue;
+        $cur = (string) ($b['hs_bg_color'] ?? '');
+        if ($cur === '' || !ms_hex_to_rgb($cur)) continue;
+        $new = ms_jitter_color($cur, $domain, 'hero_bg_color');
+        if ($new !== $cur) { $b['hs_bg_color'] = $new; $n++; }
+    }
+    unset($b);
+    return $n;
+}
+
+/**
  * Jitter the palette in place, then GATE on contrast: any colour whose text pair drops below
  * WCAG AA (4.5:1) or below what it already was is reverted. Jitter must never make a site less
  * legible than the preset it came from.
@@ -681,6 +706,22 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
         // dark/accent skin colors so they track the jittered values instead of the
         // pre-jitter ones ms_apply_theme_preset() computed above.
         ms_derive_skin_colors($data);
+
+        // hs_bg_color is a literal per-block hex, not a theme-mode value, so the loop
+        // above never touches it — home + core pages live in this same $data and are
+        // covered here; landing pages are separate files already on disk by this point
+        // in the pipeline (generate_landing.php runs earlier) and are jittered further
+        // below, after $data itself is written back.
+        $domainForJitter = (string) ($params['domain'] ?? $params['DOMAIN'] ?? '');
+        if (!empty($data['content_blocks'])) {
+            ms_jitter_hero_bg_blocks($data['content_blocks'], $domainForJitter);
+        }
+        foreach (($data['pages'] ?? []) as &$corePage) {
+            if (is_array($corePage) && !empty($corePage['content_blocks'])) {
+                ms_jitter_hero_bg_blocks($corePage['content_blocks'], $domainForJitter);
+            }
+        }
+        unset($corePage);
     }
 
     // 3-4. Logo (two-tone wordmark + bug mark) + favicon, in the preset's colors
@@ -702,6 +743,21 @@ function ms_apply_visual_identity(string $workingDir, array $params, string $mas
     $tmp = $sf . '.tmp.' . getmypid();
     file_put_contents($tmp, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
     rename($tmp, $sf);
+
+    // Landing pages are separate files, already generated from the master's template
+    // before this function ever runs — each carries its own literal copy of the
+    // template's hs_bg_color, so each needs its own read/jitter/write pass.
+    if ($doJitter) {
+        foreach ((glob($workingDir . '/data/pages/*.json') ?: []) as $pageFile) {
+            $page = json_decode((string) file_get_contents($pageFile), true);
+            if (!is_array($page) || empty($page['content_blocks'])) continue;
+            if (ms_jitter_hero_bg_blocks($page['content_blocks'], $domainForJitter) > 0) {
+                $ptmp = $pageFile . '.tmp.' . getmypid();
+                file_put_contents($ptmp, json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+                rename($ptmp, $pageFile);
+            }
+        }
+    }
 
     return [
         'applied' => true,
