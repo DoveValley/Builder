@@ -13,15 +13,6 @@ if (!defined('OPENAI_IMAGES_EDIT_URL')) define('OPENAI_IMAGES_EDIT_URL', 'https:
 /** Centralized so a model rename is a one-line change here, not a hunt through callers. */
 if (!defined('OPENAI_IMAGE_MODEL')) define('OPENAI_IMAGE_MODEL', 'gpt-image-2');
 
-/** The exact pixel dimensions behind each of the 3 fixed sizes /images/edits accepts. */
-function openai_image_bucket_dims(string $size): array {
-    return match ($size) {
-        '1536x1024' => [1536, 1024],
-        '1024x1536' => [1024, 1536],
-        default     => [1024, 1024],
-    };
-}
-
 /** The configured key, or '' when the factory has not been given one. */
 function openai_images_key(): string
 {

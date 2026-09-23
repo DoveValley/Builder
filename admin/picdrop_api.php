@@ -435,11 +435,10 @@ if ($action === 'place') {
     if (!$ready['ok']) pd_fail($ready['error']);
 
     $tw = (int) $slot['w']; $th = (int) $slot['h'];
-    $slotSize = ($tw > 0 && $th > 0)
+    $size = ($tw > 0 && $th > 0)
         ? ($tw >= $th * 1.2 ? '1536x1024' : ($th >= $tw * 1.2 ? '1024x1536' : '1024x1024'))
         : '1024x1024';
 
-    $padInfo = null;
     if (!empty($_POST['use_reference'])) {
         $refPath = (!$slot['token'] && $slot['value'] !== '') ? picdrop_resolve($slot['value']) : null;
         if ($refPath === null) {
@@ -448,52 +447,18 @@ if ($action === 'place') {
         // Editing FROM a real photo risks the result reading as too close to that
         // specific photo's own person — this instruction rides along only on the
         // reference path (not stored back into $prompt, so a later regenerate
-        // doesn't inherit boilerplate it didn't ask for).
+        // doesn't inherit boilerplate it didn't ask for). The "leave margin, don't
+        // compose edge-to-edge" guidance already lives in the default prompt text
+        // itself (picdrop.php's $aiDefault) rather than being duplicated here.
         $refPrompt = $prompt . ' If there is a technician or other person in the photo, give them a different face and hairstyle than the reference photo.';
-
-        // Bucket against the REFERENCE's own shape, not the slot's display box —
-        // the crop-to-slot below (img_fit_to) already handles fitting a photo of
-        // any shape into the box; this size only controls what the API edits.
-        // Bucketing against the slot box instead would force the model to
-        // re-compose the reference to a shape it was never in, stacking a second
-        // mismatch on top of the fixed-3-sizes one every bucket already risks —
-        // this is the same "zooms in / drops the equipment" cause fixed for the
-        // batch pipeline in includes/multisite/image_ai.php.
-        [$rw, $rh] = @getimagesize($refPath) ?: [0, 0];
-        $size = ($rw > 0 && $rh > 0)
-            ? ($rw >= $rh * 1.2 ? '1536x1024' : ($rh >= $rw * 1.2 ? '1024x1536' : '1024x1024'))
-            : $slotSize;
-        [$bw, $bh] = openai_image_bucket_dims($size);
-        $padInfo  = img_pad_to_ratio($refPath, $bw, $bh);
-        $sendPath = $padInfo['path'] ?? $refPath;
-
-        $r = openai_images_edit($refPrompt, $sendPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
+        $r = openai_images_edit($refPrompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
-        $size = $slotSize;
         $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     }
-    if (!$r['ok']) {
-        if ($padInfo !== null) @unlink($padInfo['path']);
-        pd_fail('AI generation failed: ' . $r['error']);
-    }
+    if (!$r['ok']) pd_fail('AI generation failed: ' . $r['error']);
 
-    $tmpFile = tempnam(sys_get_temp_dir(), 'pdai');
+    $tmpFile    = tempnam(sys_get_temp_dir(), 'pdai');
     file_put_contents($tmpFile, $r['bytes']);
-
-    if ($padInfo !== null) {
-        // Undo the pad — an exact pixel-rect crop back to the reference's own
-        // shape — before the final, legitimate crop-to-slot-box below.
-        [$bw, $bh] = openai_image_bucket_dims($size);
-        $croppedFile = tempnam(sys_get_temp_dir(), 'pdaicrop') . '.webp';
-        if (img_crop_exact($tmpFile, $croppedFile, img_pad_crop_rect($padInfo, $bw, $bh))) {
-            @unlink($tmpFile);
-            $tmpFile = $croppedFile;
-        } else {
-            @unlink($croppedFile);
-        }
-        @unlink($padInfo['path']);
-    }
-
     $mime       = 'image/webp';
     $cleanupTmp = true;
     $cost       = openai_images_estimate_cost($size, 'medium');
