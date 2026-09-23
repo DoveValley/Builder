@@ -797,6 +797,16 @@
                     };
                 }
 
+                // How much of the SOURCE photo (in its own pixel units) is currently
+                // visible through the slot at this zoom — same scale as adjGeom(), just
+                // solved for source pixels instead of slot pixels. The drag handler below
+                // needs this to convert an on-screen mouse delta into a fraction of the
+                // pannable range.
+                function adjRect() {
+                    var scale = Math.max(adj.tw / adj.ow, adj.th / adj.oh) * adj.zoom;
+                    return { sw: adj.tw / scale, sh: adj.th / scale };
+                }
+
                 function adjPaint() {
                     var g = adjGeom();
                     var k = adj.frameW / adj.tw;        // frame pixels per slot pixel
