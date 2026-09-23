@@ -488,7 +488,8 @@
                     }
                     var activeStyle = isActive ? 'border:2px solid #2563eb;' : 'border:2px solid transparent;opacity:.75;';
                     var img = '<img src="/' + path + '?t=' + Date.now() + '" data-full="/' + path + '" data-name="' + path.split('/').pop() + '" alt="" title="Click to view full size"'
-                        + ' style="width:63px;height:63px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;' + activeStyle + '">';
+                        + ' style="width:63px;height:63px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;' + activeStyle + '"'
+                        + ' onerror="this.style.display=\'none\'">';
                     var label = isActive
                         ? labelText + ' &#10003;'
                         : '<a href="#" class="pd-set-active" data-sid="' + sid + '" data-key="' + key + '" data-which="' + which + '" style="color:#6b7280;text-decoration:underline;">use ' + labelText + '</a>';
