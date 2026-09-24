@@ -10,6 +10,7 @@ require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/cloudflare.php';
 require_once __DIR__ . '/registrar.php';
 require_once __DIR__ . '/fleet.php';   // infra_cf_zone_index() (cached)
+require_once __DIR__ . '/golive_freshen.php';
 
 /**
  * Refresh live status from Cloudflare (zone active ⇒ live). Uses the cached CF
@@ -52,7 +53,18 @@ function infra_golive_refresh_live(): int
         }
 
         infra_state_upsert_domain(['domain' => $dom, 'status' => 'live']);
-        infra_pipeline_set($dom, 'live', INFRA_STEP_OK, 'HTTP ' . $chk['code'] . ' · ' . $chk['ms'] . 'ms');
+
+        // Right here, not at release: this is the moment the domain is actually
+        // resolving and serving, which is what its files' dates should honestly
+        // reflect. Release and "actually live" can be hours apart (NS propagation),
+        // so freshening at release would sometimes touch files before anyone could
+        // even reach them. Best-effort — a failure here does not undo "live", since
+        // the site genuinely is live; it just means the footprint fix didn't land
+        // and can be retried by hand.
+        $fresh = infra_golive_freshen_domain($dom);
+        $note = 'HTTP ' . $chk['code'] . ' · ' . $chk['ms'] . 'ms';
+        if (!$fresh['skipped']) $note .= ' · freshen: ' . $fresh['message'];
+        infra_pipeline_set($dom, 'live', INFRA_STEP_OK, $note);
         $n++;
     }
     return $n;

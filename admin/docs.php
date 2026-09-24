@@ -363,6 +363,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#console-autorenew">&nbsp;&nbsp;&#8627; Auto-renew per registrar</a>
         <a href="#console-deploy">Deploy bridge</a>
         <a href="#console-golive">Go-Live &amp; cron</a>
+        <a href="#console-golivefreshen">&nbsp;&nbsp;&#8627; File-date + cache freshen</a>
         <a href="#console-manage">Edit / remove</a>
         <a href="#console-research">City Research (methodology)</a>
         <a href="#console-state">State, cache &amp; pagination</a>
@@ -3773,6 +3774,20 @@ covers everything it did and more.</p>
 <pre><code>0 9 * * *  www-data  php /var/www/homepage-builder-new/admin/infra/cron/golive_tick.php 20 &gt;&gt; /var/log/infra-golive.log 2&gt;&amp;1</code></pre>
 <p>The arg (<code>20</code>) is the per-run cap. Each tick refreshes live status, releases up to the cap of due domains, and refreshes again.</p>
 <a class="back-top" href="#console-golive">&uarr; top</a>
+</section>
+
+<section id="console-golivefreshen">
+<h2>File-date + cache freshen (standalone module)</h2>
+<p><strong>The problem:</strong> a batch of N domains is built and uploaded together, then released on N different staggered dates. Every file on every domain still carries its ORIGINAL build/upload mtime — so a static site served directly shows a <code>Last-Modified</code> header (and matching <code>ETag</code>) from the day the whole batch was built, not the day that specific domain actually went live. Confirmed real 2026-09-24: a live domain's file mtime does not update on its own, and Cloudflare keeps serving the stale cached header even after the origin file changes, until purged.</p>
+<p><strong>The fix</strong> — <code>admin/infra/lib/golive_freshen.php</code>, a standalone module (not part of <code>includes/multisite/deploy.php</code>: that module's job is getting new content onto the server, this one's job is making what's already there look freshly deployed):</p>
+<ol>
+    <li>Reads the domain's existing deploy manifest (<code>sites/{master}/multisite/manifests/{domain-slug}.json</code>, written once at build time) — the exact file list already deployed, nothing to regenerate.</li>
+    <li>For every file: FTP-download it, then FTP-upload the identical bytes right back. A plain <code>STOR</code> always resets a file's mtime to write-time on every FTP server — ordinary filesystem behavior, not a protocol extension like <code>MFMT</code>, so it needs nothing box-specific to work. Verified with a real byte-for-byte content check (download again after the re-upload, compare hashes) before trusting each file.</li>
+    <li>Purges the domain's Cloudflare cache (<code>cf_purge_cache()</code>, full-zone) — required, not optional: the origin file's mtime updates immediately, but Cloudflare keeps serving the OLD header from cache until purged.</li>
+</ol>
+<p><strong>Why plain FTP, not SFTP:</strong> confirmed fleet-wide, every domain's credentials are provisioned as plain FTP (<code>admin/infra/lib/pipeline.php</code> hardcodes <code>ftp_protocol =&gt; 'ftp'</code>). SFTP was ruled out as a fleet-wide mechanism: Hestia's per-domain FTP accounts (<code>v-add-web-domain-ftp</code>) are virtual FTP-only logins with no shell access, and no SSH credential is stored for any box in this app (only Hestia's own panel-API auth). Download-then-reupload over the exact same plain-FTP path every domain already uses needs nothing new provisioned anywhere.</p>
+<p><strong>When it runs:</strong> automatically, from <code>infra_golive_refresh_live()</code>, the moment a domain is CONFIRMED live (HTTP up + valid cert) — deliberately not at release time, since nameserver propagation means "released" and "actually resolving" can be hours apart. Best-effort: a failure here does not undo the domain's live status (the site genuinely is live either way) — it's logged in the Upload/live pipeline cell's note (<code>"freshen: ..."</code>) so a failure is visible and can be retried by hand.</p>
+<a class="back-top" href="#console-golivefreshen">&uarr; top</a>
 </section>
 
 <section id="console-manage">

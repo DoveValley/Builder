@@ -233,6 +233,21 @@ function cf_delete_zone(array $account, string $zoneId): array
         : ($r['json']['errors'][0]['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])))];
 }
 
+/**
+ * Purge everything cached for a zone. Full-zone rather than per-file: the
+ * files API caps at 30 URLs a request on most plans, and this is called once
+ * per domain at the moment it goes live, when there is little to lose from a
+ * brief full re-fetch — simpler than paginating file lists for no real gain.
+ * @return array{ok:bool,message:string}
+ */
+function cf_purge_cache(array $account, string $zoneId): array
+{
+    $r  = cf_api($account, 'POST', "/zones/{$zoneId}/purge_cache", [], ['purge_everything' => true]);
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? 'purged'
+        : ($r['json']['errors'][0]['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])))];
+}
+
 /** Look up a single zone by exact name. @return array|null zone object */
 function cf_get_zone(array $account, string $domain): ?array
 {
