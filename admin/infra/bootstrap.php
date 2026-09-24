@@ -165,6 +165,9 @@ function infra_header(string $active = 'dashboard'): void
         'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
         'domains'    => ['label' => 'D.Buy',       'href' => 'index.php?view=domains'],
         'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
+        // Standalone: which cities are worth building in, for any niche.
+        // Doesn't read or write city_niche/Batch — own state, own tool.
+        'research'   => ['label' => 'City Research','href' => 'index.php?view=research'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
         'servers'    => ['label' => 'Servers',     'href' => 'index.php?view=servers'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],

@@ -364,6 +364,7 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#console-deploy">Deploy bridge</a>
         <a href="#console-golive">Go-Live &amp; cron</a>
         <a href="#console-manage">Edit / remove</a>
+        <a href="#console-research">City Research (methodology)</a>
         <a href="#console-state">State, cache &amp; pagination</a>
         <a href="#console-security">Security model</a>
         <a href="#console-architecture">Architecture &amp; files</a>
@@ -3785,6 +3786,21 @@ covers everything it did and more.</p>
     <tr><td>Full teardown</td><td>Deletes the CF zone + the host on the server <em>and</em> removes from fleet. Irreversible.</td></tr>
 </table>
 <a class="back-top" href="#console-manage">&uarr; top</a>
+</section>
+
+<section id="console-research">
+<h2>City Research (methodology)</h2>
+<p>A standalone tool — its own tab, its own storage — that answers one question: <strong>which cities are worth building a site in, for a given niche.</strong> It does not read or write the Cities/Niche tab's plan (<code>city_niche</code>), and it never touches Batch or a domain's <code>params.csv</code>. It only produces and stores a ranked xlsx (in <strong>Downloads</strong>, on the Test Lab page); what to build from that list is a separate, later decision.</p>
+<p>The same method every niche uses, run on demand:</p>
+<ol>
+    <li><strong>Money filter</strong> — upload an eLocal buyer-coverage export (city, state, buyer count, avg/max call price). Rows are kept only if population, buyer count and price all clear the thresholds you set (defaults: population 30k&ndash;400k, 2+ buyers, $250+ avg).</li>
+    <li><strong>Volume filter</strong> — real keyword volume (Ahrefs or DataForSEO, whichever is connected on the Cities/Niche tab — same credentials, reused here) summed across every keyword pattern you enter for the niche. Cities under the minimum monthly volume are dropped.</li>
+    <li><strong>Real competition check</strong> — one live Google SERP pull per surviving city per keyword pattern (DataForSEO, about $0.002 each). Every organic result in the top 10 is classified <strong>DIRECTORY</strong> (Yelp/Angi/HomeAdvisor/etc. &mdash; an open slot a well-built page can outrank), <strong>NATIONAL</strong> (a franchise like ServPro/PuroClean, or .gov/.edu/Wikipedia/Reddit/YouTube &mdash; can't be displaced, not held against the city), or <strong>LOCAL</strong> (a real independent competitor &mdash; the actual competition).</li>
+    <li><strong>Score &amp; diversify</strong> &mdash; <code>SCORE = 0.45&times;COMPETITION + 0.35&times;DEMAND + 0.20&times;MONEY</code>, each z-scored across the run's own candidate pool (competition weighted highest on purpose: rank with less volume beats volume you can't rank for). Graded A&ndash;F by percentile within the run. The ranked list is then walked top to bottom, skipping any city within the chosen mile-separation of an already-picked city and capping each state at the chosen percentage &mdash; no fixed target count, it keeps whatever clears the bar.</li>
+</ol>
+<p><strong>Runs are resumable</strong> &mdash; each Continue click works for a time budget, then stops and says what's left; safe to leave and come back, nothing already fetched is re-billed. State lives in <code>admin/infra/state/research/*.json</code>, one file per run, independent of <code>fleet.db</code>.</p>
+<p><strong>What it deliberately skips</strong>: a &ldquo;population within 30 miles&rdquo; term in the score itself (tonight's hand-built list had one; it needs a precomputed isolation metric this tool doesn't have). The mile-separation step already prevents picking two cities in the same metro, which covers the same failure mode.</p>
+<a class="back-top" href="#console-research">&uarr; top</a>
 </section>
 
 <section id="console-state">
