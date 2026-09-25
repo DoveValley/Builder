@@ -184,6 +184,62 @@ if ($n === 0) {
     exit(0);
 }
 
+// Write the run status file (state = running | done | failed), and an initial
+// 'running' marker, RIGHT NOW rather than after research/snapshot below — those
+// steps can take a long time on a large batch, and ms_launch_campaign() has
+// already handed this run_id to the browser and started polling for it before
+// this process even started. Without an early marker, every poll got
+// {none:true} for the whole research phase and the admin panel looked exactly
+// like the click had done nothing (the same class of bug already fixed above
+// for the zero-rows case, just not for this path).
+$runsDir = $batchDir . '/runs';
+if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
+$statusFile  = $runsDir . '/' . $runId . '.json';
+$startedAt   = gmdate('c');
+$paramsVersion = ms_current_params_version($batchDir);   // which params table this run used
+
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt, $liveSkipped) {
+    // $results here can carry in-flight rows too (status='running') so the UI has
+    // something to show mid-build — those must not count toward done/ok/failed.
+    $ok   = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
+    $done = count(array_filter($results, fn($r) => $r['status'] !== 'running'));
+    $payload = [
+        'run_id'      => $runId,
+        // master_id is recorded per run on purpose: a batch can be re-pointed at a
+        // different master later, and past runs must stay truthful about what built them.
+        'master_id'   => $masterId,
+        'batch_id'    => $batchId,
+        'params_version' => $paramsVersion,
+        'state'       => $state,
+        'pid'         => getmypid(),
+        // Lets ms_pid_alive() tell "still this process" from "the OS recycled this
+        // pid for something else" once this process has exited — a plain
+        // exists-check alone can't.
+        'pid_started' => ms_pid_start_time(getmypid()),
+        'started_at'  => $startedAt,
+        'finished_at' => $state === 'running' ? null : gmdate('c'),
+        'options'     => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
+        'total'       => $n,
+        'live_skipped' => $liveSkipped,
+        'done'        => $done,
+        'ok'          => $ok,
+        'failed'      => $done - $ok,
+        'totals'      => [
+            'files_uploaded' => array_sum(array_map(fn($r) => (int)($r['uploaded'] ?? 0), $results)),
+            'tokens_in'      => array_sum(array_column($results, 'tokens_in')),
+            'tokens_out'     => array_sum(array_column($results, 'tokens_out')),
+            'cost_usd'       => round(array_sum(array_column($results, 'cost')), 4),
+        ],
+        'results'     => $results,
+    ];
+    $tmp = $statusFile . '.tmp.' . getmypid();
+    if (file_put_contents($tmp, json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
+        rename($tmp, $statusFile);   // atomic — pollers never see a half-written file
+    }
+};
+
+$writeStatus('running', []);   // initial marker so the UI sees the run immediately — now written before research/snapshot, not after
+
 // ── FTP pre-flight (§5 R0) ────────────────────────────────────────────────────
 if (!$noPre) {
     echo "Pre-flight FTP check…\n";
@@ -377,56 +433,6 @@ foreach ($rows as $r) {
          . ($noDeploy ? ' --no-deploy --out-dir=' . escapeshellarg(ms_batch_output_dir($masterId, $batchId, $domain)) : '');
     $jobList[] = ['domain' => $domain, 'cmd' => $cmd, 'attempts' => 0];
 }
-
-$runsDir = $batchDir . '/runs';
-if (!is_dir($runsDir)) mkdir($runsDir, 0775, true);
-$statusFile  = $runsDir . '/' . $runId . '.json';
-$startedAt   = gmdate('c');
-$paramsVersion = ms_current_params_version($batchDir);   // which params table this run used
-
-// Write the run status file (state = running | done | failed). Written incrementally
-// so the admin UI can poll it while a detached run is in progress.
-$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt, $liveSkipped) {
-    // $results here can carry in-flight rows too (status='running') so the UI has
-    // something to show mid-build — those must not count toward done/ok/failed.
-    $ok   = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
-    $done = count(array_filter($results, fn($r) => $r['status'] !== 'running'));
-    $payload = [
-        'run_id'      => $runId,
-        // master_id is recorded per run on purpose: a batch can be re-pointed at a
-        // different master later, and past runs must stay truthful about what built them.
-        'master_id'   => $masterId,
-        'batch_id'    => $batchId,
-        'params_version' => $paramsVersion,
-        'state'       => $state,
-        'pid'         => getmypid(),
-        // Lets ms_pid_alive() tell "still this process" from "the OS recycled this
-        // pid for something else" once this process has exited — a plain
-        // exists-check alone can't.
-        'pid_started' => ms_pid_start_time(getmypid()),
-        'started_at'  => $startedAt,
-        'finished_at' => $state === 'running' ? null : gmdate('c'),
-        'options'     => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
-        'total'       => $n,
-        'live_skipped' => $liveSkipped,
-        'done'        => $done,
-        'ok'          => $ok,
-        'failed'      => $done - $ok,
-        'totals'      => [
-            'files_uploaded' => array_sum(array_map(fn($r) => (int)($r['uploaded'] ?? 0), $results)),
-            'tokens_in'      => array_sum(array_column($results, 'tokens_in')),
-            'tokens_out'     => array_sum(array_column($results, 'tokens_out')),
-            'cost_usd'       => round(array_sum(array_column($results, 'cost')), 4),
-        ],
-        'results'     => $results,
-    ];
-    $tmp = $statusFile . '.tmp.' . getmypid();
-    if (file_put_contents($tmp, json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) !== false) {
-        rename($tmp, $statusFile);   // atomic — pollers never see a half-written file
-    }
-};
-
-$writeStatus('running', []);   // initial marker so the UI sees the run immediately
 
 echo ($jobs > 1 ? "Running {$jobs} at a time…\n" : "Running sequentially…\n");
 $results = ms_run_pool($jobList, $jobs, $retries, $verbose, function ($partial, $total, $inFlight = []) use ($writeStatus) {
