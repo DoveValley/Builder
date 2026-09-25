@@ -50,6 +50,14 @@
         is why it asks you to confirm, and why a domain fleet.db already confirms is
         <strong>LIVE</strong> is skipped even with Force checked, unless you name it in Only above.
     </p>
+    <p class="hint" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;">
+        <strong>Most common use:</strong> leave Only and Force alone and press
+        <strong>Create host areas</strong>. It works through your domains in their own list order
+        &mdash; the first 20 each land on a different one of the 20 boxes, in a random order, then
+        the next 20 domains get a fresh random pass through all 20 boxes again, and so on. It never
+        puts a domain on a box and then puts the very next domain on that same box &mdash; that
+        holds everywhere in the sequence, even across separate runs done in stages.
+    </p>
 
     <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
         <button type="button" class="btn btn-primary" id="ms-hosts-btn" onclick="msCreateHosts()">Create host areas</button>

@@ -226,7 +226,9 @@ echo str_repeat('-', 52) . "\n";
 
 /* Create. restart=false throughout; each touched box is restarted once at the end. */
 $touched = []; $ok = 0; $fail = 0;
+$total = count($assignment); $n = 0;
 foreach ($assignment as $i => $srv) {
+    $n++;
     $domain = $todo[$i];
     // Locked against the infra console's own Host column button — this batch job
     // and that button both provision the same domain the same way, and used to be
@@ -246,12 +248,12 @@ foreach ($assignment as $i => $srv) {
         $rows[$i]['ftp_path'] = '/home/' . $user;
         $touched[$srv['id'] ?? ''] = $srv;
         $ok++;
-        printf("  ✓ %-34s %-8s ftp %s\n", $domain, $srv['label'] ?? '', $user);
+        printf("  [%d/%d] ✓ %-34s %-8s ftp %s\n", $n, $total, $domain, $srv['label'] ?? '', $user);
     } else {
         $fail++;
         $why = '';
         foreach ($res['lines'] as $l) if (str_contains($l, '✗')) $why = trim(str_replace('Host: ✗', '', $l));
-        printf("  ✗ %-34s %-8s %s\n", $domain, $srv['label'] ?? '', $why ?: 'failed');
+        printf("  [%d/%d] ✗ %-34s %-8s %s\n", $n, $total, $domain, $srv['label'] ?? '', $why ?: 'failed');
     }
 }
 
