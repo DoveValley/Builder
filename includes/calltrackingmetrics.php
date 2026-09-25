@@ -96,6 +96,48 @@ function ctm_search_numbers(string $accountId, string $areaCode): array
 }
 
 /**
+ * Repeatedly search one area code, pooling every unique number CTM offers
+ * across calls, until CTM_POOL_DRY_STREAK consecutive calls add nothing new
+ * to the pool -- confirmed by real testing (ctm_dry_run.php) that CTM's
+ * search endpoint is NOT reliably deterministic call to call: one area code
+ * returned the same 20 numbers twice in a row on one run, then an almost
+ * entirely different batch on the very next run minutes later. A single
+ * search can't be trusted to show everything on offer. Hard-capped at
+ * CTM_POOL_MAX_ATTEMPTS total calls regardless of streak, so one area code
+ * can never stall a batch run (or run up the call count) indefinitely.
+ */
+function ctm_pool_numbers(string $accountId, string $areaCode): array
+{
+    $maxAttempts = 8;
+    $dryStreak   = 3;
+    $delaySeconds = 1;
+
+    $pool = [];
+    $dry = 0;
+    $attempts = 0;
+
+    while ($attempts < $maxAttempts && $dry < $dryStreak) {
+        $attempts++;
+        $search = ctm_search_numbers($accountId, $areaCode);
+        if (!$search['ok']) {
+            if (empty($pool)) return ['ok' => false, 'error' => $search['error'], 'attempts' => $attempts];
+            break; // keep whatever was already pooled if a later call fails
+        }
+
+        $before = count($pool);
+        foreach ($search['numbers'] as $n) {
+            $phone = $n['phone_number'] ?? $n['number'] ?? null;
+            if ($phone && !isset($pool[$phone])) $pool[$phone] = $n;
+        }
+        $dry = (count($pool) > $before) ? 0 : $dry + 1;
+
+        if ($attempts < $maxAttempts && $dry < $dryStreak) sleep($delaySeconds);
+    }
+
+    return ['ok' => true, 'numbers' => array_values($pool), 'attempts' => $attempts];
+}
+
+/**
  * Score how "nice" a number is, using only the exchange (NXX, digits 4-6)
  * and subscriber line (XXXX, digits 7-10) -- the area code is fixed per
  * search so it's excluded. An adjacent pair is "aa"/"bb"/... within ONE of
@@ -247,9 +289,12 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
 }
 
 /**
- * The whole flow for one domain: area code -> search -> buy -> label -> verify
+ * The whole flow for one domain: area code -> pool -> buy -> label -> verify
  * the label stuck. Never guesses a wrong-region number — a zero-inventory area
- * code fails loudly instead of silently substituting a nearby one.
+ * code fails loudly instead of silently substituting a nearby one. "Pool"
+ * (ctm_pool_numbers()) means this doesn't settle for one search's results —
+ * it keeps searching the same area code until inventory stops turning up
+ * anything new, then picks the best-scoring number out of everything seen.
  */
 function ctm_get_number_for_domain(string $accountId, string $domain, string $city, string $ss): array
 {
@@ -258,17 +303,18 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
         return ['ok' => false, 'error' => "No known area code for {$city}, {$ss} — not attempted."];
     }
 
-    $search = ctm_search_numbers($accountId, $areaCode);
-    if (!$search['ok']) return ['ok' => false, 'error' => "Search failed: {$search['error']}"];
-    if (empty($search['numbers'])) {
-        return ['ok' => false, 'error' => "No numbers available in area code {$areaCode} ({$city}, {$ss})."];
+    $pooled = ctm_pool_numbers($accountId, $areaCode);
+    if (!$pooled['ok']) return ['ok' => false, 'error' => "Search failed: {$pooled['error']}"];
+    if (empty($pooled['numbers'])) {
+        return ['ok' => false, 'error' => "No numbers available in area code {$areaCode} ({$city}, {$ss}) after {$pooled['attempts']} searches."];
     }
 
-    $numbers = $search['numbers'];
+    $numbers = $pooled['numbers'];
     usort($numbers, fn($a, $b) => ctm_number_pattern_score($b['phone_number'] ?? $b['number'] ?? '')
         <=> ctm_number_pattern_score($a['phone_number'] ?? $a['number'] ?? ''));
 
     $candidate = $numbers[0];
+    $bestScore = ctm_number_pattern_score($candidate['phone_number'] ?? $candidate['number'] ?? '');
     $phoneE164 = $candidate['phone_number'] ?? $candidate['number'] ?? null;
     if (!$phoneE164) return ['ok' => false, 'error' => 'Search result had no usable phone number field.'];
 
@@ -296,11 +342,14 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
     }
 
     return [
-        'ok'            => true,
-        'phone'         => $formatted,
-        'phone_e164'    => $phoneE164,
-        'ctm_number_id' => $numberId,
-        'area_code'     => $areaCode,
-        'warning'       => $warning,
+        'ok'             => true,
+        'phone'          => $formatted,
+        'phone_e164'     => $phoneE164,
+        'ctm_number_id'  => $numberId,
+        'area_code'      => $areaCode,
+        'warning'        => $warning,
+        'pool_attempts'  => $pooled['attempts'],
+        'pool_size'      => count($numbers),
+        'pattern_score'  => $bestScore,
     ];
 }
