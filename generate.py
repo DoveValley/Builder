@@ -2311,6 +2311,7 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
             })
 
         days_ago = _blog_post_backdate_days(domain_seed, topic.get('slug', ''))
+        today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
         post_date = (datetime.now(timezone.utc) - timedelta(days=days_ago)).strftime('%Y-%m-%d')
         title = ai.get('title') or topic.get('title', '')
         post = {
