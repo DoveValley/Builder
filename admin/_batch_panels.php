@@ -1460,8 +1460,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         'structure.landing'    => 'Section order — Landing pages',
         'structure.classvocab' => 'Class vocabulary',
         'structure.schemashape'=> 'Schema shape',
-        'images.stamp_home'    => 'Photo differentiation — Home',
-        'images.stamp_landing' => 'Photo differentiation — Landing pages',
+        'images.stamp_home'    => 'Photo differentiation stamp — Home',
+        'images.stamp_landing' => 'Photo differentiation stamp — Landing pages',
         'images.metadata'      => 'Image metadata stripping',
         'images.ai_photos_hero_home'     => 'AI-generated photos — hero (home)',
         'images.ai_photos_hero_landing'  => 'AI-generated photos — hero (service pages)',
@@ -1553,6 +1553,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         }
 
         msConfirmGroups.forEach(g => {
+            // A group with no sub-items (tags, landing, pagepool) has nothing to filter —
+            // its own on/off state IS the whole answer, checked directly rather than via
+            // an always-empty onSubs list (which used to read as permanently "off").
+            if (g.subs.length === 0) {
+                if (skip.includes(g.key)) {
+                    willNot.push(g.label + ' — off');
+                } else {
+                    willHappen.push(g.label);
+                }
+                return;
+            }
             const offSubs = g.subs.filter(s => skip.includes(s));
             const onSubs  = g.subs.filter(s => !skip.includes(s));
             if (skip.includes(g.key) || onSubs.length === 0) {
