@@ -126,9 +126,9 @@ if (!$todo) {
  * in-memory counter — so it's correct no matter how many times, or in what order,
  * this script has been run before.
  *
- * WITHIN a box's remaining need, today's queue rows are picked RANDOMLY, not the
- * next N in list order — otherwise a box's sites are always "whichever happened to
- * be first/last in the CSV" instead of a genuine scatter across the batch. */
+ * WHICH BOX each row gets is randomized, not tied to its position in the CSV — see
+ * the round-by-round assignment below, which also guarantees no box repeats twice
+ * in a row across the batch's own list order. */
 $totalTargets = count($rows);
 $haveByServerId = [];   // server_id => how many of ALL this batch's rows already point there
 foreach ($rows as $r) {
@@ -157,15 +157,59 @@ foreach ($zeroBoxIds as $k => $sid) $quota[$sid] = $zeroBase + ($k < $zeroExtra 
 // This run's real need per box = quota minus what it already has. Never negative —
 // a box that's already over its quota (plan shrunk, or it was hand-assigned extra
 // rows) just gets no more, it is never "owed" a correction.
-$slots = [];   // flat list of server arrays, one entry per still-needed placement
+//
+// The SEQUENCE this need is turned into matters as much as the final split: a single
+// shuffle of "box A x5, box B x5, ..." guarantees an even total but not an even
+// SPREAD — box A could easily land twice in a row, or take all of the first ten
+// slots before box B gets its first. Built round by round instead: each round is a
+// fresh random ordering of every box that still needs more, so no box can repeat
+// until every other box-with-remaining-need has had a turn. One seam to guard: two
+// independent rounds back to back could still coincidentally start/end on the same
+// box, so a round's first pick is swapped with another of its own picks whenever it
+// would repeat the previous round's last one.
+$need = [];   // server_id => how many more THIS run still owes that box
 foreach ($quota as $sid => $q) {
-    $need = max(0, $q - ($haveByServerId[$sid] ?? 0));
-    for ($k = 0; $k < $need; $k++) $slots[] = $fleet[$sid];
+    $owed = max(0, $q - ($haveByServerId[$sid] ?? 0));
+    if ($owed > 0) $need[$sid] = $owed;
 }
-shuffle($slots);
 
+// Seed the "previous pick" from the REAL row immediately before this run's first
+// target, in list order — not null — so a staged run (test 2 domains, then the rest
+// later, in a separate invocation with no memory of the first) still can't hand the
+// row right after that boundary the same box as the row right before it.
 $queue = array_keys($todo);
-shuffle($queue);
+$last  = null;
+if ($queue) {
+    $firstIdx = $queue[0];
+    if ($firstIdx > 0) {
+        $prevHost = trim((string) ($rows[$firstIdx - 1]['ftp_host'] ?? ''));
+        if ($prevHost !== '') {
+            foreach ($fleet as $sid => $srv) {
+                if (($srv['host'] ?? '') === $prevHost) { $last = $sid; break; }
+            }
+        }
+    }
+}
+
+$slots = [];   // ordered sequence of server arrays — position IS the order rows are handed out
+while ($need) {
+    $round = array_keys($need);
+    shuffle($round);
+    if ($last !== null && count($round) > 1 && $round[0] === $last) {
+        $j = random_int(1, count($round) - 1);
+        [$round[0], $round[$j]] = [$round[$j], $round[0]];
+    }
+    foreach ($round as $sid) {
+        $slots[] = $fleet[$sid];
+        $last = $sid;
+        if (--$need[$sid] <= 0) unset($need[$sid]);
+    }
+}
+
+// Rows are handed the sequence in THEIR OWN order (not shuffled) — this batch's row
+// order is the intended go-live sequence (see the target-list editor), so the "no
+// box repeats until every box has had a turn" guarantee above applies directly to
+// the order sites will actually go live in, not to some other order nobody sees.
 $assignment = [];   // row index => server
 $n = min(count($slots), count($queue));
 for ($i = 0; $i < $n; $i++) $assignment[$queue[$i]] = $slots[$i];

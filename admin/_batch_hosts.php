@@ -19,10 +19,36 @@
         Builds the home for each site on the servers picked above: the vhost, its folder, and an
         FTP login that can write to that folder and nothing else. The credentials come back and are
         stored on each row, so the run has what it needs to deploy.
-        <br><br>
+    </p>
+    <p class="hint">
+        <strong>This is the step that actually decides which domain goes on which box</strong> —
+        the plan above only sets each box's target count (its quota); nothing is tied to a specific
+        domain until you press the button below. It's picked round by round: one pass hands every
+        box that still needs more exactly one domain, in a fresh random order, before any box can
+        be picked a second time &mdash; so a handful of boxes can never fill up while others sit
+        empty, and no box can ever land two domains in a row. This applies in your domains'
+        <strong>own list order</strong> (the order they'll actually go live in), not some hidden
+        order you never see. It also holds up across separate runs &mdash; test a couple of
+        domains now, run a few more later, then the rest whenever &mdash; each run picks up
+        exactly where the real, current state left off, so the even, non-repeating spread survives
+        being done in stages.
+    </p>
+    <p class="hint">
         Safe to press twice &mdash; rows that already have credentials are skipped. The web server
         is restarted <strong>once per box at the end</strong>: until it restarts it serves Hestia's
         own default page with a <code>200</code>, which looks like nothing is wrong.
+    </p>
+    <p class="hint">
+        <strong>Create host areas</strong> runs everything above for real, for every row that
+        doesn't already have a host &mdash; blank <strong>Only these domains</strong> means
+        &ldquo;everything.&rdquo; This is what a staged rollout actually uses: type a couple of
+        domains into <strong>Only these domains</strong> to test just those, then come back and
+        run it again with the field left blank to pick up everything that's left.
+        <strong>Force</strong> re-creates the host/FTP account
+        for rows that already have one, instead of leaving them alone &mdash; a real, disruptive
+        action (a fresh account can interrupt an in-flight deploy still using the old one), which
+        is why it asks you to confirm, and why a domain fleet.db already confirms is
+        <strong>LIVE</strong> is skipped even with Force checked, unless you name it in Only above.
     </p>
 
     <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
@@ -31,7 +57,6 @@
         <label class="hint">Only these domains <input type="text" id="ms-hosts-only" placeholder="comma-separated, optional" style="width:220px;"></label>
         <span id="ms-hosts-msg" class="hint"></span>
     </div>
-    <p class="hint" style="margin-top:8px;">A domain fleet.db already confirms is <strong>LIVE</strong> is skipped automatically &mdash; even with Force checked &mdash; unless you name it above.</p>
 
     <pre id="ms-hosts-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
 </div>

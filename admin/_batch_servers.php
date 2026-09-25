@@ -19,10 +19,35 @@
 <div class="card" id="ms-servers-card">
     <h3 style="margin-top:0;">2. Pick deployment servers</h3>
     <p class="hint">
-        Which boxes this batch goes to and how many sites each takes.
-        <strong>On it now</strong> is read from the server; <strong>take</strong> is this batch's
-        plan. Leave <em>take</em> at 0 to mean &ldquo;whatever is left&rdquo;. Spreading across
-        boxes is the point of having several &mdash; stacking one concentrates the blast radius.
+        Which boxes this batch goes to and how many sites each takes. The checkbox in the
+        header selects or clears every usable box at once; the checkbox on each row includes
+        or excludes that one box &mdash; a box left unchecked gets nothing at all, no matter
+        what its numbers say.
+    </p>
+    <p class="hint">
+        <strong>On it now</strong> is that box's real, global site count, read live from the
+        server &mdash; nothing to do with this batch. <strong>This batch</strong> is how many of
+        <em>this batch's own rows</em> currently point at that box, read live from the target
+        list &mdash; the actual, current result of Create Host, even mid-way through a staged run.
+        <strong>Take</strong> is this batch's plan: how many targets you want that box to get.
+        Leave <em>Take</em> at 0 to mean &ldquo;include this box, give it a fair share of
+        whatever's left over.&rdquo; A plan is not a receipt &mdash; the moment worth noticing is
+        when Take and This batch disagree.
+    </p>
+    <p class="hint">
+        <strong>Save plan</strong> persists the checkboxes and numbers on screen.
+        <strong>Distribute round-robin</strong> fills every checked box's Take with an even
+        split of this batch's targets &mdash; it only edits the numbers on screen, so Save plan
+        still has to follow it. <strong>Re-read fleet</strong> refreshes On it now from the
+        live servers. Spreading across boxes is the point of having several &mdash; stacking
+        one concentrates the blast radius.
+    </p>
+    <p class="hint" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;">
+        <strong>Most common use:</strong> check the header box to select every box, then press
+        <strong>Distribute round-robin</strong> and <strong>Save plan</strong>. That randomly
+        spreads this batch's domains across all 20 boxes, then randomly again across all 20,
+        and so on, until every domain has a box &mdash; an even split, but never the same
+        predictable order twice.
     </p>
 
     <div id="ms-srv-body"><p class="hint">Reading the fleet&hellip;</p></div>
@@ -66,7 +91,7 @@
         }
         let h = '<table style="width:100%;font-size:.88rem;border-collapse:collapse;">'
               + '<thead><tr>'
-              + '<th style="width:42px;"></th><th style="text-align:left;">Server</th>'
+              + '<th style="width:42px;"><input type="checkbox" id="ms-srv-select-all" onclick="msSrvToggleAll(this)"></th><th style="text-align:left;">Server</th>'
               + '<th style="text-align:right;">On it now</th>'
               + '<th style="text-align:right;">This batch</th>'
               + '<th style="text-align:right;">Take</th>'
@@ -120,6 +145,13 @@
     // Says what the plan adds up to against the target list, because "20 + 20" against
     // 45 rows is the mistake this panel exists to make visible before a run, not after.
     function tally() {
+        // Keep the header checkbox honest — checked only when every usable box is
+        // checked, not just whichever state it was last clicked into.
+        const selectAll = document.getElementById('ms-srv-select-all');
+        if (selectAll) {
+            const usable = Array.from(document.querySelectorAll('.ms-srv-use:not(:disabled)'));
+            selectAll.checked = usable.length > 0 && usable.every(cb => cb.checked);
+        }
         const rows = collect();
         const known = new Set(msFleet.map(f => f.server_id));
         const orphanCount = msPlan.filter(p => !known.has(p.server_id)).length;
@@ -154,6 +186,14 @@
         });
         return out;
     }
+
+    // Header checkbox — ticks/unticks every usable box at once instead of clicking
+    // each one by hand. Skips disabled rows (down/not-set-up boxes) same as
+    // msDistributeRoundRobin already only considers checked, usable boxes.
+    window.msSrvToggleAll = function (cb) {
+        document.querySelectorAll('.ms-srv-use:not(:disabled)').forEach(el => { el.checked = cb.checked; });
+        tally();
+    };
 
     // One click instead of hand-typing counts: spread the batch's targets one at a time
     // across every CHECKED server in the order they appear on screen, then wrap back to
