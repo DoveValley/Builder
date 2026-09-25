@@ -95,6 +95,52 @@ function ctm_search_numbers(string $accountId, string $areaCode): array
     return ['ok' => true, 'numbers' => $r['data']['numbers'] ?? []];
 }
 
+/**
+ * Score how "nice" a number is, using only the exchange (NXX, digits 4-6)
+ * and subscriber line (XXXX, digits 7-10) -- the area code is fixed per
+ * search so it's excluded. An adjacent pair is "aa"/"bb"/... within ONE of
+ * those two segments; a pair straddling the exchange/subscriber boundary
+ * (e.g. exchange ...5, subscriber 5...) does not count, and two pairs both
+ * crammed into the 3-digit exchange isn't geometrically possible anyway.
+ *   2 = the requested pattern: two adjacent pairs of DIFFERENT digits,
+ *       positioned either both within the subscriber (e.g. NXX-5588) or one
+ *       in the exchange and one in the subscriber (e.g. exchange 5-5-4 with
+ *       pair "55", subscriber 9-9-2-2 with pair "99" or "22").
+ *   1 = only one such pair found (in either segment alone).
+ *   0 = no adjacent pair in either segment.
+ * Used to prefer memorable numbers among CTM's search results before
+ * purchase; a plain number scores 0 and sorts no worse than CTM's own
+ * original order.
+ */
+function ctm_number_pattern_score(string $phoneE164): int
+{
+    $digits = preg_replace('/\D/', '', $phoneE164);
+    if (strlen($digits) === 11 && $digits[0] === '1') {
+        $digits = substr($digits, 1);
+    }
+    if (strlen($digits) !== 10) return 0;
+
+    $exchange   = substr($digits, 3, 3);
+    $subscriber = substr($digits, 6, 4);
+
+    $pairDigits = function (string $seg): array {
+        preg_match_all('/(\d)\1/', $seg, $m);
+        return array_unique($m[1]);
+    };
+
+    $exPairs  = $pairDigits($exchange);
+    $subPairs = $pairDigits($subscriber);
+
+    if (count($subPairs) >= 2) return 2;
+    foreach ($exPairs as $e) {
+        foreach ($subPairs as $s) {
+            if ($e !== $s) return 2;
+        }
+    }
+
+    return ($exPairs || $subPairs) ? 1 : 0;
+}
+
 /** Buy one specific number (E.164) under a sub-account. */
 function ctm_buy_number(string $accountId, string $phoneNumberE164): array
 {
@@ -218,7 +264,11 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
         return ['ok' => false, 'error' => "No numbers available in area code {$areaCode} ({$city}, {$ss})."];
     }
 
-    $candidate = $search['numbers'][0];
+    $numbers = $search['numbers'];
+    usort($numbers, fn($a, $b) => ctm_number_pattern_score($b['phone_number'] ?? $b['number'] ?? '')
+        <=> ctm_number_pattern_score($a['phone_number'] ?? $a['number'] ?? ''));
+
+    $candidate = $numbers[0];
     $phoneE164 = $candidate['phone_number'] ?? $candidate['number'] ?? null;
     if (!$phoneE164) return ['ok' => false, 'error' => 'Search result had no usable phone number field.'];
 
