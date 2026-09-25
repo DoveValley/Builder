@@ -5,9 +5,12 @@
  * No ordering control: the sequence boxes are filled in is decided elsewhere, so a
  * number here would be a second answer to a question this panel does not own.
  *
- * Two columns that look similar and must not be confused: ON IT NOW is read from the
- * box, TAKE is what this batch intends to put there. A plan is not a receipt, and the
- * interesting moment is when the two disagree.
+ * Three columns that look similar and must not be confused: ON IT NOW is the box's
+ * real global site count (any batch, read from the box itself). THIS BATCH is how
+ * many of THIS batch's own rows currently point at that box (read from params.csv —
+ * the actual, current result of Create Host, including a staged run still in
+ * progress). TAKE is what the plan intends to put there. A plan is not a receipt,
+ * and the interesting moment is when TAKE and THIS BATCH disagree.
  *
  * Expects: $csrfToken.
  */
@@ -65,6 +68,7 @@
               + '<thead><tr>'
               + '<th style="width:42px;"></th><th style="text-align:left;">Server</th>'
               + '<th style="text-align:right;">On it now</th>'
+              + '<th style="text-align:right;">This batch</th>'
               + '<th style="text-align:right;">Take</th>'
               + '</tr></thead><tbody>';
 
@@ -84,6 +88,7 @@
               +  '<td style="padding:9px 6px;"><strong>' + esc(s.label) + '</strong> &nbsp;<code style="font-size:.78rem;">' + esc(s.host) + '</code>'
               +      '<div class="hint" style="margin-top:2px;">' + state + (s.error ? ' &mdash; ' + esc(s.error) : '') + '</div></td>'
               +  '<td style="padding:9px 6px;text-align:right;font-weight:700;">' + (s.sites | 0) + '</td>'
+              +  '<td style="padding:9px 6px;text-align:right;color:#0f172a;" title="Rows in THIS batch\'s target list currently pointed at this box">' + (s.batch_sites | 0) + '</td>'
               +  '<td style="padding:9px 6px;text-align:right;"><input type="number" min="0" class="ms-srv-count" data-id="' + esc(s.server_id) + '"'
               +      ' value="' + (p ? (p.count | 0) : 0) + '" style="width:80px;text-align:right;"' + (usable ? '' : ' disabled') + '></td>'
               +  '</tr>';
@@ -101,6 +106,7 @@
               +      ' <code style="font-size:.78rem;">' + esc(p.host || '') + '</code>'
               +      '<div class="hint" style="color:#b91c1c;margin-top:2px;">planned, but no longer in the console'
               +      ' &mdash; <a href="#" onclick="msDropServer(\'' + esc(p.server_id) + '\');return false;">remove from plan</a></div></td>'
+              +  '<td style="padding:9px 6px;text-align:right;color:#94a3b8;">&mdash;</td>'
               +  '<td style="padding:9px 6px;text-align:right;color:#94a3b8;">&mdash;</td>'
               +  '<td style="padding:9px 6px;text-align:right;color:#b91c1c;">' + (p.count | 0) + '</td>'
               +  '</tr>';

@@ -125,3 +125,49 @@ function infra_unclaim_from_batch(string $domain): array
     infra_state_upsert_domain(['domain' => $domain, 'batch' => '']);
     return ['ok' => true, 'reason' => "removed from {$target}'s target list"];
 }
+
+/**
+ * Clear one domain's FTP/host fields in its batch's params.csv row, WITHOUT
+ * removing the row — the params.csv-side mirror of what delete_site already does
+ * to fleet.db (clears ftp_user/ftp_pass/server_id there). Without this, a deleted
+ * host kept showing as "hosted" everywhere that reads the target list instead of
+ * fleet.db — the box-assignment panel's counts, and create_hosts.php's own "does
+ * this row already have a host" check — long after the real host was gone.
+ *
+ * Row stays in the target list on purpose (same as fleet.db keeps the batch tag) —
+ * delete_site means "the host is gone," not "forget this domain."
+ *
+ * @return array{ok:bool,reason:string}
+ */
+function infra_clear_host_in_batch(string $domain): array
+{
+    $domain = strtolower(trim($domain));
+    $rec    = infra_state_get_domain($domain);
+    $target = trim((string) ($rec['batch'] ?? ''));
+    if ($target === '') return ['ok' => true, 'reason' => 'not claimed by any batch — nothing to clear'];
+
+    [$masterId, $batchId] = array_pad(explode('/', $target, 2), 2, '');
+    if ($masterId === '' || $batchId === '' || !ms_batch_exists($masterId, $batchId)) {
+        return ['ok' => true, 'reason' => "batch '{$target}' no longer exists — nothing to clear"];
+    }
+
+    $csvPath = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (!is_file($csvPath)) return ['ok' => true, 'reason' => "{$target} has no target list — nothing to clear"];
+
+    $parsed = ms_parse_csv($csvPath);
+    $found  = false;
+    $rows   = array_map(function ($r) use ($domain, &$found) {
+        if (strtolower(trim((string) ($r['domain'] ?? ''))) === $domain) {
+            $found = true;
+            $r['ftp_host'] = ''; $r['ftp_user'] = ''; $r['ftp_pass'] = ''; $r['ftp_path'] = '';
+        }
+        return $r;
+    }, $parsed['rows']);
+
+    if (!$found) return ['ok' => true, 'reason' => "not in {$target}'s target list — nothing to clear"];
+
+    if (!ms_write_csv($csvPath, $parsed['header'] ?: MS_KNOWN_COLS, $rows)) {
+        return ['ok' => false, 'reason' => 'could not write params.csv'];
+    }
+    return ['ok' => true, 'reason' => "cleared host fields in {$target}'s target list"];
+}

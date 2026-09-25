@@ -107,7 +107,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             <thead><tr>
                 <th style="width:44px;">#</th><th style="width:70px;">Status</th>
                 <th>Domain</th><th>Business</th><th>City</th>
-                <th style="width:52px;">FTP</th><th>Issues</th>
+                <th style="width:72px;">Box</th><th>Issues</th>
             </tr></thead>
             <tbody></tbody>
         </table>
@@ -1032,7 +1032,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + esc(r.domain) + '</td>' +
                 '<td>' + esc(r.business) + '</td>' +
                 '<td>' + esc(r.city) + '</td>' +
-                '<td class="ms-ftp-cell">' + (r.has_ftp ? '✓' : '—') + '</td>' +
+                '<td class="ms-ftp-cell">' + (r.box ? esc(r.box) : '—') + '</td>' +
                 '<td>' + (issues || '<span class="hint">—</span>') + '</td>' +
                 '</tr>';
         }).join('');

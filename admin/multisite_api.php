@@ -56,17 +56,36 @@ if ($active) {
 // for the same fix on the Infra console. Nothing below writes to $_SESSION.
 session_write_close();
 
+/** host IP => box label, from the static server registry — naming only, no live
+ *  network check, so this is cheap enough to call from the CSV-validation path.
+ *  Shared by ms_rows_for_ui() and the 'servers' action below. */
+function ms_host_label_map(): array {
+    require_once __DIR__ . '/infra/lib/hestia_fleet.php';
+    $map = [];
+    foreach (infra_hestia_servers() as $s) {
+        $host = trim((string) ($s['host'] ?? ''));
+        if ($host !== '') $map[$host] = (string) ($s['label'] ?? $s['id'] ?? '');
+    }
+    return $map;
+}
+
 /** Build browser-safe display rows — never sends ftp_pass to the client. */
 function ms_rows_for_ui(array $v): array {
+    $hostLabels = ms_host_label_map();
     $out = [];
     foreach ($v['rows'] as $r) {
         $d = $r['data'];
+        $host = trim((string) ($d['ftp_host'] ?? ''));
         $out[] = [
             'line'     => $r['line'],
             'domain'   => $r['domain'],
             'business' => $d['business'] ?? '',
             'city'     => trim(($d['city'] ?? '') . (($d['SS'] ?? '') !== '' ? ', ' . $d['SS'] : '')),
-            'has_ftp'  => ($d['ftp_host'] ?? '') !== '' && ($d['ftp_user'] ?? '') !== '',
+            'has_ftp'  => $host !== '' && ($d['ftp_user'] ?? '') !== '',
+            // The box this row's FTP host resolves to, if it matches a known server —
+            // falls back to the raw host for a manually-entered/non-fleet FTP target,
+            // so it's still informative rather than silently blank.
+            'box'      => $host !== '' ? ($hostLabels[$host] ?? $host) : '',
             'status'   => $r['errors'] ? 'error' : ($r['warnings'] ? 'warn' : 'ok'),
             'errors'   => $r['errors'],
             'warnings' => $r['warnings'],
@@ -314,6 +333,18 @@ switch ($action) {
         // here on every batch.php open). The explicit "Re-read fleet" button sends
         // refresh=1 to force a real look, same as the Infra console's Refresh.
         $fleetRows = !empty($_GET['refresh']) ? infra_hestia_fleet(0) : infra_hestia_fleet_cached();
+
+        // How many of THIS BATCH's own rows currently point at each box — distinct
+        // from 'sites' below (that box's real global count, unrelated to this batch).
+        // Read fresh from params.csv every time, same source create_hosts.php itself
+        // uses to decide what each box still needs — so this always matches reality,
+        // including mid-way through a staged run (test 2, then a few more, then the rest).
+        $battAssigned = [];
+        foreach (ms_rows_by_domain($paramsPath) as $row) {
+            $h = trim((string) ($row['ftp_host'] ?? ''));
+            if ($h !== '') $battAssigned[$h] = ($battAssigned[$h] ?? 0) + 1;
+        }
+
         $fleet = [];
         foreach ($fleetRows as $b) {
             $fleet[] = [
@@ -324,7 +355,8 @@ switch ($action) {
                 // What is ON the box, read from the box. The plan below says where
                 // sites are MEANT to go; they are reported apart because the case
                 // worth seeing is when they disagree.
-                'sites'     => $b['deployed'],
+                'sites'       => $b['deployed'],
+                'batch_sites' => $battAssigned[$b['host']] ?? 0,
             ];
         }
         echo json_encode([

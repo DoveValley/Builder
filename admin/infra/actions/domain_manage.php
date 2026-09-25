@@ -6,7 +6,7 @@
  */
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/acquire.php';   // infra_domain_buy(), infra_domain_mark_owned()
-require_once __DIR__ . '/../lib/claim.php';     // infra_unclaim_from_batch()
+require_once __DIR__ . '/../lib/claim.php';     // infra_unclaim_from_batch(), infra_clear_host_in_batch()
 
 $domain = strtolower(trim($_POST['domain'] ?? ''));
 $action = $_POST['action'] ?? '';
@@ -167,6 +167,12 @@ switch ($action) {
                 $write['status'] = 'owned';
             }
             infra_state_upsert_domain($write);
+            // fleet.db now correctly shows no host — mirror that into the batch's own
+            // params.csv, or the target list (and anything reading it: the box-
+            // assignment panel, create_hosts.php's own "already has a host" check)
+            // keeps claiming this domain is hosted on a box its site was just deleted
+            // from. See infra_clear_host_in_batch()'s docblock for why this was missing.
+            infra_clear_host_in_batch($domain);
         }
         infra_cache_flush();
         infra_set_flash($r['ok'] ? 'ok' : 'err', "Delete site: {$r['message']}");

@@ -117,35 +117,59 @@ if (!$todo) {
 
 /* Hand rows out to boxes. count 0 = take whatever is left.
  *
- * Two passes, not one: boxes with an explicit count get exactly that many first,
- * regardless of where they sit in plan order, and only THEN is whatever remains
- * split — round-robin, evenly — across every box that asked for "whatever is
- * left". A single pass in plan order used to hand the first count-0 box the
- * ENTIRE remaining queue (`count($queue)` at that moment), which starved every
- * other count-0 box checked in the same batch and quietly put 100% of the batch
- * on whichever box happened to be listed first — the opposite of the point of
- * spreading a batch across several boxes. */
-$queue      = array_keys($todo);
-$assignment = [];          // row index => server
-$zeroBoxes  = [];          // plan entries with count 0 ("whatever is left"), in plan order
+ * Quotas are for the WHOLE batch (every row in params.csv), not just today's queue —
+ * this run may be one of several (test 2 domains, then a few more, then the rest),
+ * and a box's quota has to account for rows it ALREADY got from an earlier run, or
+ * every separate run hands that box up to its full count again and the early boxes
+ * in plan order end up overloaded. "Already there" is counted fresh from params.csv
+ * each run (matching each row's real ftp_host against this box), not from any
+ * in-memory counter — so it's correct no matter how many times, or in what order,
+ * this script has been run before.
+ *
+ * WITHIN a box's remaining need, today's queue rows are picked RANDOMLY, not the
+ * next N in list order — otherwise a box's sites are always "whichever happened to
+ * be first/last in the CSV" instead of a genuine scatter across the batch. */
+$totalTargets = count($rows);
+$haveByServerId = [];   // server_id => how many of ALL this batch's rows already point there
+foreach ($rows as $r) {
+    $h = trim((string) ($r['ftp_host'] ?? ''));
+    if ($h === '') continue;
+    foreach ($fleet as $sid => $srv) {
+        if (($srv['host'] ?? '') === $h) { $haveByServerId[$sid] = ($haveByServerId[$sid] ?? 0) + 1; break; }
+    }
+}
+
+$quota = [];       // server_id => total quota for the whole batch
+$explicitSum = 0; $zeroBoxIds = [];
 foreach ($plan as $p) {
     $srv = $fleet[$p['server_id']] ?? null;
     if (!$srv) { printf("  ! %s is in the plan but not in the console — skipped\n", $p['label'] ?? $p['server_id']); continue; }
     $take = (int) ($p['count'] ?? 0);
-    if ($take > 0) {
-        for ($k = 0; $k < $take && $queue; $k++) {
-            $assignment[array_shift($queue)] = $srv;
-        }
-    } else {
-        $zeroBoxes[] = $srv;
-    }
+    if ($take > 0) { $quota[$p['server_id']] = $take; $explicitSum += $take; }
+    else            { $zeroBoxIds[] = $p['server_id']; }
 }
-if ($zeroBoxes) {
-    for ($z = 0; $queue; $z++) {
-        $assignment[array_shift($queue)] = $zeroBoxes[$z % count($zeroBoxes)];
-    }
+$remainder = max(0, $totalTargets - $explicitSum);
+$zn = count($zeroBoxIds);
+$zeroBase = $zn ? intdiv($remainder, $zn) : 0;
+$zeroExtra = $zn ? $remainder % $zn : 0;
+foreach ($zeroBoxIds as $k => $sid) $quota[$sid] = $zeroBase + ($k < $zeroExtra ? 1 : 0);
+
+// This run's real need per box = quota minus what it already has. Never negative —
+// a box that's already over its quota (plan shrunk, or it was hand-assigned extra
+// rows) just gets no more, it is never "owed" a correction.
+$slots = [];   // flat list of server arrays, one entry per still-needed placement
+foreach ($quota as $sid => $q) {
+    $need = max(0, $q - ($haveByServerId[$sid] ?? 0));
+    for ($k = 0; $k < $need; $k++) $slots[] = $fleet[$sid];
 }
-$unplaced = $queue;
+shuffle($slots);
+
+$queue = array_keys($todo);
+shuffle($queue);
+$assignment = [];   // row index => server
+$n = min(count($slots), count($queue));
+for ($i = 0; $i < $n; $i++) $assignment[$queue[$i]] = $slots[$i];
+$unplaced = array_slice($queue, $n);
 
 foreach ($plan as $p) {
     $c = count(array_filter($assignment, fn($s) => ($s['id'] ?? '') === $p['server_id']));
