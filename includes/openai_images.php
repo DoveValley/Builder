@@ -189,6 +189,14 @@ function openai_images_edit_many(array $jobs, int $concurrency = 5, ?callable $o
  * openai_images_edit_many() — a bounded curl_multi sliding window. $buildHandle
  * turns one job into a ready-to-run curl handle; everything about HOW the request
  * is shaped (JSON vs multipart, which endpoint) lives in the caller, not here.
+ *
+ * Retries 429s (confirmed live: a real org-wide "5 gpt-image-2 requests/min" cap).
+ * Concurrency alone doesn't protect against this — the moment any of the 5 in-flight
+ * requests finishes (seconds, not the full minute), the sliding window immediately
+ * fires the next queued job, still inside the same 60s window, so a batch bigger than
+ * the per-minute cap reliably 429s on whatever doesn't fit. Retrying with the delay
+ * OpenAI's own error message reports ("Please try again in Ns") turns that into a
+ * short pause instead of a silently-missing photo.
  */
 function openai_images_run_concurrent(array $jobs, int $concurrency, ?callable $onEach, callable $buildHandle): array
 {
@@ -204,6 +212,52 @@ function openai_images_run_concurrent(array $jobs, int $concurrency, ?callable $
         foreach ($jobs as $i => $j) { $results[$i] = $fail($ready['error']); if ($onEach) $onEach($i, $results[$i]); }
         return $results;
     }
+
+    $pending = range(0, $n - 1);
+    $conc    = max(1, min($concurrency, $n));
+
+    // 1 initial pass + up to 3 retries. Retries run at concurrency=1 on purpose — the
+    // whole problem was a burst; re-bursting the retry would just trip the same cap again.
+    for ($round = 0; $pending && $round < 4; $round++) {
+        if ($round > 0) {
+            $wait = 15.0; // fallback if the API didn't say how long
+            foreach ($pending as $i) {
+                if ($results[$i] && preg_match('/try again in\s+([\d.]+)\s*s/i', $results[$i]['error'], $m)) {
+                    $wait = max($wait, (float) $m[1] + 1.0);
+                }
+            }
+            sleep((int) ceil($wait));
+            $conc = 1;
+        }
+
+        $roundJobs = array_values(array_map(fn($i) => $jobs[$i], $pending));
+        $roundResults = openai_images_run_concurrent_once($roundJobs, $conc, $buildHandle);
+
+        $stillPending = [];
+        foreach ($pending as $k => $i) {
+            $r = $roundResults[$k];
+            $results[$i] = $r;
+            if ($r['ok'] || $r['code'] !== 429) {
+                if ($onEach) $onEach($i, $r);
+            } else {
+                $stillPending[] = $i;   // retry next round — not final yet, don't report
+            }
+        }
+        $pending = $stillPending;
+    }
+
+    // Exhausted all retries still 429ing — these are now genuinely final failures.
+    foreach ($pending as $i) if ($onEach) $onEach($i, $results[$i]);
+
+    return $results;
+}
+
+/** One curl_multi pass over $jobs (indices 0..n-1) at the given concurrency — no retry logic. */
+function openai_images_run_concurrent_once(array $jobs, int $concurrency, callable $buildHandle): array
+{
+    $n = count($jobs);
+    $results = array_fill(0, $n, null);
+    if ($n === 0) return $results;
 
     $concurrency = max(1, min($concurrency, $n));
     $mh     = curl_multi_init();
@@ -236,7 +290,6 @@ function openai_images_run_concurrent(array $jobs, int $concurrency, ?callable $
             curl_close($ch);
 
             $results[$i] = openai_images_parse_response($resp === false ? false : $resp, $code, $cErr, $jobs[$i]['opts'] ?? []);
-            if ($onEach) $onEach($i, $results[$i]);
 
             $addNext();   // keep the window full until the queue is empty
         }
