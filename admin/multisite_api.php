@@ -31,7 +31,7 @@ const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 
  *  excludes ftp_* (Create Host's job, not a hand edit) and 'domain' itself (renaming
  *  a row is delete+add, not an edit — a domain never changes identity in place). */
 const MS_ROW_EDITABLE_COLS = [
-    'business', 'business_short', 'phone', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
+    'business', 'business_short', 'phone', 'area_code', 'tel', 'email', 'address', 'city', 'state', 'SS', 'zip',
     'lat', 'lng', 'logo', 'analytics_id', 'gsc_verification', 'rating', 'review_count',
     'years_in_business', 'mission_statement',
     'landing_cities', 'theme_preset', 'web3forms_key',
@@ -1089,6 +1089,48 @@ switch ($action) {
         unset($byDomain[$dom]);
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
         echo json_encode(['deleted' => true]);
+        break;
+
+    // Isolated capability, not part of the site factory pipeline — see
+    // includes/calltrackingmetrics.php. For each selected row: real area code from
+    // its already-saved city/state, search+buy a CTM number in that area code under
+    // the typed-in sub-account id, label it with the domain, write the number back
+    // into this row's phone column. Same LIVE guard and same writer as row_save, so
+    // a live domain's phone still only changes through Correct & Regenerate.
+    case 'ctm_get_numbers':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
+        $accountId = trim((string) ($_POST['account_id'] ?? ''));
+        $domainsIn = (array) ($_POST['domains'] ?? []);
+        if ($accountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
+        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
+        if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+
+        $byDomain = ms_rows_by_domain($paramsPath);
+        $results  = [];
+        foreach ($domainsIn as $dom) {
+            $dom = strtolower(trim((string) $dom));
+            if (!isset($byDomain[$dom])) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
+            $rec = infra_state_get_domain($dom);
+            if ($rec && ($rec['status'] ?? '') === 'live') {
+                $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'LIVE — use Correct & Regenerate to change its phone number.'];
+                continue;
+            }
+            $city = trim((string) ($byDomain[$dom]['city'] ?? ''));
+            $ss   = trim((string) ($byDomain[$dom]['SS'] ?? ''));
+            if ($city === '' || $ss === '') {
+                $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'No city/state saved on this row yet — fill those in first.'];
+                continue;
+            }
+            $r = ctm_get_number_for_domain($accountId, $dom, $city, $ss);
+            if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
+            $byDomain[$dom]['phone']      = $r['phone'];
+            $byDomain[$dom]['area_code']  = $r['area_code'];
+            $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $r['warning']];
+        }
+        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        echo json_encode(['results' => $results]);
         break;
 
     default:

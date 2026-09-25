@@ -58,12 +58,24 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 <div class="card" id="ms-rows-card">
     <h3 style="margin-top:0;">Target list — edit rows directly</h3>
     <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
+    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+        <strong style="font-size:.82rem;color:#1e3a5f;">Get CTM Phone Numbers</strong>
+        <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it with the domain in CTM → write the number into Phone.</span>
+        <div style="margin-top:8px;">
+            <input type="text" id="ms-ctm-account" placeholder="CTM sub-account ID" style="width:160px;">
+            <button type="button" class="btn btn-primary" id="ms-ctm-btn" onclick="msCtmGetNumbers()">Get CTM Phone Numbers (<span id="ms-ctm-count">0</span> selected)</button>
+            <span id="ms-ctm-msg" class="hint" style="margin-left:8px;"></span>
+        </div>
+        <div id="ms-ctm-results" style="margin-top:8px;font-size:.8rem;"></div>
+    </div>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
-                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th>Phone</th><th>City</th><th style="width:50px;">State</th><th style="width:190px;">Actions</th>
+                <th style="width:34px;">#</th>
+                <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)"></th>
+                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th>City</th><th style="width:50px;">State</th><th style="width:190px;">Actions</th>
             </tr></thead>
-            <tbody><tr><td colspan="7" class="hint">Loading…</td></tr></tbody>
+            <tbody><tr><td colspan="10" class="hint">Loading…</td></tr></tbody>
         </table>
     </div>
     <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
@@ -1789,8 +1801,10 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     // Keeping the table's own columns to a readable subset; every other CSV column
     // (analytics_id, landing_cities, etc.) still round-trips untouched through save.
     let msRows = {};          // domain -> {fields, status}
+    let msRowOrder = [];      // domains in the order params.csv stores them (the intended go-live sequence) — never sorted
     let msEditingDomain = null;
     let msUnlockedConfirm = {};   // domain -> the confirm string that unlocked a LIVE row
+    let msCtmSelected = {};       // domain -> true, for the "Get CTM Phone Numbers" toolbar
 
     function msStatusBadge(status) {
         if (status === 'live') return '<span style="background:#991b1b;color:#fff;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;">LIVE</span>';
@@ -1800,30 +1814,36 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 
     function msRenderRowsTable() {
         const tbody = document.querySelector('#ms-rows-table tbody');
-        const domains = Object.keys(msRows).sort();
-        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="7" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
-        tbody.innerHTML = domains.map(msRenderRowPair).join('');
+        const domains = msRowOrder;
+        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="10" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        tbody.innerHTML = domains.map((domain, i) => msRenderRowPair(domain, i + 1)).join('');
     }
 
-    function msRenderRowPair(domain) {
+    function msRenderRowPair(domain, rowNum) {
         const r = msRows[domain] || {};
         const f = r.fields || {};
         const isLive = r.status === 'live';
         const editing = msEditingDomain === domain;
+        const numCell = '<td class="hint">' + rowNum + '</td>';
+        const checkCell = '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '"' +
+            (isLive ? ' disabled title="LIVE — use Correct & Regenerate to change its phone number"' : (msCtmSelected[domain] ? ' checked' : '')) +
+            ' onclick="msCtmToggleOne(this)"></td>';
         let cells;
         if (editing) {
-            cells = '<td>' + msStatusBadge(r.status) + '</td>' +
+            cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
                 '<td>' + esc(domain) + '</td>' +
                 '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
+                '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
                 '<td><input class="ms-row-input" data-f="city" value="' + esc(f.city || '') + '" style="width:110px;"></td>' +
                 '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
                 '<td><button type="button" class="btn btn-primary" onclick="' + (isLive ? 'msRowSaveCorrect' : 'msRowSave') + "('" + domain.replace(/'/g, "\\'") + "')" + '">' + (isLive ? 'Save &amp; Regenerate' : 'Save') + '</button> ' +
                 '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button></td>';
         } else {
-            cells = '<td>' + msStatusBadge(r.status) + '</td>' +
+            cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
                 '<td>' + esc(domain) + '</td>' +
                 '<td>' + esc(f.business || '') + '</td>' +
+                '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
                 '<td>' + esc(f.city || '') + '</td>' +
                 '<td>' + esc(f.SS || '') + '</td>' +
@@ -1834,17 +1854,78 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '</td>';
         }
         return '<tr data-domain="' + esc(domain) + '">' + cells + '</tr>' +
-            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="7"><div class="ms-row-progress hint"></div></td></tr>';
+            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="10"><div class="ms-row-progress hint"></div></td></tr>';
     }
 
     async function msLoadRows() {
         try {
             const d = await (await fetch('multisite_api.php?action=row_list')).json();
             msRows = {};
-            (d.rows || []).forEach(r => { msRows[r.domain] = { fields: r.fields, status: r.status }; });
+            msRowOrder = [];
+            (d.rows || []).forEach(r => { msRows[r.domain] = { fields: r.fields, status: r.status }; msRowOrder.push(r.domain); });
         } catch (e) { /* leave whatever was already shown */ }
+        // Drop selections for domains that no longer exist (deleted, or never matched).
+        Object.keys(msCtmSelected).forEach(d => { if (!msRows[d]) delete msCtmSelected[d]; });
         msRenderRowsTable();
+        msCtmUpdateCount();
     }
+
+    // ── "Get CTM Phone Numbers" — isolated capability, see includes/calltrackingmetrics.php.
+    window.msCtmToggleOne = function (cb) {
+        const domain = cb.dataset.domain;
+        if (cb.checked) msCtmSelected[domain] = true; else delete msCtmSelected[domain];
+        msCtmUpdateCount();
+    };
+
+    window.msCtmToggleAll = function (cb) {
+        document.querySelectorAll('#ms-rows-table .ms-ctm-check:not(:disabled)').forEach(el => {
+            el.checked = cb.checked;
+            if (cb.checked) msCtmSelected[el.dataset.domain] = true; else delete msCtmSelected[el.dataset.domain];
+        });
+        msCtmUpdateCount();
+    };
+
+    function msCtmUpdateCount() {
+        const el = document.getElementById('ms-ctm-count');
+        if (el) el.textContent = Object.keys(msCtmSelected).length;
+    }
+
+    window.msCtmGetNumbers = async function () {
+        const domains = Object.keys(msCtmSelected);
+        const accountId = document.getElementById('ms-ctm-account').value.trim();
+        const msgEl = document.getElementById('ms-ctm-msg');
+        const resEl = document.getElementById('ms-ctm-results');
+        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+        if (!confirm('Buy a real CallTrackingMetrics number for ' + domains.length + ' domain(s) under sub-account ' + accountId + '? This is a real purchase, not a preview.')) return;
+
+        const btn = document.getElementById('ms-ctm-btn');
+        btn.disabled = true;
+        msgEl.textContent = 'Working…';
+        resEl.innerHTML = '';
+
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('account_id', accountId);
+        domains.forEach(d => fd.append('domains[]', d));
+
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=ctm_get_numbers', { method: 'POST', body: fd })).json(); }
+        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
+        btn.disabled = false;
+
+        if (d.error) { msgEl.textContent = d.error; return; }
+        msgEl.textContent = '';
+        resEl.innerHTML = (d.results || []).map(r => {
+            if (r.ok) {
+                const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
+                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.phone) + ' (area code ' + esc(r.area_code) + ')' + warn + '</div>';
+            }
+            return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+        }).join('');
+        msCtmSelected = {};
+        await msLoadRows();
+    };
 
     window.msRowEditStart = function (domain) { msEditingDomain = domain; msRenderRowsTable(); };
     window.msRowEditCancel = function () { msEditingDomain = null; msRenderRowsTable(); };

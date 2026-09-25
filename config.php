@@ -125,3 +125,18 @@ $_oaiKey = file_exists($_oaiKeyFile) ? trim(file_get_contents($_oaiKeyFile)) : '
 if ($_oaiKey === '') $_oaiKey = getenv('OPENAI_API_KEY') ?: '';
 define('OPENAI_API_KEY', $_oaiKey);
 unset($_oaiKey, $_oaiKeyFile);
+
+// CallTrackingMetrics agency API credentials (includes/calltrackingmetrics.php).
+// Same file-then-env priority as the keys above. Agency-level (Parent Settings),
+// not a single-account key, so it can act across every CTM sub-account by id.
+$_ctmKeyFile = __DIR__ . '/.ctm_key';
+$_ctmKey = file_exists($_ctmKeyFile) ? trim(file_get_contents($_ctmKeyFile)) : '';
+if ($_ctmKey === '') $_ctmKey = getenv('CTM_ACCESS_KEY') ?: '';
+define('CTM_ACCESS_KEY', $_ctmKey);
+unset($_ctmKey, $_ctmKeyFile);
+
+$_ctmSecretFile = __DIR__ . '/.ctm_secret';
+$_ctmSecret = file_exists($_ctmSecretFile) ? trim(file_get_contents($_ctmSecretFile)) : '';
+if ($_ctmSecret === '') $_ctmSecret = getenv('CTM_SECRET_KEY') ?: '';
+define('CTM_SECRET_KEY', $_ctmSecret);
+unset($_ctmSecret, $_ctmSecretFile);
