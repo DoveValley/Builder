@@ -1274,7 +1274,11 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             // "DONE — 0/0" alone reads like the click failed rather than like the
             // intended safety behavior it actually is — d.note carries that explanation.
             (d.note ? '<div class="hint" style="margin:2px 0 8px;">' + esc(d.note) + '</div>' : '') +
-            '<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:8px 0 12px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>';
+            '<div style="height:8px;background:#e2e8f0;border-radius:4px;margin:8px 0 12px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:' + color + ';transition:width .3s;"></div></div>' +
+            // Raw tail of the run's own log — the only thing that shows anything during
+            // steps that happen before any domain result exists yet, e.g. the auto-research
+            // pass, which can run for a long time in total silence otherwise.
+            (d.log_tail ? '<div class="hint" style="margin-bottom:3px;">Live log:</div><pre id="ms-run-log-tail" style="background:#0f172a;color:#cbd5e1;font-size:0.78rem;line-height:1.5;padding:8px 10px;border-radius:6px;max-height:160px;overflow-y:auto;white-space:pre-wrap;margin:0 0 12px;">' + esc(d.log_tail) + '</pre>' : '');
         if (d.results && d.results.length) {
             html += '<div style="max-height:240px;overflow:auto;font-size:0.85rem;line-height:1.7;">' +
                 d.results.slice().reverse().map(r => {
@@ -1313,6 +1317,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 }).join('') + '</div>';
         }
         el.innerHTML = html;
+        const logEl = document.getElementById('ms-run-log-tail');
+        if (logEl) logEl.scrollTop = logEl.scrollHeight;
         if (state === 'running') { btn.disabled = true; }
         else {
             btn.disabled = false;

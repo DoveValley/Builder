@@ -929,6 +929,16 @@ switch ($action) {
             }
             unset($r);
         }
+        // Live log tail — the run's raw .out file carries detail no per-domain result
+        // captures yet (e.g. the auto-research step, which runs before any domain
+        // starts) so the panel has something to show during that otherwise-silent time.
+        if ($d && $file) {
+            $outFile = preg_replace('/\.json$/', '.out', $file);
+            if (is_file($outFile)) {
+                $lines = file($outFile, FILE_IGNORE_NEW_LINES) ?: [];
+                $d['log_tail'] = implode("\n", array_slice($lines, -20));
+            }
+        }
         echo json_encode($d ?: ['none' => true]);
         break;
 
