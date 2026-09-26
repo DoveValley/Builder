@@ -63,13 +63,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it in CTM → write the number into Phone.</span>
         <div class="hint" style="margin-top:6px;">
             The CTM dashboard label isn't just the bare domain — it's
-            <code>NICHE-B&lt;batch&gt;-&lt;row&gt;-domain.com</code>, e.g. <code>WAT-B26-002-ellisonrestoration.com</code>,
-            so a sub-account holding numbers for several batches or niches at once can still be told apart at a glance.
+            <code>NICHE-B&lt;batch&gt;-&lt;row&gt;-SS-City-domain.com</code>, e.g.
+            <code>WAT-B26-002-CA-Glendale-ellisonrestoration.com</code>, so a sub-account holding numbers for several
+            batches or niches at once can still be told apart — and placed — at a glance.
             <strong>NICHE</strong> is this site's own first 3 letters (<code>water-site</code> → <code>WAT</code>).
             <strong>B&lt;batch&gt;</strong> is this batch's real sequence number — the same "batch 26"-style number used
             to talk about it, not the internal <code>b5</code>-style id. <strong>&lt;row&gt;</strong> is this domain's
             position in the target list above (the same <strong>#</strong> column), zero-padded to 3 digits so the
-            labels still sort correctly in CTM past row 9.
+            labels still sort correctly in CTM past row 9. <strong>SS</strong> and <strong>City</strong> are this
+            row's own State/City fields (City with its spaces stripped, e.g. "Sioux Falls" → "SiouxFalls").
         </div>
         <div style="margin-top:8px;">
             <input type="text" id="ms-ctm-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">

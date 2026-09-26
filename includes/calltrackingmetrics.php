@@ -29,6 +29,28 @@ function ctm_configured(): bool
 }
 
 /**
+ * CTM dashboard label: NICHE-B<batch seq>-<row, zero-padded>-<SS>-<City>-<domain>
+ * — e.g. WAT-B26-002-CA-Glendale-ellisonrestoration.com. A sub-account holding
+ * numbers for several batches/niches at once otherwise has no way to tell them
+ * apart from the bare domain alone, or to tell WHERE a number is without opening
+ * the target list. Niche = the master id's own first 3 letters. Batch number =
+ * batch.json's real `seq` field (the same number Scott already calls this batch
+ * by, "batch 26" — not the internal b5-style id). Row = this domain's place in
+ * the target list's own order (the same "#" column shown on screen). City has
+ * its spaces stripped ("Sioux Falls" -> "SiouxFalls") so it doesn't read as an
+ * extra hyphen-delimited field of its own.
+ *
+ * Single shared builder — used both by the live purchase flow (ctm_get_numbers)
+ * and any later bulk re-label pass, so the two can never drift into different
+ * formats.
+ */
+function ctm_build_label(string $nicheCode, int $batchSeq, int $rowNum, string $ss, string $city, string $domain): string
+{
+    $cityCompact = preg_replace('/\s+/', '', trim($city));
+    return sprintf('%s-B%d-%03d-%s-%s-%s', strtoupper($nicheCode), $batchSeq, $rowNum, strtoupper(trim($ss)), $cityCompact, $domain);
+}
+
+/**
  * Exchange the access key/secret for a session token. Cached for the lifetime
  * of this process only (each admin request that calls ctm_get_number_for_domain()
  * in a loop authenticates once, not once per domain) — the real token is valid
