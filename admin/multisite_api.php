@@ -1150,6 +1150,19 @@ switch ($action) {
         if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
 
         $byDomain = ms_rows_by_domain($paramsPath);
+        // CTM dashboard label: NICHE-B<batch seq>-<row position, zero-padded>-<domain>
+        // — e.g. WAT-B26-002-evanrestoration.com. A sub-account holding numbers for
+        // several batches/niches at once otherwise has no way to tell them apart from
+        // the bare domain alone. Niche = the master id's own first 3 letters (always
+        // available, no separate config to keep in sync); batch number = batch.json's
+        // real `seq` field (the same number Scott already calls this batch by, "batch
+        // 26" — not the internal b5-style id); row position = this domain's place in
+        // the target list's own order (the same "#" column shown on screen).
+        $nicheCode = strtoupper(substr($masterId, 0, 3));
+        $batchMeta = ms_batch_meta($masterId, $batchId);
+        $batchSeq  = (int) ($batchMeta['seq'] ?? 0);
+        $rowOrder  = array_keys($byDomain);
+
         $results  = [];
         foreach ($domainsIn as $dom) {
             $dom = strtolower(trim((string) $dom));
@@ -1165,7 +1178,10 @@ switch ($action) {
                 $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'No city/state saved on this row yet — fill those in first.'];
                 continue;
             }
-            $r = ctm_get_number_for_domain($accountId, $dom, $city, $ss);
+            $rowNum = array_search($dom, $rowOrder, true);
+            $rowNum = $rowNum === false ? 0 : $rowNum + 1;
+            $label  = sprintf('%s-B%d-%03d-%s', $nicheCode, $batchSeq, $rowNum, $dom);
+            $r = ctm_get_number_for_domain($accountId, $dom, $city, $ss, $label);
             if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
             $byDomain[$dom]['phone']      = $r['phone'];
             $byDomain[$dom]['area_code']  = $r['area_code'];

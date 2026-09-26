@@ -295,8 +295,14 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
  * (ctm_pool_numbers()) means this doesn't settle for one search's results —
  * it keeps searching the same area code until inventory stops turning up
  * anything new, then picks the best-scoring number out of everything seen.
+ *
+ * @param string $label The CTM dashboard label to set on the purchased number —
+ *        composed by the caller (niche + batch + row position + domain, see
+ *        admin/multisite_api.php's ctm_get_numbers action), not just the bare
+ *        domain, so a sub-account holding numbers for several batches/niches at
+ *        once can still tell them apart at a glance.
  */
-function ctm_get_number_for_domain(string $accountId, string $domain, string $city, string $ss): array
+function ctm_get_number_for_domain(string $accountId, string $domain, string $city, string $ss, string $label): array
 {
     $areaCode = ctm_area_code_for_city($city, $ss);
     if ($areaCode === null) {
@@ -327,14 +333,14 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
 
     $warning = '';
     if ($numberId) {
-        $label = ctm_set_number_name($accountId, $numberId, $domain);
-        if (!$label['ok']) {
-            $warning = "Bought {$formatted} but could not label it with the domain in CTM ({$label['error']}) — set it by hand.";
+        $labelResult = ctm_set_number_name($accountId, $numberId, $label);
+        if (!$labelResult['ok']) {
+            $warning = "Bought {$formatted} but could not label it in CTM ({$labelResult['error']}) — set it by hand.";
         } else {
             $verify  = ctm_get_number($accountId, $numberId);
             $gotName = $verify['ok'] ? ($verify['data']['name'] ?? null) : null;
-            if ($gotName !== $domain) {
-                $warning = "Bought {$formatted}, but its CTM label reads '" . ($gotName ?? '(blank)') . "' instead of the domain — check it in CTM.";
+            if ($gotName !== $label) {
+                $warning = "Bought {$formatted}, but its CTM label reads '" . ($gotName ?? '(blank)') . "' instead of '{$label}' — check it in CTM.";
             }
         }
     } else {

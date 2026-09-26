@@ -60,7 +60,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Get CTM Phone Numbers</strong>
-        <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it with the domain in CTM → write the number into Phone.</span>
+        <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it in CTM → write the number into Phone.</span>
+        <div class="hint" style="margin-top:6px;">
+            The CTM dashboard label isn't just the bare domain — it's
+            <code>NICHE-B&lt;batch&gt;-&lt;row&gt;-domain.com</code>, e.g. <code>WAT-B26-002-ellisonrestoration.com</code>,
+            so a sub-account holding numbers for several batches or niches at once can still be told apart at a glance.
+            <strong>NICHE</strong> is this site's own first 3 letters (<code>water-site</code> → <code>WAT</code>).
+            <strong>B&lt;batch&gt;</strong> is this batch's real sequence number — the same "batch 26"-style number used
+            to talk about it, not the internal <code>b5</code>-style id. <strong>&lt;row&gt;</strong> is this domain's
+            position in the target list above (the same <strong>#</strong> column), zero-padded to 3 digits so the
+            labels still sort correctly in CTM past row 9.
+        </div>
         <div style="margin-top:8px;">
             <input type="text" id="ms-ctm-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
             <button type="button" class="btn btn-primary" id="ms-ctm-btn" onclick="msCtmGetNumbers()">Get CTM Phone Numbers (<span id="ms-ctm-count">0</span> selected)</button>
