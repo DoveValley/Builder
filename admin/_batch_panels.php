@@ -85,9 +85,9 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             <thead><tr>
                 <th style="width:34px;">#</th>
                 <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)"></th>
-                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th>City</th><th style="width:50px;">State</th><th style="width:190px;">Actions</th>
+                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
             </tr></thead>
-            <tbody><tr><td colspan="10" class="hint">Loading…</td></tr></tbody>
+            <tbody><tr><td colspan="11" class="hint">Loading…</td></tr></tbody>
         </table>
     </div>
     <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
@@ -1881,7 +1881,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     function msRenderRowsTable() {
         const tbody = document.querySelector('#ms-rows-table tbody');
         const domains = msRowOrder;
-        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="10" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="11" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
         tbody.innerHTML = domains.map((domain, i) => msRenderRowPair(domain, i + 1)).join('');
     }
 
@@ -1902,6 +1902,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
                 '<td><input class="ms-row-input" data-f="city" value="' + esc(f.city || '') + '" style="width:110px;"></td>' +
+                '<td><input class="ms-row-input" data-f="state" value="' + esc(f.state || '') + '" style="width:100px;" placeholder="Florida"></td>' +
                 '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
                 '<td><button type="button" class="btn btn-primary" onclick="' + (isLive ? 'msRowSaveCorrect' : 'msRowSave') + "('" + domain.replace(/'/g, "\\'") + "')" + '">' + (isLive ? 'Save &amp; Regenerate' : 'Save') + '</button> ' +
                 '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button></td>';
@@ -1912,6 +1913,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
                 '<td>' + esc(f.city || '') + '</td>' +
+                '<td>' + esc(f.state || '') + '</td>' +
                 '<td>' + esc(f.SS || '') + '</td>' +
                 '<td>' + (isLive
                     ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button>'
@@ -1920,7 +1922,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '</td>';
         }
         return '<tr data-domain="' + esc(domain) + '">' + cells + '</tr>' +
-            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="10"><div class="ms-row-progress hint"></div></td></tr>';
+            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="11"><div class="ms-row-progress hint"></div></td></tr>';
     }
 
     async function msLoadRows() {
