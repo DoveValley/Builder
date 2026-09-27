@@ -196,10 +196,20 @@ if ($action === 'run') {
             unset($c);
             infra_research_score_and_grade($run['candidates']);
             $picked = infra_research_diversify($run['candidates'], $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
-            $run['result_file'] = infra_research_write_xlsx($niche, $picked);
-            $run['result_count'] = count($picked);
-            $run['phase'] = 'done';
-            infra_set_flash('ok', count($picked) . ' cities in the final list. Saved to Downloads (Test Lab) as ' . $run['result_file'] . '.');
+            $resultFile = infra_research_write_xlsx($niche, $picked);
+            if ($resultFile === null) {
+                // Never mark 'done' on a failed write - the view links result_file as a
+                // plain download URL with no existence check, so a null/missing file
+                // here would otherwise 404 (or worse, look "done" with no way to retry
+                // the write itself). Leaving phase alone keeps the Continue button up.
+                infra_set_flash('error', count($picked) . ' cities scored, but writing the xlsx failed '
+                    . '(disk full or uploads/downloads not writable?) - press Continue to retry the write.');
+            } else {
+                $run['result_file'] = $resultFile;
+                $run['result_count'] = count($picked);
+                $run['phase'] = 'done';
+                infra_set_flash('ok', count($picked) . ' cities in the final list. Saved to Downloads (Test Lab) as ' . $resultFile . '.');
+            }
         } else {
             infra_set_flash('ok', "SERP checks: {$done} this pass, {$left} keyword-checks still to go — press Continue.");
         }

@@ -373,7 +373,15 @@ function infra_research_downloads_dir(): string
 
 function infra_research_xml_text(string $s): string
 {
-    return htmlspecialchars($s, ENT_QUOTES | ENT_XML1, 'UTF-8');
+    // Strip XML-illegal control characters (everything except tab/LF/CR) first — a
+    // stray byte from a Windows-1252 eLocal export makes the worksheet part
+    // non-well-formed XML, which is a real "unreadable content" corruption, not a
+    // cosmetic one. ENT_SUBSTITUTE keeps htmlspecialchars() from returning '' outright
+    // on any remaining invalid UTF-8 (its default behavior with none of the ENT_*
+    // substitute flags set) — better a replacement character than a silently blanked
+    // cell.
+    $s = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F]/', '', $s);
+    return htmlspecialchars($s, ENT_QUOTES | ENT_XML1 | ENT_SUBSTITUTE, 'UTF-8');
 }
 
 /** One row of the sheet XML. $cells is a list of ['v'=>mixed,'num'=>bool,'bold'=>bool]. */
@@ -384,7 +392,13 @@ function infra_research_xlsx_row(int $rowNum, array $cells): string
         $col = infra_research_xlsx_col_letter($i) . $rowNum;
         $s = !empty($cell['bold']) ? ' s="1"' : '';
         if (!empty($cell['num'])) {
-            $out .= '<c r="' . $col . '"' . $s . '><v>' . (is_numeric($cell['v']) ? $cell['v'] : 0) . '</v></c>';
+            // is_numeric() alone lets NAN/INF through (both are floats) - either would
+            // be written as the literal word "NAN"/"INF" inside <v>, which is not a
+            // valid OOXML number and corrupts the whole sheet for Excel, not just the
+            // one cell. Last-resort boundary check regardless of what upstream scoring
+            // produced.
+            $numOk = is_numeric($cell['v']) && is_finite((float) $cell['v']);
+            $out .= '<c r="' . $col . '"' . $s . '><v>' . ($numOk ? $cell['v'] : 0) . '</v></c>';
         } else {
             $out .= '<c r="' . $col . '"' . $s . ' t="inlineStr"><is><t xml:space="preserve">'
                   . infra_research_xml_text((string) $cell['v']) . '</t></is></c>';
@@ -408,8 +422,12 @@ function infra_research_xlsx_col_letter(int $i): string
 /** @param array $rows list of plain rows (each a list of scalars); row 0 is treated as the bold header */
 function infra_research_xlsx_sheet_xml(array $rows): string
 {
+    $numCols = $rows ? max(array_map('count', $rows)) : 1;
+    $lastCol = infra_research_xlsx_col_letter(max(0, $numCols - 1));
+    $lastRow = max(1, count($rows));
     $xml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
-         . '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>';
+         . '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+         . '<dimension ref="A1:' . $lastCol . $lastRow . '"/><sheetData>';
     foreach ($rows as $r => $row) {
         $cells = [];
         foreach ($row as $v) {
@@ -423,11 +441,14 @@ function infra_research_xlsx_sheet_xml(array $rows): string
 /**
  * @param string $path full filesystem path to write
  * @param array $sheets ['Sheet Name' => [ [row0 cells], [row1 cells], ... ], ...]
+ * @return bool false if the zip couldn't be opened or written - callers must not link
+ *   the file when this fails, or the browser downloads whatever partial/absent file
+ *   is on disk and names it .xlsx regardless.
  */
-function infra_research_write_xlsx_file(string $path, array $sheets): void
+function infra_research_write_xlsx_file(string $path, array $sheets): bool
 {
     $zip = new ZipArchive();
-    $zip->open($path, ZipArchive::CREATE | ZipArchive::OVERWRITE);
+    if ($zip->open($path, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) return false;
 
     $zip->addFromString('[Content_Types].xml',
         '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
@@ -468,7 +489,12 @@ function infra_research_write_xlsx_file(string $path, array $sheets): void
         . '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
         . '<fonts count="2"><font><sz val="11"/><name val="Calibri"/></font>'
         . '<font><b/><sz val="11"/><name val="Calibri"/></font></fonts>'
-        . '<fills count="1"><fill><patternFill patternType="none"/></fill></fills>'
+        // Excel hard-requires index 0 = none and index 1 = gray125 in the fills table -
+        // every real writer emits both, even when nothing uses the second one. A
+        // single-fill table is a known trigger for Excel's "Removed Records: Style
+        // from /xl/styles.xml" repair prompt.
+        . '<fills count="2"><fill><patternFill patternType="none"/></fill>'
+        . '<fill><patternFill patternType="gray125"/></fill></fills>'
         . '<borders count="1"><border/></borders>'
         . '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>'
         . '<cellXfs count="2">'
@@ -483,10 +509,13 @@ function infra_research_write_xlsx_file(string $path, array $sheets): void
         $zip->addFromString('xl/worksheets/sheet' . $i . '.xml', infra_research_xlsx_sheet_xml($rows));
         $i++;
     }
-    $zip->close();
+    return $zip->close();
 }
 
-function infra_research_write_xlsx(string $niche, array $rows): string
+/** @return string|null the filename on success, null if the write failed - callers must
+ *  not link/store a filename on null, or a browser ends up downloading whatever
+ *  partial or missing file is on disk and naming it .xlsx regardless. */
+function infra_research_write_xlsx(string $niche, array $rows): ?string
 {
     $fname = $niche . '-city-research-' . date('Y-m-d') . '.xlsx';
     $path  = infra_research_downloads_dir() . '/' . $fname;
@@ -523,6 +552,6 @@ function infra_research_write_xlsx(string $niche, array $rows): string
         'Diversification: no two picked cities within the chosen mile-separation, no state over the chosen % of the list.',
     ]];
 
-    infra_research_write_xlsx_file($path, ['Build List' => $buildList, 'Method' => $method]);
-    return $fname;
+    $ok = infra_research_write_xlsx_file($path, ['Build List' => $buildList, 'Method' => $method]);
+    return $ok ? $fname : null;
 }
