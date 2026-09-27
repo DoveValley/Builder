@@ -366,6 +366,10 @@ function ms_generate_ai_images_for_domain(
             if (!copy($persistFile, $mediaDir . $publicFilename)) {
                 $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but could not be copied into this build"; continue;
             }
+            // Self-healing rather than persisting a second cached file: cheap to redo (a
+            // local GD resize, no OpenAI call) and this way a cache built before the
+            // mobile-variant hook existed still gets one on next use, no backfill needed.
+            img_write_mobile_variant($mediaDir . $publicFilename);
             if (!picdrop_set($block, $field, $url)) {
                 $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but the field path could not be written"; continue;
             }

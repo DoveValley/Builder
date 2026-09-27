@@ -484,7 +484,13 @@ function ms_derive_skin_colors(array &$data): void {
     $accent = $data['theme']['accent_color'] ?? '#fd783b';
     $data['theme']['accent2_color']   = $accent;
     $data['theme']['skins']['dark']   = ['bg' => $dark, 'heading' => '#ffffff', 'text' => '#e2e8f0'];
-    $data['theme']['skins']['accent'] = ['heading' => $dark, 'text' => '#ffffff'];
+    // Accent-skin heading text sits directly on $accent, which is often a saturated brand
+    // red/orange — colours whose WCAG luminance is higher than they look, so a "dark" chrome
+    // colour picked for legibility on light/white backgrounds elsewhere can still fail 4.5:1
+    // here. Pick whichever of white/$dark actually contrasts against THIS site's accent,
+    // instead of assuming $dark always works.
+    $headingOnAccent = ms_contrast_ratio('#ffffff', $accent) >= ms_contrast_ratio($dark, $accent) ? '#ffffff' : $dark;
+    $data['theme']['skins']['accent'] = ['heading' => $headingOnAccent, 'text' => '#ffffff'];
 }
 
 function ms_apply_theme_preset(array &$data, array $preset): void {

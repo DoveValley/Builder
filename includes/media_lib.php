@@ -132,7 +132,13 @@ function media_magick(string $src, string $dest, array $ops): bool {
 function img_write_mobile_variant(string $mainFile): void {
     if (!is_file($mainFile)) return;
     [$w, $h] = @getimagesize($mainFile) ?: [0, 0];
-    if ($w < 1 || $h < 1 || $w <= MOBILE_IMG_WIDTH + 120) return;
+    // Buffer kept small (not the ~800-920 gap this originally shipped with): the
+    // AI-photo pipeline (includes/multisite/image_ai.php) crop-fits most of its output
+    // to slot sizes in the 840-990px range — comfortably admin-upload-sized, but still
+    // real, measured savings for a phone (confirmed via PageSpeed on a real page: these
+    // were flagged as "larger than needed for displayed size" every time). A generous
+    // buffer was silently skipping nearly all of them.
+    if ($w < 1 || $h < 1 || $w <= MOBILE_IMG_WIDTH + 20) return;
 
     $mobileFile = preg_replace('/\.webp$/i', '-mobile.webp', $mainFile);
     if ($mobileFile === null || $mobileFile === $mainFile) return;

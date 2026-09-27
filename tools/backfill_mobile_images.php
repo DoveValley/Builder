@@ -49,7 +49,7 @@ foreach ($sites as $site) {
         if (is_file($mobileFs)) { $totals['already']++; continue; }
 
         [$w, $h] = @getimagesize($fs) ?: [0, 0];
-        if ($w <= MOBILE_IMG_WIDTH + 120) { $totals['too_small']++; continue; }
+        if ($w <= MOBILE_IMG_WIDTH + 20) { $totals['too_small']++; continue; }
 
         img_write_mobile_variant($fs);
         if (is_file($mobileFs)) { $totals['written']++; $siteWritten++; }

@@ -3035,7 +3035,7 @@ body { padding-bottom: 70px; }
 }
 .sc-text {
     font-size: var(--font-size-small);
-    color: rgba(255,255,255,0.85);
+    color: #fff;
     margin: 0;
     line-height: 1.7;
     max-width: 480px;
@@ -3046,7 +3046,7 @@ body { padding-bottom: 70px; }
 }
 .sc-right-label {
     font-size: var(--font-size-body);
-    color: rgba(255,255,255,0.85);
+    color: #fff;
     margin-bottom: 10px;
     font-weight: 500;
 }
@@ -3582,7 +3582,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .if-phone-info {}
 .if-phone-label {
     font-size: var(--font-size-eyebrow);
-    color: #777;
+    color: var(--color-muted);
     margin-bottom: 2px;
 }
 .if-phone-number {
@@ -3688,7 +3688,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .eb-left { flex: 1 1 380px; }
 .eb-right { flex: 0 0 480px; }
 .eb-heading { font-size: var(--font-size-h2); font-family: var(--font-heading, inherit); font-weight: 900; color: #fff; line-height: 1.15; margin: 0 0 10px; }
-.eb-subtext { font-size: var(--font-size-body); color: rgba(255,255,255,0.85); margin: 0; }
+.eb-subtext { font-size: var(--font-size-body); color: #fff; margin: 0; }
 .eb-form { display: flex; gap: 10px; margin-bottom: 16px; }
 .eb-input { flex: 1; padding: 12px 16px; border: none; border-radius: var(--btn-radius, 4px); font-size: var(--font-size-body); outline: none; }
 .eb-btn { white-space: nowrap; padding: 12px 20px; background: #0d1f3c; color: #fff; border-radius: var(--btn-radius, 4px); font-size: var(--font-size-small); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: opacity .15s; }

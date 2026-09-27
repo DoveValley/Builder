@@ -913,8 +913,26 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     </div>
 
     <p class="hint">Builds every valid row and keeps the result, ready to upload. Nothing goes to a
-        server in this step &mdash; that is step 5. AI generation costs roughly $0.02&ndash;0.05 per site
-        (free on rebuilds).</p>
+        server in this step &mdash; that is step 5. A genuinely new domain (never generated before)
+        costs roughly $0.35&ndash;0.50 in AI generation, most of it landing/homepage copy plus AI photos;
+        re-running a domain that's already built costs only a cent or two, since its cached copy and
+        photos are reused instead of regenerated.</p>
+    <p class="hint">
+        <strong>Build this many</strong> caps how many rows a run touches, in target-list order &mdash;
+        0 means every row that still needs building. <strong>Only this domain</strong> narrows a run to
+        specific domains instead (comma-separated for more than one) &mdash; this is what a staged
+        rollout actually uses: name a few domains to test, look at the result, then clear the field and
+        press Generate again to pick up everything that's left. <strong>Force</strong> throws away a
+        domain's cache and regenerates its AI content and photos from scratch even though it's already
+        built &mdash; a real cost every time, not a free re-check, so it's for when something about that
+        domain's build actually needs redoing, not routine re-runs.
+    </p>
+    <p class="hint" style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 14px;">
+        <strong>Most common use:</strong> leave Force unchecked and Build/Only at their defaults, then
+        press <strong>Generate sites</strong>. It works through every row that doesn't have a build yet,
+        in the target list's own order, skipping anything already built (so pressing it again after a
+        partial run just picks up where it left off, at no extra cost for what's already done).
+    </p>
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end;">
         <label class="hint">Build this many (0 = all)<br><input type="number" id="ms-limit" value="0" min="0" style="width:110px;"></label>
         <label class="hint">Only this domain (optional, comma-separated for more than one)<br>

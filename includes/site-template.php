@@ -90,6 +90,26 @@ if (empty($seo['og_image'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
+    // Requested as early as possible in <head> — before every other preload/preconnect/meta
+    // tag below — so the browser's preload scanner discovers and starts fetching this
+    // render-blocking stylesheet first, instead of queued behind them. Same file, same
+    // blocking behavior; only the request's position in the document moved.
+    //
+    // Deliberately NOT async-deferred the way Google Fonts is below, despite that trick
+    // removing this same audit's flag there: a font swap only affects text metrics (and
+    // even then only with a matched fallback — see GF_FONT_METRICS), but style.css carries
+    // this template's actual LAYOUT rules (flex/grid/section structure). Deferring it would
+    // paint an unstyled, vertically-stacked page first and then visibly snap into its real
+    // layout once it loads — trading an estimated ~150ms "render-blocking" audit flag for a
+    // guaranteed, large, real layout shift on every single load. Almost shipped this;
+    // reverted before deploying. See css_minify_to() in includes/helpers.php: style.css is
+    // regenerated from assets/css/style.src.css automatically whenever the source is newer.
+    $mainCssPath  = __DIR__ . '/../assets/css/style.css';
+    $mainCssMtime = css_minify_to(__DIR__ . '/../assets/css/style.src.css', $mainCssPath);
+    $mainCssHref  = h($assetPathPrefix ?? '') . 'assets/css/style.css?v=' . $mainCssMtime;
+    ?>
+    <link rel="stylesheet" href="<?= $mainCssHref ?>">
+    <?php
     // Same pre-shortcode-resolution gap as the og:image fallback below: $contentBlocks here
     // hasn't been through apply_shortcodes_to_block() yet, so a bare-token photo value (e.g.
     // "{city_image}") must be resolved explicitly or it ships literally in the preload href.
@@ -210,11 +230,19 @@ if (empty($seo['og_image'])) {
         'Merriweather' => 'Merriweather:wght@400;700;900',
     ];
     $gfFamilies = [];
+    // Real (post-alias) family names in use this page that have known metrics — each
+    // gets a "Fallback" @font-face below, matched to theme_css_vars()'s font-family
+    // stack (includes/theme.php), which is what actually asks for "<Family> Fallback".
+    $gfMetricFamilies = [];
     foreach ([$theme['primary_font'] ?? '', $theme['heading_font'] ?? ''] as $fontStr) {
         if ($fontStr === '' || in_array($fontStr, $gfSystemFonts)) continue;
         $baseName = trim(explode(',', $fontStr)[0], " '\"");
         if (isset($gfMap[$baseName]) && !in_array($gfMap[$baseName], $gfFamilies)) {
             $gfFamilies[] = $gfMap[$baseName];
+        }
+        $realName = THEME_FONT_FAMILY_ALIASES[$baseName] ?? $baseName;
+        if (isset(GF_FONT_METRICS[$realName]) && !isset($gfMetricFamilies[$realName])) {
+            $gfMetricFamilies[$realName] = GF_FONT_METRICS[$realName];
         }
     }
     if ($gfFamilies):
@@ -236,23 +264,27 @@ if (empty($seo['og_image'])) {
              resolves and the browser discovers the @font-face, so the font is far more
              likely to already be ready when optional's decision point arrives. */
     foreach (gf_preload_urls($gfHref) as $gfFontUrl): ?>
-    <link rel="preload" as="font" type="font/woff2" href="<?= h($gfFontUrl) ?>" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="<?= h($gfFontUrl) ?>" crossorigin fetchpriority="high">
     <?php endforeach; ?>
     <link rel="preload" as="style" href="<?= h($gfHref) ?>">
     <link rel="stylesheet" href="<?= h($gfHref) ?>" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="<?= h($gfHref) ?>"></noscript>
-    <?php endif; ?>
-    <?php
-    // style.css itself is now a generated artifact, regenerated automatically from the
-    // hand-edited assets/css/style.src.css whenever that source is newer (see
-    // css_minify_to()) — the served filename never changes, so cache-busting
-    // (ms_cache_bust_apply()) and the multisite static build (which copies the whole
-    // assets/ folder verbatim) both keep working unmodified.
-    $mainCssPath = __DIR__ . '/../assets/css/style.css';
-    $mainCssMtime = css_minify_to(__DIR__ . '/../assets/css/style.src.css', $mainCssPath);
-    $mainCssHref = h($assetPathPrefix ?? '') . 'assets/css/style.css?v=' . $mainCssMtime;
+    <?php if ($gfMetricFamilies): ?>
+    <style>
+    <?php foreach ($gfMetricFamilies as $realName => $m):
+        $localFace = in_array($realName, GF_SERIF_FAMILIES, true) ? 'Georgia' : 'Arial';
     ?>
-    <link rel="stylesheet" href="<?= $mainCssHref ?>">
+    @font-face {
+        font-family: '<?= h($realName) ?> Fallback';
+        src: local('<?= h($localFace) ?>');
+        ascent-override: <?= $m['ascentOverride'] ?>%;
+        descent-override: <?= $m['descentOverride'] ?>%;
+        line-gap-override: <?= $m['lineGapOverride'] ?>%;
+    }
+    <?php endforeach; ?>
+    </style>
+    <?php endif; ?>
+    <?php endif; ?>
     <?php
     // Flag whether this page actually uses a course shortcode, so plugins that add
     // render-blocking <head> CSS (schedule plugin) can skip it on pages that don't.

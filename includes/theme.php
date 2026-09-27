@@ -1,4 +1,70 @@
 <?php
+/**
+ * A stored theme font value is the admin dropdown's DISPLAY label — for every font
+ * except this one, that's also the real CSS family name Google Fonts serves under.
+ * "Source Sans Pro" is the exception: Google renamed the family to "Source Sans 3"
+ * (site-template.php's $gfMap requests the new name), but the display label was never
+ * updated to match. A --font-primary/--font-heading of "Source Sans Pro" doesn't match
+ * any @font-face the page actually loads (all registered as "Source Sans 3"), so the
+ * browser falls straight through to plain sans-serif — every site configured with this
+ * font has been silently rendering in the OS default the whole time, never the brand
+ * font, despite correctly downloading it. Confirmed live: baileyrestoration.com's own
+ * document.fonts lists only "Source Sans 3" entries, none named "Source Sans Pro".
+ */
+const THEME_FONT_FAMILY_ALIASES = ['Source Sans Pro' => 'Source Sans 3'];
+
+/**
+ * Vertical metrics (ascent/descent/line-gap, as a % of em) for every Google Font this
+ * fleet's theme picker offers — extracted directly from each family's own actual woff2
+ * (fontTools, OS/2.sTypoAscender/Descender/LineGap where fsSelection's USE_TYPO_METRICS
+ * bit is set, else hhea, both ÷ unitsPerEm). Paired with a matching local system fallback
+ * in site-template.php's @font-face block, so a page can declare the fallback face with
+ * these SAME overrides — matching the browser's line-box height to the real webfont's,
+ * so swapping between them (font-display: optional's whole reason to exist) moves zero
+ * pixels, regardless of how the timing of that swap plays out on any given network. Every
+ * font in $gfMap (site-template.php) should have an entry here; one silently missing just
+ * means that family's swap goes back to being timing-sensitive, not broken.
+ */
+const GF_FONT_METRICS = [
+    'Open Sans'         => ['ascentOverride' => 106.88, 'descentOverride' => 29.30, 'lineGapOverride' => 0],
+    'Noto Serif'        => ['ascentOverride' => 106.90, 'descentOverride' => 29.30, 'lineGapOverride' => 0],
+    'Roboto'            => ['ascentOverride' => 92.77,  'descentOverride' => 24.41, 'lineGapOverride' => 0],
+    'Lato'              => ['ascentOverride' => 98.70,  'descentOverride' => 21.30, 'lineGapOverride' => 0],
+    'Montserrat'        => ['ascentOverride' => 96.80,  'descentOverride' => 25.10, 'lineGapOverride' => 0],
+    'Raleway'           => ['ascentOverride' => 94.00,  'descentOverride' => 23.40, 'lineGapOverride' => 0],
+    'Poppins'           => ['ascentOverride' => 105.00, 'descentOverride' => 35.00, 'lineGapOverride' => 10],
+    'Nunito'            => ['ascentOverride' => 101.10, 'descentOverride' => 35.30, 'lineGapOverride' => 0],
+    'Mulish'            => ['ascentOverride' => 100.50, 'descentOverride' => 25.00, 'lineGapOverride' => 0],
+    'Inter'             => ['ascentOverride' => 96.88,  'descentOverride' => 24.12, 'lineGapOverride' => 0],
+    'Outfit'            => ['ascentOverride' => 100.00, 'descentOverride' => 26.00, 'lineGapOverride' => 0],
+    'Source Sans 3'     => ['ascentOverride' => 102.40, 'descentOverride' => 40.00, 'lineGapOverride' => 0],
+    'Inclusive Sans'    => ['ascentOverride' => 95.00,  'descentOverride' => 25.00, 'lineGapOverride' => 0],
+    'Playfair Display'  => ['ascentOverride' => 108.20, 'descentOverride' => 25.10, 'lineGapOverride' => 0],
+    'Merriweather'      => ['ascentOverride' => 98.40,  'descentOverride' => 27.30, 'lineGapOverride' => 0],
+];
+
+/** Serif families in GF_FONT_METRICS — the metric-matched fallback should still be a
+ *  system serif (Georgia), not Arial, or the pre-swap flash reads as the wrong typeface
+ *  family even though the box height is already correct. */
+const GF_SERIF_FAMILIES = ['Noto Serif', 'Playfair Display', 'Merriweather'];
+
+/**
+ * A stored font value is a full CSS stack ("Source Sans Pro, sans-serif"), not a bare
+ * name — resolves the alias + splices in the metric-matched fallback (see
+ * THEME_FONT_FAMILY_ALIASES / GF_FONT_METRICS above) against just its FIRST segment,
+ * then re-attaches whatever else was already in the stack.
+ */
+function theme_resolve_font_stack(string $stack): string {
+    $parts = array_map(fn($p) => trim($p, " '\""), explode(',', $stack));
+    $baseName = $parts[0] ?? '';
+    $realName = THEME_FONT_FAMILY_ALIASES[$baseName] ?? $baseName;
+    $rest = array_slice($parts, 1);
+    if (isset(GF_FONT_METRICS[$realName])) {
+        array_unshift($rest, "{$realName} Fallback");
+    }
+    return implode(', ', array_merge([$realName], $rest));
+}
+
 function theme_css_vars($theme) {
     $map = [
         '--color-header-bg'     => $theme['header_bg']     ?? '#120575',
@@ -27,15 +93,22 @@ function theme_css_vars($theme) {
         $safe = preg_replace('/[^#a-zA-Z0-9(),.%\s\-_]/', '', $value);
         $css .= "    {$var}: {$safe};\n";
     }
-    // Font families
+    // Font families. A recognized Google Font gets its metric-matched fallback name
+    // spliced in right after the real name (see GF_FONT_METRICS) — the corresponding
+    // @font-face lives in site-template.php, which is the piece that actually knows
+    // which Google fonts this page requested. The stored value is a full CSS stack
+    // ("Source Sans Pro, sans-serif"), not a bare name — alias/metrics lookups must
+    // match on just its first segment, not the whole string.
     if (preg_match('/^[a-zA-Z0-9\s,\-]+$/', $font)) {
-        $css .= "    --font-primary: {$font};\n";
+        $fontOut = theme_resolve_font_stack($font);
+        $css .= "    --font-primary: {$fontOut};\n";
     } else {
         $css .= "    --font-primary: sans-serif;\n";
     }
     $headingFont = $theme['heading_font'] ?? '';
     if ($headingFont !== '' && preg_match('/^[a-zA-Z0-9\s,\-]+$/', $headingFont)) {
-        $css .= "    --font-heading: {$headingFont};\n";
+        $headingFontOut = theme_resolve_font_stack($headingFont);
+        $css .= "    --font-heading: {$headingFontOut};\n";
     }
     $headingWeight = (string)($theme['heading_weight'] ?? '700');
     $headingWeight = in_array($headingWeight, ['400','500','600','700','800','900'], true) ? $headingWeight : '700';
