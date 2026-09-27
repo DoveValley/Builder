@@ -2875,6 +2875,15 @@ body { padding-bottom: 70px; }
        real (correctly 4:3, now ~275px on a phone-width column) height. Real, live bug,
        found alongside the aspect-ratio fix a few rules up. */
     .hs-image-wrap { max-width: 100%; flex-basis: auto; }
+    /* Same class of bug as .hs-image-wrap above, just never given the same fix: .hs-text's
+       own flex:1 1 340px (base rule, desktop-scoped in intent) is ALSO a width basis that
+       becomes a 340px height basis once flex-direction switches to column here — a stale
+       guess against this box's real content height (H1 + subtext, whatever that measures
+       out to), which flexbox then grows/shrinks away from once the real content is
+       measured. Confirmed live: still shifted identically (CLS 0.262, same element) with
+       both the image-ratio conflict and the web font swap independently eliminated as
+       causes — this was the one part of the same known bug pattern still unfixed. */
+    .hs-text { flex-basis: auto; }
     .hs-btn-row { flex-wrap: wrap; }
     .hs-btn, .hs-btn2 { flex: 1 1 auto; text-align: center; }
     .hs-mobile-img-first { flex-direction: column; }
