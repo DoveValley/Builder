@@ -1055,16 +1055,25 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             if ($cbSkin !== '') {
                 $bgStyle   = "var(--skin-{$cbSkin}-bg)";
                 $textColor = "var(--skin-{$cbSkin}-text)";
-                $btnBg     = "var(--skin-{$cbSkin}-heading)";
                 // Button text normally reuses the section's own background as its
                 // color — correct for light/subtle/dark, where "heading" (the
                 // button's bg) sits at the OPPOSITE pole from "bg" (light section
                 // gets a dark button, dark section gets a light button), so the
-                // section's bg color reads fine as text on top of it. Accent's
-                // "heading" is ALSO a dark, saturated brand color (not the old pale
-                // default), so that assumption breaks — reusing the section's own
-                // (bright) accent color as text on a dark button reads muddy. Use
-                // the section's own light TEXT color there instead.
+                // section's bg color reads fine as text on top of it.
+                //
+                // Accent is its own case, and not just because its "heading" reads
+                // muddy as button text — since the WCAG heading-contrast fix
+                // (ms_derive_skin_colors), accent's "heading" is WCAG-conditional and
+                // can legitimately BE white on some domains (correct for real heading
+                // TEXT sitting on a bright accent background). Reusing that same value
+                // as THIS button's own background assumed it was always dark; paired
+                // with the button's white text, a domain where heading resolved to
+                // white produced an invisible white-on-white button — confirmed live
+                // on baileyrestoration.com (Santa Clarita, CA, accent #E02020). Use
+                // the always-dark, unconditional dark-skin background instead — it
+                // isn't derived from the accent heading pick at all, so it can't
+                // collide with this button's white text on any domain.
+                $btnBg = $cbSkin === 'accent' ? 'var(--skin-dark-bg)' : "var(--skin-{$cbSkin}-heading)";
                 $btnFg = $cbSkin === 'accent' ? "var(--skin-{$cbSkin}-text)" : "var(--skin-{$cbSkin}-bg)";
             } else {
                 $bgStyle = resolve_color($bg, $bgCustom);
