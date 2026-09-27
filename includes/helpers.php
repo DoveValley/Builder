@@ -371,6 +371,20 @@ function img_dimensions(string $storedPath): ?array {
     return null;
 }
 
+/* Shared by img_dim_attrs() and img_fixed_size_css() — scales a file's intrinsic
+   dimensions down to fit $displayHeight px, never upscaling past the file's own size.
+   Returns [w, h] ints, or null if the file can't be measured. */
+function img_capped_dims(string $storedPath, int $displayHeight): ?array {
+    if ($displayHeight <= 0) return null;
+    $dim = img_dimensions($storedPath);
+    if (!$dim) return null;
+    [$iw, $ih] = $dim;
+    $h = min($displayHeight, (int) round($ih));
+    $w = (int) round($h * $iw / $ih);
+    if ($w <= 0 || $h <= 0) return null;
+    return [$w, max($h, 1)];
+}
+
 /* Reserve an image's box to prevent layout shift when it loads late (throttled mobile).
    Reads the file's intrinsic dimensions and scales them to $displayHeight px, returning
    ready-to-print `width="W" height="H"` attributes (with a trailing space) so the browser
@@ -378,28 +392,38 @@ function img_dimensions(string $storedPath): ?array {
    (missing file, or a broken SVG with no width/height/viewBox) — callers keep their CSS
    sizing and simply don't get the hint. */
 function img_dim_attrs(string $storedPath, int $displayHeight): string {
-    if ($displayHeight <= 0) return '';
-    $dim = img_dimensions($storedPath);
-    if (!$dim) return '';
-    [$iw, $ih] = $dim;
-    // Never scale a logo up past its intrinsic size — mirrors the max-height CSS.
-    $h = min($displayHeight, (int) round($ih));
-    $w = (int) round($h * $iw / $ih);
-    if ($w <= 0) return '';
-    return 'width="' . $w . '" height="' . max($h, 1) . '" ';
+    $d = img_capped_dims($storedPath, $displayHeight);
+    if (!$d) return '';
+    return 'width="' . $d[0] . '" height="' . $d[1] . '" ';
 }
 
 /* Companion to img_dim_attrs() for the specific "max-height:Npx;height:auto;width:auto"
-   logo pattern (header/footer logos) — that pattern leaves BOTH width and height as
+   logo pattern (header/footer logos) — that pattern left BOTH width and height as
    `auto`, relying on the browser deriving the aspect ratio from the width/height HTML
    attributes before the image loads. In practice this derivation isn't reliably
    immediate for a replaced element sized by two `auto` axes plus a max-height clamp — a
    real, measured layout shift (confirmed via a live PerformanceObserver capture: the logo
    renders narrow, then jumps to its full width once the image decodes, shoving every
-   sibling in the header's top row sideways). An explicit CSS `aspect-ratio` removes the
-   ambiguity outright, independent of image-load timing. Returns "aspect-ratio:W/H;" or ''
-   if the file can't be measured — callers keep their existing max-height/width:auto sizing
-   either way, this only adds the missing hint. */
+   sibling in the header's top row sideways). A CSS `aspect-ratio` hint cut the failure
+   rate on live PSI runs but didn't eliminate it — some residual race remained even with
+   both axes still nominally `auto`.
+   This prints both axes as literal pixel values instead, computed the same way as
+   img_dim_attrs() — nothing is left for the browser to derive from the image at all, at
+   any point in the load. `max-width`/`max-height:100%` plus `object-fit:contain` are a
+   narrow-viewport safety net (a business name crowding the header this tight is the
+   uncommon case, and letterboxing beats distorting the logo). Falls back to the old
+   auto/aspect-ratio CSS if the file can't be measured, so the logo isn't left unstyled. */
+function img_fixed_size_css(string $storedPath, int $displayHeight): string {
+    $d = img_capped_dims($storedPath, $displayHeight);
+    if (!$d) {
+        return 'max-height:' . max($displayHeight, 0) . 'px;height:auto;width:auto;max-width:100%;' . img_aspect_ratio_css($storedPath);
+    }
+    return 'width:' . $d[0] . 'px;height:' . $d[1] . 'px;max-width:100%;max-height:100%;object-fit:contain;';
+}
+
+/* Used only as img_fixed_size_css()'s unmeasurable-file fallback now — kept standalone
+   since that fallback still needs the old auto-axis + aspect-ratio CSS. Returns
+   "aspect-ratio:W/H;" or '' if the file can't be measured. */
 function img_aspect_ratio_css(string $storedPath): string {
     $dim = img_dimensions($storedPath);
     if (!$dim) return '';

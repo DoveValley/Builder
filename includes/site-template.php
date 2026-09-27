@@ -554,7 +554,7 @@ if ($firstBlockHero) {
                 <?php elseif ($colType === 'logo'): ?>
                     <?php if (!empty($footer['logo'])): ?>
                         <div class="footer-col-logo-box">
-                            <img class="footer-col-logo" src="<?= h(admin_upload_url_v($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], (int) $logoHeight) ?>style="max-height:<?= (int) $logoHeight ?>px;height:auto;width:auto;max-width:100%;<?= img_aspect_ratio_css($footer['logo']) ?>display:block;">
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url_v($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], (int) $logoHeight) ?>style="<?= img_fixed_size_css($footer['logo'], (int) $logoHeight) ?>display:block;">
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($footer['tagline'])): ?>
