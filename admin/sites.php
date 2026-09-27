@@ -424,8 +424,8 @@ function fmt_date(string $iso): string {
             <div>
                 <h2>Infrastructure</h2>
                 <p>Buy the domains, set up DNS and the servers, take sites live.</p>
+                <a href="infra/index.php" class="btn-open" style="text-decoration:none;display:inline-block;margin-top:10px;">Open Infrastructure &rarr;</a>
             </div>
-            <a href="infra/index.php" class="btn-open" style="text-decoration:none;">Open Infrastructure &rarr;</a>
         </div>
 
         <div class="infra-card">
