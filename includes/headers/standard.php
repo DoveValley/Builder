@@ -25,7 +25,7 @@
         <div class="container header-top-inner">
             <div class="site-logo">
                 <?php if (!empty($header['logo'])): ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h(($__logoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__logoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($header['logo'], (int) $logoHeight) ?>style="max-height:<?= $logoHeight ?>px;height:auto;width:auto;max-width:100%;display:block;"></a>
+                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h(($__logoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__logoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($header['logo'], (int) $logoHeight) ?>style="max-height:<?= $logoHeight ?>px;height:auto;width:auto;max-width:100%;<?= img_aspect_ratio_css($header['logo']) ?>display:block;"></a>
                 <?php else: ?>
                     <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text"><?= h(($__brand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__brand : SITE_TITLE) ?></a>
                 <?php endif; ?>
@@ -114,7 +114,7 @@
                             <?php if ($__navBrandLine3 !== ''): ?><span class="mobile-nav-logo-line"><?= h($__navBrandLine3) ?></span><?php endif; ?>
                         </span>
                     <?php elseif (!empty($header['logo'])): ?>
-                        <img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h($__navBrand) ?>" <?= img_dim_attrs($header['logo'], 36) ?>class="mobile-nav-logo-composite" style="max-height:36px;height:auto;width:auto;max-width:100%;display:block;">
+                        <img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h($__navBrand) ?>" <?= img_dim_attrs($header['logo'], 36) ?>class="mobile-nav-logo-composite" style="max-height:36px;height:auto;width:auto;max-width:100%;<?= img_aspect_ratio_css($header['logo']) ?>display:block;">
                     <?php else: ?>
                         <span class="logo-text" style="color:<?= h($navText) ?>;"><?= h($__navBrand) ?></span>
                     <?php endif; ?>

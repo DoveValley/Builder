@@ -353,6 +353,26 @@ function img_dim_attrs(string $storedPath, int $displayHeight): string {
     return 'width="' . $w . '" height="' . $h . '" ';
 }
 
+/* Companion to img_dim_attrs() for the specific "max-height:Npx;height:auto;width:auto"
+   logo pattern (header/footer logos) — that pattern leaves BOTH width and height as
+   `auto`, relying on the browser deriving the aspect ratio from the width/height HTML
+   attributes before the image loads. In practice this derivation isn't reliably
+   immediate for a replaced element sized by two `auto` axes plus a max-height clamp — a
+   real, measured layout shift (confirmed via a live PerformanceObserver capture: the logo
+   renders narrow, then jumps to its full width once the image decodes, shoving every
+   sibling in the header's top row sideways). An explicit CSS `aspect-ratio` removes the
+   ambiguity outright, independent of image-load timing. Returns "aspect-ratio:W/H;" or
+   '' if the file can't be measured (SVG, missing file) — callers keep their existing
+   max-height/width:auto sizing either way, this only adds the missing hint. */
+function img_aspect_ratio_css(string $storedPath): string {
+    if ($storedPath === '') return '';
+    $fs = upload_fs_path($storedPath);
+    if ($fs === '' || !is_file($fs)) return '';
+    $sz = @getimagesize($fs);
+    if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
+    return 'aspect-ratio:' . (int) $sz[0] . '/' . (int) $sz[1] . ';';
+}
+
 /* Same CLS-prevention purpose as img_dim_attrs(), for content images that scale via
    CSS (width:100%, object-fit, etc.) rather than a fixed display height — the browser
    only needs the real aspect ratio, not a specific pixel size, to reserve the right box
