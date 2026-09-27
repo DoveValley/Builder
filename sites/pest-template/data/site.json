@@ -113,7 +113,7 @@
         {
             "type": "hero_split",
             "hs_heading": "Trusted Local Pest Control in {city_state}",
-            "hs_subtext": "<p>Colorado's Front Range climate brings predictable pest pressures each season, and Littleton homeowners know that early intervention makes the difference. Littleton Pest Pros connects you with a local pest control provider suited to your home's specific situation. Taking action now protects your property and gives you peace of mind without the uncertainty of DIY approaches.</p>",
+            "hs_subtext": "<p>{state}'s Front Range climate brings predictable pest pressures each season, and {city} homeowners know that early intervention makes the difference. {city} Pest Pros connects you with a local pest control provider suited to your home's specific situation. Taking action now protects your property and gives you peace of mind without the uncertainty of DIY approaches.</p>",
             "hs_btn_text": "{phone}",
             "hs_btn_url": "tel:{tel}",
             "hs_caption1": "",
@@ -142,8 +142,8 @@
             "ai_model": "claude-sonnet-5",
             "skin": "light",
             "heading_level": "h2",
-            "heading_text": "Littleton Pest Control Solutions For Every Season",
-            "text": "<p>Littleton homeowners face a unique mix of pest pressures shaped by Colorado's shifting seasons, from dry summer heat that pushes ants and spiders indoors seeking moisture to cooling autumn temperatures that send rodents and other invaders looking for warm shelter. Neighborhoods like Ken Caryl and Governor's Ranch, with their proximity to open space and foothills terrain, often see more wildlife-adjacent pest activity, while established areas such as Historic Littleton deal with older homes that can offer easy entry points through aging foundations and utility lines. Without consistent attention, small pest issues in Littleton can escalate quickly once the weather turns.</p><p>Littleton Pest Pros approaches every pest control visit with a thorough inspection first, identifying entry points, nesting areas, and conditions that attract pests before any treatment begins. The local providers we connect you with tailor each plan to the specific property and pest pressure at hand, rather than applying a one-size-fits-all solution, and follow up to monitor results and adjust as needed. While our focus stays on comprehensive pest control, we also recognize that homes can face a range of related invaders throughout the year. As Littleton continues to grow, we remain committed to helping local homeowners stay ahead of pest problems season after season.</p>",
+            "heading_text": "{city} Pest Control Solutions For Every Season",
+            "text": "<p>{city} homeowners face a unique mix of pest pressures shaped by {state}'s shifting seasons, from dry summer heat that pushes ants and spiders indoors seeking moisture to cooling autumn temperatures that send rodents and other invaders looking for warm shelter. Neighborhoods like Ken Caryl and Governor's Ranch, with their proximity to open space and foothills terrain, often see more wildlife-adjacent pest activity, while established areas such as Historic {city} deal with older homes that can offer easy entry points through aging foundations and utility lines. Without consistent attention, small pest issues in {city} can escalate quickly once the weather turns.</p><p>{city} Pest Pros approaches every pest control visit with a thorough inspection first, identifying entry points, nesting areas, and conditions that attract pests before any treatment begins. The local providers we connect you with tailor each plan to the specific property and pest pressure at hand, rather than applying a one-size-fits-all solution, and follow up to monitor results and adjust as needed. While our focus stays on comprehensive pest control, we also recognize that homes can face a range of related invaders throughout the year. As {city} continues to grow, we remain committed to helping local homeowners stay ahead of pest problems season after season.</p>",
             "_ai_generated": true,
             "_ai_generated_at": "2026-08-23T15:55:44.020264Z",
             "_ai_model": "claude-sonnet-5",
@@ -154,7 +154,7 @@
         {
             "type": "feature_split",
             "fs_heading": "Full-Service Pest Management for Common {city} Pests",
-            "fs_subtext": "Colorado's high altitude and seasonal shifts bring year-round pest pressure to Littleton homes and businesses—from spring invasions to winter infiltrations. Connect with local pest control providers who understand the region's unique pest cycles and can help protect your property.",
+            "fs_subtext": "{state}'s high altitude and seasonal shifts bring year-round pest pressure to {city} homes and businesses—from spring invasions to winter infiltrations. Connect with local pest control providers who understand the region's unique pest cycles and can help protect your property.",
             "fs_photo_alt": "Pest control technician in {city} {SS}",
             "fs_star_text": "",
             "fs_bg_color": "#f3f6f7",
@@ -214,7 +214,7 @@
         {
             "type": "split_cta",
             "sc_left_heading": "Serving the Greater {city_state} Area",
-            "sc_left_text": "Littleton homeowners dealing with pest problems connect with responsive local pest control providers through Littleton Pest Pros. We match you quickly with independent professionals who communicate clearly, explain pricing upfront, and deliver quality service when you need it most.",
+            "sc_left_text": "{city} homeowners dealing with pest problems connect with responsive local pest control providers through {city} Pest Pros. We match you quickly with independent professionals who communicate clearly, explain pricing upfront, and deliver quality service when you need it most.",
             "sc_right_label": "Call The {business} Team",
             "sc_right_phone": "{phone}",
             "sc_right_phone_url": "tel:{tel}",
@@ -276,7 +276,7 @@
             "type": "hero_grid",
             "hg_label": "{business}",
             "hg_heading": "The Pests We Deal With Most in {city_state}",
-            "hg_body": "<p>Littleton Pest Control starts with understanding your specific situation. We connect you quickly with responsive, local pest control providers who assess your property thoroughly and recommend solutions tailored to your needs—whether you're dealing with an active problem or seeking preventive care. Fast response and local expertise make all the difference.</p>",
+            "hg_body": "<p>{city} Pest Control starts with understanding your specific situation. We connect you quickly with responsive, local pest control providers who assess your property thoroughly and recommend solutions tailored to your needs—whether you're dealing with an active problem or seeking preventive care. Fast response and local expertise make all the difference.</p>",
             "hg_btn_text": "Call Us",
             "hg_btn_url": "tel:{tel}",
             "hg_photo_alt": "Top-notch pest control in {city} {SS}",
@@ -425,7 +425,7 @@
             "ai_render_as": "steps",
             "ai_model": "claude-sonnet-5",
             "skin": "light",
-            "steps_heading": "Littleton's Four Seasons of Pest Activity",
+            "steps_heading": "{city}'s Four Seasons of Pest Activity",
             "steps_items": [
                 {
                     "heading": "Spring Ant Emergence",
@@ -437,11 +437,11 @@
                 },
                 {
                     "heading": "Fall Rodent Intrusion",
-                    "text": "<p>Cooling temperatures push mice and other rodents toward homes in search of warmth, particularly in older properties around Historic Littleton. Littleton Pest Pros seals entry points and sets up monitoring to help reduce the chance of an indoor infestation before winter.</p>"
+                    "text": "<p>Cooling temperatures push mice and other rodents toward homes in search of warmth, particularly in older properties around Historic {city}. {city} Pest Pros seals entry points and sets up monitoring to help reduce the chance of an indoor infestation before winter.</p>"
                 },
                 {
                     "heading": "Winter Indoor Pests",
-                    "text": "<p>Colorado's cold winters drive spiders, rodents, and overwintering insects into crawlspaces and basements throughout the region. We provide inspections and interior treatments designed to help keep homes more comfortable and pest activity in check until spring arrives.</p>"
+                    "text": "<p>{state}'s cold winters drive spiders, rodents, and overwintering insects into crawlspaces and basements throughout the region. We provide inspections and interior treatments designed to help keep homes more comfortable and pest activity in check until spring arrives.</p>"
                 }
             ],
             "_ai_generated": true,
@@ -498,15 +498,15 @@
                     "answer": "<p>Most infestations require two to four visits spaced one to two weeks apart. The first visit addresses the active problem, and follow-up appointments target newly hatched insects and any remaining populations. Some cases resolve in a single treatment, while severe infestations may need additional visits. We'll outline a customized schedule during your initial inspection based on what we find.</p>"
                 },
                 {
-                    "question": "When is pest season in Littleton and the Denver area?",
-                    "answer": "<p>In Colorado, spring through fall are peak months, with late spring and summer seeing the highest activity. Many pests become most visible in June and July. However, problems like rodents often intensify in fall as creatures seek warmth indoors before winter. Year-round monitoring is wise since some infestations thrive even during cooler months if they've entered your home.</p>"
+                    "question": "When is pest season in {city} and the Denver area?",
+                    "answer": "<p>In {state}, spring through fall are peak months, with late spring and summer seeing the highest activity. Many pests become most visible in June and July. However, problems like rodents often intensify in fall as creatures seek warmth indoors before winter. Year-round monitoring is wise since some infestations thrive even during cooler months if they've entered your home.</p>"
                 },
                 {
                     "question": "Is the treatment safe for my kids and pets?",
                     "answer": "<p>We prioritize safety and use methods and products appropriate for homes with children and animals. You'll receive detailed guidance on keeping family members away from treated areas during application and for a short period afterward. Always follow our post-treatment instructions carefully. If anyone in your home has sensitivities or concerns, mention them when you call—we can discuss options that work for your situation.</p>"
                 },
                 {
-                    "question": "What signs indicate my Littleton home needs pest treatment?",
+                    "question": "What signs indicate my {city} home needs pest treatment?",
                     "answer": "<p>Watch for droppings, shed skins, odd odors, or visible insects and rodents. Damaged wood, chewed wires, or unexplained holes in walls are red flags. You might hear scratching in walls or attics, especially at night. Bite marks on skin or damage to stored food are also telling. If you notice any of these, contact us promptly—early intervention prevents infestations from spreading.</p>"
                 },
                 {
@@ -542,8 +542,8 @@
             "ai_model": "claude-sonnet-5",
             "skin": "light",
             "heading_level": "h2",
-            "heading_text": "Local Pest Control Serving Littleton and Nearby Areas",
-            "text": "<p>Littleton's mix of housing styles calls for a flexible approach to pest control. In Historic Littleton, mature trees and older construction create shaded, moisture-prone spots along foundations and rooflines where ants, spiders, and rodents often seek entry as temperatures cool. Newer subdivisions near Ken Caryl tend to have tighter building envelopes, but landscaping still close to the home and irrigation systems can draw in insects during the warmer months, especially with Colorado's dry summers pushing pests toward any available water source.</p><p>Seasonal swings along the Front Range, from freezing winters to hot, dry stretches, shape when and how infestations develop. Properties near open space or foothill-adjacent areas like those around Southbridge may see more seasonal wildlife and insect activity as pests move toward shelter. Understanding these property-level differences allows us to tailor inspections and treatments to each home's construction, landscaping, and surroundings, rather than applying a one-size-fits-all plan across the area.</p>",
+            "heading_text": "Local Pest Control Serving {city} and Nearby Areas",
+            "text": "<p>{city}'s mix of housing styles calls for a flexible approach to pest control. In Historic {city}, mature trees and older construction create shaded, moisture-prone spots along foundations and rooflines where ants, spiders, and rodents often seek entry as temperatures cool. Newer subdivisions near Ken Caryl tend to have tighter building envelopes, but landscaping still close to the home and irrigation systems can draw in insects during the warmer months, especially with {state}'s dry summers pushing pests toward any available water source.</p><p>Seasonal swings along the Front Range, from freezing winters to hot, dry stretches, shape when and how infestations develop. Properties near open space or foothill-adjacent areas like those around Southbridge may see more seasonal wildlife and insect activity as pests move toward shelter. Understanding these property-level differences allows us to tailor inspections and treatments to each home's construction, landscaping, and surroundings, rather than applying a one-size-fits-all plan across the area.</p>",
             "_ai_generated": true,
             "_ai_generated_at": "2026-07-18T23:56:46.603610Z",
             "_ai_model": "claude-sonnet-5",
