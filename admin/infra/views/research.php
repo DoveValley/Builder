@@ -49,9 +49,23 @@ $draft = infra_research_load_draft($niche) ?? [];
       "give me N cities" field — the final count falls out of these, so hitting a target size (e.g. 400)
       usually takes a run, a look at the result count, then a second run with the thresholds loosened or
       tightened.</li>
-    <li>Click <strong>Run</strong> — spends real money (a keyword-volume lookup plus one real Google SERP
-      check per city per keyword pattern). It works in ~<?= INFRA_RESEARCH_TIME_BUDGET ?>-second chunks;
-      click <strong>Continue</strong> until it shows "done" — safe to leave and come back between clicks.</li>
+    <li><strong>Click Run.</strong> This step alone is free and fast — it only filters your uploaded
+      eLocal rows against the thresholds above and matches them to known cities. No API is called yet,
+      which is why it finishes almost instantly and just shows how many cities survived. Everything
+      after this point is a separate click, and each one works in ~<?= INFRA_RESEARCH_TIME_BUDGET ?>-second
+      chunks — safe to leave the page and come back, it picks up where it left off:
+      <ol type="a" style="margin:4px 0 0;padding-left:20px">
+        <li><strong>Continue → volume.</strong> Real money spent here: a keyword search-volume lookup
+          (Ahrefs) for every surviving city. Click Continue repeatedly until it says volume is done —
+          it'll also report how many cities got dropped for falling under the minimum monthly volume.</li>
+        <li><strong>Continue → SERP.</strong> Real money spent here too: one actual Google search
+          (DataForSEO, ~$0.002 each) per city per keyword pattern, to see who's actually ranking. Also
+          needs repeated Continue clicks — more cities/patterns means more clicks.</li>
+        <li><strong>Automatic once SERP finishes.</strong> No more clicks needed for this part — it
+          scores every city, assigns a grade (A–F), picks a diversified final list (mile-separation +
+          state-cap), and writes the xlsx. The phase badge changes to "done" and a download link appears.</li>
+      </ol>
+    </li>
     <li>Download the xlsx and check the count. Off-target? Start a new run with adjusted thresholds — past
       runs stay in the history below, nothing is lost by iterating.</li>
   </ol>
@@ -81,7 +95,7 @@ $draft = infra_research_load_draft($niche) ?? [];
         <a class="btn sec" href="../playground.php#downloads-scott">Open in Test Lab</a>
       </p>
     <?php else: ?>
-      <form method="post" action="actions/research_save.php">
+      <form method="post" action="actions/research_save.php" data-show-working="Working — fetching data, up to <?= INFRA_RESEARCH_TIME_BUDGET ?>s…">
         <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
         <input type="hidden" name="action" value="run">
         <input type="hidden" name="run_id" value="<?= ih($active['id']) ?>">
@@ -102,7 +116,7 @@ $draft = infra_research_load_draft($niche) ?? [];
   </div></div>
 <?php else: ?>
 
-  <form method="post" action="actions/research_save.php" enctype="multipart/form-data">
+  <form method="post" action="actions/research_save.php" enctype="multipart/form-data" data-show-working="Working…">
     <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
     <input type="hidden" name="niche" value="<?= ih($niche) ?>">
     <div class="ic-card"><div class="body" style="display:flex;flex-direction:column;gap:14px">
@@ -182,5 +196,27 @@ $draft = infra_research_load_draft($niche) ?? [];
     </tbody></table>
   </div></div>
 <?php endif; ?>
+
+<script>
+// Every step here is a real page submit (POST + redirect), not AJAX, so there's a
+// real wait with no visual change unless something says so - this is that something.
+// Deliberately does NOT disable the button synchronously in the submit handler: some
+// browsers drop a disabled control's name/value from the request it's still in the
+// middle of building, which would silently break the action="save_draft" vs "start"
+// routing on the form with two submit buttons. setTimeout(...,0) defers the disable
+// to after the browser has already read the clicked button's value.
+document.querySelectorAll('form[data-show-working]').forEach(function (f) {
+  f.addEventListener('submit', function (e) {
+    var btn = e.submitter || f.querySelector('button[type=submit]');
+    if (!btn || btn.disabled) return;
+    var msg = f.getAttribute('data-show-working') || 'Working…';
+    setTimeout(function () {
+      btn.textContent = msg;
+      btn.disabled = true;
+      btn.style.opacity = '0.65';
+    }, 0);
+  });
+});
+</script>
 
 <?php infra_footer(); exit;
