@@ -84,8 +84,8 @@ const INFRA_RESEARCH_ELOCAL_ALIASES = [
     'city'       => ['city'],
     'state'      => ['state', 'st', 'ss'],
     'buyers'     => ['buyers', 'smb_buyers', 'smb buyers', 'buyer_count', 'local_buyers'],
-    'price_avg'  => ['1p_avg', '1p avg $', 'avg_price', 'avg_call_price', 'price_avg', 'first_party_avg'],
-    'price_max'  => ['1p_max', '1p max $', 'max_price', 'max_call_price', 'price_max', 'first_party_max'],
+    'price_avg'  => ['1p_avg', '1p avg $', 'avg_price', 'avg_call_price', 'price_avg', 'first_party_avg', '1st party avg call price'],
+    'price_max'  => ['1p_max', '1p max $', 'max_price', 'max_call_price', 'price_max', 'first_party_max', '1st party max call price'],
 ];
 
 // price_max is documented (views/research.php) as "optionally max price" and isn't
