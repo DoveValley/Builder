@@ -78,10 +78,12 @@ function city_map_svg(array $city, array $theme = []): string
     $ss   = trim((string) ($city['SS'] ?? ''));
     if ($name === '') return '';
 
-    // More than 8 labels on the ring stops being readable at the size these render on a page.
-    // The list is cheaper, so it holds more before it has to say how many it left out.
+    // Numbered badges (not text chips) can't crowd the ring the way names did, so this cap is
+    // really just an image-height ceiling now, not a legibility limit. 12 rarely binds anyway —
+    // the research prompt itself (plugins/image-area-map/research.json) asks for 4-8 towns per
+    // city, so most cities never approach it; it's headroom for if that ask is ever widened.
     $allTowns = city_map_towns($city);
-    $towns    = array_slice($allTowns, 0, 8);
+    $towns    = array_slice($allTowns, 0, 12);
     $dropped  = count($allTowns) - count($towns);
 
     $bg     = $theme['bg']     ?? '#f4f7fa';
@@ -89,22 +91,20 @@ function city_map_svg(array $city, array $theme = []): string
     $accent = $theme['accent'] ?? '#1f78d1';
     $muted  = $theme['muted']  ?? '#6b7f95';
 
-    // With a town list beside it the diagram moves left and tightens up; on its own it takes
-    // the full width and stays centred.
-    // Height follows whichever column is taller. The ring is a squashed ellipse and uses less
-    // vertical room than its radius suggests, so a fixed height left a wide band of dead space
-    // above and below it.
+    // The town list now sits BELOW the ring, not beside it, so the ring always gets the full
+    // width and stays centred — no more squeezing left to share room with a side column.
     $W = 900;
     $hasList = (bool) $towns;
-    $listX   = 596;
     $rowH    = 31;
-    $R  = $hasList ? 200 : 250;                  // outer extent of the ring
-    $cx = $hasList ? 306 : $W / 2;
+    $R  = 250;                                   // outer extent of the ring
+    $cx = $W / 2;
     $cy = 60 + $R * 0.78 + 20;
     $diagramBottom = $cy + $R * 0.78 + 20;
-    $listBottom    = $hasList ? 56 + count($towns) * $rowH + ($dropped > 0 ? 26 : 0) : 0;
-    $H  = (int) round(max($diagramBottom, $listBottom) + 46);
-    $chipMaxX = $hasList ? $listX - 20 : $W - 14;
+    $listX   = 60;
+    $listW   = $W - $listX * 2;
+    $listTop = $diagramBottom + 40;
+    $listBottom = $hasList ? $listTop + 22 + count($towns) * $rowH + ($dropped > 0 ? 26 : 0) : $diagramBottom;
+    $H = (int) round($listBottom + 46);
     $seed = strtolower($name . '|' . $ss);
 
     $esc = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES | ENT_XML1, 'UTF-8');
@@ -133,8 +133,7 @@ function city_map_svg(array $city, array $theme = []): string
              . '" stroke-opacity="' . $op . '" stroke-width="1.4" stroke-dasharray="4 8"/>';
     }
 
-    // Nodes are COLLECTED before anything is drawn, because the labels have to be laid out
-    // against each other.
+    // Nodes are COLLECTED before anything is drawn, matching the pass below.
     $nodes = [];
 
     // The ring carries the SURROUNDING TOWNS. It used to carry neighbourhoods, and those were
@@ -153,100 +152,22 @@ function city_map_svg(array $city, array $theme = []): string
         $rad = ($maxMi > 0 && $t['miles'] !== null)
             ? $R * (0.52 + ($t['miles'] / $maxMi) * 0.42)
             : $R * 0.76;
-        // No mileage on the chip — the column beside the diagram carries it, and printing it
-        // twice only crowds the picture.
-        $nodes[] = ['x' => $cx + cos($ang) * $rad, 'y' => $cy + sin($ang) * $rad * 0.78,
-                    'label' => $t['name'], 'sub' => '', 'strong' => true];
+        // The dot itself carries a number now instead of a floating name chip — the name and
+        // its distance live in the list below, keyed to this same number. A fixed-size numeral
+        // can't run long the way a business or town name can, so there's nothing left here to
+        // collide, clip, or crowd — no chip geometry, no collision pass needed at all.
+        $nodes[] = ['x' => $cx + cos($ang) * $rad, 'y' => $cy + sin($ang) * $rad * 0.78, 'num' => $i + 1];
     }
-
-    // Chip geometry. SVG gives no text metrics, so widths are estimated from character count;
-    // over-estimating is safe, a chip too narrow clips the name.
-    $chH = 30;
-    foreach ($nodes as &$nd) {
-        $subW = $nd['sub'] !== '' ? 8.6 * mb_strlen($nd['sub']) + 16 : 0;
-        $nd['w'] = 11.2 * mb_strlen($nd['label']) + 30 + $subW;
-        $nd['right'] = $nd['x'] >= $cx;               // labels flip side past the centre line
-        $nd['cy'] = $nd['y'];                         // chip centre, moved by the pass below
-        // A long name on a far dot would otherwise run off the canvas and be clipped by the
-        // rasteriser. Clamp the chip into frame; the dot keeps its position.
-        $nd['chX'] = $nd['right'] ? $nd['x'] + 15 : $nd['x'] - 15 - $nd['w'];
-        $nd['chX'] = max(14, min($nd['chX'], $chipMaxX - $nd['w']));
-    }
-    unset($nd);
-
-    // Collision pass. Chips on the same side that overlap vertically get pushed apart; the
-    // DOT never moves, only its label, so a nudge costs nothing.
-    for ($pass = 0; $pass < 24; $pass++) {
-        $moved = false;
-        foreach ([true, false] as $side) {
-            $idx = [];
-            foreach ($nodes as $i => $nd) if ($nd['right'] === $side) $idx[] = $i;
-            usort($idx, fn($a, $b) => $nodes[$a]['cy'] <=> $nodes[$b]['cy']);
-            for ($k = 1; $k < count($idx); $k++) {
-                $a = $nodes[$idx[$k - 1]];
-                $b = $nodes[$idx[$k]];
-                // Only chips that overlap horizontally can collide. The margin covers the dot
-                // and leader that sit just outside a chip — without it, two merely ADJACENT
-                // chips pass this test and the second one's dot lands on the first one's text.
-                $pad = 16;
-                if ($a['chX'] + $a['w'] + $pad < $b['chX'] || $b['chX'] + $b['w'] + $pad < $a['chX']) continue;
-                $gap = $b['cy'] - $a['cy'];
-                $need = $chH + 5;
-                if ($gap >= $need) continue;
-                $push = ($need - $gap) / 2;
-                $nodes[$idx[$k - 1]]['cy'] -= $push;
-                $nodes[$idx[$k]]['cy']     += $push;
-                $moved = true;
-            }
-        }
-        // The city's own name is an obstacle too — with only a few areas the ring is sparse and
-        // a chip can land right on top of it. Push clear of it, away from the centre.
-        $lblW = 12.0 * mb_strlen($ss !== '' ? "$name, $ss" : $name) + 24;
-        $lblL = $cx - $lblW / 2; $lblR = $cx + $lblW / 2;
-        $lblT = $cy + 36;        $lblB = $cy + 74;
-        foreach ($nodes as $i => $nd) {
-            if ($nd['chX'] + $nd['w'] < $lblL || $nd['chX'] > $lblR) continue;
-            if ($nd['cy'] + 15 < $lblT || $nd['cy'] - 15 > $lblB) continue;
-            $nodes[$i]['cy'] += ($nd['cy'] < ($lblT + $lblB) / 2) ? -($nd['cy'] + 15 - $lblT) - 2
-                                                                 : ($lblB - $nd['cy'] + 15) + 2;
-            $moved = true;
-        }
-        if (!$moved) break;
-    }
-    // Keep every chip on the canvas, below the caption and above the footer.
-    foreach ($nodes as &$nd) $nd['cy'] = max(58, min($H - 54, $nd['cy']));
-    unset($nd);
 
     foreach ($nodes as $nd) {
-        $x = $nd['x']; $y = $nd['y']; $strong = $nd['strong'];
+        $x = $nd['x']; $y = $nd['y']; $num = $nd['num'];
         $o[] = '<line x1="' . round($cx, 1) . '" y1="' . round($cy, 1) . '" x2="' . round($x, 1)
-             . '" y2="' . round($y, 1) . '" stroke="' . $esc($accent) . '" stroke-opacity="'
-             . ($strong ? '.30' : '.22') . '" stroke-width="' . ($strong ? '1.6' : '1.3')
-             . '"' . ($strong ? '' : ' stroke-dasharray="5 5"') . '/>';
-        $o[] = '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="9" fill="' . $esc($accent) . '" fill-opacity=".18"/>';
-        $o[] = '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="' . ($strong ? '5.5' : '5')
-             . '" fill="' . ($strong ? 'url(#dotg)' : $esc($accent)) . '"/>';
-
-        $chX = $nd['chX'];
-        $chY = $nd['cy'];
-        // When the pass has moved a chip clear of its dot, a short leader keeps the two
-        // visibly tied together.
-        if (abs($chY - $y) > 3) {
-            $tie = $nd['right'] ? $chX : $chX + $nd['w'];
-            $o[] = '<line x1="' . round($x, 1) . '" y1="' . round($y, 1) . '" x2="' . round($tie, 1)
-                 . '" y2="' . round($chY, 1) . '" stroke="' . $esc($muted) . '" stroke-opacity=".38" stroke-width="1"/>';
-        }
-        $o[] = '<rect x="' . round($chX, 1) . '" y="' . round($chY - $chH / 2, 1) . '" width="' . round($nd['w'], 1)
-             . '" height="' . $chH . '" rx="15" fill="#ffffff" fill-opacity=".92" stroke="' . $esc($accent)
-             . '" stroke-opacity="' . ($strong ? '.22' : '.30') . '" stroke-width="1"/>';
-        $o[] = '<text x="' . round($chX + 15, 1) . '" y="' . round($chY + 5.5, 1) . '"'
-             . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" font-weight="600" fill="'
-             . $esc($ink) . '">' . $esc($nd['label']) . '</text>';
-        if ($nd['sub'] !== '') {
-            $o[] = '<text x="' . round($chX + $nd['w'] - 13, 1) . '" y="' . round($chY + 5, 1) . '" text-anchor="end"'
-                 . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="14" font-weight="600" fill="'
-                 . $esc($muted) . '">' . $esc($nd['sub']) . '</text>';
-        }
+             . '" y2="' . round($y, 1) . '" stroke="' . $esc($accent) . '" stroke-opacity=".30" stroke-width="1.6"/>';
+        $o[] = '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="16" fill="' . $esc($accent) . '" fill-opacity=".18"/>';
+        $o[] = '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="12" fill="url(#dotg)" stroke="#ffffff" stroke-width="2"/>';
+        $o[] = '<text x="' . round($x, 1) . '" y="' . round($y + 4.5, 1) . '" text-anchor="middle"'
+             . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#ffffff">'
+             . $num . '</text>';
     }
 
     // The city itself, last so it sits above the spokes.
@@ -266,15 +187,15 @@ function city_map_svg(array $city, array $theme = []): string
              . $esc(strtoupper($name)) . '</text>';
     }
 
-    // ── The town list, set beside the diagram.
-    //
-    // A column rather than more chips: the mileages line up so they can be compared at a
-    // glance, and a list makes no claim about where any town lies — which is right, because we
-    // do not know.
+    // ── The town list, set BELOW the diagram (not beside it) — full width, numbered to match
+    // the badges on the ring above. A name of any length fits here with room to spare, which is
+    // the whole reason it moved: a floating chip on the ring had nowhere near this much width to
+    // work with, and long names were clipping or colliding against each other and the old side
+    // column. The mileages still line up in their own column so they can be compared at a
+    // glance, and the list still makes no claim about where any town lies — which is right,
+    // because we do not know.
     if ($hasList) {
-        $listW = $W - 24 - $listX;
-        // Top-aligned with the ring's caption, so the two tiers read as two columns.
-        $ly = 34;
+        $ly = $listTop;
 
         $o[] = '<text x="' . $listX . '" y="' . $ly . '" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
              . ' font-size="15" font-weight="700" letter-spacing="0.6" fill="' . $esc($ink)
@@ -287,8 +208,13 @@ function city_map_svg(array $city, array $theme = []): string
                 $o[] = '<line x1="' . $listX . '" y1="' . round($ly - $rowH + 9, 1) . '" x2="' . ($listX + $listW)
                      . '" y2="' . round($ly - $rowH + 9, 1) . '" stroke="' . $esc($muted) . '" stroke-opacity=".16" stroke-width="1"/>';
             }
-            $o[] = '<circle cx="' . ($listX + 5) . '" cy="' . round($ly - 5, 1) . '" r="4" fill="' . $esc($accent) . '" fill-opacity=".55"/>';
-            $o[] = '<text x="' . ($listX + 18) . '" y="' . round($ly, 1) . '"'
+            // Same badge as the ring — same shape, same fill, same number — so the two read as
+            // one legend rather than two different visual languages.
+            $o[] = '<circle cx="' . ($listX + 12) . '" cy="' . round($ly - 6, 1) . '" r="12" fill="url(#dotg)"/>';
+            $o[] = '<text x="' . ($listX + 12) . '" y="' . round($ly - 1.5, 1) . '" text-anchor="middle"'
+                 . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12" font-weight="700" fill="#ffffff">'
+                 . ($i + 1) . '</text>';
+            $o[] = '<text x="' . ($listX + 32) . '" y="' . round($ly, 1) . '"'
                  . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="17" font-weight="600" fill="'
                  . $esc($ink) . '">' . $esc($t['name']) . '</text>';
             if ($t['miles'] !== null) {
@@ -300,7 +226,7 @@ function city_map_svg(array $city, array $theme = []): string
 
         // Never truncate silently — a shortened list would read as "this is everywhere we go".
         if ($dropped > 0) {
-            $o[] = '<text x="' . ($listX + 18) . '" y="' . round($ly + 26, 1) . '"'
+            $o[] = '<text x="' . ($listX + 32) . '" y="' . round($ly + 26, 1) . '"'
                  . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15" font-style="italic" fill="'
                  . $esc($muted) . '">and ' . $dropped . ' more</text>';
         }
