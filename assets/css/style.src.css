@@ -4980,6 +4980,17 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     .block-hero, .block-hero-split, .block-wide-banner, .hg-left {
         object-position: var(--opm, var(--op));
         background-position: var(--opm, var(--op));
+    }
+    /* Split from the position rule above: a below-the-fold background block carrying
+       data-bg-lazy (wide_banner, a non-lead hero_grid — see includes/blocks.php) has its
+       background-image deferred to a small IntersectionObserver in site-template.php, so
+       it doesn't compete with genuinely critical early resources (the render-blocking
+       stylesheet, the real hero photo, fonts) for bandwidth. This rule reapplying
+       background-image unconditionally on mobile — the ONLY viewport PageSpeed actually
+       tests — would silently defeat that deferral the instant this media query matched,
+       which is exactly why this needed its own rule instead of folding into the one above. */
+    .block-hero, .block-hero-split,
+    .block-wide-banner:not([data-bg-lazy]), .hg-left:not([data-bg-lazy]) {
         background-image: var(--bgm, var(--bg));
     }
 }

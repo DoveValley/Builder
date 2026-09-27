@@ -674,6 +674,27 @@ if ($firstBlockHero) {
     // overflow-x:hidden (see the comment on that rule) — negligible today,
     // and not worth carrying this much JS to work around.
 
+    // Deferred backgrounds (wide_banner, a non-lead hero_grid — see includes/blocks.php's
+    // data-bg-lazy comment). --bg/--bgm are already DECLARED on these elements as custom
+    // properties, which fetches nothing by itself; setting background-image here is what
+    // actually triggers the download, at the moment we choose rather than at first paint.
+    // var(--bgm, var(--bg)) mirrors style.src.css's own mobile fallback chain.
+    var lazyBgEls = document.querySelectorAll('[data-bg-lazy]');
+    if (lazyBgEls.length) {
+        if ('IntersectionObserver' in window) {
+            var bgObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.style.backgroundImage = 'var(--bgm, var(--bg))';
+                    bgObserver.unobserve(entry.target);
+                });
+            }, { rootMargin: '200px' });
+            lazyBgEls.forEach(function(el) { bgObserver.observe(el); });
+        } else {
+            lazyBgEls.forEach(function(el) { el.style.backgroundImage = 'var(--bgm, var(--bg))'; });
+        }
+    }
+
     // Scroll to top button
     var scrollBtn = document.getElementById('scrollToTop');
     if (scrollBtn) {

@@ -1243,8 +1243,14 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 $photoSrc = photo_src($photo, $pathPrefix);
             }
 
+            // wide_banner is never this page's lead block (site-template.php's
+            // $firstBlockHero list is hero/hero_split/hero_grid/hero_video only), so its
+            // background photo is always safe to defer — see the data-bg-lazy comment
+            // on hero_grid below for why this matters and how the deferral works.
+            $wbBgLazyAttr = '';
             if ($photoSrc) {
-                $bgStyle = bg_style_vars($photo, $pathPrefix).'background-image:var(--bg);background-size:cover;background-position:var(--op);';
+                $bgStyle = bg_style_vars($photo, $pathPrefix).'background-size:cover;background-position:var(--op);';
+                $wbBgLazyAttr = ' data-bg-lazy="1"';
                 $overlayStyle = 'background:rgba(0,0,0,'.h($overlayOpacity).');';
             } elseif ($bgColor) {
                 $bgStyle = 'background:'.h($bgColor).';';
@@ -1255,7 +1261,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             }
 
             $wbCentered = ($block['wb_centered'] ?? false) || !$btnText;
-            echo '<div class="content-block block-wide-banner"'.$anchorAttr.' style="'.$bgStyle.'">';
+            echo '<div class="content-block block-wide-banner"'.$anchorAttr.$wbBgLazyAttr.' style="'.$bgStyle.'">';
             echo '<div class="wb-overlay"'.($overlayStyle ? ' style="'.$overlayStyle.'"' : '').'>';
 
             if ($wbCentered) {
@@ -1368,8 +1374,29 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
 
             echo '<div class="content-block block-hero-grid"'.$anchorAttr.'>';
 
+            // Real, measured cause of a residual CLS hunted all day on baileyrestoration.com:
+            // a below-the-fold background-image block was loading at the SAME "High"
+            // network priority as the render-blocking stylesheet and the actual hero photo,
+            // competing with them for bandwidth right when it matters most — CSS
+            // background-images have no native loading="lazy". hero_grid CAN legitimately be
+            // this page's lead block (site-template.php's $firstBlockHero list includes it),
+            // so only defer when it genuinely isn't — $firstBlockHero/$firstBlockType are
+            // site-template.php script-level variables, reachable here via $GLOBALS without
+            // changing this function's signature or any of its many call sites.
+            $hgIsLead = !empty($GLOBALS['firstBlockHero']) && ($GLOBALS['firstBlockType'] ?? '') === 'hero_grid';
+            $hgLazyAttr = '';
+            if ($photoSrc) {
+                $hgBgStyle = bg_style_vars($photo, $pathPrefix) . 'background-size:cover;background-position:var(--op);';
+                if ($hgIsLead) {
+                    $hgBgStyle .= 'background-image:var(--bg);';
+                } else {
+                    $hgLazyAttr = ' data-bg-lazy="1"';
+                }
+            } else {
+                $hgBgStyle = 'background:var(--color-media-fallback);';
+            }
             // LEFT: image with overlay + text
-            echo '<div class="hg-left" style="'.($photoSrc ? bg_style_vars($photo, $pathPrefix).'background-image:var(--bg);background-size:cover;background-position:var(--op);' : 'background:var(--color-media-fallback);').'">';
+            echo '<div class="hg-left"'.$hgLazyAttr.' style="'.$hgBgStyle.'">';
             echo '<div class="hg-overlay">';
             if ($label)   echo '<div class="hg-label">'.h($label).'</div>';
             if ($heading) echo '<h2 class="hg-heading">'.h($heading).'</h2>';
