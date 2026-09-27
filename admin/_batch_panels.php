@@ -2152,13 +2152,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 
         const now = Date.now();
         box.innerHTML = '<table style="width:100%;font-size:.84rem;"><thead><tr>' +
-            '<th style="width:26px;"></th><th>Domain</th><th style="width:160px;">Owned since</th><th style="width:90px;">Age</th>' +
+            '<th style="width:26px;"></th><th>Domain</th><th style="width:110px;">Registrar</th>' +
+            '<th style="width:150px;">Owned since</th><th style="width:90px;">Age</th>' +
             '</tr></thead><tbody>' +
             d.domains.map(function (row) {
                 const boughtAt = new Date(row.owned_at.replace(' ', 'T') + 'Z');
                 const days = Math.max(0, Math.floor((now - boughtAt.getTime()) / 86400000));
                 return '<tr><td><input type="checkbox" class="ms-addn-cb" data-domain="' + row.domain +
                     '" checked onchange="msAddnUpdateCount()"></td><td>' + row.domain + '</td><td>' +
+                    (row.registrar || '—') + '</td><td>' +
                     row.owned_at + '</td><td>' + days + ' day' + (days === 1 ? '' : 's') + '</td></tr>';
             }).join('') + '</tbody></table>';
         msAddnUpdateCount();

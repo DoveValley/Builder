@@ -1151,7 +1151,7 @@ switch ($action) {
         if ($fleetNiche === '') { echo json_encode(['error' => "No D.Buy niche mapping for master '{$masterId}'."]); break; }
         $count = max(1, min(500, (int) ($_GET['count'] ?? 0)));
         $st = infra_state_db()->prepare(
-            "SELECT domain, owned_at FROM domains
+            "SELECT domain, owned_at, registrar FROM domains
              WHERE niche = ? AND owned = 'yes' AND (batch IS NULL OR batch = '')
                AND owned_at IS NOT NULL AND owned_at != ''
              ORDER BY owned_at ASC LIMIT ?"
