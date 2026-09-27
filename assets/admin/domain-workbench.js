@@ -608,7 +608,7 @@ function DomainWorkbench() {
     if (!live.length) return setErr("Turn on at least one domain pattern before searching.");
     setBusy(true);
     try {
-      const block = blockedNames.slice(-400).join(", ") || "(none yet)";
+      const block = blockedNames.join(", ") || "(none yet)";
       const data = await askModel(
         `You generate .com domain candidates for local home-service brands. Each candidate joins a personal name directly to one of the supplied keywords: lowercase letters only, no spaces. The "name" field must contain ONLY the personal name \u2014 never the keyword, never a full business name. Follow the user's numbered rules closely \u2014 they are ranked, so when two rules pull against each other the lower number wins. Never reuse a name from the blocked list, and never repeat a name within your own answer. Reply with ONLY a JSON array, no markdown fences and no commentary. Each element looks like {"name":"Carver","keyword":"appliancerepair","domain":"carverappliancerepair.com"}`,
         `${buildBrief(niche, batch, state.rules)}
