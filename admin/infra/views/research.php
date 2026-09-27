@@ -40,12 +40,28 @@ $tpl  = $niches[$niche]['template'] ?? '';
 </div></div>
 
 <div class="ic-note">
-  Produces and stores a ranked city list for <strong><?= ih($niches[$niche]['label']) ?></strong> — a real
-  eLocal buyer-coverage filter, real search volume, a real Google SERP check per city. Nothing here
-  selects a city or touches Batch; the output is an xlsx file in <strong>Downloads (Test Lab)</strong> and the
-  decision what to build stays a separate, later step.
-  <?php if (!$kwOn): ?><br><strong>No keyword provider connected</strong> — add DataForSEO/Ahrefs credentials
-    on the <a href="index.php?view=cities">Cities/Niche</a> tab first (same credentials, reused here).<?php endif; ?>
+  <strong>Getting a list of best cities:</strong>
+  <ol style="margin:6px 0 0;padding-left:20px">
+    <li>Pick a niche tab above.</li>
+    <li>Upload or paste <em>that niche's own</em> eLocal buyer-coverage export below — not a different niche's data.</li>
+    <li>Set the population / buyer / price / volume / separation / state-cap thresholds. There's no direct
+      "give me N cities" field — the final count falls out of these, so hitting a target size (e.g. 400)
+      usually takes a run, a look at the result count, then a second run with the thresholds loosened or
+      tightened.</li>
+    <li>Click <strong>Run</strong> — spends real money (a keyword-volume lookup plus one real Google SERP
+      check per city per keyword pattern). It works in ~<?= INFRA_RESEARCH_TIME_BUDGET ?>-second chunks;
+      click <strong>Continue</strong> until it shows "done" — safe to leave and come back between clicks.</li>
+    <li>Download the xlsx and check the count. Off-target? Start a new run with adjusted thresholds — past
+      runs stay in the history below, nothing is lost by iterating.</li>
+  </ol>
+  <p style="margin:10px 0 0">
+    Produces and stores a ranked city list for <strong><?= ih($niches[$niche]['label']) ?></strong> — a real
+    eLocal buyer-coverage filter, real search volume, a real Google SERP check per city. Nothing here
+    selects a city or touches Batch; the output is an xlsx file in <strong>Downloads (Test Lab)</strong> and the
+    decision what to build stays a separate, later step.
+    <?php if (!$kwOn): ?><br><strong>No keyword provider connected</strong> — add DataForSEO/Ahrefs credentials
+      on the <a href="index.php?view=cities">Cities/Niche</a> tab first (same credentials, reused here).<?php endif; ?>
+  </p>
 </div>
 
 <?php if ($active): $phase = $active['phase']; ?>
