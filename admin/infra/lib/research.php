@@ -96,6 +96,89 @@ const INFRA_RESEARCH_ELOCAL_ALIASES = [
 // was rejected outright instead of importing with it defaulted.
 const INFRA_RESEARCH_ELOCAL_REQUIRED = ['city', 'state', 'buyers', 'price_avg'];
 
+/** Plain text (CSV/TSV) -> rows of cell strings, delimiter sniffed from the first line. */
+function infra_research_text_to_rows(string $raw): array
+{
+    $lines = array_values(array_filter(preg_split('/\r\n|\r|\n/', trim($raw)), fn($l) => trim($l) !== ''));
+    if (!$lines) return [];
+    $delim = substr_count($lines[0], "\t") > substr_count($lines[0], ',') ? "\t" : ',';
+    return array_map(fn($l) => str_getcsv($l, $delim), $lines);
+}
+
+/**
+ * Reads simple values out of a real .xlsx file's first sheet - just enough to feed
+ * the same eLocal import path as a CSV: shared strings resolved, cells reassembled
+ * in column order (a row that skips an empty cell in the XML still needs an empty
+ * slot here, or every later column silently shifts left). No formulas, no styles,
+ * no multi-sheet awareness beyond "first sheet" - eLocal exports are simple
+ * single-sheet data dumps, not workbooks.
+ *
+ * @return array<array<string>>|null rows of cell strings, or null if this isn't
+ *   parseable as an xlsx at all (corrupt zip, no worksheet found).
+ */
+function infra_research_read_xlsx_rows(string $path): ?array
+{
+    $zip = new ZipArchive();
+    if ($zip->open($path) !== true) return null;
+
+    $shared = [];
+    $sharedXml = $zip->getFromName('xl/sharedStrings.xml');
+    if ($sharedXml !== false) {
+        $sx = @simplexml_load_string($sharedXml);
+        if ($sx !== false) {
+            foreach ($sx->si as $si) {
+                $parts = isset($si->t) ? [(string) $si->t] : [];
+                foreach ($si->r as $run) if (isset($run->t)) $parts[] = (string) $run->t;
+                $shared[] = implode('', $parts);
+            }
+        }
+    }
+
+    $sheetName = $zip->locateName('xl/worksheets/sheet1.xml') !== false ? 'xl/worksheets/sheet1.xml' : null;
+    if ($sheetName === null) {
+        for ($i = 0; $i < $zip->numFiles; $i++) {
+            $n = $zip->getNameIndex($i);
+            if (preg_match('#^xl/worksheets/sheet\d+\.xml$#', $n)) { $sheetName = $n; break; }
+        }
+    }
+    if ($sheetName === null) { $zip->close(); return null; }
+    $sheetXml = $zip->getFromName($sheetName);
+    $zip->close();
+    if ($sheetXml === false) return null;
+
+    $sx = @simplexml_load_string($sheetXml);
+    if ($sx === false || !isset($sx->sheetData)) return null;
+
+    $colToIndex = function (string $ref): int {
+        preg_match('/^([A-Z]+)/', $ref, $m);
+        $letters = $m[1] ?? 'A';
+        $idx = 0;
+        for ($i = 0; $i < strlen($letters); $i++) $idx = $idx * 26 + (ord($letters[$i]) - 64);
+        return $idx - 1;
+    };
+
+    $rows = [];
+    foreach ($sx->sheetData->row as $rowEl) {
+        if (!count($rowEl->c)) continue;
+        $cells = []; $maxCol = -1; $next = 0;
+        foreach ($rowEl->c as $c) {
+            $ref = (string) ($c['r'] ?? '');
+            $col = $ref !== '' ? $colToIndex($ref) : $next;
+            $type = (string) ($c['t'] ?? '');
+            if ($type === 's')             $val = $shared[(int) $c->v] ?? '';
+            elseif ($type === 'inlineStr') $val = isset($c->is->t) ? (string) $c->is->t : '';
+            else                           $val = isset($c->v) ? (string) $c->v : '';
+            $cells[$col] = $val;
+            if ($col > $maxCol) $maxCol = $col;
+            $next = $col + 1;
+        }
+        $row = [];
+        for ($i = 0; $i <= $maxCol; $i++) $row[] = $cells[$i] ?? '';
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
 /**
  * @param string $fallbackPath if $file isn't a genuine new upload this request, read
  *   from this path instead (the niche's previously-saved eLocal file, if any) — so a
@@ -105,29 +188,44 @@ const INFRA_RESEARCH_ELOCAL_REQUIRED = ['city', 'state', 'buyers', 'price_avg'];
  */
 function infra_research_parse_elocal(string $pasted, ?array $file, ?string $fallbackPath = null): array
 {
-    $lines = [];
-    if (trim($pasted) !== '') {
-        foreach (preg_split('/\r\n|\r|\n/', trim($pasted)) as $l) if (trim($l) !== '') $lines[] = $l;
-    }
-    $fileLines = [];
+    $pasteRows = trim($pasted) !== '' ? infra_research_text_to_rows($pasted) : [];
+
     $isNewUpload = $file && !empty($file['tmp_name']) && is_uploaded_file($file['tmp_name'])
         && ($file['error'] ?? UPLOAD_ERR_OK) === UPLOAD_ERR_OK;
+    $srcPath = null;
     if ($isNewUpload) {
         if (($file['size'] ?? 0) > 4 * 1024 * 1024) {
-            return ['rows' => [], 'errors' => ['CSV ignored — larger than 4 MB.']];
+            return ['rows' => [], 'errors' => ['File ignored — larger than 4 MB.']];
         }
-        $raw = (string) file_get_contents($file['tmp_name']);
-        foreach (preg_split('/\r\n|\r|\n/', trim($raw)) as $l) if (trim($l) !== '') $fileLines[] = $l;
+        $srcPath = $file['tmp_name'];
     } elseif ($fallbackPath !== null && is_file($fallbackPath)) {
-        $raw = (string) file_get_contents($fallbackPath);
-        foreach (preg_split('/\r\n|\r|\n/', trim($raw)) as $l) if (trim($l) !== '') $fileLines[] = $l;
+        $srcPath = $fallbackPath;
     }
-    $allLines = array_merge($lines, $fileLines);
-    if (!$allLines) return ['rows' => [], 'errors' => ['Nothing to import — paste rows or choose a file.']];
 
-    // Sniff the delimiter from the header line.
-    $delim = substr_count($allLines[0], "\t") > substr_count($allLines[0], ',') ? "\t" : ',';
-    $header = str_getcsv($allLines[0], $delim);
+    $fileRows = [];
+    if ($srcPath !== null) {
+        // Sniffed from real bytes, not the filename - a held file always gets saved
+        // with a .csv extension (infra_research_draft_elocal_path()) regardless of
+        // what was actually uploaded, so trusting the extension here would silently
+        // misread every re-used xlsx as text.
+        $head = (string) @file_get_contents($srcPath, false, null, 0, 4);
+        if (substr($head, 0, 2) === 'PK') {
+            $xlsxRows = infra_research_read_xlsx_rows($srcPath);
+            if ($xlsxRows === null) {
+                return ['rows' => [], 'errors' => ['Could not read that .xlsx file as a spreadsheet — is it a real Excel file?']];
+            }
+            $fileRows = $xlsxRows;
+        } elseif (substr($head, 0, 4) === "\xD0\xCF\x11\xE0") {
+            return ['rows' => [], 'errors' => ['That looks like an old .xls file (pre-2007 Excel format) — re-save it as .xlsx or .csv and try again.']];
+        } else {
+            $fileRows = infra_research_text_to_rows((string) @file_get_contents($srcPath));
+        }
+    }
+
+    $allRows = array_merge($pasteRows, $fileRows);
+    if (!$allRows) return ['rows' => [], 'errors' => ['Nothing to import — paste rows or choose a file.']];
+
+    $header = $allRows[0];
     $lower  = array_map(fn($h) => strtolower(trim((string) $h)), $header);
     $colIdx = [];
     foreach (INFRA_RESEARCH_ELOCAL_ALIASES as $field => $aliases) {
@@ -144,8 +242,8 @@ function infra_research_parse_elocal(string $pasted, ?array $file, ?string $fall
     }
 
     $rows = [];
-    for ($i = 1; $i < count($allLines); $i++) {
-        $cells = str_getcsv($allLines[$i], $delim);
+    for ($i = 1; $i < count($allRows); $i++) {
+        $cells = $allRows[$i];
         $city  = trim((string) ($cells[$colIdx['city']] ?? ''));
         $state = trim((string) ($cells[$colIdx['state']] ?? ''));
         if ($city === '' || $state === '') continue;

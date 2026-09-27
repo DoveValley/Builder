@@ -166,16 +166,16 @@ $draft = infra_research_load_draft($niche) ?? [];
 
       <div>
         <label style="font-size:12px">eLocal buyer-coverage export<br>
-          <input type="file" name="elocal_csv" accept=".csv,.tsv,.txt" style="padding:5px 0"></label>
+          <input type="file" name="elocal_csv" accept=".csv,.tsv,.txt,.xlsx" style="padding:5px 0"></label>
         <?php if (!empty($draft['elocal_csv_name'])): ?>
           <div style="font-size:12px;color:#065f46;margin-top:4px">
             <strong>Currently held: <?= ih($draft['elocal_csv_name']) ?></strong> — used automatically on Save/Run
             until you choose a different file above.
           </div>
         <?php endif; ?>
-        <div style="font-size:12px;color:#6b7280;margin-top:4px">or paste rows below — needs columns for
-          city, state, buyer count, avg call price (and optionally max price); header names are
-          matched loosely (e.g. "SMB Buyers", "1P Avg $").
+        <div style="font-size:12px;color:#6b7280;margin-top:4px">.csv, .tsv, .txt, or a real .xlsx file
+          (first sheet only) — or paste rows below. Needs columns for city, state, buyer count, avg call
+          price (and optionally max price); header names are matched loosely (e.g. "SMB Buyers", "1P Avg $").
           <?php if (($draft['elocal_paste'] ?? '') !== ''): ?><br><strong>Saved paste loaded below.</strong><?php endif; ?>
         </div>
         <textarea name="elocal_paste" rows="4" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace;margin-top:6px"
