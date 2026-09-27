@@ -538,7 +538,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             if ($photo) {
                 $photoSrc = photo_src($photo, $pathPrefix);
                 $hsImgCol .= '<div class="hs-image-wrap">';
-                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'style="'.img_focal_vars($photo).'object-position:var(--op);">';
+                $hsImgCol .= '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="hs-image" '.img_ratio_attrs($photo, 4, 3).img_srcset($photo, $pathPrefix).'style="'.img_focal_vars($photo).'object-position:var(--op);">';
                 if ($caption1 || $caption2) {
                     $hsImgCol .= '<div class="hs-caption">';
                     if ($caption1) $hsImgCol .= '<div class="hs-caption-title">'.h($caption1).'</div>';
@@ -588,7 +588,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $hasIcons = !empty(array_filter($items, fn($i) => !empty($i['icon'])));
 
             $imgCol = '<div class="fs-right">';
-            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'loading="lazy" style="'.img_focal_vars($photo).'object-position:var(--op);"></div>';
+            if ($photoSrc) $imgCol .= '<div class="fs-arch-wrap"><img src="'.h($photoSrc).'" alt="'.h($photoAlt).'" class="fs-arch-img" '.img_ratio_attrs($photo, 4, 3).img_srcset($photo, $pathPrefix).'loading="lazy" style="'.img_focal_vars($photo).'object-position:var(--op);"></div>';
             if ($starText) $imgCol .= '<div class="fs-star-badge"><span class="fs-stars">★★★★★</span><span class="fs-star-text">'.h($starText).'</span></div>';
             $imgCol .= '</div>';
 
@@ -1174,7 +1174,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             // LEFT: photo
             if ($photoSrc) {
                 echo '<div class="if-photo-wrap">';
-                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" '.img_intrinsic_attrs($photo).img_srcset($photo, $pathPrefix).'loading="lazy" style="'.img_focal_vars($photo).'object-position:var(--op);">';
+                echo '<img src="'.h($photoSrc).'" alt="'.h(resolve_shortcodes($photoAlt)).'" class="if-photo" '.img_ratio_attrs($photo, 4, 3).img_srcset($photo, $pathPrefix).'loading="lazy" style="'.img_focal_vars($photo).'object-position:var(--op);">';
                 echo '</div>';
             }
 
@@ -1650,7 +1650,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                         echo '<div class="card-icon-plain">' . h($cardIcon) . '</div>';
                     }
                 } elseif ($cardImg) {
-                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" ' . img_intrinsic_attrs($cardImg) . 'loading="lazy">';
+                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" ' . img_ratio_attrs($cardImg, 16, 9) . 'loading="lazy">';
                 }
                 echo '<div class="card-body">';
                 if ($cardHead)  echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
@@ -1782,7 +1782,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                     echo '<a class="blog-card" href="/blog/' . h($bp['slug'] ?? '') . '">';
                     if ($bpImg) {
                         $bpSrc = photo_src($bpImg, $pathPrefix);
-                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" ' . img_intrinsic_attrs($bpImg) . 'loading="lazy">';
+                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" ' . img_ratio_attrs($bpImg, 16, 9) . 'loading="lazy">';
                     }
                     echo '<div class="blog-card-body">';
                     if (!empty($bp['published_at']) || !empty($bp['tag'])) {

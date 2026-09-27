@@ -445,6 +445,26 @@ function img_intrinsic_attrs(string $storedPath): string {
     return 'width="' . (int) $sz[0] . '" height="' . (int) $sz[1] . '" ';
 }
 
+/* For the object-fit:cover + fixed CSS aspect-ratio pattern (hero_split, feature_split,
+   image_features, cards, blog cards) — CSS crops any source photo to a fixed ratio
+   regardless of its own real proportions, so img_intrinsic_attrs()'s file-derived
+   width/height is worse than useless here: it hands the browser a DIFFERENT ratio than
+   the one CSS is about to enforce (e.g. a 886x491 photo, ratio 1.80, inside a box CSS
+   declares 4/3 = 1.33). CSS aspect-ratio wins once its stylesheet has loaded, but that
+   stylesheet is a render-blocking request — before it arrives, the attribute ratio is
+   all the browser has, so there's a real window where it paints at the WRONG ratio and
+   snaps once the stylesheet applies. Confirmed live via PageSpeed Insights' own "layout
+   shift culprits" on baileyrestoration.com: the hero photo carried width="886"
+   height="491" against its own aspect-ratio:4/3 CSS. Printing the DISPLAY ratio directly
+   removes the conflict outright, regardless of source photo or stylesheet timing.
+   $baseWidth is arbitrary (the box always resolves to 100% width via CSS) — it only
+   gives the two numbers a sensible pixel scale. */
+function img_ratio_attrs(string $storedPath, float $ratioW, float $ratioH, int $baseWidth = 1200): string {
+    if ($storedPath === '' || $ratioW <= 0 || $ratioH <= 0) return '';
+    $h = (int) round($baseWidth * $ratioH / $ratioW);
+    return 'width="' . $baseWidth . '" height="' . max($h, 1) . '" ';
+}
+
 /**
  * Deliberately conservative CSS minifier: strips comments, then collapses any run of
  * whitespace that spans a line break down to one space. Never touches an in-line
