@@ -91,7 +91,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </table>
     </div>
     <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
-        <button type="button" class="btn" id="ms-row-add-toggle" onclick="msRowAddToggle()">+ Add domain</button>
+        <button type="button" class="btn" id="ms-row-add-toggle" onclick="msRowAddToggle()">+ Add 1 Domain</button>
+        <button type="button" class="btn" id="ms-row-addn-toggle" onclick="msRowAddNStart()" style="margin-left:6px;">+ Add X Domains</button>
         <div id="ms-row-add-form" style="display:none;margin-top:10px;">
             <input type="text" id="ms-add-domain" placeholder="domain.com" style="width:160px;">
             <input type="text" id="ms-add-business" placeholder="Business name" style="width:160px;">
@@ -104,6 +105,24 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </div>
     </div>
 </div>
+
+<!-- ===== ADD X OLDEST DOMAINS ===== -->
+<dialog id="ms-addn-dialog" style="max-width:640px;width:92%;border:1px solid #cbd5e1;border-radius:12px;padding:0;">
+    <div style="padding:18px 22px;">
+        <h3 style="margin:0 0 4px;">Add oldest domains</h3>
+        <p class="hint" style="margin:0 0 12px;">
+            Owned, unclaimed domains for this niche, oldest-purchased first. Uncheck any you don't want —
+            only the checked ones get added when you accept.
+        </p>
+        <div id="ms-addn-msg" class="hint"></div>
+        <div id="ms-addn-list" style="max-height:360px;overflow-y:auto;margin:10px 0;"></div>
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #e2e8f0;padding-top:12px;">
+            <span id="ms-addn-count" class="hint" style="font-weight:600;">0 selected</span>
+            <button type="button" class="btn btn-primary" id="ms-addn-accept" onclick="msRowAddNAccept()">Accept</button>
+            <button type="button" class="btn" onclick="document.getElementById('ms-addn-dialog').close()">Cancel</button>
+        </div>
+    </div>
+</dialog>
 
 <!-- ===== RESULTS CARD ===== -->
 <div class="card" id="ms-results-card" style="display:none;">
@@ -2112,6 +2131,66 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         ['ms-add-domain', 'ms-add-business', 'ms-add-phone', 'ms-add-city', 'ms-add-state', 'ms-add-ss']
             .forEach(id => { document.getElementById(id).value = ''; });
         document.getElementById('ms-row-add-form').style.display = 'none';
+        await msLoadRows();
+    };
+
+    window.msRowAddNStart = async function () {
+        const raw = prompt('How many of the oldest unclaimed domains do you want to review?', '20');
+        const count = parseInt(raw, 10);
+        if (!raw || !Number.isFinite(count) || count < 1) return;
+
+        const box = document.getElementById('ms-addn-list');
+        const msg = document.getElementById('ms-addn-msg');
+        box.innerHTML = '';
+        msg.textContent = 'Loading…';
+        document.getElementById('ms-addn-dialog').showModal();
+
+        const d = await (await fetch('multisite_api.php?action=oldest_unclaimed_domains&count=' + count)).json();
+        if (d.error) { msg.textContent = d.error; return; }
+        if (!d.domains.length) { msg.textContent = 'No owned, unclaimed domains found for this niche.'; return; }
+        msg.textContent = '';
+
+        const now = Date.now();
+        box.innerHTML = '<table style="width:100%;font-size:.84rem;"><thead><tr>' +
+            '<th style="width:26px;"></th><th>Domain</th><th style="width:160px;">Owned since</th><th style="width:90px;">Age</th>' +
+            '</tr></thead><tbody>' +
+            d.domains.map(function (row) {
+                const boughtAt = new Date(row.owned_at.replace(' ', 'T') + 'Z');
+                const days = Math.max(0, Math.floor((now - boughtAt.getTime()) / 86400000));
+                return '<tr><td><input type="checkbox" class="ms-addn-cb" data-domain="' + row.domain +
+                    '" checked onchange="msAddnUpdateCount()"></td><td>' + row.domain + '</td><td>' +
+                    row.owned_at + '</td><td>' + days + ' day' + (days === 1 ? '' : 's') + '</td></tr>';
+            }).join('') + '</tbody></table>';
+        msAddnUpdateCount();
+    };
+
+    window.msAddnUpdateCount = function () {
+        const n = document.querySelectorAll('.ms-addn-cb:checked').length;
+        document.getElementById('ms-addn-count').textContent = n + ' selected';
+    };
+
+    window.msRowAddNAccept = async function () {
+        const domains = Array.from(document.querySelectorAll('.ms-addn-cb:checked')).map(cb => cb.dataset.domain);
+        const msg = document.getElementById('ms-addn-msg');
+        if (!domains.length) { msg.textContent = 'Nothing checked — check at least one domain, or Cancel.'; return; }
+
+        const btn = document.getElementById('ms-addn-accept');
+        btn.disabled = true;
+        msg.textContent = 'Adding ' + domains.length + '…';
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('domains', domains.join(','));
+        const d = await (await fetch('multisite_api.php?action=claim_domains', { method: 'POST', body: fd })).json();
+        btn.disabled = false;
+        if (d.error) { msg.textContent = d.error; return; }
+
+        if (!d.failed.length) {
+            document.getElementById('ms-addn-dialog').close();
+        } else {
+            msg.innerHTML = '<span style="color:#166534;">Added ' + d.added.length + '.</span> ' +
+                '<span style="color:#991b1b;">' + d.failed.length + ' failed: ' +
+                d.failed.map(f => f.domain + ' (' + f.reason + ')').join(', ') + '</span>';
+        }
         await msLoadRows();
     };
 

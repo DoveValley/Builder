@@ -1133,6 +1133,52 @@ switch ($action) {
         echo json_encode(['deleted' => true]);
         break;
 
+    // Bridges a master's own id to the niche slug fleet.db's domains.niche column
+    // actually uses — the two vocabularies genuinely differ (water-site's own niche
+    // is fleet-tracked as "restoration", not "water") and nothing else in the
+    // codebase already maps between them, so "+ Add X Domains" (below) is the one
+    // place that does. Only the masters with a real per-city fleet.db acquisition
+    // pipeline are listed; others (Granite, Recovery, Elk) aren't part of it.
+    case 'oldest_unclaimed_domains':
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') { http_response_code(405); echo json_encode(['error' => 'GET required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        $fleetNiche = [
+            'mold-site'      => 'mold',
+            'water-site'     => 'restoration',
+            'appliance-site' => 'appliance',
+            'pest-template'  => 'pest',
+        ][$masterId] ?? '';
+        if ($fleetNiche === '') { echo json_encode(['error' => "No D.Buy niche mapping for master '{$masterId}'."]); break; }
+        $count = max(1, min(500, (int) ($_GET['count'] ?? 0)));
+        $st = infra_state_db()->prepare(
+            "SELECT domain, owned_at FROM domains
+             WHERE niche = ? AND owned = 'yes' AND (batch IS NULL OR batch = '')
+               AND owned_at IS NOT NULL AND owned_at != ''
+             ORDER BY owned_at ASC LIMIT ?"
+        );
+        $st->bindValue(1, $fleetNiche, PDO::PARAM_STR);
+        $st->bindValue(2, $count, PDO::PARAM_INT);
+        $st->execute();
+        echo json_encode(['domains' => $st->fetchAll(PDO::FETCH_ASSOC)]);
+        break;
+
+    // Claims exactly the domains the popup's Accept button sent — whatever survived
+    // unchecking, not necessarily the original X. Reuses infra_claim_for_batch(),
+    // the same gate "Claim for Batch" on the Infra console's Domains page goes
+    // through, so this can't add anything that gate would refuse.
+    case 'claim_domains':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/claim.php';
+        $list = array_filter(array_map('trim', explode(',', (string) ($_POST['domains'] ?? ''))));
+        if (!$list) { echo json_encode(['error' => 'No domains selected.']); break; }
+        $added = []; $failed = [];
+        foreach ($list as $dom) {
+            $r = infra_claim_for_batch(strtolower($dom), $masterId, $batchId);
+            if ($r['ok']) $added[] = $dom; else $failed[] = ['domain' => $dom, 'reason' => $r['reason']];
+        }
+        echo json_encode(['added' => $added, 'failed' => $failed]);
+        break;
+
     // Isolated capability, not part of the site factory pipeline — see
     // includes/calltrackingmetrics.php. For each selected row: real area code from
     // its already-saved city/state, search+buy a CTM number in that area code under
