@@ -27,7 +27,7 @@ if ($action === 'save_draft') {
         infra_set_flash('err', 'Pick a niche first.');
         header('Location: ' . $back); exit;
     }
-    infra_research_save_draft($niche, [
+    $fields = [
         'patterns'       => (string) ($_POST['patterns'] ?? ''),
         'elocal_paste'   => (string) ($_POST['elocal_paste'] ?? ''),
         'pop_min'        => (string) ($_POST['pop_min'] ?? ''),
@@ -38,9 +38,21 @@ if ($action === 'save_draft') {
         'sep_mi'         => (string) ($_POST['sep_mi'] ?? ''),
         'state_cap_pct'  => (string) ($_POST['state_cap_pct'] ?? ''),
         'provider'       => (string) ($_POST['provider'] ?? ''),
-    ]);
-    // Deliberately does NOT touch elocal_csv - re-submitting a <input type="file">
-    // isn't possible from a saved value anyway; paste or re-choose the file each time.
+    ];
+    // A chosen file is HELD until a different one replaces it - a save with no new
+    // upload attached must carry the previously-held file's name forward rather than
+    // silently dropping it (there's nothing to "keep the old file" about at the
+    // filesystem level - infra_research_persist_elocal_upload() only ever touches the
+    // fixed per-niche path when there's an actual new upload, so the old bytes are
+    // already untouched; this is just keeping the UI's record of it in sync).
+    $persistedName = infra_research_persist_elocal_upload($niche, $_FILES['elocal_csv'] ?? null);
+    if ($persistedName !== null) {
+        $fields['elocal_csv_name'] = $persistedName;
+    } else {
+        $existing = infra_research_load_draft($niche);
+        if (!empty($existing['elocal_csv_name'])) $fields['elocal_csv_name'] = $existing['elocal_csv_name'];
+    }
+    infra_research_save_draft($niche, $fields);
     infra_set_flash('ok', 'Saved — nothing run, no money spent.');
     header('Location: ' . $back . '&niche=' . urlencode($niche)); exit;
 }
@@ -63,10 +75,20 @@ if ($action === 'start') {
         header('Location: ' . $back . '&niche=' . urlencode($niche)); exit;
     }
 
-    $parsed = infra_research_parse_elocal((string) ($_POST['elocal_paste'] ?? ''), $_FILES['elocal_csv'] ?? null);
+    $parsed = infra_research_parse_elocal((string) ($_POST['elocal_paste'] ?? ''), $_FILES['elocal_csv'] ?? null,
+        infra_research_draft_elocal_path($niche));
     if ($parsed['errors']) {
         infra_set_flash('err', implode(' ', $parsed['errors']));
         header('Location: ' . $back . '&niche=' . urlencode($niche)); exit;
+    }
+    // Held file is read (not moved) by the parse above, so it's still there to persist
+    // afterward — a new upload this run replaces whatever was held for next time,
+    // same as Save does; running with no new upload leaves the held file untouched.
+    $persistedName = infra_research_persist_elocal_upload($niche, $_FILES['elocal_csv'] ?? null);
+    if ($persistedName !== null) {
+        $draftNow = infra_research_load_draft($niche) ?? [];
+        $draftNow['elocal_csv_name'] = $persistedName;
+        infra_research_save_draft($niche, $draftNow);
     }
 
     $popMin   = (int) ($_POST['pop_min'] ?? 30000);

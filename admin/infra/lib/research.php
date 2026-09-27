@@ -96,20 +96,30 @@ const INFRA_RESEARCH_ELOCAL_ALIASES = [
 // was rejected outright instead of importing with it defaulted.
 const INFRA_RESEARCH_ELOCAL_REQUIRED = ['city', 'state', 'buyers', 'price_avg'];
 
-/** @return array{rows:array,errors:array} rows keyed nothing — plain list of assoc arrays */
-function infra_research_parse_elocal(string $pasted, ?array $file): array
+/**
+ * @param string $fallbackPath if $file isn't a genuine new upload this request, read
+ *   from this path instead (the niche's previously-saved eLocal file, if any) — so a
+ *   file chosen once stays in effect until a different one replaces it, instead of
+ *   needing to be re-attached on every save/run.
+ * @return array{rows:array,errors:array} rows keyed nothing — plain list of assoc arrays
+ */
+function infra_research_parse_elocal(string $pasted, ?array $file, ?string $fallbackPath = null): array
 {
     $lines = [];
     if (trim($pasted) !== '') {
         foreach (preg_split('/\r\n|\r|\n/', trim($pasted)) as $l) if (trim($l) !== '') $lines[] = $l;
     }
     $fileLines = [];
-    if ($file && !empty($file['tmp_name']) && is_uploaded_file($file['tmp_name'])
-        && ($file['error'] ?? UPLOAD_ERR_OK) === UPLOAD_ERR_OK) {
+    $isNewUpload = $file && !empty($file['tmp_name']) && is_uploaded_file($file['tmp_name'])
+        && ($file['error'] ?? UPLOAD_ERR_OK) === UPLOAD_ERR_OK;
+    if ($isNewUpload) {
         if (($file['size'] ?? 0) > 4 * 1024 * 1024) {
             return ['rows' => [], 'errors' => ['CSV ignored — larger than 4 MB.']];
         }
         $raw = (string) file_get_contents($file['tmp_name']);
+        foreach (preg_split('/\r\n|\r|\n/', trim($raw)) as $l) if (trim($l) !== '') $fileLines[] = $l;
+    } elseif ($fallbackPath !== null && is_file($fallbackPath)) {
+        $raw = (string) file_get_contents($fallbackPath);
         foreach (preg_split('/\r\n|\r|\n/', trim($raw)) as $l) if (trim($l) !== '') $fileLines[] = $l;
     }
     $allLines = array_merge($lines, $fileLines);
@@ -378,6 +388,31 @@ function infra_research_load_draft(string $niche): ?array
 function infra_research_save_draft(string $niche, array $fields): void
 {
     file_put_contents(infra_research_draft_path($niche), json_encode($fields, JSON_PRETTY_PRINT));
+}
+
+/** Where a niche's held eLocal upload lives — fixed name, so a new upload always
+ *  replaces the previous one rather than accumulating files. */
+function infra_research_draft_elocal_path(string $niche): string
+{
+    return infra_research_dir() . '/drafts/' . preg_replace('/[^a-z0-9_-]/i', '', $niche) . '-elocal.csv';
+}
+
+/**
+ * If $file is a genuine new upload, copies it into this niche's held-file slot
+ * (replacing whatever was there) and returns its original name to record. Returns
+ * null when there's no new upload — callers must leave whatever was already saved
+ * alone in that case, not delete it.
+ */
+function infra_research_persist_elocal_upload(string $niche, ?array $file): ?string
+{
+    if (!$file || empty($file['tmp_name']) || !is_uploaded_file($file['tmp_name'])
+        || ($file['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK || ($file['size'] ?? 0) > 4 * 1024 * 1024) {
+        return null;
+    }
+    $dir = dirname(infra_research_draft_elocal_path($niche));
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    if (!@move_uploaded_file($file['tmp_name'], infra_research_draft_elocal_path($niche))) return null;
+    return (string) ($file['name'] ?? 'uploaded.csv');
 }
 
 /** All runs, newest first, for the "past runs" list. */
