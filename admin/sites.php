@@ -310,7 +310,7 @@ function fmt_date(string $iso): string {
         <div class="batch-row" id="batch-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>" data-name="<?= h(strtolower((string) ($b['name'] ?? $b['id']))) ?>" data-seq="<?= (int) ($b['seq'] ?? 0) ?>">
             <div class="batch-main">
                 <p class="batch-name" id="bname-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>"><?= isset($b['seq']) ? '<span style="color:#94a3b8;font-weight:400">#' . (int) $b['seq'] . '</span> ' : '' ?><?= h($b['name'] ?? $b['id']) ?></p>
-                <p class="batch-master">copies from <strong><?= h($siteNames[$b['master_id']] ?? $b['master_id']) ?></strong></p>
+                <p class="batch-master">copies from Master site <strong><?= h($siteNames[$b['master_id']] ?? $b['master_id']) ?></strong></p>
             </div>
             <div class="batch-nums">
                 <span><b><?= (int) $st['targets'] ?></b> targets</span>
