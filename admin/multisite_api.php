@@ -1070,7 +1070,20 @@ switch ($action) {
         }
         foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
         $rv = ms_validate_rows([$byDomain[$dom]]);
-        if ($rv['error'] > 0) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $rv['rows'][0]['errors'])]); break; }
+        // An edit here is filling a row in incrementally, not finishing it - a row
+        // still missing OTHER fields you're not touching right now must still be
+        // saveable. Completeness is what the real pre-build Validation step
+        // already re-checks right before anything actually generates; this used to
+        // duplicate that same hard gate too early, blocking a save over fields the
+        // user wasn't even editing. Anything that's not a missing-field complaint
+        // (bad domain format, a duplicate, non-numeric lat/lng, half-entered FTP
+        // creds) still blocks the save - row_correct (LIVE rows) keeps the full
+        // gate, since a live row should already be complete.
+        $blocking = array_values(array_filter(
+            $rv['rows'][0]['errors'],
+            fn($e) => strpos($e, 'missing required') !== 0
+        ));
+        if ($blocking) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $blocking)]); break; }
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
         echo json_encode(['saved' => true]);
         break;
