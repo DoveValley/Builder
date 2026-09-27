@@ -277,6 +277,55 @@ function infra_kw_dfs_post(array $c, string $path, array $task): array
     return ['ok' => true, 'msg' => '', 'result' => (array) ($t['result'] ?? [])];
 }
 
+/**
+ * Same DataForSEO live-endpoint contract as infra_kw_dfs_post(), for submitting
+ * several tasks in ONE request instead of one call per task — the rate limit
+ * (see rate_per_min above) is per REQUEST, so batching multiplies effective
+ * throughput within the same budget. DataForSEO returns 'tasks' in the SAME
+ * ORDER submitted (its own documented behavior), so results line up with
+ * $tasks by position.
+ *
+ * A whole-request failure (network/auth/account) returns ok:false with an
+ * empty task list — nothing to salvage. A successful request can still carry
+ * individual failed tasks (one bad keyword, say), so each task result carries
+ * its own ok/msg — one bad task must not cost the rest of the batch.
+ *
+ * @return array{ok:bool,msg:string,tasks:array<array{ok:bool,msg:string,result:array}>}
+ */
+function infra_kw_dfs_post_batch(array $c, string $path, array $tasks): array
+{
+    if (!$tasks) return ['ok' => true, 'msg' => '', 'tasks' => []];
+
+    $r = infra_http('POST', 'https://api.dataforseo.com/v3/' . ltrim($path, '/'),
+        ['headers' => infra_kw_dfs_headers($c), 'body' => json_encode(array_values($tasks)), 'timeout' => 120]);
+
+    if ($r['error'] !== '')  return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'tasks' => []];
+    if ($r['code'] === 401)  return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'tasks' => []];
+    if ((int) ($r['json']['status_code'] ?? 0) === 40104) {
+        return ['ok' => false, 'tasks' => [], 'msg' =>
+            'DataForSEO needs the account verified before it will serve data — the login and balance are fine. '
+          . 'Complete verification at https://app.dataforseo.com/ and try again.'];
+    }
+    if ($r['code'] !== 200 || !is_array($r['json'])) {
+        return ['ok' => false, 'msg' => 'HTTP ' . $r['code'] . ': '
+            . trim(preg_replace('/\s+/', ' ', substr($r['raw'], 0, 400))), 'tasks' => []];
+    }
+    if ((int) ($r['json']['status_code'] ?? 0) !== 20000) {
+        return ['ok' => false, 'msg' => 'DataForSEO: ' . ($r['json']['status_message'] ?? 'unknown error'), 'tasks' => []];
+    }
+
+    $out = [];
+    foreach ((array) ($r['json']['tasks'] ?? []) as $t) {
+        $ok = (int) ($t['status_code'] ?? 0) === 20000;
+        $out[] = [
+            'ok'     => $ok,
+            'msg'    => $ok ? '' : ('DataForSEO task: ' . ($t['status_message'] ?? 'unknown error')),
+            'result' => $ok ? (array) ($t['result'] ?? []) : [],
+        ];
+    }
+    return ['ok' => true, 'msg' => '', 'tasks' => $out];
+}
+
 /** @return array{ok:bool,msg:string,remaining:?int} — remaining is dollars, rounded down. */
 function infra_kw_dfs_quota(array $c): array
 {

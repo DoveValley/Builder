@@ -41,33 +41,45 @@ $draft = infra_research_load_draft($niche) ?? [];
 </div></div>
 
 <div class="ic-note">
-  <strong>Getting a list of best cities:</strong>
+  <strong>Getting a list of best cities — what you do vs. what happens on its own:</strong>
   <ol style="margin:6px 0 0;padding-left:20px">
-    <li>Pick a niche tab above.</li>
-    <li>Upload or paste <em>that niche's own</em> eLocal buyer-coverage export below — not a different niche's data.</li>
-    <li>Set the population / buyer / price / volume / separation / state-cap thresholds. There's no direct
-      "give me N cities" field — the final count falls out of these, so hitting a target size (e.g. 400)
-      usually takes a run, a look at the result count, then a second run with the thresholds loosened or
-      tightened.</li>
-    <li><strong>Click Run.</strong> This step alone is free and fast — it only filters your uploaded
+    <li><strong>You:</strong> pick a niche tab above.</li>
+    <li><strong>You:</strong> upload or paste <em>that niche's own</em> eLocal buyer-coverage export below —
+      not a different niche's data. A file you choose here is held onto for next time; you only need to
+      re-attach one if you want to replace it.</li>
+    <li><strong>You:</strong> set the population / buyer / price / volume / separation / state-cap
+      thresholds. There's no direct "give me N cities" field — the final count falls out of these, so
+      hitting a target size (e.g. 400) usually takes a run, a look at the result count, then a second run
+      with the thresholds loosened or tightened. <strong>Save</strong> remembers these fields with no run and
+      no money spent, if you want to stop and come back later.</li>
+    <li><strong>You: click Run.</strong> This step alone is free and fast — it only filters your uploaded
       eLocal rows against the thresholds above and matches them to known cities. No API is called yet,
-      which is why it finishes almost instantly and just shows how many cities survived. Everything
-      after this point is a separate click, and each one works in ~<?= INFRA_RESEARCH_TIME_BUDGET ?>-second
-      chunks — safe to leave the page and come back, it picks up where it left off:
+      which is why it finishes almost instantly and just shows how many cities survived.</li>
+    <li>From here it switches to a "Run in progress" card and mostly runs itself:
       <ol type="a" style="margin:4px 0 0;padding-left:20px">
-        <li><strong>Continue → volume.</strong> Real money spent here: a keyword search-volume lookup
-          (Ahrefs) for every surviving city. Click Continue repeatedly until it says volume is done —
-          it'll also report how many cities got dropped for falling under the minimum monthly volume.</li>
-        <li><strong>Continue → SERP.</strong> Real money spent here too: one actual Google search
-          (DataForSEO, ~$0.002 each) per city per keyword pattern, to see who's actually ranking. Also
-          needs repeated Continue clicks — more cities/patterns means more clicks.</li>
-        <li><strong>Automatic once SERP finishes.</strong> No more clicks needed for this part — it
-          scores every city, assigns a grade (A–F), picks a diversified final list (mile-separation +
-          state-cap), and writes the xlsx. The phase badge changes to "done" and a download link appears.</li>
+        <li><strong>The page auto-continues on its own</strong> — a "Continue" click fires automatically
+          every few seconds until the run is done, so <u>usually there is nothing more for you to click</u>.
+          Leave the tab open, or close it and come back anytime — progress is saved after every pass and it
+          picks up exactly where it left off. Only use the <strong>stop</strong> link next to "Auto-continuing…"
+          if you want to pause and look at something before letting it keep going; after that, Continue
+          becomes a manual button again.</li>
+        <li><strong>Volume phase (real money: Ahrefs/DataForSEO search volume).</strong> Fully automatic
+          from here — each pass looks up every surviving city's monthly search volume, several cities per
+          request. When it finishes it reports how many cities got dropped for falling under the minimum
+          monthly volume, then moves on by itself.</li>
+        <li><strong>SERP phase (real money: DataForSEO, ~$0.002/check).</strong> Also automatic — each pass
+          runs real Google searches to see who's actually ranking, in batches of up to
+          <?= INFRA_RESEARCH_SERP_BATCH_SIZE ?> cities per request (not one city per request), so this phase
+          finishes in far fewer passes than it used to. The progress line on the card below shows exactly
+          how many keyword-checks are done vs. still to go.</li>
+        <li><strong>Scoring, diversifying, writing the file.</strong> Fully automatic the instant SERP
+          finishes — no click of any kind needed. It scores every city, assigns a grade (A–F), picks a
+          diversified final list (mile-separation + state-cap), and writes the xlsx. The phase badge changes
+          to "done" and a download link appears.</li>
       </ol>
     </li>
-    <li>Download the xlsx and check the count. Off-target? Start a new run with adjusted thresholds — past
-      runs stay in the history below, nothing is lost by iterating.</li>
+    <li><strong>You:</strong> download the xlsx and check the count. Off-target? Start a new run with
+      adjusted thresholds — past runs stay in the history below, nothing is lost by iterating.</li>
   </ol>
   <p style="margin:10px 0 0">
     Produces and stores a ranked city list for <strong><?= ih($niches[$niche]['label']) ?></strong> — a real
@@ -79,12 +91,27 @@ $draft = infra_research_load_draft($niche) ?? [];
   </p>
 </div>
 
-<?php if ($active): $phase = $active['phase']; ?>
+<?php if ($active): $phase = $active['phase'];
+    $numPatterns = count($active['patterns']);
+    $totalCities = count($active['candidates']);
+    $volDone = $serpDone = $serpTotal = 0;
+    foreach ($active['candidates'] as $c) {
+        if (($c['volume'] ?? null) !== null) $volDone++;
+        $serpDone += min($numPatterns, (int) ($c['serp_patterns_done'] ?? 0));
+    }
+    $serpTotal = $totalCities * $numPatterns;
+?>
   <div class="ic-card" style="margin-bottom:14px"><div class="body">
     <h2>Run in progress — <?= ih(substr($active['created_at'], 0, 16)) ?></h2>
     <p>
       <?= count($active['candidates']) ?> candidate cities ·
       phase: <span class="badge <?= $phase === 'done' ? 'b-ok' : 'b-warn' ?>"><?= ih($phase) ?></span>
+      <?php if ($phase === 'volume'): ?>
+        · volume looked up: <strong><?= $volDone ?>/<?= $totalCities ?></strong> cities
+      <?php elseif ($phase === 'serp'): ?>
+        · SERP checks done: <strong><?= $serpDone ?>/<?= $serpTotal ?></strong>
+        <?php if ($serpTotal > 0): ?>(<?= round($serpDone / $serpTotal * 100) ?>%)<?php endif; ?>
+      <?php endif; ?>
       <?php if (($active['stats']['unmatched'] ?? 0) > 0): ?>
         · <?= (int) $active['stats']['unmatched'] ?> eLocal rows could not be matched to a known city
       <?php endif; ?>

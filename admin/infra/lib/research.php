@@ -21,6 +21,13 @@ require_once __DIR__ . '/cities.php';
 
 const INFRA_RESEARCH_TIME_BUDGET = 90;
 
+// Cities per DataForSEO SERP request. Conservative on purpose: DataForSEO's real
+// max task count for this live endpoint isn't confirmed from here, but 20 is
+// comfortably under any plausible limit while still cutting request count (and
+// therefore wall-clock time, since the 12/min rate limit is per REQUEST not per
+// city) by roughly 20x versus one city per call.
+const INFRA_RESEARCH_SERP_BATCH_SIZE = 20;
+
 function infra_research_dir(): string
 {
     $dir = infra_base_dir() . '/state/research';
@@ -210,6 +217,53 @@ function infra_research_serp_fetch(array $c, string $keyword): array
     return ['ok' => true, 'msg' => '', 'data' => [
         'open_slots' => $open, 'local_competitors' => $local, 'national_brands' => $natl,
     ]];
+}
+
+/**
+ * Same classification as infra_research_serp_fetch(), for several cities' keyword
+ * phrases in ONE DataForSEO request — see infra_kw_dfs_post_batch(). This is the
+ * one that actually multiplies SERP-phase throughput within the account's
+ * requests-per-minute limit.
+ *
+ * @param array $items list of ['id'=>candidate id, 'keyword'=>phrase]
+ * @return array<string,array{ok:bool,msg:string,data:array}> keyed by item id
+ */
+function infra_research_serp_fetch_batch(array $c, array $items): array
+{
+    if (!$items) return [];
+    $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
+    $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
+    $tasks = array_map(fn($it) => [
+        'keyword' => $it['keyword'], 'location_code' => $loc, 'language_code' => $lang,
+        'device' => 'desktop', 'depth' => 10,
+    ], $items);
+
+    $r = infra_kw_dfs_post_batch($c, 'serp/google/organic/live/advanced', $tasks);
+    if (!$r['ok']) {
+        $out = [];
+        foreach ($items as $it) $out[$it['id']] = ['ok' => false, 'msg' => $r['msg'], 'data' => []];
+        return $out;
+    }
+
+    $out = [];
+    foreach ($items as $i => $it) {
+        $t = $r['tasks'][$i] ?? ['ok' => false, 'msg' => 'No response for this task.', 'result' => []];
+        if (!$t['ok']) { $out[$it['id']] = ['ok' => false, 'msg' => $t['msg'], 'data' => []]; continue; }
+        $rowItems = (array) ($t['result'][0]['items'] ?? []);
+        $open = $local = $natl = 0;
+        foreach ($rowItems as $ri) {
+            if ((string) ($ri['type'] ?? '') !== 'organic') continue;
+            switch (infra_research_classify((string) ($ri['domain'] ?? ''))) {
+                case 'DIRECTORY': $open++; break;
+                case 'NATIONAL':  $natl++; break;
+                default:          $local++;
+            }
+        }
+        $out[$it['id']] = ['ok' => true, 'msg' => '', 'data' => [
+            'open_slots' => $open, 'local_competitors' => $local, 'national_brands' => $natl,
+        ]];
+    }
+    return $out;
 }
 
 /* ---------------------------------------------------------------------------
