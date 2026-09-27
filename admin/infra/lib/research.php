@@ -88,6 +88,14 @@ const INFRA_RESEARCH_ELOCAL_ALIASES = [
     'price_max'  => ['1p_max', '1p max $', 'max_price', 'max_call_price', 'price_max', 'first_party_max'],
 ];
 
+// price_max is documented (views/research.php) as "optionally max price" and isn't
+// actually read anywhere downstream (score_and_grade, the xlsx writer - neither
+// touches it), but the missing-column check below treated it as required same as
+// city/state/buyers/price_avg — a CSV genuinely missing only that one optional
+// column (e.g. the tool's OWN xlsx output, which has price_avg but no price_max)
+// was rejected outright instead of importing with it defaulted.
+const INFRA_RESEARCH_ELOCAL_REQUIRED = ['city', 'state', 'buyers', 'price_avg'];
+
 /** @return array{rows:array,errors:array} rows keyed nothing — plain list of assoc arrays */
 function infra_research_parse_elocal(string $pasted, ?array $file): array
 {
@@ -117,7 +125,7 @@ function infra_research_parse_elocal(string $pasted, ?array $file): array
             if (in_array($h, $aliases, true)) { $colIdx[$field] = $i; break; }
         }
     }
-    $missing = array_diff(array_keys(INFRA_RESEARCH_ELOCAL_ALIASES), array_keys($colIdx));
+    $missing = array_diff(INFRA_RESEARCH_ELOCAL_REQUIRED, array_keys($colIdx));
     if ($missing) {
         return ['rows' => [], 'errors' => [
             'Could not find column(s) for: ' . implode(', ', $missing)
@@ -136,7 +144,9 @@ function infra_research_parse_elocal(string $pasted, ?array $file): array
             'state'     => $state,
             'buyers'    => (float) preg_replace('/[^0-9.]/', '', (string) ($cells[$colIdx['buyers']] ?? '0')),
             'price_avg' => (float) preg_replace('/[^0-9.]/', '', (string) ($cells[$colIdx['price_avg']] ?? '0')),
-            'price_max' => (float) preg_replace('/[^0-9.]/', '', (string) ($cells[$colIdx['price_max']] ?? '0')),
+            'price_max' => (float) preg_replace('/[^0-9.]/', '', (string) (
+                isset($colIdx['price_max']) ? ($cells[$colIdx['price_max']] ?? '0') : '0'
+            )),
         ];
     }
     return ['rows' => $rows, 'errors' => []];
@@ -340,6 +350,34 @@ function infra_research_save_run(array $run): void
 function infra_research_new_run_id(string $niche): string
 {
     return $niche . '-' . date('Ymd-His');
+}
+
+/* ---------------------------------------------------------------------------
+ * Form drafts — save the current field values (patterns, eLocal data,
+ * filters) per niche WITHOUT starting a real run or spending any money. Kept
+ * in their own subdirectory, not the run directory itself: infra_research_
+ * list_runs() globs every *.json in state/research/ with no shape check, so
+ * a draft sitting there would silently show up in the "past runs" table.
+ * ------------------------------------------------------------------------- */
+
+function infra_research_draft_path(string $niche): string
+{
+    $dir = infra_research_dir() . '/drafts';
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return $dir . '/' . preg_replace('/[^a-z0-9_-]/i', '', $niche) . '.json';
+}
+
+function infra_research_load_draft(string $niche): ?array
+{
+    $p = infra_research_draft_path($niche);
+    if (!is_file($p)) return null;
+    $d = json_decode((string) file_get_contents($p), true);
+    return is_array($d) ? $d : null;
+}
+
+function infra_research_save_draft(string $niche, array $fields): void
+{
+    file_put_contents(infra_research_draft_path($niche), json_encode($fields, JSON_PRETTY_PRINT));
 }
 
 /** All runs, newest first, for the "past runs" list. */

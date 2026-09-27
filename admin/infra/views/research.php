@@ -22,8 +22,9 @@ $active = $runId !== '' ? infra_research_load_run($runId) : null;
 if ($active && $active['niche'] !== $niche) $active = null;
 if (!$active && $nicheRuns && ($nicheRuns[0]['phase'] ?? '') !== 'done') $active = $nicheRuns[0];
 
-$kwOn = infra_kw_configured();
-$tpl  = $niches[$niche]['template'] ?? '';
+$kwOn  = infra_kw_configured();
+$tpl   = $niches[$niche]['template'] ?? '';
+$draft = infra_research_load_draft($niche) ?? [];
 ?>
 
 <div class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px">
@@ -103,38 +104,40 @@ $tpl  = $niches[$niche]['template'] ?? '';
 
   <form method="post" action="actions/research_save.php" enctype="multipart/form-data">
     <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
-    <input type="hidden" name="action" value="start">
     <input type="hidden" name="niche" value="<?= ih($niche) ?>">
     <div class="ic-card"><div class="body" style="display:flex;flex-direction:column;gap:14px">
 
       <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
         <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
-          ih($tpl !== '' ? $tpl : '') ?></textarea></label>
+          ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
 
       <div>
         <label style="font-size:12px">eLocal buyer-coverage export<br>
           <input type="file" name="elocal_csv" accept=".csv,.tsv,.txt" style="padding:5px 0"></label>
         <div style="font-size:12px;color:#6b7280;margin-top:4px">or paste rows below — needs columns for
           city, state, buyer count, avg call price (and optionally max price); header names are
-          matched loosely (e.g. "SMB Buyers", "1P Avg $").</div>
+          matched loosely (e.g. "SMB Buyers", "1P Avg $").
+          <?php if (($draft['elocal_paste'] ?? '') !== ''): ?><br><strong>Saved paste loaded below</strong> —
+            a saved file isn't re-attached automatically; re-choose it above if you saved with a file.<?php endif; ?>
+        </div>
         <textarea name="elocal_paste" rows="4" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace;margin-top:6px"
-                  placeholder="city,state,buyers,price_avg,price_max"></textarea>
+                  placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea>
       </div>
 
       <div style="display:flex;gap:16px;flex-wrap:wrap">
-        <label style="font-size:12px">Population min<br><input name="pop_min" type="number" value="30000" style="width:100px;padding:5px 8px"></label>
-        <label style="font-size:12px">Population max<br><input name="pop_max" type="number" value="400000" style="width:100px;padding:5px 8px"></label>
-        <label style="font-size:12px">Min buyers<br><input name="min_buyers" type="number" value="2" style="width:70px;padding:5px 8px"></label>
-        <label style="font-size:12px">Min avg call price $<br><input name="min_price" type="number" value="250" style="width:90px;padding:5px 8px"></label>
-        <label style="font-size:12px">Min monthly volume<br><input name="min_volume" type="number" value="100" style="width:90px;padding:5px 8px"></label>
+        <label style="font-size:12px">Population min<br><input name="pop_min" type="number" value="<?= ih($draft['pop_min'] ?? '30000') ?>" style="width:100px;padding:5px 8px"></label>
+        <label style="font-size:12px">Population max<br><input name="pop_max" type="number" value="<?= ih($draft['pop_max'] ?? '400000') ?>" style="width:100px;padding:5px 8px"></label>
+        <label style="font-size:12px">Min buyers<br><input name="min_buyers" type="number" value="<?= ih($draft['min_buyers'] ?? '2') ?>" style="width:70px;padding:5px 8px"></label>
+        <label style="font-size:12px">Min avg call price $<br><input name="min_price" type="number" value="<?= ih($draft['min_price'] ?? '250') ?>" style="width:90px;padding:5px 8px"></label>
+        <label style="font-size:12px">Min monthly volume<br><input name="min_volume" type="number" value="<?= ih($draft['min_volume'] ?? '100') ?>" style="width:90px;padding:5px 8px"></label>
       </div>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
-        <label style="font-size:12px">Separation (miles)<br><input name="sep_mi" type="number" value="10" style="width:70px;padding:5px 8px"></label>
-        <label style="font-size:12px">State cap %<br><input name="state_cap_pct" type="number" value="8" style="width:70px;padding:5px 8px"></label>
+        <label style="font-size:12px">Separation (miles)<br><input name="sep_mi" type="number" value="<?= ih($draft['sep_mi'] ?? '10') ?>" style="width:70px;padding:5px 8px"></label>
+        <label style="font-size:12px">State cap %<br><input name="state_cap_pct" type="number" value="<?= ih($draft['state_cap_pct'] ?? '8') ?>" style="width:70px;padding:5px 8px"></label>
         <?php if (count($kwOn) > 1): ?>
           <label style="font-size:12px">Volume source<br>
             <select name="provider" style="padding:5px 8px">
-              <?php foreach ($kwOn as $t => $m): ?><option value="<?= ih($t) ?>"><?= ih($m['label']) ?></option><?php endforeach; ?>
+              <?php foreach ($kwOn as $t => $m): ?><option value="<?= ih($t) ?>" <?= ($draft['provider'] ?? '') === $t ? 'selected' : '' ?>><?= ih($m['label']) ?></option><?php endforeach; ?>
             </select></label>
         <?php else: ?>
           <input type="hidden" name="provider" value="<?= ih((string) array_key_first($kwOn ?: ['ahrefs' => true])) ?>">
@@ -142,9 +145,11 @@ $tpl  = $niches[$niche]['template'] ?? '';
       </div>
 
       <div>
-        <button class="btn" type="submit" <?= $kwOn ? '' : 'disabled title="Connect a keyword provider first"' ?>>Run</button>
+        <button class="btn" type="submit" name="action" value="start" <?= $kwOn ? '' : 'disabled title="Connect a keyword provider first"' ?>>Run</button>
+        <button class="btn sec" type="submit" name="action" value="save_draft" formnovalidate>Save</button>
         <span style="font-size:12px;color:#6b7280">
-          Spends real money: volume lookups (<?= ih(implode('/', array_map(fn($m) => $m['label'], $kwOn ?: []))) ?: 'no provider connected' ?>)
+          <strong>Save</strong> just remembers these fields for next time — no money spent, nothing run.
+          <strong>Run</strong> spends real money: volume lookups (<?= ih(implode('/', array_map(fn($m) => $m['label'], $kwOn ?: []))) ?: 'no provider connected' ?>)
           plus one real Google SERP check per city per keyword pattern (~$0.002 each via DataForSEO).
         </span>
       </div>

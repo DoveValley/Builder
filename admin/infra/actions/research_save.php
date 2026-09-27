@@ -20,6 +20,31 @@ infra_session_release();
 
 $action = (string) ($_POST['action'] ?? '');
 
+/* ---- save the form's current field values, no money spent, no run started --- */
+if ($action === 'save_draft') {
+    $niche = infra_niche_slug((string) ($_POST['niche'] ?? ''));
+    if ($niche === '' || !isset(infra_niches()[$niche])) {
+        infra_set_flash('err', 'Pick a niche first.');
+        header('Location: ' . $back); exit;
+    }
+    infra_research_save_draft($niche, [
+        'patterns'       => (string) ($_POST['patterns'] ?? ''),
+        'elocal_paste'   => (string) ($_POST['elocal_paste'] ?? ''),
+        'pop_min'        => (string) ($_POST['pop_min'] ?? ''),
+        'pop_max'        => (string) ($_POST['pop_max'] ?? ''),
+        'min_buyers'     => (string) ($_POST['min_buyers'] ?? ''),
+        'min_price'      => (string) ($_POST['min_price'] ?? ''),
+        'min_volume'     => (string) ($_POST['min_volume'] ?? ''),
+        'sep_mi'         => (string) ($_POST['sep_mi'] ?? ''),
+        'state_cap_pct'  => (string) ($_POST['state_cap_pct'] ?? ''),
+        'provider'       => (string) ($_POST['provider'] ?? ''),
+    ]);
+    // Deliberately does NOT touch elocal_csv - re-submitting a <input type="file">
+    // isn't possible from a saved value anyway; paste or re-choose the file each time.
+    infra_set_flash('ok', 'Saved — nothing run, no money spent.');
+    header('Location: ' . $back . '&niche=' . urlencode($niche)); exit;
+}
+
 /* ---- start a new run: parse eLocal, filter, match, create the run file --- */
 if ($action === 'start') {
     $niche = infra_niche_slug((string) ($_POST['niche'] ?? ''));
