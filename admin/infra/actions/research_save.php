@@ -35,6 +35,7 @@ if ($action === 'save_draft') {
         'min_buyers'     => (string) ($_POST['min_buyers'] ?? ''),
         'min_price'      => (string) ($_POST['min_price'] ?? ''),
         'min_volume'     => (string) ($_POST['min_volume'] ?? ''),
+        'max_rivals'     => (string) ($_POST['max_rivals'] ?? ''),
         'sep_mi'         => (string) ($_POST['sep_mi'] ?? ''),
         'state_cap_pct'  => (string) ($_POST['state_cap_pct'] ?? ''),
         'provider'       => (string) ($_POST['provider'] ?? ''),
@@ -96,6 +97,8 @@ if ($action === 'start') {
     $minBuy   = (float) ($_POST['min_buyers'] ?? 2);
     $minPrice = (float) ($_POST['min_price'] ?? 250);
     $minVol   = (float) ($_POST['min_volume'] ?? 100);
+    $maxRivalsRaw = trim((string) ($_POST['max_rivals'] ?? ''));
+    $maxRivals = $maxRivalsRaw === '' ? null : (float) $maxRivalsRaw;
     $sepMi    = (float) ($_POST['sep_mi'] ?? 10);
     $capPct   = (float) ($_POST['state_cap_pct'] ?? 8) / 100;
     $provider = (string) ($_POST['provider'] ?? 'ahrefs');
@@ -134,7 +137,7 @@ if ($action === 'start') {
         'provider' => $provider,
         'filters' => [
             'pop_min' => $popMin, 'pop_max' => $popMax, 'min_buyers' => $minBuy, 'min_price' => $minPrice,
-            'min_volume' => $minVol, 'sep_mi' => $sepMi, 'state_cap_pct' => $capPct,
+            'min_volume' => $minVol, 'max_rivals' => $maxRivals, 'sep_mi' => $sepMi, 'state_cap_pct' => $capPct,
         ],
         'phase' => 'volume',
         'created_at' => date('c'),
@@ -280,8 +283,23 @@ if ($action === 'run') {
             }
             unset($c);
             infra_research_score_and_grade($run['candidates']);
-            $picked = infra_research_diversify($run['candidates'], $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
+
+            // Scored on the FULL pool above (z-scores need the real spread), THEN
+            // dropped - a hard floor on real competitor counts, on top of (not
+            // instead of) the score already weighting competition.
+            $maxRivals = $run['filters']['max_rivals'] ?? null;
+            $rivalsDropped = 0;
+            $scoredPool = $run['candidates'];
+            if ($maxRivals !== null) {
+                $before = count($scoredPool);
+                $scoredPool = array_filter($scoredPool, fn($c) =>
+                    (($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0)) <= $maxRivals);
+                $rivalsDropped = $before - count($scoredPool);
+            }
+
+            $picked = infra_research_diversify($scoredPool, $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
             $resultFile = infra_research_write_xlsx($niche, $picked);
+            $rivalsNote = $rivalsDropped > 0 ? " ({$rivalsDropped} dropped for exceeding the max-rivals cap)" : '';
             if ($resultFile === null) {
                 // Never mark 'done' on a failed write - the view links result_file as a
                 // plain download URL with no existence check, so a null/missing file
@@ -293,7 +311,7 @@ if ($action === 'run') {
                 $run['result_file'] = $resultFile;
                 $run['result_count'] = count($picked);
                 $run['phase'] = 'done';
-                infra_set_flash('ok', count($picked) . ' cities in the final list. Saved to Downloads (Test Lab) as ' . $resultFile . '.');
+                infra_set_flash('ok', count($picked) . " cities in the final list{$rivalsNote}. Saved to Downloads (Test Lab) as {$resultFile}.");
             }
         } else {
             $failNote = $failedTasks > 0 ? " ({$failedTasks} individual checks failed and will retry)" : '';

@@ -47,11 +47,14 @@ $draft = infra_research_load_draft($niche) ?? [];
     <li><strong>You:</strong> upload or paste <em>that niche's own</em> eLocal buyer-coverage export below —
       not a different niche's data. A file you choose here is held onto for next time; you only need to
       re-attach one if you want to replace it.</li>
-    <li><strong>You:</strong> set the population / buyer / price / volume / separation / state-cap
-      thresholds. There's no direct "give me N cities" field — the final count falls out of these, so
-      hitting a target size (e.g. 400) usually takes a run, a look at the result count, then a second run
-      with the thresholds loosened or tightened. <strong>Save</strong> remembers these fields with no run and
-      no money spent, if you want to stop and come back later.</li>
+    <li><strong>You:</strong> set the population / buyer / price / volume / max-rivals / separation /
+      state-cap thresholds. There's no direct "give me N cities" field — the final count falls out of
+      these, so hitting a target size (e.g. 400) usually takes a run, a look at the result count, then a
+      second run with the thresholds loosened or tightened. <strong>Population size is not a reliable
+      stand-in for competition</strong> — a completed run's Local/National Brands columns show real
+      competitor counts that don't track city size; use <strong>Max rivals</strong> if the goal is
+      specifically low competition ("SEO ease"), not just smaller cities. <strong>Save</strong> remembers
+      these fields with no run and no money spent, if you want to stop and come back later.</li>
     <li><strong>You: click Run.</strong> This step alone is free and fast — it only filters your uploaded
       eLocal rows against the thresholds above and matches them to known cities. No API is called yet,
       which is why it finishes almost instantly and just shows how many cities survived.</li>
@@ -183,6 +186,15 @@ $draft = infra_research_load_draft($niche) ?? [];
         <label style="font-size:12px">Min buyers<br><input name="min_buyers" type="number" value="<?= ih($draft['min_buyers'] ?? '2') ?>" style="width:70px;padding:5px 8px"></label>
         <label style="font-size:12px">Min avg call price $<br><input name="min_price" type="number" value="<?= ih($draft['min_price'] ?? '250') ?>" style="width:90px;padding:5px 8px"></label>
         <label style="font-size:12px">Min monthly volume<br><input name="min_volume" type="number" value="<?= ih($draft['min_volume'] ?? '100') ?>" style="width:90px;padding:5px 8px"></label>
+        <label style="font-size:12px">Max rivals (SEO ease)<br><input name="max_rivals" type="number" min="0"
+          value="<?= ih($draft['max_rivals'] ?? '') ?>" placeholder="no limit" style="width:90px;padding:5px 8px"></label>
+      </div>
+      <div style="font-size:12px;color:#6b7280;margin-top:-8px">
+        <strong>Max rivals</strong> is checked <em>after</em> the SERP phase, on real competitor counts (not
+        population) — a city is dropped if <code>local competitors + national brands</code> in the top 10
+        results exceeds this number. Leave blank for no cap; the score already weights competition, this
+        adds a hard floor for "must be easy to rank in" on top of that. Bigger population does not reliably
+        mean more competition — check a completed run's Local/National Brands columns before assuming so.
       </div>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <label style="font-size:12px">Separation (miles)<br><input name="sep_mi" type="number" value="<?= ih($draft['sep_mi'] ?? '10') ?>" style="width:70px;padding:5px 8px"></label>
