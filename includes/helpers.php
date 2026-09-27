@@ -335,22 +335,58 @@ function upload_fs_path(string $path): string {
     return (defined('BASE_DIR') ? BASE_DIR . '/' : '') . $path;
 }
 
+/* The intrinsic [width, height] of an image file, or null if it can't be determined.
+   getimagesize() handles every raster format directly; it returns false for SVG (no
+   bitmap header to read), so SVG gets its own path — the root <svg>'s width/height
+   attributes if present (may carry units like "120px", stripped down to the number),
+   else the viewBox's own width/height (its last two numbers), matching how a browser
+   itself falls back through the same two sources for an unstyled SVG's intrinsic size.
+   Returns null (not [0,0]) on anything unreadable so callers can tell "unknown" apart
+   from "zero-sized", and floats rather than ints — a viewBox ratio like "0 0 120 31.5"
+   is real and shouldn't be truncated before it's turned into a ratio. */
+function img_dimensions(string $storedPath): ?array {
+    if ($storedPath === '') return null;
+    $fs = upload_fs_path($storedPath);
+    if ($fs === '' || !is_file($fs)) return null;
+    $sz = @getimagesize($fs);
+    if ($sz && !empty($sz[0]) && !empty($sz[1])) return [(float) $sz[0], (float) $sz[1]];
+    if (strtolower((string) pathinfo($fs, PATHINFO_EXTENSION)) !== 'svg') return null;
+
+    libxml_use_internal_errors(true);
+    $doc = new DOMDocument();
+    $ok  = @$doc->load($fs, LIBXML_NONET);
+    libxml_clear_errors();
+    if (!$ok) return null;
+    $svg = $doc->getElementsByTagName('svg')->item(0);
+    if (!$svg) return null;
+
+    $w = (float) preg_replace('/[^0-9.]/', '', (string) $svg->getAttribute('width'));
+    $h = (float) preg_replace('/[^0-9.]/', '', (string) $svg->getAttribute('height'));
+    if ($w > 0 && $h > 0) return [$w, $h];
+
+    $parts = preg_split('/[\s,]+/', trim((string) $svg->getAttribute('viewBox')));
+    if (count($parts) === 4 && (float) $parts[2] > 0 && (float) $parts[3] > 0) {
+        return [(float) $parts[2], (float) $parts[3]];
+    }
+    return null;
+}
+
 /* Reserve an image's box to prevent layout shift when it loads late (throttled mobile).
    Reads the file's intrinsic dimensions and scales them to $displayHeight px, returning
    ready-to-print `width="W" height="H"` attributes (with a trailing space) so the browser
    knows the aspect ratio before the bytes arrive. Returns '' if the file can't be measured
-   (SVG, missing file) — callers keep their CSS sizing and simply don't get the hint. */
+   (missing file, or a broken SVG with no width/height/viewBox) — callers keep their CSS
+   sizing and simply don't get the hint. */
 function img_dim_attrs(string $storedPath, int $displayHeight): string {
-    if ($storedPath === '' || $displayHeight <= 0) return '';
-    $fs = upload_fs_path($storedPath);
-    if ($fs === '' || !is_file($fs)) return '';
-    $sz = @getimagesize($fs);
-    if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
+    if ($displayHeight <= 0) return '';
+    $dim = img_dimensions($storedPath);
+    if (!$dim) return '';
+    [$iw, $ih] = $dim;
     // Never scale a logo up past its intrinsic size — mirrors the max-height CSS.
-    $h = min($displayHeight, (int) $sz[1]);
-    $w = (int) round($h * $sz[0] / $sz[1]);
+    $h = min($displayHeight, (int) round($ih));
+    $w = (int) round($h * $iw / $ih);
     if ($w <= 0) return '';
-    return 'width="' . $w . '" height="' . $h . '" ';
+    return 'width="' . $w . '" height="' . max($h, 1) . '" ';
 }
 
 /* Companion to img_dim_attrs() for the specific "max-height:Npx;height:auto;width:auto"
@@ -361,16 +397,13 @@ function img_dim_attrs(string $storedPath, int $displayHeight): string {
    real, measured layout shift (confirmed via a live PerformanceObserver capture: the logo
    renders narrow, then jumps to its full width once the image decodes, shoving every
    sibling in the header's top row sideways). An explicit CSS `aspect-ratio` removes the
-   ambiguity outright, independent of image-load timing. Returns "aspect-ratio:W/H;" or
-   '' if the file can't be measured (SVG, missing file) — callers keep their existing
-   max-height/width:auto sizing either way, this only adds the missing hint. */
+   ambiguity outright, independent of image-load timing. Returns "aspect-ratio:W/H;" or ''
+   if the file can't be measured — callers keep their existing max-height/width:auto sizing
+   either way, this only adds the missing hint. */
 function img_aspect_ratio_css(string $storedPath): string {
-    if ($storedPath === '') return '';
-    $fs = upload_fs_path($storedPath);
-    if ($fs === '' || !is_file($fs)) return '';
-    $sz = @getimagesize($fs);
-    if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
-    return 'aspect-ratio:' . (int) $sz[0] . '/' . (int) $sz[1] . ';';
+    $dim = img_dimensions($storedPath);
+    if (!$dim) return '';
+    return 'aspect-ratio:' . $dim[0] . '/' . $dim[1] . ';';
 }
 
 /* Same CLS-prevention purpose as img_dim_attrs(), for content images that scale via
