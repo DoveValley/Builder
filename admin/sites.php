@@ -326,6 +326,10 @@ function fmt_date(string $iso): string {
             <div class="batch-acts">
                 <button class="btn-open" onclick="openBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>')">Open &rarr;</button>
                 <button class="btn-sm-outline" onclick="renameBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>','<?= h(addslashes($b['name'] ?? '')) ?>')">Rename</button>
+                <?php if ((int) $st['targets'] === 0): ?>
+                <button class="btn-sm-outline" title="Only available with no domains in the target list yet"
+                        onclick="changeBatchMaster('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>')">Change Master</button>
+                <?php endif; ?>
                 <button class="btn-sm-outline" onclick="copyBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>','<?= h(addslashes($b['name'] ?? '')) ?>')">Copy</button>
                 <button class="btn-sm-danger" onclick="deleteBatch('<?= h($b['master_id']) ?>','<?= h($b['id']) ?>','<?= h(addslashes($b['name'] ?? '')) ?>')">Delete</button>
             </div>
@@ -448,6 +452,7 @@ function fmt_date(string $iso): string {
 
 <script>
 const CSRF = <?= json_encode($csrf) ?>;
+const SITE_NAMES = <?= json_encode($siteNames) ?>;
 
 async function post(data) {
     const fd = new FormData();
@@ -595,6 +600,29 @@ async function renameBatch(master, id, current) {
     const res = await batchPost({ action: 'rename', master_id: master, batch_id: id, name });
     if (res.error) { alert('Error: ' + res.error); return; }
     document.getElementById('bname-' + master + '-' + id).textContent = name;
+}
+
+// Only shown for a batch with 0 targets (see the PHP loop above) - the actual safety
+// (live sites, niche mismatch, missing theme presets) still lives in batch_api.php's
+// swap_master_check/set_master, same as the fuller picker on the batch's own page
+// (admin/batch.php's bpChangeMaster) - this just surfaces the empty-batch case here
+// too, so picking the wrong master doesn't require a delete-and-redo.
+async function changeBatchMaster(master, id) {
+    const ids = Object.keys(SITE_NAMES).filter(sid => sid !== master);
+    if (!ids.length) { alert('There is no other site to use as a master.'); return; }
+    const list = ids.map((sid, i) => (i + 1) + '. ' + SITE_NAMES[sid] + '  (' + sid + ')').join('\n');
+    const pick = prompt('Change this batch\'s master.\n\n' + list + '\n\nType the number:');
+    if (!pick) return;
+    const target = ids[parseInt(pick, 10) - 1];
+    if (!target) { alert('No master picked.'); return; }
+
+    const chk = await batchPost({ action: 'swap_master_check', master_id: master, batch_id: id, new_master_id: target });
+    if (chk.error) { alert(chk.error); return; }
+    if ((chk.warnings || []).length && !confirm(chk.warnings.join('\n\n') + '\n\nChange the master anyway?')) return;
+
+    const res = await batchPost({ action: 'set_master', master_id: master, batch_id: id, new_master_id: target });
+    if (res.error) { alert(res.error); return; }
+    window.location.reload();
 }
 
 // Copies the target list and any research; the run history stays with the
