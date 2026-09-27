@@ -1120,6 +1120,7 @@ switch ($action) {
     case 'row_delete':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/infra/lib/claim.php';
         $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
         $byDomain = ms_rows_by_domain($paramsPath);
         if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
@@ -1130,6 +1131,11 @@ switch ($action) {
         }
         unset($byDomain[$dom]);
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        // Without this, D.Buy still shows the domain claimed by this batch even
+        // though its row is gone — it silently drops out of the "available" pool
+        // (the oldest-unclaimed picker, and D.Finder's own Claim for Batch) with
+        // no sign anything is wrong. Found by cross-checking after a real delete.
+        infra_unclaim_from_batch($dom);
         echo json_encode(['deleted' => true]);
         break;
 
