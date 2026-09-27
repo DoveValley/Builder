@@ -105,7 +105,7 @@ $draft = infra_research_load_draft($niche) ?? [];
     $serpTotal = $totalCities * $numPatterns;
 ?>
   <div class="ic-card" style="margin-bottom:14px"><div class="body">
-    <h2>Run in progress — <?= ih(substr($active['created_at'], 0, 16)) ?></h2>
+    <h2><?= $phase === 'done' ? 'Last run — ' : 'Run in progress — ' ?><?= ih(substr($active['created_at'], 0, 16)) ?></h2>
     <p>
       <?= count($active['candidates']) ?> candidate cities ·
       phase: <span class="badge <?= $phase === 'done' ? 'b-ok' : 'b-warn' ?>"><?= ih($phase) ?></span>
@@ -151,8 +151,10 @@ $draft = infra_research_load_draft($niche) ?? [];
       <button class="btn sec" type="submit">Delete this run</button>
     </form>
   </div></div>
-<?php else: ?>
+<?php endif; ?>
 
+<?php if (!$active || $phase === 'done'): ?>
+  <?php if ($active): ?><h2 style="margin-top:0">Start a new run</h2><?php endif; ?>
   <form method="post" action="actions/research_save.php" enctype="multipart/form-data" data-show-working="Working…">
     <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
     <input type="hidden" name="niche" value="<?= ih($niche) ?>">
