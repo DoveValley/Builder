@@ -95,16 +95,23 @@ $draft = infra_research_load_draft($niche) ?? [];
         <a class="btn sec" href="../playground.php#downloads-scott">Open in Test Lab</a>
       </p>
     <?php else: ?>
-      <form method="post" action="actions/research_save.php" data-show-working="Working — fetching data, up to <?= INFRA_RESEARCH_TIME_BUDGET ?>s…">
+      <form method="post" action="actions/research_save.php" id="continueForm" data-show-working="Working — fetching data, up to <?= INFRA_RESEARCH_TIME_BUDGET ?>s…">
         <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
         <input type="hidden" name="action" value="run">
         <input type="hidden" name="run_id" value="<?= ih($active['id']) ?>">
         <button class="btn" type="submit">Continue</button>
-        <span style="font-size:12px;color:#6b7280">
-          Each click works for up to <?= INFRA_RESEARCH_TIME_BUDGET ?> seconds, then stops and says what's left —
-          safe to navigate away and come back.
+        <span id="autoContinueNote" style="font-size:12px;color:#6b7280">
+          Auto-continuing every few seconds until done —
+          <a href="javascript:void(0)" onclick="window.__stopAutoContinue=true;this.parentNode.textContent='Auto-continue stopped — click Continue manually.';">stop</a>
         </span>
       </form>
+      <script>
+        setTimeout(function () {
+          if (window.__stopAutoContinue) return;
+          var f = document.getElementById('continueForm');
+          if (f) f.requestSubmit();
+        }, 2500);
+      </script>
     <?php endif; ?>
     <form method="post" action="actions/research_save.php" style="margin-top:10px"
           onsubmit="return confirm('Delete this run? The xlsx already saved to Downloads is not affected.')">
