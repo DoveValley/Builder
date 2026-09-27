@@ -152,6 +152,9 @@ if ($action === 'start') {
 }
 
 /* ---- one time-boxed tick: volume, then SERP, then score+diversify+write -- */
+/* Shared with cron/research_tick.php via infra_research_tick() (lib/research.php) -
+ * a run's progress must not depend on this specific web action; see that
+ * function's docblock for why. */
 if ($action === 'run') {
     $runId = (string) ($_POST['run_id'] ?? '');
     $run = infra_research_load_run($runId);
@@ -159,170 +162,9 @@ if ($action === 'run') {
     $niche = $run['niche'];
     $backRun = $back . '&niche=' . urlencode($niche) . '&run=' . urlencode($runId);
 
-    if ($run['phase'] === 'volume') {
-        if (!infra_kw_has_creds($run['provider'])) {
-            infra_set_flash('err', 'No API key stored for ' . $run['provider'] . ' — add one on the Cities/Niche tab first.');
-            header('Location: ' . $backRun); exit;
-        }
-        $todo = array_filter($run['candidates'], fn($c) => $c['volume'] === null);
-        $numPatterns = count($run['patterns']);
-        $chunkCities = max(1, (int) floor(infra_kw_batch_size($run['provider']) / max(1, $numPatterns)));
-
-        $started = time(); $done = 0;
-        $ids = array_keys($todo);
-        foreach (array_chunk($ids, $chunkCities) as $chunk) {
-            if (time() - $started > INFRA_RESEARCH_TIME_BUDGET) break;
-            $phrases = []; $byPhrase = [];
-            foreach ($chunk as $id) {
-                $c = $run['candidates'][$id];
-                foreach ($run['patterns'] as $pat) {
-                    $p = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
-                    if ($p === '') continue;
-                    $k = strtolower($p);
-                    if (!isset($byPhrase[$k])) { $phrases[] = $p; $byPhrase[$k] = []; }
-                    $byPhrase[$k][] = $id;
-                }
-            }
-            if (!$phrases) continue;
-            $r = infra_kw_fetch($run['provider'], $phrases);
-            if (!$r['ok']) { infra_set_flash('err', 'Stopped: ' . $r['msg']); infra_research_save_run($run); header('Location: ' . $backRun); exit; }
-            $sums = [];
-            foreach ($byPhrase as $phrase => $ids2) {
-                $vol = (float) ($r['rows'][$phrase]['volume'] ?? 0);
-                foreach ($ids2 as $id) $sums[$id] = ($sums[$id] ?? 0) + $vol;
-            }
-            foreach ($chunk as $id) {
-                $run['candidates'][$id]['volume'] = $sums[$id] ?? 0.0;
-                $done++;
-            }
-        }
-        $left = count(array_filter($run['candidates'], fn($c) => $c['volume'] === null));
-        if ($left === 0) {
-            $before = count($run['candidates']);
-            $run['candidates'] = array_filter($run['candidates'], fn($c) => $c['volume'] >= $run['filters']['min_volume']);
-            $dropped = $before - count($run['candidates']);
-            $run['phase'] = 'serp';
-            infra_set_flash('ok', "Volume done — {$dropped} cities dropped under {$run['filters']['min_volume']}/mo, "
-                . count($run['candidates']) . ' remain. Press Continue to run real SERP checks (costs money — DataForSEO, ~$0.002/keyword).');
-        } else {
-            infra_set_flash('ok', "{$done} fetched this pass, {$left} still to go — press Continue.");
-        }
-        infra_research_save_run($run);
-        header('Location: ' . $backRun); exit;
-    }
-
-    if ($run['phase'] === 'serp') {
-        if (!infra_kw_has_creds('dataforseo')) {
-            infra_set_flash('err', 'The SERP check needs DataForSEO credentials — add them on the Cities/Niche tab first.');
-            header('Location: ' . $backRun); exit;
-        }
-        $cfg = infra_kw_provider('dataforseo');
-        $numPatterns = count($run['patterns']);
-        $rateLimit = (int) (infra_kw_provider('dataforseo')['rate_per_min'] ?? 0) ?: 12;
-        $minGapSec = 60.0 / $rateLimit;
-
-        $started = time(); $done = 0; $batches = 0; $failedTasks = 0; $lastCallAt = 0.0;
-        while (time() - $started <= INFRA_RESEARCH_TIME_BUDGET) {
-            // Gather the next batch of still-outstanding (city, pattern) work.
-            $batch = [];
-            foreach ($run['candidates'] as $id => $c) {
-                if (count($batch) >= INFRA_RESEARCH_SERP_BATCH_SIZE) break;
-                if ($c['serp_patterns_done'] >= $numPatterns) continue;
-                $pat = $run['patterns'][$c['serp_patterns_done']];
-                $phrase = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
-                if ($phrase === '') { $run['candidates'][$id]['serp_patterns_done']++; continue; }
-                $batch[] = ['id' => $id, 'keyword' => $phrase];
-            }
-            if (!$batch) break; // nothing left to check at all
-
-            // Pace to the account's requests-per-minute limit — one batch now does
-            // the work of many single calls, so it must not fire more often than a
-            // single call used to, or the account gets rate-limited/blocked instead
-            // of actually going faster.
-            $gap = microtime(true) - $lastCallAt;
-            if ($lastCallAt > 0 && $gap < $minGapSec) usleep((int) (($minGapSec - $gap) * 1_000_000));
-            $lastCallAt = microtime(true);
-
-            $results = infra_research_serp_fetch_batch($cfg, $batch);
-            $batches++;
-            $anyOk = false;
-            foreach ($batch as $item) {
-                $res = $results[$item['id']];
-                if (!$res['ok']) {
-                    // One city's task failed inside an otherwise-successful batch —
-                    // leave its progress alone so it's simply retried next pass,
-                    // instead of losing the whole batch over one bad task.
-                    $failedTasks++;
-                    continue;
-                }
-                $anyOk = true;
-                $run['candidates'][$item['id']]['serp_open_sum']  += $res['data']['open_slots'];
-                $run['candidates'][$item['id']]['serp_local_sum'] += $res['data']['local_competitors'];
-                $run['candidates'][$item['id']]['serp_natl_sum']  += $res['data']['national_brands'];
-                $run['candidates'][$item['id']]['serp_patterns_done']++;
-                $done++;
-            }
-            // Nothing in the whole batch succeeded — that's the request itself
-            // failing (credentials/balance/network), not one bad task. Stop rather
-            // than spend the rest of the time budget retrying the same failure.
-            if (!$anyOk) {
-                $firstMsg = '';
-                foreach ($batch as $item) if (!$results[$item['id']]['ok']) { $firstMsg = $results[$item['id']]['msg']; break; }
-                infra_set_flash('err', 'Stopped: ' . $firstMsg);
-                infra_research_save_run($run); header('Location: ' . $backRun); exit;
-            }
-        }
-        $left = 0;
-        foreach ($run['candidates'] as $c) $left += max(0, $numPatterns - $c['serp_patterns_done']);
-        if ($left === 0) {
-            foreach ($run['candidates'] as $id => &$c) {
-                $n = max(1, $c['serp_patterns_done']);
-                $c['open_slots']         = $c['serp_open_sum'] / $n;
-                $c['local_competitors']  = $c['serp_local_sum'] / $n;
-                $c['national_brands']    = $c['serp_natl_sum'] / $n;
-            }
-            unset($c);
-            infra_research_score_and_grade($run['candidates']);
-
-            // Scored on the FULL pool above (z-scores need the real spread), THEN
-            // dropped - a hard floor on real competitor counts, on top of (not
-            // instead of) the score already weighting competition.
-            $maxRivals = $run['filters']['max_rivals'] ?? null;
-            $rivalsDropped = 0;
-            $scoredPool = $run['candidates'];
-            if ($maxRivals !== null) {
-                $before = count($scoredPool);
-                $scoredPool = array_filter($scoredPool, fn($c) =>
-                    (($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0)) <= $maxRivals);
-                $rivalsDropped = $before - count($scoredPool);
-            }
-
-            $picked = infra_research_diversify($scoredPool, $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
-            $resultFile = infra_research_write_xlsx($niche, $picked);
-            $rivalsNote = $rivalsDropped > 0 ? " ({$rivalsDropped} dropped for exceeding the max-rivals cap)" : '';
-            if ($resultFile === null) {
-                // Never mark 'done' on a failed write - the view links result_file as a
-                // plain download URL with no existence check, so a null/missing file
-                // here would otherwise 404 (or worse, look "done" with no way to retry
-                // the write itself). Leaving phase alone keeps the Continue button up.
-                infra_set_flash('error', count($picked) . ' cities scored, but writing the xlsx failed '
-                    . '(disk full or uploads/downloads not writable?) - press Continue to retry the write.');
-            } else {
-                $run['result_file'] = $resultFile;
-                $run['result_count'] = count($picked);
-                $run['phase'] = 'done';
-                infra_set_flash('ok', count($picked) . " cities in the final list{$rivalsNote}. Saved to Downloads (Test Lab) as {$resultFile}.");
-            }
-        } else {
-            $failNote = $failedTasks > 0 ? " ({$failedTasks} individual checks failed and will retry)" : '';
-            infra_set_flash('ok', "SERP checks: {$done} done across {$batches} batched requests this pass{$failNote}, "
-                . "{$left} keyword-checks still to go — press Continue.");
-        }
-        infra_research_save_run($run);
-        header('Location: ' . $backRun); exit;
-    }
-
-    infra_set_flash('warn', 'This run is already done.');
+    $result = infra_research_tick($run);
+    infra_research_save_run($run);
+    infra_set_flash($result['level'], $result['msg']);
     header('Location: ' . $backRun); exit;
 }
 

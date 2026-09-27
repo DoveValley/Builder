@@ -71,10 +71,10 @@ $draft = infra_research_load_draft($niche) ?? [];
           request. When it finishes it reports how many cities got dropped for falling under the minimum
           monthly volume, then moves on by itself.</li>
         <li><strong>SERP phase (real money: DataForSEO, ~$0.002/check).</strong> Also automatic — each pass
-          runs real Google searches to see who's actually ranking, in batches of up to
-          <?= INFRA_RESEARCH_SERP_BATCH_SIZE ?> cities per request (not one city per request), so this phase
-          finishes in far fewer passes than it used to. The progress line on the card below shows exactly
-          how many keyword-checks are done vs. still to go.</li>
+          runs one real Google search per city per keyword pattern to see who's actually ranking (DataForSEO's
+          live endpoint only accepts one city per request, confirmed against the real API — more cities/patterns
+          means more passes). The progress line on the card below shows exactly how many keyword-checks are
+          done vs. still to go.</li>
         <li><strong>Scoring, diversifying, writing the file.</strong> Fully automatic the instant SERP
           finishes — no click of any kind needed. It scores every city, assigns a grade (A–F), picks a
           diversified final list (mile-separation + state-cap), and writes the xlsx. The phase badge changes

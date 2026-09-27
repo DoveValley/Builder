@@ -21,13 +21,6 @@ require_once __DIR__ . '/cities.php';
 
 const INFRA_RESEARCH_TIME_BUDGET = 90;
 
-// Cities per DataForSEO SERP request. Conservative on purpose: DataForSEO's real
-// max task count for this live endpoint isn't confirmed from here, but 20 is
-// comfortably under any plausible limit while still cutting request count (and
-// therefore wall-clock time, since the 12/min rate limit is per REQUEST not per
-// city) by roughly 20x versus one city per call.
-const INFRA_RESEARCH_SERP_BATCH_SIZE = 20;
-
 function infra_research_dir(): string
 {
     $dir = infra_base_dir() . '/state/research';
@@ -219,53 +212,6 @@ function infra_research_serp_fetch(array $c, string $keyword): array
     ]];
 }
 
-/**
- * Same classification as infra_research_serp_fetch(), for several cities' keyword
- * phrases in ONE DataForSEO request — see infra_kw_dfs_post_batch(). This is the
- * one that actually multiplies SERP-phase throughput within the account's
- * requests-per-minute limit.
- *
- * @param array $items list of ['id'=>candidate id, 'keyword'=>phrase]
- * @return array<string,array{ok:bool,msg:string,data:array}> keyed by item id
- */
-function infra_research_serp_fetch_batch(array $c, array $items): array
-{
-    if (!$items) return [];
-    $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
-    $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
-    $tasks = array_map(fn($it) => [
-        'keyword' => $it['keyword'], 'location_code' => $loc, 'language_code' => $lang,
-        'device' => 'desktop', 'depth' => 10,
-    ], $items);
-
-    $r = infra_kw_dfs_post_batch($c, 'serp/google/organic/live/advanced', $tasks);
-    if (!$r['ok']) {
-        $out = [];
-        foreach ($items as $it) $out[$it['id']] = ['ok' => false, 'msg' => $r['msg'], 'data' => []];
-        return $out;
-    }
-
-    $out = [];
-    foreach ($items as $i => $it) {
-        $t = $r['tasks'][$i] ?? ['ok' => false, 'msg' => 'No response for this task.', 'result' => []];
-        if (!$t['ok']) { $out[$it['id']] = ['ok' => false, 'msg' => $t['msg'], 'data' => []]; continue; }
-        $rowItems = (array) ($t['result'][0]['items'] ?? []);
-        $open = $local = $natl = 0;
-        foreach ($rowItems as $ri) {
-            if ((string) ($ri['type'] ?? '') !== 'organic') continue;
-            switch (infra_research_classify((string) ($ri['domain'] ?? ''))) {
-                case 'DIRECTORY': $open++; break;
-                case 'NATIONAL':  $natl++; break;
-                default:          $local++;
-            }
-        }
-        $out[$it['id']] = ['ok' => true, 'msg' => '', 'data' => [
-            'open_slots' => $open, 'local_competitors' => $local, 'national_brands' => $natl,
-        ]];
-    }
-    return $out;
-}
-
 /* ---------------------------------------------------------------------------
  * Distance — same math as build_cities.py's haversine(), so a mile here means
  * the same thing it means there.
@@ -414,6 +360,146 @@ function infra_research_save_run(array $run): void
 function infra_research_new_run_id(string $niche): string
 {
     return $niche . '-' . date('Ymd-His');
+}
+
+/**
+ * One time-boxed tick of a run: volume phase, then SERP phase, then the final
+ * score/diversify/write once SERP is done. Shared by the web Continue action
+ * and cron/research_tick.php — a run's progress must not depend on a browser
+ * tab staying open. A backgrounded tab can have its JS timer silently throttled
+ * or frozen by the browser (observed twice: long stalls, then a catch-up burst
+ * the moment the tab regains focus); a closed tab obviously can't run any JS
+ * at all. The cron tick makes forward progress possible either way.
+ *
+ * Mutates $run in place. Does NOT save or redirect - the caller owns that, so
+ * this one function works from both a web request (redirects after) and a
+ * CLI loop (just keeps ticking).
+ *
+ * @return array{level:string,msg:string,stop:bool} stop=true means don't
+ *   immediately retry in a loop (bad creds, or a whole-request API failure).
+ */
+function infra_research_tick(array &$run): array
+{
+    $niche = $run['niche'];
+
+    if ($run['phase'] === 'volume') {
+        if (!infra_kw_has_creds($run['provider'])) {
+            return ['level' => 'err', 'stop' => true,
+                'msg' => 'No API key stored for ' . $run['provider'] . ' — add one on the Cities/Niche tab first.'];
+        }
+        $todo = array_filter($run['candidates'], fn($c) => $c['volume'] === null);
+        $numPatterns = count($run['patterns']);
+        $chunkCities = max(1, (int) floor(infra_kw_batch_size($run['provider']) / max(1, $numPatterns)));
+
+        $started = time(); $done = 0;
+        $ids = array_keys($todo);
+        foreach (array_chunk($ids, $chunkCities) as $chunk) {
+            if (time() - $started > INFRA_RESEARCH_TIME_BUDGET) break;
+            $phrases = []; $byPhrase = [];
+            foreach ($chunk as $id) {
+                $c = $run['candidates'][$id];
+                foreach ($run['patterns'] as $pat) {
+                    $p = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
+                    if ($p === '') continue;
+                    $k = strtolower($p);
+                    if (!isset($byPhrase[$k])) { $phrases[] = $p; $byPhrase[$k] = []; }
+                    $byPhrase[$k][] = $id;
+                }
+            }
+            if (!$phrases) continue;
+            $r = infra_kw_fetch($run['provider'], $phrases);
+            if (!$r['ok']) return ['level' => 'err', 'stop' => true, 'msg' => 'Stopped: ' . $r['msg']];
+            $sums = [];
+            foreach ($byPhrase as $phrase => $ids2) {
+                $vol = (float) ($r['rows'][$phrase]['volume'] ?? 0);
+                foreach ($ids2 as $id) $sums[$id] = ($sums[$id] ?? 0) + $vol;
+            }
+            foreach ($chunk as $id) {
+                $run['candidates'][$id]['volume'] = $sums[$id] ?? 0.0;
+                $done++;
+            }
+        }
+        $left = count(array_filter($run['candidates'], fn($c) => $c['volume'] === null));
+        if ($left === 0) {
+            $before = count($run['candidates']);
+            $run['candidates'] = array_filter($run['candidates'], fn($c) => $c['volume'] >= $run['filters']['min_volume']);
+            $dropped = $before - count($run['candidates']);
+            $run['phase'] = 'serp';
+            return ['level' => 'ok', 'stop' => false, 'msg' =>
+                "Volume done — {$dropped} cities dropped under {$run['filters']['min_volume']}/mo, "
+                . count($run['candidates']) . ' remain. Press Continue to run real SERP checks (costs money — DataForSEO, ~$0.002/keyword).'];
+        }
+        return ['level' => 'ok', 'stop' => false, 'msg' => "{$done} fetched this pass, {$left} still to go — press Continue."];
+    }
+
+    if ($run['phase'] === 'serp') {
+        if (!infra_kw_has_creds('dataforseo')) {
+            return ['level' => 'err', 'stop' => true,
+                'msg' => 'The SERP check needs DataForSEO credentials — add them on the Cities/Niche tab first.'];
+        }
+        $cfg = infra_kw_provider('dataforseo');
+        $numPatterns = count($run['patterns']);
+
+        // NOT batched: DataForSEO's serp/google/organic/live/advanced flatly rejects
+        // more than one task per request ("You can set only one task at a time"),
+        // confirmed against the real API - a real attempt at batching here (see
+        // git history) sent 20 tasks/request and had 19/20 rejected every time.
+        $started = time(); $done = 0;
+        foreach ($run['candidates'] as $id => &$c) {
+            if (time() - $started > INFRA_RESEARCH_TIME_BUDGET) break;
+            if ($c['serp_patterns_done'] >= $numPatterns) continue;
+            $pat = $run['patterns'][$c['serp_patterns_done']];
+            $phrase = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
+            if ($phrase === '') { $c['serp_patterns_done']++; continue; }
+            $r = infra_research_serp_fetch($cfg, $phrase);
+            if (!$r['ok']) return ['level' => 'err', 'stop' => true, 'msg' => 'Stopped: ' . $r['msg']];
+            $c['serp_open_sum']  += $r['data']['open_slots'];
+            $c['serp_local_sum'] += $r['data']['local_competitors'];
+            $c['serp_natl_sum']  += $r['data']['national_brands'];
+            $c['serp_patterns_done']++;
+            $done++;
+        }
+        unset($c);
+        $left = 0;
+        foreach ($run['candidates'] as $c) $left += max(0, $numPatterns - $c['serp_patterns_done']);
+        if ($left === 0) {
+            foreach ($run['candidates'] as $id => &$c) {
+                $n = max(1, $c['serp_patterns_done']);
+                $c['open_slots']         = $c['serp_open_sum'] / $n;
+                $c['local_competitors']  = $c['serp_local_sum'] / $n;
+                $c['national_brands']    = $c['serp_natl_sum'] / $n;
+            }
+            unset($c);
+            infra_research_score_and_grade($run['candidates']);
+
+            $maxRivals = $run['filters']['max_rivals'] ?? null;
+            $rivalsDropped = 0;
+            $scoredPool = $run['candidates'];
+            if ($maxRivals !== null) {
+                $before = count($scoredPool);
+                $scoredPool = array_filter($scoredPool, fn($c) =>
+                    (($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0)) <= $maxRivals);
+                $rivalsDropped = $before - count($scoredPool);
+            }
+
+            $picked = infra_research_diversify($scoredPool, $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
+            $resultFile = infra_research_write_xlsx($niche, $picked);
+            $rivalsNote = $rivalsDropped > 0 ? " ({$rivalsDropped} dropped for exceeding the max-rivals cap)" : '';
+            if ($resultFile === null) {
+                return ['level' => 'err', 'stop' => true, 'msg' =>
+                    count($picked) . ' cities scored, but writing the xlsx failed '
+                    . '(disk full or uploads/downloads not writable?) - press Continue to retry the write.'];
+            }
+            $run['result_file'] = $resultFile;
+            $run['result_count'] = count($picked);
+            $run['phase'] = 'done';
+            return ['level' => 'ok', 'stop' => true, 'msg' =>
+                count($picked) . " cities in the final list{$rivalsNote}. Saved to Downloads (Test Lab) as {$resultFile}."];
+        }
+        return ['level' => 'ok', 'stop' => false, 'msg' => "{$done} SERP checks this pass, {$left} still to go — press Continue."];
+    }
+
+    return ['level' => 'warn', 'stop' => true, 'msg' => 'This run is already done.'];
 }
 
 /* ---------------------------------------------------------------------------
