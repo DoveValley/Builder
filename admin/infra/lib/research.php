@@ -21,6 +21,13 @@ require_once __DIR__ . '/cities.php';
 
 const INFRA_RESEARCH_TIME_BUDGET = 90;
 
+// DataForSEO's own docs: live endpoints allow up to 30 simultaneous requests
+// and ~2,000/min, but explicitly warn that bursting near that ceiling causes
+// MORE errors, not fewer — recommending a steady flow instead. 8 is
+// comfortably inside that "steady flow" zone, not the hard ceiling; tune here
+// if a real test run shows headroom to go higher without more errors.
+const INFRA_RESEARCH_SERP_CONCURRENCY = 8;
+
 function infra_research_dir(): string
 {
     $dir = infra_base_dir() . '/state/research';
@@ -34,22 +41,55 @@ function infra_research_dir(): string
  * else — the real competition).
  * ------------------------------------------------------------------------- */
 
-function infra_research_national_brands(): array
+/**
+ * Per-niche franchise/national-brand domain lists — deliberately NOT one flat
+ * merged list any more. The old shared list conflated real franchises with
+ * generic retailers/insurers (Home Depot, State Farm, Amazon) that have
+ * nothing to do with any one niche's actual national rivals, and "harmless to
+ * keep listed for niches that don't use them" meant every niche's national
+ * count was diluted by domains that could never show up for it anyway.
+ * Scott-specified list per niche (2026-09-29) — domains verified against each
+ * brand's real live site, not guessed:
+ *  - Aptive's real domain is aptivepestcontrol.com, not aptive.com (the old
+ *    flat list had this wrong — goaptive.com is customer-login-only).
+ *  - HomeTeam Pest Defense's real domain is pestdefense.com.
+ *  - Rytech's real domain is rytechinc.com, not rytech.com.
+ *  - Sears' appliance-repair arm is searshomeservices.com, distinct from the
+ *    old list's bare sears.com (a different, much broader retail site).
+ *  - "Appliance Doctor" is deliberately NOT included: it isn't one company —
+ *    several unrelated independent local shops use this name with different
+ *    domains per city (sickappliance.com, myappliancedoctor.com,
+ *    appliancedoctorincva.com, ...). Adding any one of those domains would
+ *    misclassify that one specific local competitor as "national" everywhere
+ *    it happens to rank, which is a real correctness bug, not a no-op. Flag
+ *    to Scott before adding anything here.
+ */
+const INFRA_RESEARCH_NATIONAL_BRANDS_BY_NICHE = [
+    'pest' => [
+        'terminix.com', 'orkin.com', 'aptivepestcontrol.com', 'trulynolen.com',
+        'arrowexterminators.com', 'westernexterminator.com', 'rentokil.com', 'pestdefense.com',
+    ],
+    'appliance' => [
+        'searshomeservices.com', 'mrappliance.com', 'asurion.com', 'puls.com',
+    ],
+    'mold' => [
+        'servpro.com', 'servicemasterrestore.com', 'servicemaster.com', 'pauldavis.com',
+        'rainbowintl.com', '911restoration.com', 'puroclean.com', 'rytechinc.com',
+        'belfor.com', 'atirestoration.com', 'firstonsite.com',
+    ],
+    'restoration' => [
+        'servpro.com', 'servicemasterrestore.com', 'servicemaster.com', 'pauldavis.com',
+        'rainbowintl.com', '911restoration.com', 'puroclean.com', 'rytechinc.com',
+        'belfor.com', 'atirestoration.com', 'firstonsite.com',
+    ],
+];
+
+/** Unknown/future niches get an empty list rather than a guessed one — a
+ *  niche this table doesn't know about should show more LOCAL competitors,
+ *  not silently borrow another niche's brands. */
+function infra_research_national_brands(string $niche): array
 {
-    return [
-        'servpro.com', 'servicemasterrestore.com', 'puroclean.com', 'pauldavis.com',
-        '911restoration.com', 'restorationmasterfinder.com', 'rainbowintl.com',
-        'rainbowrestores.com', 'belfor.com', 'steamatic.com', 'ryanrestoration.com',
-        'disastercompany.com', 'sernow.com', 'roto-rooter.com', 'rotorooter.com',
-        'homedepot.com', 'lowes.com', 'statefarm.com', 'allstate.com', 'usaa.com',
-        'amazon.com', '1800waterdamage.com', 'restoration1.com', 'restopros.co',
-        'atirestoration.com', 'greenhomesolutions.com', 'drymedic.com',
-        // pest/mold/appliance-relevant national franchises, harmless to keep
-        // listed for niches that don't use them
-        'terminix.com', 'orkin.com', 'rentokil.com', 'aptive.com', 'pestworld.org',
-        'moldinspectionandtest.com', 'servicemaster.com', 'mrappliance.com',
-        'sears.com', 'geeksquad.com', 'bestbuy.com',
-    ];
+    return INFRA_RESEARCH_NATIONAL_BRANDS_BY_NICHE[$niche] ?? [];
 }
 
 function infra_research_national_suffixes(): array { return ['.gov', '.edu']; }
@@ -61,11 +101,11 @@ function infra_research_norm_domain(string $d): string
 }
 
 /** DIRECTORY | NATIONAL | LOCAL */
-function infra_research_classify(string $domain): string
+function infra_research_classify(string $domain, string $niche): string
 {
     $d = infra_research_norm_domain($domain);
     if (infra_serp_is_directory($d)) return 'DIRECTORY';
-    foreach (infra_research_national_brands() as $b) {
+    foreach (infra_research_national_brands($niche) as $b) {
         if ($d === $b || substr($d, -strlen('.' . $b)) === '.' . $b) return 'NATIONAL';
     }
     if (in_array($d, infra_research_national_extra(), true)) return 'NATIONAL';
@@ -84,8 +124,8 @@ const INFRA_RESEARCH_ELOCAL_ALIASES = [
     'city'       => ['city'],
     'state'      => ['state', 'st', 'ss'],
     'buyers'     => ['buyers', 'smb_buyers', 'smb buyers', 'buyer_count', 'local_buyers'],
-    'price_avg'  => ['1p_avg', '1p avg $', 'avg_price', 'avg_call_price', 'price_avg', 'first_party_avg', '1st party avg call price'],
-    'price_max'  => ['1p_max', '1p max $', 'max_price', 'max_call_price', 'price_max', 'first_party_max', '1st party max call price'],
+    'price_avg'  => ['1p_avg', '1p avg $', 'avg_price', 'avg price', 'avg_call_price', 'price_avg', 'first_party_avg', '1st party avg call price'],
+    'price_max'  => ['1p_max', '1p max $', 'max_price', 'max price', 'max_call_price', 'price_max', 'first_party_max', '1st party max call price'],
 ];
 
 // price_max is documented (views/research.php) as "optionally max price" and isn't
@@ -283,9 +323,32 @@ function infra_research_match_city(string $city, string $state): ?array
  * network/auth code underneath it is not duplicated.
  *
  * @return array{ok:bool,msg:string,data:array} data: open_slots/local_competitors/
- *   national_brands (counts out of top 10)
+ *   national_brands (counts out of top 10) + domains (the up-to-10 ranking
+ *   domains themselves, in rank order — kept alongside the counts so a caller
+ *   that wants the "All Scored" sheet's per-pattern breakdown doesn't need a
+ *   second SERP call to get what this one call already saw).
  */
-function infra_research_serp_fetch(array $c, string $keyword): array
+/** The part of a SERP reply both the one-at-a-time and concurrent paths share:
+ *  classify every organic result and keep the ranked domain list. */
+function infra_research_classify_serp_result(array $result, string $niche): array
+{
+    $items = (array) ($result[0]['items'] ?? []);
+    $open = $local = $natl = 0;
+    $domains = [];
+    foreach ($items as $it) {
+        if ((string) ($it['type'] ?? '') !== 'organic') continue;
+        $domain = (string) ($it['domain'] ?? '');
+        if (count($domains) < 10) $domains[] = $domain;
+        switch (infra_research_classify($domain, $niche)) {
+            case 'DIRECTORY': $open++; break;
+            case 'NATIONAL':  $natl++; break;
+            default:          $local++;
+        }
+    }
+    return ['open_slots' => $open, 'local_competitors' => $local, 'national_brands' => $natl, 'domains' => $domains];
+}
+
+function infra_research_serp_fetch(array $c, string $keyword, string $niche): array
 {
     $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
     $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
@@ -294,20 +357,32 @@ function infra_research_serp_fetch(array $c, string $keyword): array
         'device' => 'desktop', 'depth' => 10,
     ]);
     if (!$r['ok']) return ['ok' => false, 'msg' => $r['msg'], 'data' => []];
+    return ['ok' => true, 'msg' => '', 'data' => infra_research_classify_serp_result($r['result'], $niche)];
+}
 
-    $items = (array) ($r['result'][0]['items'] ?? []);
-    $open = $local = $natl = 0;
-    foreach ($items as $it) {
-        if ((string) ($it['type'] ?? '') !== 'organic') continue;
-        switch (infra_research_classify((string) ($it['domain'] ?? ''))) {
-            case 'DIRECTORY': $open++; break;
-            case 'NATIONAL':  $natl++; break;
-            default:          $local++;
-        }
-    }
-    return ['ok' => true, 'msg' => '', 'data' => [
-        'open_slots' => $open, 'local_competitors' => $local, 'national_brands' => $natl,
-    ]];
+/**
+ * Many SERP checks at once, overlapped via infra_kw_dfs_post_many() (bounded
+ * curl_multi, not a single bigger request — DataForSEO's live endpoint still
+ * only accepts one task per request body). Each keyword's result is
+ * independent — unlike the one-at-a-time tick loop, one failure here does not
+ * prevent the others in the same batch from succeeding.
+ *
+ * @param array $keywords list of resolved keyword phrases, one per job
+ * @return array same length/order as $keywords, each {ok:bool,msg:string,data:array}
+ */
+function infra_research_serp_fetch_many(array $c, array $keywords, string $niche, int $concurrency): array
+{
+    $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
+    $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
+    $tasks = array_map(fn($kw) => [
+        'keyword' => $kw, 'location_code' => $loc, 'language_code' => $lang,
+        'device' => 'desktop', 'depth' => 10,
+    ], $keywords);
+    $raw = infra_kw_dfs_post_many($c, 'serp/google/organic/live/advanced', $tasks, $concurrency);
+    return array_map(function ($r) use ($niche) {
+        if (!$r['ok']) return ['ok' => false, 'msg' => $r['msg'], 'data' => []];
+        return ['ok' => true, 'msg' => '', 'data' => infra_research_classify_serp_result($r['result'], $niche)];
+    }, $raw);
 }
 
 /* ---------------------------------------------------------------------------
@@ -496,24 +571,31 @@ function infra_research_tick(array &$run): array
             $phrases = []; $byPhrase = [];
             foreach ($chunk as $id) {
                 $c = $run['candidates'][$id];
-                foreach ($run['patterns'] as $pat) {
+                foreach ($run['patterns'] as $patIdx => $pat) {
                     $p = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
                     if ($p === '') continue;
                     $k = strtolower($p);
                     if (!isset($byPhrase[$k])) { $phrases[] = $p; $byPhrase[$k] = []; }
-                    $byPhrase[$k][] = $id;
+                    $byPhrase[$k][] = [$id, $patIdx];
                 }
             }
             if (!$phrases) continue;
             $r = infra_kw_fetch($run['provider'], $phrases);
             if (!$r['ok']) return ['level' => 'err', 'stop' => true, 'msg' => 'Stopped: ' . $r['msg']];
-            $sums = [];
-            foreach ($byPhrase as $phrase => $ids2) {
+            $sums = []; $byPattern = [];
+            foreach ($byPhrase as $phrase => $pairs) {
                 $vol = (float) ($r['rows'][$phrase]['volume'] ?? 0);
-                foreach ($ids2 as $id) $sums[$id] = ($sums[$id] ?? 0) + $vol;
+                foreach ($pairs as [$id, $patIdx]) {
+                    $sums[$id] = ($sums[$id] ?? 0) + $vol;
+                    $byPattern[$id][$patIdx] = $vol;
+                }
             }
             foreach ($chunk as $id) {
                 $run['candidates'][$id]['volume'] = $sums[$id] ?? 0.0;
+                // Per-pattern breakdown, kept alongside the total for the "All Scored"
+                // sheet — the total alone (the only thing tracked before) can't be
+                // split back into its per-pattern parts after the fact.
+                $run['candidates'][$id]['volume_by_pattern'] = $byPattern[$id] ?? [];
                 $done++;
             }
         }
@@ -538,26 +620,56 @@ function infra_research_tick(array &$run): array
         $cfg = infra_kw_provider('dataforseo');
         $numPatterns = count($run['patterns']);
 
-        // NOT batched: DataForSEO's serp/google/organic/live/advanced flatly rejects
-        // more than one task per request ("You can set only one task at a time"),
-        // confirmed against the real API - a real attempt at batching here (see
-        // git history) sent 20 tasks/request and had 19/20 rejected every time.
-        $started = time(); $done = 0;
-        foreach ($run['candidates'] as $id => &$c) {
-            if (time() - $started > INFRA_RESEARCH_TIME_BUDGET) break;
+        // NOT batched within one request: DataForSEO's serp/google/organic/live/advanced
+        // flatly rejects more than one task per request body ("You can set only one
+        // task at a time"), confirmed against the real API - a past attempt at batching
+        // sent 20 tasks/request and had 19/20 rejected every time. That's a different
+        // constraint than CONCURRENT separate requests, which DataForSEO's own docs
+        // explicitly describe as the intended way to use their per-minute throughput —
+        // see infra_research_serp_fetch_many()/infra_http_multi() for the bounded
+        // sliding-window concurrency this uses instead of one call at a time.
+        //
+        // Build the backlog first (every candidate/pattern pair not yet done), then
+        // drain it in waves of INFRA_RESEARCH_SERP_CONCURRENCY. Each job's result is
+        // independent - one failed check no longer aborts the whole pass the way a
+        // single failure used to; it's just left in the backlog and retried next tick.
+        $todo = [];
+        foreach ($run['candidates'] as $id => $c) {
             if ($c['serp_patterns_done'] >= $numPatterns) continue;
-            $pat = $run['patterns'][$c['serp_patterns_done']];
+            $patIdx = $c['serp_patterns_done'];
+            $pat = $run['patterns'][$patIdx];
             $phrase = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
-            if ($phrase === '') { $c['serp_patterns_done']++; continue; }
-            $r = infra_research_serp_fetch($cfg, $phrase);
-            if (!$r['ok']) return ['level' => 'err', 'stop' => true, 'msg' => 'Stopped: ' . $r['msg']];
-            $c['serp_open_sum']  += $r['data']['open_slots'];
-            $c['serp_local_sum'] += $r['data']['local_competitors'];
-            $c['serp_natl_sum']  += $r['data']['national_brands'];
-            $c['serp_patterns_done']++;
-            $done++;
+            if ($phrase === '') { $run['candidates'][$id]['serp_patterns_done']++; continue; }
+            $todo[] = ['id' => $id, 'patIdx' => $patIdx, 'phrase' => $phrase];
         }
-        unset($c);
+
+        $started = time(); $done = 0; $failed = 0;
+        $i = 0; $n = count($todo);
+        while ($i < $n && time() - $started <= INFRA_RESEARCH_TIME_BUDGET) {
+            $wave = array_slice($todo, $i, INFRA_RESEARCH_SERP_CONCURRENCY);
+            $i += count($wave);
+            $results = infra_research_serp_fetch_many(
+                $cfg, array_column($wave, 'phrase'), $niche, INFRA_RESEARCH_SERP_CONCURRENCY);
+            foreach ($wave as $j => $job) {
+                $r = $results[$j];
+                if (!$r['ok']) { $failed++; continue; }
+                $id = $job['id']; $patIdx = $job['patIdx'];
+                $run['candidates'][$id]['serp_open_sum']  += $r['data']['open_slots'];
+                $run['candidates'][$id]['serp_local_sum'] += $r['data']['local_competitors'];
+                $run['candidates'][$id]['serp_natl_sum']  += $r['data']['national_brands'];
+                // Per-pattern breakdown, kept alongside the running sums above — the sums
+                // feed the existing averaged score inputs unchanged; this is purely
+                // additive, for the "All Scored" sheet's per-pattern columns.
+                $run['candidates'][$id]['serp_by_pattern'][$patIdx] = [
+                    'local'     => $r['data']['local_competitors'],
+                    'national'  => $r['data']['national_brands'],
+                    'directory' => $r['data']['open_slots'],
+                    'domains'   => $r['data']['domains'],
+                ];
+                $run['candidates'][$id]['serp_patterns_done']++;
+                $done++;
+            }
+        }
         $left = 0;
         foreach ($run['candidates'] as $c) $left += max(0, $numPatterns - $c['serp_patterns_done']);
         if ($left === 0) {
@@ -581,7 +693,10 @@ function infra_research_tick(array &$run): array
             }
 
             $picked = infra_research_diversify($scoredPool, $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
-            $resultFile = infra_research_write_xlsx($niche, $picked);
+            // $run['candidates'] here is passed BEFORE the max-rivals/diversify drops
+            // above — "All Scored" must hold every city that reached the SERP phase,
+            // not just the final list, and in its own natural (unsorted) order.
+            $resultFile = infra_research_write_xlsx($niche, $picked, $run['candidates'], $run['patterns']);
             $rivalsNote = $rivalsDropped > 0 ? " ({$rivalsDropped} dropped for exceeding the max-rivals cap)" : '';
             if ($resultFile === null) {
                 return ['level' => 'err', 'stop' => true, 'msg' =>
@@ -594,7 +709,8 @@ function infra_research_tick(array &$run): array
             return ['level' => 'ok', 'stop' => true, 'msg' =>
                 count($picked) . " cities in the final list{$rivalsNote}. Saved to Downloads (Test Lab) as {$resultFile}."];
         }
-        return ['level' => 'ok', 'stop' => false, 'msg' => "{$done} SERP checks this pass, {$left} still to go — press Continue."];
+        $failNote = $failed > 0 ? " ({$failed} failed this pass, will retry)" : '';
+        return ['level' => 'ok', 'stop' => false, 'msg' => "{$done} SERP checks this pass{$failNote}, {$left} still to go — press Continue."];
     }
 
     return ['level' => 'warn', 'stop' => true, 'msg' => 'This run is already done.'];
@@ -823,10 +939,102 @@ function infra_research_write_xlsx_file(string $path, array $sheets): bool
     return $zip->close();
 }
 
-/** @return string|null the filename on success, null if the write failed - callers must
+/**
+ * Every reference city with population > 100,000 and real coordinates — the
+ * candidate pool for "nearest big city", queried once per write rather than
+ * once per row. `cities` is read-only reference data (lib/cities.php), so this
+ * is safe to cache for the lifetime of one xlsx write.
+ */
+function infra_research_major_cities(): array
+{
+    return infra_cities_init()
+        ->query("SELECT id, city, ss, lat, lng FROM cities WHERE population > 100000 AND lat <> '' AND lng <> ''")
+        ->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * @return array{0:string,1:?float} [nearest city label ("City, SS") or '' if
+ *   nothing qualifies, distance in miles or null]. Excludes the candidate's
+ *   own reference-city row so a candidate that is itself >100k population
+ *   doesn't trivially report itself at 0 miles.
+ */
+function infra_research_nearest_major(array $c, array $majors): array
+{
+    if (($c['lat'] ?? null) === null || ($c['lng'] ?? null) === null) return ['', null];
+    $bestLabel = ''; $bestDist = null;
+    foreach ($majors as $m) {
+        if (($m['id'] ?? null) === ($c['_id'] ?? null)) continue;
+        $d = infra_research_haversine_mi((float) $c['lat'], (float) $c['lng'], (float) $m['lat'], (float) $m['lng']);
+        if ($bestDist === null || $d < $bestDist) { $bestDist = $d; $bestLabel = $m['city'] . ', ' . $m['ss']; }
+    }
+    return [$bestLabel, $bestDist];
+}
+
+/**
+ * The "All Scored" sheet: every city that reached the SERP phase, in the
+ * candidates array's own natural order — deliberately NOT re-sorted, filtered,
+ * or deduplicated against the diversified final list. One row per candidate,
+ * one repeating group of columns per keyword pattern (a run with 3 patterns
+ * gets 3 sets of local/national/directory/domain columns, in pattern order).
+ */
+function infra_research_all_scored_sheet(array $allScored, array $patterns): array
+{
+    $majors = infra_research_major_cities();
+    $numPatterns = count($patterns);
+
+    $header = ['City', 'State', 'Population', 'SMB Buyers', 'Avg Call Price $', 'Max Call Price $'];
+    foreach ($patterns as $pat) $header[] = 'Vol: ' . $pat;
+    $header[] = 'Total Volume/mo';
+    foreach ($patterns as $pat) {
+        $header[] = $pat . ' — Local Competitors';
+        $header[] = $pat . ' — National Brands';
+        $header[] = $pat . ' — Directories';
+        for ($k = 1; $k <= 10; $k++) $header[] = $pat . " — Rank {$k} Domain";
+    }
+    $header[] = 'Latitude'; $header[] = 'Longitude';
+    $header[] = 'Nearest 100k+ City'; $header[] = 'Distance to Nearest 100k+ City (mi)';
+    $header[] = 'Score'; $header[] = 'Grade';
+
+    $sheet = [$header];
+    foreach ($allScored as $c) {
+        $row = [
+            (string) ($c['city'] ?? ''), (string) ($c['ss'] ?? ''), (int) ($c['population'] ?? 0),
+            (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0), (float) ($c['price_max'] ?? 0),
+        ];
+        for ($p = 0; $p < $numPatterns; $p++) {
+            $row[] = isset($c['volume_by_pattern'][$p]) ? round($c['volume_by_pattern'][$p]) : '';
+        }
+        $row[] = isset($c['volume']) ? round($c['volume']) : '';
+        for ($p = 0; $p < $numPatterns; $p++) {
+            $pd = $c['serp_by_pattern'][$p] ?? null;
+            $row[] = $pd['local'] ?? '';
+            $row[] = $pd['national'] ?? '';
+            $row[] = $pd['directory'] ?? '';
+            $doms = $pd['domains'] ?? [];
+            for ($k = 0; $k < 10; $k++) $row[] = $doms[$k] ?? '';
+        }
+        $row[] = $c['lat'] ?? '';
+        $row[] = $c['lng'] ?? '';
+        [$nearLabel, $nearDist] = infra_research_nearest_major($c, $majors);
+        $row[] = $nearLabel;
+        $row[] = $nearDist !== null ? round($nearDist, 1) : '';
+        $row[] = (float) ($c['score'] ?? 0);
+        $row[] = (string) ($c['grade'] ?? '');
+        $sheet[] = $row;
+    }
+    return $sheet;
+}
+
+/**
+ * @param array $picked the diversified final list (unchanged shape/contents from before)
+ * @param array $allScored every candidate that reached the SERP phase — pre-maxRivals,
+ *   pre-diversify, in its own natural order (see infra_research_all_scored_sheet())
+ * @param array $patterns this run's keyword patterns, in order — drives the "All
+ *   Scored" sheet's repeating per-pattern column groups
+ * @return string|null the filename on success, null if the write failed - callers must
  *  not link/store a filename on null, or a browser ends up downloading whatever
  *  partial or missing file is on disk and naming it .xlsx regardless. */
-function infra_research_write_xlsx(string $niche, array $rows): ?string
+function infra_research_write_xlsx(string $niche, array $picked, array $allScored = [], array $patterns = []): ?string
 {
     $fname = $niche . '-city-research-' . date('Y-m-d') . '.xlsx';
     $path  = infra_research_downloads_dir() . '/' . $fname;
@@ -835,7 +1043,7 @@ function infra_research_write_xlsx(string $niche, array $rows): ?string
         ['Build #', 'City', 'State', 'Grade', 'Score', 'Population', 'Volume/mo',
          'Open Slots', 'Local Competitors', 'National Brands', 'Buyers', '1P Avg $', 'Region'],
     ];
-    foreach ($rows as $i => $r) {
+    foreach ($picked as $i => $r) {
         $buildList[] = [
             $i + 1, (string) $r['city'], (string) $r['ss'], (string) ($r['grade'] ?? ''), (float) ($r['score'] ?? 0),
             (int) ($r['population'] ?? 0), (int) round($r['volume'] ?? 0),
@@ -844,6 +1052,8 @@ function infra_research_write_xlsx(string $niche, array $rows): ?string
             infra_research_region($r['ss']),
         ];
     }
+
+    $allScoredSheet = infra_research_all_scored_sheet($allScored, $patterns);
 
     $method = [['City Research — method, in brief'], [
         "SCORE = 0.45*COMPETITION + 0.35*DEMAND + 0.20*MONEY, z-scored across this run's own candidate pool.",
@@ -863,6 +1073,10 @@ function infra_research_write_xlsx(string $niche, array $rows): ?string
         'Diversification: no two picked cities within the chosen mile-separation, no state over the chosen % of the list.',
     ]];
 
-    $ok = infra_research_write_xlsx_file($path, ['Build List' => $buildList, 'Method' => $method]);
+    $ok = infra_research_write_xlsx_file($path, [
+        'Build List' => $buildList,
+        'All Scored' => $allScoredSheet,
+        'Method' => $method,
+    ]);
     return $ok ? $fname : null;
 }

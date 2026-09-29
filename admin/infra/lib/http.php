@@ -80,6 +80,99 @@ function infra_http(string $method, string $url, array $opts = []): array
 }
 
 /**
+ * infra_http(), but for many independent requests overlapped via curl_multi
+ * instead of one blocking call at a time — same curl options as infra_http()
+ * (IPv4 pin included; see its own comment for why that one matters) applied
+ * to every request, so nothing behaves differently under concurrency than it
+ * already does one at a time — only WHEN bytes go out changes.
+ *
+ * A bounded sliding window, not a burst: at most $concurrency requests are
+ * ever in flight; a finished one is replaced immediately from the queue. This
+ * is deliberate — some APIs (DataForSEO's live SERP endpoints, confirmed via
+ * their own docs) explicitly warn that a burst near their rate ceiling causes
+ * more errors than a steady flow at a lower concurrency does.
+ *
+ * @param array $jobs list of ['method'=>,'url'=>,'opts'=>[headers[],body,verify,timeout]]
+ *   (same $opts shape infra_http() takes)
+ * @return array same length/order as $jobs, each {code:int,raw:string,json:mixed,error:string}
+ */
+function infra_http_multi(array $jobs, int $concurrency): array
+{
+    $n = count($jobs);
+    $results = array_fill(0, $n, ['code' => 0, 'raw' => '', 'json' => null, 'error' => 'never dispatched']);
+    if ($n === 0) return $results;
+    $concurrency = max(1, min($concurrency, $n));
+    $GLOBALS['__infra_http_calls'] = infra_http_calls() + $n;
+
+    $buildHandle = function (array $job) {
+        $opts    = $job['opts'] ?? [];
+        $verify  = $opts['verify']  ?? true;
+        $timeout = $opts['timeout'] ?? 20;
+        $headers = $opts['headers'] ?? [];
+        $ch = curl_init();
+        curl_setopt_array($ch, [
+            CURLOPT_URL            => $job['url'],
+            CURLOPT_CUSTOMREQUEST  => $job['method'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => $verify,
+            CURLOPT_SSL_VERIFYHOST => $verify ? 2 : 0,
+            CURLOPT_CONNECTTIMEOUT => 12,
+            CURLOPT_TIMEOUT        => $timeout,
+            CURLOPT_HTTPHEADER     => $headers,
+            CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4,
+        ]);
+        if (array_key_exists('body', $opts)) {
+            $body = is_string($opts['body']) ? $opts['body'] : json_encode($opts['body']);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+        }
+        return $ch;
+    };
+
+    $mh     = curl_multi_init();
+    $active = [];   // (int) curl handle => job index
+    $next   = 0;
+
+    $addNext = function () use (&$next, &$active, $n, $mh, $buildHandle, $jobs) {
+        if ($next >= $n) return;
+        $ch = $buildHandle($jobs[$next]);
+        curl_multi_add_handle($mh, $ch);
+        $active[(int) $ch] = $next;
+        $next++;
+    };
+    for ($k = 0; $k < $concurrency; $k++) $addNext();
+
+    do {
+        do { $status = curl_multi_exec($mh, $stillRunning); } while ($status === CURLM_CALL_MULTI_PERFORM);
+        if ($stillRunning) curl_multi_select($mh, 1.0);
+
+        while (($info = curl_multi_info_read($mh)) !== false) {
+            $ch = $info['handle'];
+            $i  = $active[(int) $ch] ?? null;
+            unset($active[(int) $ch]);
+            if ($i === null) { curl_multi_remove_handle($mh, $ch); curl_close($ch); continue; }
+
+            $raw   = curl_multi_getcontent($ch);
+            $code  = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $error = curl_error($ch);
+            curl_multi_remove_handle($mh, $ch);
+            curl_close($ch);
+
+            $json = null;
+            if (is_string($raw) && $raw !== '') {
+                $decoded = json_decode($raw, true);
+                if (json_last_error() === JSON_ERROR_NONE) $json = $decoded;
+            }
+            $results[$i] = ['code' => $code, 'raw' => is_string($raw) ? $raw : '', 'json' => $json, 'error' => $error];
+
+            $addNext();   // keep the window full until the queue is empty
+        }
+    } while ($stillRunning > 0 || count($active) > 0);
+
+    curl_multi_close($mh);
+    return $results;
+}
+
+/**
  * Can anything open a TCP connection to this host:port? One layer below infra_http() —
  * no TLS, no HTTP, no credentials, so it answers a question a failed API call cannot:
  * whether the machine is there at all.

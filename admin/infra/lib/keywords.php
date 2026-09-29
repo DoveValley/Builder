@@ -244,12 +244,15 @@ function infra_kw_dfs_headers(array $c): array
     return ['Authorization: Basic ' . base64_encode($login . ':' . $pass), 'Content-Type: application/json'];
 }
 
-/** One POST to a DataForSEO live endpoint, with its two layers of status code unwrapped. */
-function infra_kw_dfs_post(array $c, string $path, array $task): array
+/**
+ * Unwraps a DataForSEO live-endpoint reply's two layers of status code — shared
+ * by the one-at-a-time path (infra_kw_dfs_post()) and the concurrent path
+ * (infra_kw_dfs_post_many()) so a future change to how a status is read can't
+ * drift between them. Takes the same shape infra_http()/infra_http_multi()
+ * already return.
+ */
+function infra_kw_dfs_interpret(array $r): array
 {
-    $r = infra_http('POST', 'https://api.dataforseo.com/v3/' . ltrim($path, '/'),
-        ['headers' => infra_kw_dfs_headers($c), 'body' => json_encode([$task]), 'timeout' => 120]);
-
     if ($r['error'] !== '')  return ['ok' => false, 'msg' => 'Network error: ' . $r['error'], 'result' => []];
     if ($r['code'] === 401)  return ['ok' => false, 'msg' => 'DataForSEO rejected the login/password.', 'result' => []];
 
@@ -275,6 +278,39 @@ function infra_kw_dfs_post(array $c, string $path, array $task): array
         return ['ok' => false, 'msg' => 'DataForSEO task: ' . ($t['status_message'] ?? 'unknown error'), 'result' => []];
     }
     return ['ok' => true, 'msg' => '', 'result' => (array) ($t['result'] ?? [])];
+}
+
+/** One POST to a DataForSEO live endpoint, with its two layers of status code unwrapped. */
+function infra_kw_dfs_post(array $c, string $path, array $task): array
+{
+    $r = infra_http('POST', 'https://api.dataforseo.com/v3/' . ltrim($path, '/'),
+        ['headers' => infra_kw_dfs_headers($c), 'body' => json_encode([$task]), 'timeout' => 120]);
+    return infra_kw_dfs_interpret($r);
+}
+
+/**
+ * Many independent one-task-per-request DataForSEO live calls, overlapped via
+ * infra_http_multi() instead of one at a time. Same endpoint constraint as
+ * infra_kw_dfs_post() (DataForSEO's live/advanced endpoints reject more than
+ * one task per REQUEST BODY — confirmed against the real API, see
+ * lib/research.php) — this does not batch task bodies, it runs many separate
+ * single-task requests concurrently, which DataForSEO's own docs describe as
+ * the intended way to use their per-minute throughput (a bounded steady flow,
+ * not a burst — see infra_http_multi()'s own doc comment).
+ *
+ * @param array $tasks list of single-task arrays, same shape infra_kw_dfs_post() takes
+ * @return array same length/order as $tasks, each {ok:bool,msg:string,result:array}
+ */
+function infra_kw_dfs_post_many(array $c, string $path, array $tasks, int $concurrency): array
+{
+    $url = 'https://api.dataforseo.com/v3/' . ltrim($path, '/');
+    $headers = infra_kw_dfs_headers($c);
+    $jobs = array_map(fn($task) => [
+        'method' => 'POST', 'url' => $url,
+        'opts' => ['headers' => $headers, 'body' => json_encode([$task]), 'timeout' => 120],
+    ], $tasks);
+    $raw = infra_http_multi($jobs, $concurrency);
+    return array_map('infra_kw_dfs_interpret', $raw);
 }
 
 
