@@ -131,6 +131,93 @@ function infra_research_national_brands(string $niche): array
 function infra_research_national_suffixes(): array { return ['.gov', '.edu']; }
 function infra_research_national_extra(): array { return ['wikipedia.org', 'reddit.com', 'quora.com', 'youtube.com']; }
 
+/* ---------------------------------------------------------------------------
+ * City-name disambiguation: "Lancaster" alone is ambiguous (SC and PA both
+ * have one); "Hamilton" collides with Hamilton, Ontario. A bare {city} keyword
+ * silently mixes the wrong place's search demand into the volume number, and
+ * sends a SERP check that Google itself may resolve to the wrong place. Fixed
+ * by appending the US state abbreviation to the keyword's city name whenever
+ * it collides with another US state or a well-known Canadian/UK place —
+ * "appliance repair Lancaster SC" instead of "appliance repair Lancaster".
+ * ------------------------------------------------------------------------- */
+
+/**
+ * Well-known Canadian and UK city/town names that collide with common US city
+ * names. Hand-curated, NOT a full database — this codebase has no Canada/UK
+ * reference city table, so this is a best-effort safety net covering the
+ * largest/most-searched places in both countries, not a guarantee of catching
+ * every collision. Expand here if a real run turns up a gap Scott flags.
+ */
+const INFRA_RESEARCH_INTL_COLLISION_CITIES = [
+    // Canada
+    'london', 'hamilton', 'windsor', 'kingston', 'cambridge', 'waterloo', 'guelph',
+    'kitchener', 'barrie', 'oshawa', 'brampton', 'mississauga', 'markham', 'richmond',
+    'burlington', 'oakville', 'victoria', 'surrey', 'burnaby', 'regina', 'halifax',
+    'sudbury', 'peterborough', 'niagara falls', 'st. catharines', 'st catharines',
+    'chatham', 'woodstock', 'stratford', 'brantford', 'cornwall', 'belleville',
+    'orillia', 'sarnia', 'owen sound', 'cobourg', 'newmarket', 'aurora', 'ajax',
+    'whitby', 'pickering', 'vaughan', 'milton', 'georgetown', 'dundas', 'ancaster',
+    'paris', 'ingersoll', 'tillsonburg', 'leamington', 'amherstburg', 'welland',
+    'fort erie', 'trenton', 'napanee', 'gananoque', 'brockville', 'perth', 'renfrew',
+    'pembroke', 'north bay', 'timmins', 'kenora',
+    // UK
+    'manchester', 'birmingham', 'liverpool', 'bristol', 'leeds', 'sheffield',
+    'newcastle', 'nottingham', 'leicester', 'coventry', 'bradford', 'cardiff',
+    'belfast', 'edinburgh', 'glasgow', 'oxford', 'york', 'bath', 'exeter', 'plymouth',
+    'southampton', 'portsmouth', 'brighton', 'norwich', 'ipswich', 'chester',
+    'lancaster', 'gloucester', 'worcester', 'hereford', 'canterbury', 'winchester',
+    'salisbury', 'durham', 'carlisle', 'preston', 'blackpool', 'bolton', 'wigan',
+    'derby', 'lincoln', 'reading', 'dover', 'dartmouth', 'ashford', 'maidstone',
+    'rochester', 'banbury', 'warwick', 'harrogate', 'scarborough', 'whitby',
+    'doncaster', 'wakefield', 'huddersfield', 'barnsley', 'sunderland',
+    'middlesbrough', 'hull', 'swansea', 'aberdeen', 'dundee', 'inverness',
+    'falmouth', 'truro', 'berwick', 'kettering', 'northampton', 'cheltenham',
+    'yeovil', 'taunton', 'newport', 'bangor', 'ely', 'st albans', 'st. albans',
+];
+
+/**
+ * Every reference city's searchable name mapped to the set of US states (2-
+ * letter) it appears under — built once per process (a few thousand rows,
+ * cheap), used to detect e.g. "Midlothian" existing in both TX and IL.
+ */
+function infra_research_us_name_states_map(): array
+{
+    static $map = null;
+    if ($map !== null) return $map;
+    $map = [];
+    foreach (infra_cities_init()->query('SELECT city, ss FROM cities') as $r) {
+        $name = strtolower(infra_kw_city_name($r));
+        if ($name === '') continue;
+        $map[$name][$r['ss']] = true;
+    }
+    return $map;
+}
+
+function infra_research_city_is_ambiguous(string $searchName): bool
+{
+    $key = strtolower($searchName);
+    if (in_array($key, INFRA_RESEARCH_INTL_COLLISION_CITIES, true)) return true;
+    return count(infra_research_us_name_states_map()[$key] ?? []) > 1;
+}
+
+/**
+ * The city label to put into a keyword phrase's {city} slot: the plain
+ * searchable name, or "Name ST" when that name collides with another US state
+ * or a well-known Canadian/UK city — "Lancaster SC" (also PA), "Hamilton OH"
+ * (also Ontario). Applied to BOTH the volume/Ahrefs lookup and the SERP check
+ * (both call sites in infra_research_tick()) — a bare ambiguous name mixes
+ * another place's demand into the volume number, not just the SERP result.
+ */
+function infra_research_city_label(array $c): string
+{
+    $name = infra_kw_city_name($c);
+    $ss = trim((string) ($c['ss'] ?? ''));
+    if ($name !== '' && $ss !== '' && infra_research_city_is_ambiguous($name)) {
+        return $name . ' ' . $ss;
+    }
+    return $name;
+}
+
 function infra_research_norm_domain(string $d): string
 {
     return strtolower(preg_replace('/^(www\.|m\.)/', '', trim($d)));
@@ -384,14 +471,31 @@ function infra_research_classify_serp_result(array $result, string $niche): arra
     return ['open_slots' => $open, 'local_competitors' => $local, 'national_brands' => $natl, 'domains' => $domains];
 }
 
-function infra_research_serp_fetch(array $c, string $keyword, string $niche): array
+/**
+ * Builds ONE task's location field: a per-city GPS pin (location_coordinate)
+ * when the candidate has real coordinates, falling back to the account's
+ * fixed nationwide location_code when it doesn't (a handful of reference
+ * cities have no lat/lng). location_coordinate's format is fixed by
+ * DataForSEO's own spec: "latitude,longitude,radius", max 7 decimal digits,
+ * radius 199-199999 — units are documented as millimeters, which doesn't map
+ * to a real-world search radius, so this uses their own docs' example radius
+ * (200) verbatim rather than inventing a "meaningful" number in a unit that
+ * isn't actually meaningful.
+ */
+function infra_research_serp_location(array $c, ?float $lat, ?float $lng): array
 {
-    $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
+    if ($lat !== null && $lng !== null) {
+        return ['location_coordinate' => number_format($lat, 7, '.', '') . ',' . number_format($lng, 7, '.', '') . ',200'];
+    }
+    return ['location_code' => (int) ($c['location'] ?? 2840) ?: 2840];
+}
+
+function infra_research_serp_fetch(array $c, string $keyword, string $niche, ?float $lat = null, ?float $lng = null): array
+{
     $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
-    $r = infra_kw_dfs_post($c, 'serp/google/organic/live/advanced', [
-        'keyword' => $keyword, 'location_code' => $loc, 'language_code' => $lang,
-        'device' => 'desktop', 'depth' => 10,
-    ]);
+    $r = infra_kw_dfs_post($c, 'serp/google/organic/live/advanced', array_merge([
+        'keyword' => $keyword, 'language_code' => $lang, 'device' => 'desktop', 'depth' => 10,
+    ], infra_research_serp_location($c, $lat, $lng)));
     if (!$r['ok']) return ['ok' => false, 'msg' => $r['msg'], 'data' => []];
     return ['ok' => true, 'msg' => '', 'data' => infra_research_classify_serp_result($r['result'], $niche)];
 }
@@ -399,21 +503,19 @@ function infra_research_serp_fetch(array $c, string $keyword, string $niche): ar
 /**
  * Many SERP checks at once, overlapped via infra_kw_dfs_post_many() (bounded
  * curl_multi, not a single bigger request — DataForSEO's live endpoint still
- * only accepts one task per request body). Each keyword's result is
- * independent — unlike the one-at-a-time tick loop, one failure here does not
- * prevent the others in the same batch from succeeding.
+ * only accepts one task per request body). Each job's result is independent —
+ * unlike the one-at-a-time tick loop, one failure here does not prevent the
+ * others in the same batch from succeeding.
  *
- * @param array $keywords list of resolved keyword phrases, one per job
- * @return array same length/order as $keywords, each {ok:bool,msg:string,data:array}
+ * @param array $jobs list of ['keyword'=>string,'lat'=>?float,'lng'=>?float], one per job
+ * @return array same length/order as $jobs, each {ok:bool,msg:string,data:array}
  */
-function infra_research_serp_fetch_many(array $c, array $keywords, string $niche, int $concurrency): array
+function infra_research_serp_fetch_many(array $c, array $jobs, string $niche, int $concurrency): array
 {
-    $loc  = (int) ($c['location'] ?? 2840) ?: 2840;
     $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
-    $tasks = array_map(fn($kw) => [
-        'keyword' => $kw, 'location_code' => $loc, 'language_code' => $lang,
-        'device' => 'desktop', 'depth' => 10,
-    ], $keywords);
+    $tasks = array_map(fn($j) => array_merge([
+        'keyword' => $j['keyword'], 'language_code' => $lang, 'device' => 'desktop', 'depth' => 10,
+    ], infra_research_serp_location($c, $j['lat'] ?? null, $j['lng'] ?? null)), $jobs);
     $raw = infra_kw_dfs_post_many($c, 'serp/google/organic/live/advanced', $tasks, $concurrency);
     return array_map(function ($r) use ($niche) {
         if (!$r['ok']) return ['ok' => false, 'msg' => $r['msg'], 'data' => []];
@@ -608,7 +710,7 @@ function infra_research_tick(array &$run): array
             foreach ($chunk as $id) {
                 $c = $run['candidates'][$id];
                 foreach ($run['patterns'] as $patIdx => $pat) {
-                    $p = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
+                    $p = infra_kw_phrase($pat, ['city' => infra_research_city_label($c), 'state' => $c['state'], 'ss' => $c['ss']]);
                     if ($p === '') continue;
                     $k = strtolower($p);
                     if (!isset($byPhrase[$k])) { $phrases[] = $p; $byPhrase[$k] = []; }
@@ -674,9 +776,9 @@ function infra_research_tick(array &$run): array
             if ($c['serp_patterns_done'] >= $numPatterns) continue;
             $patIdx = $c['serp_patterns_done'];
             $pat = $run['patterns'][$patIdx];
-            $phrase = infra_kw_phrase($pat, ['city' => $c['city'], 'state' => $c['state'], 'ss' => $c['ss']]);
+            $phrase = infra_kw_phrase($pat, ['city' => infra_research_city_label($c), 'state' => $c['state'], 'ss' => $c['ss']]);
             if ($phrase === '') { $run['candidates'][$id]['serp_patterns_done']++; continue; }
-            $todo[] = ['id' => $id, 'patIdx' => $patIdx, 'phrase' => $phrase];
+            $todo[] = ['id' => $id, 'patIdx' => $patIdx, 'phrase' => $phrase, 'lat' => $c['lat'] ?? null, 'lng' => $c['lng'] ?? null];
         }
 
         $started = time(); $done = 0; $failed = 0;
@@ -684,8 +786,9 @@ function infra_research_tick(array &$run): array
         while ($i < $n && time() - $started <= INFRA_RESEARCH_TIME_BUDGET) {
             $wave = array_slice($todo, $i, INFRA_RESEARCH_SERP_CONCURRENCY);
             $i += count($wave);
+            $jobs = array_map(fn($job) => ['keyword' => $job['phrase'], 'lat' => $job['lat'], 'lng' => $job['lng']], $wave);
             $results = infra_research_serp_fetch_many(
-                $cfg, array_column($wave, 'phrase'), $niche, INFRA_RESEARCH_SERP_CONCURRENCY);
+                $cfg, $jobs, $niche, INFRA_RESEARCH_SERP_CONCURRENCY);
             foreach ($wave as $j => $job) {
                 $r = $results[$j];
                 if (!$r['ok']) { $failed++; continue; }
