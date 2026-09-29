@@ -19,6 +19,11 @@
  * where they are sticky.
  */
 
+require_once __DIR__ . '/state.php'; // infra_state_db() — bootstrap.php loads this for the web
+                                      // path, but the CLI research_tick.php cron entrypoint
+                                      // never touches bootstrap.php, so this file must be
+                                      // self-sufficient rather than relying on the caller.
+
 const INFRA_CITY_COLS  = ['id', 'rank', 'city', 'state', 'ss', 'population', 'lat', 'lng', 'area_codes', 'ac_source'];
 
 /** Metrics are stored PER PROVIDER, never merged into one set of columns.
