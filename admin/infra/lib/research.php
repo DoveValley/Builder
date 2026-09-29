@@ -23,10 +23,12 @@ const INFRA_RESEARCH_TIME_BUDGET = 90;
 
 // DataForSEO's own docs: live endpoints allow up to 30 simultaneous requests
 // and ~2,000/min, but explicitly warn that bursting near that ceiling causes
-// MORE errors, not fewer — recommending a steady flow instead. 8 is
-// comfortably inside that "steady flow" zone, not the hard ceiling; tune here
-// if a real test run shows headroom to go higher without more errors.
-const INFRA_RESEARCH_SERP_CONCURRENCY = 8;
+// MORE errors, not fewer — recommending a steady flow instead. Raised from the
+// original 8 to 16 on 2026-09-29 — still comfortably below the documented
+// ceiling, not a jump straight to it. If a real run shows failure rates
+// climbing well above the normal ~15-30%/pass baseline after this change,
+// that's the signal to step back down rather than push higher.
+const INFRA_RESEARCH_SERP_CONCURRENCY = 16;
 
 function infra_research_dir(): string
 {
@@ -490,39 +492,6 @@ function infra_research_serp_location(array $c, ?float $lat, ?float $lng): array
     return ['location_code' => (int) ($c['location'] ?? 2840) ?: 2840];
 }
 
-function infra_research_serp_fetch(array $c, string $keyword, string $niche, ?float $lat = null, ?float $lng = null): array
-{
-    $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
-    $r = infra_kw_dfs_post($c, 'serp/google/organic/live/advanced', array_merge([
-        'keyword' => $keyword, 'language_code' => $lang, 'device' => 'desktop', 'depth' => 10,
-    ], infra_research_serp_location($c, $lat, $lng)));
-    if (!$r['ok']) return ['ok' => false, 'msg' => $r['msg'], 'data' => []];
-    return ['ok' => true, 'msg' => '', 'data' => infra_research_classify_serp_result($r['result'], $niche)];
-}
-
-/**
- * Many SERP checks at once, overlapped via infra_kw_dfs_post_many() (bounded
- * curl_multi, not a single bigger request — DataForSEO's live endpoint still
- * only accepts one task per request body). Each job's result is independent —
- * unlike the one-at-a-time tick loop, one failure here does not prevent the
- * others in the same batch from succeeding.
- *
- * @param array $jobs list of ['keyword'=>string,'lat'=>?float,'lng'=>?float], one per job
- * @return array same length/order as $jobs, each {ok:bool,msg:string,data:array}
- */
-function infra_research_serp_fetch_many(array $c, array $jobs, string $niche, int $concurrency): array
-{
-    $lang = trim((string) ($c['language'] ?? 'en')) ?: 'en';
-    $tasks = array_map(fn($j) => array_merge([
-        'keyword' => $j['keyword'], 'language_code' => $lang, 'device' => 'desktop', 'depth' => 10,
-    ], infra_research_serp_location($c, $j['lat'] ?? null, $j['lng'] ?? null)), $jobs);
-    $raw = infra_kw_dfs_post_many($c, 'serp/google/organic/live/advanced', $tasks, $concurrency);
-    return array_map(function ($r) use ($niche) {
-        if (!$r['ok']) return ['ok' => false, 'msg' => $r['msg'], 'data' => []];
-        return ['ok' => true, 'msg' => '', 'data' => infra_research_classify_serp_result($r['result'], $niche)];
-    }, $raw);
-}
-
 /* ---------------------------------------------------------------------------
  * Distance — same math as build_cities.py's haversine(), so a mile here means
  * the same thing it means there.
@@ -689,10 +658,195 @@ function infra_research_new_run_id(string $niche): string
  * @return array{level:string,msg:string,stop:bool} stop=true means don't
  *   immediately retry in a loop (bad creds, or a whole-request API failure).
  */
+/**
+ * Once every candidate/pattern pair in a run has a SERP result: average the
+ * per-pattern sums, score+grade, apply the max-rivals filter, diversify, and
+ * write the xlsx. Split out of the tick loop so both the single-run path and
+ * the pooled multi-run path below call the exact same finishing logic.
+ *
+ * @return array{level:string,msg:string}
+ */
+function infra_research_finalize_serp(array &$run): array
+{
+    foreach ($run['candidates'] as $id => &$c) {
+        $n = max(1, $c['serp_patterns_done']);
+        $c['open_slots']        = $c['serp_open_sum'] / $n;
+        $c['local_competitors'] = $c['serp_local_sum'] / $n;
+        $c['national_brands']   = $c['serp_natl_sum'] / $n;
+    }
+    unset($c);
+    infra_research_score_and_grade($run['candidates']);
+
+    $maxRivals = $run['filters']['max_rivals'] ?? null;
+    $rivalsDropped = 0;
+    $scoredPool = $run['candidates'];
+    if ($maxRivals !== null) {
+        $before = count($scoredPool);
+        $scoredPool = array_filter($scoredPool, fn($c) =>
+            (($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0)) <= $maxRivals);
+        $rivalsDropped = $before - count($scoredPool);
+    }
+
+    $picked = infra_research_diversify($scoredPool, $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
+    // $run['candidates'] here is passed BEFORE the max-rivals/diversify drops
+    // above — "All Scored" must hold every city that reached the SERP phase,
+    // not just the final list, and in its own natural (unsorted) order.
+    $resultFile = infra_research_write_xlsx($run['niche'], $picked, $run['candidates'], $run['patterns']);
+    $rivalsNote = $rivalsDropped > 0 ? " ({$rivalsDropped} dropped for exceeding the max-rivals cap)" : '';
+    if ($resultFile === null) {
+        return ['level' => 'err', 'msg' =>
+            count($picked) . ' cities scored, but writing the xlsx failed '
+            . '(disk full or uploads/downloads not writable?) - press Continue to retry the write.'];
+    }
+    $run['result_file'] = $resultFile;
+    $run['result_count'] = count($picked);
+    $run['phase'] = 'done';
+    return ['level' => 'ok', 'msg' =>
+        count($picked) . " cities in the final list{$rivalsNote}. Saved to Downloads (Test Lab) as {$resultFile}."];
+}
+
+/**
+ * Ticks the SERP phase for one or more runs at once, sharing ONE time budget
+ * and ONE concurrency pool across every niche passed in, instead of each
+ * niche getting its own sequential turn. Before this, N active niches in the
+ * same cron invocation could take up to N * INFRA_RESEARCH_TIME_BUDGET
+ * seconds combined — easily longer than the 2-minute cron interval, which
+ * caused the NEXT invocation to be skipped outright by cron/research_tick.
+ * php's self-lock (a whole cron cycle thrown away, not just a slow one).
+ * Pooling bounds one invocation's SERP work to ONE budget window regardless
+ * of how many niches are active. Real numbers from 2026-09-29: 3 niches
+ * running concurrently (pre-pooling) totaled about the same combined
+ * throughput as 1 niche running alone — evidence the real bottleneck was
+ * never "each niche needs its own dedicated time", so sharing one budget/pool
+ * loses nothing real and stops the wasted skips.
+ *
+ * The raw HTTP fetch (infra_kw_dfs_post_many()) is niche-agnostic — only
+ * classifying a result's domains into DIRECTORY/NATIONAL/LOCAL depends on
+ * which niche a job belongs to, so that happens per-job AFTER the shared
+ * fetch (a wave can and often will mix jobs from several different niches).
+ *
+ * @param array $runs run_id => &$run, BY REFERENCE — candidates/phase are
+ *   mutated in place. Entries whose phase isn't 'serp' are left untouched.
+ * @return array run_id => {level:string,msg:string}, one entry for every run
+ *   that WAS in the serp phase (a run that wasn't is simply absent from the
+ *   return, not an error).
+ */
+function infra_research_tick_serp_pool(array &$runs): array
+{
+    $out = [];
+    $serpRunIds = [];
+    foreach ($runs as $rid => $run) {
+        if (($run['phase'] ?? '') === 'serp') $serpRunIds[] = $rid;
+    }
+    if (!$serpRunIds) return $out;
+
+    if (!infra_kw_has_creds('dataforseo')) {
+        foreach ($serpRunIds as $rid) {
+            $out[$rid] = ['level' => 'err', 'msg' =>
+                'The SERP check needs DataForSEO credentials — add them on the Cities/Niche tab first.'];
+        }
+        return $out;
+    }
+    $cfg = infra_kw_provider('dataforseo');
+    $lang = trim((string) ($cfg['language'] ?? 'en')) ?: 'en';
+
+    // NOT batched within one request: DataForSEO's serp/google/organic/live/advanced
+    // flatly rejects more than one task per request body ("You can set only one task
+    // at a time"), confirmed against the real API. That's a different constraint than
+    // CONCURRENT separate requests, which DataForSEO's own docs explicitly describe as
+    // the intended way to use their per-minute throughput.
+    //
+    // One combined backlog across EVERY run in the serp phase, tagged with which run
+    // each job belongs to, then drained in shared waves of INFRA_RESEARCH_SERP_
+    // CONCURRENCY regardless of which niche each job in a wave happens to be for.
+    //
+    // Built per-run first, then ROUND-ROBIN interleaved rather than concatenated —
+    // concatenating would let whichever run happens to be enumerated first (e.g. the
+    // one with the biggest remaining backlog) consume the ENTIRE shared time budget
+    // before a later run's jobs are ever reached, some invocations making zero
+    // progress on it. Confirmed live: with a 4,000+ job niche listed before a
+    // smaller one, the smaller one got 0 checks for a full pass. Round-robin means
+    // every active run gets a proportional share of every invocation's budget.
+    $perRunTodo = [];
+    foreach ($serpRunIds as $rid) {
+        $run =& $runs[$rid];
+        $numPatterns = count($run['patterns']);
+        $jobs = [];
+        foreach ($run['candidates'] as $id => $c) {
+            if ($c['serp_patterns_done'] >= $numPatterns) continue;
+            $patIdx = $c['serp_patterns_done'];
+            $pat = $run['patterns'][$patIdx];
+            $phrase = infra_kw_phrase($pat, ['city' => infra_research_city_label($c), 'state' => $c['state'], 'ss' => $c['ss']]);
+            if ($phrase === '') { $run['candidates'][$id]['serp_patterns_done']++; continue; }
+            $jobs[] = ['rid' => $rid, 'niche' => $run['niche'], 'id' => $id, 'patIdx' => $patIdx,
+                       'phrase' => $phrase, 'lat' => $c['lat'] ?? null, 'lng' => $c['lng'] ?? null];
+        }
+        $perRunTodo[$rid] = $jobs;
+        unset($run);
+    }
+
+    $todo = [];
+    $cursors = array_fill_keys(array_keys($perRunTodo), 0);
+    $remaining = array_sum(array_map('count', $perRunTodo));
+    while ($remaining > 0) {
+        foreach ($perRunTodo as $rid => $jobs) {
+            $cur = $cursors[$rid];
+            if ($cur >= count($jobs)) continue;
+            $todo[] = $jobs[$cur];
+            $cursors[$rid] = $cur + 1;
+            $remaining--;
+        }
+    }
+
+    $doneCounts = []; $failCounts = [];
+    $started = time(); $i = 0; $n = count($todo);
+    while ($i < $n && time() - $started <= INFRA_RESEARCH_TIME_BUDGET) {
+        $wave = array_slice($todo, $i, INFRA_RESEARCH_SERP_CONCURRENCY);
+        $i += count($wave);
+        $tasks = array_map(fn($job) => array_merge([
+            'keyword' => $job['phrase'], 'language_code' => $lang, 'device' => 'desktop', 'depth' => 10,
+        ], infra_research_serp_location($cfg, $job['lat'], $job['lng'])), $wave);
+        $raw = infra_kw_dfs_post_many($cfg, 'serp/google/organic/live/advanced', $tasks, INFRA_RESEARCH_SERP_CONCURRENCY);
+        foreach ($wave as $j => $job) {
+            $r = $raw[$j];
+            $rid = $job['rid'];
+            if (!$r['ok']) { $failCounts[$rid] = ($failCounts[$rid] ?? 0) + 1; continue; }
+            $data = infra_research_classify_serp_result($r['result'], $job['niche']);
+            $run =& $runs[$rid];
+            $id = $job['id']; $patIdx = $job['patIdx'];
+            $run['candidates'][$id]['serp_open_sum']  += $data['open_slots'];
+            $run['candidates'][$id]['serp_local_sum'] += $data['local_competitors'];
+            $run['candidates'][$id]['serp_natl_sum']  += $data['national_brands'];
+            $run['candidates'][$id]['serp_by_pattern'][$patIdx] = [
+                'local' => $data['local_competitors'], 'national' => $data['national_brands'],
+                'directory' => $data['open_slots'], 'domains' => $data['domains'],
+            ];
+            $run['candidates'][$id]['serp_patterns_done']++;
+            $doneCounts[$rid] = ($doneCounts[$rid] ?? 0) + 1;
+            unset($run);
+        }
+    }
+
+    foreach ($serpRunIds as $rid) {
+        $run =& $runs[$rid];
+        $numPatterns = count($run['patterns']);
+        $left = 0;
+        foreach ($run['candidates'] as $c) $left += max(0, $numPatterns - $c['serp_patterns_done']);
+        $done = $doneCounts[$rid] ?? 0;
+        $failed = $failCounts[$rid] ?? 0;
+        if ($left === 0) {
+            $out[$rid] = infra_research_finalize_serp($run);
+        } else {
+            $failNote = $failed > 0 ? " ({$failed} failed this pass, will retry)" : '';
+            $out[$rid] = ['level' => 'ok', 'msg' => "{$done} SERP checks this pass{$failNote}, {$left} still to go — press Continue."];
+        }
+        unset($run);
+    }
+    return $out;
+}
+
 function infra_research_tick(array &$run): array
 {
-    $niche = $run['niche'];
-
     if ($run['phase'] === 'volume') {
         if (!infra_kw_has_creds($run['provider'])) {
             return ['level' => 'err', 'stop' => true,
@@ -751,105 +905,15 @@ function infra_research_tick(array &$run): array
     }
 
     if ($run['phase'] === 'serp') {
-        if (!infra_kw_has_creds('dataforseo')) {
-            return ['level' => 'err', 'stop' => true,
-                'msg' => 'The SERP check needs DataForSEO credentials — add them on the Cities/Niche tab first.'];
-        }
-        $cfg = infra_kw_provider('dataforseo');
-        $numPatterns = count($run['patterns']);
-
-        // NOT batched within one request: DataForSEO's serp/google/organic/live/advanced
-        // flatly rejects more than one task per request body ("You can set only one
-        // task at a time"), confirmed against the real API - a past attempt at batching
-        // sent 20 tasks/request and had 19/20 rejected every time. That's a different
-        // constraint than CONCURRENT separate requests, which DataForSEO's own docs
-        // explicitly describe as the intended way to use their per-minute throughput —
-        // see infra_research_serp_fetch_many()/infra_http_multi() for the bounded
-        // sliding-window concurrency this uses instead of one call at a time.
-        //
-        // Build the backlog first (every candidate/pattern pair not yet done), then
-        // drain it in waves of INFRA_RESEARCH_SERP_CONCURRENCY. Each job's result is
-        // independent - one failed check no longer aborts the whole pass the way a
-        // single failure used to; it's just left in the backlog and retried next tick.
-        $todo = [];
-        foreach ($run['candidates'] as $id => $c) {
-            if ($c['serp_patterns_done'] >= $numPatterns) continue;
-            $patIdx = $c['serp_patterns_done'];
-            $pat = $run['patterns'][$patIdx];
-            $phrase = infra_kw_phrase($pat, ['city' => infra_research_city_label($c), 'state' => $c['state'], 'ss' => $c['ss']]);
-            if ($phrase === '') { $run['candidates'][$id]['serp_patterns_done']++; continue; }
-            $todo[] = ['id' => $id, 'patIdx' => $patIdx, 'phrase' => $phrase, 'lat' => $c['lat'] ?? null, 'lng' => $c['lng'] ?? null];
-        }
-
-        $started = time(); $done = 0; $failed = 0;
-        $i = 0; $n = count($todo);
-        while ($i < $n && time() - $started <= INFRA_RESEARCH_TIME_BUDGET) {
-            $wave = array_slice($todo, $i, INFRA_RESEARCH_SERP_CONCURRENCY);
-            $i += count($wave);
-            $jobs = array_map(fn($job) => ['keyword' => $job['phrase'], 'lat' => $job['lat'], 'lng' => $job['lng']], $wave);
-            $results = infra_research_serp_fetch_many(
-                $cfg, $jobs, $niche, INFRA_RESEARCH_SERP_CONCURRENCY);
-            foreach ($wave as $j => $job) {
-                $r = $results[$j];
-                if (!$r['ok']) { $failed++; continue; }
-                $id = $job['id']; $patIdx = $job['patIdx'];
-                $run['candidates'][$id]['serp_open_sum']  += $r['data']['open_slots'];
-                $run['candidates'][$id]['serp_local_sum'] += $r['data']['local_competitors'];
-                $run['candidates'][$id]['serp_natl_sum']  += $r['data']['national_brands'];
-                // Per-pattern breakdown, kept alongside the running sums above — the sums
-                // feed the existing averaged score inputs unchanged; this is purely
-                // additive, for the "All Scored" sheet's per-pattern columns.
-                $run['candidates'][$id]['serp_by_pattern'][$patIdx] = [
-                    'local'     => $r['data']['local_competitors'],
-                    'national'  => $r['data']['national_brands'],
-                    'directory' => $r['data']['open_slots'],
-                    'domains'   => $r['data']['domains'],
-                ];
-                $run['candidates'][$id]['serp_patterns_done']++;
-                $done++;
-            }
-        }
-        $left = 0;
-        foreach ($run['candidates'] as $c) $left += max(0, $numPatterns - $c['serp_patterns_done']);
-        if ($left === 0) {
-            foreach ($run['candidates'] as $id => &$c) {
-                $n = max(1, $c['serp_patterns_done']);
-                $c['open_slots']         = $c['serp_open_sum'] / $n;
-                $c['local_competitors']  = $c['serp_local_sum'] / $n;
-                $c['national_brands']    = $c['serp_natl_sum'] / $n;
-            }
-            unset($c);
-            infra_research_score_and_grade($run['candidates']);
-
-            $maxRivals = $run['filters']['max_rivals'] ?? null;
-            $rivalsDropped = 0;
-            $scoredPool = $run['candidates'];
-            if ($maxRivals !== null) {
-                $before = count($scoredPool);
-                $scoredPool = array_filter($scoredPool, fn($c) =>
-                    (($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0)) <= $maxRivals);
-                $rivalsDropped = $before - count($scoredPool);
-            }
-
-            $picked = infra_research_diversify($scoredPool, $run['filters']['sep_mi'], $run['filters']['state_cap_pct']);
-            // $run['candidates'] here is passed BEFORE the max-rivals/diversify drops
-            // above — "All Scored" must hold every city that reached the SERP phase,
-            // not just the final list, and in its own natural (unsorted) order.
-            $resultFile = infra_research_write_xlsx($niche, $picked, $run['candidates'], $run['patterns']);
-            $rivalsNote = $rivalsDropped > 0 ? " ({$rivalsDropped} dropped for exceeding the max-rivals cap)" : '';
-            if ($resultFile === null) {
-                return ['level' => 'err', 'stop' => true, 'msg' =>
-                    count($picked) . ' cities scored, but writing the xlsx failed '
-                    . '(disk full or uploads/downloads not writable?) - press Continue to retry the write.'];
-            }
-            $run['result_file'] = $resultFile;
-            $run['result_count'] = count($picked);
-            $run['phase'] = 'done';
-            return ['level' => 'ok', 'stop' => true, 'msg' =>
-                count($picked) . " cities in the final list{$rivalsNote}. Saved to Downloads (Test Lab) as {$resultFile}."];
-        }
-        $failNote = $failed > 0 ? " ({$failed} failed this pass, will retry)" : '';
-        return ['level' => 'ok', 'stop' => false, 'msg' => "{$done} SERP checks this pass{$failNote}, {$left} still to go — press Continue."];
+        // Single-run entrypoint delegates to the multi-run pool below with a
+        // one-element pool — see that function's doc comment for why pooling
+        // exists at all (the cron path is the real reason; a lone run here
+        // behaves exactly as it did before this existed).
+        $runs = [];
+        $runs['_single'] =& $run;
+        $out = infra_research_tick_serp_pool($runs);
+        $r = $out['_single'] ?? ['level' => 'warn', 'msg' => 'This run is already done.'];
+        return $r + ['stop' => $run['phase'] === 'done' || $r['level'] === 'err'];
     }
 
     return ['level' => 'warn', 'stop' => true, 'msg' => 'This run is already done.'];
