@@ -19,13 +19,37 @@
  * get a turn each wakeup instead of one starving the rest.
  *
  * Optional: php research_tick.php <niche> — only tick that niche's run(s).
+ *
+ * Non-blocking self-lock: each run's own tick is already time-boxed to
+ * INFRA_RESEARCH_TIME_BUDGET seconds, but MULTIPLE active runs (different
+ * niches) are ticked in the same invocation, one after another - two or three
+ * active niches can add up to more than the 2-minute cron interval. Cron does
+ * not wait for a prior invocation to finish before starting the next, so a
+ * slow cycle would otherwise overlap with itself: two processes reading and
+ * ticking the same run's JSON, issuing the same SERP/volume API calls twice
+ * (real double spend), then racing to file_put_contents() the result - no
+ * locking there, so whichever finishes last silently wins and the other
+ * process's cost and progress are just gone. Skipping an overlapping
+ * invocation outright is fine because the run's own state carries over to the
+ * next un-skipped tick unchanged - nothing is lost by waiting one more cycle.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "CLI only\n"); exit(1); }
 
 require_once __DIR__ . '/../lib/research.php';
 
-$nicheFilter = $argv[1] ?? null;
 $ts = gmdate('c');
+$lockDir = dirname(__DIR__) . '/state/locks';
+if (!is_dir($lockDir)) @mkdir($lockDir, 0700, true);
+$lockFh = @fopen($lockDir . '/research_tick.lock', 'c');
+if ($lockFh && !flock($lockFh, LOCK_EX | LOCK_NB)) {
+    echo "{$ts} skipped — a previous research_tick.php invocation is still running.\n";
+    exit(0);
+}
+// $lockFh === false (directory unreadable/unwritable) fails OPEN rather than
+// blocking every research run over what's usually a permissions slip, same
+// convention as infra_pipeline_lock() elsewhere in this console.
+
+$nicheFilter = $argv[1] ?? null;
 
 $runs = infra_research_list_runs();
 $active = array_filter($runs, fn($r) =>
