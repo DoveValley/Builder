@@ -63,6 +63,23 @@ function infra_research_dir(): string
  *    misclassify that one specific local competitor as "national" everywhere
  *    it happens to rank, which is a real correctness bug, not a no-op. Flag
  *    to Scott before adding anything here.
+ *
+ * Five niches added 2026-09-29 (Scott-specified brand names, domains verified
+ * live same rules as above):
+ *  - "Overhead Door" deliberately NOT included for garage door repair, same
+ *    reason as Appliance Doctor: Overhead Door Corporation licenses the name
+ *    to independent local distributors who each run their own domain
+ *    (ohd.com, overheaddoorinc.com, theoverheaddoorco.com, ...) and actively
+ *    rank on those, not on overheaddoor.com itself.
+ *  - Precision Door Service is precisiondoor.net, not precision-door.com (that
+ *    domain belongs to a single Spartanburg SC franchisee, not the network).
+ *  - Mister Sparky's consumer domain is mistersparky.com — mistersparkyfranchise.com
+ *    is franchise-recruiting only.
+ *  - Manufacturer brands (Clopay/Amarr/Wayne Dalton/Chamberlain/LiftMaster for
+ *    garage doors; Owens Corning/GAF/CertainTeed for roofing; Trane/Carrier/
+ *    Lennox for HVAC) are included per Scott's list — they rarely rank for
+ *    local "{service} repair {city}" searches (mostly dealer-locator pages),
+ *    so harmless-but-low-yield rather than wrong to include.
  */
 const INFRA_RESEARCH_NATIONAL_BRANDS_BY_NICHE = [
     'pest' => [
@@ -81,6 +98,25 @@ const INFRA_RESEARCH_NATIONAL_BRANDS_BY_NICHE = [
         'servpro.com', 'servicemasterrestore.com', 'servicemaster.com', 'pauldavis.com',
         'rainbowintl.com', '911restoration.com', 'puroclean.com', 'rytechinc.com',
         'belfor.com', 'atirestoration.com', 'firstonsite.com',
+    ],
+    'garage-door-repair' => [
+        'precisiondoor.net', 'a1garage.com', 'clopaydoor.com', 'amarr.com',
+        'wayne-dalton.com', 'chamberlain.com', 'liftmaster.com',
+    ],
+    'electrician' => [
+        'mrelectric.com', 'mistersparky.com', 'ars.com', 'serviceexperts.com',
+    ],
+    'roofing' => [
+        'mightydogroofing.com', 'eriehome.com', 'powerhrg.com', 'owenscorning.com',
+        'gaf.com', 'certainteed.com',
+    ],
+    'plumbing' => [
+        'rotorooter.com', 'mrrooter.com', 'benjaminfranklinplumbing.com', 'ars.com',
+        'onehourheatandair.com',
+    ],
+    'hvac' => [
+        'onehourheatandair.com', 'aireserv.com', 'ars.com', 'serviceexperts.com',
+        'trane.com', 'carrier.com', 'lennox.com',
     ],
 ];
 
