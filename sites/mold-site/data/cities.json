@@ -12,7 +12,9 @@
     "neighborhoods": [
       "Downtown Lufkin",
       "Fredonia Hill Historic District",
-      "Kurth Addition"
+      "Kurth Addition",
+      "Brookhollow",
+      "Grace Heights"
     ],
     "population": 34455,
     "city_spotlight": "Tucked deep in the Piney Woods of East Texas, Lufkin has long served as the anchor city for the surrounding region, with roots that run straight back to the timber trade. That forestry heritage still shows in the wood products and manufacturing base that shapes the local economy, joined over the years by oil field equipment production, healthcare, and education as steady economic pillars. As the Angelina County seat, government and retail activity add further balance to the mix.\n\nHome to around 34,000 residents, Lufkin carries the feel of a close-knit community rather than a sprawling city. Neighborhoods like Crown Colony and Kurth reflect the settled, tree-shaded character that defines everyday life here, where longtime employers and generations of families give the town its steady, working sense of place.",
@@ -102,14 +104,14 @@
     "humidity_state_avg": 65,
     "rainfall_monthly": [
       4.2,
-      4.0,
+      4,
       4.3,
-      4.0,
+      4,
       5.3,
       4.5,
-      3.0,
+      3,
       2.8,
-      4.0,
+      4,
       4.5,
       4.5,
       4.7
@@ -141,6 +143,165 @@
         "miles": 15
       }
     ],
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856"
+  },
+  {
+    "id": "vista-ca",
+    "city": "Vista",
+    "state": "California",
+    "SS": "CA",
+    "city_slug": "vista-ca",
+    "lat": "33.202143",
+    "lng": "-117.242481",
+    "industries": [
+      "Craft brewing",
+      "Manufacturing",
+      "Healthcare",
+      "Agriculture/Nursery",
+      "Retail trade",
+      "Construction"
+    ],
+    "top_employers": [
+      "Vista Unified School District",
+      "City of Vista",
+      "County of San Diego",
+      "Watkins Wellness",
+      "Balboa Water Group",
+      "Solatube International",
+      "Vista Community Clinic",
+      "Palomar Health",
+      "Master's Touch LLC",
+      "Frontwave Credit Union"
+    ],
+    "market_blurb": "Vista, California is a North San Diego County hub known for its concentration of craft breweries, light manufacturing, and agriculture, particularly avocado groves and nurseries. The city's economy also relies on healthcare providers, retail, and small-to-mid-size manufacturers like Watkins Wellness and Solatube International. Its inland-coastal position supports steady residential growth and a mix of industrial parks and commercial corridors.",
+    "local_note": "Vista sits close enough to the Pacific that a persistent marine layer keeps relative humidity elevated most mornings year-round, not just during winter storms. Homes here typically use raised, vented crawl space foundations rather than basements, and poor crawl space ventilation combined with that lingering coastal moisture is a common driver of indoor mold growth.",
+    "neighborhoods": [
+      "Alta Vista",
+      "Breeze Hill",
+      "Downtown Vista",
+      "Hannalei Hills",
+      "Melrose Village",
+      "Pala Vista",
+      "Shadowridge",
+      "Soltaire",
+      "Vista Village",
+      "Rancho Buena Vista",
+      "Buena Creek",
+      "Vale Terrace"
+    ],
+    "population": 100220,
+    "flood_years": [
+      1980,
+      1993,
+      1998,
+      2005,
+      2010,
+      2024
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
+    "heavy_rain_days_monthly": [
+      0.6,
+      0.6,
+      0.4,
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      0.1,
+      0.2,
+      0.5
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (nearest coastal San Diego County station)",
+    "homes_by_decade": {
+      "Before 1960": 5,
+      "1960-1979": 35,
+      "1980-1999": 40,
+      "2000-2009": 15,
+      "2010 or later": 5
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0.3,
+      0.5,
+      1,
+      2,
+      3,
+      3,
+      1.5,
+      0.3,
+      0.1
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (nearest inland North County San Diego station)",
+    "humidity_monthly": [
+      68,
+      68,
+      67,
+      66,
+      70,
+      73,
+      72,
+      72,
+      70,
+      65,
+      64,
+      66
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals",
+    "humidity_annual": 68,
+    "humidity_state_avg": 60,
+    "rainfall_monthly": [
+      2.8,
+      2.7,
+      2.1,
+      0.8,
+      0.2,
+      0.1,
+      0.0,
+      0.1,
+      0.2,
+      0.6,
+      1.4,
+      2.0
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Oceanside",
+        "miles": 7
+      },
+      {
+        "name": "Carlsbad",
+        "miles": 8
+      },
+      {
+        "name": "San Marcos",
+        "miles": 6
+      },
+      {
+        "name": "Escondido",
+        "miles": 10
+      },
+      {
+        "name": "Encinitas",
+        "miles": 12
+      },
+      {
+        "name": "Fallbrook",
+        "miles": 15
+      },
+      {
+        "name": "Bonsall",
+        "miles": 12
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   }
 ]
