@@ -62,7 +62,14 @@
     <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
         <button type="button" class="btn btn-primary" id="ms-hosts-btn" onclick="msCreateHosts()">Create host areas</button>
         <label class="hint"><input type="checkbox" id="ms-hosts-force"> Force (re-create rows that already have credentials)</label>
-        <label class="hint">Only these domains <input type="text" id="ms-hosts-only" placeholder="comma-separated, optional" style="width:220px;"></label>
+        <label class="hint">Only these domains<br>
+            <span style="display:flex;gap:6px;">
+                <input type="text" id="ms-hosts-only" placeholder="comma-separated, optional" style="width:220px;">
+                <select id="ms-hosts-only-picker" style="max-width:170px;" onchange="msOnlyPick('ms-hosts-only', this)">
+                    <option value="">Add a domain…</option>
+                </select>
+            </span>
+        </label>
         <span id="ms-hosts-msg" class="hint"></span>
     </div>
 

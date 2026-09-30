@@ -1820,9 +1820,10 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     loadRuns();            // runs history
     refreshParamsState();  // download-current button + saved versions
 
-    // Domain pickers for Generate's "only this domain" and Upload's "only these
-    // domains" — one fetch feeds both selects (Upload's select lives in the included
-    // _batch_upload.php, a separate IIFE, so this is exposed on window rather than
+    // Domain pickers for Generate's "only this domain", Create host's "only these
+    // domains", and Upload's "only these domains" — one fetch feeds all three selects
+    // (Create host's and Upload's selects live in the included _batch_hosts.php/
+    // _batch_upload.php, separate IIFEs, so this is exposed on window rather than
     // called directly). A domain tagged live gets a marker so it's obvious WHY you'd
     // need to name it — these are exactly the ones the live-skip guard otherwise
     // refuses to touch.
@@ -1840,7 +1841,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const optionsHtml = domains.map(x =>
             '<option value="' + esc(x.domain) + '">' + esc(x.domain) + (x.live ? ' (live)' : '') + '</option>'
         ).join('');
-        ['ms-run-only-picker', 'ms-up-only-picker'].forEach(id => {
+        ['ms-run-only-picker', 'ms-hosts-only-picker', 'ms-up-only-picker'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.insertAdjacentHTML('beforeend', optionsHtml);
         });
