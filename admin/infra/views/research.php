@@ -44,6 +44,11 @@ $draft = infra_research_load_draft($niche) ?? [];
   <strong>Getting a list of best cities — what you do vs. what happens on its own:</strong>
   <ol style="margin:6px 0 0;padding-left:20px">
     <li><strong>You:</strong> pick a niche tab above.</li>
+    <li><strong>You:</strong> check the keyword patterns (one per line, <code>{city}</code> required) — they
+      default from the niche's own template. <strong>A city whose name collides with another US state or a
+      well-known Canadian/UK city gets the state appended automatically</strong> — "Lancaster" becomes
+      "Lancaster SC" (also exists in PA), "Hamilton" becomes "Hamilton OH" (also Ontario) — in both the
+      volume lookup and the SERP check, so you don't need to write that yourself.</li>
     <li><strong>You:</strong> upload or paste <em>that niche's own</em> eLocal buyer-coverage export below —
       not a different niche's data. A file you choose here is held onto for next time; you only need to
       re-attach one if you want to replace it.</li>
@@ -58,23 +63,28 @@ $draft = infra_research_load_draft($niche) ?? [];
     <li><strong>You: click Run.</strong> This step alone is free and fast — it only filters your uploaded
       eLocal rows against the thresholds above and matches them to known cities. No API is called yet,
       which is why it finishes almost instantly and just shows how many cities survived.</li>
-    <li>From here it switches to a "Run in progress" card and mostly runs itself:
+    <li>From here it switches to a "Run in progress" card and runs itself — <strong>a real server-side cron
+      job ticks every in-progress run every 2 minutes, browser or no browser.</strong> Close the tab, close
+      your laptop, come back tomorrow — the page's own "Continue" auto-click is just a convenience for
+      watching it live, not what's actually keeping it moving:
       <ol type="a" style="margin:4px 0 0;padding-left:20px">
-        <li><strong>The page auto-continues on its own</strong> — a "Continue" click fires automatically
-          every few seconds until the run is done, so <u>usually there is nothing more for you to click</u>.
-          Leave the tab open, or close it and come back anytime — progress is saved after every pass and it
-          picks up exactly where it left off. Only use the <strong>stop</strong> link next to "Auto-continuing…"
-          if you want to pause and look at something before letting it keep going; after that, Continue
-          becomes a manual button again.</li>
-        <li><strong>Volume phase (real money: Ahrefs/DataForSEO search volume).</strong> Fully automatic
-          from here — each pass looks up every surviving city's monthly search volume, several cities per
-          request. When it finishes it reports how many cities got dropped for falling under the minimum
-          monthly volume, then moves on by itself.</li>
-        <li><strong>SERP phase (real money: DataForSEO, ~$0.002/check).</strong> Also automatic — each pass
-          runs one real Google search per city per keyword pattern to see who's actually ranking (DataForSEO's
-          live endpoint only accepts one city per request, confirmed against the real API — more cities/patterns
-          means more passes). The progress line on the card below shows exactly how many keyword-checks are
-          done vs. still to go.</li>
+        <li><strong>Running more than one niche at once is efficient, not wasteful.</strong> Every niche
+          currently checking SERP results shares one combined queue rather than taking turns — 2-3 at once
+          is a reasonable pace; running them all simultaneously mostly just means each one finishes a bit
+          later rather than any capacity going to waste. The one rough edge is the very start of a run
+          (the volume-lookup phase, before real per-city checks begin) — that part isn't shared the same
+          way, so starting many niches at the exact same moment can briefly slow that first step down until
+          each clears it on its own.</li>
+        <li><strong>Volume phase (real money: Ahrefs/DataForSEO search volume).</strong> Each pass looks up
+          every surviving city's monthly search volume, several cities per request. When it finishes it
+          reports how many cities got dropped for falling under the minimum monthly volume, then moves on
+          by itself.</li>
+        <li><strong>SERP phase (real money: DataForSEO, ~$0.002/check).</strong> Each check is a real Google
+          search <strong>geotargeted to that exact city's own coordinates</strong> (not a generic nationwide
+          search), so the top-10 domains reflect who actually ranks there — DataForSEO's live endpoint only
+          accepts one city per request, confirmed against the real API, so more cities/patterns means more
+          passes. The progress line on the card below shows exactly how many keyword-checks are done vs.
+          still to go.</li>
         <li><strong>Scoring, diversifying, writing the file.</strong> Fully automatic the instant SERP
           finishes — no click of any kind needed. It scores every city, assigns a grade (A–F), picks a
           diversified final list (mile-separation + state-cap), and writes the xlsx. The phase badge changes
@@ -86,9 +96,12 @@ $draft = infra_research_load_draft($niche) ?? [];
   </ol>
   <p style="margin:10px 0 0">
     Produces and stores a ranked city list for <strong><?= ih($niches[$niche]['label']) ?></strong> — a real
-    eLocal buyer-coverage filter, real search volume, a real Google SERP check per city. Nothing here
-    selects a city or touches Batch; the output is an xlsx file in <strong>Downloads (Test Lab)</strong> and the
-    decision what to build stays a separate, later step.
+    eLocal buyer-coverage filter, real search volume, a real Google SERP check per city geotargeted to that
+    city's own location. Nothing here selects a city or touches Batch; the output is an xlsx file in
+    <strong>Downloads (Test Lab)</strong> and the decision what to build stays a separate, later step.
+    <strong>If the "still to go" count stops moving for several minutes,</strong> check the DataForSEO
+    balance on the <a href="index.php?view=cities">Cities/Niche</a> tab — a $0 balance fails every check
+    silently and retries forever on its own 2-minute schedule rather than stopping with a visible error.
     <?php if (!$kwOn): ?><br><strong>No keyword provider connected</strong> — add DataForSEO/Ahrefs credentials
       on the <a href="index.php?view=cities">Cities/Niche</a> tab first (same credentials, reused here).<?php endif; ?>
   </p>
