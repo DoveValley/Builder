@@ -711,7 +711,9 @@ a:hover {
     .feature-grid-3,
     .feature-grid-4 { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
 
-    /* Image+text blocks stack vertically on mobile */
+    /* Image+text blocks stack vertically on mobile — image always on top,
+       regardless of which side (image_left/image_right/image_text) the
+       desktop layout put it on. */
     .content-block.image-left,
     .content-block.image-right {
         flex-direction: column;
@@ -719,6 +721,7 @@ a:hover {
     .content-block.image-left .content-photo,
     .content-block.image-right .content-photo {
         width: 100%;
+        order: -1;
     }
 }
 
@@ -2432,9 +2435,16 @@ body { padding-bottom: 70px; }
     .hs-text { flex-basis: auto; }
     .hs-btn-row { flex-wrap: wrap; }
     .hs-btn, .hs-btn2 { flex: 1 1 auto; text-align: center; }
+    /* Image on top by default on mobile, regardless of hs_image_side (desktop-only
+       layout field) — matches image_left/image_right/image_text's mobile behavior.
+       hs_mobile_order is still an explicit override: "text_first" resets the image's
+       order and promotes the text instead; "img_first" is just the (now redundant,
+       kept for explicitness) default spelled out. */
+    .hs-image-wrap { order: -1; }
     .hs-mobile-img-first { flex-direction: column; }
     .hs-mobile-img-first .hs-image-wrap { order: -1; }
     .hs-mobile-text-first { flex-direction: column; }
+    .hs-mobile-text-first .hs-image-wrap { order: 0; }
     .hs-mobile-text-first .hs-text { order: -1; }
 }
 
@@ -2556,9 +2566,13 @@ body { padding-bottom: 70px; }
     .fs-grid { grid-template-columns: 1fr; gap: 18px; }
     .fs-right { flex: 1 1 100%; }
     .fs-arch-wrap { max-width: 100%; margin: 0 auto; }
+    /* Image on top by default on mobile, regardless of fs_image_side (desktop-only
+       layout field) — same default as hero_split/image_left/image_right. */
+    .fs-right { order: -1; }
     .fs-mobile-img-first { flex-direction: column; }
     .fs-mobile-img-first .fs-right { order: -1; }
     .fs-mobile-text-first { flex-direction: column; }
+    .fs-mobile-text-first .fs-right { order: 0; }
     .fs-mobile-text-first .fs-left { order: -1; }
 }
 
@@ -3514,6 +3528,10 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 @media (max-width: 768px) {
     .mi-grid { grid-template-columns: 1fr; }
     .mi-info-split { grid-template-columns: 1fr; }
+    /* Photo on top by default on mobile — the stacked info panel's photo is the
+       second (unclassed) child after .mi-text; same image-on-top default as
+       every other text+photo split block. */
+    .mi-info-split > div:last-child { order: -1; }
     .mi-map-wrap iframe { height: 280px; }
     /* On a phone there is no spare width to give away. */
     .mi-stacked .mi-map-wrap img { width: 100%; }
