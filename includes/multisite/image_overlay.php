@@ -292,7 +292,13 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
         $outRel  = preg_replace('/(\.[^.\/]+)$/', '__' . $pageKey . '_' . $sig . '$1', $cityRel);
         $outFile = $workingDir . '/' . $outRel;
 
-        if (is_file($outFile)) { $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel; continue; }   // cache hit — skip render
+        if (is_file($outFile)) {
+            // Same self-heal as ms_vary_one() below — a build made before the
+            // mobile-variant hook existed already has this file, so the cache-hit
+            // branch is what a real incremental rebuild actually hits.
+            img_write_mobile_variant($outFile);
+            $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel; continue;   // cache hit — skip render
+        }
 
         $r = ms_hero_overlay_render($srcFile, $outFile, $o);
         if (!empty($r['ok'])) {
@@ -500,7 +506,18 @@ function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCit
     $newRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
     if ($newRel === $rel) return $rel;
     $newFile = $baseDir . '/' . $newRel;
-    if (is_file($newFile)) return $newRel;                 // already produced by another page — repoint
+    if (is_file($newFile)) {
+        // Self-heal rather than trust the cache blindly: a build made before the
+        // mobile-variant hook below existed (or re-run against an output directory
+        // from one) already has this exact file on disk, so THIS branch — not the
+        // fresh-render one below — is what every real incremental rebuild hits.
+        // img_write_mobile_variant() has no existence pre-check of its own (always
+        // redoes the GD resize, same as every other caller), but that's a cheap
+        // local resize with no network call, same tradeoff already accepted at
+        // image_ai.php's cache-hit branch.
+        img_write_mobile_variant($newFile);
+        return $newRel;                                     // already produced by another page — repoint
+    }
     $srcFile = $baseDir . '/' . $rel;
     if (!is_file($srcFile)) return null;
     $tmp = $newFile . '.tmp.' . getmypid();
