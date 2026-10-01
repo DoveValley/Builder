@@ -2438,8 +2438,6 @@ body { padding-bottom: 70px; }
     height: 44px;
     border-radius: 6px;
     border: 2.5px solid #ffffff;
-    font-size: 1.5rem;
-    font-weight: 900;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -2449,7 +2447,6 @@ body { padding-bottom: 70px; }
     transform: translateY(10px);
     transition: opacity 0.25s, transform 0.25s;
     pointer-events: none;
-    line-height: 1;
 }
 .scroll-to-top.visible {
     opacity: 1;
