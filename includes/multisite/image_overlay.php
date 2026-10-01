@@ -12,6 +12,8 @@
  * Called from multisite/build_one.php after AI generation, before the static build.
  */
 
+require_once __DIR__ . '/../media_lib.php'; // img_write_mobile_variant()
+
 /** Locate the ImageMagick binary by absolute path (the web SAPI's exec PATH is minimal). */
 function ms_convert_bin(): ?string {
     static $bin = false;
@@ -293,7 +295,13 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
         if (is_file($outFile)) { $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel; continue; }   // cache hit — skip render
 
         $r = ms_hero_overlay_render($srcFile, $outFile, $o);
-        if (!empty($r['ok'])) { $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel; }
+        if (!empty($r['ok'])) {
+            $b[$field] = $outRel; $b[$origKey] = ltrim($rel, '/'); $out[] = $outRel;
+            // This is the page's hero image — usually the LCP element — so it needs the
+            // same "-mobile" sibling every other image-creation path writes (see
+            // ms_vary_one() below and img_write_mobile_variant()'s other callers).
+            img_write_mobile_variant($outFile);
+        }
     }
     unset($b);
     return $out;
@@ -498,6 +506,13 @@ function ms_vary_one(string $baseDir, string $rel, string $seed, string $siteCit
     $tmp = $newFile . '.tmp.' . getmypid();
     if (!ms_perturb_image($srcFile, $tmp, $seed . '|' . $rel, $ranges)) { @unlink($tmp); return null; }
     if (!@rename($tmp, $newFile)) { @unlink($tmp); return null; }
+    // Every other image-creation path in this codebase (admin upload, Pic Drop crop,
+    // AI generate — see img_write_mobile_variant()'s other callers) writes a "-mobile"
+    // sibling alongside its output; this one didn't, so no per-domain generated image
+    // ever got one — img_srcset()/bg_style_vars() had nothing to serve on any real
+    // deployed site regardless of what the master template had. Same function, same
+    // naming convention, just reaching this call site too.
+    img_write_mobile_variant($newFile);
     // Leave the source in place — other city pages may still need it. The
     // now-unreferenced original is removed later by ms_prune_unreferenced_uploads().
     return $newRel;
