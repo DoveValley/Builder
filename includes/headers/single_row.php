@@ -24,7 +24,8 @@
             <div class="site-logo site-logo-sr">
                 <?php if (!empty($header['logo'])): ?>
                     <?php $srLogoH = (int) min($logoHeight, 52); ?>
-                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($header['logo'])) ?>" alt="<?= h(($__logoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__logoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($header['logo'], $srLogoH) ?>style="<?= img_fixed_size_css($header['logo'], (int) $srLogoH) ?>display:block;"></a>
+                    <?php $__logoPath = img_logo_variant($header['logo'], $srLogoH); ?>
+                    <a href="<?= h($homeUrl ?? '/') ?>"><img src="<?= h(admin_upload_url_v($__logoPath)) ?>" alt="<?= h(($__logoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__logoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($__logoPath, $srLogoH) ?>style="<?= img_fixed_size_css($__logoPath, (int) $srLogoH) ?>display:block;"></a>
                 <?php else: ?>
                     <a href="<?= h($homeUrl ?? '/') ?>" class="logo-text" style="color:<?= h($navText) ?>;"><?= h(($__brand = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__brand : SITE_TITLE) ?></a>
                 <?php endif; ?>

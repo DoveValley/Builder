@@ -109,8 +109,8 @@ if (empty($seo['og_image'])) {
     $mainCssHref  = h($assetPathPrefix ?? '') . 'assets/css/style.css?v=' . $mainCssMtime;
     // Per-page critical CSS (includes/css_critical.php) — only a verified subset of block
     // types is eligible; css_critical_for_types() returns null the instant it sees anything
-    // outside that subset, and this falls straight back to the full $mainCssHref above with
-    // no other change needed. See that file's docblock before adding a new type to its map.
+    // outside that subset, and this falls straight back to linking the full $mainCssHref
+    // below with no other change needed. See that file's docblock before adding a new type.
     $_criticalTypes = [];
     foreach ($contentBlocks as $_cb) { $_criticalTypes[] = css_critical_block_type($_cb); }
     $_critical = css_critical_for_types(
@@ -118,11 +118,20 @@ if (empty($seo['og_image'])) {
         __DIR__ . '/../assets/css/style.src.css',
         __DIR__ . '/../assets/css/pages'
     );
-    if ($_critical !== null) {
-        $mainCssHref = h($assetPathPrefix ?? '') . 'assets/css/pages/' . basename($_critical['path']) . '?v=' . $_critical['mtime'];
-    }
+    // Inlined, not linked: measured live (gannmoldremediation.com) that shrinking this same
+    // CSS via a <link> cut its transfer size ~25% but left FCP completely unmoved — under
+    // PSI's slow-4G simulation the request's round-trip, not its byte count, is what gates
+    // first paint. Removing the request entirely is the only way left to move FCP. Only the
+    // verified-safe TRIMMED subset is ever inlined, never the ~95KB full-site fallback below
+    // (that would bloat every page's HTML and lose the cross-page browser cache it currently
+    // gets from being a separate file).
+    $_criticalCss = $_critical !== null ? @file_get_contents($_critical['path']) : false;
     ?>
+    <?php if ($_criticalCss !== false): ?>
+    <style><?= $_criticalCss ?></style>
+    <?php else: ?>
     <link rel="stylesheet" href="<?= $mainCssHref ?>">
+    <?php endif; ?>
     <?php
     // Same pre-shortcode-resolution gap as the og:image fallback below: $contentBlocks here
     // hasn't been through apply_shortcodes_to_block() yet, so a bare-token photo value (e.g.
@@ -576,15 +585,17 @@ if ($firstBlockHero) {
                         <?php endforeach; ?>
                     </ul>
                     <?php if (!empty($footer['logo']) && !empty($footer['logo_in_contact_column'])): ?>
+                        <?php $__footLogoPath = img_logo_variant($footer['logo'], 40); ?>
                         <div class="footer-col-logo-box">
-                            <img class="footer-col-logo" src="<?= h(admin_upload_url_v($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], 40) ?>>
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url_v($__footLogoPath)) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($__footLogoPath, 40) ?>>
                         </div>
                     <?php endif; ?>
 
                 <?php elseif ($colType === 'logo'): ?>
                     <?php if (!empty($footer['logo'])): ?>
+                        <?php $__footLogoPath = img_logo_variant($footer['logo'], (int) $logoHeight); ?>
                         <div class="footer-col-logo-box">
-                            <img class="footer-col-logo" src="<?= h(admin_upload_url_v($footer['logo'])) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($footer['logo'], (int) $logoHeight) ?>style="<?= img_fixed_size_css($footer['logo'], (int) $logoHeight) ?>display:block;">
+                            <img class="footer-col-logo" src="<?= h(admin_upload_url_v($__footLogoPath)) ?>" alt="<?= h(($__footColLogoAlt = trim(resolve_shortcodes((string)($header['site_name'] ?? '')))) !== '' ? $__footColLogoAlt : SITE_TITLE) ?>" <?= img_dim_attrs($__footLogoPath, (int) $logoHeight) ?>style="<?= img_fixed_size_css($__footLogoPath, (int) $logoHeight) ?>display:block;">
                         </div>
                     <?php endif; ?>
                     <?php if (!empty($footer['tagline'])): ?>

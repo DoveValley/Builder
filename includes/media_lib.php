@@ -162,6 +162,54 @@ function img_write_mobile_variant(string $mainFile): void {
     media_magick($mainFile, $mobileFile, ['-resize', escapeshellarg($nw . 'x' . $nh . '!')]);
 }
 
+/**
+ * Serve a logo at roughly 2x its real display height instead of however it was uploaded —
+ * self-healing on first use, cached after by filename, same pattern as
+ * img_write_mobile_variant(). A business logo has no size guarantee the way the AI/multisite
+ * photo pipeline does (whatever resolution the business happened to send in); found live on
+ * gannmoldremediation.com's header: a 922x168 PNG displayed at 388x71, ~20KB of pure waste on
+ * every page load. Returns the ORIGINAL stored path unchanged (never a broken one) if the
+ * source can't be read, conversion fails, or it's already close enough to the target that a
+ * second file wouldn't help — this never serves something bigger than what was uploaded.
+ */
+function img_logo_variant(string $storedPath, int $displayHeight): string {
+    $srcFs = upload_fs_path($storedPath);
+    if ($srcFs === '' || !is_file($srcFs)) return $storedPath;
+
+    [$ow, $oh] = @getimagesize($srcFs) ?: [0, 0];
+    if ($ow < 1 || $oh < 1) return $storedPath;
+
+    $targetH = max(1, $displayHeight * 2); // 2x so it still looks sharp on a retina phone
+    if ($oh <= $targetH + 20) return $storedPath; // already close enough — not worth a second file
+
+    $targetW = max(1, (int) round($ow * $targetH / $oh));
+
+    $dot = strrpos($storedPath, '.');
+    if ($dot === false) return $storedPath;
+    $variantStored = substr($storedPath, 0, $dot) . '-h' . $targetH . '.webp';
+    $variantFs = upload_fs_path($variantStored);
+    if ($variantFs === '') return $storedPath;
+
+    if (!is_file($variantFs) || filemtime($variantFs) < filemtime($srcFs)) {
+        $ok = false;
+        if (extension_loaded('gd') && ($src = media_imagecreate($srcFs, (string) @mime_content_type($srcFs)))) {
+            $dst = imagecreatetruecolor($targetW, $targetH);
+            imagealphablending($dst, false);
+            imagesavealpha($dst, true);
+            imagefill($dst, 0, 0, imagecolorallocatealpha($dst, 0, 0, 0, 127));
+            imagecopyresampled($dst, $src, 0, 0, 0, 0, $targetW, $targetH, $ow, $oh);
+            $ok = @imagewebp($dst, $variantFs, 85);
+            imagedestroy($src);
+            imagedestroy($dst);
+        }
+        if (!$ok) {
+            $ok = media_magick($srcFs, $variantFs, ['-resize', escapeshellarg($targetW . 'x' . $targetH . '!')]);
+        }
+        if (!$ok) return $storedPath;
+    }
+    return $variantStored;
+}
+
 /* Downscale to MAX_WIDTH if wider, then write webp. Aspect ratio is preserved. */
 function img_optimize(string $tmp, string $dest, string $mime): bool {
     if (!extension_loaded('gd')) {
