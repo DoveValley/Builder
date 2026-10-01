@@ -140,15 +140,22 @@ if (empty($seo['og_image'])) {
     // "{city_image}") must be resolved explicitly or it ships literally in the preload href.
     // hero_split can paint a full-section background photo (hs_bg_photo) behind its own
     // text+image layout — a real LCP case found live (gannmoldremediation.com's city pages):
-    // the background covers more viewport than the column <img>, so when both are set on
-    // the lead block both get preloaded, background first (it's the one actually missed).
+    // the background covers more viewport than the column <img>, so it's the one that's
+    // actually the LCP element whenever both are set, confirmed in every PSI capture on that
+    // domain. ONLY the background gets preloaded in that case — found live, comparing against
+    // baileyrestoration.com (water-site, same shared template, no bg photo, only ONE
+    // fetchpriority=high preload): under PSI's slow-4G bandwidth cap, two same-priority
+    // "highest" preloads split the one constrained pipe and both arrive slower, directly
+    // delaying the one that's actually being measured. hs_photo (the smaller column image)
+    // still renders — it just loads at normal discovery priority instead of competing for
+    // the top slot its own LCP element needs.
     $heroPreloadSrcs = [];
     foreach ($contentBlocks as $_b) {
         $_t = $_b['type'] ?? '';
         if ($_t === 'hero' && !empty($_b['hero_bg_image'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['hero_bg_image']); break; }
         if ($_t === 'hero_split') {
-            if (!empty($_b['hs_bg_photo'])) $heroPreloadSrcs[] = resolve_shortcodes($_b['hs_bg_photo']);
-            if (!empty($_b['hs_photo']))    $heroPreloadSrcs[] = resolve_shortcodes($_b['hs_photo']);
+            if (!empty($_b['hs_bg_photo']))      { $heroPreloadSrcs[] = resolve_shortcodes($_b['hs_bg_photo']); }
+            elseif (!empty($_b['hs_photo']))     { $heroPreloadSrcs[] = resolve_shortcodes($_b['hs_photo']); }
             if ($heroPreloadSrcs) break;
         }
         if ($_t === 'hero_grid' && !empty($_b['hg_photo'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['hg_photo']); break; }
