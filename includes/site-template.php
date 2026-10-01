@@ -113,20 +113,31 @@ if (empty($seo['og_image'])) {
     // Same pre-shortcode-resolution gap as the og:image fallback below: $contentBlocks here
     // hasn't been through apply_shortcodes_to_block() yet, so a bare-token photo value (e.g.
     // "{city_image}") must be resolved explicitly or it ships literally in the preload href.
-    $heroPreloadSrc = null;
+    // hero_split can paint a full-section background photo (hs_bg_photo) behind its own
+    // text+image layout — a real LCP case found live (gannmoldremediation.com's city pages):
+    // the background covers more viewport than the column <img>, so when both are set on
+    // the lead block both get preloaded, background first (it's the one actually missed).
+    $heroPreloadSrcs = [];
     foreach ($contentBlocks as $_b) {
         $_t = $_b['type'] ?? '';
-        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $heroPreloadSrc = resolve_shortcodes($_b['hero_bg_image']); break; }
-        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $heroPreloadSrc = resolve_shortcodes($_b['hs_photo']);      break; }
-        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $heroPreloadSrc = resolve_shortcodes($_b['hg_photo']);      break; }
+        if ($_t === 'hero' && !empty($_b['hero_bg_image'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['hero_bg_image']); break; }
+        if ($_t === 'hero_split') {
+            if (!empty($_b['hs_bg_photo'])) $heroPreloadSrcs[] = resolve_shortcodes($_b['hs_bg_photo']);
+            if (!empty($_b['hs_photo']))    $heroPreloadSrcs[] = resolve_shortcodes($_b['hs_photo']);
+            if ($heroPreloadSrcs) break;
+        }
+        if ($_t === 'hero_grid' && !empty($_b['hg_photo'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['hg_photo']); break; }
     }
-    if ($heroPreloadSrc && !str_starts_with($heroPreloadSrc, 'http') && !str_starts_with($heroPreloadSrc, '//')) {
-        $heroPreloadSrc = ($assetPathPrefix ?? '/') . $heroPreloadSrc;
+    foreach ($heroPreloadSrcs as &$_heroSrc) {
+        if (!str_starts_with($_heroSrc, 'http') && !str_starts_with($_heroSrc, '//')) {
+            $_heroSrc = ($assetPathPrefix ?? '/') . $_heroSrc;
+        }
     }
+    unset($_heroSrc);
     ?>
-    <?php if ($heroPreloadSrc): ?>
-    <link rel="preload" as="image" href="<?= h($heroPreloadSrc) ?>" fetchpriority="high">
-    <?php endif; ?>
+    <?php foreach ($heroPreloadSrcs as $_heroSrc): ?>
+    <link rel="preload" as="image" href="<?= h($_heroSrc) ?>" fetchpriority="high">
+    <?php endforeach; ?>
     <title><?= h($pageTitle) ?></title>
     <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url_v($favicon)); ?>
     <link rel="icon" type="image/x-icon" href="<?= $faviconUrl ?>">
