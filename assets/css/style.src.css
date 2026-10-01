@@ -2369,18 +2369,31 @@ body { padding-bottom: 70px; }
     overflow: hidden;
     max-width: 500px;
     min-width: 0;
+    /* The ratio now lives HERE, not on the <img> — see .hs-image's comment for why
+       the img-level width:100%/height:auto/aspect-ratio chain (plus its HTML
+       width/height attributes) is a fragile pattern that already caused two real
+       bugs. The wrapper reserving its own box means the <img> inside it can never
+       change the WRAPPER's size, however its own intrinsic/attribute dimensions
+       resolve — removing the entire class of "box resizes once the real file loads"
+       shift, not just patching another symptom of it. */
+    aspect-ratio: 4/3;
 }
 .hs-image {
+    /* Absolutely positioned to fill .hs-image-wrap exactly, same pattern .hs-caption
+       (below) already uses in this same wrapper — the <img>'s own HTML width/height
+       attributes and intrinsic file ratio no longer participate in sizing AT ALL,
+       which is the point: this pattern (aspect-ratio + object-fit on the <img> itself)
+       already caused two real layout-shift bugs on this exact rule — one measuring a
+       mold-site photo at 366x554 instead of 366x274, one found live on
+       baileyrestoration.com (886x491 real file vs this box's declared 4:3) — both
+       were the img's OWN box depending on a ratio the real file didn't match at some
+       point in the load sequence. Moving the ratio to the wrapper and letting object-fit
+       crop within an ALREADY-fixed-size box removes that dependency outright.
+       object-position still comes from --op/the inline style on the element itself. */
+    position: absolute;
+    inset: 0;
     width: 100%;
-    /* height:auto is load-bearing, not decorative — the <img> also carries literal
-       width/height HTML attributes (img_intrinsic_attrs() in includes/helpers.php,
-       there to stop layout jump while the file loads). Without an explicit CSS
-       height, those attributes win over aspect-ratio for the FINAL box size, so this
-       box rendered at the photo's raw native pixel height — routinely 500-600px+ —
-       instead of 4:3 of its own (much narrower, especially on mobile) width. Real,
-       live bug: measured a mold-site photo at 366x554 instead of 366x274. */
-    height: auto;
-    aspect-ratio: 4/3;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
