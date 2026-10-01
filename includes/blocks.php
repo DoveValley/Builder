@@ -1677,7 +1677,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                         echo '<div class="card-icon-plain">' . h($cardIcon) . '</div>';
                     }
                 } elseif ($cardImg) {
-                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" ' . img_ratio_attrs($cardImg, 16, 9) . 'loading="lazy">';
+                    echo '<img class="card-image" src="' . h($pathPrefix . $cardImg) . '" alt="' . h($cardAlt) . '" ' . img_ratio_attrs($cardImg, 16, 9) . img_srcset($cardImg, $pathPrefix, '(max-width: 768px) 50vw, ' . round(100 / max(1, $cols)) . 'vw') . 'loading="lazy">';
                 }
                 echo '<div class="card-body">';
                 if ($cardHead)  echo '<h3 class="card-heading"' . $itemHeadStyle . '>' . h($cardHead) . '</h3>';
@@ -1773,7 +1773,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             echo '</div>';
             if ($featImg) {
                 $featSrc = photo_src($featImg, $pathPrefix);
-                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" ' . img_intrinsic_attrs($featImg) . 'loading="lazy">';
+                echo '<img class="post-meta-image" src="' . h($featSrc) . '" alt="' . h($featAlt) . '" ' . img_intrinsic_attrs($featImg) . img_srcset($featImg, $pathPrefix, '100vw') . 'loading="lazy">';
             }
             echo '</div>';
             break;
@@ -1809,7 +1809,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                     echo '<a class="blog-card" href="/blog/' . h($bp['slug'] ?? '') . '">';
                     if ($bpImg) {
                         $bpSrc = photo_src($bpImg, $pathPrefix);
-                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" ' . img_ratio_attrs($bpImg, 16, 9) . 'loading="lazy">';
+                        echo '<img class="blog-card-image" src="' . h($bpSrc) . '" alt="' . h($bp['featured_image_alt'] ?? '') . '" ' . img_ratio_attrs($bpImg, 16, 9) . img_srcset($bpImg, $pathPrefix) . 'loading="lazy">';
                     }
                     echo '<div class="blog-card-body">';
                     if (!empty($bp['published_at']) || !empty($bp['tag'])) {
@@ -2236,7 +2236,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 if (!$mName && !$mPhoto) continue;
                 echo '<div class="team-member">';
                 echo '<div class="team-member-photo">';
-                if ($mPhoto) echo '<img src="' . h($pathPrefix . $mPhoto) . '" alt="' . h($mAlt ?: $mName) . '" ' . img_intrinsic_attrs($mPhoto) . 'loading="lazy">';
+                if ($mPhoto) echo '<img src="' . h($pathPrefix . $mPhoto) . '" alt="' . h($mAlt ?: $mName) . '" ' . img_intrinsic_attrs($mPhoto) . img_srcset($mPhoto, $pathPrefix, '140px') . 'loading="lazy">';
                 echo '</div>';
                 if ($mName)  echo '<h3 class="team-member-name">'  . h($mName)  . '</h3>';
                 if ($mTitle) echo '<p class="team-member-title">'   . h($mTitle) . '</p>';

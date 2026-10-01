@@ -127,6 +127,11 @@ if (empty($seo['og_image'])) {
             if ($heroPreloadSrcs) break;
         }
         if ($_t === 'hero_grid' && !empty($_b['hg_photo'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['hg_photo']); break; }
+        // blog.php's synthetic lead block (see "Blog system" in CLAUDE.md) — a post's
+        // featured_image renders immediately under the H1 (post-meta-image, blocks.php)
+        // and is the LCP element on every blog post page, same class of miss as
+        // hero_split's background photo above.
+        if ($_t === 'post_meta' && !empty($_b['featured_image'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['featured_image']); break; }
     }
     foreach ($heroPreloadSrcs as &$_heroSrc) {
         if (!str_starts_with($_heroSrc, 'http') && !str_starts_with($_heroSrc, '//')) {
