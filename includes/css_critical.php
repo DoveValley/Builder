@@ -157,7 +157,14 @@ const CSS_CRITICAL_BLOCK_MAP = [
     // contact-us page, broken exactly this way before this comment was written).
     // The block's declared type can never tell you what CSS its actual rendered
     // content needs, so it can never be "verified safe" — absence here is what
-    // correctly forces the fallback to the full stylesheet.
+    // correctly forces the fallback to the full stylesheet. The ONE narrow,
+    // verified exception is 'custom_html_services_links' below, a pseudo-type
+    // css_critical_block_type() only ever returns for a block whose ENTIRE
+    // content is nothing but the [services_links] shortcode alone — see that
+    // function's docblock for why that specific, narrow case is safe where the
+    // general one is not.
+    'custom_html_services_links' => ['LINKS GRID BLOCK (bg image, heading, link buttons grid)',
+                                      'LINKS GRID — LIGHT STYLE (white bg, gray bordered boxes)'],
     'blog_list'       => ['BLOG'],
     'post_meta'       => ['BLOG'],
 ];
@@ -167,11 +174,30 @@ const CSS_CRITICAL_BLOCK_MAP = [
  * proxy that renders as whatever ai_render_as says (see the 'ai_block' case in
  * render_content_block(), includes/blocks.php), so its CSS needs are that type's,
  * not "ai_block" itself (which isn't a real type and carries no CSS).
+ *
+ * custom_html gets one narrow, verified special case instead of the blanket
+ * "always unmapped" rule: a block whose ENTIRE trimmed content is nothing but
+ * the [services_links] shortcode and nothing else. Unlike arbitrary admin-typed
+ * custom_html, this is a first-party plugin (plugins/services_links/plugin.php)
+ * with a small, fixed set of CSS classes under our own control — found live on
+ * wrenappliancerepair.com's homepage (same shortcode-in-custom_html pattern that
+ * broke gannmoldremediation.com's contact-us page, just here rendering ALONE
+ * with nothing else mixed in, so its real CSS needs are fully knowable). Any
+ * OTHER custom_html content — raw HTML, multiple shortcodes, anything mixed
+ * with this one — still returns the plain 'custom_html' type, which has no
+ * entry in CSS_CRITICAL_BLOCK_MAP and so still falls back to the full
+ * stylesheet, exactly as before.
  */
 function css_critical_block_type(array $block): string {
     $type = $block['type'] ?? '';
     if ($type === 'ai_block') {
         return (string) ($block['ai_render_as'] ?? '');
+    }
+    if ($type === 'custom_html') {
+        $html = trim((string) ($block['html'] ?? ''));
+        if (preg_match('/^\[services_links(?:\s[^\]]*)?\]$/', $html)) {
+            return 'custom_html_services_links';
+        }
     }
     return (string) $type;
 }
