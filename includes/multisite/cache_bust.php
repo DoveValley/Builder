@@ -16,19 +16,44 @@
  * stamp `?v=` with a hash of that actual file's content — same content, same value, so a
  * rebuild that changes nothing still caches correctly; any real content change gets a new
  * URL and busts the cache immediately, no manual hard-refresh required.
+ *
+ * Per-page critical CSS (includes/css_critical.php) means a domain can ship MANY distinct
+ * CSS files now, not just one shared style.css — every assets/css/style.css AND
+ * assets/css/pages/*.css found gets its own independent content hash, keyed by its own
+ * basename, so a page linking one specific pages/{hash}.css only ever gets ITS file's hash
+ * rewritten, never some other page's.
  */
 function ms_cache_bust_apply(string $outputDir): array {
     $res = ['files' => 0, 'rewritten' => 0];
-    $cssFile = rtrim($outputDir, '/') . '/assets/css/style.css';
-    if (!is_file($cssFile)) return $res;
-    $hash = substr(md5_file($cssFile), 0, 10);
+    $cssDir = rtrim($outputDir, '/') . '/assets/css';
+    if (!is_dir($cssDir)) return $res;
+
+    $hashes = [];   // basename (no extension) => content hash
+    $candidates = array_merge(
+        glob($cssDir . '/style.css') ?: [],
+        glob($cssDir . '/pages/*.css') ?: []
+    );
+    foreach ($candidates as $cssFile) {
+        $hashes[basename($cssFile)] = substr(md5_file($cssFile), 0, 10);
+    }
+    if (!$hashes) return $res;
+
+    // One alternation covering every real CSS filename this build produced — a stray
+    // "assets/css/anything-else.css?v=123" (not one of ours) is left untouched.
+    $names = implode('|', array_map('preg_quote', array_keys($hashes)));
 
     $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($outputDir, FilesystemIterator::SKIP_DOTS));
     foreach ($it as $f) {
         if (!$f->isFile() || strtolower($f->getExtension()) !== 'html') continue;
         $path = $f->getPathname();
         $html = (string) @file_get_contents($path);
-        $new  = preg_replace('~(assets/css/style\.css)\?v=\d+~', '$1?v=' . $hash, $html, -1, $count);
+        $new = preg_replace_callback(
+            '~(assets/css/(?:pages/)?(' . $names . '))\?v=\d+~',
+            fn($m) => $m[1] . '?v=' . $hashes[$m[2]],
+            $html,
+            -1,
+            $count
+        );
         if ($count > 0 && $new !== null) {
             @file_put_contents($path, $new);
             $res['rewritten'] += $count;

@@ -107,6 +107,20 @@ if (empty($seo['og_image'])) {
     $mainCssPath  = __DIR__ . '/../assets/css/style.css';
     $mainCssMtime = css_minify_to(__DIR__ . '/../assets/css/style.src.css', $mainCssPath);
     $mainCssHref  = h($assetPathPrefix ?? '') . 'assets/css/style.css?v=' . $mainCssMtime;
+    // Per-page critical CSS (includes/css_critical.php) — only a verified subset of block
+    // types is eligible; css_critical_for_types() returns null the instant it sees anything
+    // outside that subset, and this falls straight back to the full $mainCssHref above with
+    // no other change needed. See that file's docblock before adding a new type to its map.
+    $_criticalTypes = [];
+    foreach ($contentBlocks as $_cb) { $_criticalTypes[] = css_critical_block_type($_cb); }
+    $_critical = css_critical_for_types(
+        $_criticalTypes,
+        __DIR__ . '/../assets/css/style.src.css',
+        __DIR__ . '/../assets/css/pages'
+    );
+    if ($_critical !== null) {
+        $mainCssHref = h($assetPathPrefix ?? '') . 'assets/css/pages/' . basename($_critical['path']) . '?v=' . $_critical['mtime'];
+    }
     ?>
     <link rel="stylesheet" href="<?= $mainCssHref ?>">
     <?php

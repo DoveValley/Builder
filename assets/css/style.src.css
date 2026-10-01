@@ -2562,6 +2562,25 @@ body { padding-bottom: 70px; }
     .fs-mobile-text-first .fs-left { order: -1; }
 }
 
+
+/* ---- Additional rules (relocated from FULL-WIDTH BLOCK OVERRIDES) ---- */
+/* feature_split — image left: DOM order handles position, no flex override needed */
+
+/* feature_split — bullet list style */
+.fs-bullet-list { margin: 12px 0 16px 0; padding-left: 20px; }
+.fs-bullet-list li { margin-bottom: 10px; line-height: 1.5; color: var(--color-body, #555); }
+.fs-bullet-list li strong { color: #1a1a2e; }
+
+/* feature_split — trailing paragraph */
+.fs-trailing { margin-top: 12px; color: var(--color-body, #555); line-height: 1.6; }
+
+/* feature_split — phone CTA */
+.fs-phone-cta { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
+.fs-phone-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-lead); color: #fff; flex-shrink: 0; }
+.fs-phone-info { display: flex; flex-direction: column; }
+.fs-phone-label { font-size: var(--font-size-eyebrow); color: #666; }
+.fs-phone-num { font-size: var(--font-size-lead); font-weight: 700; text-decoration: none; }
+
 /* ============================================================
    SPLIT CTA BLOCK (two colored panels side by side)
    ============================================================ */
@@ -3029,6 +3048,9 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     .wb-btn { padding: 11px 24px; font-size: var(--font-size-body); }
 }
 
+
+/* ---- Additional rule (relocated from FULL-WIDTH BLOCK OVERRIDES) ---- */
+.wb-subtext { color: rgba(255,255,255,0.88); font-size: var(--font-size-body); margin-top: 10px; max-width: 540px; line-height: 1.6; }
 /* ============================================================
    IMAGE FEATURES BLOCK (photo left, checklist + phone right)
    ============================================================ */
@@ -3602,89 +3624,6 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     max-width: 860px;
 }
 
-/* ── Media Library ──────────────────────────────────────── */
-#media-dropzone:hover, #media-dropzone.drag-over {
-    border-color: #fd783b;
-    background: #fff8f5;
-}
-.ml-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-.ml-thumb {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    cursor: pointer;
-    background: #e5e7eb;
-}
-.ml-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: opacity .2s;
-}
-.ml-thumb:hover img { opacity: 0.75; }
-.ml-thumb-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: .75rem;
-    font-weight: 600;
-    color: #fff;
-    opacity: 0;
-    transition: opacity .2s;
-    background: rgba(0,0,0,0.4);
-}
-.ml-thumb:hover .ml-thumb-overlay { opacity: 1; }
-.ml-info { padding: 10px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-.ml-name { font-size: .78rem; font-weight: 600; color: #374151; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ml-dims { font-size: .72rem; color: #9ca3af; }
-.ml-alt-input { font-size: .78rem; padding: 4px 7px; border: 1px solid #d1d5db; border-radius: 4px; width: 100%; box-sizing: border-box; }
-.ml-actions { display: flex; gap: 6px; margin-top: auto; }
-.btn-danger { background: #dc2626; color: #fff; border-color: #dc2626; }
-.btn-danger:hover { background: #b91c1c; border-color: #b91c1c; }
-.ml-toast {
-    position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #1f2937;
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-size: .9rem;
-    z-index: 99999;
-    animation: toast-in .25s ease;
-}
-@keyframes toast-in { from { opacity:0; transform: translateX(-50%) translateY(10px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
-
-.wb-subtext { color: rgba(255,255,255,0.88); font-size: var(--font-size-body); margin-top: 10px; max-width: 540px; line-height: 1.6; }
-
-/* feature_split — image left: DOM order handles position, no flex override needed */
-
-/* feature_split — bullet list style */
-.fs-bullet-list { margin: 12px 0 16px 0; padding-left: 20px; }
-.fs-bullet-list li { margin-bottom: 10px; line-height: 1.5; color: var(--color-body, #555); }
-.fs-bullet-list li strong { color: #1a1a2e; }
-
-/* feature_split — trailing paragraph */
-.fs-trailing { margin-top: 12px; color: var(--color-body, #555); line-height: 1.6; }
-
-/* feature_split — phone CTA */
-.fs-phone-cta { display: flex; align-items: center; gap: 14px; margin-top: 24px; }
-.fs-phone-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-lead); color: #fff; flex-shrink: 0; }
-.fs-phone-info { display: flex; flex-direction: column; }
-.fs-phone-label { font-size: var(--font-size-eyebrow); color: #666; }
-.fs-phone-num { font-size: var(--font-size-lead); font-weight: 700; text-decoration: none; }
-
 /* ============================================================
    BLOG
    ============================================================ */
@@ -4022,166 +3961,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 }
 .vid-caption { text-align: center; color: #6b7280; font-size: var(--font-size-small); margin-top: 12px; }
 
-/* =========================================================
-   Block Picker Modal
-   ========================================================= */
-#block-picker-modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-}
-#block-picker-modal.is-open { display: block; }
-.bp-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.5);
-}
-.bp-panel {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    border-radius: 10px;
-    padding: 24px 24px 20px;
-    width: 90vw;
-    max-width: 820px;
-    max-height: 85vh;
-    overflow-y: auto;
-    z-index: 1;
-    box-shadow: 0 12px 40px rgba(0,0,0,.25);
-}
-.bp-panel h3 {
-    margin: 0 0 16px;
-    font-size: 1.1rem;
-    padding-right: 32px;
-}
-.bp-close {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #666;
-    line-height: 1;
-    padding: 0 4px;
-}
-.bp-close:hover { color: #000; }
-.bp-group { margin-bottom: 20px; }
-.bp-group-label {
-    font-size: .72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .07em;
-    color: #888;
-    margin-bottom: 8px;
-}
-.bp-search {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 7px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    font-size: .88rem;
-    margin-bottom: 16px;
-    outline: none;
-}
-.bp-search:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,.12); }
-.bp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 8px;
-}
-.bp-card {
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 8px 6px 8px;
-    cursor: pointer;
-    text-align: center;
-    background: #fff;
-    transition: border-color .15s, background .15s;
-}
-.bp-card:hover { border-color: #4f46e5; background: #f5f4ff; }
-.bp-card.is-selected { border-color: #4f46e5; background: #eeeeff; }
-.bp-card-thumb { display: block; width: 100%; }
-.bp-card-thumb svg { width: 100%; height: auto; display: block; }
-.bp-card-name {
-    font-size: .75rem;
-    font-weight: 600;
-    color: #222;
-    margin-top: 6px;
-    line-height: 1.25;
-}
-.bp-card-desc {
-    font-size: .65rem;
-    color: #777;
-    margin-top: 3px;
-    line-height: 1.35;
-}
-
-/* Trigger button (replaces visible type select in block header) */
-.bp-trigger {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
-    background: #fff;
-    padding: 4px 10px 4px 6px;
-    cursor: pointer;
-    font-size: .82rem;
-    color: #333;
-    min-width: 130px;
-    max-width: 210px;
-}
-.bp-trigger:hover { border-color: #4f46e5; background: #f9f9ff; }
-.bp-trigger-thumb { width: 36px; flex-shrink: 0; }
-.bp-trigger-thumb svg { width: 36px; height: auto; display: block; }
-.bp-trigger-label { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bp-trigger-arrow { color: #999; font-size: .65rem; flex-shrink: 0; }
-
-/* ---- Inner tab strip (used in Starters tab + Add Page picker) ---- */
-.inner-tabs { display: flex; flex-wrap: wrap; gap: 4px; }
-.inner-tab {
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: .8rem;
-    font-weight: 600;
-    cursor: pointer;
-    background: #f1f5f9;
-    color: #374151;
-    border: 1px solid #e5e7eb;
-    text-decoration: none;
-    transition: background .15s, color .15s;
-    white-space: nowrap;
-}
-.inner-tab:hover { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
-.inner-tab.active { background: #4f46e5; color: #fff; border-color: #4f46e5; }
-
-/* ---- Starter picker (Add Page form) ---- */
-.starter-picker {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-.starter-card {
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 10px 14px;
-    cursor: pointer;
-    background: #fff;
-    min-width: 120px;
-    transition: border-color .15s, background .15s;
-}
-.starter-card:hover { border-color: #4f46e5; background: #f5f4ff; }
-.starter-card.is-selected { border-color: #4f46e5; background: #eeeeff; }
-.starter-card-label { font-size: .85rem; font-weight: 700; color: #111; }
-.starter-card-desc { font-size: .72rem; color: #777; margin-top: 3px; line-height: 1.3; }
-
+/* ============================================================
+   CONTACT FORM BLOCK
+   ============================================================ */
 /* ---- Contact Form block ---- */
 .block-contact-form { padding: 60px 20px; background: var(--color-content-bg, #fff); }
 .block-contact-form .section-heading { text-align: center; margin-bottom: 8px; }
@@ -4203,6 +3985,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .cf-form .cta-btn { margin-top: 8px; }
 @media (max-width: 560px) { .cf-row { flex-direction: column; gap: 0; } }
 
+/* ============================================================
+   BLOCK SECTION WRAPPER (base skin system — every block renders inside this)
+   ============================================================ */
 /* ── Block skin system ─────────────────────────────────────────────────────── */
 .block-section { display: block; }
 /* Non-full-width blocks: add vertical breathing room via the contained wrapper.
@@ -4251,6 +4036,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section.skin-dark   p,.block-section.skin-dark   li { color: var(--skin-dark-text)   !important; }
 .block-section.skin-accent p,.block-section.skin-accent li { color: var(--skin-accent-text) !important; }
 
+/* ============================================================
+   SKIN CONTRAST OVERRIDES (feature_split, tab_services, service_cards, faq_two_col, image_features, links_grid)
+   ============================================================ */
 /* ── Skin contrast pass (Phase A) ──────────────────────────────────────────
    Sub-elements that carry a fixed dark color (or a light color that the blanket
    overrides above wrongly force onto their own light background) so every block
@@ -4335,19 +4123,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 .block-section.skin-accent .lg-light-link,
 .block-section.skin-subtle .lg-light-link { color: #1a1a1a !important; }
 
-/* Skin picker UI (admin editor) */
-.skin-picker { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-.skin-opt { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 2px solid #e5e7eb; border-radius: 6px; cursor: pointer; font-size: 0.8rem; font-weight: 500; color: #374151; transition: border-color .15s, background .15s; user-select: none; }
-.skin-opt:has(input:checked) { border-color: #2563eb; background: #2563eb; color: #fff; font-weight: 700; }
-.skin-opt:has(input:checked) .skin-swatch { outline: 2px solid #fff; outline-offset: 1px; }
-.skin-opt input { display: none; }
-.skin-swatch { width: 18px; height: 18px; border-radius: 3px; border: 1px solid rgba(0,0,0,.12); flex-shrink: 0; }
-.skin-swatch-default { background: repeating-linear-gradient(45deg,#e5e7eb 0,#e5e7eb 3px,#fff 3px,#fff 6px); }
-.skin-swatch-light   { background: var(--skin-light-bg,  #ffffff); }
-.skin-swatch-subtle  { background: var(--skin-subtle-bg, #f8fafc); }
-.skin-swatch-accent  { background: var(--skin-accent-bg, #2563eb); }
-.skin-swatch-dark    { background: var(--skin-dark-bg,   #0d1f3c); }
-
+/* ============================================================
+   TEAM BLOCK
+   ============================================================ */
 /* ---- Team / People block ---- */
 .block-team { padding: 56px 24px; }
 .team-grid { display: grid; gap: 32px; max-width: 1100px; margin: 0 auto; }
@@ -4367,6 +4145,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     .team-grid-2, .team-grid-3, .team-grid-4 { grid-template-columns: 1fr; }
 }
 
+/* ============================================================
+   IMAGE CAPTIONS + CHART DATA TABLE (image_left, image_right, image_text, map_info)
+   ============================================================ */
 /* Image captions — the picture's facts as text, since everything inside a chart or diagram is
    pixels a crawler cannot read. Kept visually quiet: it is a caption, not body copy.
 
@@ -4436,6 +4217,9 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     font-style: italic;
 }
 
+/* ============================================================
+   RELATED LINKS BLOCK
+   ============================================================ */
 /* Related Links block — pill/chip grid, same visual family as .lg-link (Links Grid) so it
    reads as "part of this site" rather than a bare list of blue underlined text. Anchor text
    is still full, descriptive prose (the actual SEO value) — the chip just gives it a real
