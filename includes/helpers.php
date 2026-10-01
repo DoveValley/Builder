@@ -75,6 +75,27 @@ function slugify($text) {
 }
 
 /**
+ * Hard cap for a hero-type block's intro text (hero_subtext, hs_subtext, fs_subtext,
+ * hg_body) — these render as the first thing in a narrow flex column whose box HEIGHT
+ * depends entirely on how many lines the text wraps to. A long paragraph here is a real,
+ * if narrow, CLS risk: a tiny width difference (anything from a rounding difference to a
+ * scrollbar) can tip one word onto a new line and reflow the whole box. Found live on
+ * gannmoldremediation.com — PSI's CLS report, traced through class_vocab's reverse lookup,
+ * pointed at exactly this kind of field (a 601-character, 3-sentence paragraph where a
+ * one-sentence tagline belonged); the same oversized pattern turned up on 3 of 4 niche
+ * masters once checked, all shortened the same night. The matching textarea's `maxlength`
+ * in includes/editor.php should catch this before a save ever reaches here — this is the
+ * backstop for anything that bypasses the admin form (AI generation, a direct JSON edit).
+ * Truncates at the last word boundary so it never cuts a word in half.
+ */
+function cap_hero_text(string $text, int $max = 300): string {
+    if (mb_strlen($text) <= $max) return $text;
+    $cut = mb_substr($text, 0, $max);
+    $lastSpace = mb_strrpos($cut, ' ');
+    return $lastSpace !== false ? mb_substr($cut, 0, $lastSpace) : $cut;
+}
+
+/**
  * Does a page with this slug actually exist for the CURRENT site/domain?
  *
  * The one place in the codebase that answers "will linking to this slug 404?" — reads

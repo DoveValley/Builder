@@ -316,7 +316,7 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-hero is-hidden">
                 <div class="form-group"><label>Headline (H1)</label><input type="text" name="hero_heading[]" placeholder="Main page headline"></div>
-                <div class="form-group"><label>Subtext</label><textarea name="hero_subtext[]" rows="2"></textarea></div>
+                <div class="form-group"><label>Subtext <span style="font-weight:400;color:#888;">— keep this short, under 300 characters.</span></label><textarea name="hero_subtext[]" rows="2" maxlength="300"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Button text</label><input type="text" name="hero_btn_text[]"></div>
                     <div class="form-group" style="flex:1 1 160px;"><label>Button link</label><input type="text" name="hero_btn_url[]"></div>
@@ -333,7 +333,7 @@ function content_editor_scripts() {
             <div class="block-fields block-fields-hero_split is-hidden">
                 <div class="form-group"><label>H1 Headline</label><input type="text" name="hs_heading[]" placeholder="e.g. Trusted Local Pest Control in Katy, TX"></div>
                 <div class="form-group"><label>Tagline</label><input type="text" name="hs_tagline[]" placeholder="e.g. 6 PMI Certifications. Live Online."></div>
-                <div class="form-group"><label>Paragraph text</label><textarea name="hs_subtext[]" rows="3"></textarea></div>
+                <div class="form-group"><label>Paragraph text <span style="font-weight:400;color:#888;">— keep this short, under 300 characters.</span></label><textarea name="hs_subtext[]" rows="3" maxlength="300"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 180px;"><label>Button 1 text</label><input type="text" name="hs_btn_text[]"></div>
                     <div class="form-group" style="flex:1 1 180px;"><label>Button 1 link</label><input type="text" name="hs_btn_url[]" placeholder="e.g. /#courses"></div>
@@ -364,7 +364,7 @@ function content_editor_scripts() {
             </div>
             <div class="block-fields block-fields-feature_split is-hidden">
                 <div class="form-group"><label>Section heading</label><input type="text" name="fs_heading[]" placeholder="e.g. Full-Service Pest Management"></div>
-                <div class="form-group"><label>Intro paragraph</label><textarea name="fs_subtext[]" rows="2"></textarea></div>
+                <div class="form-group"><label>Intro paragraph <span style="font-weight:400;color:#888;">— keep this short, under 300 characters.</span></label><textarea name="fs_subtext[]" rows="2" maxlength="300"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Background color</label><input type="color" name="fs_bg_color[]" value="#f3f6f7"></div>
                     <div class="form-group" style="flex:1 1 160px;"><label>Item heading color</label><input type="color" name="fs_accent[]" value="#fd783b"></div>
@@ -700,7 +700,7 @@ function content_editor_scripts() {
             <div class="block-fields block-fields-hero_grid is-hidden">
                 <div class="form-group"><label>Small label</label><input type="text" name="hg_label[]" placeholder="e.g. Katy Pest Pros"></div>
                 <div class="form-group"><label>Heading</label><input type="text" name="hg_heading[]" placeholder="Section heading"></div>
-                <div class="form-group"><label>Body text</label><textarea name="hg_body[]" rows="3"></textarea></div>
+                <div class="form-group"><label>Body text <span style="font-weight:400;color:#888;">— keep this short, under 300 characters.</span></label><textarea name="hg_body[]" rows="3" maxlength="300"></textarea></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Button text</label><input type="text" name="hg_btn_text[]"></div>
                     <div class="form-group" style="flex:1 1 160px;"><label>Button link</label><input type="text" name="hg_btn_url[]" placeholder="tel:+1..."></div>

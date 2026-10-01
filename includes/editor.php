@@ -182,8 +182,8 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="hero_heading[]" value="<?= h($block['hero_heading'] ?? '') ?>" placeholder="e.g. Trusted Local Pest Control in Katy, TX">
                     </div>
                     <div class="form-group">
-                        <label>Subtext</label>
-                        <textarea name="hero_subtext[]" rows="2"><?= h($block['hero_subtext'] ?? '') ?></textarea>
+                        <label>Subtext <span style="font-weight:400;color:#888;">— keep this short (1 sentence, under 300 characters). A long paragraph here can shift on mobile as it wraps.</span></label>
+                        <textarea name="hero_subtext[]" rows="2" maxlength="300"><?= h($block['hero_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
@@ -227,8 +227,8 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="hs_tagline[]" value="<?= h($block['hs_tagline'] ?? '') ?>" placeholder='e.g. 6 PMI Certifications. Live Online. <span style="color:#f76a0c">Pass Guaranteed.</span>'>
                     </div>
                     <div class="form-group">
-                        <label>Paragraph text</label>
-                        <textarea name="hs_subtext[]" rows="3"><?= h($block['hs_subtext'] ?? '') ?></textarea>
+                        <label>Paragraph text <span style="font-weight:400;color:#888;">— keep this short (1-2 sentences, under 300 characters). A long paragraph here can shift on mobile as it wraps.</span></label>
+                        <textarea name="hs_subtext[]" rows="3" maxlength="300"><?= h($block['hs_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 180px;">
@@ -324,8 +324,8 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="fs_heading[]" value="<?= h($block['fs_heading'] ?? '') ?>" placeholder="e.g. Full-Service Pest Management">
                     </div>
                     <div class="form-group">
-                        <label>Intro paragraph</label>
-                        <textarea name="fs_subtext[]" rows="3"><?= h($block['fs_subtext'] ?? '') ?></textarea>
+                        <label>Intro paragraph <span style="font-weight:400;color:#888;">— keep this short (1-2 sentences, under 300 characters). A long paragraph here can shift on mobile as it wraps.</span></label>
+                        <textarea name="fs_subtext[]" rows="3" maxlength="300"><?= h($block['fs_subtext'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">
@@ -1313,8 +1313,8 @@ function render_content_blocks_editor($blocks) {
                         <input type="text" name="hg_heading[]" value="<?= h($block['hg_heading'] ?? '') ?>" placeholder="e.g. Top-Notch Katy Pest Pros in Katy, TX">
                     </div>
                     <div class="form-group">
-                        <label>Body text (leave blank line between paragraphs)</label>
-                        <textarea name="hg_body[]" rows="4"><?= h($block['hg_body'] ?? '') ?></textarea>
+                        <label>Body text (leave blank line between paragraphs) <span style="font-weight:400;color:#888;">— keep this short (under 300 characters). A long paragraph here can shift on mobile as it wraps.</span></label>
+                        <textarea name="hg_body[]" rows="4" maxlength="300"><?= h($block['hg_body'] ?? '') ?></textarea>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 160px;">

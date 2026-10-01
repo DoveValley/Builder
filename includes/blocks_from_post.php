@@ -50,7 +50,7 @@ function parse_blocks_from_post(): array {
 
             case 'hero':
                 $block['hero_heading'] = trim($_POST['hero_heading'][$i]    ?? '');
-                $block['hero_subtext']    = trim($_POST['hero_subtext'][$i]    ?? '');
+                $block['hero_subtext']    = cap_hero_text(trim($_POST['hero_subtext'][$i]    ?? ''));
                 $block['hero_btn_text']   = trim($_POST['hero_btn_text'][$i]   ?? '');
                 $block['hero_btn_url']    = sanitize_url($_POST['hero_btn_url'][$i]    ?? '');
                 $htc = trim($_POST['hero_text_color'][$i] ?? '#ffffff');
@@ -67,7 +67,7 @@ function parse_blocks_from_post(): array {
             case 'hero_split':
                 $block['hs_heading']      = trim($_POST['hs_heading'][$i]   ?? '');
                 $block['hs_tagline']      = trim($_POST['hs_tagline'][$i]        ?? '');
-                $block['hs_subtext']   = trim($_POST['hs_subtext'][$i]   ?? '');
+                $block['hs_subtext']   = cap_hero_text(trim($_POST['hs_subtext'][$i]   ?? ''));
                 $block['hs_btn_text']  = trim($_POST['hs_btn_text'][$i]  ?? '');
                 $block['hs_btn_url']   = sanitize_url($_POST['hs_btn_url'][$i]   ?? '');
                 $block['hs_btn2_text'] = trim($_POST['hs_btn2_text'][$i] ?? '');
@@ -91,7 +91,7 @@ function parse_blocks_from_post(): array {
 
             case 'feature_split':
                 $block['fs_heading'] = trim($_POST['fs_heading'][$i]   ?? '');
-                $block['fs_subtext']   = trim($_POST['fs_subtext'][$i]   ?? '');
+                $block['fs_subtext']   = cap_hero_text(trim($_POST['fs_subtext'][$i]   ?? ''));
                 $block['fs_photo_alt'] = trim($_POST['fs_photo_alt'][$i] ?? '');
                 $block['fs_star_text'] = trim($_POST['fs_star_text'][$i] ?? '');
                 $bgc = trim($_POST['fs_bg_color'][$i] ?? '#f3f6f7');
@@ -484,7 +484,7 @@ function parse_blocks_from_post(): array {
                 $block['hg_label']     = trim($_POST['hg_label'][$i]     ?? '');
                 $block['hg_heading'] = trim($_POST['hg_heading'][$i]   ?? '');
                 $hc = trim($_POST['hg_heading_color'][$i] ?? ''); $block['hg_heading_color'] = preg_match('/^#[0-9a-fA-F]{3,6}$/', $hc) ? $hc : '';
-                $block['hg_body']      = trim($_POST['hg_body'][$i]      ?? '');
+                $block['hg_body']      = cap_hero_text(trim($_POST['hg_body'][$i]      ?? ''));
                 $block['hg_btn_text']  = trim($_POST['hg_btn_text'][$i]  ?? '');
                 $block['hg_btn_url']   = sanitize_url($_POST['hg_btn_url'][$i]   ?? '');
                 $block['hg_photo_alt'] = trim($_POST['hg_photo_alt'][$i] ?? '');
