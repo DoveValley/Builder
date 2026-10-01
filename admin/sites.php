@@ -91,6 +91,8 @@ function fmt_date(string $iso): string {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Site Manager — <?= h(SITE_TITLE) ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
+<?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
+<link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
 <style>
 .sm-wrap        { max-width: 1100px; margin: 0 auto; padding: 32px 24px 64px; }
 .sm-topbar      { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; flex-wrap:wrap; gap:12px; }

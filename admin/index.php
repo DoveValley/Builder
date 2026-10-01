@@ -228,6 +228,8 @@ foreach ($footer['columns'] as $ci => $column) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - <?= h($_siteDisplayName) ?></title>
     <link rel="stylesheet" href="../assets/css/style.css?v=<?= (int) @filemtime(__DIR__ . '/../assets/css/style.css') ?>">
+    <?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
+    <link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
     <style><?= theme_css_vars($data['theme'] ?? []) ?></style>
     <script>
     // Inject CSRF token into every form on submit

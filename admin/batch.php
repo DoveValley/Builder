@@ -59,6 +59,8 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= isset($batch['seq']) ? '#' . (int) $batch['seq'] . ' ' : '' ?><?= h($batch['name']) ?> — Batch — <?= h(SITE_TITLE) ?></title>
 <link rel="stylesheet" href="../assets/css/style.css">
+<?php $_adminCssMtime = css_minify_to(__DIR__ . '/../assets/css/admin.src.css', __DIR__ . '/../assets/css/admin.css'); ?>
+<link rel="stylesheet" href="../assets/css/admin.css?v=<?= (int) $_adminCssMtime ?>">
 <style>
 .bp-master   { display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-size:.85rem; color:#475569; margin:0 0 20px; }
 .bp-chip     { background:#eef2ff; color:#3730a3; border-radius:5px; padding:3px 9px; font-weight:600; font-size:.8rem; }
