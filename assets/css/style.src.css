@@ -1205,6 +1205,21 @@ html, body {
     overflow-x: hidden;
     overflow-x: clip;
 }
+/* Reserve the scrollbar's width up front instead of letting it appear/disappear as
+   content loads in. Real mobile browsers use overlay scrollbars (zero layout width),
+   but Lighthouse/PSI's "mobile" test still runs inside real desktop Chrome, which can
+   render a classic space-reserving one — found as the likely cause of an intermittent,
+   unreproducible-locally CLS spike (0.26-0.35, confirmed via class_vocab reverse-lookup
+   to be hero_split's .hs-text) on gannmoldremediation.com: if the page's content crosses
+   the scrollbar threshold at a slightly different moment from one test run to the next,
+   the available width for text changes by the scrollbar's pixels, which can change how
+   a heading wraps and its box height — a real, if narrow, difference between the real
+   devices this site serves and the specific tool measuring it. Harmless either way: a
+   real mobile visitor never sees this gutter since their scrollbar has no width to
+   reserve in the first place. */
+html {
+    scrollbar-gutter: stable;
+}
 
 /* ---- TABLET (769px – 1024px) ---- */
 @media (min-width: 769px) and (max-width: 1024px) {
