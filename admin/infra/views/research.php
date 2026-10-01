@@ -14,13 +14,19 @@ $niches = infra_niches();
 $niche  = infra_niche_slug($_GET['niche'] ?? '');
 if ($niche === '' || !isset($niches[$niche])) $niche = (string) array_key_first($niches);
 
-$allRuns  = infra_research_list_runs();
+// Summaries only (candidate_count, not the full candidates array) — listing
+// every run's full multi-MB payload at once is what was exhausting the web
+// process's 128M memory_limit. $active below is the one run whose full detail
+// this page actually renders, loaded on its own via infra_research_load_run().
+$allRuns  = infra_research_list_run_summaries();
 $nicheRuns = array_values(array_filter($allRuns, fn($r) => ($r['niche'] ?? '') === $niche));
 
 $runId  = (string) ($_GET['run'] ?? '');
 $active = $runId !== '' ? infra_research_load_run($runId) : null;
 if ($active && $active['niche'] !== $niche) $active = null;
-if (!$active && $nicheRuns && ($nicheRuns[0]['phase'] ?? '') !== 'done') $active = $nicheRuns[0];
+if (!$active && $nicheRuns && ($nicheRuns[0]['phase'] ?? '') !== 'done') {
+    $active = infra_research_load_run($nicheRuns[0]['id']);
+}
 
 $kwOn  = infra_kw_configured();
 $tpl   = $niches[$niche]['template'] ?? '';
@@ -245,7 +251,7 @@ $draft = infra_research_load_draft($niche) ?? [];
         <tr>
           <td><?= ih(substr($r['created_at'], 0, 16)) ?></td>
           <td><span class="badge <?= $r['phase'] === 'done' ? 'b-ok' : 'b-warn' ?>"><?= ih($r['phase']) ?></span></td>
-          <td><?= count($r['candidates']) ?></td>
+          <td><?= (int) ($r['candidate_count'] ?? 0) ?></td>
           <td><?= isset($r['result_count']) ? (int) $r['result_count'] : '<span style="color:#d1d5db">—</span>' ?></td>
           <td><?php if (!empty($r['result_file'])): ?>
                 <a href="/uploads/downloads/<?= rawurlencode($r['result_file']) ?>" download><?= ih($r['result_file']) ?></a>

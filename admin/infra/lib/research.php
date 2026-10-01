@@ -974,13 +974,49 @@ function infra_research_persist_elocal_upload(string $niche, ?array $file): ?str
     return (string) ($file['name'] ?? 'uploaded.csv');
 }
 
-/** All runs, newest first, for the "past runs" list. */
+/**
+ * All runs, newest first, WITH their full `candidates` payload intact.
+ *
+ * Despite the name, this is the mutate-in-place form: cron/research_tick.php
+ * calls this (not infra_research_load_run()) to get every in-progress run's
+ * real candidate array so it can tick and save it. CLI has no memory_limit,
+ * so decoding every run file's full contents at once is fine there.
+ *
+ * The web console does NOT have that headroom (128M under mod_php) — a run
+ * file now holds thousands of scored candidates and has grown to several MB
+ * each; with ~19 accumulated runs that's enough to exhaust 128M just to
+ * render a list of niches and counts. Use
+ * infra_research_list_run_summaries() for anything that only needs to list/
+ * display runs rather than mutate them.
+ */
 function infra_research_list_runs(): array
 {
     $out = [];
     foreach (glob(infra_research_dir() . '/*.json') ?: [] as $f) {
         $d = json_decode((string) file_get_contents($f), true);
         if (is_array($d)) $out[] = $d;
+    }
+    usort($out, fn($a, $b) => strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''));
+    return $out;
+}
+
+/**
+ * Same runs, newest first, but with the heavy `candidates` array replaced by
+ * a cheap `candidate_count` — for the web UI's niche tabs and "Past runs"
+ * table, which only ever display a count, never the candidates themselves.
+ * See infra_research_list_runs() for why this split exists: loading all of a
+ * niche's run history in full is what was exhausting the web process's 128M
+ * memory_limit once real runs grew to multi-MB each.
+ */
+function infra_research_list_run_summaries(): array
+{
+    $out = [];
+    foreach (glob(infra_research_dir() . '/*.json') ?: [] as $f) {
+        $d = json_decode((string) file_get_contents($f), true);
+        if (!is_array($d)) continue;
+        $d['candidate_count'] = count($d['candidates'] ?? []);
+        unset($d['candidates']);
+        $out[] = $d;
     }
     usort($out, fn($a, $b) => strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''));
     return $out;
