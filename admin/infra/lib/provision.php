@@ -202,6 +202,16 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
                 $lines[] = '  SSL: ' . ($s['ok'] ? "✓ {$sslMode}" : '✗ ' . $s['message']); if (!$s['ok']) $ok = false;
                 $h = cf_set_hsts($account, $zoneId);
                 $lines[] = '  HSTS: ' . ($h['ok'] ? '✓ on' : '✗ ' . $h['message']); if (!$h['ok']) $ok = false;
+                // Off by default on every new zone — Cloudflare turns this on by default,
+                // which injects email-decode.min.js into the render-critical path to
+                // un-obfuscate mailto: links this codebase already runs through
+                // sanitize_url() and never prints as bare text anyway. Found costing
+                // ~300ms on gannmoldremediation.com's PSI critical path; same fix applied
+                // by hand to all 5 live zones at the time, now baked into provisioning so
+                // no future domain needs the same manual pass. Not fatal to the overall
+                // provision if it fails — doesn't block go-live the way SSL/HSTS do.
+                $eo = cf_set_email_obfuscation($account, $zoneId, false);
+                $lines[] = '  Email obfuscation: ' . ($eo['ok'] ? '✓ off' : '✗ ' . $eo['message']);
                 $lines[] = '  NS: ' . implode(', ', $ns);
             }
         }
