@@ -537,6 +537,87 @@ function css_minify_to(string $srcPath, string $outPath): int {
 }
 
 /**
+ * Deliberately conservative JS minifier, same philosophy as css_minify(): strips
+ * comments and blank/indentation whitespace, never reorders or joins statement
+ * lines — keeping every line break intact means Automatic Semicolon Insertion
+ * can never be affected by this. A real minifier would also collapse same-line
+ * whitespace and shorten names, but that needs a real JS parser to not break a
+ * regex literal or a template string — not worth building for one inline script.
+ *
+ * A hand-rolled character scanner, not regex-with-strings-pulled-out-first (what
+ * css_minify() does) — tried that approach first and it corrupted real code: this
+ * codebase's comments are prose, full of contractions ("doesn't", "browser's"),
+ * and a regex matching 'quoted strings' has no way to know an apostrophe inside a
+ * `//` comment isn't a string's opening quote. It matched from that apostrophe to
+ * the NEXT one anywhere later in the file — sometimes lines away — and silently
+ * deleted every real line of code in between (confirmed: broke actual JS,
+ * `node --check` caught it before this shipped). Tracking state char-by-char
+ * means a `//` or a quote character occurring INSIDE a comment is just inert
+ * comment text, never mistaken for anything else.
+ *
+ * Known gap, accepted: doesn't track template literals (`...${}`) or regex
+ * literals — a `/` that's actually a regex delimiter, or a `//`/quote inside a
+ * `` `template` ``, would be misread. This codebase's inline script has neither
+ * (confirmed by hand), and this function is only ever called on that one file.
+ */
+function js_minify(string $js): string {
+    $len = strlen($js);
+    $out = '';
+    $i = 0;
+    $state = 'code';   // code | line_comment | block_comment | sq_string | dq_string
+    while ($i < $len) {
+        $ch = $js[$i];
+        $next = ($i + 1 < $len) ? $js[$i + 1] : '';
+        if ($state === 'code') {
+            if ($ch === '/' && $next === '/') { $state = 'line_comment'; $i += 2; continue; }
+            if ($ch === '/' && $next === '*') { $state = 'block_comment'; $i += 2; continue; }
+            if ($ch === "'") { $state = 'sq_string'; $out .= $ch; $i++; continue; }
+            if ($ch === '"') { $state = 'dq_string'; $out .= $ch; $i++; continue; }
+            $out .= $ch; $i++; continue;
+        }
+        if ($state === 'line_comment') {
+            if ($ch === "\n") { $state = 'code'; $out .= $ch; }
+            $i++; continue;
+        }
+        if ($state === 'block_comment') {
+            if ($ch === '*' && $next === '/') { $state = 'code'; $i += 2; continue; }
+            if ($ch === "\n") $out .= $ch;   // preserve line count through a multi-line comment
+            $i++; continue;
+        }
+        // sq_string / dq_string: copy verbatim, including any "//", "/*", or the
+        // OTHER quote character — only an escaped-or-not matching quote ends it.
+        $quote = $state === 'sq_string' ? "'" : '"';
+        if ($ch === '\\' && $next !== '') { $out .= $ch . $next; $i += 2; continue; }
+        $out .= $ch;
+        if ($ch === $quote) $state = 'code';
+        $i++;
+    }
+
+    $lines = [];
+    foreach (explode("\n", $out) as $line) {
+        $line = trim($line);
+        if ($line !== '') $lines[] = $line;
+    }
+    return implode("\n", $lines);
+}
+
+/** Same self-healing regenerate-from-source pattern as css_minify_to(). */
+function js_minify_to(string $srcPath, string $outPath): int {
+    $srcMtime = @filemtime($srcPath);
+    $outMtime = @filemtime($outPath);
+    if ($srcMtime !== false && ($outMtime === false || $outMtime < $srcMtime)) {
+        $raw = @file_get_contents($srcPath);
+        if ($raw !== false) {
+            $minified = js_minify($raw);
+            if ($minified !== '' && @file_put_contents($outPath, $minified) !== false) {
+                $outMtime = @filemtime($outPath);
+            }
+        }
+    }
+    return $outMtime !== false ? $outMtime : (int) ($srcMtime ?: time());
+}
+
+/**
  * The actual woff2 file URLs behind a Google Fonts css2 request — so the browser
  * can preload the font BYTES, not just the CSS.
  *
