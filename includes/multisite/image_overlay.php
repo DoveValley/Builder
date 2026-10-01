@@ -557,7 +557,18 @@ function ms_prune_unreferenced_uploads(string $workingDir): int {
         $s = @file_get_contents($file);
         if ($s === false) return;
         if (preg_match_all('#uploads/[A-Za-z0-9._/\-]+\.(?:jpe?g|png|webp|gif|svg|ico)#i', $s, $m)) {
-            foreach ($m[0] as $p) $referenced[ltrim($p, '/')] = true;
+            foreach ($m[0] as $p) {
+                $p = ltrim($p, '/');
+                $referenced[$p] = true;
+                // A "-mobile" sibling (img_write_mobile_variant()) is never itself stored
+                // in any field — img_srcset()/bg_style_vars() discover it purely by
+                // is_file() at render time — so the text scan above can never find it.
+                // Without this, every mobile variant this build just created looks
+                // "unreferenced" and gets deleted a few lines down, the same build it
+                // was written in.
+                $mobile = preg_replace('/\.(webp|jpe?g|png|gif)$/i', '-mobile.$1', $p);
+                if ($mobile !== null && $mobile !== $p) $referenced[$mobile] = true;
+            }
         }
     };
     $collect($workingDir . '/data/site.json');
