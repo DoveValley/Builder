@@ -111,6 +111,17 @@ if (empty($seo['og_image'])) {
     // types is eligible; css_critical_for_types() returns null the instant it sees anything
     // outside that subset, and this falls straight back to linking the full $mainCssHref
     // below with no other change needed. See that file's docblock before adding a new type.
+    //
+    // Linked, NOT inlined — tried inlining this (same trimmed CSS, as a <style> block) and
+    // measured it live on gannmoldremediation.com: FCP never moved (2.9s both ways — the
+    // round-trip theory didn't pan out in practice), while LCP got WORSE (3.5s -> 3.8s) and
+    // Speed Index nearly doubled (2.9s -> 4.4s), reproduced across two separate PSI captures.
+    // Likely cause: the hero's background-image is applied lazily by site.js
+    // (IntersectionObserver on [data-bg-lazy]), and 63KB of inline CSS text measurably delays
+    // the parser reaching that script/getting to a style recalc, costing more than the
+    // request round-trip it saved. Reverted — net regression, not worth it. Performance
+    // score: 86 linked vs 81 inlined on the same page. Don't re-try this without a real fix
+    // for that lazy-background timing first.
     $_criticalTypes = [];
     foreach ($contentBlocks as $_cb) { $_criticalTypes[] = css_critical_block_type($_cb); }
     $_critical = css_critical_for_types(
@@ -118,20 +129,11 @@ if (empty($seo['og_image'])) {
         __DIR__ . '/../assets/css/style.src.css',
         __DIR__ . '/../assets/css/pages'
     );
-    // Inlined, not linked: measured live (gannmoldremediation.com) that shrinking this same
-    // CSS via a <link> cut its transfer size ~25% but left FCP completely unmoved — under
-    // PSI's slow-4G simulation the request's round-trip, not its byte count, is what gates
-    // first paint. Removing the request entirely is the only way left to move FCP. Only the
-    // verified-safe TRIMMED subset is ever inlined, never the ~95KB full-site fallback below
-    // (that would bloat every page's HTML and lose the cross-page browser cache it currently
-    // gets from being a separate file).
-    $_criticalCss = $_critical !== null ? @file_get_contents($_critical['path']) : false;
+    if ($_critical !== null) {
+        $mainCssHref = h($assetPathPrefix ?? '') . 'assets/css/pages/' . basename($_critical['path']) . '?v=' . $_critical['mtime'];
+    }
     ?>
-    <?php if ($_criticalCss !== false): ?>
-    <style><?= $_criticalCss ?></style>
-    <?php else: ?>
     <link rel="stylesheet" href="<?= $mainCssHref ?>">
-    <?php endif; ?>
     <?php
     // Same pre-shortcode-resolution gap as the og:image fallback below: $contentBlocks here
     // hasn't been through apply_shortcodes_to_block() yet, so a bare-token photo value (e.g.
