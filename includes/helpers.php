@@ -473,11 +473,31 @@ function img_ratio_attrs(string $storedPath, float $ratioW, float $ratioH, int $
  * "collapse everything" minifier would silently break those. Costs some of the
  * achievable byte savings; a single corrupted declaration across the whole site is a
  * far worse outcome than a few extra bytes.
+ *
+ * Quoted strings (content: "...") are pulled out before the punctuation pass and
+ * restored after — content values can legitimately contain a comma or semicolon
+ * (e.g. a bullet or time string), and those must survive byte-for-byte. Only `{`
+ * `}` `;` `,` get their surrounding whitespace stripped (never `:`, which calc()
+ * doesn't use but a space-sensitive selector like ".foo :hover" does — leaving it
+ * alone costs nothing meaningful and avoids that ambiguity entirely).
  */
 function css_minify(string $css): string {
     $css = preg_replace('#/\*.*?\*/#s', '', $css);
+
+    $strings = [];
+    $css = preg_replace_callback('/"(?:[^"\\\\]|\\\\.)*"|\'(?:[^\'\\\\]|\\\\.)*\'/', function ($m) use (&$strings) {
+        $strings[] = $m[0];
+        return "\x01" . (count($strings) - 1) . "\x02";
+    }, (string) $css);
+
     $css = preg_replace('/[ \t]*[\r\n]+[ \t]*/', ' ', (string) $css);
-    return trim((string) $css);
+    $css = preg_replace('/[ \t]*([{};,])[ \t]*/', '$1', (string) $css);
+    $css = str_replace(';}', '}', $css);
+
+    foreach ($strings as $i => $s) {
+        $css = str_replace("\x01{$i}\x02", $s, $css);
+    }
+    return trim($css);
 }
 
 /**
