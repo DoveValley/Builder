@@ -13,7 +13,11 @@
     "local_note": "Lufkin's water supply, drawn largely from groundwater sources, tends to be moderately hard, which can contribute to mineral buildup in water heaters, dishwashers, and washing machines over time. The region experiences frequent severe thunderstorms and occasional tropical storm remnants from the Gulf, leading to periodic power surges and outages that can stress appliance electronics and compressors.",
     "neighborhoods": [
       "Downtown Lufkin",
-      "Kurth"
+      "Kurth",
+      "Crown Colony",
+      "Brookhollow",
+      "Colonial Hills",
+      "Loma Linda"
     ],
     "population": 33935,
     "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
@@ -111,6 +115,128 @@
     },
     "water_hardness_gpg": 4.5,
     "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "lat": "31.338624",
+    "lng": "-94.728856"
+  },
+  {
+    "id": "kissimmee-fl",
+    "city": "Kissimmee",
+    "state": "Florida",
+    "SS": "FL",
+    "city_slug": "kissimmee-fl",
+    "lat": "28.2919",
+    "lng": "-81.407584",
+    "industries": [
+      "Tourism and hospitality",
+      "Retail trade",
+      "Healthcare",
+      "Construction and real estate",
+      "Transportation and logistics",
+      "Agriculture"
+    ],
+    "top_employers": [
+      "Walt Disney World Resort",
+      "Osceola County School District",
+      "AdventHealth Kissimmee",
+      "Osceola Regional Medical Center",
+      "Orange Lake Resort",
+      "Gaylord Palms Resort & Convention Center",
+      "Give Kids The World Village",
+      "Osceola County Government",
+      "Valencia College Osceola Campus",
+      "Walmart"
+    ],
+    "market_blurb": "Kissimmee, Florida's economy is heavily tied to tourism due to its proximity to Walt Disney World and other Orlando-area attractions, supporting a large hospitality, resort, and vacation-rental sector. Retail, healthcare, and construction also play major roles as the city continues to grow rapidly with new residential development. Agriculture, particularly cattle ranching, remains a smaller but historically significant part of the local economy.",
+    "local_note": "Kissimmee's municipal water, supplied largely from the Floridan Aquifer, is considered moderately hard to hard, which can accelerate mineral buildup in water heaters, dishwashers, and washing machines. The region also experiences frequent severe thunderstorms, lightning, and occasional hurricanes during the June–November season, leading to periodic power surges that stress appliance electronics and compressors.",
+    "neighborhoods": [
+      "Indian Point",
+      "Mill Run",
+      "Oak Run",
+      "Buenaventura Lakes",
+      "Historic Downtown Kissimmee",
+      "Reunion",
+      "Storey Lake",
+      "Tapestry",
+      "Shingle Creek",
+      "Kissimmee Bay"
+    ],
+    "population": 80000,
+    "homes_by_decade": {
+      "Before 1960": 5,
+      "1960-1979": 15,
+      "1980-1999": 30,
+      "2000-2009": 30,
+      "2010 or later": 20
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      1,
+      4,
+      15,
+      20,
+      21,
+      21,
+      15,
+      5,
+      1,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Orlando International Airport station)",
+    "humidity_monthly": [
+      73,
+      71,
+      68,
+      65,
+      68,
+      76,
+      78,
+      79,
+      79,
+      76,
+      75,
+      74
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Orlando International Airport station)",
+    "water_hardness_gpg": 10.5,
+    "water_hardness_source": "Toho Water Authority Annual Water Quality Report",
+    "nearby_towns": [
+      {
+        "name": "St. Cloud",
+        "miles": 10
+      },
+      {
+        "name": "Celebration",
+        "miles": 8
+      },
+      {
+        "name": "Poinciana",
+        "miles": 15
+      },
+      {
+        "name": "Orlando",
+        "miles": 20
+      },
+      {
+        "name": "Davenport",
+        "miles": 18
+      },
+      {
+        "name": "Winter Garden",
+        "miles": 25
+      },
+      {
+        "name": "Haines City",
+        "miles": 25
+      },
+      {
+        "name": "Lake Buena Vista",
+        "miles": 12
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   }
 ]

@@ -7,8 +7,8 @@
     "city_slug": "littleton-co",
     "zip": "76092",
     "address": "1179 East Dove Rd",
-    "lat": "",
-    "lng": "",
+    "lat": "39.613321",
+    "lng": "-105.016649",
     "tags": [],
     "salary_note": "",
     "market_blurb": "Littleton, Colorado's economy is anchored by aerospace and defense, most notably a major Lockheed Martin Space campus, alongside strong healthcare, government, and education sectors. The city's historic downtown supports a vibrant small business and tourism scene, while its proximity to Denver draws commuters working in technology and professional services. Littleton also benefits from a stable base of public-sector employment tied to Arapahoe County and local school districts.",
@@ -125,10 +125,10 @@
       1.9,
       2.4,
       1.8,
-      2.0,
+      2,
       1.6,
       1.2,
-      1.0,
+      1,
       0.8,
       0.5
     ],
@@ -170,6 +170,167 @@
       }
     ],
     "frost_free_state_avg": 145,
+    "neighborhoods_source": "verified"
+  },
+  {
+    "id": "carrollton-tx",
+    "city": "Carrollton",
+    "state": "Texas",
+    "SS": "TX",
+    "city_slug": "carrollton-tx",
+    "lat": "32.951547",
+    "lng": "-96.903424",
+    "industries": [
+      "Telecommunications and technology",
+      "Corporate offices and professional services",
+      "Logistics and distribution",
+      "Manufacturing",
+      "Healthcare",
+      "Retail"
+    ],
+    "top_employers": [
+      "City of Carrollton",
+      "Carrollton-Farmers Branch Independent School District",
+      "Halliburton",
+      "Tyler Technologies",
+      "Keurig Dr Pepper",
+      "Motorola Solutions",
+      "Walmart",
+      "Baylor Scott & White Medical Center at Carrollton",
+      "Safety-Kleen Systems",
+      "FedEx"
+    ],
+    "market_blurb": "Carrollton, Texas, located in the Dallas-Fort Worth metroplex, has a diversified economy anchored by telecommunications, technology, and corporate offices alongside logistics, manufacturing, and healthcare services. Its proximity to major highways and the DFW job market has made it a popular base for both corporate campuses and residential growth. The city's economy benefits from steady development tied to the broader Dallas-Fort Worth business corridor.",
+    "local_note": "Pest pressure in Carrollton is dominated by fire ants, subterranean termites, mosquitoes, and occasional scorpion sightings, with cockroaches and rodents common in and around homes; activity is strongest from spring through early fall but termite and rodent issues can persist year-round due to the mild North Texas winters.",
+    "neighborhoods": [
+      "Old Downtown Carrollton",
+      "Indian Creek",
+      "Rosemeade",
+      "Castle Hills",
+      "Josey Ranch"
+    ],
+    "population": 133000,
+    "freeze_days_monthly": [
+      10,
+      7,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      8
+    ],
+    "freeze_source": "NOAA 1991-2020 Climate Normals (Dallas-Fort Worth area stations)",
+    "heavy_rain_days_monthly": [
+      1,
+      1,
+      1.5,
+      2,
+      2.5,
+      2,
+      1,
+      1,
+      1.5,
+      2,
+      1.5,
+      1.2
+    ],
+    "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Dallas-Fort Worth area stations)",
+    "homes_by_decade": {
+      "Before 1960": 2,
+      "1960-1979": 35,
+      "1980-1999": 40,
+      "2000-2009": 15,
+      "2010 or later": 8
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates",
+    "hot_days_monthly": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      12,
+      23,
+      24,
+      12,
+      2,
+      0,
+      0
+    ],
+    "hot_days_source": "NOAA 1991-2020 Climate Normals (Dallas-Fort Worth area stations)",
+    "humidity_monthly": [
+      65,
+      62,
+      60,
+      60,
+      65,
+      63,
+      60,
+      58,
+      60,
+      62,
+      65,
+      67
+    ],
+    "humidity_source": "NOAA 1991-2020 Climate Normals (Dallas-Fort Worth area stations)",
+    "rainfall_monthly": [
+      2.1,
+      2.5,
+      3.1,
+      3.6,
+      5.0,
+      3.8,
+      2.1,
+      2.0,
+      3.0,
+      4.5,
+      2.9,
+      2.6
+    ],
+    "rainfall_source": "NOAA 1991-2020 Climate Normals (Dallas-Fort Worth area stations)",
+    "frost_free_days": 237,
+    "frost_free_state_avg": 252,
+    "frost_free_source": "NOAA 1991-2020 Climate Normals",
+    "nearby_towns": [
+      {
+        "name": "Farmers Branch",
+        "miles": 5
+      },
+      {
+        "name": "Addison",
+        "miles": 7
+      },
+      {
+        "name": "Coppell",
+        "miles": 8
+      },
+      {
+        "name": "Lewisville",
+        "miles": 10
+      },
+      {
+        "name": "The Colony",
+        "miles": 10
+      },
+      {
+        "name": "Flower Mound",
+        "miles": 12
+      },
+      {
+        "name": "Plano",
+        "miles": 15
+      },
+      {
+        "name": "Dallas",
+        "miles": 18
+      }
+    ],
+    "_researched": 1,
     "neighborhoods_source": "verified"
   }
 ]

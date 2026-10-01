@@ -23,12 +23,14 @@ const INFRA_RESEARCH_TIME_BUDGET = 90;
 
 // DataForSEO's own docs: live endpoints allow up to 30 simultaneous requests
 // and ~2,000/min, but explicitly warn that bursting near that ceiling causes
-// MORE errors, not fewer — recommending a steady flow instead. Raised from the
-// original 8 to 16 on 2026-09-29 — still comfortably below the documented
-// ceiling, not a jump straight to it. If a real run shows failure rates
-// climbing well above the normal ~15-30%/pass baseline after this change,
-// that's the signal to step back down rather than push higher.
-const INFRA_RESEARCH_SERP_CONCURRENCY = 16;
+// MORE errors, not fewer — recommending a steady flow instead. Raised 8->16 on
+// 2026-09-29, then 16->24 on 2026-09-30 after a real multi-run night (roofing/
+// hvac/plumbing sharing the pool) held failure rates at/below the normal
+// ~15-30%/pass baseline at 16 — still comfortably below the documented ceiling,
+// not a jump straight to it. If a real run shows failure rates climbing well
+// above that baseline after this change, that's the signal to step back down
+// rather than push higher.
+const INFRA_RESEARCH_SERP_CONCURRENCY = 24;
 
 function infra_research_dir(): string
 {
