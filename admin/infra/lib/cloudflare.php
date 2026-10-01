@@ -381,12 +381,12 @@ function cf_create_origin_ca_cert(array $account, string $domain, int $days = 54
  * returns the whole set at once, so checking two of them costs one call rather than
  * two, and a third check later costs nothing.
  *
- * @return array{ok:bool, ssl:string, hsts:bool, always_https:bool, raw:array}
+ * @return array{ok:bool, ssl:string, hsts:bool, always_https:bool, email_obfuscation:bool, raw:array}
  */
 function cf_get_settings(array $account, string $zoneId): array
 {
     $r   = cf_api($account, 'GET', "/zones/{$zoneId}/settings");
-    $out = ['ok' => false, 'ssl' => '', 'hsts' => false, 'always_https' => false, 'raw' => []];
+    $out = ['ok' => false, 'ssl' => '', 'hsts' => false, 'always_https' => false, 'email_obfuscation' => false, 'raw' => []];
     if ($r['code'] !== 200 || empty($r['json']['success'])) return $out;
 
     foreach ((array) ($r['json']['result'] ?? []) as $s) {
@@ -395,6 +395,7 @@ function cf_get_settings(array $account, string $zoneId): array
         if ($id === 'ssl')                $out['ssl']  = (string) ($s['value'] ?? '');
         if ($id === 'security_header')    $out['hsts'] = !empty($s['value']['strict_transport_security']['enabled']);
         if ($id === 'always_use_https')   $out['always_https'] = ($s['value'] ?? '') === 'on';
+        if ($id === 'email_obfuscation')  $out['email_obfuscation'] = ($s['value'] ?? '') === 'on';
     }
     $out['ok'] = true;
     return $out;
@@ -409,5 +410,23 @@ function cf_set_hsts(array $account, string $zoneId, int $maxAge = 15552000): ar
     $r  = cf_api($account, 'PATCH', "/zones/{$zoneId}/settings/security_header", [], $body);
     $ok = $r['code'] === 200 && !empty($r['json']['success']);
     return ['ok' => $ok, 'message' => $ok ? 'hsts on'
+        : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+}
+
+/**
+ * Turn Cloudflare's "Email Address Obfuscation" on/off for a zone. When on, Cloudflare
+ * rewrites every visible mailto:/email-looking string in the response AND injects
+ * /cdn-cgi/scripts/.../email-decode.min.js to un-obfuscate it client-side — a real,
+ * measured hop in the render-critical path (confirmed live on gannmoldremediation.com:
+ * 260-306ms, flagged by PSI as LCP-relevant). This codebase already runs its own
+ * mailto: links through sanitize_url() and never prints a bare email as plain text, so
+ * the scraping protection this buys is largely redundant for sites built here.
+ * @return array{ok:bool,message:string}
+ */
+function cf_set_email_obfuscation(array $account, string $zoneId, bool $on): array
+{
+    $r  = cf_api($account, 'PATCH', "/zones/{$zoneId}/settings/email_obfuscation", [], ['value' => $on ? 'on' : 'off']);
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? ('email_obfuscation=' . ($on ? 'on' : 'off'))
         : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
 }
