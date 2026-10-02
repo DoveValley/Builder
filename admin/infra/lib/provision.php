@@ -202,8 +202,23 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
                 $lines[] = '  SSL: ' . ($s['ok'] ? "✓ {$sslMode}" : '✗ ' . $s['message']); if (!$s['ok']) $ok = false;
                 $h = cf_set_hsts($account, $zoneId);
                 $lines[] = '  HSTS: ' . ($h['ok'] ? '✓ on' : '✗ ' . $h['message']); if (!$h['ok']) $ok = false;
-                $ah = cf_set_always_use_https($account, $zoneId);
-                $lines[] = '  Always Use HTTPS: ' . ($ah['ok'] ? '✓ on' : '✗ ' . $ah['message']); if (!$ah['ok']) $ok = false;
+                // Only on Full SSL — this mode makes Cloudflare always redirect bare http
+                // to https at the edge, but the origin's OWN scheme detection is only
+                // correct under Full (Cloudflare connects to it over https too). Under
+                // Flexible, Cloudflare still connects to the origin over plain http
+                // regardless of the visitor's scheme, so the origin's own redirects (and
+                // nginx's built-in bare-directory one) keep emitting http://, fighting this
+                // setting's own upgrade forever — an infinite loop. Confirmed live on
+                // gannmoldremediation.com, which had been provisioned on Flexible before
+                // this setting existed and then had it turned on separately. Not fatal to
+                // the overall provision if skipped — flagged here so it isn't silently
+                // forgotten once a real origin cert makes Full available for this domain.
+                if ($sslMode === 'full') {
+                    $ah = cf_set_always_use_https($account, $zoneId);
+                    $lines[] = '  Always Use HTTPS: ' . ($ah['ok'] ? '✓ on' : '✗ ' . $ah['message']); if (!$ah['ok']) $ok = false;
+                } else {
+                    $lines[] = '  Always Use HTTPS: — skipped (Flexible SSL would redirect-loop with it on; revisit once Full SSL is available)';
+                }
                 // Off by default on every new zone — Cloudflare turns this on by default,
                 // which injects email-decode.min.js into the render-critical path to
                 // un-obfuscate mailto: links this codebase already runs through
