@@ -92,11 +92,19 @@ if ($nnrClonedFrom !== '') {
         <li>Confirm the per-domain <strong>identity rewrite</strong> actually landed: schema's name/URL/tel point at <strong>this</strong> domain, not the master's; no fabricated <code>aggregateRating</code>; analytics ID is unique per domain, never shared across the fleet; <code>areaServed</code> set, no invented street address.</li>
         <li>Colors/logo not byte-copied from the clone source; check <code>theme_presets.json</code> for a duplicate font family (cost mold/appliance 5–12 mobile PSI points, real past bug).</li>
         <li>Legal links real, site_vars real, trust claims match the actual business model (referral network vs. direct provider — shipped wrong fleet-wide before), no fabricated prices/ratings/stats, no burned-in images from the source site, unique title tags and meta descriptions per page.</li>
+    </ol>
+
+    <h4 style="margin:16px 0 4px;font-size:.82rem;color:#1e3a5f;text-transform:uppercase;letter-spacing:.03em;">Verify it will actually rank — run these tests, in order</h4>
+    <ol style="margin:0;padding-left:20px;line-height:1.85;">
         <li><strong>Run PageSpeed Insights</strong> — mobile + desktop, homepage and at least one page per archetype, 90+ target. Short? Check duplicate fonts and CLS first, then confirm Cloudflare is actually caching (not just proxied).</li>
         <li><strong>Run the SEO gate</strong> (<code>includes/multisite/seo_gate.php</code> — runs automatically on batch builds, read its report) — primary keyword in every H1, one H1 per page, titles/meta descriptions present and not duplicated, schema types unchanged, canonical points at this domain. Reports only, doesn't block yet — treat a failure as real.</li>
-        <li>Schema actually validates in Google's Rich Results Test (the gate above checks types are <em>unchanged</em>, not that Google can parse them). Sitemap submitted and indexing requested in GSC (verification ≠ indexed). <code>theme.gsc_meta</code> only, never <code>theme.head_extra</code> (that's this site's own custom CSS/meta — a GSC write there deletes it). No broken internal links.</li>
-        <li><strong>Off-page — not covered by any of this.</strong> Backlinks, citations, Google Business Profile: nothing in the site factory touches them, and for local-service ranking they outweigh everything above. Known, unowned gap — passing QA means technically ready, not outranking anyone yet.</li>
-        <li><strong>Sign-off</strong> — mark the domain ready in the Go-Live grid only once every QA item passes. Never resolve DNS on a rank-and-rent domain before this.</li>
+        <li><strong>Run Google's Rich Results Test</strong> on the homepage and one page per archetype — the SEO gate only checks schema types are <em>unchanged</em>, not that Google can actually parse them; this is the real validation.</li>
+        <li><strong>Google's Mobile-Friendly check</strong> — PSI's mobile pass covers Core Web Vitals, not tap-target sizing/viewport issues; confirm no mobile-usability warnings separately.</li>
+        <li><strong>Submit the sitemap and request indexing in Search Console</strong> for the homepage and a sample page per archetype — verification alone (<code>theme.gsc_meta</code>, never <code>theme.head_extra</code>) doesn't get pages crawled any faster.</li>
+        <li>Crawl the live site (internal link checker) — confirm no broken links, no redirect chains, no orphan pages.</li>
+        <li>After a few days: check Search Console's <strong>Coverage</strong> report for indexing errors and <strong>Manual Actions</strong> for penalties — the only two things visible from outside that a build-time check can't catch.</li>
+        <li><strong>Off-page — not covered by any of this.</strong> Backlinks, citations, Google Business Profile: nothing in the site factory touches them, and for local-service ranking they outweigh everything above. Passing every test here means technically ready, not outranking anyone yet.</li>
+        <li><strong>Sign-off</strong> — mark the domain ready in the Go-Live grid only once every QA item and every test above passes. Never resolve DNS on a rank-and-rent domain before this.</li>
     </ol>
 </div>
 
