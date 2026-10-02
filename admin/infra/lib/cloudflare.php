@@ -413,6 +413,15 @@ function cf_set_hsts(array $account, string $zoneId, int $maxAge = 15552000): ar
         : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
 }
 
+/** Force http:// to redirect to https:// at the edge. @return array{ok:bool,message:string} */
+function cf_set_always_use_https(array $account, string $zoneId, bool $on = true): array
+{
+    $r  = cf_api($account, 'PATCH', "/zones/{$zoneId}/settings/always_use_https", [], ['value' => $on ? 'on' : 'off']);
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? ('always_use_https=' . ($on ? 'on' : 'off'))
+        : ($r['json']['errors'][0]['message'] ?? ('HTTP ' . $r['code']))];
+}
+
 /**
  * Turn Cloudflare's "Email Address Obfuscation" on/off for a zone. When on, Cloudflare
  * rewrites every visible mailto:/email-looking string in the response AND injects

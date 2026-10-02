@@ -202,6 +202,8 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
                 $lines[] = '  SSL: ' . ($s['ok'] ? "✓ {$sslMode}" : '✗ ' . $s['message']); if (!$s['ok']) $ok = false;
                 $h = cf_set_hsts($account, $zoneId);
                 $lines[] = '  HSTS: ' . ($h['ok'] ? '✓ on' : '✗ ' . $h['message']); if (!$h['ok']) $ok = false;
+                $ah = cf_set_always_use_https($account, $zoneId);
+                $lines[] = '  Always Use HTTPS: ' . ($ah['ok'] ? '✓ on' : '✗ ' . $ah['message']); if (!$ah['ok']) $ok = false;
                 // Off by default on every new zone — Cloudflare turns this on by default,
                 // which injects email-decode.min.js into the render-critical path to
                 // un-obfuscate mailto: links this codebase already runs through
