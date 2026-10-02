@@ -216,6 +216,16 @@ function css_critical_block_type(array $block): string {
  * @return array{path:string, mtime:int}|null
  */
 function css_critical_for_types(array $types, string $srcPath, string $cacheDir): ?array {
+    // TEMPORARILY DISABLED — three separate real bugs traced to this system in one
+    // session (silent permission failures leaving stale per-page CSS, a cache file
+    // shared across niches with identical block-type lists, and a page's rendered
+    // HTML referencing a hash that didn't match what the current block list
+    // actually needs). The function's own fail-open design (returning null falls
+    // every caller back to the always-correct full style.css) makes this the safe
+    // kill switch rather than ripping the feature out — re-enable once the exact
+    // mechanism behind the hash/filename mismatch is understood, not before.
+    return null;
+
     $unique = array_values(array_unique(array_filter($types, fn($t) => $t !== '')));
     foreach ($unique as $t) {
         if (!array_key_exists($t, CSS_CRITICAL_BLOCK_MAP)) return null;
