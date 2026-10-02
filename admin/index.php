@@ -280,7 +280,7 @@ foreach ($footer['columns'] as $ci => $column) {
 
     <!-- Tabs -->
     <div class="tabs">
-        <a class="tab-link <?= $tab === 'new_niche' ? 'active' : '' ?>" href="?tab=new_niche">&#127793; New Niche/Site</a>
+        <a class="tab-link <?= $tab === 'new_niche' ? 'active' : '' ?>" href="?tab=new_niche">&#127793; New Niche/Site Steps</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
         <a class="tab-link <?= $tab === 'header' ? 'active' : '' ?>" href="?tab=header">Header</a>
         <a class="tab-link <?= $tab === 'footer' ? 'active' : '' ?>" href="?tab=footer">Footer</a>

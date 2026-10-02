@@ -266,8 +266,31 @@ function fmt_date(string $iso): string {
                 <p>Stamp out many separate sites at once, all copied from one master site.</p>
             </div>
             <?php if ($sitesExist): ?>
+            <button class="btn-sm-outline" onclick="toggleBatchSteps()">New Batch Steps &#9432;</button>
             <button class="btn-open" onclick="showNewBatch()">+ New Batch</button>
             <?php endif; ?>
+        </div>
+
+        <div id="batch-steps-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
+            <h3 style="margin-top:0;color:#1e3a5f;">New Batch — all the steps</h3>
+            <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">
+                <li>The master site this batch copies from must already exist and be ready — built via the
+                    <a href="index.php?tab=new_niche">New Niche/Site Steps</a> checklist, not this page.</li>
+                <li><em>Optional:</em> acquire the domains first in Infrastructure — buy/own on <strong>D.Buy</strong>, then
+                    <strong>"Claim for Batch"</strong> to add them to this batch's target list. Skipped entirely if you're
+                    uploading a CSV with your own domains in step 4.</li>
+                <li>Click <strong>+ New Batch</strong> above — name it, pick the master, Create.</li>
+                <li>Open the batch, then run its six phases in order: <strong>Upload target list (CSV)</strong> &rarr;
+                    <strong>Pick deployment servers</strong> &rarr; <strong>Create host</strong> &rarr;
+                    <strong>Generate sites</strong> &rarr; <strong>Upload sites</strong> &rarr; <strong>Go Live (DNS)</strong>.
+                    Full detail on what each button does and where it runs is in "How a batch works" at the top of the
+                    open batch page — not repeated here, so there's one place it can't drift from.</li>
+                <li>If this niche uses research fields, research runs once, master-wide, before Generate Sites —
+                    every domain in the batch reuses it, nothing re-researches per-domain.</li>
+                <li>After Generate Sites and before Go Live, run every domain through the New Niche/Site Steps tab's
+                    <strong>QA before go-live</strong> section (Page Pool/Color Pool/Logo Pool variation, PageSpeed
+                    Insights, the SEO gate, the off-page caveat) — Go Live is DNS, not a quality gate.</li>
+            </ol>
         </div>
 
         <div id="new-batch-card" class="new-site-card" style="margin-bottom:18px;">
@@ -545,6 +568,10 @@ async function batchPost(data) {
     return r.json();
 }
 
+function toggleBatchSteps() {
+    const el = document.getElementById('batch-steps-card');
+    el.style.display = (el.style.display === 'none') ? '' : 'none';
+}
 function showNewBatch() {
     document.getElementById('new-batch-card').classList.add('open');
     document.getElementById('nb-name').focus();
