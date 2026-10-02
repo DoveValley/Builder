@@ -1,0 +1,250 @@
+{
+    "_about": "Visual Identity presets for water-restoration sites. Each bundles a palette (accent + dark header/footer + heading), a Google font, button radius, and a brand icon from multisite/icons/. Applied per-site from the Theme tab; single_preset_id marks the active one; in_rotation flags presets eligible for multisite variation. `single_font_id` = the font applied to THIS site; `in_rotation` per font = whether the multisite build rotates through it. Font is its own axis, not part of a colour preset — 10 palettes x 6 fonts = 60 combinations rather than 10 with repeats.",
+    "niche": "water restoration",
+    "single_preset_id": 4,
+    "fonts": [
+        {
+            "name": "Inter",
+            "stack": "Inter, sans-serif",
+            "in_rotation": true
+        },
+        {
+            "name": "Source Sans Pro",
+            "stack": "Source Sans Pro, sans-serif",
+            "in_rotation": true
+        },
+        {
+            "name": "Lato",
+            "stack": "Lato, sans-serif",
+            "in_rotation": true
+        },
+        {
+            "name": "Mulish",
+            "stack": "Mulish, sans-serif",
+            "in_rotation": true
+        },
+        {
+            "name": "Montserrat",
+            "stack": "Montserrat, sans-serif",
+            "in_rotation": true
+        },
+        {
+            "name": "Poppins",
+            "stack": "Poppins, sans-serif",
+            "in_rotation": true
+        }
+    ],
+    "single_font_id": 1,
+    "presets": [
+        {
+            "id": 1,
+            "name": "Navy + Orange",
+            "note": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#F26A21",
+                "header_bg": "#10395C",
+                "footer_bg": "#10395C",
+                "heading_color": "#10395C",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Slate + Red-Orange",
+            "note": "",
+            "in_rotation": false,
+            "theme": {
+                "accent_color": "#E04E1B",
+                "header_bg": "#1F3A5F",
+                "footer_bg": "#1F3A5F",
+                "heading_color": "#1F3A5F",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Teal + Crimson",
+            "note": "",
+            "in_rotation": false,
+            "theme": {
+                "accent_color": "#C9273D",
+                "header_bg": "#0F4C5C",
+                "footer_bg": "#0F4C5C",
+                "heading_color": "#0F4C5C",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Forest + Orange",
+            "note": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#F07E13",
+                "header_bg": "#14532D",
+                "footer_bg": "#14532D",
+                "heading_color": "#14532D",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Charcoal + Amber",
+            "note": "",
+            "in_rotation": false,
+            "theme": {
+                "accent_color": "#FFB100",
+                "header_bg": "#1B2A41",
+                "footer_bg": "#1B2A41",
+                "heading_color": "#1B2A41",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Navy + Hi-Vis Yellow",
+            "note": "",
+            "in_rotation": false,
+            "theme": {
+                "accent_color": "#FFB100",
+                "header_bg": "#0F2E52",
+                "footer_bg": "#0F2E52",
+                "heading_color": "#0F2E52",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 7,
+            "name": "Plum + Gold",
+            "note": "",
+            "in_rotation": false,
+            "theme": {
+                "accent_color": "#F5A623",
+                "header_bg": "#3B2352",
+                "footer_bg": "#3B2352",
+                "heading_color": "#3B2352",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 8,
+            "name": "Graphite + Red",
+            "note": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#E02020",
+                "header_bg": "#1C1C1E",
+                "footer_bg": "#1C1C1E",
+                "heading_color": "#1C1C1E",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 9,
+            "name": "Denim + Yellow",
+            "note": "",
+            "in_rotation": false,
+            "theme": {
+                "accent_color": "#FFB100",
+                "header_bg": "#35597A",
+                "footer_bg": "#35597A",
+                "heading_color": "#35597A",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        },
+        {
+            "id": 10,
+            "name": "Espresso + Orange",
+            "note": "",
+            "in_rotation": true,
+            "theme": {
+                "accent_color": "#FF8A00",
+                "header_bg": "#3E2723",
+                "footer_bg": "#3E2723",
+                "heading_color": "#3E2723",
+                "header_text": "#ffffff",
+                "footer_text": "#ffffff",
+                "header_top_bg": "#ffffff",
+                "primary_font": "Inclusive Sans, sans-serif",
+                "heading_font": "",
+                "button_radius": "8"
+            },
+            "header": {
+                "nav_bg": "accent"
+            }
+        }
+    ]
+}

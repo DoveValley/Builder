@@ -27,6 +27,12 @@ sites/*/multisite/*
 # Pic Drop — see includes/multisite/image_ai.php) is the same story again: prompt text,
 # no secrets, real config that would otherwise have zero git history by the same omission.
 !sites/*/multisite/image_prompts.json
+# theme_presets.json (per-master Visual Identity library: colors + font + button
+# radius + icon per preset) is the same story again: no secrets, real config that
+# silently diverged between masters with no git history — appliance-site's copy
+# was force-added at some point in the past (has real history), mold-site's never
+# was, which is exactly how mold-site's heading_font preset bug went unreviewable.
+!sites/*/multisite/theme_presets.json
 
 # Multisite batch data — params.csv carries ftp_pass in plaintext, plus run logs.
 # Same fail-safe rule: the whole dir, so nothing added later can leak either.
