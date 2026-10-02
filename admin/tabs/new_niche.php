@@ -105,6 +105,43 @@ if ($nnrClonedFrom !== '') {
     </ol>
 </div>
 
+<div class="card" style="margin-top:16px;border-left:4px solid #065f46;">
+    <h3 style="margin-top:0;margin-bottom:6px;">D &middot; Finish &amp; Go-Live QA <span class="hint" style="font-weight:400;">(last pass before flipping DNS — also the right checklist for a site that's already built but not yet ready)</span></h3>
+    <p class="hint" style="margin:0 0 12px;max-width:820px;">Every item below traces to a real bug that shipped at least once. Run through all of
+        them before a site counts as ready — not just "built."</p>
+    <ol style="margin:0;padding-left:20px;line-height:1.8;">
+        <li><strong>Page pool / internal links.</strong> Regenerate <code>[services_links]</code> from
+            <code>templates.json</code> rather than trusting the stored list — it's manually-maintained and drifts
+            from the real template set by design. Confirm the Related Links block resolves correctly and every link
+            is live (no 404s). Confirm section-order rotation and chart-group rotation are actually varying across
+            this niche's domains, not all rendering the same fixed order (a group of one doesn't rotate).</li>
+        <li><strong>Colors / theme.</strong> Confirm the site sits on a real Color Preset, not a byte-identical copy
+            inherited from whatever site it was cloned from. Check <code>theme_presets.json</code> for a duplicated
+            font family — a stray second <code>heading_font</code> silently re-stamped on every regen cost
+            mold/appliance 5–12 mobile PSI points before it was caught. Confirm palette/font/jitter are each actually
+            set per-domain, not copied identically from a sibling domain.</li>
+        <li><strong>Content.</strong> Legal pages point at real slugs, not the footer's placeholder <code>#</code>
+            links. <code>site_vars</code> (phone, logo) are this site's real values, not an inherited placeholder.
+            Trust-claim language matches the actual business model (referral network vs. direct provider — this has
+            shipped wrong fleet-wide before). No fabricated prices, ratings, or stats anywhere, including schema.
+            Images aren't carrying another site's burned-in city/keyword text. Meta descriptions are unique per page,
+            not copy-pasted across cities.</li>
+        <li><strong>Performance.</strong> Run PageSpeed Insights (mobile <em>and</em> desktop) on the homepage and at
+            least one landing page per archetype — target 90+ mobile. If it's short, check the two repeat offenders
+            first: a duplicate Google Font family in <code>theme_presets.json</code>, and CLS from layout shift — then
+            confirm Cloudflare is actually caching (proxied-with-rules), not just DNS-proxied with no cache behavior.</li>
+        <li><strong>SEO / ranking readiness.</strong> Each page centers its own primary keyword from the keyword map —
+            uniqueness alone isn't the bar, ranking for the <em>target</em> term is. Schema type matches the business
+            (no fabricated address/rating). <code>sitemap.xml</code> resolves and Search Console is verified via
+            <code>theme.gsc_meta</code> (never <code>theme.head_extra</code> — that field holds this site's own
+            custom CSS/meta and a GSC write there silently deletes it). No broken internal links anywhere
+            (<code>services_links</code>, related links, footer).</li>
+        <li><strong>Sign-off.</strong> Only mark the domain ready in the Go-Live grid / Batch Go-Live card once every
+            item above passes — that's the gate before DNS cutover. Never let a rank-and-rent domain resolve while
+            still empty or still failing this list.</li>
+    </ol>
+</div>
+
 <div class="card" style="margin-top:16px;">
     <h3 style="margin-top:0;margin-bottom:6px;">C &middot; How content actually gets created</h3>
     <p class="hint" style="margin:0 0 14px;">A page is a mix of hand-written static text and AI-generated text. Knowing which is
