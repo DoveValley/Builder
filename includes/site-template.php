@@ -184,9 +184,6 @@ if (empty($seo['og_image'])) {
     <?php if (!empty($seo['meta_description'])): ?>
     <meta name="description" content="<?= h($seo['meta_description']) ?>">
     <?php endif; ?>
-    <?php if (!empty($seo['meta_keywords'])): ?>
-    <meta name="keywords" content="<?= h($seo['meta_keywords']) ?>">
-    <?php endif; ?>
     <?php
     $canonicalUrl = resolve_shortcodes($seo['canonical_url'] ?? '');
     // A noindexed page (e.g. 404.html) has no canonical: a bare slug ('') falling through
