@@ -595,8 +595,30 @@ Options -Indexes
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
+<IfModule mod_dir.c>
+    # Apache's own automatic directory-slash redirect is scheme-naive — it reflects
+    # how THIS origin was reached, not the visitor. Under Cloudflare's "Flexible" SSL
+    # mode that's always plain http (Cloudflare-to-origin is never encrypted in that
+    # mode, even when the visitor used https), so it always emits a Location with
+    # http://, no matter the visitor's real scheme. Paired with Cloudflare's "Always
+    # Use HTTPS" edge setting, that's an infinite loop: this origin drops a bare
+    # directory request to http+slash, Cloudflare's edge immediately upgrades it back
+    # to https but strips the slash this origin just added, repeat forever. Disabled
+    # here and replaced below with a rule that goes straight to the final https+slash
+    # state in one hop, so scheme confusion from the Cloudflare hop can't matter.
+    DirectorySlash Off
+</IfModule>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    # Bare directory request (no trailing slash) -> https + slash in one hop. See the
+    # mod_dir block above for why this doesn't try to detect/preserve the incoming
+    # scheme the way the next rule does — for this one case we just always want https
+    # anyway, so there's no "genuinely http" branch worth taking.
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !/$
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
+
     # Redirect plain http to https. Checks X-Forwarded-Proto (not just %{HTTPS}) because
     # these boxes sit behind Cloudflare: in "Flexible" SSL mode Cloudflare always connects
     # to the origin over plain HTTP even when the visitor used HTTPS, so a bare "%{HTTPS}
