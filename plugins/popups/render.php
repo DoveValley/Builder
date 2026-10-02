@@ -34,13 +34,13 @@ if (!function_exists('renderPopupBody')) {
 }
 ?>
 <div class="info-popup-overlay" id="infoPopupOverlay" onclick="if(event.target===this)closeInfoPopup()">
-    <div class="info-popup-box" role="dialog" aria-modal="true">
+    <div class="info-popup-box" role="dialog" aria-modal="true" aria-labelledby="infoPopupHeading">
         <button class="info-popup-close" onclick="closeInfoPopup()" aria-label="Close">&times;</button>
         <?php if (!empty($infoPopup['image'])): ?>
             <img class="info-popup-image" src="<?= h($pfx . $infoPopup['image']) ?>" alt="<?= h(resolve_shortcodes($infoPopup['heading'] ?? '')) ?>" <?= img_intrinsic_attrs($infoPopup['image']) ?>>
         <?php endif; ?>
         <div class="info-popup-content">
-            <h2 class="info-popup-heading"><?= h(resolve_shortcodes($infoPopup['heading'] ?? '')) ?></h2>
+            <h2 class="info-popup-heading" id="infoPopupHeading"><?= h(resolve_shortcodes($infoPopup['heading'] ?? '')) ?></h2>
             <div class="info-popup-body"><?= renderPopupBody(resolve_shortcodes($infoPopup['body'] ?? '')) ?></div>
         </div>
     </div>

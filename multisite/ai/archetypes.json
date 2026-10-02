@@ -103,7 +103,7 @@
         "ai_model": "claude-haiku-4-5-20251001",
         "ai_inject_target": "next",
         "ai_inject_field": "fq_items",
-        "ai_inject_mode": "append",
+        "ai_inject_mode": "replace",
         "ai_output_schema": {
             "items": "array"
         },
