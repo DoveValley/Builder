@@ -543,15 +543,18 @@ function css_minify(string $css): string {
  *             a last resort if the output doesn't exist yet and regeneration failed)
  */
 function css_minify_to(string $srcPath, string $outPath): int {
+    // Always recompute and overwrite rather than trusting outPath's mtime against
+    // srcPath's — same fix, same reason, as css_critical_for_types() in
+    // includes/css_critical.php: this runs once per batch build, not per request,
+    // so the cost of always rewriting is trivial, and the old staleness check was
+    // found serving a stale outPath with no source change to explain it.
     $srcMtime = @filemtime($srcPath);
     $outMtime = @filemtime($outPath);
-    if ($srcMtime !== false && ($outMtime === false || $outMtime < $srcMtime)) {
-        $raw = @file_get_contents($srcPath);
-        if ($raw !== false) {
-            $minified = css_minify($raw);
-            if ($minified !== '' && @file_put_contents($outPath, $minified) !== false) {
-                $outMtime = @filemtime($outPath);
-            }
+    $raw = @file_get_contents($srcPath);
+    if ($raw !== false) {
+        $minified = css_minify($raw);
+        if ($minified !== '' && @file_put_contents($outPath, $minified) !== false) {
+            $outMtime = @filemtime($outPath);
         }
     }
     return $outMtime !== false ? $outMtime : (int) ($srcMtime ?: time());
@@ -622,17 +625,16 @@ function js_minify(string $js): string {
     return implode("\n", $lines);
 }
 
-/** Same self-healing regenerate-from-source pattern as css_minify_to(). */
+/** Always regenerates from source — see css_minify_to()'s comment for why the
+ *  old staleness-check version of this was removed. */
 function js_minify_to(string $srcPath, string $outPath): int {
     $srcMtime = @filemtime($srcPath);
     $outMtime = @filemtime($outPath);
-    if ($srcMtime !== false && ($outMtime === false || $outMtime < $srcMtime)) {
-        $raw = @file_get_contents($srcPath);
-        if ($raw !== false) {
-            $minified = js_minify($raw);
-            if ($minified !== '' && @file_put_contents($outPath, $minified) !== false) {
-                $outMtime = @filemtime($outPath);
-            }
+    $raw = @file_get_contents($srcPath);
+    if ($raw !== false) {
+        $minified = js_minify($raw);
+        if ($minified !== '' && @file_put_contents($outPath, $minified) !== false) {
+            $outMtime = @filemtime($outPath);
         }
     }
     return $outMtime !== false ? $outMtime : (int) ($srcMtime ?: time());
