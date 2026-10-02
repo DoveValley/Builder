@@ -234,21 +234,23 @@ function css_critical_for_types(array $types, string $srcPath, string $cacheDir)
     $hash = substr(md5(implode(',', $unique)), 0, 12);
     $outPath = rtrim($cacheDir, '/') . '/' . $hash . '.css';
 
-    $srcMtime = @filemtime($srcPath);
-    $outMtime = @filemtime($outPath);
-    if ($srcMtime !== false && ($outMtime === false || $outMtime < $srcMtime)) {
-        // Preserve ORIGINAL FILE ORDER, not $needed's order — cascade order in the
-        // source file is meaningful (e.g. SKIN CONTRAST OVERRIDES must come after
-        // the block sections it overrides) and must survive subsetting.
-        $css = '';
-        foreach ($sections as $name => $text) {
-            if (in_array($name, $needed, true)) $css .= $text;
-        }
-        $minified = css_minify($css);
-        if ($minified === '') return null;
-        if (!is_dir($cacheDir)) @mkdir($cacheDir, 0775, true);
-        if (@file_put_contents($outPath, $minified) === false) return null;
-        $outMtime = @filemtime($outPath);
+    // Always recompute and overwrite, rather than trusting outPath's mtime against
+    // srcPath's — this file is a build artifact of a batch process, not a per-request
+    // hot path, so the cost of always rewriting it is trivial. The old "skip if
+    // outPath looks newer than srcPath" check was found silently serving stale
+    // content across regens for reasons never fully pinned down (observed: a build
+    // that should have produced current CSS instead produced an older cached
+    // version, byte-for-byte, with no code or source-file change in between) —
+    // unconditional overwrite removes the whole class of bug instead of chasing
+    // the exact mechanism.
+    $css = '';
+    foreach ($sections as $name => $text) {
+        if (in_array($name, $needed, true)) $css .= $text;
     }
+    $minified = css_minify($css);
+    if ($minified === '') return null;
+    if (!is_dir($cacheDir)) @mkdir($cacheDir, 0775, true);
+    if (@file_put_contents($outPath, $minified) === false) return null;
+    $outMtime = @filemtime($outPath);
     return $outMtime !== false ? ['path' => $outPath, 'mtime' => $outMtime] : null;
 }
