@@ -52,8 +52,6 @@ function default_data() {
             'sticky_nav_on_scroll' => false,
             'info_items'      => [
                 ['icon' => '🌐', 'text' => '', 'label' => 'Location:'],
-                ['icon' => '🇺🇸', 'text' => 'American', 'label' => 'Proudly'],
-                ['icon' => '',   'text' => 'Call for Great Service!'],
             ],
             'topbar_text'     => '',
             'topbar_link'     => '',
