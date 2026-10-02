@@ -165,15 +165,32 @@ if (empty($seo['og_image'])) {
         // hero_split's background photo above.
         if ($_t === 'post_meta' && !empty($_b['featured_image'])) { $heroPreloadSrcs[] = resolve_shortcodes($_b['featured_image']); break; }
     }
-    foreach ($heroPreloadSrcs as &$_heroSrc) {
-        if (!str_starts_with($_heroSrc, 'http') && !str_starts_with($_heroSrc, '//')) {
-            $_heroSrc = ($assetPathPrefix ?? '/') . $_heroSrc;
+    // Same "-mobile" sibling convention as bg_style_vars()/img_srcset() (includes/blocks.php)
+    // and the matching max-width:768px swap in style.src.css — found the desktop hero
+    // preloaded unconditionally even on mobile, downloading an image mobile visitors never
+    // display while the actual file they DO show loads at normal (not preload) priority.
+    foreach ($heroPreloadSrcs as $_i => $_rawSrc) {
+        $_heroMobileRaw = null;
+        if (!str_starts_with($_rawSrc, 'http') && !str_starts_with($_rawSrc, '//')) {
+            $_mobileRel = preg_replace('/\.(webp|jpe?g|png|gif)$/i', '-mobile.$1', $_rawSrc);
+            if ($_mobileRel !== null && $_mobileRel !== $_rawSrc && function_exists('upload_fs_path')) {
+                $_mobileFs = upload_fs_path($_mobileRel);
+                if ($_mobileFs !== '' && is_file($_mobileFs)) $_heroMobileRaw = $_mobileRel;
+            }
         }
+        $_prefix = $assetPathPrefix ?? '/';
+        $_desktopHref = (!str_starts_with($_rawSrc, 'http') && !str_starts_with($_rawSrc, '//')) ? $_prefix . $_rawSrc : $_rawSrc;
+        $_mobileHref  = $_heroMobileRaw !== null ? $_prefix . $_heroMobileRaw : null;
+        $heroPreloadSrcs[$_i] = ['desktop' => $_desktopHref, 'mobile' => $_mobileHref];
     }
-    unset($_heroSrc);
     ?>
-    <?php foreach ($heroPreloadSrcs as $_heroSrc): ?>
-    <link rel="preload" as="image" href="<?= h($_heroSrc) ?>" fetchpriority="high">
+    <?php foreach ($heroPreloadSrcs as $_heroPair): ?>
+        <?php if ($_heroPair['mobile'] !== null): ?>
+    <link rel="preload" as="image" href="<?= h($_heroPair['mobile']) ?>" media="(max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="<?= h($_heroPair['desktop']) ?>" media="(min-width: 769px)" fetchpriority="high">
+        <?php else: ?>
+    <link rel="preload" as="image" href="<?= h($_heroPair['desktop']) ?>" fetchpriority="high">
+        <?php endif; ?>
     <?php endforeach; ?>
     <title><?= h($pageTitle) ?></title>
     <?php $favicon = $data['header']['favicon'] ?? ''; if ($favicon !== ''): $faviconUrl = h(admin_upload_url_v($favicon)); ?>
@@ -308,7 +325,15 @@ if (empty($seo['og_image'])) {
              bytes start downloading immediately instead of only after this stylesheet
              resolves and the browser discovers the @font-face, so the font is far more
              likely to already be ready when optional's decision point arrives. */
-    foreach (gf_preload_urls($gfHref) as $gfFontUrl): ?>
+    // Only the weights actually visible above the fold at first paint — body text
+    // (400) and the heading weight this theme uses (same validation/default as
+    // theme_css_vars()'s --font-weight-heading). Every other requested weight still
+    // loads normally via the stylesheet below, just without jumping the preload
+    // queue ahead of the hero image for weights nothing on screen needs yet.
+    $gfHeadingWeight = (string) ($theme['heading_weight'] ?? '700');
+    $gfHeadingWeight = in_array($gfHeadingWeight, ['400','500','600','700','800','900'], true) ? (int) $gfHeadingWeight : 700;
+    $gfPreloadWeights = array_unique([400, $gfHeadingWeight]);
+    foreach (gf_preload_urls($gfHref, $gfPreloadWeights) as $gfFontUrl): ?>
     <link rel="preload" as="font" type="font/woff2" href="<?= h($gfFontUrl) ?>" crossorigin fetchpriority="high">
     <?php endforeach; ?>
     <link rel="preload" as="style" href="<?= h($gfHref) ?>">

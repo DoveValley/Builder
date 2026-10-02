@@ -664,40 +664,68 @@ function js_minify_to(string $srcPath, string $outPath): int {
  * fetch per NEW font combination the fleet ever uses (a handful of entries even
  * across every niche), not one per page view.
  */
-function gf_preload_urls(string $cssHref): array {
+function gf_preload_urls(string $cssHref, array $onlyWeights = []): array {
     $cacheFile = (defined('BASE_DIR') ? BASE_DIR : __DIR__ . '/..') . '/data/gf_preload_cache.json';
     $cache = is_file($cacheFile) ? (json_decode((string) @file_get_contents($cacheFile), true) ?: []) : [];
-    if (array_key_exists($cssHref, $cache)) return (array) $cache[$cssHref];
-
-    $urls = [];
-    $ch = curl_init($cssHref);
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 5,
-        CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    ]);
-    $css = curl_exec($ch);
-    $ok  = $css !== false && (int) curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
-    curl_close($ch);
-
-    // Google returns one @font-face per (weight × unicode-range subset) — for a family
-    // requesting 5 weights that's ~35 blocks, most of which (cyrillic, greek,
-    // vietnamese, ...) this fleet's English-language sites never render a single
-    // character from. Preloading all of them would trade the font-swap fix for a
-    // real, wasted-bandwidth regression. Keep only latin + latin-ext (covers English
-    // plus accented characters) — every family Google Fonts serves labels its blocks
-    // with a leading "/* subset */" comment, which is what this filters on.
-    if ($ok && preg_match_all('/\/\*\s*(latin|latin-ext)\s*\*\/\s*@font-face\s*\{[^}]*url\((https:\/\/fonts\.gstatic\.com\/[^)]+\.woff2)\)/', (string) $css, $m)) {
-        $urls = array_values(array_unique($m[2]));
+    $entries = null;
+    if (array_key_exists($cssHref, $cache)) {
+        $cached = (array) $cache[$cssHref];
+        // Old cache format was a flat list of URL strings (pre-weight-filtering) --
+        // detect and treat as a miss so it recomputes in the new [weight,url] shape
+        // instead of crashing the filter below on a plain string.
+        if ($cached === [] || isset($cached[0]['weight'])) $entries = $cached;
     }
 
-    // Cache the outcome either way (including empty) so a fetch failure doesn't
-    // retry on every single page load — worst case, preloading is a missed
-    // optimization, never a correctness problem.
-    $cache[$cssHref] = $urls;
-    $dir = dirname($cacheFile);
-    if (!is_dir($dir)) @mkdir($dir, 0775, true);
-    @file_put_contents($cacheFile, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    if ($entries === null) {
+        $entries = [];
+        $ch = curl_init($cssHref);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 5,
+            CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        ]);
+        $css = curl_exec($ch);
+        $ok  = $css !== false && (int) curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200;
+        curl_close($ch);
 
-    return $urls;
+        // Google returns one @font-face per (weight × unicode-range subset) — for a
+        // family requesting 5 weights that's ~35 blocks, most of which (cyrillic,
+        // greek, vietnamese, ...) this fleet's English-language sites never render a
+        // single character from. Keep only latin + latin-ext (covers English plus
+        // accented characters) — every family Google Fonts serves labels its blocks
+        // with a leading "/* subset */" comment, which is what this filters on.
+        // font-weight is captured too (not just the URL) so the caller can preload
+        // only the weight(s) actually visible above the fold instead of every weight
+        // the page uses anywhere — found 10 high-priority preloads on one real page
+        // (5 weights × 2 subsets) competing with the hero image for bandwidth before
+        // LCP, when only the heading weight is on screen at first paint.
+        if ($ok && preg_match_all('/\/\*\s*(?:latin|latin-ext)\s*\*\/\s*@font-face\s*\{([^}]*)\}/', (string) $css, $blocks)) {
+            foreach ($blocks[1] as $block) {
+                if (preg_match('/font-weight:\s*(\d+)/', $block, $wm)
+                    && preg_match('/url\((https:\/\/fonts\.gstatic\.com\/[^)]+\.woff2)\)/', $block, $um)) {
+                    $entries[] = ['weight' => (int) $wm[1], 'url' => $um[1]];
+                }
+            }
+            // Dedup by URL (same file can satisfy latin + latin-ext in some subsets).
+            $seen = [];
+            $entries = array_values(array_filter($entries, function ($e) use (&$seen) {
+                if (isset($seen[$e['url']])) return false;
+                $seen[$e['url']] = true;
+                return true;
+            }));
+        }
+
+        // Cache the outcome either way (including empty) so a fetch failure doesn't
+        // retry on every single page load — worst case, preloading is a missed
+        // optimization, never a correctness problem.
+        $cache[$cssHref] = $entries;
+        $dir = dirname($cacheFile);
+        if (!is_dir($dir)) @mkdir($dir, 0775, true);
+        @file_put_contents($cacheFile, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    }
+
+    if ($onlyWeights) {
+        $entries = array_values(array_filter($entries, fn($e) => in_array($e['weight'], $onlyWeights, true)));
+    }
+    return array_map(fn($e) => $e['url'], $entries);
 }
