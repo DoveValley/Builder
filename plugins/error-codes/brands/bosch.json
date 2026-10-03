@@ -1,0 +1,152 @@
+{
+    "oven": {
+        "found": true,
+        "source_url": "https://www.bosch-home.com/us/owner-support/error-codes/ovens-microwaves",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "E11",
+                "meaning": "The oven's touch controls stop responding reliably, usually from moisture condensing on the keypad surface."
+            }
+        ]
+    },
+    "dryer": {
+        "found": true,
+        "source_url": "https://www.bosch-home.com/us/owner-support/dryers/error-codes",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "E01 / E02",
+                "meaning": "The lint screen has become clogged enough to restrict airflow."
+            },
+            {
+                "code": "E03",
+                "meaning": "The condensation drain hose is pinched or obstructed, preventing water from draining away."
+            },
+            {
+                "code": "E04",
+                "meaning": "The drum has been loaded with more laundry than the cycle is designed to handle."
+            },
+            {
+                "code": "E12",
+                "meaning": "The dryer is running hotter than it should, often from restricted airflow."
+            },
+            {
+                "code": "E16",
+                "meaning": "The door was pulled open while a drying cycle was still in progress."
+            },
+            {
+                "code": "E56",
+                "meaning": "The sensor that measures moisture in the load is not reading correctly."
+            }
+        ]
+    },
+    "refrigerator": {
+        "found": true,
+        "source_url": "https://www.bosch-home.com/us/owner-support/error-codes/refrigeration",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "E02",
+                "meaning": "The icemaker itself has failed or can't communicate properly with the unit's water/ice control system."
+            },
+            {
+                "code": "E03",
+                "meaning": "The interface panel that runs the water/ice dispenser has developed a fault."
+            }
+        ]
+    },
+    "cooktop": {
+        "found": true,
+        "source_url": "https://www.bosch-home.com/us/owner-support/error-codes/cooktops-and-rangetops",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "dE",
+                "meaning": "The cooktop's in-store demo mode has been switched on."
+            },
+            {
+                "code": "F2",
+                "meaning": "One cooking zone's electronics got too hot and that zone shut itself off as a precaution."
+            },
+            {
+                "code": "F4",
+                "meaning": "The cooktop's electronics overheated badly enough that every cooking zone shut off."
+            },
+            {
+                "code": "F5",
+                "meaning": "A hot pot or pan placed too close to the control panel is triggering a heat warning."
+            },
+            {
+                "code": "F8",
+                "meaning": "A cooking zone has been left running continuously for so long without input that the cooktop flags it."
+            },
+            {
+                "code": "U400 / E9000",
+                "meaning": "The electrical supply reaching the cooktop is outside the voltage range the unit expects."
+            }
+        ]
+    },
+    "dishwasher": {
+        "found": true,
+        "source_url": "https://www.bosch-home.com/us/owner-support/error-codes/dishwashers",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "E01",
+                "meaning": "The motor circuit for the heat pump on the main control board has failed."
+            },
+            {
+                "code": "E09",
+                "meaning": "The internal heater inside the heat pump assembly isn't working correctly."
+            },
+            {
+                "code": "E15",
+                "meaning": "A float-type safety switch has sensed water pooling in the dishwasher's base pan."
+            },
+            {
+                "code": "E18",
+                "meaning": "Either not enough water is entering the tub or the system isn't pumping it correctly."
+            },
+            {
+                "code": "E24",
+                "meaning": "Water isn't draining out properly, most often because the drain filter is clogged with debris."
+            },
+            {
+                "code": "E27",
+                "meaning": "The household electrical supply feeding the dishwasher is running below the voltage it needs."
+            }
+        ]
+    },
+    "washer": {
+        "found": true,
+        "source_url": "https://www.bosch-home.com/us/owner-support/error-codes/washers",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "E16 / F16",
+                "meaning": "The door hasn't latched securely, so the machine won't start or continue the cycle."
+            },
+            {
+                "code": "E17 / F17",
+                "meaning": "Water is taking too long to fill the drum, often from a blocked inlet filter or AquaStop hose screen."
+            },
+            {
+                "code": "E18 / F18",
+                "meaning": "The hose carrying wastewater out of the machine is kinked or clogged."
+            },
+            {
+                "code": "E23 / F23",
+                "meaning": "The AquaStop leak-protection system has detected water where it shouldn't be and shut the machine down."
+            },
+            {
+                "code": "E32 / F32",
+                "meaning": "The load has settled unevenly in the drum, throwing it off balance."
+            },
+            {
+                "code": "E33 / F33",
+                "meaning": "Excess detergent suds have been detected in the wash water."
+            }
+        ]
+    }
+}

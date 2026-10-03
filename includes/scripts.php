@@ -888,6 +888,36 @@ function content_editor_scripts() {
                 <div class="rl-items-editor" id="rl_items_new_${idx}"></div>
                 <button type="button" class="btn btn-secondary btn-small" onclick="addRlItem(this, 'new_${idx}')">+ Add candidate link</button>
             </div>
+            <div class="block-fields block-fields-error_codes is-hidden">
+                <p class="hint">Pulls from the plugin's own researched data (plugins/error-codes/brands/) — official manufacturer sources only. Leave
+                Brand/Appliance Type as "auto" to detect both from this page's own slug.</p>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px;">
+                    <div class="form-group" style="flex:1 1 220px;"><label>Heading (blank = auto-generated)</label>
+                        <input type="text" name="ec_heading[]" placeholder="Common Whirlpool Refrigerator Error Codes">
+                    </div>
+                    <div class="form-group" style="flex:0 0 160px;"><label>Brand</label>
+                        <input type="text" name="ec_brand[]" value="auto" placeholder="auto">
+                    </div>
+                    <div class="form-group" style="flex:0 0 160px;"><label>Appliance type</label>
+                        <input type="text" name="ec_type[]" value="auto" placeholder="auto">
+                    </div>
+                    <div class="form-group" style="flex:0 0 110px;"><label>Max codes</label>
+                        <input type="number" name="ec_max[]" min="1" max="12" step="1" value="6">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Intro text (blank = auto-generated)</label>
+                    <textarea name="ec_intro[]" rows="2"></textarea>
+                </div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <div class="form-group" style="flex:1 1 220px;"><label>Optional CTA button text</label>
+                        <input type="text" name="ec_cta_text[]" placeholder="Call {phone} for Fast Repair">
+                    </div>
+                    <div class="form-group" style="flex:1 1 220px;"><label>Optional CTA button URL</label>
+                        <input type="text" name="ec_cta_url[]" placeholder="tel:{tel}">
+                    </div>
+                </div>
+            </div>
             <div class="block-fields block-fields-cards is-hidden">
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:1 1 160px;"><label>Label (small caps above heading)</label>

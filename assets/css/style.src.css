@@ -4325,6 +4325,80 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 }
 
 /* ============================================================
+   ERROR CODES BLOCK
+   ============================================================ */
+/* Each code is a labeled definition pair: a bold "chip" code (dt) next to its plain-
+   English meaning (dd) — scannable for a visitor who just wants to match their one
+   code, and semantically a <dl> so a screen reader announces the term/definition
+   pairing correctly. */
+.block-error-codes {
+    padding: 48px 0;
+    background: #f8fafc;
+}
+.block-error-codes .section-heading {
+    text-align: center;
+    margin: 0 0 14px;
+}
+.ec-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 28px;
+    color: var(--color-muted, #556);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+}
+.ec-list {
+    display: grid;
+    gap: 10px;
+    max-width: 860px;
+    margin: 0 auto;
+}
+.ec-item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    background: #fff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius, 8px);
+    padding: 14px 18px;
+}
+.ec-code {
+    flex: 0 0 auto;
+    min-width: 72px;
+    text-align: center;
+    background: var(--color-accent);
+    color: var(--color-btn-text, #fff);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    border-radius: var(--btn-radius, 6px);
+    padding: 5px 10px;
+}
+.ec-meaning {
+    margin: 0;
+    flex: 1 1 auto;
+    color: #334155;
+    font-size: var(--font-size-small, 0.95rem);
+    line-height: 1.6;
+}
+.ec-source {
+    text-align: center;
+    margin: 20px auto 0;
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+.ec-source a { color: inherit; text-decoration: underline; }
+.ec-cta {
+    display: block;
+    width: fit-content;
+    margin: 24px auto 0;
+}
+@media (max-width: 600px) {
+    .ec-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .ec-code { min-width: 0; }
+}
+
+/* ============================================================
    HEADER LIVE-TUNING OVERRIDES (ported from compiled style.css,
    which had drifted ahead of this source file — see the mobile-
    nav-logo rules above for the same issue). Kept verbatim/unsplit;

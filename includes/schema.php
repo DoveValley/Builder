@@ -3,10 +3,12 @@
  * Schema (JSON-LD) helpers.
  *
  * FAQ schema is treated as a PROJECTION OF CONTENT: the FAQPage node is derived from
- * the page's current faq_two_col blocks at render time (see site-template.php), so the
- * structured data always matches the visible FAQ — regardless of when, or whether, the
- * AI filled it. FAQPage is therefore never authored by hand and never stored as truth;
- * any FAQPage found in the stored schema is replaced by the freshly-derived one.
+ * the page's current faq_two_col blocks AND error_codes blocks at render time (see
+ * site-template.php), so the structured data always matches what's visible —
+ * regardless of when, or whether, the AI filled it, or which manufacturer codes this
+ * page's error_codes block resolved to. FAQPage is therefore never authored by hand
+ * and never stored as truth; any FAQPage found in the stored schema is replaced by
+ * the freshly-derived one.
  */
 
 /**
@@ -33,13 +35,46 @@ function faq_pairs_from_blocks(array $blocks): array {
 }
 
 /**
+ * Build FAQPage Question entities from a page's error_codes blocks — same
+ * "projection of content" rule as faq_pairs_from_blocks(): derived at render
+ * time from whatever error_codes_resolve() (plugins/error-codes/plugin.php)
+ * actually returns for THIS page, never authored/stored by hand, so the
+ * structured data can never list a code the visible block doesn't show.
+ * Soft-guarded — a site without the plugin (or with no error_codes.json)
+ * simply contributes no pairs here. Returns [] when there's nothing to show.
+ */
+function error_code_pairs_from_blocks(array $blocks): array {
+    if (!function_exists('error_codes_resolve')) return [];
+    $pairs = [];
+    foreach ($blocks as $block) {
+        if (!is_array($block) || ($block['type'] ?? '') !== 'error_codes') continue;
+        $max = (int) ($block['ec_max'] ?? 6) ?: 6;
+        $ec = error_codes_resolve($block['ec_brand'] ?? 'auto', $block['ec_type'] ?? 'auto', $max);
+        if (!$ec) continue;
+        $brandLabel = $ec['brand_label'];
+        $typeLabel  = strtolower($ec['type_label']);
+        foreach ($ec['codes'] as $row) {
+            $code    = trim((string) ($row['code'] ?? ''));
+            $meaning = trim((string) ($row['meaning'] ?? ''));
+            if ($code === '' || $meaning === '') continue;
+            $pairs[] = [
+                '@type'          => 'Question',
+                'name'           => "What does error code {$code} mean on a {$brandLabel} {$typeLabel}?",
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $meaning],
+            ];
+        }
+    }
+    return $pairs;
+}
+
+/**
  * Return $schemaJson with its FAQPage node replaced by one derived from $blocks
  * (or removed entirely when the page has no answered FAQ). All non-FAQ schema is
  * preserved. Shortcodes in the Q&A text are left intact for the caller to resolve.
  * Returns '' when the result would be empty (so the caller can skip emitting).
  */
 function schema_apply_faqpage(string $schemaJson, array $blocks): string {
-    $pairs      = faq_pairs_from_blocks($blocks);
+    $pairs      = array_merge(faq_pairs_from_blocks($blocks), error_code_pairs_from_blocks($blocks));
     $schemaJson = trim($schemaJson);
     $decoded    = $schemaJson !== '' ? json_decode($schemaJson, true) : null;
 

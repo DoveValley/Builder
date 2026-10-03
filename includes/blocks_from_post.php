@@ -918,6 +918,19 @@ function parse_blocks_from_post(): array {
                 if (empty($rlItems)) continue 2;
                 break;
 
+            case 'error_codes':
+                $block['ec_heading']  = trim($_POST['ec_heading'][$i]  ?? '');
+                $block['ec_brand']    = trim($_POST['ec_brand'][$i]    ?? '') ?: 'auto';
+                $block['ec_type']     = trim($_POST['ec_type'][$i]     ?? '') ?: 'auto';
+                $ecMax = (int) ($_POST['ec_max'][$i] ?? 6);
+                $block['ec_max']      = max(1, min(12, $ecMax ?: 6));
+                $block['ec_intro']    = trim($_POST['ec_intro'][$i]    ?? '');
+                $block['ec_cta_text'] = trim($_POST['ec_cta_text'][$i] ?? '');
+                // sanitize_url() (includes/helpers.php) — every stored URL goes through it;
+                // passes tel:{tel}/{city_slug}-style shortcodes through unchanged.
+                $block['ec_cta_url']  = sanitize_url(trim($_POST['ec_cta_url'][$i] ?? ''));
+                break;
+
             case 'video':
                 $block['vid_heading'] = trim($_POST['vid_heading'][$i] ?? '');
                 $block['vid_url']     = sanitize_url(trim($_POST['vid_url'][$i] ?? ''));

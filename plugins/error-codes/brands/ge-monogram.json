@@ -1,0 +1,34 @@
+{
+    "refrigerator": {
+        "found": true,
+        "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16912",
+        "confidence": "direct_fetch",
+        "note": "GE Monogram is a GE Appliances sub-brand documented on GE Appliances' own official support platform (products.geappliances.com), not a separately-documented manufacturer — these are the same official fault codes GE publishes for its own refrigerators.",
+        "codes": [
+            {
+                "code": "FF",
+                "meaning": "The freezer section is warming up past a safe point, so food stored there may be starting to thaw."
+            },
+            {
+                "code": "PF",
+                "meaning": "The unit experienced a power interruption at some point and settings may need to be re-confirmed."
+            },
+            {
+                "code": "CI",
+                "meaning": "The icemaker isn't cycling normally and should be inspected."
+            },
+            {
+                "code": "DE",
+                "meaning": "The unit is running in a showroom/demo setting, where lights and buttons stay active but cooling is intentionally turned off."
+            },
+            {
+                "code": "dE",
+                "meaning": "The automatic defrost cycle failed to complete successfully within the last day."
+            },
+            {
+                "code": "CC",
+                "meaning": "The fridge compartment's actual temperature doesn't match what the dial or display is set to."
+            }
+        ]
+    }
+}

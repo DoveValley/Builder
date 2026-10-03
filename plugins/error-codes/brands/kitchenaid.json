@@ -1,0 +1,132 @@
+{
+    "cooktop": {
+        "found": true,
+        "source_url": "https://producthelp.kitchenaid.com/Cooking/Cooktops/Electric_Cooktop/Error_Code_or_Indicator_Light",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "F03",
+                "meaning": "The touch-control module is having trouble communicating internally."
+            },
+            {
+                "code": "F2",
+                "meaning": "The cooking surface is still too hot to register as safe, and clears on its own once it cools."
+            },
+            {
+                "code": "E_03",
+                "meaning": "Something pressing on the control panel is being misread as a touch input."
+            },
+            {
+                "code": "E2 (induction)",
+                "meaning": "The electronics underneath have gotten too hot, so the cooktop shuts the panel off until it cools."
+            },
+            {
+                "code": "U / u (induction)",
+                "meaning": "The cookware on a zone isn't magnetic-compatible, isn't centered properly, or is the wrong size."
+            },
+            {
+                "code": "H (residual heat)",
+                "meaning": "That zone is still hot to the touch, either from recent use or heat carried over from a neighboring zone."
+            }
+        ]
+    },
+    "freezer": {
+        "found": true,
+        "source_url": "https://producthelp.kitchenaid.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "PO",
+                "meaning": "Power to the unit was interrupted long enough that the freezer compartment warmed to 18°F or higher."
+            },
+            {
+                "code": "Over Temperature",
+                "meaning": "The freezer side has stayed above 15°F for more than roughly 90 minutes."
+            }
+        ]
+    },
+    "oven": {
+        "found": true,
+        "source_url": "https://producthelp.kitchenaid.com/Cooking/Wall_Ovens_and_Ranges/Ranges/Error_Codes",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "F1",
+                "meaning": "Points to trouble in the oven's temperature-sensing circuit — the sensor, control board, or wiring."
+            },
+            {
+                "code": "F2 E3",
+                "meaning": "Indicates the keypad/user-interface panel, control board, or connecting wiring is malfunctioning."
+            },
+            {
+                "code": "F3",
+                "meaning": "General oven-control fault, covering the control board itself or its wiring harness."
+            },
+            {
+                "code": "F3 E2",
+                "meaning": "The oven (or warming-drawer) temperature sensor or its wiring is suspected of failing."
+            },
+            {
+                "code": "F1 E3",
+                "meaning": "A wall-oven variant of the control/wiring fault family."
+            },
+            {
+                "code": "F2E1 (commercial range)",
+                "meaning": "Signals an electronics fault in the commercial range's control system."
+            }
+        ]
+    },
+    "dishwasher": {
+        "found": true,
+        "source_url": "https://producthelp.kitchenaid.com/Dishwashers/Dishwasher/Error_Code_or_Flashing_Lights",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "F1E1",
+                "meaning": "The main control module itself is the suspected point of failure."
+            },
+            {
+                "code": "F7E2",
+                "meaning": "The wash motor isn't behaving as expected and needs a power cycle to attempt recovery."
+            },
+            {
+                "code": "F8E5",
+                "meaning": "The water inlet (fill) valve is stuck open, letting water in when it shouldn't."
+            },
+            {
+                "code": "F9E1",
+                "meaning": "Water isn't draining out fast enough, usually from a blockage somewhere in the drain path."
+            },
+            {
+                "code": "H2O",
+                "meaning": "The dishwasher isn't sensing water coming in at all."
+            },
+            {
+                "code": "F8E4",
+                "meaning": "Water has been detected pooling in the drip tray underneath the unit."
+            }
+        ]
+    },
+    "washer": {
+        "found": false
+    },
+    "refrigerator": {
+        "found": true,
+        "source_url": "https://producthelp.kitchenaid.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights/PO_Error_Code_-_Refrigerator",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "PO",
+                "meaning": "A power interruption was long enough for internal temperatures to climb past the safe threshold."
+            },
+            {
+                "code": "Over Temperature",
+                "meaning": "The fresh-food compartment has held above 48°F for an extended stretch, indicating a real cooling problem."
+            },
+            {
+                "code": "CL or LO (beverage center)",
+                "meaning": "The unit's interior has gotten colder than it should."
+            }
+        ]
+    }
+}

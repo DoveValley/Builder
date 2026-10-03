@@ -1,0 +1,100 @@
+{
+    "dishwasher": {
+        "found": true,
+        "source_url": "https://d1ulns5fn2oeus.cloudfront.net/file/652/m6004836_F20879C_EN_451_Series_Built-In_Dishwashers.pdf",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "1-5",
+                "meaning": "The dishwasher failed to drain properly — a clogged air gap, kinked drain hose, missing disposer knockout plug, or the unit not sitting level."
+            },
+            {
+                "code": "2-2",
+                "meaning": "The dishwasher took too long to fill, typically a closed supply valve, pinched fill line, or low water pressure."
+            },
+            {
+                "code": "2-3",
+                "meaning": "The water-level sensor detected less water than it should, often from a tipped dish trapping water."
+            },
+            {
+                "code": "2-4",
+                "meaning": "The water-level sensor detected more water than expected, usually from rack items blocking the sensor."
+            },
+            {
+                "code": "4-1",
+                "meaning": "The sensor that monitors wash-water temperature is not sending a valid reading."
+            },
+            {
+                "code": "3-3",
+                "meaning": "The control board isn't receiving the expected response from the drain pump."
+            }
+        ]
+    },
+    "cooktop": {
+        "found": false
+    },
+    "freezer": {
+        "found": true,
+        "source_url": "https://d1ulns5fn2oeus.cloudfront.net/file/500/m6240228_VIKING_PRO_F21249_EN_Built-In_Bottom-Freezer_%26_Side-by-Side_Refrigerator-Freezer.pdf",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "oPn",
+                "meaning": "The temperature sensor circuit is reading as an open circuit, meaning the sensor or its wiring has lost continuity."
+            },
+            {
+                "code": "Shr",
+                "meaning": "The temperature sensor circuit is reading as shorted."
+            },
+            {
+                "code": "Door Open Alarm",
+                "meaning": "A freezer or refrigerator door/drawer has been left ajar for more than three minutes."
+            },
+            {
+                "code": "High Temperature Alarm",
+                "meaning": "The compartment has stayed above its safe temperature threshold for roughly two hours."
+            },
+            {
+                "code": "Power Loss Alarm",
+                "meaning": "The unit detected it lost power at some point and keeps a flashing indicator lit until manually cleared."
+            }
+        ]
+    },
+    "range": {
+        "found": false
+    },
+    "oven": {
+        "found": false
+    },
+    "refrigerator": {
+        "found": true,
+        "source_url": "https://d1ulns5fn2oeus.cloudfront.net/file/629/m11100112_080282-000_EN.pdf",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "High Temperature Alarm",
+                "meaning": "Either the fresh-food or freezer compartment has exceeded its maximum allowed temperature."
+            },
+            {
+                "code": "Water Filter Alarm",
+                "meaning": "The water filter cartridge has reached the end of its rated life."
+            },
+            {
+                "code": "Open Door Alarm",
+                "meaning": "A door or drawer has been left open for more than three minutes."
+            },
+            {
+                "code": "Long term power loss Alarm",
+                "meaning": "The unit recognizes it went without electricity for an extended period."
+            },
+            {
+                "code": "Bluezone Bulb Replacement Indicator",
+                "meaning": "The UV bulb used in the odor/mold-reduction air-purification feature has reached the end of its service life."
+            },
+            {
+                "code": "CL",
+                "meaning": "The condenser coils are due for cleaning, shown as a blinking indicator."
+            }
+        ]
+    }
+}

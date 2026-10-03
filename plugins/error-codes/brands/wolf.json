@@ -1,0 +1,64 @@
+{
+    "range": {
+        "found": true,
+        "source_url": "https://www.subzero-wolf.com/assistance/answers/wolf/legacy-dual-fuel-range/dual-fuel-range-error-code-0e",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "0E",
+                "meaning": "A relay in the control system is stuck shorted or the heating-element circuit/relay drive has failed."
+            },
+            {
+                "code": "01",
+                "meaning": "The oven's door-lock motor ran a full minute without the control sensing the door had locked or unlocked, usually during self-clean."
+            },
+            {
+                "code": "PF",
+                "meaning": "The range either lost power briefly or the oven cavity got hotter than appropriate for the selected mode."
+            },
+            {
+                "code": "COMM ERR",
+                "meaning": "The main board has stopped receiving signals from the oven's control module."
+            },
+            {
+                "code": "09",
+                "meaning": "The internal meat-probe circuit is reading as shorted, which can simply mean the probe isn't fully seated."
+            },
+            {
+                "code": "E 05",
+                "meaning": "On induction range models, the main control isn't hearing back from the induction generator over its internal communication line."
+            }
+        ]
+    },
+    "cooktop": {
+        "found": true,
+        "source_url": "https://www.subzero-wolf.com/assistance/answers/wolf/ct-electric-cooktop/ct-electric-cooktop-error-code-e58",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "E58",
+                "meaning": "A fuse tied to the power module's configuration settings has failed on this electric cooktop."
+            },
+            {
+                "code": "F7",
+                "meaning": "The cooktop's internal electronics got hotter than 158°F while running, tripping an overheat shutdown."
+            },
+            {
+                "code": "E16",
+                "meaning": "The touch control keypad itself is reporting a fault."
+            },
+            {
+                "code": "E43",
+                "meaning": "The induction generator module that drives the cooking coil has failed outright."
+            },
+            {
+                "code": "3 / 03",
+                "meaning": "Liquid or a pan sitting on the glass surface over the control area is being misread as a control error."
+            },
+            {
+                "code": "E8",
+                "meaning": "The cooling fan inside the unit is malfunctioning."
+            }
+        ]
+    }
+}

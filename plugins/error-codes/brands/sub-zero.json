@@ -1,0 +1,64 @@
+{
+    "refrigerator": {
+        "found": true,
+        "source_url": "https://www.subzero-wolf.com/assistance/answers/sub-zero/600-series/600-series-error-code-05",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "05 / EC 05",
+                "meaning": "The sensor that monitors the refrigerator compartment's air temperature has dropped out or started reporting erratic readings."
+            },
+            {
+                "code": "06 / EC 06",
+                "meaning": "The sensor mounted on the refrigerator's evaporator coil has lost signal or begun giving inconsistent readings."
+            },
+            {
+                "code": "50",
+                "meaning": "The refrigerator's compressor has been running far longer than it should, pointing to a cooling or airflow problem."
+            },
+            {
+                "code": "15 1 00",
+                "meaning": "The relay that switches power to the refrigerator compressor has failed in the open position."
+            },
+            {
+                "code": "15 1 01",
+                "meaning": "The refrigerator compressor's relay has failed in the closed position, leaving the compressor energized continuously."
+            },
+            {
+                "code": "60 1 60",
+                "meaning": "A refrigerator-side fault logged on the Classic built-in control board."
+            }
+        ]
+    },
+    "freezer": {
+        "found": true,
+        "source_url": "https://www.subzero-wolf.com/assistance/answers/sub-zero/common/600-or700-series-error-code-ec07-or-ec08",
+        "confidence": "direct_fetch",
+        "codes": [
+            {
+                "code": "07/08 (EC07/EC08)",
+                "meaning": "The temperature sensor on the freezer evaporator has lost its signal or started returning inconsistent readings."
+            },
+            {
+                "code": "20",
+                "meaning": "During a defrost cycle, the system never saw expected feedback confirming the defrost heater turned on."
+            },
+            {
+                "code": "40 / EC40",
+                "meaning": "The freezer's compressor has been cycling on for an abnormally long stretch."
+            },
+            {
+                "code": "15 2 00",
+                "meaning": "The relay controlling power to the freezer compressor is stuck open."
+            },
+            {
+                "code": "15 2 01",
+                "meaning": "The freezer compressor relay is stuck closed, so the compressor stays powered on continuously."
+            },
+            {
+                "code": "40 2 40",
+                "meaning": "On the Classic built-in series, the freezer has been running continuously well past its normal cycle length."
+            }
+        ]
+    }
+}

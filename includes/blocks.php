@@ -235,6 +235,7 @@ function allowed_block_types() {
         'email_banner'    => 'Email Capture Banner (split: heading left, email form right)',
         'contact_form'    => 'Contact Form (name, email, phone, message)',
         'related_links'   => 'Related Links (curated internal links, real pages only)',
+        'error_codes'     => 'Error Codes (manufacturer fault-code lookup for this page\'s appliance)',
         'comparison_table'=> 'Comparison Table (feature vs. competitor)',
         'ai_block'        => 'AI Block (city & service content)',
     ];
@@ -287,6 +288,7 @@ function grouped_block_types(): array {
             'map_info'         => 'Map + info',
             'contact_form'     => 'Contact form',
             'related_links'    => 'Related links',
+            'error_codes'      => 'Error codes',
         ],
         'AI Generation' => [
             'ai_block' => 'AI Block (city & service content)',
@@ -330,6 +332,7 @@ function block_descriptions(): array {
         'map_info'         => 'Embedded Google map beside a photo + info panel. Pick which side the map sits on, and optionally let AI write the city info text (City Spotlight).',
         'contact_form'     => 'Name / email / message form with spam protection',
         'related_links'    => 'Curated list of related-page links — each one checked against this domain\'s real built pages before it renders, so it never points at a page that doesn\'t exist here.',
+        'error_codes'      => 'Manufacturer fault-code lookup for this page\'s appliance brand/type — sourced only from official manufacturer documentation. Renders nothing when no researched data exists for the combo.',
         'ai_block'         => 'Placeholder filled by the AI generator — renders as any block type once generated',
     ];
 }
@@ -372,6 +375,7 @@ function block_thumbnails(): array {
         'trust_bar'       => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="0" y="26" width="120" height="24" fill="#f3f6f7"/><line x1="0" y1="26" x2="120" y2="26" stroke="#e2e8f0" stroke-width="1"/><line x1="0" y1="50" x2="120" y2="50" stroke="#e2e8f0" stroke-width="1"/><circle cx="12" cy="38" r="4" fill="#fd783b"/><rect x="20" y="36" width="18" height="4" rx="2" fill="#475569"/><circle cx="47" cy="38" r="4" fill="#fd783b"/><rect x="55" y="36" width="18" height="4" rx="2" fill="#475569"/><circle cx="82" cy="38" r="4" fill="#fd783b"/><rect x="90" y="36" width="18" height="4" rx="2" fill="#475569"/></svg>',
         'contact_form'    => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="10" y="10" width="100" height="8" rx="2" fill="#475569"/><rect x="10" y="25" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="39" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="53" width="100" height="10" rx="2" fill="#e2e8f0"/><rect x="10" y="67" width="40" height="8" rx="2" fill="#fd783b"/></svg>',
         'related_links'   => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="10" y="12" width="60" height="6" rx="2" fill="#475569"/><circle cx="16" cy="34" r="3" fill="#fd783b"/><rect x="26" y="31" width="70" height="6" rx="2" fill="#2563eb" text-decoration="underline"/><circle cx="16" cy="50" r="3" fill="#fd783b"/><rect x="26" y="47" width="55" height="6" rx="2" fill="#2563eb"/><circle cx="16" cy="66" r="3" fill="#fd783b"/><rect x="26" y="63" width="60" height="6" rx="2" fill="#2563eb"/></svg>',
+        'error_codes'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><path d="M14 10 L24 10 L24 20 L14 20 Z" fill="#fd783b"/><rect x="18" y="12.5" width="2" height="5" fill="#fff"/><rect x="18" y="18.2" width="2" height="1.6" fill="#fff"/><rect x="30" y="12" width="40" height="5" rx="2" fill="#475569"/><rect x="10" y="28" width="100" height="14" rx="2" fill="#e2e8f0"/><rect x="14" y="32" width="20" height="6" rx="1.5" fill="#fd783b"/><rect x="40" y="33" width="60" height="4" rx="2" fill="#94a3b8"/><rect x="10" y="46" width="100" height="14" rx="2" fill="#f1f5f9"/><rect x="14" y="50" width="20" height="6" rx="1.5" fill="#fd783b"/><rect x="40" y="51" width="55" height="4" rx="2" fill="#cbd5e1"/><rect x="10" y="64" width="70" height="4" rx="2" fill="#cbd5e1"/></svg>',
         'comparison_table'=> '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="5" y="5" width="40" height="8" rx="2" fill="#475569"/><rect x="48" y="5" width="30" height="8" rx="2" fill="#e2e8f0"/><rect x="82" y="5" width="33" height="8" rx="2" fill="#fd783b"/><rect x="5" y="16" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="16" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="16" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="26" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="26" width="30" height="7" rx="1" fill="#f8fafc"/><rect x="82" y="26" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="36" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="36" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="36" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="46" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="46" width="30" height="7" rx="1" fill="#f8fafc"/><rect x="82" y="46" width="33" height="7" rx="1" fill="#dcfce7"/><rect x="5" y="57" width="40" height="7" rx="1" fill="#cbd5e1"/><rect x="48" y="57" width="30" height="7" rx="1" fill="#f1f5f9"/><rect x="82" y="57" width="33" height="7" rx="1" fill="#dcfce7"/></svg>',
         'stage_cards'     => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 76"><rect width="120" height="76" fill="#f8fafc" rx="3"/><rect x="4" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="4" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="4" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="4" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="11" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="33" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="33" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="33" y="34" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="40" y="34" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="62" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="62" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="62" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="69" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="6" width="12" height="7" rx="2" fill="#fd783b"/><rect x="91" y="17" width="22" height="3" rx="1" fill="#64748b"/><rect x="91" y="24" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="24" width="15" height="2" rx="1" fill="#cbd5e1"/><rect x="91" y="29" width="5" height="2" rx="1" fill="#fd783b" opacity=".5"/><rect x="98" y="29" width="13" height="2" rx="1" fill="#cbd5e1"/></svg>',
     ];
@@ -2158,6 +2162,55 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 echo '<li><a href="' . h($rlUrl) . '">' . h($rlText) . '</a></li>';
             }
             echo '</ul>';
+            echo '</div></div>';
+            break;
+
+        /* ---- ERROR CODES (manufacturer fault-code lookup, official sources only) ---- */
+        case 'error_codes':
+            $ecMax = (int) ($block['ec_max'] ?? 6);
+            if ($ecMax <= 0) $ecMax = 6;
+            // Soft-guarded like every other plugin-backed block — a site with no
+            // error_codes.json (or missing the plugin) renders nothing here, never a
+            // broken block. ec_brand/ec_type default to 'auto', which derives both
+            // from THIS page's own slug (error_codes_resolve() -> appliance_derive_slug()).
+            $ec = function_exists('error_codes_resolve')
+                ? error_codes_resolve($block['ec_brand'] ?? 'auto', $block['ec_type'] ?? 'auto', $ecMax)
+                : null;
+            if (!$ec) break; // no researched data for this brand/type combo — disappear, never guess
+
+            $ecHeading = resolve_shortcodes($block['ec_heading'] ?? '');
+            if ($ecHeading === '') {
+                $ecHeading = $ec['brand_explicit']
+                    ? 'Common ' . $ec['brand_label'] . ' ' . $ec['type_label'] . ' Error Codes'
+                    : 'Common ' . $ec['type_label'] . ' Error Codes';
+            }
+            $ecIntro = resolve_shortcodes($block['ec_intro'] ?? '');
+            if ($ecIntro === '') {
+                $ecIntro = $ec['brand_explicit']
+                    ? 'Seeing a code on your ' . $ec['brand_label'] . ' ' . strtolower($ec['type_label']) . '? Here\'s what it means, straight from the manufacturer\'s own documentation.'
+                    : 'Error codes vary by manufacturer — shown below is what the most common ones mean on ' . $ec['brand_label'] . ' units. A different brand will use different codes, but the fix usually starts the same way: note the exact code, then check it against your model\'s own manual.';
+            }
+            $ecCtaText = resolve_shortcodes($block['ec_cta_text'] ?? '');
+            $ecCtaUrl  = resolve_shortcodes($block['ec_cta_url']  ?? '');
+
+            echo '<div class="content-block block-error-codes"' . $anchorAttr . '><div class="container">';
+            echo '<h2 class="section-heading">' . h($ecHeading) . '</h2>';
+            if ($ecIntro) echo '<p class="ec-intro">' . h($ecIntro) . '</p>';
+            echo '<dl class="ec-list">';
+            foreach ($ec['codes'] as $row) {
+                $code = trim((string) ($row['code'] ?? ''));
+                $meaning = trim((string) ($row['meaning'] ?? ''));
+                if ($code === '' || $meaning === '') continue;
+                echo '<div class="ec-item"><dt class="ec-code">' . h($code) . '</dt><dd class="ec-meaning">' . h($meaning) . '</dd></div>';
+            }
+            echo '</dl>';
+            if ($ec['source_url']) {
+                echo '<p class="ec-source">Source: <a href="' . h($ec['source_url']) . '" target="_blank" rel="nofollow noopener">'
+                    . h($ec['brand_label']) . '\'s official support documentation &#8599;</a></p>';
+            }
+            if ($ecCtaText && $ecCtaUrl) {
+                echo '<a class="cta-btn ec-cta" href="' . h($ecCtaUrl) . '">' . h($ecCtaText) . '</a>';
+            }
             echo '</div></div>';
             break;
 

@@ -2191,6 +2191,47 @@ function render_content_blocks_editor($blocks) {
                     <button type="button" class="btn btn-secondary btn-small" onclick="addRlItem(this, <?= $i ?>)">+ Add candidate link</button>
                 </div>
 
+                <?php /* ---- ERROR CODES FIELDS ---- */ ?>
+                <div class="block-fields block-fields-error_codes <?= $type !== 'error_codes' ? 'is-hidden' : '' ?>">
+                    <p class="hint">Pulls from the plugin's own researched data (<code>plugins/error-codes/brands/</code>) — researched only from each
+                    manufacturer's own official support documentation. Leave Brand/Appliance Type as "Auto-detect" to read
+                    both from this page's own slug (e.g. <code>whirlpool-refrigerator-repair-{city_slug}</code> → Whirlpool +
+                    Refrigerator); a type-only page (e.g. <code>refrigerator-repair-{city_slug}</code>) auto-picks a
+                    representative brand. A brand/type with no researched data renders nothing — never a guess.</p>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px;">
+                        <div class="form-group" style="flex:1 1 220px;">
+                            <label>Heading (blank = auto-generated)</label>
+                            <input type="text" name="ec_heading[]" value="<?= h($block['ec_heading'] ?? '') ?>" placeholder="Common Whirlpool Refrigerator Error Codes">
+                        </div>
+                        <div class="form-group" style="flex:0 0 160px;">
+                            <label>Brand</label>
+                            <input type="text" name="ec_brand[]" value="<?= h($block['ec_brand'] ?? 'auto') ?>" placeholder="auto">
+                        </div>
+                        <div class="form-group" style="flex:0 0 160px;">
+                            <label>Appliance type</label>
+                            <input type="text" name="ec_type[]" value="<?= h($block['ec_type'] ?? 'auto') ?>" placeholder="auto">
+                        </div>
+                        <div class="form-group" style="flex:0 0 110px;">
+                            <label>Max codes</label>
+                            <input type="number" name="ec_max[]" min="1" max="12" step="1" value="<?= h($block['ec_max'] ?? 6) ?>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Intro text (blank = auto-generated)</label>
+                        <textarea name="ec_intro[]" rows="2" placeholder="Seeing a code on your Whirlpool refrigerator? Here's what it means..."><?= h($block['ec_intro'] ?? '') ?></textarea>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <div class="form-group" style="flex:1 1 220px;">
+                            <label>Optional CTA button text</label>
+                            <input type="text" name="ec_cta_text[]" value="<?= h($block['ec_cta_text'] ?? '') ?>" placeholder="Call {phone} for Fast Repair">
+                        </div>
+                        <div class="form-group" style="flex:1 1 220px;">
+                            <label>Optional CTA button URL</label>
+                            <input type="text" name="ec_cta_url[]" value="<?= h($block['ec_cta_url'] ?? '') ?>" placeholder="tel:{tel}">
+                        </div>
+                    </div>
+                </div>
+
                 <?php /* ---- STAGE CARDS FIELDS ---- */ ?>
                 <div class="block-fields block-fields-stage_cards <?= $type !== 'stage_cards' ? 'is-hidden' : '' ?>">
                     <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
