@@ -33,6 +33,46 @@
         "code": "F2, F4, E7015, E8207, E8208",
         "meaning": "The internal electronics overheated, causing the affected cooking zone to power down until it cools.",
         "self_clearable": true
+      },
+      {
+        "code": "E8205",
+        "meaning": "The connection to the wireless cooking sensor has been lost.",
+        "self_clearable": true
+      },
+      {
+        "code": "E8206",
+        "meaning": "The wireless cooking sensor itself has developed a fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "E9011",
+        "meaning": "The appliance is not connected to the supply correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F0",
+        "meaning": "MoveMode has not been activated, so pans will not carry their setting between zones.",
+        "self_clearable": true
+      },
+      {
+        "code": "F5",
+        "meaning": "Hot cookware sitting too close to the control panel is creating an overheating risk.",
+        "self_clearable": true
+      },
+      {
+        "code": "F8",
+        "meaning": "A cooking zone has run continuously for long enough that the automatic time limit cut in.",
+        "self_clearable": true
+      },
+      {
+        "code": "F9",
+        "meaning": "The extended Flex Zone will not switch on.",
+        "self_clearable": false
+      },
+      {
+        "code": "U400",
+        "meaning": "The supply voltage reaching the cooktop sits outside its normal operating range.",
+        "self_clearable": false
       }
     ]
   },
@@ -70,6 +110,36 @@
         "code": "E27",
         "meaning": "The household electrical supply voltage reaching the dishwasher is lower than what it needs.",
         "self_clearable": false
+      },
+      {
+        "code": "E04",
+        "meaning": "The machine's own self-test found a fault in the heater electronics.",
+        "self_clearable": false
+      },
+      {
+        "code": "E14",
+        "meaning": "The flow meter has failed, or water is not entering at the rate the cycle expects.",
+        "self_clearable": false
+      },
+      {
+        "code": "E22",
+        "meaning": "The filter, drain pump, hose or air gap is clogged enough to stop the machine draining.",
+        "self_clearable": true
+      },
+      {
+        "code": "E24 / E25",
+        "meaning": "The drain pump is blocked or loose, the hose is kinked, or the air gap is clogged.",
+        "self_clearable": true
+      },
+      {
+        "code": "E0110",
+        "meaning": "The internal electronics have stopped communicating with each other.",
+        "self_clearable": false
+      },
+      {
+        "code": "UP",
+        "meaning": "Not a fault — the dishwasher has finished installing a software update.",
+        "self_clearable": true
       }
     ]
   },
@@ -130,6 +200,21 @@
         "code": "F8 + H/h",
         "meaning": "A cooking zone has been left running continuously for so long that the automatic shutoff timer kicked in.",
         "self_clearable": true
+      },
+      {
+        "code": "F4",
+        "meaning": "The electronics overheated badly enough that every cooking zone switched off, not just one.",
+        "self_clearable": true
+      },
+      {
+        "code": "F5",
+        "meaning": "Hot cookware sitting too close to the control panel is creating an overheating risk.",
+        "self_clearable": true
+      },
+      {
+        "code": "U400",
+        "meaning": "The supply voltage reaching the range sits outside its normal operating range.",
+        "self_clearable": false
       }
     ]
   },

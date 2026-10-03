@@ -33,6 +33,26 @@
         "code": "LOC / LC",
         "meaning": "Not a fault — Control Lock is simply switched on.",
         "self_clearable": true
+      },
+      {
+        "code": "dET",
+        "meaning": "The washer cannot detect a detergent cartridge loaded in the dispenser.",
+        "self_clearable": true
+      },
+      {
+        "code": "Int",
+        "meaning": "Not a fault — the cycle was paused or cancelled and the machine is unwinding it.",
+        "self_clearable": true
+      },
+      {
+        "code": "rL / F34",
+        "meaning": "Items were left in the drum during a Clean Washer cycle, which has to run empty.",
+        "self_clearable": true
+      },
+      {
+        "code": "F8 E2",
+        "meaning": "A problem in the dispenser system, so detergent or softener is not being released.",
+        "self_clearable": false
       }
     ]
   },

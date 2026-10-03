@@ -36,6 +36,11 @@
         "code": "CL",
         "meaning": "The lid was left open for more than about 20 seconds while control-lock was turned on.",
         "self_clearable": true
+      },
+      {
+        "code": "F2",
+        "meaning": "Too many suds in the drum, or suds overflowing, usually from non-HE detergent.",
+        "self_clearable": true
       }
     ]
   },
@@ -179,6 +184,26 @@
       {
         "code": "F90-F94",
         "meaning": "The self-clean door-locking mechanism is faulting, usually needing a power cycle to clear a false trigger.",
+        "self_clearable": true
+      },
+      {
+        "code": "F3 / F20 / F26",
+        "meaning": "The control boards inside the range have lost communication with one another.",
+        "self_clearable": false
+      },
+      {
+        "code": "F12",
+        "meaning": "The control cannot identify its own microprocessor, which points at the board itself.",
+        "self_clearable": false
+      },
+      {
+        "code": "F13",
+        "meaning": "An internal prompt/display check failed during start-up.",
+        "self_clearable": false
+      },
+      {
+        "code": "– (dash)",
+        "meaning": "The cooktop controls are locked, so the surface elements will not respond until unlocked.",
         "self_clearable": true
       }
     ]

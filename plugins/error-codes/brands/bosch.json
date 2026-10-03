@@ -45,6 +45,26 @@
         "code": "E56",
         "meaning": "The sensor that measures moisture in the load is not reading correctly.",
         "self_clearable": false
+      },
+      {
+        "code": "E06 / E08 / E09 / E24 / E25 / E28 / E36 / E90",
+        "meaning": "Bosch groups these together as internal electronics faults — none of them clear with a reset, and all need a technician.",
+        "self_clearable": false
+      },
+      {
+        "code": "E63",
+        "meaning": "The heating element has failed, so the drum keeps turning but the load never actually dries.",
+        "self_clearable": false
+      },
+      {
+        "code": "DR",
+        "meaning": "The door isn't shut far enough for the latch to register, so the cycle won't begin.",
+        "self_clearable": true
+      },
+      {
+        "code": "CrE",
+        "meaning": "A reminder that the dryer's built-in care and maintenance program is due to be run.",
+        "self_clearable": true
       }
     ]
   },
@@ -62,6 +82,11 @@
         "code": "E03",
         "meaning": "The interface panel that runs the water/ice dispenser has developed a fault.",
         "self_clearable": false
+      },
+      {
+        "code": "E or D (with a number)",
+        "meaning": "A general fault the control wants cleared with a power reset before it is treated as a service call.",
+        "self_clearable": true
       }
     ]
   },
@@ -98,6 +123,26 @@
       {
         "code": "U400 / E9000",
         "meaning": "The electrical supply reaching the cooktop is outside the voltage range the unit expects.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1 / F6",
+        "meaning": "A cooking zone overheated and shut itself off to protect the worktop beneath it.",
+        "self_clearable": true
+      },
+      {
+        "code": "E7010",
+        "meaning": "The cooktop cannot reach the home Wi-Fi network or pair with the extractor hood.",
+        "self_clearable": true
+      },
+      {
+        "code": "E7015 / E8207 / E8208",
+        "meaning": "The electronics under the affected zone overheated, so that zone powers down until it cools.",
+        "self_clearable": true
+      },
+      {
+        "code": "E9011",
+        "meaning": "The appliance is not connected to the supply correctly.",
         "self_clearable": false
       }
     ]
@@ -136,6 +181,51 @@
         "code": "E27",
         "meaning": "The household electrical supply feeding the dishwasher is running below the voltage it needs.",
         "self_clearable": false
+      },
+      {
+        "code": "E12",
+        "meaning": "Hard-water scale has built up inside the heat pump and the machine needs descaling.",
+        "self_clearable": true
+      },
+      {
+        "code": "E14",
+        "meaning": "The flow meter has failed, or water is not entering at the rate the cycle expects.",
+        "self_clearable": false
+      },
+      {
+        "code": "E16 / E17",
+        "meaning": "Water cannot get into the tub at all — usually a closed supply valve or a blocked inlet screen.",
+        "self_clearable": true
+      },
+      {
+        "code": "E21",
+        "meaning": "The heat pump is blocked and cannot move water through the wash system.",
+        "self_clearable": false
+      },
+      {
+        "code": "E22",
+        "meaning": "The filter, drain pump, hose or air gap is clogged enough to stop the machine draining.",
+        "self_clearable": true
+      },
+      {
+        "code": "E23",
+        "meaning": "The drain pump itself is obstructed or has failed outright.",
+        "self_clearable": true
+      },
+      {
+        "code": "E06",
+        "meaning": "A fault in the door sensor circuit, so the control cannot confirm whether the door is shut.",
+        "self_clearable": false
+      },
+      {
+        "code": "E04",
+        "meaning": "The machine's own self-test found a fault in the heater electronics.",
+        "self_clearable": false
+      },
+      {
+        "code": "E19",
+        "meaning": "The solenoid that releases detergent from the dispenser is not responding.",
+        "self_clearable": false
       }
     ]
   },
@@ -172,6 +262,31 @@
       {
         "code": "E33 / F33",
         "meaning": "Excess detergent suds have been detected in the wash water.",
+        "self_clearable": true
+      },
+      {
+        "code": "CL",
+        "meaning": "The child lock is switched on, so the controls ignore input until it is released.",
+        "self_clearable": true
+      },
+      {
+        "code": "E80",
+        "meaning": "A fault in the drive circuit that powers the drum motor.",
+        "self_clearable": false
+      },
+      {
+        "code": "H9E",
+        "meaning": "The hot water supply isn't delivering what the cycle asked for — usually a closed valve or a hose connected to the wrong tap.",
+        "self_clearable": true
+      },
+      {
+        "code": "E:00 / -18",
+        "meaning": "The drain pump is jammed or obstructed, so the drum cannot empty.",
+        "self_clearable": true
+      },
+      {
+        "code": "E:30 / -80",
+        "meaning": "The drain pipe is blocked or kinked, or the pump is not moving water out.",
         "self_clearable": true
       }
     ]

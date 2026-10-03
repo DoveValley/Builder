@@ -66,6 +66,31 @@
         "code": "F59",
         "meaning": "Indicates the griddle element is running but failing to properly heat the surface.",
         "self_clearable": false
+      },
+      {
+        "code": "PF",
+        "meaning": "Power to the appliance was interrupted, so the clock and any running cycle need resetting.",
+        "self_clearable": true
+      },
+      {
+        "code": "5b",
+        "meaning": "Not a fault — Sabbath Mode is switched on and is suppressing normal display behaviour.",
+        "self_clearable": true
+      },
+      {
+        "code": "F34",
+        "meaning": "The front induction burner's temperature sensor is reporting a fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F38",
+        "meaning": "The main board and the induction inverter have stopped communicating.",
+        "self_clearable": false
+      },
+      {
+        "code": "F52",
+        "meaning": "The griddle's temperature sensor circuit is reading as shorted.",
+        "self_clearable": false
       }
     ]
   },
@@ -103,6 +128,36 @@
       {
         "code": "F27",
         "meaning": "Appears when the cooling fan stalls or seizes during a self-clean cycle, which can trigger a safety shutdown.",
+        "self_clearable": false
+      },
+      {
+        "code": "F7",
+        "meaning": "The upper oven's convection fan is not running as the control expects.",
+        "self_clearable": false
+      },
+      {
+        "code": "F8",
+        "meaning": "The meat-probe circuit is reporting a fault, which can simply mean the probe is not fully seated.",
+        "self_clearable": true
+      },
+      {
+        "code": "F11",
+        "meaning": "The oven's internal boards have lost communication with one another.",
+        "self_clearable": false
+      },
+      {
+        "code": "F19",
+        "meaning": "The oven is running but failing to heat the cavity as it should.",
+        "self_clearable": false
+      },
+      {
+        "code": "F20",
+        "meaning": "The lower oven's door-locking system has failed to lock or release properly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F42",
+        "meaning": "The supply voltage reaching the range is outside the range it expects.",
         "self_clearable": false
       }
     ]

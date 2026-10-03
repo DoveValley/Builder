@@ -73,6 +73,46 @@
         "code": "FD",
         "meaning": "Either the meat probe or the jack it plugs into has gone bad and needs replacing.",
         "self_clearable": false
+      },
+      {
+        "code": "F4",
+        "meaning": "The oven temperature sensor has failed and needs replacing.",
+        "self_clearable": false
+      },
+      {
+        "code": "F8",
+        "meaning": "The electronic control itself has failed and needs replacing.",
+        "self_clearable": false
+      },
+      {
+        "code": "F350",
+        "meaning": "A problem in the upper cooling fan circuit, or the fan is physically obstructed.",
+        "self_clearable": false
+      },
+      {
+        "code": "FC",
+        "meaning": "A component in the door-lock circuit has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "FF",
+        "meaning": "The electronic control has failed and needs replacing.",
+        "self_clearable": false
+      },
+      {
+        "code": "LOC",
+        "meaning": "The child lockout feature is switched on, so the controls will not respond.",
+        "self_clearable": true
+      },
+      {
+        "code": "ERR",
+        "meaning": "An invalid entry was made while setting the oven controls.",
+        "self_clearable": true
+      },
+      {
+        "code": "OFF",
+        "meaning": "The oven is still too hot to begin a self-clean, or has not finished cooling from one.",
+        "self_clearable": true
       }
     ]
   },
@@ -132,6 +172,46 @@
         "code": "FD",
         "meaning": "Either the meat probe or its jack has gone bad.",
         "self_clearable": false
+      },
+      {
+        "code": "F4",
+        "meaning": "The oven temperature sensor has failed and needs replacing.",
+        "self_clearable": false
+      },
+      {
+        "code": "F8",
+        "meaning": "The electronic control itself has failed and needs replacing.",
+        "self_clearable": false
+      },
+      {
+        "code": "F350",
+        "meaning": "A problem in the upper cooling fan circuit, or the fan is physically obstructed.",
+        "self_clearable": false
+      },
+      {
+        "code": "FC",
+        "meaning": "A component in the door-lock circuit has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "FF",
+        "meaning": "The electronic control has failed and needs replacing.",
+        "self_clearable": false
+      },
+      {
+        "code": "LOC",
+        "meaning": "The child lockout feature is switched on, so the controls will not respond.",
+        "self_clearable": true
+      },
+      {
+        "code": "ERR",
+        "meaning": "An invalid entry was made while setting the oven controls.",
+        "self_clearable": true
+      },
+      {
+        "code": "OFF",
+        "meaning": "The oven is still too hot to begin a self-clean, or has not finished cooling from one.",
+        "self_clearable": true
       }
     ]
   },

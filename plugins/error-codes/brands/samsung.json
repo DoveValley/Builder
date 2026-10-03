@@ -33,6 +33,46 @@
         "code": "88 88",
         "meaning": "A communication fault inside the unit, typically triggered when power is interrupted mid-startup.",
         "self_clearable": true
+      },
+      {
+        "code": "AP",
+        "meaning": "Not a fault — the fridge is acting as a temporary Wi-Fi access point so it can be set up.",
+        "self_clearable": true
+      },
+      {
+        "code": "OF OF / O FF",
+        "meaning": "Cooling has been switched off deliberately, usually demo or shop mode rather than a failure.",
+        "self_clearable": true
+      },
+      {
+        "code": "76C",
+        "meaning": "Water has been detected inside the Autofill compartment.",
+        "self_clearable": false
+      },
+      {
+        "code": "PC ER / PC CH",
+        "meaning": "Components inside the fridge have lost communication with one another.",
+        "self_clearable": false
+      },
+      {
+        "code": "33E",
+        "meaning": "The heater that keeps the ice pipe clear is reporting a fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "39E / 39C",
+        "meaning": "The ice maker is not completing its cycle as it should.",
+        "self_clearable": false
+      },
+      {
+        "code": "40E / 40C",
+        "meaning": "The fan serving the ice compartment is not running correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "84C",
+        "meaning": "The compressor is locked and cannot start.",
+        "self_clearable": false
       }
     ]
   },
@@ -71,6 +111,36 @@
         "code": "86E",
         "meaning": "The compressor was exposed to a voltage spike above its safe operating range, likely from a power surge, triggering a protective shutdown.",
         "self_clearable": false
+      },
+      {
+        "code": "14E",
+        "meaning": "The ice-maker sensor is reporting a faulty or out-of-range reading.",
+        "self_clearable": false
+      },
+      {
+        "code": "33E",
+        "meaning": "The heater that keeps the ice pipe clear is reporting a fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "39E / 39C",
+        "meaning": "The ice maker is not completing its cycle as it should.",
+        "self_clearable": false
+      },
+      {
+        "code": "40E / 40C",
+        "meaning": "The fan serving the ice compartment is not running correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "84C",
+        "meaning": "The compressor is locked and cannot start.",
+        "self_clearable": false
+      },
+      {
+        "code": "88 88",
+        "meaning": "A communication fault inside the unit, typically after power was cut mid-startup.",
+        "self_clearable": true
       }
     ]
   },
