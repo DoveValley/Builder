@@ -55,6 +55,69 @@ function infra_install_origin_cert(array $server, array $account, string $domain
 }
 
 /**
+ * Fix the https→http→https double-redirect that Cloudflare's "Flexible" SSL
+ * mode causes on every nginx-served static site in this fleet: Cloudflare
+ * talks to the origin over plain HTTP in Flexible mode, so nginx's own
+ * auto-added trailing-slash redirect (a directory request without one) builds
+ * its Location header from the scheme IT sees — http — never the scheme the
+ * visitor actually used. Cloudflare's "Always Use HTTPS" then bounces that
+ * back, so every extension-less URL on the site takes two redirects instead
+ * of zero, and some stricter crawlers refuse to follow it at all.
+ *
+ * The permanent fix is to stop Cloudflare from ever talking HTTP to the
+ * origin — switch the zone to "Full" SSL mode. Full (NOT "Full strict") does
+ * not validate the origin certificate's trust chain, expiry, or hostname, it
+ * only requires that a TLS handshake succeed — so unlike
+ * infra_install_origin_cert() above, this does not need a Cloudflare Origin
+ * CA token at all (which is why this exists as its own function: it is not
+ * blocked on an account having one configured). A plain self-signed
+ * certificate, generated locally with no shell-out, is sufficient.
+ */
+function infra_fix_https_redirect_loop(array $server, array $account, string $domain, string $zoneId, string $ftpUser, string $ftpPass): array
+{
+    if ($ftpUser === '' || $ftpPass === '') {
+        return ['ok' => false, 'message' => 'no FTP credentials on record for this domain'];
+    }
+
+    $privkey = openssl_pkey_new(['private_key_bits' => 2048, 'private_key_type' => OPENSSL_KEYTYPE_RSA]);
+    $csr     = openssl_csr_new(['commonName' => $domain], $privkey, ['digest_alg' => 'sha256']);
+    $x509    = openssl_csr_sign($csr, null, $privkey, 3650, ['digest_alg' => 'sha256']);
+    openssl_x509_export($x509, $certOut);
+    openssl_pkey_export($privkey, $keyOut);
+
+    $host   = $server['default_ip'] ?? ($server['host'] ?? '');
+    $user   = hestia_fleet_user($server);
+    $sslDir = "/home/{$user}/web/{$domain}/public_html/ssl";
+    $crtRel = 'ssl/' . $domain . '.crt';
+    $keyRel = 'ssl/' . $domain . '.key';
+
+    try {
+        $upCert = hestia_ftp_put($host, $ftpUser, $ftpPass, $crtRel, $certOut);
+        $upKey  = hestia_ftp_put($host, $ftpUser, $ftpPass, $keyRel, $keyOut);
+        if (!$upCert['ok'] || !$upKey['ok']) {
+            return ['ok' => false, 'message' => 'could not stage cert on the box: '
+                . trim(($upCert['message'] ?? '') . ' ' . ($upKey['message'] ?? ''))];
+        }
+        $install = hestia_install_cert($server, $domain, $user, $sslDir);
+    } finally {
+        hestia_ftp_delete($host, $ftpUser, $ftpPass, $crtRel);
+        hestia_ftp_delete($host, $ftpUser, $ftpPass, $keyRel);
+    }
+    if (!$install['ok']) return $install;
+
+    hestia_restart_web($server);
+
+    $sslSet = cf_set_ssl_mode($account, $zoneId, 'full');
+    if (!$sslSet['ok']) {
+        return ['ok' => false, 'message' => 'certificate installed, but switching Cloudflare to Full SSL failed: '
+            . ($sslSet['message'] ?? '')];
+    }
+
+    return ['ok' => true, 'message' => 'self-signed origin certificate installed and Cloudflare switched to Full SSL'
+        . ' — the http/https redirect mismatch is now structurally impossible for this domain, not just patched'];
+}
+
+/**
  * Provision one domain end-to-end (idempotent, staged-only), persist to state.
  * @param array $opts { register:bool, registrar:string, years:int, site:bool, cf:bool,
  *                        restart:bool — false in a batch; caller restarts once at the end }

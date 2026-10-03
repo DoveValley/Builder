@@ -25,6 +25,25 @@
       </table>
     </div></div>
 
+    <?php if (($rec['server_id'] ?? '') !== '' && ($rec['cf_zone_id'] ?? '') !== ''): ?>
+    <div class="ic-card"><h2>SSL / HTTPS</h2><div class="body">
+      <p style="margin-top:0;color:#6b7280;font-size:13px">
+        If this domain redirects <code>https → http → https</code> on any URL without a trailing
+        slash ("too many redirects" in some checkers), it's because Cloudflare is in Flexible SSL
+        mode, so nginx's own trailing-slash redirect builds its Location header with the wrong
+        scheme. This installs a self-signed origin certificate and switches the zone to Full SSL,
+        which removes the cause rather than patching the symptom — no Cloudflare Origin CA token
+        needed.
+      </p>
+      <form method="post" action="actions/domain_manage.php" onsubmit="return confirm('Install a self-signed origin certificate on <?= ih($d) ?> and switch its Cloudflare zone to Full SSL? Reversible — SSL mode can be switched back to Flexible at any time.');">
+        <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+        <input type="hidden" name="action" value="ssl_fix">
+        <input type="hidden" name="domain" value="<?= ih($d) ?>">
+        <button class="btn" type="submit">Fix HTTPS redirect (install cert + switch to Full SSL)</button>
+      </form>
+    </div></div>
+    <?php endif; ?>
+
     <?php
     /* ---------- Acquisition: buy it, or record a purchase made by hand ---------- */
     $owned    = ($rec['owned'] ?? '') === 'yes';

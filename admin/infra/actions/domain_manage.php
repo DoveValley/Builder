@@ -7,6 +7,7 @@
 require_once __DIR__ . '/../bootstrap.php';
 require_once __DIR__ . '/../lib/acquire.php';   // infra_domain_buy(), infra_domain_mark_owned()
 require_once __DIR__ . '/../lib/claim.php';     // infra_unclaim_from_batch(), infra_clear_host_in_batch()
+require_once __DIR__ . '/../lib/provision.php'; // infra_fix_https_redirect_loop()
 
 $domain = strtolower(trim($_POST['domain'] ?? ''));
 $action = $_POST['action'] ?? '';
@@ -208,6 +209,19 @@ switch ($action) {
         infra_state_delete_domain($domain);
         infra_set_flash('ok', "Removed {$domain} from fleet state (infrastructure left intact).");
         header('Location: ' . $toList); exit;
+
+    case 'ssl_fix':
+        // Non-destructive and reversible (cf_set_ssl_mode can always be called
+        // again with 'flexible'), so this is not in $destructive — a confirm()
+        // on the button is enough.
+        if (!$server)  { infra_set_flash('err', 'No server on record.'); header('Location: ' . $back); exit; }
+        if (!$account) { infra_set_flash('err', 'No Cloudflare account on record.'); header('Location: ' . $back); exit; }
+        $zoneId = (string) ($rec['cf_zone_id'] ?? '');
+        if ($zoneId === '') { infra_set_flash('err', 'No Cloudflare zone on record.'); header('Location: ' . $back); exit; }
+        $r = infra_fix_https_redirect_loop($server, $account, $domain, $zoneId,
+            (string) ($rec['ftp_user'] ?? ''), (string) ($rec['ftp_pass'] ?? ''));
+        infra_set_flash($r['ok'] ? 'ok' : 'err', ($r['ok'] ? "Fixed {$domain} — " : "Could not fix {$domain} — ") . $r['message']);
+        header('Location: ' . $back); exit;
 
     case 'teardown':
         $parts = [];
