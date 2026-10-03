@@ -1135,7 +1135,7 @@ function render_content_blocks_editor($blocks) {
                 <div class="block-fields block-fields-wide_banner <?= $type !== 'wide_banner' ? 'is-hidden' : '' ?>">
                     <div class="form-group">
                         <label>Badge text (small pill, optional)</label>
-                        <input type="text" name="wb_badge[]" value="<?= h($block['wb_badge'] ?? '') ?>" placeholder="e.g. KATY, TEXAS'S SPECIALISTS">
+                        <input type="text" name="wb_badge[]" value="<?= h($block['wb_badge'] ?? '') ?>" placeholder="e.g. {city}, {SS} SPECIALISTS">
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:2 1 220px;">

@@ -637,7 +637,7 @@ function content_editor_scripts() {
                 </div>
             </div>
             <div class="block-fields block-fields-wide_banner is-hidden">
-                <div class="form-group"><label>Badge text</label><input type="text" name="wb_badge[]" placeholder="e.g. KATY, TEXAS'S SPECIALISTS"></div>
+                <div class="form-group"><label>Badge text</label><input type="text" name="wb_badge[]" placeholder="e.g. {city}, {SS} SPECIALISTS"></div>
                 <div style="display:flex;gap:12px;flex-wrap:wrap;">
                     <div class="form-group" style="flex:2 1 220px;"><label>Heading</label><input type="text" name="wb_heading[]" placeholder="Your First Choice For Katy Pest Pros in Katy, TX"></div>
                     <div class="form-group" style="flex:0 0 80px;"><label>Level</label>
