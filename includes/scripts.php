@@ -905,7 +905,7 @@ function content_editor_scripts() {
                         <input type="text" name="ec_miss_text[]" value="Don't see your code? Call {phone} &mdash; we'll help you track it down.">
                     </div>
                     <div class="form-group" style="flex:0 0 110px;"><label>Max codes</label>
-                        <input type="number" name="ec_max[]" min="1" max="12" step="1" value="6">
+                        <input type="number" name="ec_max[]" min="1" max="20" step="1" value="12">
                     </div>
                 </div>
                 <div class="form-group">

@@ -922,8 +922,8 @@ function parse_blocks_from_post(): array {
                 $block['ec_heading']  = trim($_POST['ec_heading'][$i]  ?? '');
                 $block['ec_brand']    = trim($_POST['ec_brand'][$i]    ?? '') ?: 'auto';
                 $block['ec_type']     = trim($_POST['ec_type'][$i]     ?? '') ?: 'auto';
-                $ecMax = (int) ($_POST['ec_max'][$i] ?? 6);
-                $block['ec_max']      = max(1, min(12, $ecMax ?: 6));
+                $ecMax = (int) ($_POST['ec_max'][$i] ?? 12);
+                $block['ec_max']      = max(1, min(20, $ecMax ?: 12));
                 $block['ec_intro']    = trim($_POST['ec_intro'][$i]    ?? '');
                 // Stored even when blank: an empty string is a real choice here
                 // (it hides the "code not listed" line), distinct from the key

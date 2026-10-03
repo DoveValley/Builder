@@ -2213,7 +2213,7 @@ function render_content_blocks_editor($blocks) {
                         </div>
                         <div class="form-group" style="flex:0 0 110px;">
                             <label>Max codes</label>
-                            <input type="number" name="ec_max[]" min="1" max="12" step="1" value="<?= h($block['ec_max'] ?? 6) ?>">
+                            <input type="number" name="ec_max[]" min="1" max="20" step="1" value="<?= h($block['ec_max'] ?? 12) ?>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -2225,7 +2225,7 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>&ldquo;Code not listed&rdquo; line (clear the box to hide it)</label>
-                        <input type="text" name="ec_miss_text[]" value="<?= h($block['ec_miss_text'] ?? error_codes_miss_default()) ?>">
+                        <input type="text" name="ec_miss_text[]" value="<?= h($block['ec_miss_text'] ?? (function_exists('error_codes_miss_default') ? error_codes_miss_default() : '')) ?>">
                         <p class="hint">Shown under the table for visitors whose code isn't in the researched
                         set — otherwise the page dead-ends for them. <code>{phone}</code> becomes a tap-to-call link.</p>
                     </div>

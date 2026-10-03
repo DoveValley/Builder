@@ -48,7 +48,7 @@ function error_code_pairs_from_blocks(array $blocks): array {
     $pairs = [];
     foreach ($blocks as $block) {
         if (!is_array($block) || ($block['type'] ?? '') !== 'error_codes') continue;
-        $max = (int) ($block['ec_max'] ?? 6) ?: 6;
+        $max = (int) ($block['ec_max'] ?? 12) ?: 12;
         $ec = error_codes_resolve($block['ec_brand'] ?? 'auto', $block['ec_type'] ?? 'auto', $max);
         if (!$ec) continue;
         $brandLabel = $ec['brand_label'];

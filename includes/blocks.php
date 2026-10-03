@@ -2167,8 +2167,8 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
 
         /* ---- ERROR CODES (manufacturer fault-code lookup, official sources only) ---- */
         case 'error_codes':
-            $ecMax = (int) ($block['ec_max'] ?? 6);
-            if ($ecMax <= 0) $ecMax = 6;
+            $ecMax = (int) ($block['ec_max'] ?? 12);
+            if ($ecMax <= 0) $ecMax = 12;
             // Soft-guarded like every other plugin-backed block — a site with no
             // error_codes.json (or missing the plugin) renders nothing here, never a
             // broken block. ec_brand/ec_type default to 'auto', which derives both

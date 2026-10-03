@@ -52,14 +52,14 @@
  *
  * Isolated like every other plugin here (services_links, related_links): the
  * block's render case in includes/blocks.php calls this softly
- * (function_exists() guard), so a site with no error_codes.json, or missing this
+ * (function_exists() guard), so a site with no researched data for its brand/type, or missing this
  * plugin entirely, is simply a block that never renders — never a broken one.
  */
 
 register_plugin(
     'error_codes',
     'Error Codes',
-    'Manufacturer fault-code lookup for the page\'s own appliance brand/type, sourced only from each manufacturer\'s official support documentation (data/error_codes.json). A brand/type with no researched data renders nothing — never a guess, never a third-party source.',
+    'Manufacturer fault-code lookup for the page\'s own appliance brand/type, sourced only from each manufacturer\'s official support documentation (plugins/error-codes/brands/*.json). A brand/type with no researched data renders nothing — never a guess, never a third-party source.',
     '&#9888;',   // ⚠
     __DIR__
 );
@@ -84,7 +84,7 @@ function error_codes_data(): array {
     return $cache;
 }
 
-/** Trademarked-name casing error_codes.json's slug keys can't carry (e.g. "ge-monogram"). */
+/** Trademarked-name casing the brand files' slug keys can't carry (e.g. "ge-monogram"). */
 function error_codes_brand_label(string $brand): string {
     static $labels = [
         'ge-monogram' => 'GE Monogram', 'sub-zero' => 'Sub-Zero', 'whirlpool' => 'Whirlpool',
