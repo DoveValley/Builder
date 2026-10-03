@@ -32,11 +32,14 @@ $topics = [
     ['how-to-pay-for-rehab-without-insurance',  'How to Pay for Rehab Without Insurance',                              'Costs',     'options for paying for treatment without insurance (Medicaid, sliding scale, financing, free/state programs)'],
 ];
 
+// These .gov / national-helpline links are deliberately FOLLOWED (noopener only).
+// Citing federal health authorities is the core E-E-A-T signal for YMYL content
+// like this, and nofollow would disclaim the very sources the page leans on.
 $SOURCES = '<p>For authoritative information and free help, see:</p><ul>'
-    . '<li><a href="https://findtreatment.gov" target="_blank" rel="noopener nofollow">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li>'
-    . '<li><a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" rel="noopener nofollow">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li>'
-    . '<li><a href="https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity" target="_blank" rel="noopener nofollow">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li>'
-    . '<li><a href="https://988lifeline.org" target="_blank" rel="noopener nofollow">988 Suicide &amp; Crisis Lifeline</a></li>'
+    . '<li><a href="https://findtreatment.gov" target="_blank" rel="noopener">FindTreatment.gov</a> — SAMHSA’s national treatment locator</li>'
+    . '<li><a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" rel="noopener">SAMHSA National Helpline</a> — 1-800-662-4357, free and confidential, 24/7</li>'
+    . '<li><a href="https://www.dol.gov/agencies/ebsa/laws-and-regulations/laws/mental-health-parity" target="_blank" rel="noopener">Mental Health Parity and Addiction Equity Act</a> (U.S. Dept. of Labor / HHS)</li>'
+    . '<li><a href="https://988lifeline.org" target="_blank" rel="noopener">988 Suicide &amp; Crisis Lifeline</a></li>'
     . '</ul><p><em>{business} is a free informational and referral service, not a treatment provider or insurer. Coverage varies by plan — always verify your own benefits.</em></p>';
 
 function guide_prompt($title, $focus) {

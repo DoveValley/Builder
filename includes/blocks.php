@@ -2205,7 +2205,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             }
             echo '</dl>';
             if ($ec['source_url']) {
-                echo '<p class="ec-source">Source: <a href="' . h($ec['source_url']) . '" target="_blank" rel="nofollow noopener">'
+                // Deliberately FOLLOWED (noopener only, no nofollow). This citation is the
+                // whole point of the block -- every code here traces to the manufacturer's
+                // own documentation -- so suppressing it would hide the page's strongest
+                // trust signal. nofollow does not conserve PageRank for other links; it
+                // only discards the credit for citing an authority. Reserve nofollow for
+                // untrusted links, sponsored for paid ones, ugc for user-submitted ones.
+                echo '<p class="ec-source">Source: <a href="' . h($ec['source_url']) . '" target="_blank" rel="noopener">'
                     . h($ec['brand_label']) . '\'s official support documentation &#8599;</a></p>';
             }
             if ($ecCtaText && $ecCtaUrl) {
