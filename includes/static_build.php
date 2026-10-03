@@ -405,7 +405,16 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
                 'pagination'       => ['current' => $pageNum, 'total' => $totalPages, 'base_url' => '/blog'],
             ];
             $contentBlocks   = [$listBlock];
-            $seo             = ['meta_description' => $blogSettings['blog_intro'] ?? '', 'canonical_url' => '{website}/blog/'];
+            // Same fallback as blog.php's live-request path (includes/blocks.php has no shared
+            // helper either duplicates this independently) -- blog_intro has no generation step
+            // anywhere that ever fills it in, so it's blank on every domain in every niche unless
+            // an admin types one in by hand. This static-build copy was the one that actually
+            // mattered for every real domain (all static builds) and was missed when blog.php's
+            // copy was fixed first.
+            $blogIntroStatic = trim((string) ($blogSettings['blog_intro'] ?? ''));
+            $seo             = ['meta_description' => $blogIntroStatic !== '' ? $blogIntroStatic
+                : trim(($blogSettings['blog_heading'] ?? 'Blog') . ' from {business} — practical tips and local guidance.'),
+                'canonical_url' => '{website}/blog/'];
             $pageTitle       = $blogSettings['blog_heading'] ?? 'Blog';
             $assetPathPrefix = '/';
             $homeUrl         = '/';
