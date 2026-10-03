@@ -2144,11 +2144,18 @@ def _blog_quality_check(focus_keyword, title, meta_description, html_parts):
 
     return (len(reasons) == 0, reasons)
 
-def generate_blog_post_text(topic, brief, business, api_key, dry_run=False):
+def generate_blog_post_text(topic, brief, business, city, api_key, dry_run=False):
     """One Claude call for one blog post. Returns the parsed dict, or None on failure.
-    Domain-level, not per-city — reuses the niche brief's guardrails/tone directly,
-    same pattern as reword_disclaimer_text()/reword_tagline_text() above, rather than
-    going through the per-city archetype/registry pipeline those don't use either."""
+    The BODY content is still domain-level, not per-city — reuses the niche brief's
+    guardrails/tone directly, same pattern as reword_disclaimer_text()/reword_tagline_text()
+    above, rather than going through the per-city archetype/registry pipeline those don't use
+    either. This deliberately does NOT localize the substance of the post: if every domain in
+    a niche wrote "almost the same" article on the same topic with the city swapped in, that
+    is a textbook duplicate/scaled-content footprint across the network, arguably worse than
+    having no local framing at all. {business}/{city} are only used for a light, natural frame
+    (the opening and closing), not to invent local-specific facts — confirmed live 2026-10-03
+    that posts had ZERO local anchoring at all (not even the business name), which reads as
+    pure syndicated boilerplate on what's supposed to be a local business's own blog."""
     guardrails = (brief.get('guardrails') or '').strip()
     tone = (brief.get('tone') or 'reassuring and professional').strip()
     descriptor = brief.get('business_descriptor') or 'a local service referral business'
@@ -2167,8 +2174,16 @@ def generate_blog_post_text(topic, brief, business, api_key, dry_run=False):
         'Do NOT invent or state as fact any statistic, price, study, citation, or percentage you '
         'are not confident is true. Hedge appropriately ("often", "in many cases", "a professional '
         'can confirm") for anything that varies by situation or property. Never guarantee an '
-        'outcome, a timeline, or a cost. This is a national/general-audience article — do not '
-        'name or assume any specific city, region, or climate.\n\n'
+        f'outcome, a timeline, or a cost. The substance of this article is general/national — do '
+        'not invent or assume any specific regional climate, weather pattern, or local statistic.\n\n'
+        f'LOCAL FRAME (do this, lightly): this is {business}\'s own blog, serving {city} — it should '
+        f'not read like a syndicated article that could belong to any site. Name {city} naturally '
+        'ONCE in the opening paragraph (e.g. framing the topic as something local readers are '
+        f'searching about), and reference {business} and/or {city} ONCE more near the end of the '
+        'final section as a natural close — not a sales pitch, just acknowledging who is publishing '
+        'this and for whom. Do not mention the city anywhere else, and do not pair it with any '
+        'invented local-specific claim (climate, statistic, regulation) — the city name itself is '
+        'the only local detail this article should state as fact.\n\n'
         f'{guardrails}\n\n'
         f'Tone: {tone}. Write in fully original wording — do not copy competitor or reference-site '
         'phrasing.\n\n'
@@ -2265,11 +2280,12 @@ def generate_blog_posts(site_data, brief, domain_seed, api_key, dry_run=False) -
     picks = available[:needed]
 
     business = (site_data.get('site_vars') or {}).get('business') or '{business}'
+    city = (site_data.get('site_vars') or {}).get('city') or '{city}'
     changed = False
 
     for topic in picks:
         _log(f'  Generating blog post: {topic.get("title", topic.get("slug"))} ...')
-        ai = generate_blog_post_text(topic, brief, business, api_key, dry_run=dry_run)
+        ai = generate_blog_post_text(topic, brief, business, city, api_key, dry_run=dry_run)
         if not ai:
             _warn(f'    Blog post generation failed for "{topic.get("slug")}" — skipping')
             continue

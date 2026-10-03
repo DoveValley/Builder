@@ -148,8 +148,15 @@ $listBlock = [
 ];
 
 $contentBlocks = [$listBlock];
+// blog_intro has no generation step anywhere that ever fills it in -- it defaults to '' in
+// default_data() and stays that way unless an admin types one in by hand, which is why the
+// blog listing page has shipped with a blank meta description on every domain in every niche.
+// Falls back to a line built from blog_heading (which DOES get a real per-niche default), so
+// the tag never goes out blank even when nobody has customized this field.
+$blogIntro = trim((string) ($data['blog_settings']['blog_intro'] ?? ''));
 $seo = [
-    'meta_description' => $data['blog_settings']['blog_intro'] ?? '',
+    'meta_description' => $blogIntro !== '' ? $blogIntro
+        : trim(($data['blog_settings']['blog_heading'] ?? 'Blog') . ' from {business} — practical tips and local guidance.'),
     'canonical_url'    => '{website}/blog/',
 ];
 $pageTitle = ($data['blog_settings']['blog_heading'] ?? 'Blog') . ($activeTagLabel ? ' — ' . $activeTagLabel : '');
