@@ -2196,14 +2196,28 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             echo '<div class="content-block block-error-codes"' . $anchorAttr . '><div class="container">';
             echo '<h2 class="section-heading">' . h($ecHeading) . '</h2>';
             if ($ecIntro) echo '<p class="ec-intro">' . h($ecIntro) . '</p>';
-            echo '<dl class="ec-list">';
+            // Collect first so a combo whose rows are all malformed disappears entirely
+            // rather than printing a header row over an empty table -- same "render
+            // nothing before you render something broken" rule as the resolve() guard.
+            $ecRows = [];
             foreach ($ec['codes'] as $row) {
                 $code = trim((string) ($row['code'] ?? ''));
                 $meaning = trim((string) ($row['meaning'] ?? ''));
                 if ($code === '' || $meaning === '') continue;
-                echo '<div class="ec-item"><dt class="ec-code">' . h($code) . '</dt><dd class="ec-meaning">' . h($meaning) . '</dd></div>';
+                $ecRows[] = [$code, $meaning];
             }
-            echo '</dl>';
+            if (!$ecRows) break;
+
+            // A real <table>, not the former <dl>: this is two labelled columns of
+            // repeated data, so a screen reader navigating cells announces "Code /
+            // What it means" per row, which a definition list cannot express.
+            echo '<div class="ec-tablewrap"><table class="ec-table">';
+            echo '<thead><tr><th scope="col">Code</th><th scope="col">What it means</th></tr></thead><tbody>';
+            foreach ($ecRows as [$code, $meaning]) {
+                echo '<tr><th scope="row" class="ec-code">' . h($code) . '</th>'
+                    . '<td class="ec-meaning">' . h($meaning) . '</td></tr>';
+            }
+            echo '</tbody></table></div>';
             if ($ec['source_url']) {
                 // Deliberately FOLLOWED (noopener only, no nofollow). This citation is the
                 // whole point of the block -- every code here traces to the manufacturer's

@@ -4327,10 +4327,10 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
 /* ============================================================
    ERROR CODES BLOCK
    ============================================================ */
-/* Each code is a labeled definition pair: a bold "chip" code (dt) next to its plain-
-   English meaning (dd) — scannable for a visitor who just wants to match their one
-   code, and semantically a <dl> so a screen reader announces the term/definition
-   pairing correctly. */
+/* Rendered as a real two-column table: visitors arrive knowing one code and scan
+   for it, so the code column is monospaced, enlarged and accent-coloured to be the
+   thing the eye lands on. Hairline row rules + a faint zebra keep long meaning text
+   tracking back to the right code without heavy borders. */
 .block-error-codes {
     padding: 48px 0;
     background: #f8fafc;
@@ -4347,36 +4347,53 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     font-size: var(--font-size-body);
     line-height: 1.6;
 }
-.ec-list {
-    display: grid;
-    gap: 10px;
+.ec-tablewrap {
     max-width: 860px;
     margin: 0 auto;
-}
-.ec-item {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
     background: #fff;
     border: 1px solid var(--color-border, #e5e7eb);
     border-radius: var(--radius, 8px);
-    padding: 14px 18px;
+    overflow: hidden;                 /* clips the zebra rows to the rounded corners */
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
+.ec-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.ec-table thead th {
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+.ec-table tbody tr:nth-child(even) { background: #fafbfc; }
+.ec-table tbody tr + tr th,
+.ec-table tbody tr + tr td { border-top: 1px solid #eef2f6; }
 .ec-code {
-    flex: 0 0 auto;
-    min-width: 72px;
-    text-align: center;
-    background: var(--color-accent);
-    color: var(--color-btn-text, #fff);
-    font-weight: 800;
-    font-size: 0.85rem;
-    letter-spacing: 0.02em;
-    border-radius: var(--btn-radius, 6px);
-    padding: 5px 10px;
+    /* width:1% + min-width = shrink-to-fit, but WITHOUT nowrap: the column holds both
+       true codes ("LF / Lo FL / F8 E1") and prose labels the manufacturers use in
+       place of a code ("Bluezone Bulb Replacement Indicator"), so it must wrap. The
+       site font is deliberate over monospace for the same reason -- monospace sets
+       those phrase labels into a ragged four-line block. */
+    width: 1%;
+    min-width: 150px;
+    padding: 14px 18px;
+    vertical-align: top;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.4;
+    color: var(--color-accent);
 }
 .ec-meaning {
-    margin: 0;
-    flex: 1 1 auto;
+    padding: 14px 18px 14px 0;
+    vertical-align: top;
     color: #334155;
     font-size: var(--font-size-small, 0.95rem);
     line-height: 1.6;
@@ -4394,8 +4411,10 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     margin: 24px auto 0;
 }
 @media (max-width: 600px) {
-    .ec-item { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .ec-code { min-width: 0; }
+    .ec-table thead th,
+    .ec-code { padding-left: 12px; padding-right: 12px; }
+    .ec-meaning { padding-right: 12px; font-size: 0.9rem; }
+    .ec-code { min-width: 108px; font-size: 1rem; }
 }
 
 /* ============================================================
