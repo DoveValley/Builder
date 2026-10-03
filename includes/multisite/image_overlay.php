@@ -283,12 +283,30 @@ function ms_stamp_blocks(array &$blocks, string $keyword, string $cityLine, stri
 
         $o = ms_hero_style($W, $H, $styleOverride) + ['line1' => $line1, 'line2' => $line2, 'W' => $W, 'H' => $H];
 
-        // city-renamed (master city stripped) + per-page suffix + a short hash of the
-        // render inputs. The hash makes the filename change when the text/style changes,
-        // so an existing file is a safe cache hit — cheap re-runs for both callers, while
-        // a changed keyword/city/style regenerates under a new name.
-        $sig     = substr(md5($line1 . '|' . $line2 . '|' . json_encode($o)), 0, 8);
-        $cityRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
+        // Keyword-named (NOT city-stripped-from-original — see below) + per-page suffix +
+        // a short hash of the render inputs. The hash makes the filename change when the
+        // text/style changes, so an existing file is a safe cache hit — cheap re-runs for
+        // both callers, while a changed keyword/city/style regenerates under a new name.
+        //
+        // Built from $keyword, not from ms_city_image_path()'s "strip the master's city out
+        // of the original filename" approach: that approach silently fails if the pool file's
+        // name carries a DIFFERENT, unrelated city than the master's own configured one — found
+        // live 2026-10-03 on pest-template, whose image pool turned out to be inherited from an
+        // unrelated "Katy Pest Pros" source and still carried "katy" in ~359 filenames, because
+        // the strip logic only ever knew to remove "littleton" (this master's own city). A
+        // keyword-derived name never depends on what the original pool file happened to be
+        // called, so it can't inherit a stale place name the strip step was never told about.
+        // Falls back to the old city-stripped name if $keyword is blank for some reason.
+        $sig = substr(md5($line1 . '|' . $line2 . '|' . json_encode($o)), 0, 8);
+        $keywordSlug = function_exists('slugify') ? slugify($keyword) : strtolower(trim(preg_replace('/[^a-z0-9]+/', '-', $keyword), '-'));
+        if ($keywordSlug !== '') {
+            $dir    = trim(dirname($rel), '.');
+            $ext    = pathinfo($rel, PATHINFO_EXTENSION);
+            $suffix = $siteCitySlug !== '' ? '-' . $siteCitySlug : '';
+            $cityRel = ($dir !== '' ? $dir . '/' : '') . $keywordSlug . $suffix . ($ext !== '' ? '.' . $ext : '');
+        } else {
+            $cityRel = ms_city_image_path($rel, $siteCitySlug, $masterCitySlug);
+        }
         $outRel  = preg_replace('/(\.[^.\/]+)$/', '__' . $pageKey . '_' . $sig . '$1', $cityRel);
         $outFile = $workingDir . '/' . $outRel;
 
