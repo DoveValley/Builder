@@ -1,157 +1,186 @@
 {
-    "dryer": {
-        "found": false
-    },
-    "washer": {
-        "found": true,
-        "source_url": "https://owner.frigidaire.com/support-articles/laundry-/washers",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "E1",
-                "meaning": "The top-load washer is taking an unusually long time to fill, pointing to a weak or interrupted water supply."
-            },
-            {
-                "code": "E2",
-                "meaning": "Water is draining out of the tub far slower than it should, suggesting a drain-path restriction."
-            },
-            {
-                "code": "E3",
-                "meaning": "The washer senses its lid is open or the lid-locking mechanism never properly engaged."
-            },
-            {
-                "code": "E4",
-                "meaning": "The load has shifted unevenly inside the drum during spin, throwing the machine off balance."
-            },
-            {
-                "code": "E5",
-                "meaning": "The washer itself isn't sitting level on the floor."
-            },
-            {
-                "code": "CL",
-                "meaning": "The lid was left open for more than about 20 seconds while control-lock was turned on."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://owner.frigidaire.com/support-articles/article/1829620-dishwasher-error-code-guide",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "LOC",
-                "meaning": "The dishwasher's door-locking feature is currently engaged."
-            },
-            {
-                "code": "CL or Cd",
-                "meaning": "The dishwasher cannot confirm the door has been fully shut and latched."
-            },
-            {
-                "code": "Hd or HO",
-                "meaning": "The unit is pausing to heat incoming water or actively running its internal heating element."
-            },
-            {
-                "code": "i20",
-                "meaning": "A cycle finished without the tub fully emptying its water, pointing to a drainage problem."
-            },
-            {
-                "code": "i40",
-                "meaning": "Food debris has built up enough in the filter or sump area to block normal water flow."
-            },
-            {
-                "code": "PF",
-                "meaning": "The dishwasher lost electrical power partway through a cycle."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://owner.frigidaire.com/support-articles/article/1847088-refrigerators-error-codes-and-alarms",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "SB SB",
-                "meaning": "Sabbath Mode is active, deliberately limiting certain electronic functions for religious observance."
-            },
-            {
-                "code": "77 77",
-                "meaning": "The unit is running in a store-display demo mode where cooling and other normal functions are disabled."
-            },
-            {
-                "code": "DI SP or DISP",
-                "meaning": "Ice has become jammed in the dispenser chute, often from partial melting and refreezing."
-            },
-            {
-                "code": "PF",
-                "meaning": "The refrigerator experienced a power interruption or surge."
-            },
-            {
-                "code": "H or HI",
-                "meaning": "Internal temperature has stayed too warm for over an hour, commonly from a door left ajar."
-            },
-            {
-                "code": "Door Ajar",
-                "meaning": "A door has remained open for more than roughly five minutes."
-            }
-        ]
-    },
-    "freezer": {
-        "found": true,
-        "source_url": "https://owner.frigidaire.com/support-articles/article/1847088-refrigerators-error-codes-and-alarms",
-        "confidence": "direct_fetch",
-        "note": "Frigidaire does not publish a separate freezer-only guide — freezers are filed under its combined refrigerator/freezer error-code guide.",
-        "codes": [
-            {
-                "code": "H or HI",
-                "meaning": "Fires when the freezer or fridge compartment has run too warm for more than an hour."
-            },
-            {
-                "code": "PF",
-                "meaning": "Power to the combined unit was lost or spiked, which can leave the freezer warmer than it should be."
-            },
-            {
-                "code": "Door Ajar",
-                "meaning": "One of the unit's doors has been open for an extended period."
-            },
-            {
-                "code": "SB SB",
-                "meaning": "Sabbath Mode is engaged, suppressing electronic alerts across both compartments."
-            },
-            {
-                "code": "DI SP or DISP",
-                "meaning": "On units with an ice maker in the freezer section, ice has jammed in the dispenser chute."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://owner.frigidaire.com/support-articles/article/1846380-ranges-error-code-guide",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F1",
-                "meaning": "A key on the control's touchpad is electrically shorted, as if being held down continuously."
-            },
-            {
-                "code": "F10",
-                "meaning": "The oven's safety logic has detected the cavity running hotter than it should, treating it as a runaway-heat condition."
-            },
-            {
-                "code": "F30",
-                "meaning": "The oven temperature probe circuit is open, meaning the control isn't getting a signal from it."
-            },
-            {
-                "code": "F31",
-                "meaning": "The oven temperature probe circuit is shorted, giving the control a false reading."
-            },
-            {
-                "code": "F40 or F41",
-                "meaning": "The cooktop controls have locked themselves out and won't respond to input."
-            },
-            {
-                "code": "F90-F94",
-                "meaning": "The self-clean door-locking mechanism is faulting, usually needing a power cycle to clear a false trigger."
-            }
-        ]
-    }
+  "dryer": {
+    "found": false
+  },
+  "washer": {
+    "found": true,
+    "source_url": "https://owner.frigidaire.com/support-articles/laundry-/washers",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "E1",
+        "meaning": "The top-load washer is taking an unusually long time to fill, pointing to a weak or interrupted water supply.",
+        "self_clearable": true
+      },
+      {
+        "code": "E2",
+        "meaning": "Water is draining out of the tub far slower than it should, suggesting a drain-path restriction.",
+        "self_clearable": true
+      },
+      {
+        "code": "E3",
+        "meaning": "The washer senses its lid is open or the lid-locking mechanism never properly engaged.",
+        "self_clearable": true
+      },
+      {
+        "code": "E4",
+        "meaning": "The load has shifted unevenly inside the drum during spin, throwing the machine off balance.",
+        "self_clearable": true
+      },
+      {
+        "code": "E5",
+        "meaning": "The washer itself isn't sitting level on the floor.",
+        "self_clearable": true
+      },
+      {
+        "code": "CL",
+        "meaning": "The lid was left open for more than about 20 seconds while control-lock was turned on.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://owner.frigidaire.com/support-articles/article/1829620-dishwasher-error-code-guide",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "LOC",
+        "meaning": "The dishwasher's door-locking feature is currently engaged.",
+        "self_clearable": true
+      },
+      {
+        "code": "CL or Cd",
+        "meaning": "The dishwasher cannot confirm the door has been fully shut and latched.",
+        "self_clearable": true
+      },
+      {
+        "code": "Hd or HO",
+        "meaning": "The unit is pausing to heat incoming water or actively running its internal heating element.",
+        "self_clearable": true
+      },
+      {
+        "code": "i20",
+        "meaning": "A cycle finished without the tub fully emptying its water, pointing to a drainage problem.",
+        "self_clearable": true
+      },
+      {
+        "code": "i40",
+        "meaning": "Food debris has built up enough in the filter or sump area to block normal water flow.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "The dishwasher lost electrical power partway through a cycle.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://owner.frigidaire.com/support-articles/article/1847088-refrigerators-error-codes-and-alarms",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "SB SB",
+        "meaning": "Sabbath Mode is active, deliberately limiting certain electronic functions for religious observance.",
+        "self_clearable": true
+      },
+      {
+        "code": "77 77",
+        "meaning": "The unit is running in a store-display demo mode where cooling and other normal functions are disabled.",
+        "self_clearable": true
+      },
+      {
+        "code": "DI SP or DISP",
+        "meaning": "Ice has become jammed in the dispenser chute, often from partial melting and refreezing.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "The refrigerator experienced a power interruption or surge.",
+        "self_clearable": true
+      },
+      {
+        "code": "H or HI",
+        "meaning": "Internal temperature has stayed too warm for over an hour, commonly from a door left ajar.",
+        "self_clearable": true
+      },
+      {
+        "code": "Door Ajar",
+        "meaning": "A door has remained open for more than roughly five minutes.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "freezer": {
+    "found": true,
+    "source_url": "https://owner.frigidaire.com/support-articles/article/1847088-refrigerators-error-codes-and-alarms",
+    "confidence": "direct_fetch",
+    "note": "Frigidaire does not publish a separate freezer-only guide — freezers are filed under its combined refrigerator/freezer error-code guide.",
+    "codes": [
+      {
+        "code": "H or HI",
+        "meaning": "Fires when the freezer or fridge compartment has run too warm for more than an hour.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "Power to the combined unit was lost or spiked, which can leave the freezer warmer than it should be.",
+        "self_clearable": true
+      },
+      {
+        "code": "Door Ajar",
+        "meaning": "One of the unit's doors has been open for an extended period.",
+        "self_clearable": true
+      },
+      {
+        "code": "SB SB",
+        "meaning": "Sabbath Mode is engaged, suppressing electronic alerts across both compartments.",
+        "self_clearable": true
+      },
+      {
+        "code": "DI SP or DISP",
+        "meaning": "On units with an ice maker in the freezer section, ice has jammed in the dispenser chute.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://owner.frigidaire.com/support-articles/article/1846380-ranges-error-code-guide",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F1",
+        "meaning": "A key on the control's touchpad is electrically shorted, as if being held down continuously.",
+        "self_clearable": false
+      },
+      {
+        "code": "F10",
+        "meaning": "The oven's safety logic has detected the cavity running hotter than it should, treating it as a runaway-heat condition.",
+        "self_clearable": false
+      },
+      {
+        "code": "F30",
+        "meaning": "The oven temperature probe circuit is open, meaning the control isn't getting a signal from it.",
+        "self_clearable": false
+      },
+      {
+        "code": "F31",
+        "meaning": "The oven temperature probe circuit is shorted, giving the control a false reading.",
+        "self_clearable": false
+      },
+      {
+        "code": "F40 or F41",
+        "meaning": "The cooktop controls have locked themselves out and won't respond to input.",
+        "self_clearable": false
+      },
+      {
+        "code": "F90-F94",
+        "meaning": "The self-clean door-locking mechanism is faulting, usually needing a power cycle to clear a false trigger.",
+        "self_clearable": true
+      }
+    ]
+  }
 }

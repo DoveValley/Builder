@@ -1,120 +1,141 @@
 {
-    "stove": {
-        "found": false
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16912",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "FF",
-                "meaning": "The freezer section is warming up past a safe point, so food stored there may be starting to thaw."
-            },
-            {
-                "code": "PF",
-                "meaning": "The unit experienced a power interruption at some point and settings may need to be re-confirmed."
-            },
-            {
-                "code": "CI",
-                "meaning": "The icemaker isn't cycling normally and should be inspected."
-            },
-            {
-                "code": "DE",
-                "meaning": "The unit is running in a showroom/demo setting, where lights and buttons stay active but cooling is intentionally turned off."
-            },
-            {
-                "code": "dE",
-                "meaning": "The automatic defrost cycle failed to complete successfully within the last day."
-            },
-            {
-                "code": "CC",
-                "meaning": "The fridge compartment's actual temperature doesn't match what the dial or display is set to."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16238",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F0",
-                "meaning": "The touch keypad is malfunctioning and will most likely need to be swapped out."
-            },
-            {
-                "code": "F2 or F20",
-                "meaning": "The oven cavity heated beyond its allowed temperature ceiling for a reason the control board couldn't identify."
-            },
-            {
-                "code": "F3",
-                "meaning": "The probe that measures oven temperature has failed and needs replacement."
-            },
-            {
-                "code": "F5",
-                "meaning": "The main electronic control board itself is the component that has failed."
-            },
-            {
-                "code": "F9",
-                "meaning": "A part within the oven door's latching/locking mechanism has stopped working correctly."
-            },
-            {
-                "code": "FD",
-                "meaning": "Either the meat probe or the jack it plugs into has gone bad and needs replacing."
-            }
-        ]
-    },
-    "freezer": {
-        "found": true,
-        "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=18010",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "E and 7",
-                "meaning": "One of the control panel buttons has been held down continuously for more than 30 seconds."
-            },
-            {
-                "code": "E and 8",
-                "meaning": "The temperature-sensing thermistor has short-circuited internally."
-            },
-            {
-                "code": "E and 9",
-                "meaning": "The temperature-sensing thermistor's circuit has an open break in it."
-            }
-        ]
-    },
-    "range": {
-        "found": true,
-        "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16238",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F0",
-                "meaning": "The touch keypad is malfunctioning and will most likely need replacement."
-            },
-            {
-                "code": "F2 or F20",
-                "meaning": "The oven cavity heated beyond its allowed temperature ceiling for an unidentified reason."
-            },
-            {
-                "code": "F3",
-                "meaning": "The oven-temperature probe has failed and needs replacement."
-            },
-            {
-                "code": "F5",
-                "meaning": "The main electronic control board is the failed component."
-            },
-            {
-                "code": "F9",
-                "meaning": "A part within the oven door's latching/locking mechanism has stopped working correctly."
-            },
-            {
-                "code": "FD",
-                "meaning": "Either the meat probe or its jack has gone bad."
-            }
-        ]
-    },
-    "cooktop": {
-        "found": false
-    }
+  "stove": {
+    "found": false
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16912",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "FF",
+        "meaning": "The freezer section is warming up past a safe point, so food stored there may be starting to thaw.",
+        "self_clearable": false
+      },
+      {
+        "code": "PF",
+        "meaning": "The unit experienced a power interruption at some point and settings may need to be re-confirmed.",
+        "self_clearable": true
+      },
+      {
+        "code": "CI",
+        "meaning": "The icemaker isn't cycling normally and should be inspected.",
+        "self_clearable": false
+      },
+      {
+        "code": "DE",
+        "meaning": "The unit is running in a showroom/demo setting, where lights and buttons stay active but cooling is intentionally turned off.",
+        "self_clearable": true
+      },
+      {
+        "code": "dE",
+        "meaning": "The automatic defrost cycle failed to complete successfully within the last day.",
+        "self_clearable": false
+      },
+      {
+        "code": "CC",
+        "meaning": "The fridge compartment's actual temperature doesn't match what the dial or display is set to.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16238",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F0",
+        "meaning": "The touch keypad is malfunctioning and will most likely need to be swapped out.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2 or F20",
+        "meaning": "The oven cavity heated beyond its allowed temperature ceiling for a reason the control board couldn't identify.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3",
+        "meaning": "The probe that measures oven temperature has failed and needs replacement.",
+        "self_clearable": false
+      },
+      {
+        "code": "F5",
+        "meaning": "The main electronic control board itself is the component that has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9",
+        "meaning": "A part within the oven door's latching/locking mechanism has stopped working correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "FD",
+        "meaning": "Either the meat probe or the jack it plugs into has gone bad and needs replacing.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "freezer": {
+    "found": true,
+    "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=18010",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "E and 7",
+        "meaning": "One of the control panel buttons has been held down continuously for more than 30 seconds.",
+        "self_clearable": true
+      },
+      {
+        "code": "E and 8",
+        "meaning": "The temperature-sensing thermistor has short-circuited internally.",
+        "self_clearable": false
+      },
+      {
+        "code": "E and 9",
+        "meaning": "The temperature-sensing thermistor's circuit has an open break in it.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "range": {
+    "found": true,
+    "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16238",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F0",
+        "meaning": "The touch keypad is malfunctioning and will most likely need replacement.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2 or F20",
+        "meaning": "The oven cavity heated beyond its allowed temperature ceiling for an unidentified reason.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3",
+        "meaning": "The oven-temperature probe has failed and needs replacement.",
+        "self_clearable": false
+      },
+      {
+        "code": "F5",
+        "meaning": "The main electronic control board is the failed component.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9",
+        "meaning": "A part within the oven door's latching/locking mechanism has stopped working correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "FD",
+        "meaning": "Either the meat probe or its jack has gone bad.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "cooktop": {
+    "found": false
+  }
 }

@@ -1,133 +1,157 @@
 {
-    "refrigerator": {
-        "found": false
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/cooking/built-in-oven/dob30p977ss/download/Dacor-Transitional-30-Single-Oven-User-Care-Manual.pdf",
-        "confidence": "search_verified",
-        "note": "Sourced from Dacor's official user/care manual PDF, since Dacor does not run a standard web support-article section the way most brands do (Dacor is a Samsung subsidiary; manuals are hosted on Samsung's CDN and linked from dacor.com).",
-        "codes": [
-            {
-                "code": "C-d0",
-                "meaning": "The control panel detected a button being held down or shorted out for too long, often from moisture or debris on the touchpad."
-            },
-            {
-                "code": "C-d1",
-                "meaning": "The door-lock mechanism isn't sitting where the control expects, so it can't confirm the door is properly locked."
-            },
-            {
-                "code": "C-F0",
-                "meaning": "The oven's main control board has lost its internal communication link with a secondary circuit board."
-            },
-            {
-                "code": "C-20",
-                "meaning": "The main oven temperature probe is reading either a broken or short-circuited signal while the oven is running."
-            },
-            {
-                "code": "C-21",
-                "meaning": "An internal temperature reading inside the oven's electronics has climbed above the normal safe range."
-            },
-            {
-                "code": "C-30",
-                "meaning": "A sensor that monitors the temperature of the control board itself is reading open or shorted."
-            }
-        ]
-    },
-    "range": {
-        "found": true,
-        "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/cooking/ranges/dop30t940is/download/Dacor-30-Induction-Range-User-Manual-DOP30T940IS.pdf",
-        "confidence": "search_verified",
-        "note": "Sourced from Dacor's official user manual PDF (Dacor is a Samsung subsidiary; manuals hosted on Samsung's CDN, linked from dacor.com).",
-        "codes": [
-            {
-                "code": "C-d0",
-                "meaning": "A control button appears stuck or shorted for too long, commonly caused by water or residue on the touch controls."
-            },
-            {
-                "code": "C-d1",
-                "meaning": "The oven door's locking mechanism is out of its expected position."
-            },
-            {
-                "code": "C-F6",
-                "meaning": "The range's main control board has lost communication with a secondary board inside the unit."
-            },
-            {
-                "code": "C-F7",
-                "meaning": "The oven section's control board can't talk to the separate board managing the cooktop section."
-            },
-            {
-                "code": "C-20",
-                "meaning": "The oven's temperature sensor is giving an open or short-circuit reading during operation."
-            },
-            {
-                "code": "C-23",
-                "meaning": "The meat/food temperature probe is short-circuiting while the oven is in use."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/dishwashing/dishwashers/ddw24m999us/download/Dacor-Modernist-Dishwashers-24-Dishwasher-User-Manual.pdf",
-        "confidence": "search_verified",
-        "note": "Sourced from Dacor's official user manual PDF (Dacor is a Samsung subsidiary; manuals hosted on Samsung's CDN, linked from dacor.com).",
-        "codes": [
-            {
-                "code": "LC",
-                "meaning": "The dishwasher has detected a possible water leak and triggers a safety check requiring the water supply and power to be shut off."
-            },
-            {
-                "code": "4C",
-                "meaning": "The unit isn't receiving adequate incoming water, often a closed valve, interrupted supply, or a frozen/blocked line."
-            },
-            {
-                "code": "5C",
-                "meaning": "The dishwasher is struggling to drain, typically because the drain hose or internal pump passage is clogged or kinked."
-            },
-            {
-                "code": "HC",
-                "meaning": "Water-heating performance during a cycle isn't meeting expected levels."
-            },
-            {
-                "code": "3C",
-                "meaning": "The wash pump isn't operating normally and may need a restart or inspection."
-            },
-            {
-                "code": "PC",
-                "meaning": "The targeted zone-wash spray feature isn't functioning as it should."
-            }
-        ]
-    },
-    "cooktop": {
-        "found": true,
-        "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/cooking/cooktops-and-rangetops/dti30m977bb/download/Dacor-Modernist-Cooktops-30-Induction-Cooktop-User-Manual.pdf",
-        "confidence": "search_verified",
-        "note": "Sourced from Dacor's official induction cooktop manual PDF; Dacor's gas cooktops are knob-controlled with no display and have no digital fault codes.",
-        "codes": [
-            {
-                "code": "C0",
-                "meaning": "The sensor that monitors the glass cooktop surface temperature has failed in an open-circuit state."
-            },
-            {
-                "code": "C1",
-                "meaning": "The same surface-temperature sensor has short-circuited rather than gone open."
-            },
-            {
-                "code": "F0",
-                "meaning": "The cooktop's two internal control boards have stopped communicating with each other."
-            },
-            {
-                "code": "F1",
-                "meaning": "The control board can't communicate with its memory chip that stores settings and calibration data."
-            },
-            {
-                "code": "A2",
-                "meaning": "The cooling fan motor isn't spinning correctly, which can stem from a wiring fault, blocked blade, or board defect."
-            },
-            {
-                "code": "UP",
-                "meaning": "The electrical power feeding the cooktop is outside the voltage range the unit is designed to handle."
-            }
-        ]
-    }
+  "refrigerator": {
+    "found": false
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/cooking/built-in-oven/dob30p977ss/download/Dacor-Transitional-30-Single-Oven-User-Care-Manual.pdf",
+    "confidence": "search_verified",
+    "note": "Sourced from Dacor's official user/care manual PDF, since Dacor does not run a standard web support-article section the way most brands do (Dacor is a Samsung subsidiary; manuals are hosted on Samsung's CDN and linked from dacor.com).",
+    "codes": [
+      {
+        "code": "C-d0",
+        "meaning": "The control panel detected a button being held down or shorted out for too long, often from moisture or debris on the touchpad.",
+        "self_clearable": true
+      },
+      {
+        "code": "C-d1",
+        "meaning": "The door-lock mechanism isn't sitting where the control expects, so it can't confirm the door is properly locked.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-F0",
+        "meaning": "The oven's main control board has lost its internal communication link with a secondary circuit board.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-20",
+        "meaning": "The main oven temperature probe is reading either a broken or short-circuited signal while the oven is running.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-21",
+        "meaning": "An internal temperature reading inside the oven's electronics has climbed above the normal safe range.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-30",
+        "meaning": "A sensor that monitors the temperature of the control board itself is reading open or shorted.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "range": {
+    "found": true,
+    "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/cooking/ranges/dop30t940is/download/Dacor-30-Induction-Range-User-Manual-DOP30T940IS.pdf",
+    "confidence": "search_verified",
+    "note": "Sourced from Dacor's official user manual PDF (Dacor is a Samsung subsidiary; manuals hosted on Samsung's CDN, linked from dacor.com).",
+    "codes": [
+      {
+        "code": "C-d0",
+        "meaning": "A control button appears stuck or shorted for too long, commonly caused by water or residue on the touch controls.",
+        "self_clearable": true
+      },
+      {
+        "code": "C-d1",
+        "meaning": "The oven door's locking mechanism is out of its expected position.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-F6",
+        "meaning": "The range's main control board has lost communication with a secondary board inside the unit.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-F7",
+        "meaning": "The oven section's control board can't talk to the separate board managing the cooktop section.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-20",
+        "meaning": "The oven's temperature sensor is giving an open or short-circuit reading during operation.",
+        "self_clearable": false
+      },
+      {
+        "code": "C-23",
+        "meaning": "The meat/food temperature probe is short-circuiting while the oven is in use.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/dishwashing/dishwashers/ddw24m999us/download/Dacor-Modernist-Dishwashers-24-Dishwasher-User-Manual.pdf",
+    "confidence": "search_verified",
+    "note": "Sourced from Dacor's official user manual PDF (Dacor is a Samsung subsidiary; manuals hosted on Samsung's CDN, linked from dacor.com).",
+    "codes": [
+      {
+        "code": "LC",
+        "meaning": "The dishwasher has detected a possible water leak and triggers a safety check requiring the water supply and power to be shut off.",
+        "self_clearable": false
+      },
+      {
+        "code": "4C",
+        "meaning": "The unit isn't receiving adequate incoming water, often a closed valve, interrupted supply, or a frozen/blocked line.",
+        "self_clearable": true
+      },
+      {
+        "code": "5C",
+        "meaning": "The dishwasher is struggling to drain, typically because the drain hose or internal pump passage is clogged or kinked.",
+        "self_clearable": true
+      },
+      {
+        "code": "HC",
+        "meaning": "Water-heating performance during a cycle isn't meeting expected levels.",
+        "self_clearable": false
+      },
+      {
+        "code": "3C",
+        "meaning": "The wash pump isn't operating normally and may need a restart or inspection.",
+        "self_clearable": true
+      },
+      {
+        "code": "PC",
+        "meaning": "The targeted zone-wash spray feature isn't functioning as it should.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "cooktop": {
+    "found": true,
+    "source_url": "https://image-us.samsung.com/SamsungUS/dacor/products/cooking/cooktops-and-rangetops/dti30m977bb/download/Dacor-Modernist-Cooktops-30-Induction-Cooktop-User-Manual.pdf",
+    "confidence": "search_verified",
+    "note": "Sourced from Dacor's official induction cooktop manual PDF; Dacor's gas cooktops are knob-controlled with no display and have no digital fault codes.",
+    "codes": [
+      {
+        "code": "C0",
+        "meaning": "The sensor that monitors the glass cooktop surface temperature has failed in an open-circuit state.",
+        "self_clearable": false
+      },
+      {
+        "code": "C1",
+        "meaning": "The same surface-temperature sensor has short-circuited rather than gone open.",
+        "self_clearable": false
+      },
+      {
+        "code": "F0",
+        "meaning": "The cooktop's two internal control boards have stopped communicating with each other.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1",
+        "meaning": "The control board can't communicate with its memory chip that stores settings and calibration data.",
+        "self_clearable": false
+      },
+      {
+        "code": "A2",
+        "meaning": "The cooling fan motor isn't spinning correctly, which can stem from a wiring fault, blocked blade, or board defect.",
+        "self_clearable": false
+      },
+      {
+        "code": "UP",
+        "meaning": "The electrical power feeding the cooktop is outside the voltage range the unit is designed to handle.",
+        "self_clearable": false
+      }
+    ]
+  }
 }

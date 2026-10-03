@@ -2218,7 +2218,16 @@ function render_content_blocks_editor($blocks) {
                     </div>
                     <div class="form-group">
                         <label>Intro text (blank = auto-generated)</label>
-                        <textarea name="ec_intro[]" rows="2" placeholder="Seeing a code on your Whirlpool refrigerator? Here's what it means..."><?= h($block['ec_intro'] ?? '') ?></textarea>
+                        <textarea name="ec_intro[]" rows="2" placeholder="Auto: counts how many of this model's codes are DIY vs. a service call"><?= h($block['ec_intro'] ?? '') ?></textarea>
+                        <p class="hint">Left blank, this is written from the codes themselves — how many are
+                        usually a homeowner fix versus a technician — so it differs per brand/appliance. The
+                        phrasing is also keyed to this site's domain, so two sites don't open identically.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>&ldquo;Code not listed&rdquo; line (clear the box to hide it)</label>
+                        <input type="text" name="ec_miss_text[]" value="<?= h($block['ec_miss_text'] ?? error_codes_miss_default()) ?>">
+                        <p class="hint">Shown under the table for visitors whose code isn't in the researched
+                        set — otherwise the page dead-ends for them. <code>{phone}</code> becomes a tap-to-call link.</p>
                     </div>
                     <div style="display:flex;gap:12px;flex-wrap:wrap;">
                         <div class="form-group" style="flex:1 1 220px;">

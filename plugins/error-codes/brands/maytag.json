@@ -1,186 +1,221 @@
 {
-    "dryer": {
-        "found": true,
-        "source_url": "https://producthelp.maytag.com/Laundry/Dryers/Product_Info/Dryer_Product_Assistance/Error_Codes_in_Dryers",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "AF / F4E3",
-                "meaning": "Restricted airflow — the lint screen or vent is clogged, or the vent is crushed, kinked, or has too many turns."
-            },
-            {
-                "code": "L2",
-                "meaning": "Low or no line voltage; there may be a problem with the home's power supply keeping the heater from turning on."
-            },
-            {
-                "code": "PF",
-                "meaning": "The drying cycle was interrupted by a power failure."
-            },
-            {
-                "code": "F01",
-                "meaning": "Primary control board failure."
-            },
-            {
-                "code": "F03",
-                "meaning": "Exhaust thermistor fault."
-            },
-            {
-                "code": "F06",
-                "meaning": "Drive motor fault."
-            }
-        ]
-    },
-    "range": {
-        "found": true,
-        "source_url": "https://producthelp.maytag.com/Cooking/Wall_Ovens_and_Ranges/Product_Info/Oven_Product_Assistance/Error_Codes_for_Cooking_Appliances",
-        "confidence": "direct_fetch",
-        "note": "Maytag documents wall ovens and ranges under one combined support page; oven and range share this source.",
-        "codes": [
-            {
-                "code": "F9 or F9 E0",
-                "meaning": "The range's control board has detected a wiring or power-supply problem at the outlet, or picked up electrical noise during a brief outage."
-            },
-            {
-                "code": "LOC, Lock, or Locked",
-                "meaning": "The control panel has been deliberately locked, so the keypad won't respond until it's unlocked."
-            },
-            {
-                "code": "PF",
-                "meaning": "The range is reporting that it lost electrical power at some point and needs the clock/settings reset."
-            },
-            {
-                "code": "SAB, Sab, 5AB, or 5A6",
-                "meaning": "Sabbath Mode has been turned on, suppressing normal tones, lights, and some display behavior for religious observance."
-            },
-            {
-                "code": "CAL",
-                "meaning": "The range has entered its built-in calibration routine for adjusting oven temperature accuracy."
-            },
-            {
-                "code": "\"C\"",
-                "meaning": "Not a fault — the display is set to show temperature in Celsius rather than Fahrenheit."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://producthelp.maytag.com/Refrigeration/Full-size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "PO",
-                "meaning": "The fridge detected a power interruption severe enough that the freezer warmed to 18°F or higher."
-            },
-            {
-                "code": "Flashing F",
-                "meaning": "The control board has hit an internal fault condition; Maytag's own fix is a full power-cycle before considering it a service issue."
-            },
-            {
-                "code": "Temperature Alarm",
-                "meaning": "The unit sensed the fresh-food section above roughly 48°F or the freezer above roughly 15°F for more than 90 minutes."
-            },
-            {
-                "code": "Door Alarm Light",
-                "meaning": "A door or drawer was left open past a model-specific threshold while cooling was active."
-            },
-            {
-                "code": "Cooling Off Indicator",
-                "meaning": "The unit's cooling function has been manually switched off."
-            },
-            {
-                "code": "H2O Light",
-                "meaning": "The water filter has reached or is nearing its recommended service life."
-            }
-        ]
-    },
-    "washer": {
-        "found": true,
-        "source_url": "https://producthelp.maytag.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/Error_Codes_in_Front_Load_Washers",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "LOC or LC",
-                "meaning": "The control panel has been locked on purpose, so buttons won't respond until it's unlocked."
-            },
-            {
-                "code": "dET",
-                "meaning": "The washer can't detect that a detergent cartridge is loaded in the dispenser."
-            },
-            {
-                "code": "Sud or Sd",
-                "meaning": "The machine has sensed an excessive amount of suds and is pausing or adjusting the cycle to clear them."
-            },
-            {
-                "code": "F5 E2",
-                "meaning": "The door/lid isn't latching securely, so the control won't proceed with the cycle."
-            },
-            {
-                "code": "F8 E1 or LO FL",
-                "meaning": "The washer isn't seeing enough incoming water flow to fill or run the selected cycle normally."
-            },
-            {
-                "code": "F9 E1",
-                "meaning": "The tub is taking unusually long to drain — roughly eight minutes or more triggers it."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://producthelp.maytag.com/Dishwashers/Product_Info/Dishwasher_Product_Assistance/Dishwasher_Error_Codes_-_Reading",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F8E4",
-                "meaning": "Water has been detected pooling in the drip tray beneath the dishwasher."
-            },
-            {
-                "code": "F7E2",
-                "meaning": "The wash motor is reporting a malfunction."
-            },
-            {
-                "code": "F9E1",
-                "meaning": "The dishwasher is taking far longer than normal to drain, or isn't draining at all."
-            },
-            {
-                "code": "F6E1",
-                "meaning": "There's a communication or logic fault between the user interface and the main control board."
-            },
-            {
-                "code": "H2O",
-                "meaning": "The dishwasher isn't sensing that water has entered the tub."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://producthelp.maytag.com/Cooking/Wall_Ovens_and_Ranges/Product_Info/Oven_Product_Assistance/Error_Codes_for_Cooking_Appliances",
-        "confidence": "direct_fetch",
-        "note": "Maytag documents wall ovens and ranges under one combined support page; oven and range share this source.",
-        "codes": [
-            {
-                "code": "F9 or F9 E0",
-                "meaning": "The oven's control board has detected a wiring or power-supply problem at the outlet, or electrical noise during a brief outage."
-            },
-            {
-                "code": "LOC, Lock, or Locked",
-                "meaning": "The control panel has been deliberately locked and won't respond to the keypad until unlocked."
-            },
-            {
-                "code": "CAL",
-                "meaning": "The oven has entered its built-in calibration routine for fine-tuning temperature accuracy."
-            },
-            {
-                "code": "SAB, Sab, 5AB, or 5A6",
-                "meaning": "Sabbath Mode is active, suppressing normal tones, lights, and certain display behavior."
-            },
-            {
-                "code": "PF",
-                "meaning": "The oven is reporting it lost electrical power and needs its clock/settings re-entered."
-            },
-            {
-                "code": "Time of day flashing",
-                "meaning": "The oven's way of showing the clock needs to be reset after a power interruption, not a hardware fault."
-            }
-        ]
-    }
+  "dryer": {
+    "found": true,
+    "source_url": "https://producthelp.maytag.com/Laundry/Dryers/Product_Info/Dryer_Product_Assistance/Error_Codes_in_Dryers",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "AF / F4E3",
+        "meaning": "Restricted airflow — the lint screen or vent is clogged, or the vent is crushed, kinked, or has too many turns.",
+        "self_clearable": true
+      },
+      {
+        "code": "L2",
+        "meaning": "Low or no line voltage; there may be a problem with the home's power supply keeping the heater from turning on.",
+        "self_clearable": false
+      },
+      {
+        "code": "PF",
+        "meaning": "The drying cycle was interrupted by a power failure.",
+        "self_clearable": true
+      },
+      {
+        "code": "F01",
+        "meaning": "Primary control board failure.",
+        "self_clearable": false
+      },
+      {
+        "code": "F03",
+        "meaning": "Exhaust thermistor fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F06",
+        "meaning": "Drive motor fault.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "range": {
+    "found": true,
+    "source_url": "https://producthelp.maytag.com/Cooking/Wall_Ovens_and_Ranges/Product_Info/Oven_Product_Assistance/Error_Codes_for_Cooking_Appliances",
+    "confidence": "direct_fetch",
+    "note": "Maytag documents wall ovens and ranges under one combined support page; oven and range share this source.",
+    "codes": [
+      {
+        "code": "F9 or F9 E0",
+        "meaning": "The range's control board has detected a wiring or power-supply problem at the outlet, or picked up electrical noise during a brief outage.",
+        "self_clearable": false
+      },
+      {
+        "code": "LOC, Lock, or Locked",
+        "meaning": "The control panel has been deliberately locked, so the keypad won't respond until it's unlocked.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "The range is reporting that it lost electrical power at some point and needs the clock/settings reset.",
+        "self_clearable": true
+      },
+      {
+        "code": "SAB, Sab, 5AB, or 5A6",
+        "meaning": "Sabbath Mode has been turned on, suppressing normal tones, lights, and some display behavior for religious observance.",
+        "self_clearable": true
+      },
+      {
+        "code": "CAL",
+        "meaning": "The range has entered its built-in calibration routine for adjusting oven temperature accuracy.",
+        "self_clearable": true
+      },
+      {
+        "code": "\"C\"",
+        "meaning": "Not a fault — the display is set to show temperature in Celsius rather than Fahrenheit.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://producthelp.maytag.com/Refrigeration/Full-size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "PO",
+        "meaning": "The fridge detected a power interruption severe enough that the freezer warmed to 18°F or higher.",
+        "self_clearable": true
+      },
+      {
+        "code": "Flashing F",
+        "meaning": "The control board has hit an internal fault condition; Maytag's own fix is a full power-cycle before considering it a service issue.",
+        "self_clearable": true
+      },
+      {
+        "code": "Temperature Alarm",
+        "meaning": "The unit sensed the fresh-food section above roughly 48°F or the freezer above roughly 15°F for more than 90 minutes.",
+        "self_clearable": false
+      },
+      {
+        "code": "Door Alarm Light",
+        "meaning": "A door or drawer was left open past a model-specific threshold while cooling was active.",
+        "self_clearable": true
+      },
+      {
+        "code": "Cooling Off Indicator",
+        "meaning": "The unit's cooling function has been manually switched off.",
+        "self_clearable": true
+      },
+      {
+        "code": "H2O Light",
+        "meaning": "The water filter has reached or is nearing its recommended service life.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "washer": {
+    "found": true,
+    "source_url": "https://producthelp.maytag.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/Error_Codes_in_Front_Load_Washers",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "LOC or LC",
+        "meaning": "The control panel has been locked on purpose, so buttons won't respond until it's unlocked.",
+        "self_clearable": true
+      },
+      {
+        "code": "dET",
+        "meaning": "The washer can't detect that a detergent cartridge is loaded in the dispenser.",
+        "self_clearable": true
+      },
+      {
+        "code": "Sud or Sd",
+        "meaning": "The machine has sensed an excessive amount of suds and is pausing or adjusting the cycle to clear them.",
+        "self_clearable": true
+      },
+      {
+        "code": "F5 E2",
+        "meaning": "The door/lid isn't latching securely, so the control won't proceed with the cycle.",
+        "self_clearable": true
+      },
+      {
+        "code": "F8 E1 or LO FL",
+        "meaning": "The washer isn't seeing enough incoming water flow to fill or run the selected cycle normally.",
+        "self_clearable": true
+      },
+      {
+        "code": "F9 E1",
+        "meaning": "The tub is taking unusually long to drain — roughly eight minutes or more triggers it.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://producthelp.maytag.com/Dishwashers/Product_Info/Dishwasher_Product_Assistance/Dishwasher_Error_Codes_-_Reading",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F8E4",
+        "meaning": "Water has been detected pooling in the drip tray beneath the dishwasher.",
+        "self_clearable": false
+      },
+      {
+        "code": "F7E2",
+        "meaning": "The wash motor is reporting a malfunction.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9E1",
+        "meaning": "The dishwasher is taking far longer than normal to drain, or isn't draining at all.",
+        "self_clearable": true
+      },
+      {
+        "code": "F6E1",
+        "meaning": "There's a communication or logic fault between the user interface and the main control board.",
+        "self_clearable": false
+      },
+      {
+        "code": "H2O",
+        "meaning": "The dishwasher isn't sensing that water has entered the tub.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://producthelp.maytag.com/Cooking/Wall_Ovens_and_Ranges/Product_Info/Oven_Product_Assistance/Error_Codes_for_Cooking_Appliances",
+    "confidence": "direct_fetch",
+    "note": "Maytag documents wall ovens and ranges under one combined support page; oven and range share this source.",
+    "codes": [
+      {
+        "code": "F9 or F9 E0",
+        "meaning": "The oven's control board has detected a wiring or power-supply problem at the outlet, or electrical noise during a brief outage.",
+        "self_clearable": false
+      },
+      {
+        "code": "LOC, Lock, or Locked",
+        "meaning": "The control panel has been deliberately locked and won't respond to the keypad until unlocked.",
+        "self_clearable": true
+      },
+      {
+        "code": "CAL",
+        "meaning": "The oven has entered its built-in calibration routine for fine-tuning temperature accuracy.",
+        "self_clearable": true
+      },
+      {
+        "code": "SAB, Sab, 5AB, or 5A6",
+        "meaning": "Sabbath Mode is active, suppressing normal tones, lights, and certain display behavior.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "The oven is reporting it lost electrical power and needs its clock/settings re-entered.",
+        "self_clearable": true
+      },
+      {
+        "code": "Time of day flashing",
+        "meaning": "The oven's way of showing the clock needs to be reset after a power interruption, not a hardware fault.",
+        "self_clearable": true
+      }
+    ]
+  }
 }

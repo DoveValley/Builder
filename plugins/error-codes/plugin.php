@@ -40,6 +40,16 @@
  * render case phrases the heading/intro differently in that case (brand_explicit
  * is returned so the caller knows which case it's in).
  *
+ * SELF-CLEARABLE FLAG. Every code carries `self_clearable` -- true when the stored
+ * meaning names a cause a homeowner can check without tools or parts (blocked
+ * vent, door ajar, control lock, a power blip needing only a reset), false when
+ * it names a component (board, sensor, pump, relay, compressor, house wiring).
+ * It is a judgement about text already researched, NOT new information, and it
+ * is stored in the brand files so it can be reviewed and corrected -- never
+ * inferred at render time where nobody could audit it. error_codes_intro() uses
+ * it to tell a visitor the one thing they actually want to know up front: can I
+ * fix this myself, or am I calling someone?
+ *
  * Isolated like every other plugin here (services_links, related_links): the
  * block's render case in includes/blocks.php calls this softly
  * (function_exists() guard), so a site with no error_codes.json, or missing this
@@ -192,6 +202,11 @@ function error_codes_resolve(
     if ($max > 0 && count($codes) > $max) $codes = array_slice($codes, 0, $max);
     if (!$codes) return null;
 
+    // Counted from the CAPPED set, not the whole pool, so the intro can never
+    // claim a split the visible table doesn't show.
+    $diy = 0;
+    foreach ($codes as $c) if (!empty($c['self_clearable'])) $diy++;
+
     return [
         'brand'          => $hit['brand'],
         'brand_label'    => error_codes_brand_label($hit['brand']),
@@ -200,5 +215,113 @@ function error_codes_resolve(
         'source_url'     => (string) ($hit['entry']['source_url'] ?? ''),
         'codes'          => $codes,
         'brand_explicit' => $brandExplicit,
+        'diy_count'      => $diy,
+        'service_count'  => count($codes) - $diy,
     ];
+}
+
+/** Small cardinals read better than digits in prose; past twelve, digits do. */
+function error_codes_num(int $n): string {
+    static $w = [0 => 'none', 1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four',
+                 5 => 'five', 6 => 'six', 7 => 'seven', 8 => 'eight', 9 => 'nine',
+                 10 => 'ten', 11 => 'eleven', 12 => 'twelve'];
+    return $w[$n] ?? (string) $n;
+}
+
+/**
+ * Which intro voice this SITE uses — fixed per domain, so every error-code page
+ * on one site reads consistently instead of shuffling page to page, while two
+ * sites built from the same factory and the same research data don't open with
+ * the identical sentence. Seeded on the domain alone (never the page or city):
+ * two city pages for the same brand/appliance must not contradict each other.
+ */
+function error_codes_lane(string $domain, int $lanes = 4): int {
+    $domain = strtolower(trim($domain));
+    if ($domain === '' || strpos($domain, '{') !== false) return 0; // unresolved token
+    return (int) (crc32($domain) % $lanes);
+}
+
+/**
+ * The intro sentence, composed from THIS combo's own numbers rather than
+ * rotated from a list of rephrasings. The split between "you can probably
+ * clear this yourself" and "this needs a technician" is the actual question a
+ * visitor with a broken appliance is asking, and it differs per brand/type on
+ * its own -- so the variation is earned by the data instead of manufactured.
+ * Reads self_clearable, which lives in brands/*.json where it can be reviewed
+ * and corrected; nothing here infers it at render time.
+ */
+function error_codes_intro(array $ec, string $domain = ''): string {
+    $n = count($ec['codes']);
+    if ($n === 0) return '';
+    $d = (int) ($ec['diy_count'] ?? 0);
+    $v = (int) ($ec['service_count'] ?? 0);
+    $brand = $ec['brand_label'];
+    $type  = strtolower($ec['type_label']);
+    $N = error_codes_num($n);
+    $D = error_codes_num($d);
+    $V = error_codes_num($v);
+    $codeWord = $n === 1 ? 'code' : 'codes';
+
+    // A type-hub page cites one representative manufacturer, so the caveat that
+    // codes differ by brand has to come FIRST -- it is the honest framing, and
+    // it matters more than any voice variation.
+    if (empty($ec['brand_explicit'])) {
+        $lead = 'Error codes vary by manufacturer — below is what the most common ones mean on '
+              . $brand . ' units. A different brand will use different codes, but the fix usually '
+              . 'starts the same way: note the exact code, then check it against your own model\'s manual.';
+        if ($d && $v) {
+            $lead .= ' Of the ' . $N . ' here, ' . $D . ' are usually a check you can make yourself and '
+                   . $V . ' need a technician.';
+        }
+        return $lead;
+    }
+
+    // A combo with exactly one researched code can't take any of the counting
+    // sentences without reading as broken English ("all one of the codes below").
+    if ($n === 1) {
+        return $d === 1
+            ? $brand . ' documents a single ' . $type . ' code, and it is usually something you can '
+                . 'check yourself before calling anyone. Confirm the exact code first.'
+            : $brand . ' documents a single ' . $type . ' code, and it points at a component inside the '
+                . 'machine — generally a technician\'s job rather than a do-it-yourself fix.';
+    }
+
+    // Degenerate splits first -- a lane sentence that says "the other none" is worse
+    // than no variation at all. Sub-Zero, for instance, is service-only end to end.
+    if ($d === 0) {
+        return 'Every one of the ' . $N . ' ' . $brand . ' ' . $type . ' ' . $codeWord . ' below points at a '
+             . 'component inside the machine, so these generally need a technician rather than a '
+             . 'do-it-yourself fix. Note the exact code first — it tells the tech what to bring.';
+    }
+    if ($v === 0) {
+        return 'Good news: all ' . $N . ' of the ' . $brand . ' ' . $type . ' ' . $codeWord . ' below usually come '
+             . 'down to something you can check yourself before calling anyone — a blockage, a latch, '
+             . 'or a setting. Note the exact code, then work through it.';
+    }
+
+    switch (error_codes_lane($domain)) {
+        case 1:
+            return 'Write the exact code down before anything else — ' . $brand . ' reuses similar codes '
+                 . 'across models, and the precise characters are what narrow it down. ' . ucfirst($D)
+                 . ' of the ' . $N . ' below are usually a quick check you can make yourself; the other '
+                 . $V . ' need a technician.';
+        case 2:
+            return 'Not every code means a repair bill. ' . ucfirst($D) . ' of these ' . $N . ' ' . $brand . ' '
+                 . $type . ' ' . $codeWord . ' are usually something you can clear yourself; the remaining '
+                 . $V . ' involve a part inside the unit.';
+        case 3:
+            return $brand . ' documents these ' . $N . ' ' . $codeWord . ' most often on ' . $type . 's. ' . ucfirst($D)
+                 . ' typically trace to something simple — a blockage, a latch, a setting — and ' . $V
+                 . ' to a component that needs replacing.';
+        default:
+            return 'Of the ' . $N . ' ' . $codeWord . ' below, ' . $D . ' usually come down to something you can '
+                 . 'check yourself — a blocked filter, a kinked hose, a door that isn\'t latching. The other '
+                 . $V . ' point to a part inside the machine that needs a technician.';
+    }
+}
+
+/** Default for the "your code isn't listed" line. Absent key => this text;
+ *  present but empty => the editor turned it off. See the render case. */
+function error_codes_miss_default(): string {
+    return 'Don\'t see your code? Call {phone} — we\'ll help you track it down.';
 }

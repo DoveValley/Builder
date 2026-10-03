@@ -1,194 +1,230 @@
 {
-    "oven": {
-        "found": true,
-        "source_url": "https://www.mieleusa.com/support/customer-assistance/oven-1309/all",
-        "confidence": "search_verified",
-        "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
-        "codes": [
-            {
-                "code": "F10",
-                "meaning": "The steam oven's water line into the steam generator isn't delivering water properly."
-            },
-            {
-                "code": "F11",
-                "meaning": "Water is not able to drain out of the steam generator after a cycle."
-            },
-            {
-                "code": "F23",
-                "meaning": "The pyrolytic self-clean cycle couldn't reach the very high temperature it needs, often from heavy food residue absorbing heat."
-            },
-            {
-                "code": "F32",
-                "meaning": "The oven door failed to lock before a pyrolytic self-clean cycle started."
-            },
-            {
-                "code": "F54",
-                "meaning": "The optional meat-probe thermometer accessory has itself failed."
-            },
-            {
-                "code": "F94",
-                "meaning": "On combi-steam ovens, the float switches monitoring the internal water reservoir are stuck."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://www.mieleusa.com/support/customer-assistance/refrigeration-1317/all",
-        "confidence": "search_verified",
-        "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
-        "codes": [
-            {
-                "code": "F0",
-                "meaning": "The sensor dedicated to the fresh-food/BioFresh drawer has failed."
-            },
-            {
-                "code": "F1",
-                "meaning": "The main sensor measuring temperature inside the refrigerator compartment has stopped reporting correctly."
-            },
-            {
-                "code": "F2",
-                "meaning": "The sensor on the refrigerator section's evaporator coil has failed, which can throw off the automatic defrost cycle."
-            },
-            {
-                "code": "F141",
-                "meaning": "The fresh-food compartment door has been left open continuously for about 15 minutes."
-            },
-            {
-                "code": "F142",
-                "meaning": "The fresh-food compartment door has stayed open for roughly 30 minutes."
-            },
-            {
-                "code": "F384/F385",
-                "meaning": "The unit's control software has locked up or crashed and needs a power cycle."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://www.mieleusa.com/support/customer-assistance/dishwashing-1316/all",
-        "confidence": "search_verified",
-        "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
-        "codes": [
-            {
-                "code": "F11",
-                "meaning": "Water isn't draining out of the tub quickly enough."
-            },
-            {
-                "code": "F13",
-                "meaning": "The incoming water supply line is blocked or restricted."
-            },
-            {
-                "code": "F25",
-                "meaning": "Wash water didn't reach its target temperature in time, linked to a bad heater relay or failed heating element."
-            },
-            {
-                "code": "F51",
-                "meaning": "The pressure switch that senses water level in the sump has malfunctioned."
-            },
-            {
-                "code": "F67",
-                "meaning": "The circulation pump that sprays water during the wash is turning slower than it should."
-            },
-            {
-                "code": "F78",
-                "meaning": "The circulation pump has physically seized."
-            }
-        ]
-    },
-    "washer": {
-        "found": true,
-        "source_url": "https://www.mieleusa.com/support/customer-assistance/washer-1323/all",
-        "confidence": "search_verified",
-        "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
-        "codes": [
-            {
-                "code": "F10",
-                "meaning": "The incoming water supply is restricted."
-            },
-            {
-                "code": "F11",
-                "meaning": "The washer can't pump water out of the drum fast enough."
-            },
-            {
-                "code": "F16",
-                "meaning": "An excessive amount of detergent or additive was used in the load."
-            },
-            {
-                "code": "F29",
-                "meaning": "A technical malfunction in the washer's built-in steam generator on equipped models."
-            },
-            {
-                "code": "F34",
-                "meaning": "The door latch failed to lock at the start of a cycle."
-            },
-            {
-                "code": "F35",
-                "meaning": "The reverse problem of F34 — the door latch won't release once a cycle has finished."
-            }
-        ]
-    },
-    "freezer": {
-        "found": true,
-        "source_url": "https://www.mieleusa.com/support/customer-assistance/refrigeration-1317/all",
-        "confidence": "search_verified",
-        "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
-        "codes": [
-            {
-                "code": "F3",
-                "meaning": "The sensor reading air temperature inside the freezer compartment has failed."
-            },
-            {
-                "code": "F144",
-                "meaning": "The freezer door has been left open continuously for about 15 minutes."
-            },
-            {
-                "code": "F145",
-                "meaning": "The freezer door has stayed open for around 30 minutes."
-            },
-            {
-                "code": "F146",
-                "meaning": "The freezer door has been open for about 45 minutes."
-            },
-            {
-                "code": "F121",
-                "meaning": "The automatic ice maker has a mechanical or electrical malfunction."
-            },
-            {
-                "code": "F383",
-                "meaning": "The ice maker's water-fill system has an issue."
-            }
-        ]
-    },
-    "dryer": {
-        "found": true,
-        "source_url": "https://www.mieleusa.com/support/customer-assistance/tumble_dryer-1322/all",
-        "confidence": "search_verified",
-        "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
-        "codes": [
-            {
-                "code": "F36",
-                "meaning": "The reed switch that confirms the door is closed has failed."
-            },
-            {
-                "code": "F41",
-                "meaning": "An internal electronic/memory component on the control board has failed."
-            },
-            {
-                "code": "F55",
-                "meaning": "A cycle finished without fully drying the load even after the full maximum drying time."
-            },
-            {
-                "code": "F66",
-                "meaning": "Airflow through the dryer is restricted, most often from a dirty lint/condenser filter."
-            },
-            {
-                "code": "F104",
-                "meaning": "The electrical voltage reaching the drum's drive motor is below what the motor needs."
-            },
-            {
-                "code": "F108",
-                "meaning": "Another internal electronic control-board fault."
-            }
-        ]
-    }
+  "oven": {
+    "found": true,
+    "source_url": "https://www.mieleusa.com/support/customer-assistance/oven-1309/all",
+    "confidence": "search_verified",
+    "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
+    "codes": [
+      {
+        "code": "F10",
+        "meaning": "The steam oven's water line into the steam generator isn't delivering water properly.",
+        "self_clearable": true
+      },
+      {
+        "code": "F11",
+        "meaning": "Water is not able to drain out of the steam generator after a cycle.",
+        "self_clearable": false
+      },
+      {
+        "code": "F23",
+        "meaning": "The pyrolytic self-clean cycle couldn't reach the very high temperature it needs, often from heavy food residue absorbing heat.",
+        "self_clearable": true
+      },
+      {
+        "code": "F32",
+        "meaning": "The oven door failed to lock before a pyrolytic self-clean cycle started.",
+        "self_clearable": false
+      },
+      {
+        "code": "F54",
+        "meaning": "The optional meat-probe thermometer accessory has itself failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F94",
+        "meaning": "On combi-steam ovens, the float switches monitoring the internal water reservoir are stuck.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://www.mieleusa.com/support/customer-assistance/refrigeration-1317/all",
+    "confidence": "search_verified",
+    "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
+    "codes": [
+      {
+        "code": "F0",
+        "meaning": "The sensor dedicated to the fresh-food/BioFresh drawer has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1",
+        "meaning": "The main sensor measuring temperature inside the refrigerator compartment has stopped reporting correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2",
+        "meaning": "The sensor on the refrigerator section's evaporator coil has failed, which can throw off the automatic defrost cycle.",
+        "self_clearable": false
+      },
+      {
+        "code": "F141",
+        "meaning": "The fresh-food compartment door has been left open continuously for about 15 minutes.",
+        "self_clearable": true
+      },
+      {
+        "code": "F142",
+        "meaning": "The fresh-food compartment door has stayed open for roughly 30 minutes.",
+        "self_clearable": true
+      },
+      {
+        "code": "F384/F385",
+        "meaning": "The unit's control software has locked up or crashed and needs a power cycle.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://www.mieleusa.com/support/customer-assistance/dishwashing-1316/all",
+    "confidence": "search_verified",
+    "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
+    "codes": [
+      {
+        "code": "F11",
+        "meaning": "Water isn't draining out of the tub quickly enough.",
+        "self_clearable": true
+      },
+      {
+        "code": "F13",
+        "meaning": "The incoming water supply line is blocked or restricted.",
+        "self_clearable": true
+      },
+      {
+        "code": "F25",
+        "meaning": "Wash water didn't reach its target temperature in time, linked to a bad heater relay or failed heating element.",
+        "self_clearable": false
+      },
+      {
+        "code": "F51",
+        "meaning": "The pressure switch that senses water level in the sump has malfunctioned.",
+        "self_clearable": false
+      },
+      {
+        "code": "F67",
+        "meaning": "The circulation pump that sprays water during the wash is turning slower than it should.",
+        "self_clearable": false
+      },
+      {
+        "code": "F78",
+        "meaning": "The circulation pump has physically seized.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "washer": {
+    "found": true,
+    "source_url": "https://www.mieleusa.com/support/customer-assistance/washer-1323/all",
+    "confidence": "search_verified",
+    "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
+    "codes": [
+      {
+        "code": "F10",
+        "meaning": "The incoming water supply is restricted.",
+        "self_clearable": true
+      },
+      {
+        "code": "F11",
+        "meaning": "The washer can't pump water out of the drum fast enough.",
+        "self_clearable": true
+      },
+      {
+        "code": "F16",
+        "meaning": "An excessive amount of detergent or additive was used in the load.",
+        "self_clearable": true
+      },
+      {
+        "code": "F29",
+        "meaning": "A technical malfunction in the washer's built-in steam generator on equipped models.",
+        "self_clearable": false
+      },
+      {
+        "code": "F34",
+        "meaning": "The door latch failed to lock at the start of a cycle.",
+        "self_clearable": false
+      },
+      {
+        "code": "F35",
+        "meaning": "The reverse problem of F34 — the door latch won't release once a cycle has finished.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "freezer": {
+    "found": true,
+    "source_url": "https://www.mieleusa.com/support/customer-assistance/refrigeration-1317/all",
+    "confidence": "search_verified",
+    "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
+    "codes": [
+      {
+        "code": "F3",
+        "meaning": "The sensor reading air temperature inside the freezer compartment has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F144",
+        "meaning": "The freezer door has been left open continuously for about 15 minutes.",
+        "self_clearable": true
+      },
+      {
+        "code": "F145",
+        "meaning": "The freezer door has stayed open for around 30 minutes.",
+        "self_clearable": true
+      },
+      {
+        "code": "F146",
+        "meaning": "The freezer door has been open for about 45 minutes.",
+        "self_clearable": true
+      },
+      {
+        "code": "F121",
+        "meaning": "The automatic ice maker has a mechanical or electrical malfunction.",
+        "self_clearable": false
+      },
+      {
+        "code": "F383",
+        "meaning": "The ice maker's water-fill system has an issue.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dryer": {
+    "found": true,
+    "source_url": "https://www.mieleusa.com/support/customer-assistance/tumble_dryer-1322/all",
+    "confidence": "search_verified",
+    "note": "Confirmed via individually indexed official mieleusa.com fault-code pages; direct WebFetch was blocked by site bot-protection (403).",
+    "codes": [
+      {
+        "code": "F36",
+        "meaning": "The reed switch that confirms the door is closed has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F41",
+        "meaning": "An internal electronic/memory component on the control board has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F55",
+        "meaning": "A cycle finished without fully drying the load even after the full maximum drying time.",
+        "self_clearable": false
+      },
+      {
+        "code": "F66",
+        "meaning": "Airflow through the dryer is restricted, most often from a dirty lint/condenser filter.",
+        "self_clearable": true
+      },
+      {
+        "code": "F104",
+        "meaning": "The electrical voltage reaching the drum's drive motor is below what the motor needs.",
+        "self_clearable": false
+      },
+      {
+        "code": "F108",
+        "meaning": "Another internal electronic control-board fault.",
+        "self_clearable": false
+      }
+    ]
+  }
 }

@@ -4398,6 +4398,25 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     font-size: var(--font-size-small, 0.95rem);
     line-height: 1.6;
 }
+.ec-miss {
+    max-width: 860px;
+    margin: 14px auto 0;
+    padding: 12px 18px;
+    background: #fff;
+    border: 1px dashed var(--color-border, #e5e7eb);
+    border-radius: var(--radius, 8px);
+    text-align: center;
+    font-size: var(--font-size-small, 0.95rem);
+    line-height: 1.55;
+    color: #475569;
+}
+.ec-miss a {
+    color: var(--color-accent);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;   /* never break a phone number across lines */
+}
+.ec-miss a:hover { text-decoration: underline; }
 .ec-source {
     text-align: center;
     margin: 20px auto 0;

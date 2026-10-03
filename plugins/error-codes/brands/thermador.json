@@ -1,118 +1,139 @@
 {
-    "cooktop": {
-        "found": true,
-        "source_url": "https://www.thermador.com/us/support/induction-cooktops/error-codes",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "dE",
-                "meaning": "The cooktop is running in demo/display mode, so the cooking zones will not actually heat up."
-            },
-            {
-                "code": "E7010",
-                "meaning": "The cooktop can't reach the home Wi-Fi network or pair with the range hood over the network."
-            },
-            {
-                "code": "E8204",
-                "meaning": "The battery inside the wireless cooking sensor accessory is nearly dead."
-            },
-            {
-                "code": "E9000 / E9010",
-                "meaning": "The electrical supply reaching the unit is outside the voltage range the cooktop expects."
-            },
-            {
-                "code": "F1 / F6",
-                "meaning": "A cooking zone got too hot and shut itself off automatically to protect the countertop surface."
-            },
-            {
-                "code": "F2, F4, E7015, E8207, E8208",
-                "meaning": "The internal electronics overheated, causing the affected cooking zone to power down until it cools."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://www.thermador.com/us/support/dishwashers/error-codes",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "E12",
-                "meaning": "Hard-water scale has built up inside the heat pump component and needs descaling."
-            },
-            {
-                "code": "E15",
-                "meaning": "A safety float switch has sensed water pooling in the bottom of the tub."
-            },
-            {
-                "code": "E16 / E17",
-                "meaning": "The machine is having trouble getting water to flow in properly during the fill stage."
-            },
-            {
-                "code": "E18",
-                "meaning": "Water isn't filling to the right level, or the pump isn't circulating water correctly."
-            },
-            {
-                "code": "E23",
-                "meaning": "The drain pump is obstructed, clogged, or has failed outright."
-            },
-            {
-                "code": "E27",
-                "meaning": "The household electrical supply voltage reaching the dishwasher is lower than what it needs."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://www.thermador.com/us/support/ovens/error-codes",
-        "confidence": "direct_fetch",
-        "note": "Thermador's oven support page documents mainly a generic 'E + number = fault code' pattern plus these three specific firmware-update codes, rather than a broad fault-code table.",
-        "codes": [
-            {
-                "code": "E0211",
-                "meaning": "A Home Connect firmware update failed or stalled at this specific stage of the process."
-            },
-            {
-                "code": "E1601",
-                "meaning": "A Home Connect firmware update encountered a different failure point during the update sequence."
-            },
-            {
-                "code": "E0510",
-                "meaning": "A Home Connect firmware update hit yet another distinct checkpoint failure during installation."
-            }
-        ]
-    },
-    "range": {
-        "found": true,
-        "source_url": "https://www.thermador.com/us/support/ranges/error-codes",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "dE",
-                "meaning": "The range's induction cooktop section is in demo mode, so the burners won't actually produce heat."
-            },
-            {
-                "code": "E7010",
-                "meaning": "The range's cooktop can't connect to the home Wi-Fi network or the venting hood."
-            },
-            {
-                "code": "E9000 / E9010",
-                "meaning": "The power supply voltage feeding the unit falls outside the expected safe range."
-            },
-            {
-                "code": "F1 / F6",
-                "meaning": "One of the induction cooking zones overheated and shut off to protect the cooktop surface."
-            },
-            {
-                "code": "F2 / E7015",
-                "meaning": "The electronics controlling a cooking zone overheated, so that zone was disabled until it cools."
-            },
-            {
-                "code": "F8 + H/h",
-                "meaning": "A cooking zone has been left running continuously for so long that the automatic shutoff timer kicked in."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": false
-    }
+  "cooktop": {
+    "found": true,
+    "source_url": "https://www.thermador.com/us/support/induction-cooktops/error-codes",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "dE",
+        "meaning": "The cooktop is running in demo/display mode, so the cooking zones will not actually heat up.",
+        "self_clearable": true
+      },
+      {
+        "code": "E7010",
+        "meaning": "The cooktop can't reach the home Wi-Fi network or pair with the range hood over the network.",
+        "self_clearable": true
+      },
+      {
+        "code": "E8204",
+        "meaning": "The battery inside the wireless cooking sensor accessory is nearly dead.",
+        "self_clearable": true
+      },
+      {
+        "code": "E9000 / E9010",
+        "meaning": "The electrical supply reaching the unit is outside the voltage range the cooktop expects.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1 / F6",
+        "meaning": "A cooking zone got too hot and shut itself off automatically to protect the countertop surface.",
+        "self_clearable": true
+      },
+      {
+        "code": "F2, F4, E7015, E8207, E8208",
+        "meaning": "The internal electronics overheated, causing the affected cooking zone to power down until it cools.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://www.thermador.com/us/support/dishwashers/error-codes",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "E12",
+        "meaning": "Hard-water scale has built up inside the heat pump component and needs descaling.",
+        "self_clearable": true
+      },
+      {
+        "code": "E15",
+        "meaning": "A safety float switch has sensed water pooling in the bottom of the tub.",
+        "self_clearable": false
+      },
+      {
+        "code": "E16 / E17",
+        "meaning": "The machine is having trouble getting water to flow in properly during the fill stage.",
+        "self_clearable": true
+      },
+      {
+        "code": "E18",
+        "meaning": "Water isn't filling to the right level, or the pump isn't circulating water correctly.",
+        "self_clearable": true
+      },
+      {
+        "code": "E23",
+        "meaning": "The drain pump is obstructed, clogged, or has failed outright.",
+        "self_clearable": true
+      },
+      {
+        "code": "E27",
+        "meaning": "The household electrical supply voltage reaching the dishwasher is lower than what it needs.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://www.thermador.com/us/support/ovens/error-codes",
+    "confidence": "direct_fetch",
+    "note": "Thermador's oven support page documents mainly a generic 'E + number = fault code' pattern plus these three specific firmware-update codes, rather than a broad fault-code table.",
+    "codes": [
+      {
+        "code": "E0211",
+        "meaning": "A Home Connect firmware update failed or stalled at this specific stage of the process.",
+        "self_clearable": true
+      },
+      {
+        "code": "E1601",
+        "meaning": "A Home Connect firmware update encountered a different failure point during the update sequence.",
+        "self_clearable": true
+      },
+      {
+        "code": "E0510",
+        "meaning": "A Home Connect firmware update hit yet another distinct checkpoint failure during installation.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "range": {
+    "found": true,
+    "source_url": "https://www.thermador.com/us/support/ranges/error-codes",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "dE",
+        "meaning": "The range's induction cooktop section is in demo mode, so the burners won't actually produce heat.",
+        "self_clearable": true
+      },
+      {
+        "code": "E7010",
+        "meaning": "The range's cooktop can't connect to the home Wi-Fi network or the venting hood.",
+        "self_clearable": true
+      },
+      {
+        "code": "E9000 / E9010",
+        "meaning": "The power supply voltage feeding the unit falls outside the expected safe range.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1 / F6",
+        "meaning": "One of the induction cooking zones overheated and shut off to protect the cooktop surface.",
+        "self_clearable": true
+      },
+      {
+        "code": "F2 / E7015",
+        "meaning": "The electronics controlling a cooking zone overheated, so that zone was disabled until it cools.",
+        "self_clearable": true
+      },
+      {
+        "code": "F8 + H/h",
+        "meaning": "A cooking zone has been left running continuously for so long that the automatic shutoff timer kicked in.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": false
+  }
 }

@@ -1,178 +1,210 @@
 {
-    "washer": {
-        "found": true,
-        "source_url": "https://www.searspartsdirect.com/diy/error-codes/washer-repair/1234598/kenmore-he2-front-load-washer/0582",
-        "confidence": "search_verified",
-        "note": "Kenmore has no official error-code reference on kenmore.com; sourced from Sears PartsDirect, operated by Sears Home Services, the same corporate family (Transformco) that owns Kenmore and the resource kenmore.com itself directs customers to. Direct page fetch was bot-blocked (403), so content was cross-verified via multiple independent search-snippet extractions.",
-        "codes": [
-            {
-                "code": "F20",
-                "meaning": "The machine isn't getting water into the tub, usually a shut supply valve or a pinched/iced fill line."
-            },
-            {
-                "code": "F24",
-                "meaning": "The sensor that reads water temperature is sending a bad signal, often a loose or damaged wiring connection."
-            },
-            {
-                "code": "F28",
-                "meaning": "The motor controller and the main control board have lost communication with each other mid-cycle."
-            },
-            {
-                "code": "F35",
-                "meaning": "The sensor that measures water pressure/level inside the tub is reporting an invalid reading."
-            },
-            {
-                "code": "Sud/Fd",
-                "meaning": "The machine has detected more suds than it can handle, usually from non-HE detergent or too much of it."
-            },
-            {
-                "code": "F1 E1",
-                "meaning": "On VMAX-style top-load models, the main control board's relay has failed in a stuck-on position."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://www.searspartsdirect.com/diy/error-codes/wall-oven-repair/1234576/kenmore-665-model-wall-oven/0582",
-        "confidence": "search_verified",
-        "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
-        "codes": [
-            {
-                "code": "F0",
-                "meaning": "A harmless status code appearing only when Cancel is held for several seconds with no real fault present."
-            },
-            {
-                "code": "F1",
-                "meaning": "The oven's main electronic control unit itself has failed."
-            },
-            {
-                "code": "F2/E0",
-                "meaning": "The wiring between the keypad and the control board has come loose or disconnected."
-            },
-            {
-                "code": "F3/E0",
-                "meaning": "The oven's temperature sensor circuit is reading incorrectly."
-            },
-            {
-                "code": "F3/E3",
-                "meaning": "During a self-clean cycle, internal temperature exceeded roughly 950°F, treated as an overheat fault."
-            }
-        ]
-    },
-    "dryer": {
-        "found": true,
-        "source_url": "https://www.searspartsdirect.com/diy/error-codes/dryer-repair/1234594/kenmore-elite-dryer/0583",
-        "confidence": "search_verified",
-        "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
-        "codes": [
-            {
-                "code": "PF",
-                "meaning": "Power to the dryer was interrupted mid-cycle; the cycle can simply be resumed once power is restored."
-            },
-            {
-                "code": "F:01",
-                "meaning": "The dryer's main control board has failed internally."
-            },
-            {
-                "code": "F:02",
-                "meaning": "A button on one of the console's touchpad assemblies is physically stuck down."
-            },
-            {
-                "code": "F:20",
-                "meaning": "The relay on the main board that switches the heating element has failed."
-            },
-            {
-                "code": "F:22",
-                "meaning": "The temperature sensor at the dryer's exhaust outlet has gone electrically open."
-            },
-            {
-                "code": "F:23",
-                "meaning": "A second, related failure mode of the same exhaust-outlet temperature sensor."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://www.searspartsdirect.com/diy/error-codes/dishwasher-repair/1234583/kenmore-722-series-dishwasher/0582",
-        "confidence": "search_verified",
-        "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
-        "codes": [
-            {
-                "code": "IE",
-                "meaning": "The dishwasher isn't getting enough water in, often a kinked, frozen, or shut-off supply line."
-            },
-            {
-                "code": "OE",
-                "meaning": "The unit isn't draining properly, usually a clogged or pinched drain hose."
-            },
-            {
-                "code": "AE",
-                "meaning": "An internal leak has been detected and the machine has stopped to prevent water damage."
-            },
-            {
-                "code": "HE",
-                "meaning": "The heating circuit has failed or incoming water is far hotter than the control expects."
-            },
-            {
-                "code": "tE",
-                "meaning": "The wash motor is malfunctioning."
-            },
-            {
-                "code": "LE",
-                "meaning": "The circulation (Vario) motor is malfunctioning."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://www.searspartsdirect.com/diy/error-codes/refrigerator-repair/1234589/kenmore-795-model-bottom-freezer-refrigerator/0582",
-        "confidence": "search_verified",
-        "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
-        "codes": [
-            {
-                "code": "Er FS",
-                "meaning": "The freezer's temperature sensor or its wiring is faulty."
-            },
-            {
-                "code": "Er IF",
-                "meaning": "The small fan that circulates air through the ice compartment has stopped working."
-            },
-            {
-                "code": "Er CF",
-                "meaning": "The fan that cools the condenser coils has failed."
-            },
-            {
-                "code": "Er dH",
-                "meaning": "During defrost, the heater failed to warm the evaporator coil above about 46°F within the expected time."
-            }
-        ]
-    },
-    "freezer": {
-        "found": true,
-        "source_url": "https://www.searspartsdirect.com/diy/error-codes/freestanding-freezer-repair/1234585/kenmore-electronic-control-model-freezer/0582",
-        "confidence": "search_verified",
-        "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
-        "codes": [
-            {
-                "code": "E7",
-                "meaning": "A button on the control panel is stuck, which a brief power cycle usually clears."
-            },
-            {
-                "code": "E8/E9",
-                "meaning": "The internal temperature sensor (thermistor) has failed."
-            },
-            {
-                "code": "d",
-                "meaning": "On deluxe electronic-control models, this flags the door being left open."
-            },
-            {
-                "code": "CE",
-                "meaning": "The control panel and the main electronic board have lost communication with each other."
-            },
-            {
-                "code": "LO",
-                "meaning": "The control panel's button lockout feature is active."
-            }
-        ]
-    }
+  "washer": {
+    "found": true,
+    "source_url": "https://www.searspartsdirect.com/diy/error-codes/washer-repair/1234598/kenmore-he2-front-load-washer/0582",
+    "confidence": "search_verified",
+    "note": "Kenmore has no official error-code reference on kenmore.com; sourced from Sears PartsDirect, operated by Sears Home Services, the same corporate family (Transformco) that owns Kenmore and the resource kenmore.com itself directs customers to. Direct page fetch was bot-blocked (403), so content was cross-verified via multiple independent search-snippet extractions.",
+    "codes": [
+      {
+        "code": "F20",
+        "meaning": "The machine isn't getting water into the tub, usually a shut supply valve or a pinched/iced fill line.",
+        "self_clearable": true
+      },
+      {
+        "code": "F24",
+        "meaning": "The sensor that reads water temperature is sending a bad signal, often a loose or damaged wiring connection.",
+        "self_clearable": false
+      },
+      {
+        "code": "F28",
+        "meaning": "The motor controller and the main control board have lost communication with each other mid-cycle.",
+        "self_clearable": false
+      },
+      {
+        "code": "F35",
+        "meaning": "The sensor that measures water pressure/level inside the tub is reporting an invalid reading.",
+        "self_clearable": false
+      },
+      {
+        "code": "Sud/Fd",
+        "meaning": "The machine has detected more suds than it can handle, usually from non-HE detergent or too much of it.",
+        "self_clearable": true
+      },
+      {
+        "code": "F1 E1",
+        "meaning": "On VMAX-style top-load models, the main control board's relay has failed in a stuck-on position.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://www.searspartsdirect.com/diy/error-codes/wall-oven-repair/1234576/kenmore-665-model-wall-oven/0582",
+    "confidence": "search_verified",
+    "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
+    "codes": [
+      {
+        "code": "F0",
+        "meaning": "A harmless status code appearing only when Cancel is held for several seconds with no real fault present.",
+        "self_clearable": true
+      },
+      {
+        "code": "F1",
+        "meaning": "The oven's main electronic control unit itself has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2/E0",
+        "meaning": "The wiring between the keypad and the control board has come loose or disconnected.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3/E0",
+        "meaning": "The oven's temperature sensor circuit is reading incorrectly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3/E3",
+        "meaning": "During a self-clean cycle, internal temperature exceeded roughly 950°F, treated as an overheat fault.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dryer": {
+    "found": true,
+    "source_url": "https://www.searspartsdirect.com/diy/error-codes/dryer-repair/1234594/kenmore-elite-dryer/0583",
+    "confidence": "search_verified",
+    "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
+    "codes": [
+      {
+        "code": "PF",
+        "meaning": "Power to the dryer was interrupted mid-cycle; the cycle can simply be resumed once power is restored.",
+        "self_clearable": true
+      },
+      {
+        "code": "F:01",
+        "meaning": "The dryer's main control board has failed internally.",
+        "self_clearable": false
+      },
+      {
+        "code": "F:02",
+        "meaning": "A button on one of the console's touchpad assemblies is physically stuck down.",
+        "self_clearable": true
+      },
+      {
+        "code": "F:20",
+        "meaning": "The relay on the main board that switches the heating element has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "F:22",
+        "meaning": "The temperature sensor at the dryer's exhaust outlet has gone electrically open.",
+        "self_clearable": false
+      },
+      {
+        "code": "F:23",
+        "meaning": "A second, related failure mode of the same exhaust-outlet temperature sensor.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://www.searspartsdirect.com/diy/error-codes/dishwasher-repair/1234583/kenmore-722-series-dishwasher/0582",
+    "confidence": "search_verified",
+    "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
+    "codes": [
+      {
+        "code": "IE",
+        "meaning": "The dishwasher isn't getting enough water in, often a kinked, frozen, or shut-off supply line.",
+        "self_clearable": true
+      },
+      {
+        "code": "OE",
+        "meaning": "The unit isn't draining properly, usually a clogged or pinched drain hose.",
+        "self_clearable": true
+      },
+      {
+        "code": "AE",
+        "meaning": "An internal leak has been detected and the machine has stopped to prevent water damage.",
+        "self_clearable": false
+      },
+      {
+        "code": "HE",
+        "meaning": "The heating circuit has failed or incoming water is far hotter than the control expects.",
+        "self_clearable": false
+      },
+      {
+        "code": "tE",
+        "meaning": "The wash motor is malfunctioning.",
+        "self_clearable": false
+      },
+      {
+        "code": "LE",
+        "meaning": "The circulation (Vario) motor is malfunctioning.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://www.searspartsdirect.com/diy/error-codes/refrigerator-repair/1234589/kenmore-795-model-bottom-freezer-refrigerator/0582",
+    "confidence": "search_verified",
+    "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
+    "codes": [
+      {
+        "code": "Er FS",
+        "meaning": "The freezer's temperature sensor or its wiring is faulty.",
+        "self_clearable": false
+      },
+      {
+        "code": "Er IF",
+        "meaning": "The small fan that circulates air through the ice compartment has stopped working.",
+        "self_clearable": false
+      },
+      {
+        "code": "Er CF",
+        "meaning": "The fan that cools the condenser coils has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "Er dH",
+        "meaning": "During defrost, the heater failed to warm the evaporator coil above about 46°F within the expected time.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "freezer": {
+    "found": true,
+    "source_url": "https://www.searspartsdirect.com/diy/error-codes/freestanding-freezer-repair/1234585/kenmore-electronic-control-model-freezer/0582",
+    "confidence": "search_verified",
+    "note": "Sourced from Sears PartsDirect (Kenmore's corporate affiliate); direct fetch was bot-blocked, verified via search-snippet cross-check.",
+    "codes": [
+      {
+        "code": "E7",
+        "meaning": "A button on the control panel is stuck, which a brief power cycle usually clears.",
+        "self_clearable": true
+      },
+      {
+        "code": "E8/E9",
+        "meaning": "The internal temperature sensor (thermistor) has failed.",
+        "self_clearable": false
+      },
+      {
+        "code": "d",
+        "meaning": "On deluxe electronic-control models, this flags the door being left open.",
+        "self_clearable": true
+      },
+      {
+        "code": "CE",
+        "meaning": "The control panel and the main electronic board have lost communication with each other.",
+        "self_clearable": false
+      },
+      {
+        "code": "LO",
+        "meaning": "The control panel's button lockout feature is active.",
+        "self_clearable": true
+      }
+    ]
+  }
 }

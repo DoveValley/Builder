@@ -1,97 +1,115 @@
 {
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://www.samsung.com/us/support/troubleshoot/TSG10007315/",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "21E",
-                "meaning": "The control board isn't detecting the freezer evaporator fan spinning when it's supposed to be running, often because the blade has iced over or jammed."
-            },
-            {
-                "code": "22E / 22C",
-                "meaning": "Same kind of fan-feedback problem, but on the fresh-food side. Often shows up after a door's been left open long enough to ice over the fan."
-            },
-            {
-                "code": "5E",
-                "meaning": "The sensor that tracks the fridge's defrost cycle isn't reporting a valid reading."
-            },
-            {
-                "code": "85C",
-                "meaning": "A brief dip in incoming power was detected — commonly after a short outage. Usually clears itself and isn't a sign of hardware failure."
-            },
-            {
-                "code": "83E",
-                "meaning": "The compressor pulled an abnormal amount of current. Worth a professional look before it damages the compressor."
-            },
-            {
-                "code": "88 88",
-                "meaning": "A communication fault inside the unit, typically triggered when power is interrupted mid-startup."
-            }
-        ]
-    },
-    "freezer": {
-        "found": true,
-        "source_url": "https://www.samsung.com/us/support/troubleshoot/TSG10007315/",
-        "confidence": "direct_fetch",
-        "note": "This is Samsung's combined refrigerator/freezer error-code page — Samsung doesn't publish a separate list for standalone chest/upright freezers. These codes specifically govern freezer-side components on integrated fridge/freezer units.",
-        "codes": [
-            {
-                "code": "21E",
-                "meaning": "The control board isn't detecting the freezer evaporator fan spinning when it's supposed to, often because the blade has iced over or jammed."
-            },
-            {
-                "code": "8E",
-                "meaning": "The temperature sensor inside the freezer's ice-maker area is sending a faulty or out-of-range reading, so ice production can't be regulated properly."
-            },
-            {
-                "code": "5E",
-                "meaning": "The sensor that tracks frost buildup and triggers defrost cycles isn't reporting correctly, which can let frost accumulate and restrict cold airflow."
-            },
-            {
-                "code": "83E",
-                "meaning": "The control board detected the compressor drawing an abnormal amount of current and shut cooling down as a protective measure."
-            },
-            {
-                "code": "85E",
-                "meaning": "The compressor received insufficient voltage to operate, typically from a brief brownout, which interrupts the cooling cycle."
-            },
-            {
-                "code": "86E",
-                "meaning": "The compressor was exposed to a voltage spike above its safe operating range, likely from a power surge, triggering a protective shutdown."
-            }
-        ]
-    },
-    "cooktop": {
-        "found": true,
-        "source_url": "https://www.samsung.com/us/support/troubleshooting/TSG01001973/",
-        "confidence": "search_verified",
-        "note": "Direct fetch of this official URL was blocked by a site-wide Samsung maintenance page during research; content was independently corroborated across 3 separate search queries targeting this exact official page rather than a third-party source.",
-        "codes": [
-            {
-                "code": "C0",
-                "meaning": "The cooktop's burner temperature sensor is reporting a fault, so the control board can't reliably read burner temperature."
-            },
-            {
-                "code": "C1",
-                "meaning": "A burner's sensed temperature has climbed above the level the cooktop expects to see, prompting a protective stop."
-            },
-            {
-                "code": "C2",
-                "meaning": "A different burner-sensor circuit is reporting an out-of-range or failed reading, on another zone."
-            },
-            {
-                "code": "C3",
-                "meaning": "Another sensor-related fault on the cooktop's control circuitry, grouped with C0-C2 as sensor errors."
-            },
-            {
-                "code": "d0",
-                "meaning": "The touch panel thinks a button is being held down continuously for too long, usually because the surface is wet or something is resting on the controls."
-            },
-            {
-                "code": "U",
-                "meaning": "On induction models, the cooktop can't detect a compatible pan on the element — wrong size, non-magnetic, or missing entirely."
-            }
-        ]
-    }
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://www.samsung.com/us/support/troubleshoot/TSG10007315/",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "21E",
+        "meaning": "The control board isn't detecting the freezer evaporator fan spinning when it's supposed to be running, often because the blade has iced over or jammed.",
+        "self_clearable": false
+      },
+      {
+        "code": "22E / 22C",
+        "meaning": "Same kind of fan-feedback problem, but on the fresh-food side. Often shows up after a door's been left open long enough to ice over the fan.",
+        "self_clearable": false
+      },
+      {
+        "code": "5E",
+        "meaning": "The sensor that tracks the fridge's defrost cycle isn't reporting a valid reading.",
+        "self_clearable": false
+      },
+      {
+        "code": "85C",
+        "meaning": "A brief dip in incoming power was detected — commonly after a short outage. Usually clears itself and isn't a sign of hardware failure.",
+        "self_clearable": true
+      },
+      {
+        "code": "83E",
+        "meaning": "The compressor pulled an abnormal amount of current. Worth a professional look before it damages the compressor.",
+        "self_clearable": false
+      },
+      {
+        "code": "88 88",
+        "meaning": "A communication fault inside the unit, typically triggered when power is interrupted mid-startup.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "freezer": {
+    "found": true,
+    "source_url": "https://www.samsung.com/us/support/troubleshoot/TSG10007315/",
+    "confidence": "direct_fetch",
+    "note": "This is Samsung's combined refrigerator/freezer error-code page — Samsung doesn't publish a separate list for standalone chest/upright freezers. These codes specifically govern freezer-side components on integrated fridge/freezer units.",
+    "codes": [
+      {
+        "code": "21E",
+        "meaning": "The control board isn't detecting the freezer evaporator fan spinning when it's supposed to, often because the blade has iced over or jammed.",
+        "self_clearable": false
+      },
+      {
+        "code": "8E",
+        "meaning": "The temperature sensor inside the freezer's ice-maker area is sending a faulty or out-of-range reading, so ice production can't be regulated properly.",
+        "self_clearable": false
+      },
+      {
+        "code": "5E",
+        "meaning": "The sensor that tracks frost buildup and triggers defrost cycles isn't reporting correctly, which can let frost accumulate and restrict cold airflow.",
+        "self_clearable": false
+      },
+      {
+        "code": "83E",
+        "meaning": "The control board detected the compressor drawing an abnormal amount of current and shut cooling down as a protective measure.",
+        "self_clearable": false
+      },
+      {
+        "code": "85E",
+        "meaning": "The compressor received insufficient voltage to operate, typically from a brief brownout, which interrupts the cooling cycle.",
+        "self_clearable": false
+      },
+      {
+        "code": "86E",
+        "meaning": "The compressor was exposed to a voltage spike above its safe operating range, likely from a power surge, triggering a protective shutdown.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "cooktop": {
+    "found": true,
+    "source_url": "https://www.samsung.com/us/support/troubleshooting/TSG01001973/",
+    "confidence": "search_verified",
+    "note": "Direct fetch of this official URL was blocked by a site-wide Samsung maintenance page during research; content was independently corroborated across 3 separate search queries targeting this exact official page rather than a third-party source.",
+    "codes": [
+      {
+        "code": "C0",
+        "meaning": "The cooktop's burner temperature sensor is reporting a fault, so the control board can't reliably read burner temperature.",
+        "self_clearable": false
+      },
+      {
+        "code": "C1",
+        "meaning": "A burner's sensed temperature has climbed above the level the cooktop expects to see, prompting a protective stop.",
+        "self_clearable": true
+      },
+      {
+        "code": "C2",
+        "meaning": "A different burner-sensor circuit is reporting an out-of-range or failed reading, on another zone.",
+        "self_clearable": false
+      },
+      {
+        "code": "C3",
+        "meaning": "Another sensor-related fault on the cooktop's control circuitry, grouped with C0-C2 as sensor errors.",
+        "self_clearable": false
+      },
+      {
+        "code": "d0",
+        "meaning": "The touch panel thinks a button is being held down continuously for too long, usually because the surface is wet or something is resting on the controls.",
+        "self_clearable": true
+      },
+      {
+        "code": "U",
+        "meaning": "On induction models, the cooktop can't detect a compatible pan on the element — wrong size, non-magnetic, or missing entirely.",
+        "self_clearable": true
+      }
+    ]
+  }
 }

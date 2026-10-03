@@ -1,93 +1,110 @@
 {
-    "dryer": {
-        "found": true,
-        "source_url": "https://www.lg.com/us/support/help-library/lg-dryer-error-code-list--20154543292888",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "dE",
-                "meaning": "The control doesn't register the door as fully latched."
-            },
-            {
-                "code": "tE1-tE4",
-                "meaning": "The thermistor (temperature sensor) is reporting something out of range — the specific stage/condition varies by sub-code."
-            },
-            {
-                "code": "d75 / d80 / d90 / d95",
-                "meaning": "Exhaust airflow is restricted, at increasing severity — almost always a duct or vent blockage."
-            },
-            {
-                "code": "PF",
-                "meaning": "The cycle was interrupted by a power outage."
-            },
-            {
-                "code": "GAS",
-                "meaning": "A gas dryer isn't detecting a gas supply or successful ignition."
-            }
-        ]
-    },
-    "cooktop": {
-        "found": true,
-        "source_url": "https://www.lg.com/us/support/help-library/lg-range-error-codes-list--20150154166283",
-        "confidence": "direct_fetch",
-        "note": "LG treats range/cooktop/oven fault codes as one combined product family documented on a single page.",
-        "codes": [
-            {
-                "code": "H5",
-                "meaning": "Appears on the display when the cooktop surface is still hot (above roughly 150°F), warning not to touch it until it cools."
-            },
-            {
-                "code": "F3",
-                "meaning": "Flags a problem with the touch-sensitive control pad's sensor circuitry rather than with a heating element itself."
-            },
-            {
-                "code": "F33",
-                "meaning": "Points to a faulty temperature sensor on the front induction burner."
-            },
-            {
-                "code": "F51",
-                "meaning": "Signals that the griddle's temperature sensor has failed or is reading incorrectly."
-            },
-            {
-                "code": "F56",
-                "meaning": "Means the griddle surface isn't reaching or maintaining its set temperature because of a heating malfunction."
-            },
-            {
-                "code": "F59",
-                "meaning": "Indicates the griddle element is running but failing to properly heat the surface."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://www.lg.com/us/support/help-library/lg-range-error-codes-list--20150154166283",
-        "confidence": "direct_fetch",
-        "note": "LG treats range/cooktop/oven fault codes as one combined product family documented on a single page.",
-        "codes": [
-            {
-                "code": "F1",
-                "meaning": "Points to a faulty temperature sensor (thermistor) in the upper oven cavity."
-            },
-            {
-                "code": "F4",
-                "meaning": "The lower-oven counterpart, flagging a failed thermistor in the bottom cavity on double-oven models."
-            },
-            {
-                "code": "F6",
-                "meaning": "Means the upper oven's heating circuit isn't functioning correctly."
-            },
-            {
-                "code": "F9",
-                "meaning": "Shows up when the upper oven is running but not reaching or holding its set temperature."
-            },
-            {
-                "code": "F10",
-                "meaning": "Indicates the self-clean door-lock mechanism on the upper oven has failed to lock or unlock properly."
-            },
-            {
-                "code": "F27",
-                "meaning": "Appears when the cooling fan stalls or seizes during a self-clean cycle, which can trigger a safety shutdown."
-            }
-        ]
-    }
+  "dryer": {
+    "found": true,
+    "source_url": "https://www.lg.com/us/support/help-library/lg-dryer-error-code-list--20154543292888",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "dE",
+        "meaning": "The control doesn't register the door as fully latched.",
+        "self_clearable": true
+      },
+      {
+        "code": "tE1-tE4",
+        "meaning": "The thermistor (temperature sensor) is reporting something out of range — the specific stage/condition varies by sub-code.",
+        "self_clearable": false
+      },
+      {
+        "code": "d75 / d80 / d90 / d95",
+        "meaning": "Exhaust airflow is restricted, at increasing severity — almost always a duct or vent blockage.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "The cycle was interrupted by a power outage.",
+        "self_clearable": true
+      },
+      {
+        "code": "GAS",
+        "meaning": "A gas dryer isn't detecting a gas supply or successful ignition.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "cooktop": {
+    "found": true,
+    "source_url": "https://www.lg.com/us/support/help-library/lg-range-error-codes-list--20150154166283",
+    "confidence": "direct_fetch",
+    "note": "LG treats range/cooktop/oven fault codes as one combined product family documented on a single page.",
+    "codes": [
+      {
+        "code": "H5",
+        "meaning": "Appears on the display when the cooktop surface is still hot (above roughly 150°F), warning not to touch it until it cools.",
+        "self_clearable": true
+      },
+      {
+        "code": "F3",
+        "meaning": "Flags a problem with the touch-sensitive control pad's sensor circuitry rather than with a heating element itself.",
+        "self_clearable": false
+      },
+      {
+        "code": "F33",
+        "meaning": "Points to a faulty temperature sensor on the front induction burner.",
+        "self_clearable": false
+      },
+      {
+        "code": "F51",
+        "meaning": "Signals that the griddle's temperature sensor has failed or is reading incorrectly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F56",
+        "meaning": "Means the griddle surface isn't reaching or maintaining its set temperature because of a heating malfunction.",
+        "self_clearable": false
+      },
+      {
+        "code": "F59",
+        "meaning": "Indicates the griddle element is running but failing to properly heat the surface.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://www.lg.com/us/support/help-library/lg-range-error-codes-list--20150154166283",
+    "confidence": "direct_fetch",
+    "note": "LG treats range/cooktop/oven fault codes as one combined product family documented on a single page.",
+    "codes": [
+      {
+        "code": "F1",
+        "meaning": "Points to a faulty temperature sensor (thermistor) in the upper oven cavity.",
+        "self_clearable": false
+      },
+      {
+        "code": "F4",
+        "meaning": "The lower-oven counterpart, flagging a failed thermistor in the bottom cavity on double-oven models.",
+        "self_clearable": false
+      },
+      {
+        "code": "F6",
+        "meaning": "Means the upper oven's heating circuit isn't functioning correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9",
+        "meaning": "Shows up when the upper oven is running but not reaching or holding its set temperature.",
+        "self_clearable": false
+      },
+      {
+        "code": "F10",
+        "meaning": "Indicates the self-clean door-lock mechanism on the upper oven has failed to lock or unlock properly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F27",
+        "meaning": "Appears when the cooling fan stalls or seizes during a self-clean cycle, which can trigger a safety shutdown.",
+        "self_clearable": false
+      }
+    ]
+  }
 }

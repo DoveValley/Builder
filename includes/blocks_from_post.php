@@ -925,6 +925,10 @@ function parse_blocks_from_post(): array {
                 $ecMax = (int) ($_POST['ec_max'][$i] ?? 6);
                 $block['ec_max']      = max(1, min(12, $ecMax ?: 6));
                 $block['ec_intro']    = trim($_POST['ec_intro'][$i]    ?? '');
+                // Stored even when blank: an empty string is a real choice here
+                // (it hides the "code not listed" line), distinct from the key
+                // being absent on blocks saved before the field existed.
+                $block['ec_miss_text'] = trim($_POST['ec_miss_text'][$i] ?? '');
                 $block['ec_cta_text'] = trim($_POST['ec_cta_text'][$i] ?? '');
                 // sanitize_url() (includes/helpers.php) — every stored URL goes through it;
                 // passes tel:{tel}/{city_slug}-style shortcodes through unchanged.

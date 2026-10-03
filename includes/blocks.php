@@ -2184,12 +2184,12 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                     ? 'Common ' . $ec['brand_label'] . ' ' . $ec['type_label'] . ' Error Codes'
                     : 'Common ' . $ec['type_label'] . ' Error Codes';
             }
+            // Seeded on the site's own domain so each site keeps one voice across all
+            // its error-code pages (error_codes_lane()), while the numbers in the
+            // sentence come from this combo's own data.
+            $ecDomain = resolve_shortcodes('{business_domain}');
             $ecIntro = resolve_shortcodes($block['ec_intro'] ?? '');
-            if ($ecIntro === '') {
-                $ecIntro = $ec['brand_explicit']
-                    ? 'Seeing a code on your ' . $ec['brand_label'] . ' ' . strtolower($ec['type_label']) . '? Here\'s what it means, straight from the manufacturer\'s own documentation.'
-                    : 'Error codes vary by manufacturer — shown below is what the most common ones mean on ' . $ec['brand_label'] . ' units. A different brand will use different codes, but the fix usually starts the same way: note the exact code, then check it against your model\'s own manual.';
-            }
+            if ($ecIntro === '') $ecIntro = error_codes_intro($ec, $ecDomain);
             $ecCtaText = resolve_shortcodes($block['ec_cta_text'] ?? '');
             $ecCtaUrl  = resolve_shortcodes($block['ec_cta_url']  ?? '');
 
@@ -2218,6 +2218,33 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                     . '<td class="ec-meaning">' . h($meaning) . '</td></tr>';
             }
             echo '</tbody></table></div>';
+
+            // "Your code isn't here" -- roughly the tail of visitors arrive with a code
+            // outside the researched set, and without this the page is a dead end for
+            // them. ABSENT key => default text (so the 100+ blocks saved before this
+            // existed get it too); present-but-empty => the editor deliberately turned
+            // it off. Only emits when every shortcode in it resolved, so a site with no
+            // phone number on file never prints a half-rendered sentence.
+            $ecMissRaw = array_key_exists('ec_miss_text', $block)
+                ? (string) $block['ec_miss_text']
+                : error_codes_miss_default();
+            $ecMiss = trim(resolve_shortcodes($ecMissRaw));
+            if ($ecMiss !== '' && strpos($ecMiss, '{') === false) {
+                $ecMissHtml = h($ecMiss);
+                $ecPhone = trim(resolve_shortcodes('{phone}'));
+                $ecTel   = trim(resolve_shortcodes('{tel}'));
+                // Make the number tappable where it appears -- this block's whole
+                // audience is on a phone next to a broken appliance.
+                if ($ecPhone !== '' && $ecTel !== '' && strpos($ecTel, '{') === false) {
+                    $ecMissHtml = str_replace(
+                        h($ecPhone),
+                        '<a href="tel:' . h($ecTel) . '">' . h($ecPhone) . '</a>',
+                        $ecMissHtml
+                    );
+                }
+                echo '<p class="ec-miss">' . $ecMissHtml . '</p>';
+            }
+
             if ($ec['source_url']) {
                 // Deliberately FOLLOWED (noopener only, no nofollow). This citation is the
                 // whole point of the block -- every code here traces to the manufacturer's

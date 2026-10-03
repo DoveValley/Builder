@@ -1,234 +1,278 @@
 {
-    "washer": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/Error_Codes_in_Front_Load_Washers",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F5 E2",
-                "meaning": "The door isn't locking properly before the cycle can start."
-            },
-            {
-                "code": "F7 E1",
-                "meaning": "The motor's speed sensor isn't reading correctly."
-            },
-            {
-                "code": "F8 E1 / LO FL",
-                "meaning": "The machine isn't detecting enough incoming water flow."
-            },
-            {
-                "code": "F9 E1",
-                "meaning": "Water is taking longer than about 8 minutes to drain."
-            },
-            {
-                "code": "Sud / Sd",
-                "meaning": "Too many suds have built up in the drum."
-            },
-            {
-                "code": "LOC / LC",
-                "meaning": "Not a fault — Control Lock is simply switched on."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "PO",
-                "meaning": "The fridge is flagging that it lost power long enough for the freezer compartment to climb to 18°F or warmer."
-            },
-            {
-                "code": "F8 EC",
-                "meaning": "The control board has caught an internal fault it can't self-correct and is asking for a power cycle."
-            },
-            {
-                "code": "Flashing F",
-                "meaning": "A blinking 'F' alone is the control board's generic signal that something is wrong internally, before it narrows to a specific fault."
-            },
-            {
-                "code": "E1 (undercounter)",
-                "meaning": "An undercounter unit's control has logged a fault it wants cleared with a power-down reset."
-            },
-            {
-                "code": "E2 (undercounter)",
-                "meaning": "Same family as E1 on undercounter refrigerators."
-            },
-            {
-                "code": "HI or LO",
-                "meaning": "The cabinet temperature has drifted outside its acceptable range in one direction or the other."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Dishwashers/Product_Info/Dishwasher_Product_Assistance/Dishwasher_Error_Codes_-_Reading",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F8E4",
-                "meaning": "Moisture has pooled in the tray underneath the tub, which the machine reads as a possible leak."
-            },
-            {
-                "code": "F8E2",
-                "meaning": "The valve that lets water into the machine is being commanded but isn't responding electrically."
-            },
-            {
-                "code": "F7E2",
-                "meaning": "The motor that drives the wash/spray arm isn't performing as expected during a cycle."
-            },
-            {
-                "code": "F9E1",
-                "meaning": "A cycle is taking far longer than normal to drain out the used wash water."
-            },
-            {
-                "code": "F6E1",
-                "meaning": "The main control board and the user-facing interface aren't communicating properly."
-            },
-            {
-                "code": "FAE4 / F10E4",
-                "meaning": "The valve that routes water between the upper and lower spray arms isn't switching correctly."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Cooking/Wall_Ovens_and_Ranges/Wall_Ovens_new/Error_Code_or_Message",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F0 E0",
-                "meaning": "The oven's electronic control has hit a problem it can't categorize into one of its known fault types."
-            },
-            {
-                "code": "F3 E1",
-                "meaning": "The temperature sensor in the lower oven cavity, or its wiring, is likely at fault."
-            },
-            {
-                "code": "F1 E1",
-                "meaning": "The oven's main appliance-management control board itself appears to be the source of the problem."
-            },
-            {
-                "code": "F1 E5",
-                "meaning": "On combination wall ovens with a built-in microwave, this points to the microwave's inverter or magnetron tube rather than the oven side."
-            },
-            {
-                "code": "F2 E5",
-                "meaning": "The keypad/user interface panel or its connection to the main control is suspected."
-            },
-            {
-                "code": "F5 E1",
-                "meaning": "The oven door's latch assembly or the switch that senses whether the door is latched isn't behaving as expected."
-            }
-        ]
-    },
-    "range": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Cooking/Wall_Ovens_and_Ranges/Ranges/Error_Codes/Starts_with_F",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F0 E0",
-                "meaning": "The range's electronic control has encountered a fault it can't identify as a specific known type."
-            },
-            {
-                "code": "F3 E2",
-                "meaning": "The main oven's temperature sensor — or the warming drawer's sensor, on models equipped with one — is the suspected cause."
-            },
-            {
-                "code": "F5 E1",
-                "meaning": "The main oven door's latch assembly or door switch appears to be malfunctioning."
-            },
-            {
-                "code": "F9-1",
-                "meaning": "The door latch or the switch that confirms the door is locked (used during self-clean) is likely at fault."
-            },
-            {
-                "code": "F1-5",
-                "meaning": "The range's main control board, keypad, or user interface is the suspected source of the fault."
-            },
-            {
-                "code": "F2 E1",
-                "meaning": "Often triggered by a burner grate sitting in the wrong spot on a sensor/switch; if grates are fine, it points to the control/keypad."
-            }
-        ]
-    },
-    "freezer": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "PO",
-                "meaning": "Power to the unit was interrupted long enough that the freezer compartment warmed to 18°F or higher, so it's flagging that frozen food may be at risk."
-            },
-            {
-                "code": "Temperature Alarm",
-                "meaning": "The fresh-food side has stayed above 48°F, or the freezer side above 15°F, for more than about 90 minutes — a sustained warming event rather than a brief door opening."
-            }
-        ]
-    },
-    "dryer": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Laundry/Dryers/Product_Info/Dryer_Product_Assistance/Error_Codes_in_Dryers",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "PF",
-                "meaning": "A power blip during the cycle — not a hardware fault — interrupted the dryer mid-run."
-            },
-            {
-                "code": "L2",
-                "meaning": "The dryer isn't getting enough incoming line voltage to power its heating element, even though the drum may keep tumbling."
-            },
-            {
-                "code": "AF / F4E3",
-                "meaning": "Airflow through the dryer is restricted, almost always from a clogged lint screen or a crushed, kinked, or overly long vent run."
-            },
-            {
-                "code": "F2E4",
-                "meaning": "The user-interface control panel or its wiring is the likely source of the fault."
-            },
-            {
-                "code": "F3E2",
-                "meaning": "The moisture sensor has failed to register any moisture reading across five dry cycles in a row."
-            },
-            {
-                "code": "F# E#",
-                "meaning": "Any alternating letter/number pair beginning with F not otherwise documented is the control board's way of flagging a service-level fault."
-            }
-        ]
-    },
-    "cooktop": {
-        "found": true,
-        "source_url": "https://producthelp.whirlpool.com/Cooking/Cooktops/Induction_Cooktops/Error_Code_or_Indicator_Light",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "H",
-                "meaning": "That cooking zone's surface is still hot to the touch, even picked up from a neighboring zone or a hot pan set on it."
-            },
-            {
-                "code": "U u",
-                "meaning": "The cooktop isn't detecting a compatible pot on an induction zone — wrong material, poor centering, or too small a pan."
-            },
-            {
-                "code": "E_A",
-                "meaning": "The electronics underneath the cooktop have gotten too hot internally, so the unit shuts the zone off as a protective measure."
-            },
-            {
-                "code": "FC E1",
-                "meaning": "The touchpad/user-interface panel or its wiring is the suspected fault location."
-            },
-            {
-                "code": "F60",
-                "meaning": "Same general area as FC E1 — the touchpad interface or its associated wiring is implicated."
-            },
-            {
-                "code": "FC RF",
-                "meaning": "The right-front cooking element/hotplate or its wiring is pointed to as the problem."
-            }
-        ]
-    }
+  "washer": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/Error_Codes_in_Front_Load_Washers",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F5 E2",
+        "meaning": "The door isn't locking properly before the cycle can start.",
+        "self_clearable": true
+      },
+      {
+        "code": "F7 E1",
+        "meaning": "The motor's speed sensor isn't reading correctly.",
+        "self_clearable": false
+      },
+      {
+        "code": "F8 E1 / LO FL",
+        "meaning": "The machine isn't detecting enough incoming water flow.",
+        "self_clearable": true
+      },
+      {
+        "code": "F9 E1",
+        "meaning": "Water is taking longer than about 8 minutes to drain.",
+        "self_clearable": true
+      },
+      {
+        "code": "Sud / Sd",
+        "meaning": "Too many suds have built up in the drum.",
+        "self_clearable": true
+      },
+      {
+        "code": "LOC / LC",
+        "meaning": "Not a fault — Control Lock is simply switched on.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "PO",
+        "meaning": "The fridge is flagging that it lost power long enough for the freezer compartment to climb to 18°F or warmer.",
+        "self_clearable": true
+      },
+      {
+        "code": "F8 EC",
+        "meaning": "The control board has caught an internal fault it can't self-correct and is asking for a power cycle.",
+        "self_clearable": true
+      },
+      {
+        "code": "Flashing F",
+        "meaning": "A blinking 'F' alone is the control board's generic signal that something is wrong internally, before it narrows to a specific fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "E1 (undercounter)",
+        "meaning": "An undercounter unit's control has logged a fault it wants cleared with a power-down reset.",
+        "self_clearable": true
+      },
+      {
+        "code": "E2 (undercounter)",
+        "meaning": "Same family as E1 on undercounter refrigerators.",
+        "self_clearable": true
+      },
+      {
+        "code": "HI or LO",
+        "meaning": "The cabinet temperature has drifted outside its acceptable range in one direction or the other.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Dishwashers/Product_Info/Dishwasher_Product_Assistance/Dishwasher_Error_Codes_-_Reading",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F8E4",
+        "meaning": "Moisture has pooled in the tray underneath the tub, which the machine reads as a possible leak.",
+        "self_clearable": false
+      },
+      {
+        "code": "F8E2",
+        "meaning": "The valve that lets water into the machine is being commanded but isn't responding electrically.",
+        "self_clearable": false
+      },
+      {
+        "code": "F7E2",
+        "meaning": "The motor that drives the wash/spray arm isn't performing as expected during a cycle.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9E1",
+        "meaning": "A cycle is taking far longer than normal to drain out the used wash water.",
+        "self_clearable": true
+      },
+      {
+        "code": "F6E1",
+        "meaning": "The main control board and the user-facing interface aren't communicating properly.",
+        "self_clearable": false
+      },
+      {
+        "code": "FAE4 / F10E4",
+        "meaning": "The valve that routes water between the upper and lower spray arms isn't switching correctly.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Cooking/Wall_Ovens_and_Ranges/Wall_Ovens_new/Error_Code_or_Message",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F0 E0",
+        "meaning": "The oven's electronic control has hit a problem it can't categorize into one of its known fault types.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3 E1",
+        "meaning": "The temperature sensor in the lower oven cavity, or its wiring, is likely at fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1 E1",
+        "meaning": "The oven's main appliance-management control board itself appears to be the source of the problem.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1 E5",
+        "meaning": "On combination wall ovens with a built-in microwave, this points to the microwave's inverter or magnetron tube rather than the oven side.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2 E5",
+        "meaning": "The keypad/user interface panel or its connection to the main control is suspected.",
+        "self_clearable": false
+      },
+      {
+        "code": "F5 E1",
+        "meaning": "The oven door's latch assembly or the switch that senses whether the door is latched isn't behaving as expected.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "range": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Cooking/Wall_Ovens_and_Ranges/Ranges/Error_Codes/Starts_with_F",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F0 E0",
+        "meaning": "The range's electronic control has encountered a fault it can't identify as a specific known type.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3 E2",
+        "meaning": "The main oven's temperature sensor — or the warming drawer's sensor, on models equipped with one — is the suspected cause.",
+        "self_clearable": false
+      },
+      {
+        "code": "F5 E1",
+        "meaning": "The main oven door's latch assembly or door switch appears to be malfunctioning.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9-1",
+        "meaning": "The door latch or the switch that confirms the door is locked (used during self-clean) is likely at fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F1-5",
+        "meaning": "The range's main control board, keypad, or user interface is the suspected source of the fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2 E1",
+        "meaning": "Often triggered by a burner grate sitting in the wrong spot on a sensor/switch; if grates are fine, it points to the control/keypad.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "freezer": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "PO",
+        "meaning": "Power to the unit was interrupted long enough that the freezer compartment warmed to 18°F or higher, so it's flagging that frozen food may be at risk.",
+        "self_clearable": true
+      },
+      {
+        "code": "Temperature Alarm",
+        "meaning": "The fresh-food side has stayed above 48°F, or the freezer side above 15°F, for more than about 90 minutes — a sustained warming event rather than a brief door opening.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dryer": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Laundry/Dryers/Product_Info/Dryer_Product_Assistance/Error_Codes_in_Dryers",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "PF",
+        "meaning": "A power blip during the cycle — not a hardware fault — interrupted the dryer mid-run.",
+        "self_clearable": true
+      },
+      {
+        "code": "L2",
+        "meaning": "The dryer isn't getting enough incoming line voltage to power its heating element, even though the drum may keep tumbling.",
+        "self_clearable": false
+      },
+      {
+        "code": "AF / F4E3",
+        "meaning": "Airflow through the dryer is restricted, almost always from a clogged lint screen or a crushed, kinked, or overly long vent run.",
+        "self_clearable": true
+      },
+      {
+        "code": "F2E4",
+        "meaning": "The user-interface control panel or its wiring is the likely source of the fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F3E2",
+        "meaning": "The moisture sensor has failed to register any moisture reading across five dry cycles in a row.",
+        "self_clearable": false
+      },
+      {
+        "code": "F# E#",
+        "meaning": "Any alternating letter/number pair beginning with F not otherwise documented is the control board's way of flagging a service-level fault.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "cooktop": {
+    "found": true,
+    "source_url": "https://producthelp.whirlpool.com/Cooking/Cooktops/Induction_Cooktops/Error_Code_or_Indicator_Light",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "H",
+        "meaning": "That cooking zone's surface is still hot to the touch, even picked up from a neighboring zone or a hot pan set on it.",
+        "self_clearable": true
+      },
+      {
+        "code": "U u",
+        "meaning": "The cooktop isn't detecting a compatible pot on an induction zone — wrong material, poor centering, or too small a pan.",
+        "self_clearable": true
+      },
+      {
+        "code": "E_A",
+        "meaning": "The electronics underneath the cooktop have gotten too hot internally, so the unit shuts the zone off as a protective measure.",
+        "self_clearable": true
+      },
+      {
+        "code": "FC E1",
+        "meaning": "The touchpad/user-interface panel or its wiring is the suspected fault location.",
+        "self_clearable": false
+      },
+      {
+        "code": "F60",
+        "meaning": "Same general area as FC E1 — the touchpad interface or its associated wiring is implicated.",
+        "self_clearable": false
+      },
+      {
+        "code": "FC RF",
+        "meaning": "The right-front cooking element/hotplate or its wiring is pointed to as the problem.",
+        "self_clearable": false
+      }
+    ]
+  }
 }

@@ -1,79 +1,93 @@
 {
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://producthelp.jennair.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights/PO_Error_Code_-_Refrigerator",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "PO",
-                "meaning": "The unit detected it lost power long enough that the freezer section warmed to 18°F or higher."
-            },
-            {
-                "code": "Over Temperature Light / Temperature Alarm",
-                "meaning": "The fridge compartment stayed above roughly 48°F, or the freezer above roughly 15°F, for more than about 90 minutes."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://producthelp.jennair.com/Cooking/Wall_Ovens_and_Ranges/Ranges/Error_Codes/Starts_with_F/Starts_with_F0/F03_-_Error_Code_-_Range",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F03",
-                "meaning": "The electronic oven control board itself, or the wiring feeding it, is likely faulty."
-            },
-            {
-                "code": "F0 E0",
-                "meaning": "The oven's control board has detected a problem but can't tell what specific fault triggered it."
-            },
-            {
-                "code": "F2",
-                "meaning": "The circuit that reads oven temperature appears to be malfunctioning."
-            },
-            {
-                "code": "F5",
-                "meaning": "The oven door's locking mechanism or its switches are not behaving as expected."
-            },
-            {
-                "code": "F7 E0",
-                "meaning": "Same door-latch assembly/wiring problem as F5, reported under the oven's self-clean lock circuit."
-            },
-            {
-                "code": "F8 E0",
-                "meaning": "The oven's cooling fan is spinning slower than it should."
-            }
-        ]
-    },
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://producthelp.jennair.com/Dishwashers/Product_Info/Dishwasher_Product_Assistance/Dishwasher_Error_Codes_-_Reading",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F8E4",
-                "meaning": "A float switch or sensor has detected water pooling in the drip tray underneath the tub."
-            },
-            {
-                "code": "F9E1",
-                "meaning": "The dishwasher is taking too long to drain, usually a clogged filter, drain hose, or disposer/air gap."
-            },
-            {
-                "code": "F6E1",
-                "meaning": "The user interface panel has lost reliable communication with the dishwasher's main control board."
-            },
-            {
-                "code": "H2O",
-                "meaning": "The machine isn't sensing incoming water."
-            },
-            {
-                "code": "F3E2",
-                "meaning": "The thermistor or optical water-indicator sensor used to gauge tub temperature/water clarity is reporting a fault."
-            },
-            {
-                "code": "F6E3",
-                "meaning": "The dishwasher's sensors have picked up too much foam or soap suds in the tub."
-            }
-        ]
-    }
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://producthelp.jennair.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights/PO_Error_Code_-_Refrigerator",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "PO",
+        "meaning": "The unit detected it lost power long enough that the freezer section warmed to 18°F or higher.",
+        "self_clearable": true
+      },
+      {
+        "code": "Over Temperature Light / Temperature Alarm",
+        "meaning": "The fridge compartment stayed above roughly 48°F, or the freezer above roughly 15°F, for more than about 90 minutes.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://producthelp.jennair.com/Cooking/Wall_Ovens_and_Ranges/Ranges/Error_Codes/Starts_with_F/Starts_with_F0/F03_-_Error_Code_-_Range",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F03",
+        "meaning": "The electronic oven control board itself, or the wiring feeding it, is likely faulty.",
+        "self_clearable": false
+      },
+      {
+        "code": "F0 E0",
+        "meaning": "The oven's control board has detected a problem but can't tell what specific fault triggered it.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2",
+        "meaning": "The circuit that reads oven temperature appears to be malfunctioning.",
+        "self_clearable": false
+      },
+      {
+        "code": "F5",
+        "meaning": "The oven door's locking mechanism or its switches are not behaving as expected.",
+        "self_clearable": false
+      },
+      {
+        "code": "F7 E0",
+        "meaning": "Same door-latch assembly/wiring problem as F5, reported under the oven's self-clean lock circuit.",
+        "self_clearable": false
+      },
+      {
+        "code": "F8 E0",
+        "meaning": "The oven's cooling fan is spinning slower than it should.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://producthelp.jennair.com/Dishwashers/Product_Info/Dishwasher_Product_Assistance/Dishwasher_Error_Codes_-_Reading",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F8E4",
+        "meaning": "A float switch or sensor has detected water pooling in the drip tray underneath the tub.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9E1",
+        "meaning": "The dishwasher is taking too long to drain, usually a clogged filter, drain hose, or disposer/air gap.",
+        "self_clearable": true
+      },
+      {
+        "code": "F6E1",
+        "meaning": "The user interface panel has lost reliable communication with the dishwasher's main control board.",
+        "self_clearable": false
+      },
+      {
+        "code": "H2O",
+        "meaning": "The machine isn't sensing incoming water.",
+        "self_clearable": true
+      },
+      {
+        "code": "F3E2",
+        "meaning": "The thermistor or optical water-indicator sensor used to gauge tub temperature/water clarity is reporting a fault.",
+        "self_clearable": false
+      },
+      {
+        "code": "F6E3",
+        "meaning": "The dishwasher's sensors have picked up too much foam or soap suds in the tub.",
+        "self_clearable": true
+      }
+    ]
+  }
 }

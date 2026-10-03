@@ -1,149 +1,177 @@
 {
-    "dishwasher": {
-        "found": true,
-        "source_url": "https://producthelp.amana.com/Dishwashers/Dishwasher/Error_Code_or_Flashing_Lights",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F1E1",
-                "meaning": "Points to a fault in the dishwasher's main control module itself, rather than a water or drain issue."
-            },
-            {
-                "code": "F2E2",
-                "meaning": "Means the user interface panel and the main control board have lost communication with each other."
-            },
-            {
-                "code": "F6E1",
-                "meaning": "Signals a user-interface or main-control fault that typically needs a power cycle to clear."
-            },
-            {
-                "code": "F8E4",
-                "meaning": "Appears when water is detected somewhere it shouldn't be, such as the base drip tray."
-            },
-            {
-                "code": "F9E1",
-                "meaning": "Means the dishwasher is taking too long to drain, usually from a clogged filter or kinked hose."
-            },
-            {
-                "code": "F9E2",
-                "meaning": "Flags a fault in the drain pump/motor itself rather than just a blocked hose."
-            }
-        ]
-    },
-    "washer": {
-        "found": true,
-        "source_url": "https://producthelp.amana.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/Error_Codes_in_Top_Load_HE_Washers",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "HC",
-                "meaning": "Shows up when the hot and cold water supply hoses were swapped during installation."
-            },
-            {
-                "code": "LdL",
-                "meaning": "Means the lid sensor isn't reading the lid as locked, often because an item or detergent buildup is blocking it."
-            },
-            {
-                "code": "LF / Lo FL / F8 E1",
-                "meaning": "Indicates the washer is taking too long to fill, usually from a restricted or interrupted water supply."
-            },
-            {
-                "code": "OL",
-                "meaning": "Appears when the washer judges the load too large and asks for items to be removed."
-            },
-            {
-                "code": "PF",
-                "meaning": "Indicates the wash cycle was interrupted by a loss of power."
-            },
-            {
-                "code": "Sud",
-                "meaning": "Warns of excessive suds in the tub, typically from using a non-HE detergent."
-            }
-        ]
-    },
-    "oven": {
-        "found": true,
-        "source_url": "https://producthelp.amana.com/Cooking/Wall_Ovens_and_Ranges/Product_Info/Oven_Product_Assistance/Error_Codes_for_Cooking_Appliances",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "F9 / F9 E0",
-                "meaning": "Points to a wiring problem with the home's outlet or the oven's electrical connection."
-            },
-            {
-                "code": "\"C\"",
-                "meaning": "Simply means the oven's temperature readout is set to Celsius instead of Fahrenheit."
-            },
-            {
-                "code": "CAL",
-                "meaning": "Shows up when the oven's temperature-calibration feature has been engaged."
-            },
-            {
-                "code": "LOC / Lock / Locked",
-                "meaning": "Appears when the control-lock feature is switched on, blocking keypad use."
-            },
-            {
-                "code": "SAB / Sab / 5AB / 5A6",
-                "meaning": "Means the oven's Sabbath Mode feature is currently active."
-            },
-            {
-                "code": "PF",
-                "meaning": "Indicates the clock/cycle was interrupted by a power failure."
-            }
-        ]
-    },
-    "refrigerator": {
-        "found": true,
-        "source_url": "https://producthelp.amana.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "PO",
-                "meaning": "Appears after a power outage long enough for the freezer to climb to 18°F or warmer."
-            },
-            {
-                "code": "Temperature Alarm",
-                "meaning": "Sounds when the fridge or freezer compartment stays above its safe temperature threshold for roughly 90 minutes or more."
-            },
-            {
-                "code": "Door Alarm / Door Ajar",
-                "meaning": "Triggers when a door or drawer is left open for several minutes while cooling is running."
-            },
-            {
-                "code": "Flashing F",
-                "meaning": "A generic fault display cleared by a power reset; if it recurs it signals a problem needing service."
-            }
-        ]
-    },
-    "dryer": {
-        "found": true,
-        "source_url": "https://producthelp.amana.com/Laundry/Dryers/Dryer/Error_Codes",
-        "confidence": "direct_fetch",
-        "codes": [
-            {
-                "code": "AF / Check Vent",
-                "meaning": "Warns that airflow through the lint screen or vent system is restricted."
-            },
-            {
-                "code": "ERR",
-                "meaning": "Means the dryer door isn't fully closed and latched, so the cycle can't start."
-            },
-            {
-                "code": "L2",
-                "meaning": "Points to insufficient voltage reaching the heating circuit."
-            },
-            {
-                "code": "PF",
-                "meaning": "Shows the drying cycle was interrupted by a power failure."
-            },
-            {
-                "code": "Loc",
-                "meaning": "Means the control-lock feature is engaged and must be held to release before the dryer will operate."
-            },
-            {
-                "code": "F4 E3",
-                "meaning": "Flags restricted airflow from a clogged lint screen or a crushed/kinked vent run."
-            }
-        ]
-    }
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://producthelp.amana.com/Dishwashers/Dishwasher/Error_Code_or_Flashing_Lights",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F1E1",
+        "meaning": "Points to a fault in the dishwasher's main control module itself, rather than a water or drain issue.",
+        "self_clearable": false
+      },
+      {
+        "code": "F2E2",
+        "meaning": "Means the user interface panel and the main control board have lost communication with each other.",
+        "self_clearable": false
+      },
+      {
+        "code": "F6E1",
+        "meaning": "Signals a user-interface or main-control fault that typically needs a power cycle to clear.",
+        "self_clearable": true
+      },
+      {
+        "code": "F8E4",
+        "meaning": "Appears when water is detected somewhere it shouldn't be, such as the base drip tray.",
+        "self_clearable": false
+      },
+      {
+        "code": "F9E1",
+        "meaning": "Means the dishwasher is taking too long to drain, usually from a clogged filter or kinked hose.",
+        "self_clearable": true
+      },
+      {
+        "code": "F9E2",
+        "meaning": "Flags a fault in the drain pump/motor itself rather than just a blocked hose.",
+        "self_clearable": false
+      }
+    ]
+  },
+  "washer": {
+    "found": true,
+    "source_url": "https://producthelp.amana.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/Error_Codes_in_Top_Load_HE_Washers",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "HC",
+        "meaning": "Shows up when the hot and cold water supply hoses were swapped during installation.",
+        "self_clearable": true
+      },
+      {
+        "code": "LdL",
+        "meaning": "Means the lid sensor isn't reading the lid as locked, often because an item or detergent buildup is blocking it.",
+        "self_clearable": true
+      },
+      {
+        "code": "LF / Lo FL / F8 E1",
+        "meaning": "Indicates the washer is taking too long to fill, usually from a restricted or interrupted water supply.",
+        "self_clearable": true
+      },
+      {
+        "code": "OL",
+        "meaning": "Appears when the washer judges the load too large and asks for items to be removed.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "Indicates the wash cycle was interrupted by a loss of power.",
+        "self_clearable": true
+      },
+      {
+        "code": "Sud",
+        "meaning": "Warns of excessive suds in the tub, typically from using a non-HE detergent.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "oven": {
+    "found": true,
+    "source_url": "https://producthelp.amana.com/Cooking/Wall_Ovens_and_Ranges/Product_Info/Oven_Product_Assistance/Error_Codes_for_Cooking_Appliances",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "F9 / F9 E0",
+        "meaning": "Points to a wiring problem with the home's outlet or the oven's electrical connection.",
+        "self_clearable": false
+      },
+      {
+        "code": "\"C\"",
+        "meaning": "Simply means the oven's temperature readout is set to Celsius instead of Fahrenheit.",
+        "self_clearable": true
+      },
+      {
+        "code": "CAL",
+        "meaning": "Shows up when the oven's temperature-calibration feature has been engaged.",
+        "self_clearable": true
+      },
+      {
+        "code": "LOC / Lock / Locked",
+        "meaning": "Appears when the control-lock feature is switched on, blocking keypad use.",
+        "self_clearable": true
+      },
+      {
+        "code": "SAB / Sab / 5AB / 5A6",
+        "meaning": "Means the oven's Sabbath Mode feature is currently active.",
+        "self_clearable": true
+      },
+      {
+        "code": "PF",
+        "meaning": "Indicates the clock/cycle was interrupted by a power failure.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "refrigerator": {
+    "found": true,
+    "source_url": "https://producthelp.amana.com/Refrigeration/Full-Size_Refrigerators/French_Door_Bottom_Freezer_Refrigerator/Control_Concerns/Error_Codes,_Blinking,_Flashing_Lights",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "PO",
+        "meaning": "Appears after a power outage long enough for the freezer to climb to 18°F or warmer.",
+        "self_clearable": true
+      },
+      {
+        "code": "Temperature Alarm",
+        "meaning": "Sounds when the fridge or freezer compartment stays above its safe temperature threshold for roughly 90 minutes or more.",
+        "self_clearable": false
+      },
+      {
+        "code": "Door Alarm / Door Ajar",
+        "meaning": "Triggers when a door or drawer is left open for several minutes while cooling is running.",
+        "self_clearable": true
+      },
+      {
+        "code": "Flashing F",
+        "meaning": "A generic fault display cleared by a power reset; if it recurs it signals a problem needing service.",
+        "self_clearable": true
+      }
+    ]
+  },
+  "dryer": {
+    "found": true,
+    "source_url": "https://producthelp.amana.com/Laundry/Dryers/Dryer/Error_Codes",
+    "confidence": "direct_fetch",
+    "codes": [
+      {
+        "code": "AF / Check Vent",
+        "meaning": "Warns that airflow through the lint screen or vent system is restricted.",
+        "self_clearable": true
+      },
+      {
+        "code": "ERR",
+        "meaning": "Means the dryer door isn't fully closed and latched, so the cycle can't start.",
+        "self_clearable": true
+      },
+      {
+        "code": "L2",
+        "meaning": "Points to insufficient voltage reaching the heating circuit.",
+        "self_clearable": false
+      },
+      {
+        "code": "PF",
+        "meaning": "Shows the drying cycle was interrupted by a power failure.",
+        "self_clearable": true
+      },
+      {
+        "code": "Loc",
+        "meaning": "Means the control-lock feature is engaged and must be held to release before the dryer will operate.",
+        "self_clearable": true
+      },
+      {
+        "code": "F4 E3",
+        "meaning": "Flags restricted airflow from a clogged lint screen or a crushed/kinked vent run.",
+        "self_clearable": true
+      }
+    ]
+  }
 }
