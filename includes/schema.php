@@ -57,6 +57,10 @@ function error_code_pairs_from_blocks(array $blocks): array {
             $code    = trim((string) ($row['code'] ?? ''));
             $meaning = trim((string) ($row['meaning'] ?? ''));
             if ($code === '' || $meaning === '') continue;
+            // Brand-hub rows each belong to a DIFFERENT appliance, so the question has
+            // to name that row's own appliance, not the block's (which is empty here).
+            $rowType = strtolower(trim((string) ($row['type_label'] ?? '')));
+            if ($rowType !== '') $typeLabel = $rowType;
             $pairs[] = [
                 '@type'          => 'Question',
                 'name'           => "What does error code {$code} mean on a {$brandLabel} {$typeLabel}?",

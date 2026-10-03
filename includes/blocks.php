@@ -2180,9 +2180,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
 
             $ecHeading = resolve_shortcodes($block['ec_heading'] ?? '');
             if ($ecHeading === '') {
-                $ecHeading = $ec['brand_explicit']
-                    ? 'Common ' . $ec['brand_label'] . ' ' . $ec['type_label'] . ' Error Codes'
-                    : 'Common ' . $ec['type_label'] . ' Error Codes';
+                if (!empty($ec['hub'])) {
+                    $ecHeading = 'Common ' . $ec['brand_label'] . ' Error Codes by Appliance';
+                } else {
+                    $ecHeading = $ec['brand_explicit']
+                        ? 'Common ' . $ec['brand_label'] . ' ' . $ec['type_label'] . ' Error Codes'
+                        : 'Common ' . $ec['type_label'] . ' Error Codes';
+                }
             }
             // Seeded on the site's own domain so each site keeps one voice across all
             // its error-code pages (error_codes_lane()), while the numbers in the
@@ -2204,18 +2208,40 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 $code = trim((string) ($row['code'] ?? ''));
                 $meaning = trim((string) ($row['meaning'] ?? ''));
                 if ($code === '' || $meaning === '') continue;
-                $ecRows[] = [$code, $meaning];
+                $ecRows[] = [
+                    'code'       => $code,
+                    'meaning'    => $meaning,
+                    'type_label' => trim((string) ($row['type_label'] ?? '')),
+                    'source_url' => trim((string) ($row['source_url'] ?? '')),
+                ];
             }
             if (!$ecRows) break;
 
             // A real <table>, not the former <dl>: this is two labelled columns of
             // repeated data, so a screen reader navigating cells announces "Code /
             // What it means" per row, which a definition list cannot express.
+            // Hub mode keeps the SAME two-column shape rather than adding an appliance
+            // column -- three columns of prose do not survive a 375px screen. The
+            // appliance becomes a small label above its code, which reads the same and
+            // costs no horizontal room.
+            $ecIsHub = !empty($ec['hub']);
             echo '<div class="ec-tablewrap"><table class="ec-table">';
-            echo '<thead><tr><th scope="col">Code</th><th scope="col">What it means</th></tr></thead><tbody>';
-            foreach ($ecRows as [$code, $meaning]) {
-                echo '<tr><th scope="row" class="ec-code">' . h($code) . '</th>'
-                    . '<td class="ec-meaning">' . h($meaning) . '</td></tr>';
+            echo '<thead><tr><th scope="col">' . ($ecIsHub ? 'Appliance &amp; code' : 'Code')
+                . '</th><th scope="col">What it means</th></tr></thead><tbody>';
+            foreach ($ecRows as $r) {
+                echo '<tr><th scope="row" class="ec-code">';
+                if ($ecIsHub && $r['type_label'] !== '') {
+                    // Each appliance label links to ITS OWN manufacturer document: a hub
+                    // row's codes come from several sources, so one shared "Source:" line
+                    // at the foot could not say which claim came from where.
+                    $lbl = h($r['type_label']);
+                    echo '<span class="ec-appliance">'
+                        . ($r['source_url'] !== ''
+                            ? '<a href="' . h($r['source_url']) . '" target="_blank" rel="noopener">' . $lbl . '</a>'
+                            : $lbl)
+                        . '</span>';
+                }
+                echo h($r['code']) . '</th><td class="ec-meaning">' . h($r['meaning']) . '</td></tr>';
             }
             echo '</tbody></table></div>';
 
@@ -2245,7 +2271,10 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 echo '<p class="ec-miss">' . $ecMissHtml . '</p>';
             }
 
-            if ($ec['source_url']) {
+            if ($ecIsHub) {
+                echo '<p class="ec-source">Each appliance above links to ' . h($ec['brand_label'])
+                    . '\'s own support documentation for that product.</p>';
+            } elseif ($ec['source_url']) {
                 // Deliberately FOLLOWED (noopener only, no nofollow). This citation is the
                 // whole point of the block -- every code here traces to the manufacturer's
                 // own documentation -- so suppressing it would hide the page's strongest

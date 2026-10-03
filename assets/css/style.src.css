@@ -4391,6 +4391,19 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     line-height: 1.4;
     color: var(--color-accent);
 }
+.ec-appliance {
+    /* Brand-hub rows: which appliance this code belongs to, as a caption above the
+       code rather than a third column -- three columns of prose do not fit 375px. */
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+}
+.ec-appliance a { color: inherit; text-decoration: none; }
+.ec-appliance a:hover { color: var(--color-accent); text-decoration: underline; }
 .ec-meaning {
     padding: 14px 18px 14px 0;
     vertical-align: top;

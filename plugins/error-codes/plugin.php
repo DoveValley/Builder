@@ -171,7 +171,12 @@ function error_codes_resolve(
         if ($brand === '') { $brand = $info['brand']; $brandExplicit = $brand !== ''; }
         if ($type === '')  $type  = $info['appliance_type'];
     }
-    if ($type === '') return null; // nothing to anchor the lookup on — e.g. a brand-hub page
+    // BRAND-HUB PAGE: a brand but no appliance in the slug (whirlpool-appliance-repair).
+    // There is no single appliance to list codes for, so instead of disappearing it
+    // shows the most common code on EACH appliance that brand makes -- which is the
+    // genuinely useful thing on a hub, and needs no research we don't already have.
+    if ($type === '' && $brand !== '') return error_codes_resolve_hub($brand, $max);
+    if ($type === '') return null; // no brand either (the master hub) — nothing to anchor on
 
     $tryTypes = error_codes_type_synonyms($type);
 
@@ -215,8 +220,85 @@ function error_codes_resolve(
         'source_url'     => (string) ($hit['entry']['source_url'] ?? ''),
         'codes'          => $codes,
         'brand_explicit' => $brandExplicit,
+        'hub'            => false,
         'diy_count'      => $diy,
         'service_count'  => count($codes) - $diy,
+    ];
+}
+
+/** Appliance order for a brand-hub table — the ones people search for most, first,
+ *  so a capped hub list drops the obscure appliance rather than the refrigerator. */
+function error_codes_type_priority(): array {
+    return ['refrigerator', 'washer', 'dryer', 'dishwasher', 'oven', 'range', 'cooktop', 'freezer'];
+}
+
+/** A hub needs enough rows to be worth a table; below this it would be a stub, so
+ *  it disappears instead — the same rule as everywhere else here. Checked against
+ *  the final deduped row count, not the appliance count. */
+function error_codes_hub_min_types(): int { return 4; }
+
+/**
+ * Cross-appliance sampler for a brand-hub page: the FIRST (most common) researched
+ * code for each appliance the brand makes, in error_codes_type_priority() order.
+ * Each row carries its OWN type_label and source_url, because unlike a leaf page
+ * these codes come from several different manufacturer documents and each one has
+ * to stay individually traceable.
+ */
+function error_codes_resolve_hub(string $brand, int $max = 6): ?array {
+    $data = error_codes_data();
+    $brandData = $data[$brand] ?? null;
+    if (!is_array($brandData)) return null;
+
+    $ordered = error_codes_type_priority();
+    foreach (array_keys($brandData) as $t) if (!in_array($t, $ordered, true)) $ordered[] = $t;
+
+    $rows = [];
+    $seen = [];
+    foreach ($ordered as $t) {
+        $entry = $brandData[$t] ?? null;
+        if (!is_array($entry) || empty($entry['found']) || empty($entry['codes'])) continue;
+        if ($max > 0 && count($rows) >= $max) break;
+
+        // Take the first code NOT already on this table rather than the flat first:
+        // brands reuse one code across products (Maytag's F9 E0 is both the oven and
+        // the range), and a hub that printed the same row twice would read as padding.
+        // Falling through to that appliance's next code keeps it represented instead.
+        $pick = null;
+        foreach ($entry['codes'] as $c) {
+            $key = strtolower(trim((string) ($c['code'] ?? '')));
+            if ($key === '' || isset($seen[$key])) continue;
+            $pick = $c;
+            $seen[$key] = true;
+            break;
+        }
+        if ($pick === null) continue;   // every code this appliance has is already shown
+
+        $rows[] = [
+            'code'           => (string) ($pick['code'] ?? ''),
+            'meaning'        => (string) ($pick['meaning'] ?? ''),
+            'self_clearable' => !empty($pick['self_clearable']),
+            'type_label'     => error_codes_type_label($t),
+            'source_url'     => (string) ($entry['source_url'] ?? ''),
+        ];
+    }
+    // Floor applies to the FINAL row count, not the number of appliances researched:
+    // what matters is whether the rendered table is substantial, and dedupe can shrink it.
+    if (count($rows) < error_codes_hub_min_types()) return null;
+
+    $diy = 0;
+    foreach ($rows as $r) if ($r['self_clearable']) $diy++;
+
+    return [
+        'brand'          => $brand,
+        'brand_label'    => error_codes_brand_label($brand),
+        'type'           => '',
+        'type_label'     => '',
+        'source_url'     => '',          // per-row instead; see the render case
+        'codes'          => $rows,
+        'brand_explicit' => true,
+        'hub'            => true,
+        'diy_count'      => $diy,
+        'service_count'  => count($rows) - $diy,
     ];
 }
 
@@ -274,6 +356,19 @@ function error_codes_intro(array $ec, string $domain = ''): string {
                    . $V . ' need a technician.';
         }
         return $lead;
+    }
+
+    // A hub lists one code per appliance, so the framing is "which of your
+    // appliances is this" rather than "which code on this appliance".
+    if (!empty($ec['hub'])) {
+        // "a common one", not "the most common one": the dedupe above can surface an
+        // appliance's second code when its first is already on the table.
+        $lead = $brand . ' uses a different family of codes on each appliance it makes. Below is a '
+              . 'common one for each — ';
+        if ($d === 0)      return $lead . 'all ' . $N . ' point to a part inside the machine that needs a technician.';
+        if ($v === 0)      return $lead . 'all ' . $N . ' are usually something you can check yourself first.';
+        return $lead . $D . ' of the ' . $N . ' are usually something you can check yourself, and ' . $V
+             . ' point to a part that needs a technician.';
     }
 
     // A combo with exactly one researched code can't take any of the counting
