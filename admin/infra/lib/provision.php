@@ -64,25 +64,20 @@ function infra_install_origin_cert(array $server, array $account, string $domain
 }
 
 /**
- * Fix the https→http→https double-redirect that Cloudflare's "Flexible" SSL
- * mode causes on every nginx-served static site in this fleet: Cloudflare
- * talks to the origin over plain HTTP in Flexible mode, so nginx's own
- * auto-added trailing-slash redirect (a directory request without one) builds
- * its Location header from the scheme IT sees — http — never the scheme the
- * visitor actually used. Cloudflare's "Always Use HTTPS" then bounces that
- * back, so every extension-less URL on the site takes two redirects instead
- * of zero, and some stricter crawlers refuse to follow it at all.
+ * Install a self-signed origin certificate — the no-Origin-CA-token-needed path.
+ * Cloudflare's "Full" SSL mode (NOT "Full strict") does not validate the origin
+ * certificate's trust chain, expiry, or hostname, it only requires that a TLS
+ * handshake succeed, so a plain self-signed cert generated locally (no shell-out)
+ * is sufficient — unlike infra_install_origin_cert() above, this needs no
+ * Cloudflare credential at all, which is why it exists as a separate fallback
+ * rather than a parameter on that function.
  *
- * The permanent fix is to stop Cloudflare from ever talking HTTP to the
- * origin — switch the zone to "Full" SSL mode. Full (NOT "Full strict") does
- * not validate the origin certificate's trust chain, expiry, or hostname, it
- * only requires that a TLS handshake succeed — so unlike
- * infra_install_origin_cert() above, this does not need a Cloudflare Origin
- * CA token at all (which is why this exists as its own function: it is not
- * blocked on an account having one configured). A plain self-signed
- * certificate, generated locally with no shell-out, is sufficient.
+ * Same shape as infra_install_origin_cert(): stages the cert over the domain's
+ * own FTP login (Hestia's API has no upload verb), installs it, cleans up the
+ * staged copy. Does NOT set the Cloudflare SSL mode or restart the web server —
+ * callers do that, same as infra_install_origin_cert() leaves to its own callers.
  */
-function infra_fix_https_redirect_loop(array $server, array $account, string $domain, string $zoneId, string $ftpUser, string $ftpPass): array
+function infra_install_selfsigned_cert(array $server, string $domain, string $ftpUser, string $ftpPass): array
 {
     if ($ftpUser === '' || $ftpPass === '') {
         return ['ok' => false, 'message' => 'no FTP credentials on record for this domain'];
@@ -97,8 +92,15 @@ function infra_fix_https_redirect_loop(array $server, array $account, string $do
     $host   = $server['default_ip'] ?? ($server['host'] ?? '');
     $user   = hestia_fleet_user($server);
     $sslDir = "/home/{$user}/web/{$domain}/public_html/ssl";
-    // See the matching comment in infra_install_origin_cert() above — the FTP
-    // login's root is NOT the docroot, the real site files sit at "home/{ftpUser}/".
+    // The FTP login's own root is NOT the docroot — confirmed live 2026-10-03 against a
+    // real box: PWD/LIST at "/" shows only a "home" folder, and the actual site files
+    // (index.html, assets/, etc.) sit at "home/{ftpUser}/". A bare "ssl/..." path tries
+    // to MKD a directory at the FTP root, which the account has no permission for —
+    // "550 Failed to MKD dir" — confirmed as the exact failure on a real attempt
+    // against gannmoldremediation.com. This contradicts hestia_install_cert()'s own
+    // docblock ("the FTP login lands IN the docroot") — that claim was never actually
+    // exercised before tonight (infra_install_origin_cert() always short-circuited on
+    // cf_create_origin_ca_cert() failing, since no CF account has had that token).
     $crtRel = 'home/' . $ftpUser . '/ssl/' . $domain . '.crt';
     $keyRel = 'home/' . $ftpUser . '/ssl/' . $domain . '.key';
 
@@ -109,11 +111,31 @@ function infra_fix_https_redirect_loop(array $server, array $account, string $do
             return ['ok' => false, 'message' => 'could not stage cert on the box: '
                 . trim(($upCert['message'] ?? '') . ' ' . ($upKey['message'] ?? ''))];
         }
-        $install = hestia_install_cert($server, $domain, $user, $sslDir);
+        return hestia_install_cert($server, $domain, $user, $sslDir);
     } finally {
         hestia_ftp_delete($host, $ftpUser, $ftpPass, $crtRel);
         hestia_ftp_delete($host, $ftpUser, $ftpPass, $keyRel);
     }
+}
+
+/**
+ * Fix the https→http→https double-redirect that Cloudflare's "Flexible" SSL
+ * mode causes on every nginx-served static site in this fleet: Cloudflare
+ * talks to the origin over plain HTTP in Flexible mode, so nginx's own
+ * auto-added trailing-slash redirect (a directory request without one) builds
+ * its Location header from the scheme IT sees — http — never the scheme the
+ * visitor actually used. Cloudflare's "Always Use HTTPS" then bounces that
+ * back, so every extension-less URL on the site takes two redirects instead
+ * of zero, and some stricter crawlers refuse to follow it at all.
+ *
+ * The permanent fix is to stop Cloudflare from ever talking HTTP to the
+ * origin — switch the zone to "Full" SSL mode. The Infra console's per-domain
+ * button for an already-live domain; infra_provision_one() below does the
+ * equivalent automatically for brand-new domains via infra_install_selfsigned_cert().
+ */
+function infra_fix_https_redirect_loop(array $server, array $account, string $domain, string $zoneId, string $ftpUser, string $ftpPass): array
+{
+    $install = infra_install_selfsigned_cert($server, $domain, $ftpUser, $ftpPass);
     if (!$install['ok']) return $install;
 
     hestia_restart_web($server);
@@ -271,6 +293,19 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
                 }
                 $cert = infra_install_origin_cert($server, $account, $domain, $ftpUser, $ftpPass);
                 $lines[] = '  Origin cert: ' . ($cert['ok'] ? '✓ ' . $cert['message'] : '— ' . $cert['message']);
+                // No Origin CA token configured (the expected state for every account
+                // until one is added by hand) — fall back to a self-signed cert, which
+                // Cloudflare's Full (non-strict) mode accepts without any Cloudflare
+                // credential at all. A real Origin CA token, if one is ever added, still
+                // wins automatically since it's tried first, above. See
+                // infra_fix_https_redirect_loop()'s docblock for why Full mode needs no
+                // CA-signed cert, and the Infra console's per-domain "Fix HTTPS redirect"
+                // button, which does the same thing by hand for already-live domains.
+                if (!$cert['ok']) {
+                    $selfSigned = infra_install_selfsigned_cert($server, $domain, $ftpUser, $ftpPass);
+                    $lines[] = '  Self-signed cert (fallback): ' . ($selfSigned['ok'] ? '✓ ' . $selfSigned['message'] : '✗ ' . $selfSigned['message']);
+                    $cert = $selfSigned;
+                }
                 $sslMode = $cert['ok'] ? 'full' : 'flexible';
                 $s = cf_set_ssl_mode($account, $zoneId, $sslMode);
                 $lines[] = '  SSL: ' . ($s['ok'] ? "✓ {$sslMode}" : '✗ ' . $s['message']); if (!$s['ok']) $ok = false;
