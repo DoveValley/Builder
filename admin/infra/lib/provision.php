@@ -34,8 +34,17 @@ function infra_install_origin_cert(array $server, array $account, string $domain
     $host   = $server['default_ip'] ?? ($server['host'] ?? '');
     $user   = hestia_fleet_user($server);
     $sslDir = "/home/{$user}/web/{$domain}/public_html/ssl";
-    $crtRel = 'ssl/' . $domain . '.crt';
-    $keyRel = 'ssl/' . $domain . '.key';
+    // The FTP login's own root is NOT the docroot — confirmed live 2026-10-03 against a
+    // real box: PWD/LIST at "/" shows only a "home" folder, and the actual site files
+    // (index.html, assets/, etc.) sit at "home/{ftpUser}/". A bare "ssl/..." path tries
+    // to MKD a directory at the FTP root, which the account has no permission for —
+    // "550 Failed to MKD dir" — confirmed as the exact failure on a real attempt
+    // against gannmoldremediation.com. This contradicts hestia_install_cert()'s own
+    // docblock ("the FTP login lands IN the docroot") — that claim was never actually
+    // exercised before tonight (infra_install_origin_cert() always short-circuited on
+    // cf_create_origin_ca_cert() failing, since no CF account has had that token).
+    $crtRel = 'home/' . $ftpUser . '/ssl/' . $domain . '.crt';
+    $keyRel = 'home/' . $ftpUser . '/ssl/' . $domain . '.key';
 
     try {
         $upCert = hestia_ftp_put($host, $ftpUser, $ftpPass, $crtRel, $cert['cert']);
@@ -88,8 +97,10 @@ function infra_fix_https_redirect_loop(array $server, array $account, string $do
     $host   = $server['default_ip'] ?? ($server['host'] ?? '');
     $user   = hestia_fleet_user($server);
     $sslDir = "/home/{$user}/web/{$domain}/public_html/ssl";
-    $crtRel = 'ssl/' . $domain . '.crt';
-    $keyRel = 'ssl/' . $domain . '.key';
+    // See the matching comment in infra_install_origin_cert() above — the FTP
+    // login's root is NOT the docroot, the real site files sit at "home/{ftpUser}/".
+    $crtRel = 'home/' . $ftpUser . '/ssl/' . $domain . '.crt';
+    $keyRel = 'home/' . $ftpUser . '/ssl/' . $domain . '.key';
 
     try {
         $upCert = hestia_ftp_put($host, $ftpUser, $ftpPass, $crtRel, $certOut);

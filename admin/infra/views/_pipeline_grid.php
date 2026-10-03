@@ -241,6 +241,7 @@ function pg_cell(array $c): string
               <?php else: ?>
                 <span class="pg-dom"><?= ih($dom) ?></span>
               <?php endif; ?>
+              <a href="index.php?view=domain&d=<?= ih($dom) ?>" title="Manage this domain (SSL, Danger Zone, etc.)" style="margin-left:6px;font-size:11px">&#9881;</a>
               <span class="pg-sub"><?= ih($rec['niche'] ?: '—') ?><?= $rec['registrar'] ? ' · ' . ih($rec['registrar']) : '' ?><?= $rec['batch'] ? ' · ' . ih($rec['batch']) : '' ?></span>
             </td>
             <td>
