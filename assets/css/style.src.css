@@ -1048,6 +1048,18 @@ a:hover {
 .dropdown-menu li a:hover {
     background: rgba(0,0,0,0.05);
 }
+/* Bold + underline on hover (desktop) and :active (the touch-tap equivalent, since
+   phones have no :hover at all) — same specificity fix as the base rule above: must
+   match ".header-nav-row .site-nav ul.dropdown-menu li a"'s own specificity or its
+   "text-decoration: none" wins regardless of hover/active state. Covers every dropdown,
+   including the appliance mega-menu's nested .dropdown-group-items — those are still
+   plain <li><a> inside a <ul class="dropdown-menu ...">, just deeper, and a descendant
+   selector matches at any depth. */
+.header-nav-row .site-nav ul.dropdown-menu li a:hover,
+.header-nav-row .site-nav ul.dropdown-menu li a:active {
+    font-weight: 700;
+    text-decoration: underline;
+}
 
 /* Mega menu — a niche with a long service list (20-30+) flows into a grid instead of
    one narrow column running off the bottom of the screen. CSS grid, not column-count:
