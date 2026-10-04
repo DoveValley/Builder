@@ -1,0 +1,39 @@
+{
+  "id": "wet_days",
+  "name": "Days with measurable rain by month",
+  "type": "bars",
+  "data_key": "wet_days_monthly",
+  "source_key": "wet_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days with measurable rain by month in {city}, {SS}",
+  "alt": "Chart of the average number of days with measurable rain each month in {city}, {SS}. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-PRCP-AVGNDS-GE010HI",
+    "note": "Days with >= 0.10 in of precipitation. Replaces humidity_monthly, which cited NOAA Climate Normals for a variable that product does not contain."
+  },
+  "captions": [
+    "{city} sees measurable rain on about {total} days a year, most often in {peak}. Damp ground is what subterranean termites need to keep foraging, and the wetter stretches are when moisture-seeking insects — roaches, silverfish, centipedes — push in toward kitchens, bathrooms and crawl spaces.",
+    "Rain falls on roughly {total} days a year in {city}, {SS}, peaking in {peak} and easing to {low_value} in {low}. Insects lose water through their shells, so the number of damp days sets how long they can stay active and how far from shelter they will travel.",
+    "{city} records measurable rain on about {total} days a year. The wet stretches matter more than the totals — repeated wetting keeps soil and structural timber damp enough for termites to keep working, and it is damp timber rather than rainfall that decides where they go."
+  ],
+  "groups": [
+    "heat",
+    "moisture",
+    "structure"
+  ]
+}

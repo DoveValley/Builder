@@ -346,8 +346,17 @@ function city_chart_table_html(array $def, array $series, array $city): string
     // Only ever names a source cities.json actually carries for this chart — never invented,
     // same rule as the chart's own numbers.
     $source = trim((string) ($series['source'] ?? ''));
-    $method = 'Retrieved ' . date('F j, Y') . '.';
-    if ($source !== '') $method = 'Source: ' . $source . '. ' . $method;
+    // "Retrieved" has to mean when the DATA was retrieved, not when the page was built.
+    // This called date() at render time, so every rebuild re-stamped the figures as freshly
+    // retrieved -- including figures that were never retrieved from anywhere, which is how
+    // AI-written numbers came to carry a NOAA citation and today's date. A field whose
+    // retrieval date is unknown now says nothing rather than claiming today.
+    $fetched = trim((string) ($city['noaa_fetched_at'] ?? ''));
+    $ts = $fetched !== '' ? strtotime($fetched) : false;
+    $method = $ts ? 'Retrieved ' . date('F j, Y', $ts) . '.' : '';
+    if ($source !== '') {
+        $method = 'Source: ' . $source . '.' . ($method !== '' ? ' ' . $method : '');
+    }
 
     return '<div class="chart-table-wrap"><table class="chart-data-table">'
          . '<caption>' . $caption . '</caption>'

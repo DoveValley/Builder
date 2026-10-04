@@ -1307,6 +1307,14 @@ def chart_research_fields(brief):
                 cfg = json.load(fh)
         except Exception:
             continue
+        # A chart declaring `fetch` is filled from its real source by
+        # _apply_chart_fetches(), so it must NEVER be asked of the research model — not even
+        # if a `research` block is left behind or re-added later. That pairing is what caused
+        # the bug this guard exists for: `research.source_ask` suggested the citation
+        # (e.g. "NOAA 1991-2020 Climate Normals") and the model supplied figures to fit it.
+        if cfg.get('fetch'):
+            continue
+
         r = cfg.get('research') or {}
         ask = (r.get('ask') or '').strip()
         key = (cfg.get('data_key') or '').strip()
@@ -1636,6 +1644,70 @@ def report_research_completeness(paths):
     return 1 if tot_retry else 0
 
 
+def _apply_chart_fetches(paths, cities, brief, dry_run=False, force=False,
+                         city_filter=None, tag_ids=None):
+    """Fill chart fields declared with `fetch` from the real source. Returns cities touched.
+
+    WHY THESE FIELDS ARE NOT RESEARCHED
+    A chart definition used to declare both an `ask` and a `source_ask`, and the source_ask
+    named the citation to use — e.g. (e.g. "NOAA 1991-2020 Climate Normals"). The model was
+    therefore handed a source and asked to produce numbers consistent with it, which it duly
+    did. Measured against the real normals across 212 city records, stored values were off by
+    a median of 11% (rainfall) to 30% (heavy rain days), with single months wrong by an order
+    of magnitude — Carrollton TX held 12 days above 90F in June against a real 22.4. Worse,
+    humidity_monthly cited a NOAA product that contains no moisture variable at all, so those
+    twelve numbers had no source under any reading. All of it rendered as a crawlable HTML
+    data table (blocks.php:77) naming a specific station, under a "Retrieved <date>" line that
+    was really the build date.
+
+    A retrieved field either comes back from the source or stays empty. There is no estimate
+    and no fallback, and a failure is logged rather than papered over.
+    """
+    try:
+        import noaa_normals
+    except Exception as e:
+        _warn(f'  retrieved-figure provider unavailable, skipping: {e}')
+        return 0
+
+    decls = noaa_normals.chart_fetch_decls((brief.get('niche') or '').strip())
+    if not decls:
+        return 0
+    _log('  Retrieved (not researched): ' + ', '.join(d['data_key'] for d in decls))
+
+    touched = 0
+    for i, city in enumerate(cities):
+        cid, cname = city.get('id', ''), city.get('city', '')
+        if city_filter:
+            hay = f'{cid} {cname} {city.get("city_slug", "")}'.lower()
+            if city_filter.lower() not in hay:
+                continue
+        if tag_ids is not None and cid not in tag_ids:
+            continue
+
+        # Already retrieved, nothing missing, not forced: don't re-hit the API every run.
+        if not force and city.get('noaa_fetched_at') and all(
+                city.get(d['data_key']) not in (None, '', [], {}) for d in decls):
+            continue
+
+        updates, problems = noaa_normals.fetch_city(city, decls)
+        for p in problems:
+            _warn(f'    {p}')
+        if not updates:
+            continue
+        got = [d['data_key'] for d in decls if d['data_key'] in updates]
+        if not dry_run:
+            cities[i] = {**city, **updates}
+        touched += 1
+        _ok(f'  {cname} — {len(got)} figures retrieved from '
+            f'{updates.get("noaa_station")} ({updates.get("noaa_station_miles")} mi)')
+
+    if touched and not dry_run:
+        save_json(paths['cities'], cities)
+        _ok(f'  Saved cities.json ({touched} '
+            f'{"city" if touched == 1 else "cities"} with retrieved figures)')
+    return touched
+
+
 def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=None, force=False):
     """
     For every city in cities.json that lacks research fields, call Claude to fill them.
@@ -1663,6 +1735,10 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
     chart_fields = research_fields(_brief)
     if chart_fields:
         _log('  Extra fields requested: ' + ', '.join(f[0] for f in chart_fields))
+
+    # Retrieved figures first, before the model is asked anything. These fields are not the
+    # model's job, so a city whose AI research is already complete still gets them filled.
+    _apply_chart_fetches(paths, cities, _brief, dry_run, force, city_filter, tag_ids)
 
     for i, city in enumerate(cities):
         city_name = city.get('city', '')

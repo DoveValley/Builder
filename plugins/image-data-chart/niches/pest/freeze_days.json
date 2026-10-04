@@ -21,10 +21,6 @@
   "unit": "days",
   "title": "Days below freezing each month in {city}, {SS}",
   "alt": "Chart of days below freezing per month in {city}, {SS}. {summary}",
-  "research": {
-    "ask": "\"freeze_days_monthly\" — the average number of days per month with a minimum temperature at or below freezing in {city}, as an array of 12 plain numbers, January first",
-    "source_ask": "\"freeze_source\" — the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
-  },
   "captions": [
     "{city}, {SS} sees about {total} at or below freezing, concentrated in {peak}. Sustained cold is the natural brake on insect numbers: it kills exposed adults and drives survivors into wall voids and crawl spaces, which is why rodent and overwintering-insect calls climb as those months arrive.",
     "Freezing days in {city} total roughly {total}, peaking in {peak}. Every hard freeze knocks a population back, and every mild winter lets more of it carry through to spring — the length of the cold is what decides which happens.",
@@ -33,5 +29,9 @@
   "groups": [
     "cold",
     "season"
-  ]
+  ],
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-TMIN-AVGNDS-LSTH032"
+  }
 }
