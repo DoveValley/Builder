@@ -384,8 +384,21 @@ if (empty($seo['og_image'])) {
     if (!empty($slug) && !isset($bcItems)) {   // skip if a caller (e.g. a route plugin) pre-set $bcItems
         $bcItems = [['name' => 'Home', 'url' => '/']];
         if (!empty($seo['bc_mid_label'])) {
-            $midUrlRel = trim($seo['bc_mid_url'] ?? '');
-            $bcItems[] = ['name' => resolve_shortcodes($seo['bc_mid_label']), 'url' => $midUrlRel];
+            // The URL needs resolve_shortcodes() just as much as the label does: seo
+            // fields are NOT token-substituted at build time (a built page still holds
+            // {city_state} in seo_title), so a stored /{parent}-{city_slug} would emit a
+            // literal {city_slug} in the href.
+            $midUrlRel = resolve_shortcodes(trim($seo['bc_mid_url'] ?? ''));
+            // Page Pool may not have built the parent for THIS domain. A BreadcrumbList
+            // intermediate item pointing at a 404 is worse than having no middle rung, so
+            // drop the crumb entirely rather than link to a page that isn't there. Same
+            // guard services_links/plugin.php:102 applies to nav links.
+            $midSlug = $midUrlRel !== '' ? trim((string) parse_url($midUrlRel, PHP_URL_PATH), '/') : '';
+            $midBuilt = $midSlug !== ''
+                && (!function_exists('ms_page_slug_exists') || ms_page_slug_exists($midSlug));
+            if ($midBuilt) {
+                $bcItems[] = ['name' => resolve_shortcodes($seo['bc_mid_label']), 'url' => $midUrlRel];
+            }
         }
         $bcLabel = !empty($seo['bc_label']) ? resolve_shortcodes($seo['bc_label']) : preg_replace('/\s*[|\-–—].*$/', '', $pageTitle);
         $bcItems[] = ['name' => $bcLabel, 'url' => '/' . ltrim($slug, '/')];
