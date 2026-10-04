@@ -44,7 +44,11 @@ DATA = "https://www.ncei.noaa.gov/access/services/data/v1"
 CENSUS = "https://geocoding.geo.census.gov/geocoder/geographies/coordinates"
 UA = {"User-Agent": "site-factory/1.0 (+climate normals retrieval)"}
 
-CACHE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+# Repo-root cache/, not a cache beside this file: the provider moved into the plugin
+# and the cache should not move with it (and /cache/ is what .gitignore covers).
+CACHE_DIR = os.path.join(
+    os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                 "..", "..", "..")), "cache")
 _mem = {"station": {}, "series": {}, "county": {}}
 
 
@@ -217,8 +221,23 @@ def fetch_city(city, decls):
         return {}, [f"{city.get('city', '?')}: no lat/lng, cannot locate a station"]
 
     updates, problems = {}, []
+
+    # Flood history is a county lookup, not a station reading, so it is handled before the
+    # station logic and never contributes to the station choice.
+    for d in [x for x in decls if x.get("provider") == "noaa_storm_events"]:
+        dec, src, extra = flood_decades(lat, lng)
+        if not src:
+            problems.append(f"{city.get('city')}: flood index unavailable or no county")
+            continue
+        updates[d["data_key"]] = dec
+        if d.get("source_key"):
+            updates[d["source_key"]] = src
+        updates.update({k: v for k, v in extra.items() if v is not None})
+
     by_ds = {}
     for d in decls:
+        if d.get("provider") == "noaa_storm_events":
+            continue
         by_ds.setdefault(d.get("dataset") or DS_MONTHLY, []).append(d)
 
     for ds, group in by_ds.items():
@@ -247,6 +266,22 @@ def fetch_city(city, decls):
         updates["noaa_station"] = sid
         updates["noaa_station_miles"] = miles
         updates["noaa_fetched_at"] = datetime.date.today().isoformat()
+
+    # A compare chart's benchmark is a statewide figure, not a station reading, so it comes
+    # from a different product. Declared on the chart beside the city figure it compares to.
+    for d in decls:
+        b = d.get("benchmark") or {}
+        vk = b.get("value_key")
+        if not vk:
+            continue
+        val, src = statewide_annual(city.get("state", ""), b.get("element", "pcp"))
+        if val is None:
+            problems.append(f"{city.get('city')}: no statewide figure for "
+                            f"{city.get('state') or '(no state)'} — benchmark left empty")
+            continue
+        updates[vk] = val
+        if b.get("source_key"):
+            updates[b["source_key"]] = src
     return updates, problems
 
 
@@ -258,27 +293,139 @@ def chart_fetch_decls(niche, root=None):
     for AI-researched metrics.
     """
     import glob, re
-    root = root or os.path.dirname(os.path.abspath(__file__))
+    # niches/ is a SIBLING of providers/ -- this file lives inside the chart plugin, so the
+    # definitions are one level up, not under a repo-root plugins/ path. Getting this wrong
+    # is silent: chart_fetch_decls() simply returns [] and every figure quietly stops being
+    # retrieved, which is the exact failure this whole change exists to remove.
+    root = root or os.path.abspath(os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), ".."))
     slug = re.sub(r"[^a-z0-9]+", "-", (niche or "").strip().lower()).strip("-")
     if not slug:
         return []
     out = []
-    for f in sorted(glob.glob(os.path.join(
-            root, "plugins", "image-data-chart", "niches", slug, "*.json"))):
+    for f in sorted(glob.glob(os.path.join(root, "niches", slug, "*.json"))):
         try:
             with open(f, encoding="utf-8") as fh:
                 cfg = json.load(fh)
         except Exception:
             continue
         fe = cfg.get("fetch")
-        if not isinstance(fe, dict) or not fe.get("data_type"):
+        if not isinstance(fe, dict):
+            continue
+        # storm-events declarations are a county lookup and carry no NOAA data_type
+        if not fe.get("data_type") and fe.get("provider") != "noaa_storm_events":
             continue
         out.append({
             "data_key": (cfg.get("data_key") or "").strip(),
             "source_key": (cfg.get("source_key") or "").strip(),
             "provider": fe.get("provider") or "noaa_normals_monthly",
-            "data_type": fe["data_type"],
+            "data_type": fe.get("data_type", ""),
             "dataset": DS_ANNUAL if fe.get("provider") == "noaa_normals_annual" else DS_MONTHLY,
+            # The benchmark block MUST be carried through. It was omitted here once, so
+            # fetch_city's benchmark branch never fired and compare charts silently kept
+            # their invented statewide figure (Texas showed 34 in against a real 28.6).
+            "benchmark": fe.get("benchmark") or {},
             "chart": os.path.basename(f),
         })
     return out
+
+
+# ---------------------------------------------------------------- statewide figures
+
+# NOAA Climate at a Glance numbers the contiguous states alphabetically 1-48, then Alaska 50
+# and Hawaii 51. Verified against the returned series titles for AL, CA, NY, SC, TX, AK, HI.
+# DC has no statewide series, so it simply has no benchmark rather than a borrowed one.
+_CAG_STATE = {
+    "alabama": 1, "arizona": 2, "arkansas": 3, "california": 4, "colorado": 5,
+    "connecticut": 6, "delaware": 7, "florida": 8, "georgia": 9, "idaho": 10,
+    "illinois": 11, "indiana": 12, "iowa": 13, "kansas": 14, "kentucky": 15,
+    "louisiana": 16, "maine": 17, "maryland": 18, "massachusetts": 19, "michigan": 20,
+    "minnesota": 21, "mississippi": 22, "missouri": 23, "montana": 24, "nebraska": 25,
+    "nevada": 26, "new hampshire": 27, "new jersey": 28, "new mexico": 29, "new york": 30,
+    "north carolina": 31, "north dakota": 32, "ohio": 33, "oklahoma": 34, "oregon": 35,
+    "pennsylvania": 36, "rhode island": 37, "south carolina": 38, "south dakota": 39,
+    "tennessee": 40, "texas": 41, "utah": 42, "vermont": 43, "virginia": 44,
+    "washington": 45, "west virginia": 46, "wisconsin": 47, "wyoming": 48,
+    "alaska": 50, "hawaii": 51,
+}
+CAG = ("https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/statewide/"
+       "time-series/{code}/{el}/12/12/1991-2020.json")
+
+
+def statewide_annual(state_name, element="pcp"):
+    """(value, source) averaged over the published 1991-2020 series, or (None, '').
+
+    Averaging the 30 published annual values is the statewide equivalent of a 1991-2020
+    normal, and it is stated as such in the source string rather than implied.
+    """
+    code = _CAG_STATE.get((state_name or "").strip().lower())
+    if not code:
+        return None, ""
+    key = f"cag|{code}|{element}"
+    c = _cache_load("series")
+    if key in c:
+        v = c[key]
+        return (v[0], v[1]) if v else (None, "")
+    try:
+        d = _get(CAG.format(code=code, el=element))
+        vals = [x["value"] for x in d["data"].values() if x.get("value") is not None]
+        if not vals:
+            raise RuntimeError("no values")
+        val = round(sum(vals) / len(vals), 2)
+        src = (f"NOAA Climate at a Glance, {state_name} statewide "
+               f"{'precipitation' if element == 'pcp' else element}, "
+               f"mean of the published 1991-2020 annual values")
+        out = [val, src]
+    except Exception:
+        out = None
+    c[key] = out
+    _cache_save("series")
+    return (out[0], out[1]) if out else (None, "")
+
+
+# ---------------------------------------------------------------- flood history
+
+_FLOOD = {"loaded": False, "data": None}
+
+
+def _flood_index():
+    if not _FLOOD["loaded"]:
+        _FLOOD["loaded"] = True
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "flood_index.json")
+        try:
+            with open(p, encoding="utf-8") as fh:
+                _FLOOD["data"] = json.load(fh)
+        except Exception:
+            _FLOOD["data"] = None
+    return _FLOOD["data"]
+
+
+def flood_decades(lat, lng):
+    """({decade: events}, source, extras) for the county containing a point.
+
+    Returns ({}, '', {}) when the county has no recorded flood event. That is a real
+    answer, not a gap — and the source string says which period was searched, because
+    Storm Events does not record floods before 1996 and silence earlier is an artefact of
+    the database rather than evidence of no flooding.
+    """
+    idx = _flood_index()
+    if not idx:
+        return {}, "", {}
+    fips, cname = county_fips(lat, lng)
+    if not fips:
+        return {}, "", {}
+    meta = idx.get("meta") or {}
+    rec = (idx.get("counties") or {}).get(fips)
+    src = (f"NOAA Storm Events Database, {cname or 'county'} "
+           f"({meta.get('_coverage', '')}; Flood, Flash Flood and Coastal Flood events)")
+    if not rec:
+        return {}, src, {"flood_county": cname, "flood_county_fips": fips,
+                         "flood_events_total": 0}
+    return rec.get("decades") or {}, src, {
+        "flood_county": rec.get("county") or cname,
+        "flood_county_fips": fips,
+        "flood_events_total": rec.get("total_events"),
+        "flood_years_with_events": rec.get("years_with_events"),
+        "flood_most_recent": rec.get("most_recent"),
+        "flood_first_recorded": rec.get("first"),
+    }

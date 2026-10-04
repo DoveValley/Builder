@@ -21,10 +21,6 @@
   "unit": "days",
   "title": "Days with an inch or more of rain in {city}, {SS}",
   "alt": "Chart of days per month with at least one inch of rainfall in {city}, {SS}. {summary}",
-  "research": {
-    "ask": "\"heavy_rain_days_monthly\" — the average number of days per month with precipitation of 1.0 inch or more in {city}, as an array of 12 plain numbers, January first",
-    "source_ask": "\"heavy_rain_days_source\" — the source of those precipitation figures"
-  },
   "captions": [
     "{city} averages about {total} a year with an inch or more of rain, most often in {peak}. Downpours, not annual totals, are what overwhelm gutters and drainage.",
     "Roughly {total} of heavy rain fall on {city}, {SS} each year, peaking in {peak}. A single inch in a day finds every weakness in a roof or foundation.",
@@ -33,5 +29,9 @@
   "groups": [
     "envelope",
     "flood"
-  ]
+  ],
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-PRCP-AVGNDS-GE100HI"
+  }
 }

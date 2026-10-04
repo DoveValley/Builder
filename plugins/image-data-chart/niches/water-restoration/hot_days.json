@@ -21,10 +21,6 @@
   "unit": "days",
   "title": "Days above 90°F each month in {city}, {SS}",
   "alt": "Chart of days above 90 degrees Fahrenheit per month in {city}, {SS}. {summary}",
-  "research": {
-    "ask": "\"hot_days_monthly\" — the average number of days per month with a maximum temperature at or above 90°F in {city}, as an array of 12 plain numbers, January first",
-    "source_ask": "\"hot_days_source\" — the source of those temperature figures"
-  },
   "captions": [
     "{city} sees roughly {total} above 90°F a year, peaking in {peak}. Heat accelerates mould growth once moisture is present, and it is when AC condensate lines back up.",
     "Summer in {city}, {SS} brings about {total} over 90°F, most of them in {peak}. Warm, damp conditions turn a small leak into a mould problem quickly.",
@@ -32,5 +28,9 @@
   ],
   "groups": [
     "seasonal"
-  ]
+  ],
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-TMAX-AVGNDS-GRTH090"
+  }
 }

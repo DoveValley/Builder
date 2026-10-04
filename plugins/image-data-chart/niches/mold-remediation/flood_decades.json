@@ -1,0 +1,23 @@
+{
+  "id": "flood_decades",
+  "name": "Recorded flood events by decade",
+  "type": "bars",
+  "data_key": "flood_events_by_decade",
+  "source_key": "flood_events_source",
+  "unit": "events",
+  "title": "Recorded flood events by decade in {city}, {SS}",
+  "alt": "Chart of flood events recorded by decade in the county containing {city}, {SS}. {summary}",
+  "fetch": {
+    "provider": "noaa_storm_events",
+    "note": "County lookup against plugins/image-data-chart/providers/flood_index.json, built from the Storm Events bulk archive. Any Flood, Flash Flood or Coastal Flood event counts."
+  },
+  "captions": [
+    "The county containing {city} has {total} flood events on record, most of them in the {peak} at {peak_value}. These are National Weather Service records of flood, flash flood and coastal flood events, not insurance claims — so they show how often water has actually arrived somewhere in the county.",
+    "{city}, {SS} sits in a county with {total} recorded flood events, peaking in the {peak}. Flood history is the clearest guide to what a property should be prepared for, and it is a matter of public record rather than opinion.",
+    "Flood events in this county total {total} on record, most frequent in the {peak}. Worth reading as frequency rather than severity: the record counts every logged flood, flash flood and coastal flood, whatever the damage."
+  ],
+  "groups": [
+    "intrusion",
+    "whyhere"
+  ]
+}

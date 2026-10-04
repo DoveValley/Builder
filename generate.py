@@ -1663,8 +1663,18 @@ def _apply_chart_fetches(paths, cities, brief, dry_run=False, force=False,
     A retrieved field either comes back from the source or stays empty. There is no estimate
     and no fallback, and a failure is logged rather than papered over.
     """
+    # Loaded by path, not by name: the provider lives inside the plugin that declares
+    # the fetches (plugins/image-data-chart/providers/), so the plugin stays the whole
+    # unit — delete the folder and both the declarations and the fetcher go with it.
+    # Repo root is not a package root for plugin code, and a plugin should not have to be
+    # on sys.path to work.
+    import importlib.util
+    _pp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'plugins',
+                       'image-data-chart', 'providers', 'noaa_normals.py')
     try:
-        import noaa_normals
+        _spec = importlib.util.spec_from_file_location('ms_noaa_normals', _pp)
+        noaa_normals = importlib.util.module_from_spec(_spec)
+        _spec.loader.exec_module(noaa_normals)
     except Exception as e:
         _warn(f'  retrieved-figure provider unavailable, skipping: {e}')
         return 0

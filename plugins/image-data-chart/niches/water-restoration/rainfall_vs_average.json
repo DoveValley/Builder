@@ -19,10 +19,6 @@
   "unit": "in",
   "title": "Annual rainfall: {city} vs average",
   "alt": "Chart comparing annual rainfall in {city}, {SS} with state and national averages. {summary}",
-  "research": {
-    "ask": "\"rainfall_annual\" — the average ANNUAL precipitation for {city} in inches, as a plain number (e.g. 48.4); and \"rainfall_state_avg\" — the average ANNUAL precipitation for the STATE of {state} as a whole, in inches, as a plain number, so the city can be compared against it",
-    "source_ask": "\"rainfall_source\" — the source of that rainfall figure (e.g. \"NOAA 1991-2020 normals\")"
-  },
   "captions": [
     "{city}, {SS} sees {self_value} of rain a year, against {benchmark_value} for the state as a whole. {difference}",
     "Rainfall in {city}, {SS} runs to {self_value} a year. {difference} More rain means more chances for water to find a way in.",
@@ -31,5 +27,15 @@
   ],
   "groups": [
     "flood"
-  ]
+  ],
+  "fetch": {
+    "provider": "noaa_normals_annual",
+    "data_type": "ANN-PRCP-NORMAL",
+    "benchmark": {
+      "provider": "noaa_cag_statewide",
+      "value_key": "rainfall_state_avg",
+      "element": "pcp",
+      "source_key": "rainfall_state_avg_source"
+    }
+  }
 }

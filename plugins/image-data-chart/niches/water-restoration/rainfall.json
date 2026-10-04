@@ -21,10 +21,6 @@
   "unit": "in",
   "title": "Average monthly rainfall in {city}, {SS}",
   "alt": "Chart of average monthly rainfall in {city}, {SS}, in inches. {summary}",
-  "research": {
-    "ask": "\"rainfall_monthly\" — average precipitation for {city} for each of the 12 months, as an array of 12 plain numbers in inches, January first",
-    "source_ask": "\"rainfall_source\" — the source of those monthly figures"
-  },
   "captions": [
     "{city} averages {total} of rain a year, with {peak} the wettest month at {peak_value}. Sustained wet stretches are when slow leaks and saturated ground turn into interior damage.",
     "Rainfall in {city}, {SS} peaks in {peak} at {peak_value} and eases to {low_value} in {low}. Knowing the wet months is half of staying ahead of water damage.",
@@ -35,5 +31,9 @@
     "envelope",
     "seasonal",
     "structure"
-  ]
+  ],
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-PRCP-NORMAL"
+  }
 }
