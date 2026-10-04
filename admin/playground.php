@@ -111,6 +111,7 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
     <a href="#share-claude" style="color:#93c5fd;font-weight:700;">📎 Share with Claude</a>
     <a href="#downloads-scott" style="color:#fcd34d;font-weight:700;">⬇ Downloads for Scott</a>
     <a href="#keyword-lists" style="color:#86efac;font-weight:700;">🔑 Keyword lists</a>
+    <a href="#bulk-rows" style="color:#f9a8d4;font-weight:700;">&#128203; Bulk template rows</a>
     <a href="#water-icons" style="color:#7dd3fc;font-weight:700;">💧 Water icons</a>
     <a class="back" href="#ai-image-examples" style="color:#fd783b;">↓ AI image examples</a>
     <a class="back" href="#preset-check" style="color:#fd783b;">↓ Theme Preset check</a>
@@ -361,6 +362,85 @@ code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.82em}
                 var pre = btn.closest('div').parentElement.querySelector('.kw-body');
                 navigator.clipboard.writeText(pre.textContent).then(function(){
                     var t = btn.textContent; btn.textContent = '✓ Copied'; setTimeout(function(){ btn.textContent = t; }, 1400);
+                });
+            });
+        });
+        </script>
+    </section>
+
+    <!--
+        Bulk template rows — paste-ready input for the Landing Templates tab's bulk
+        generate. Lives here so the exact strings are copyable rather than retyped:
+        the field order is service|slug|keyword|find=repl;…|hero|intro|local|title,
+        and a mistyped blank is not harmless (see the warnings in each card).
+    -->
+    <section id="bulk-rows" style="margin-bottom:40px;padding-bottom:32px;border-bottom:2px solid #e5e7eb;">
+        <h1>Bulk template rows <span class="pill">paste into Landing Templates</span></h1>
+        <p class="sub">Each block below is one run of <strong>bulk generate</strong> on the Landing Templates tab. Switch the panel to the right site first, pick the stated <strong>base template</strong>, tick <strong>AI rewrite</strong>, paste, and press once.</p>
+        <?php
+        // service|slug|keyword|find=repl;…|hero|intro|local|title
+        // Blank keyword  -> defaults to the service name (matches existing convention).
+        // Blank hero     -> inherits the base template's hero image.
+        // Blank local    -> REQUIRED here; that slot holds {chart_group_moisture}.
+        $bulkRounds = [
+            [
+                'site'  => 'mold',
+                'title' => 'Mold &mdash; round 1: seven location pages',
+                'base'  => 'Basement Mold Removal',
+                'why'   => 'Grows the mold pool from 12 eligible pages to 20. At 12 eligible against a top count of 12, every domain landing on 12 built the whole pool and got an identical page set.',
+                'rows'  => "Bathroom Mold Removal|bathroom-mold-removal||basement=bathroom\n"
+                         . "Ceiling Mold Removal|ceiling-mold-removal||basement=ceiling\n"
+                         . "Drywall Mold Removal|drywall-mold-removal||basement=drywall\n"
+                         . "Air Duct Mold Removal|air-duct-mold-removal||basement=air duct\n"
+                         . "Kitchen Mold Removal|kitchen-mold-removal||basement=kitchen\n"
+                         . "Carpet Mold Removal|carpet-mold-removal||basement=carpet\n"
+                         . "Garage Mold Removal|garage-mold-removal||basement=garage",
+            ],
+            [
+                'site'  => 'mold',
+                'title' => 'Mold &mdash; round 2: the inspection page',
+                'base'  => 'Mold Inspection',
+                'why'   => 'Separate run because the base differs: an inspection page cloned from a removal page would be about removing mold rather than inspecting for it. No find/replace pair &mdash; a real-estate mold inspection IS a mold inspection, so there is no base subject to swap out.',
+                'rows'  => "Real Estate Mold Inspection|real-estate-mold-inspection||",
+            ],
+        ];
+        foreach ($bulkRounds as $i => $r):
+            $lines = count(array_filter(explode("\n", $r['rows']), fn($l) => trim($l) !== ''));
+        ?>
+        <div style="max-width:860px;margin-bottom:22px;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
+                <strong style="color:#1e3a5f;"><?= $r['title'] ?></strong>
+                <span class="note" style="margin-left:auto;"><?= $lines ?> row<?= $lines === 1 ? '' : 's' ?></span>
+                <button type="button" class="br-copy" style="background:#1e3a5f;color:#fff;border:0;border-radius:6px;padding:6px 14px;font-weight:600;cursor:pointer;">Copy</button>
+            </div>
+            <p class="note" style="margin:0 0 10px;">
+                Site: <strong><?= $h($r['site']) ?></strong> &middot;
+                Base template: <strong><?= $h($r['base']) ?></strong> &middot;
+                AI rewrite: <strong>on</strong>
+            </p>
+            <pre class="br-body" style="white-space:pre;overflow-x:auto;font-family:monospace;font-size:.82rem;color:#334155;background:#f8fafc;border:1px solid #eef2f7;border-radius:8px;padding:14px;margin:0 0 10px;"><?= $h($r['rows']) ?></pre>
+            <p class="note" style="margin:0;"><?= $r['why'] ?></p>
+        </div>
+        <?php endforeach; ?>
+        <div style="max-width:860px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 16px;">
+            <strong style="color:#92400e;">Two things to get right</strong>
+            <p class="note" style="margin:6px 0 0;">
+                <strong>Press generate once per run.</strong> On an id collision the generator quietly appends <code>_2</code> rather than failing, which is how a niche ends up with two copies of one template. If it looks like nothing happened, check before pressing again.<br>
+                <strong>Leave the blank fields blank.</strong> The empty <code>||</code> and trailing <code>|</code> mean &ldquo;use the default&rdquo;. The last image field is the one to be careful with: on these templates that slot holds <code>{chart_group_moisture}</code>, and anything typed there replaces the moisture chart with a photo on every page in the run.
+            </p>
+        </div>
+        <script>
+        document.querySelectorAll('#bulk-rows .br-copy').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                // Query within the card, not via parentElement hops — the markup
+                // around these blocks changes more often than the card boundary does.
+                var card = btn.closest('div').parentElement;
+                var pre = card.querySelector('.br-body');
+                if (!pre) return;
+                navigator.clipboard.writeText(pre.textContent).then(function () {
+                    var t = btn.textContent;
+                    btn.textContent = '✓ Copied';
+                    setTimeout(function () { btn.textContent = t; }, 1400);
                 });
             });
         });
