@@ -189,8 +189,14 @@ function mold_materials_render(array $attrs = []): string {
     }
     $bandKeys = array_keys($r['bands']);
 
-    $h = mold_materials_css();
-    $h .= '<div class="content-block block-mold-materials"><div class="container mm-wrap">';
+    // The content-block div MUST be the first thing in the string. blocks.php:788 only
+    // takes the raw path (skipping the custom_html wrapper, and injecting our anchor id)
+    // when the HTML *starts* with a content-block div. A leading <style> broke that match,
+    // so this block got nested inside .content-block -- which is `display:flex; gap:40px`
+    // (style.src.css:202), making us a flex ITEM instead of a full-width section.
+    $h  = '<div class="content-block block-mold-materials">';
+    $h .= mold_materials_css();
+    $h .= '<div class="container mm-wrap">';
     $h .= '<h2>' . h('What gets cleaned, and what comes out') . '</h2>';
     if ($intro !== '') $h .= '<p>' . h(resolve_shortcodes($intro)) . '</p>';
 

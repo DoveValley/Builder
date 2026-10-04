@@ -52,7 +52,7 @@
     "wood":            { "label": "Wood surfaces", "methods": { "small": [1, 2, 3], "medium": [1, 2, 3], "large": [1, 2, 3, 4] }, "source": "epa_t2" },
     "books_papers":    { "label": "Books and papers", "methods": { "small": [3], "medium": [3], "large": [3] }, "source": "epa_t2" },
 
-    "insulation":      { "label": "Fibreglass or other insulation", "verbatim": "Fiber glass, or any other insulation material that is wet or visibly moldy (or if an unacceptable odor is present) should be removed and replaced by a qualified heating and cooling system contractor.", "source": "epa_duct", "context": "EPA states this in its heating-and-cooling guidance; quoted here as written." },
+    "insulation":      { "label": "Fiberglass or other insulation", "verbatim": "Fiber glass, or any other insulation material that is wet or visibly moldy (or if an unacceptable odor is present) should be removed and replaced by a qualified heating and cooling system contractor.", "source": "epa_duct", "context": "EPA states this in its heating-and-cooling guidance; quoted here as written." },
     "duct_insulation": { "label": "Insulated air ducts", "verbatim": "If you have insulated air ducts and the insulation gets wet or moldy it cannot be effectively cleaned and should be removed and replaced.", "source": "epa_duct" },
     "duct_metal":      { "label": "Hard-surface (sheet metal) ducts", "verbatim": "There is substantial visible mold growth inside hard surface (e.g., sheet metal) ducts or on other components of your heating and cooling system.", "source": "epa_duct", "context": "EPA lists this as a condition under which duct cleaning is recommended." },
     "ceiling_tile":    { "label": "Ceiling tiles", "verbatim": "You should throw away materials that soak up a lot of water, such as drywall, carpets and ceiling tiles.", "source": "epa_flood_pdf" }
@@ -137,7 +137,7 @@
     },
     "crawl-space": {
       "label": "crawl space",
-      "note": "A missing or torn vapour barrier lets ground moisture into the framing continuously, so the lasting fix is the barrier and the drainage rather than the cleaning. Joists and subfloor are wood and are usually salvageable even at large areas. The batt insulation between them is not — and pulling it is often how the real extent of the problem first becomes visible.",
+      "note": "A missing or torn vapor barrier lets ground moisture into the framing continuously, so the lasting fix is the barrier and the drainage rather than the cleaning. Joists and subfloor are wood and are usually salvageable even at large areas. The batt insulation between them is not — and pulling it is often how the real extent of the problem first becomes visible.",
       "rows": [
         ["wood", "floor joists, subfloor, beams and piers"],
         ["insulation", "batt insulation between the joists"],
@@ -175,7 +175,7 @@
     },
     "mold-removal": {
       "label": "home",
-      "note": "What gets saved depends less on how the mold looks than on what the material is and how long it stayed wet — which is why two rooms with identical staining can need very different work. EPA's own framing is two-dimensional: the material on one axis, the size of the affected area on the other. Nothing in it turns on colour or species.",
+      "note": "What gets saved depends less on how the mold looks than on what the material is and how long it stayed wet — which is why two rooms with identical staining can need very different work. EPA's own framing is two-dimensional: the material on one axis, the size of the affected area on the other. Nothing in it turns on color or species.",
       "rows": [
         ["wallboard", "drywall and plasterboard"],
         ["wood", "framing, subfloor and trim"],
@@ -199,7 +199,7 @@
     },
     "black-mold-removal": {
       "label": "home",
-      "note": "EPA's guidance does not change with the colour of the growth. What decides whether something is cleaned or removed is the material and the size of the affected area — the same two axes as any other mold. Treating a dark growth as automatically more serious usually just means paying to remove material the EPA's own table says could have been cleaned.",
+      "note": "EPA's guidance does not change with the color of the growth. What decides whether something is cleaned or removed is the material and the size of the affected area — the same two axes as any other mold. Treating a dark growth as automatically more serious usually just means paying to remove material the EPA's own table says could have been cleaned.",
       "rows": [
         ["wallboard", "drywall and plasterboard"],
         ["wood", "framing, subfloor and trim"],
