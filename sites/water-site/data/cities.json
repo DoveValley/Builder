@@ -7048,7 +7048,7 @@
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified",
     "_research_declined": {
-      "flood_years": 1
+      "flood_years": 2
     }
   },
   {
@@ -16977,8 +16977,13 @@
       "Deerfield Towne Center area"
     ],
     "population": 34850,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1997,
+      2004,
+      2008,
+      2018
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       24,
       19,
@@ -18292,7 +18297,7 @@
     "_researched": 1,
     "neighborhoods_source": "verified",
     "_research_declined": {
-      "flood_years": 1
+      "flood_years": 2
     }
   },
   {
@@ -20218,7 +20223,9 @@
       "Downtown Festus",
       "Westfield",
       "Festus City Park area",
-      "Mill Street District"
+      "Mill Street District",
+      "Joachim Creek area",
+      "Festus Industrial Park"
     ],
     "population": 12282,
     "flood_years": [
@@ -27337,8 +27344,13 @@
       "South Side"
     ],
     "population": 38049,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1913,
+      2003,
+      2011,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       26,
       23,
@@ -27826,7 +27838,9 @@
     "neighborhoods": [
       "Downtown Molalla",
       "Heron Pointe",
-      "Molalla Avenue District"
+      "Molalla Avenue District",
+      "Clearwater Estates",
+      "Rolling Hills Estates"
     ],
     "population": 10140,
     "flood_years": [
@@ -32173,7 +32187,10 @@
     ],
     "market_blurb": "Newman, California sits in Stanislaus County's agricultural heartland, with an economy built on dairy farming, food processing, and crop production. Large agribusiness operations and nearby processing plants like Hilmar Cheese Company support much of the local workforce. The city retains a small-town, farm-service character within the broader Modesto-Merced agricultural corridor.",
     "local_note": "Most homes in Newman are built on concrete slab foundations, typical of California's Central Valley. The dominant water-damage risk is heavy seasonal winter rain combined with occasional atmospheric river storms that can cause localized flooding near the San Joaquin River and area irrigation canals.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Downtown Newman",
+      "West Side Newman"
+    ],
     "population": 11500,
     "flood_years": [
       1997,
@@ -32299,7 +32316,7 @@
     "_researched": 1,
     "neighborhoods_source": "verified",
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     }
   },
   {
