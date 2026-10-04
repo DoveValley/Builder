@@ -128,3 +128,6 @@ sites/*/_originals/*
 # Google Fonts file-preload cache (includes/helpers.php gf_preload_urls()) —
 # regenerable lookup of font URLs, not meaningful to version.
 data/gf_preload_cache.json
+
+# NOAA/Census retrieval cache (noaa_normals.py) — re-fetchable, never source of truth
+/cache/
