@@ -397,7 +397,14 @@ function ms_step_readiness(string $masterId, string $batchId): array {
     $cached     = count(glob($masterDir . '/cache/*.json') ?: []);
     $research   = !empty($brief['uses_research_fields']);
     $cities     = $readJson($siteDir . '/data/cities.json');
-    $researched = count(array_filter($cities, fn($c) => !empty($c['neighborhoods']) || !empty($c['population'])));
+    // AND, not OR. Every city has a population, so an OR here reported "206 of 206"
+    // while 33 had no neighbourhoods at all — directly above the Generate button, which
+    // is the worst possible place for a number that flatters. A city counts as
+    // researched only with BOTH: neighborhoods is the field most likely to be missing
+    // (it depends on an external verification pass that can fail) and the most valuable
+    // when present, since without it every block falls back to generic copy.
+    // "Check completeness" in the Research cities card gives the per-field breakdown.
+    $researched = count(array_filter($cities, fn($c) => !empty($c['neighborhoods']) && !empty($c['population'])));
     $aiItems = [
         ms_item('API key',    'Without it this whole step is skipped', $hasKey ? 'configured' : 'missing', $hasKey ? MS_STEP_OK : MS_STEP_OFF),
         ms_item('niche brief','Vocabulary, tone and guardrails', $brief ? 'set' : 'missing', $brief ? MS_STEP_OK : MS_STEP_WARN),
@@ -405,7 +412,11 @@ function ms_step_readiness(string $masterId, string $batchId): array {
                 $blockTypes . ' types', $blockTypes > 0 ? MS_STEP_OK : MS_STEP_WARN),
         ms_item('city research', 'Real local facts, looked up once and reused free',
                 $research ? ($researched . ' of ' . count($cities) . ' cities') : 'not used by this niche',
-                $research ? ($researched > 0 ? MS_STEP_OK : MS_STEP_WARN) : MS_STEP_OFF),
+                // Green only when every city is complete. This was OK whenever
+                // researched > 0, so 1 of 206 showed green.
+                $research
+                    ? ($researched === count($cities) && $researched > 0 ? MS_STEP_OK : MS_STEP_WARN)
+                    : MS_STEP_OFF),
         ms_item('cache',      'Copy already written, reused instead of re-billed',
                 $cached . ' site' . ($cached === 1 ? '' : 's'), $cached > 0 ? MS_STEP_OK : MS_STEP_OFF),
     ];
