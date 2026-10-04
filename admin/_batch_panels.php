@@ -297,6 +297,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-dry" style="width:auto;"> Dry run (preview only, no API)</label>
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-force" style="width:auto;"> Force (re-research every city, ignore what's already on file)</label>
                 <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch()">Research cities</button>
+                <span id="ms-research-state" class="ms-state" style="font-size:.82rem;font-weight:600;margin-left:8px;color:#94a3b8;"></span>
             </div>
             <!-- Interruption note. A 91-city pass is ~70 min of sequential API calls, so
                  "what happens if this dies halfway" is the first thing anyone asks. Kept
@@ -991,7 +992,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </label>
         <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI, no research refresh)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
-        <button type="button" class="btn" id="ms-rr-btn" onclick="msResearchReport()" style="background:#1e3a5f;color:#fff;" title="Free and instant. Reads what is already on file and writes nothing.">Check research</button>
+        <button type="button" class="btn" id="ms-rr-btn" onclick="msResearchReport()" style="background:#1e3a5f;color:#fff;" title="Free and instant. Reads what is already on file and writes nothing.">Check completeness</button>
+        <span id="ms-rr-state" class="ms-state" style="font-size:.82rem;font-weight:600;margin-left:8px;color:#94a3b8;"></span>
     </div>
     <!-- Lives HERE, beside Generate, not in the collapsed Research cities card: this
          is where the build decision is made, and a check you have to go looking for
@@ -1799,6 +1801,9 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                     if (msResearchTimer) clearInterval(msResearchTimer);
                     msResearchSetDisabled(false);
                     out.textContent += (d.exit === 0 ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + d.exit + '.');
+                    msSetState('ms-research-state',
+                               d.exit === 0 ? 'done' : 'failed (exit ' + d.exit + ')',
+                               d.exit === 0 ? 'ok' : 'bad');
                 }
             })
             .catch(() => {
@@ -1810,6 +1815,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 msResearchSetDisabled(false);
                 var out = document.getElementById('ms-research-out');
                 if (out) out.textContent += '\n\n✗ Lost contact with the server — the job may still be running; reload to check.';
+                msSetState('ms-research-state', 'lost contact', 'bad');
             });
     }
     function msResearchSetDisabled(disabled) {
@@ -1817,6 +1823,18 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         document.getElementById('ms-research-force').disabled = disabled;
         document.getElementById('ms-research-btn').disabled = disabled;
     }
+    // Shared state badge for the two research buttons. Neither said anything about
+    // itself: the detached research job's only feedback was an output box that
+    // block-buffers and so can look dead for minutes, and the completeness check
+    // returned in a second with nothing to mark that it had.
+    function msSetState(id, text, kind) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var colour = kind === 'ok' ? '#166534' : (kind === 'bad' ? '#991b1b' : '#2563eb');
+        el.style.color = colour;
+        el.textContent = text;
+    }
+
     // Read-only completeness check. generate.py strips ANSI when stdout is not a TTY
     // (see _c()), so the text arrives plain and the have/total cells are coloured here:
     // green only when every city has the field, red for anything short, so an 8-of-10
@@ -1827,11 +1845,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         out.style.display = 'block';
         out.textContent = 'Checking…';
         btn.disabled = true;
+        msSetState('ms-rr-state', 'working…', 'busy');
         fetch('multisite_api.php?action=research_report')
             .then(function (r) { return r.json(); })
             .then(function (j) {
                 btn.disabled = false;
-                if (j.error) { out.textContent = 'Error: ' + j.error; return; }
+                if (j.error) {
+                    out.textContent = 'Error: ' + j.error;
+                    msSetState('ms-rr-state', 'failed', 'bad');
+                    return;
+                }
+                msSetState('ms-rr-state', 'done', 'ok');
                 var esc = (j.output || '(no output)')
                     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
                 out.innerHTML = esc.replace(/(\d+)\/(\d+)/g, function (m, have, tot) {
@@ -1839,7 +1863,11 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                     return '<span style="color:' + c + ';font-weight:700;">' + m + '</span>';
                 });
             })
-            .catch(function (e) { btn.disabled = false; out.textContent = 'Failed: ' + e; });
+            .catch(function (e) {
+                btn.disabled = false;
+                out.textContent = 'Failed: ' + e;
+                msSetState('ms-rr-state', 'failed', 'bad');
+            });
     };
 
     window.msResearch = function () {
@@ -1859,6 +1887,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         msResearchSetDisabled(true);
         out.style.display = 'block';
         out.textContent = 'Starting ' + (dry ? 'dry run' : 'research') + (force ? ' (forced)' : '') + '…';
+        msSetState('ms-research-state', 'working…', 'busy');
         fetch('multisite_api.php?action=research', { method: 'POST', body: fd })
             .then(r => r.json())
             .then(d => {
