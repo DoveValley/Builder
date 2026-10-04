@@ -36,6 +36,11 @@
         "data_key": "growing_degree_days",
         "data_type": "ANN-GRDD-BASE50",
         "note": "Degree-day accumulation base 50F — the measure insect development tracks."
+      },
+      {
+        "data_key": "nights_below_50",
+        "data_type": "ANN-TMIN-AVGNDS-LSTH050",
+        "note": "Nights a year at or below 50F — the threshold MSU Extension names for mosquito activity."
       }
     ]
   },

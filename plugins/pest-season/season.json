@@ -2,7 +2,6 @@
   "_about": "Per-pest seasonal activity, each a VERBATIM quote from a named public source with a working URL, paired with that city's own retrieved NOAA figures. Same rule as mold-materials: no source, no entry. A pest with no citable statement gets NO block at all — a freeze window on a bed bug page would be filler, and bed bugs have no season.",
   "_why_both_halves": "The quote alone is national and adds nothing Google cannot get from CDC or the extension service directly. The local figures alone are climate, not pest. It is the pairing that is new: published biology set against this city's own measured climate, both cited. That is the information gain.",
   "_not_included": {
-    "mosquito-control": "NO SOURCE. The universally repeated '50F and mosquitoes go dormant' traces only to a 1970s CDC handbook PDF, not any current CDC or extension page; searches of both returned academic papers and patents instead. By the rule that disqualified the mold flood PDF, it does not ship.",
     "others": "ant, carpenter ant, flea, wasp, bee, spider, cricket, silverfish, rodent — not yet attempted. Adding one is a JSON entry, no code."
   },
   "sources": {
@@ -30,6 +29,11 @@
       "label": "Penn State Extension — Eastern Subterranean Termites",
       "short": "Penn State Extension",
       "url": "https://extension.psu.edu/eastern-subterranean-termites"
+    },
+    "msu_mosq": {
+      "label": "Mississippi State University Extension — Tips to Reduce Mosquitos",
+      "short": "MSU Extension",
+      "url": "https://extension.msstate.edu/blogs/extension-for-real-life/tips-reduce-mosquitos"
     }
   },
   "pests": {
@@ -40,7 +44,25 @@
       "also": [],
       "source": "cdc_ticks",
       "context": "Note the second half of that sentence: the April-to-September window is when most activity happens, not a season outside which ticks are absent.",
-      "local": "In {city} the frost-free stretch — the span between the average last spring freeze and the average first autumn freeze — runs from {freeze_last_spring} to {freeze_first_fall}, about {frost_free_days} days.",
+      "local": [
+        {
+          "when": {
+            "field": "frost_free_days",
+            "lt": 180
+          },
+          "text": "In {city} the frost-free stretch is a relatively short {frost_free_days} days, from {freeze_last_spring} to {freeze_first_fall} — but CDC's year-round caveat is why that is a guide to peak activity rather than a safe window."
+        },
+        {
+          "when": {
+            "field": "frost_free_days",
+            "gt": 250
+          },
+          "text": "In {city} the frost-free stretch runs a long {frost_free_days} days, from {freeze_last_spring} all the way to {freeze_first_fall}, so the warmer months CDC describes cover most of the year here."
+        },
+        {
+          "text": "In {city} the frost-free stretch — the span between the average last spring freeze and the average first autumn freeze — runs from {freeze_last_spring} to {freeze_first_fall}, about {frost_free_days} days."
+        }
+      ],
       "local_source_field": "frost_free_source",
       "needs": [
         "freeze_last_spring",
@@ -102,6 +124,42 @@
         "freeze_first_fall",
         "frost_free_days"
       ]
+    },
+    "mosquito-control": {
+      "label": "mosquito",
+      "heading": "When is mosquito season in {city}, {SS}?",
+      "verbatim": "These insects are most active when the temperatures are above 50°F, meaning they're here in the South for a good chunk of the year.",
+      "also": [],
+      "source": "msu_mosq",
+      "context": "The 50°F line is the transferable part, and because it is a temperature rather than a date it can be read against the figures below instead of against a calendar written for somewhere else. The second half of that sentence is Mississippi-specific, which is precisely why the local numbers belong next to it.",
+      "local": [
+        {
+          "when": {
+            "field": "nights_below_50",
+            "gt": 140
+          },
+          "text": "{city} spends {nights_below_50} nights a year at or below that 50°F mark — well over a third of the calendar — so the active stretch here is bracketed at both ends, between roughly {freeze_last_spring} and {freeze_first_fall}."
+        },
+        {
+          "when": {
+            "field": "nights_below_50",
+            "lt": 60
+          },
+          "text": "{city} drops to or below 50°F on only {nights_below_50} nights a year, so the temperature clears that mark for most of the calendar and the frost-free stretch runs a long {frost_free_days} days."
+        },
+        {
+          "text": "{city} records {nights_below_50} nights a year at or below 50°F, with a frost-free stretch from {freeze_last_spring} to {freeze_first_fall} — about {frost_free_days} days."
+        }
+      ],
+      "local_source_field": "frost_free_source"
+    },
+    "termite-inspection": {
+      "alias_of": "termite-treatment",
+      "heading": "What time of year does termite activity show in {city}, {SS}?"
+    },
+    "wdi-inspection": {
+      "alias_of": "termite-treatment",
+      "heading": "When are termites active in {city}, {SS}?"
     }
   },
   "intros": [
@@ -113,6 +171,9 @@
     "tick-treatment": "CDC's sentence carries its own year-round caveat, so it is quoted whole. Trimming it to 'April-September' would make it say something CDC deliberately does not say.",
     "fire-ant-control": "The strongest entry in this file, because it is a temperature threshold rather than a calendar and therefore pairs directly with the city's own measured temperatures instead of restating a generic season.",
     "stink-bug-control": "Two separate quotes from one source, giving both ends of the cycle. Both sit either side of this city's own freeze dates, which is what makes the local figures worth printing beside them.",
-    "termite-treatment": "No species-to-region map was obtainable from a source passing our own test: UGA C868 is Georgia-specific on distribution and LSU AgCenter, the actual authority, serves an unverifiable certificate. So the entry leads with the day/night and light-attraction contrast, which is geography-independent and more actionable than a month range, and quotes BOTH a Georgia and a Pennsylvania window — each against its own source — to show the months are regional rather than implying one applies everywhere."
-  }
+    "termite-treatment": "No species-to-region map was obtainable from a source passing our own test: UGA C868 is Georgia-specific on distribution and LSU AgCenter, the actual authority, serves an unverifiable certificate. So the entry leads with the day/night and light-attraction contrast, which is geography-independent and more actionable than a month range, and quotes BOTH a Georgia and a Pennsylvania window — each against its own source — to show the months are regional rather than implying one applies everywhere.",
+    "mosquito-control": "Third attempt. CDC's current pages carry no temperature threshold and the ubiquitous 'below 50F they go dormant' traces only to a 1970s CDC handbook PDF; two rounds of extension searches returned academic papers and patents. MSU Extension states it in HTML, so that is the citation, quoted whole including 'here in the South'.",
+    "termite-inspection": "alias_of termite-treatment. Both inspection pages are about finding termites, so the swarm-behaviour cues apply unchanged; only the heading differs."
+  },
+  "_per_city": "`local` may be a list of {when, text} variants tested against the city's own retrieved figures. The quote is identical fleet-wide by necessity; the sentence around it is not. This is variation because the data differs, not variation for its own sake."
 }

@@ -118,6 +118,7 @@ function pest_season_local(string $tpl, array $city): string {
         '{hot_days_peak_month}'   => (string) ($hotMonth ?? ''),
         '{hot_days_year}'         => pest_season_num($hotYear),
         '{freeze_days_year}'      => pest_season_num($freezeYear),
+        '{nights_below_50}'       => pest_season_num($city['nights_below_50'] ?? null),
     ];
     $out = strtr($tpl, $map);
     // any token still unresolved, or resolved to nothing, voids the sentence
@@ -156,6 +157,40 @@ function pest_season_also($also, array $sources, ?array $default): array {
     return $out;
 }
 
+/**
+ * Choose the local sentence this city's own figures justify.
+ *
+ * A quote must read identically on every site — that is what makes it a quote. The sentence
+ * around it need not. `local` may be a plain string, or a list of {when, text} variants tested
+ * in order against the city's retrieved figures, first match winning, with an unconditional
+ * variant last as the fallback.
+ *
+ * This is variation BECAUSE THE DATA DIFFERS, not variation for its own sake: Littleton has
+ * 147 nights at or below 50F and Carrollton 24, which are different facts and warrant
+ * different sentences. Every variant is still arithmetic on a retrieved figure — never a claim
+ * about pest behaviour the cited source does not make.
+ *
+ * A variant whose `when` field is missing or non-numeric is SKIPPED rather than treated as
+ * matching, so a city lacking that figure falls through to one it can actually satisfy.
+ */
+function pest_season_pick_local($local, array $city): string {
+    if (is_string($local)) return pest_season_local($local, $city);
+    foreach ((array) $local as $v) {
+        if (!is_array($v) || trim((string) ($v['text'] ?? '')) === '') continue;
+        $w = $v['when'] ?? null;
+        if (is_array($w) && !empty($w['field'])) {
+            $val = $city[$w['field']] ?? null;
+            if (!is_numeric($val)) continue;
+            $val = (float) $val;
+            if (isset($w['gt']) && !($val >  (float) $w['gt'])) continue;
+            if (isset($w['lt']) && !($val <  (float) $w['lt'])) continue;
+        }
+        $s = pest_season_local((string) $v['text'], $city);
+        if ($s !== '') return $s;     // a variant missing a token falls through to the next
+    }
+    return '';
+}
+
 /** Everything this page needs, or null when there is nothing citable to say. */
 function pest_season_resolve(string $override = ''): ?array {
     $d = pest_season_data();
@@ -163,6 +198,14 @@ function pest_season_resolve(string $override = ''): ?array {
     $key = $override !== '' && $override !== 'auto'
         ? $override : pest_season_key_for(pest_season_current_slug());
     $p = $d['pests'][$key] ?? null;
+    // `alias_of` inherits another pest's quotes and sources, overriding only what it restates
+    // (in practice just the heading). Copying the entry instead would let the copies drift.
+    if (is_array($p) && !empty($p['alias_of'])) {
+        $base = $d['pests'][$p['alias_of']] ?? null;
+        if (is_array($base)) {
+            $p = array_merge($base, array_diff_key($p, ['alias_of' => 1]));
+        }
+    }
     if (!is_array($p) || empty($p['verbatim'])) return null;
     $src = $d['sources'][$p['source'] ?? ''] ?? null;
     if (!is_array($src)) return null;                 // no citable source: no block
@@ -171,7 +214,7 @@ function pest_season_resolve(string $override = ''): ?array {
     // The local half is optional: without it the quote still stands on its own, cited.
     $local = $local_src = '';
     if (!empty($p['local'])) {
-        $local = pest_season_local((string) $p['local'], $city);
+        $local = pest_season_pick_local($p['local'], $city);
         if ($local !== '') {
             $local_src = trim((string) ($city[$p['local_source_field'] ?? ''] ?? ''));
         }
