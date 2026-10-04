@@ -297,7 +297,10 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-dry" style="width:auto;"> Dry run (preview only, no API)</label>
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-force" style="width:auto;"> Force (re-research every city, ignore what's already on file)</label>
                 <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch()">Research cities</button>
+                <button type="button" class="btn" id="ms-rr-btn" onclick="msResearchReport()" style="background:#1e3a5f;color:#fff;">Check completeness</button>
             </div>
+            <p class="hint" style="margin:8px 0 0;"><strong>Check completeness</strong> is free and instant &mdash; it reads what is already on file and writes nothing. It answers the question the counter above cannot: <strong>would another pass actually fill anything?</strong> Every gap is split into <em>retryable</em> (the model has not given up, so a pass will likely fill it) and <em>settled</em> (declined twice and deliberately abandoned, so a pass changes nothing and costs money). A field missing on many cities at once is flagged as a probable upstream outage rather than missing data.</p>
+            <pre id="ms-rr-out" style="display:none;margin-top:12px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:420px;overflow:auto;white-space:pre-wrap;"></pre>
             <!-- Interruption note. A 91-city pass is ~70 min of sequential API calls, so
                  "what happens if this dies halfway" is the first thing anyone asks. Kept
                  next to the button rather than buried in the prose above it. -->
@@ -1811,6 +1814,31 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         document.getElementById('ms-research-force').disabled = disabled;
         document.getElementById('ms-research-btn').disabled = disabled;
     }
+    // Read-only completeness check. generate.py strips ANSI when stdout is not a TTY
+    // (see _c()), so the text arrives plain and the have/total cells are coloured here:
+    // green only when every city has the field, red for anything short, so an 8-of-10
+    // cannot read as acceptable at a glance.
+    window.msResearchReport = function () {
+        var out = document.getElementById('ms-rr-out');
+        var btn = document.getElementById('ms-rr-btn');
+        out.style.display = 'block';
+        out.textContent = 'Checking…';
+        btn.disabled = true;
+        fetch('multisite_api.php?action=research_report')
+            .then(function (r) { return r.json(); })
+            .then(function (j) {
+                btn.disabled = false;
+                if (j.error) { out.textContent = 'Error: ' + j.error; return; }
+                var esc = (j.output || '(no output)')
+                    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                out.innerHTML = esc.replace(/(\d+)\/(\d+)/g, function (m, have, tot) {
+                    var c = (have === tot) ? '#4ade80' : '#f87171';
+                    return '<span style="color:' + c + ';font-weight:700;">' + m + '</span>';
+                });
+            })
+            .catch(function (e) { btn.disabled = false; out.textContent = 'Failed: ' + e; });
+    };
+
     window.msResearch = function () {
         var dry   = document.getElementById('ms-research-dry').checked;
         var force = document.getElementById('ms-research-force').checked;

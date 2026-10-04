@@ -651,6 +651,27 @@ switch ($action) {
         echo json_encode(ms_save_batch_servers($masterId, $batchId, $plan));
         break;
 
+    // Research completeness — read-only, synchronous, no API key and no cost, so it needs
+    // none of the detached-job machinery the research/run steps use. GET: the CSRF guard
+    // above only covers POST, and this writes nothing.
+    //
+    // generate.py owns the field list (research_fields() assembles it at runtime from the
+    // niche's charts, the installed plugins and the brief), which is exactly why this
+    // shells out instead of counting fields in PHP — a second copy of that list would
+    // drift the moment anyone adds a chart.
+    case 'research_report':
+        $siteDir = BASE_DIR . '/sites/' . $masterId;
+        if (!is_dir($siteDir . '/data')) {
+            echo json_encode(['error' => 'No data directory for ' . $masterId]);
+            break;
+        }
+        $cmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
+             . ' --site-dir ' . escapeshellarg($siteDir)
+             . ' --research-report 2>&1';
+        $out = (string) shell_exec($cmd);
+        echo json_encode(['ok' => trim($out) !== '', 'output' => $out, 'master' => $masterId]);
+        break;
+
     case 'status':
         if (!is_file($paramsPath)) { echo json_encode(['stored' => false]); break; }
         $parsed = ms_parse_csv($paramsPath);
