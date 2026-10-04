@@ -298,6 +298,21 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-force" style="width:auto;"> Force (re-research every city, ignore what's already on file)</label>
                 <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch()">Research cities</button>
             </div>
+            <!-- Interruption note. A 91-city pass is ~70 min of sequential API calls, so
+                 "what happens if this dies halfway" is the first thing anyone asks. Kept
+                 next to the button rather than buried in the prose above it. -->
+            <p class="hint" style="margin:10px 0 0;padding:10px 12px;background:#fffbeb;border:1px solid #fde68a;border-radius:6px;line-height:1.55;">
+                <strong>If this stops partway through, just click &ldquo;Research cities&rdquo; again.</strong>
+                Progress is written to <code>cities.json</code> every 10 cities, and each finished city is
+                marked done — so a restart resumes from the last save instead of starting over. You lose at
+                most the handful of cities since that save; nothing already on file is re-billed, re-asked
+                or overwritten.<br>
+                <strong>Closing this tab won&rsquo;t stop it.</strong> The job runs on the server and this
+                panel just reads its output file — reopen the tab to pick the view back up.<br>
+                <strong>If it looks frozen, give it 3 minutes.</strong> One city can sit up to 2 minutes
+                waiting on the API before it gives up and retries, and each retry prints its own line here.
+                No new output past that means it really is stuck — restart it.
+            </p>
             <p class="hint" style="margin:6px 0 0;">Research already runs on its own, automatically, every time you generate sites — this button is only a manual trigger to run that same check now. With neither box ticked, it decides on its own, city by city and field by field, what actually needs asking — it never blindly redoes work that's already correct, so clicking it again later is free if nothing's missing. Tick <strong>Dry run</strong> to preview with no API cost, or <strong>Force</strong> to override that self-deciding behavior and redo every city from scratch.</p>
             <pre id="ms-research-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
         </div>
@@ -965,6 +980,25 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
+    <!-- Interruption note. Research runs first inside a generate run and a full pass is
+         ~70 min of sequential API calls, so this is where "what if it dies halfway" gets
+         asked. Deliberately does NOT repeat the skip-already-built line in the blue box
+         above; it covers only what that box leaves out. -->
+    <p class="hint" style="margin:12px 0 0;padding:10px 14px;background:#fffbeb;border:1px solid #fde68a;border-radius:8px;line-height:1.55;">
+        <strong>If a run stops partway through, just press Generate sites again.</strong>
+        Domains that finished stay finished and get skipped, so you resume rather than restart.
+        The city research that runs first saves its progress every 10 cities, so an interruption
+        during that stage costs at most the few cities since the last save &mdash; never the whole pass.<br>
+        <strong>The one exception is Force.</strong> Force exists to ignore &ldquo;already built&rdquo;, so
+        restarting an interrupted Force run redoes every domain in scope from the top, at full API cost.
+        If a Force run dies halfway, narrow it with <strong>Only this domain</strong> or restart it with
+        Force unticked &mdash; unless you genuinely do want everything redone.<br>
+        <strong>Closing this tab won&rsquo;t stop it.</strong> The run is detached on the server and this
+        panel only polls its progress &mdash; reopen the tab to pick the view back up.<br>
+        <strong>If it looks frozen, give it 3 minutes.</strong> A single city can sit up to 2 minutes
+        waiting on the API before it gives up and retries, and each retry prints its own line. No new
+        output past that means it really is stuck &mdash; restart it.
+    </p>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 
     <!-- Pre-flight confirmation, shown before a run actually starts — see msRun()/

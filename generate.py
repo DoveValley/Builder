@@ -375,6 +375,11 @@ _client_lock = threading.Lock()
 _RETRY_MAX     = 6      # attempts per call
 _RETRY_BASE_S  = 2.0    # base backoff, grows exponentially with jitter
 
+# How often the research loop flushes cities.json. The end-of-loop save alone meant
+# an interrupted 91-city pass lost everything it had done, since nothing hit disk
+# until the last city. 10 caps the loss at ~9 cities (~7 min) instead of the lot.
+_RESEARCH_SAVE_EVERY = 10
+
 def _get_client(api_key):
     global _client
     if _client is None:
@@ -1672,6 +1677,14 @@ def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=N
                 s = ', '.join(str(x) for x in v[:4]) if isinstance(v, list) else str(v)
                 _log(f'    {k}: {s[:80]}')
             researched += 1
+
+            # Checkpoint. The final save sits outside this loop, so without this a
+            # crash at city 80 of 91 loses all 80 — none of them reached disk. Each
+            # row carries its own _researched marker and `cities` is the full list,
+            # so a flushed file is complete in shape and resumes cleanly next run.
+            if not dry_run and researched % _RESEARCH_SAVE_EVERY == 0:
+                save_json(paths['cities'], cities)
+                _log(f'    checkpoint — {researched} cities saved so far')
         else:
             _warn(f'  {city_name} — research failed, skipping')
 
