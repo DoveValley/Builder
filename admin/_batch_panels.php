@@ -297,10 +297,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-dry" style="width:auto;"> Dry run (preview only, no API)</label>
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-force" style="width:auto;"> Force (re-research every city, ignore what's already on file)</label>
                 <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch()">Research cities</button>
-                <button type="button" class="btn" id="ms-rr-btn" onclick="msResearchReport()" style="background:#1e3a5f;color:#fff;">Check completeness</button>
             </div>
-            <p class="hint" style="margin:8px 0 0;"><strong>Check completeness</strong> is free and instant &mdash; it reads what is already on file and writes nothing. It answers the question the counter above cannot: <strong>would another pass actually fill anything?</strong> Every gap is split into <em>retryable</em> (the model has not given up, so a pass will likely fill it) and <em>settled</em> (declined twice and deliberately abandoned, so a pass changes nothing and costs money). A field missing on many cities at once is flagged as a probable upstream outage rather than missing data.</p>
-            <pre id="ms-rr-out" style="display:none;margin-top:12px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:420px;overflow:auto;white-space:pre-wrap;"></pre>
             <!-- Interruption note. A 91-city pass is ~70 min of sequential API calls, so
                  "what happens if this dies halfway" is the first thing anyone asks. Kept
                  next to the button rather than buried in the prose above it. -->
@@ -994,7 +991,13 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </label>
         <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI, no research refresh)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
+        <button type="button" class="btn" id="ms-rr-btn" onclick="msResearchReport()" style="background:#1e3a5f;color:#fff;" title="Free and instant. Reads what is already on file and writes nothing.">Check research</button>
     </div>
+    <!-- Lives HERE, beside Generate, not in the collapsed Research cities card: this
+         is where the build decision is made, and a check you have to go looking for
+         is a check nobody runs. Read-only, no API key, no cost. -->
+    <p class="hint" style="margin:8px 0 0;"><strong>Check research</strong> is free and instant &mdash; it reads what is on file and writes nothing. The <em>city research</em> line in the table above counts a city only when it has BOTH neighbourhoods and population; this breaks that down field by field, and splits every gap into <em>retryable</em> (the model has not given up, so another research pass will likely fill it) and <em>settled</em> (declined twice and deliberately abandoned, so a pass changes nothing and costs money).</p>
+    <pre id="ms-rr-out" style="display:none;margin-top:12px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:420px;overflow:auto;white-space:pre-wrap;"></pre>
     <!-- Interruption note. Research runs first inside a generate run and a full pass is
          ~70 min of sequential API calls, so this is where "what if it dies halfway" gets
          asked. Deliberately does NOT repeat the skip-already-built line in the blue box
