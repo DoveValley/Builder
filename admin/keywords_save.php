@@ -104,7 +104,10 @@ if ($action === 'save_primaries') {
     if (file_put_contents($tmp, $content) === false || !rename($tmp, $kwFile)) {
         header('Location: index.php?tab=keywords&msg=error:Could+not+save+keyword+map'); exit;
     }
-    $msg = 'Keyword map saved (' . count($services) . '+keyword' . (count($services) === 1 ? '' : 's') . ').';
+    // Plain space, not '+': this string goes through urlencode() below, which turns a
+    // literal '+' into %2B and renders it as a visible plus. The un-encoded header()
+    // calls earlier in this file use '+' for a space, which is where this came from.
+    $msg = 'Keyword map saved (' . count($services) . ' keyword' . (count($services) === 1 ? '' : 's') . ').';
     if (!empty($droppedDupes)) {
         $msg = 'warning:' . $msg . ' Dropped ' . count($droppedDupes) . ' duplicate-slug row(s): '
              . implode(', ', array_slice($droppedDupes, 0, 10))

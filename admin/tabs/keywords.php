@@ -285,11 +285,12 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
             <?php /* Marker: proves the landing section was on the submitted form, so an
                      unchecked box means "off" rather than "this form never asked". */ ?>
             <input type="hidden" name="pp_present" value="1">
-            <div style="background:<?= $ppEnabled ? '#f0fdf4' : '#fef2f2' ?>;border:1px solid <?= $ppEnabled ? '#86efac' : '#fca5a5' ?>;border-radius:6px;padding:10px 12px;margin-bottom:10px;">
-                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;color:<?= $ppEnabled ? '#166534' : '#991b1b' ?>;">
+            <div id="pp-panel" style="background:<?= $ppEnabled ? '#f0fdf4' : '#fef2f2' ?>;border:1px solid <?= $ppEnabled ? '#86efac' : '#fca5a5' ?>;border-radius:6px;padding:10px 12px;margin-bottom:10px;">
+                <label id="pp-lbl" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;color:<?= $ppEnabled ? '#166534' : '#991b1b' ?>;">
                     <input type="checkbox" name="pp_enabled" value="1" style="width:auto;flex:none;"
                            onclick="return ppConfirmToggle(this)" <?= $ppEnabled ? 'checked' : '' ?>>
-                    Page pooling is <?= $ppEnabled ? 'ON' : 'OFF' ?>
+                    Page pooling is <span id="pp-state"><?= $ppEnabled ? 'ON' : 'OFF' ?></span>
+                    <span id="pp-unsaved" class="hint" style="display:none;font-weight:600;color:#92400e;">&mdash; not saved yet</span>
                 </label>
                 <p class="hint" style="margin:6px 0 0;">
                     <strong>On:</strong> each site builds only its own subset &mdash; Pinned pages plus a fill from
@@ -299,7 +300,7 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
                     keeps the pages it was built with.
                 </p>
             </div>
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;<?= $ppEnabled ? '' : 'opacity:.55;' ?>">
+            <div id="pp-counts" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;<?= $ppEnabled ? '' : 'opacity:.55;' ?>">
                 <label style="<?= $lbl ?>">Pages per site &mdash; a domain lands on ONE of these totals (picked per domain, not the same for every site)</label>
                 <div style="display:flex;gap:8px;align-items:center;">
                     <?php for ($ci = 0; $ci < 3; $ci++): ?>
@@ -331,6 +332,9 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
     </form>
 
     <script>
+    // The state on file, so the 'not saved yet' marker only shows on a real change.
+    var PP_SAVED = <?= $ppEnabled ? 'true' : 'false' ?>;
+
     function ppConfirmToggle(el) {
         var msg = el.checked
             ? 'Turn page pooling ON?\n\nEach site builds only some of these pages \u2014 the Pinned ones '
@@ -338,9 +342,26 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
             : 'Turn page pooling OFF?\n\nEvery page that is not Skip gets built on every site. '
               + 'The per-site totals are ignored.';
         msg += '\n\nTakes effect when you Save, and only for sites not built yet.';
-        if (confirm(msg)) return true;
-        el.checked = !el.checked;
-        return false;
+        if (!confirm(msg)) { el.checked = !el.checked; return false; }
+        ppPaint(el.checked);
+        return true;
+    }
+
+    // Keep the panel telling the truth about the checkbox. Without this the label
+    // still read its SAVED state, so unticking the box left a green "Page pooling
+    // is ON" sitting above an unticked box.
+    function ppPaint(on) {
+        var p = document.getElementById('pp-panel'),
+            l = document.getElementById('pp-lbl'),
+            st = document.getElementById('pp-state'),
+            u = document.getElementById('pp-unsaved'),
+            c = document.getElementById('pp-counts');
+        if (st) st.textContent = on ? 'ON' : 'OFF';
+        if (p) { p.style.background = on ? '#f0fdf4' : '#fef2f2';
+                 p.style.borderColor = on ? '#86efac' : '#fca5a5'; }
+        if (l) l.style.color = on ? '#166534' : '#991b1b';
+        if (u) u.style.display = (on === PP_SAVED) ? 'none' : '';
+        if (c) c.style.opacity = on ? '' : '.55';
     }
 
     var KW_TIERS = <?= json_encode($tierOpts) ?>;
