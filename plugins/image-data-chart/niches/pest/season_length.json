@@ -20,7 +20,24 @@
   ],
   "fetch": {
     "provider": "noaa_normals_annual",
-    "data_type": "ANN-TMIN-PRBGSL-T32FP50"
+    "data_type": "ANN-TMIN-PRBGSL-T32FP50",
+    "extras": [
+      {
+        "data_key": "freeze_last_spring",
+        "data_type": "ANN-TMIN-PRBLST-T32FP50",
+        "note": "Average date of the last spring freeze, 32F, 50% probability."
+      },
+      {
+        "data_key": "freeze_first_fall",
+        "data_type": "ANN-TMIN-PRBFST-T32FP50",
+        "note": "Average date of the first autumn freeze, 32F, 50% probability."
+      },
+      {
+        "data_key": "growing_degree_days",
+        "data_type": "ANN-GRDD-BASE50",
+        "note": "Degree-day accumulation base 50F — the measure insect development tracks."
+      }
+    ]
   },
   "_note": "Benchmark removed. frost_free_state_avg had no retrievable source: NOAA publishes no statewide frost-free product, and Climate at a Glance covers temperature and precipitation only. Leaving the old AI value in place meant the chart cited NOAA for a figure nobody retrieved. A computed state average (mean of ANN-TMIN-PRBGSL-T32FP50 across in-state stations) is possible but would be our own computation, so it needs deciding on, not assuming."
 }

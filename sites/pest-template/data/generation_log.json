@@ -822,5 +822,55 @@
     "output_tokens": 229,
     "api_calls": 3,
     "estimated_cost_usd": 0.002596
+  },
+  {
+    "run_id": "a09f7c9e-63d8-4cf7-9e12-2536e670d2a4",
+    "started_at": "2026-10-04T23:24:41.686152Z",
+    "finished_at": "2026-10-04T23:24:54.681513Z",
+    "duration_ms": 12995,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "mosquito-control-littleton-co",
+      "all": false,
+      "file": null,
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 0,
+    "input_tokens": 1960,
+    "output_tokens": 671,
+    "api_calls": 2,
+    "estimated_cost_usd": 0.015945
+  },
+  {
+    "run_id": "274bfd52-28ad-4b57-94ea-a31f2572c2c1",
+    "started_at": "2026-10-04T23:25:11.062298Z",
+    "finished_at": "2026-10-04T23:25:40.858433Z",
+    "duration_ms": 29796,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": "mosquito_control",
+      "refresh": true,
+      "research": false
+    },
+    "pages_written": 7,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 7,
+    "cities_researched": 0,
+    "input_tokens": 12870,
+    "output_tokens": 2355,
+    "api_calls": 7,
+    "estimated_cost_usd": 0.024645
   }
 ]

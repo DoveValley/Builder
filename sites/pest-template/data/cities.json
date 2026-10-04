@@ -24,7 +24,7 @@
     "population": 46333,
     "neighborhoods_auto": 0,
     "local_note": "In the Littleton area, the most common pest problems include pavement and odorous house ants, black widow and hobo spiders, seasonal miller moth invasions in late spring, and mice and voles seeking shelter indoors during fall and winter. Pest pressure is strongly seasonal, with insect activity peaking in spring through summer and rodent intrusions rising as temperatures drop.",
-    "city_spotlight": "Littleton, CO sits along Colorado's Front Range, a community of about 45,652 residents that blends small-town character with serious technical muscle. A major Lockheed Martin Space Systems campus anchors the local economy, giving the city a genuine aerospace and defense backbone, while its role as the Arapahoe County seat brings steady government, healthcare, and education employment into the mix. Along the historic downtown corridor, that industrial strength shares space with retail shops and small professional service businesses that keep the area feeling personable rather than corporate.\n\nFrom the walkable streets of Historic Littleton to established neighborhoods like Ken Caryl, the city carries a settled, family-oriented rhythm shaped by schools, hospitals, and civic institutions that have grown up alongside its aerospace roots.",
+    "city_spotlight": "Just south of Denver, Littleton, CO carries the easy confidence of a place that's long balanced big industry with small-town charm. Roughly 46,000 people call it home, many connected to the sprawling Lockheed Martin Space campus that anchors a local economy built on aerospace and defense, supported by healthcare, government, and education employers like Littleton Public Schools and Arapahoe Community College. Plenty of residents also commute into Denver's tech and professional services scene, making Littleton a comfortable landing spot between city ambition and quieter streets.\n\nDowntown Littleton still sets the tone, its historic storefronts filled with independent shops and restaurants that draw both locals and visitors. Out toward neighborhoods like Ken Caryl and Columbine, the pace softens into front-range foothill views, parks, and the kind of steady, community-minded living that keeps people here for good.",
     "city_image": "sites/pest-template/uploads/media/city-scenic-littleton-co.webp",
     "city_image_alt": "West Main St 2015-06 864 in Littleton, CO",
     "city_image_credit": "Photo: Chris Light, CC BY-SA 4.0",
@@ -174,7 +174,10 @@
     "noaa_station_miles": 2.7,
     "noaa_fetched_at": "2026-10-04",
     "county_fips": "08005",
-    "county_name": "Arapahoe County"
+    "county_name": "Arapahoe County",
+    "freeze_last_spring": "05/02",
+    "freeze_first_fall": "10/11",
+    "growing_degree_days": 2772.3
   },
   {
     "id": "carrollton-tx",
@@ -339,6 +342,14 @@
     "noaa_station_miles": 7.4,
     "noaa_fetched_at": "2026-10-04",
     "county_fips": "48113",
-    "county_name": "Dallas County"
+    "county_name": "Dallas County",
+    "freeze_last_spring": "03/02",
+    "freeze_first_fall": "11/29",
+    "growing_degree_days": 7038.5,
+    "city_spotlight": "Carrollton sits comfortably within the Dallas-Fort Worth metroplex, a city of about 133,000 that blends small-town rhythms with big-region opportunity. Its economy runs on a healthy mix of telecommunications, technology, and corporate offices, backed by logistics, manufacturing, and healthcare. Names like Halliburton, Tyler Technologies, Keurig Dr Pepper, and Motorola Solutions have put down roots here, alongside steady employers such as Walmart, FedEx, and the local school district, giving the city a workforce that's diverse and resilient.\n\nAround town, that same balance shows up in the neighborhoods: the walkable charm of Old Downtown Carrollton contrasts nicely with the quieter, tree-lined feel of Castle Hills. It's a city built on connection to the wider DFW corridor, yet still holding onto a distinct, livable character all its own.",
+    "city_image": "sites/pest-template/uploads/media/city-scenic-carrollton-tx.webp",
+    "city_image_alt": "Carrollton July 2019 09, TX",
+    "city_image_credit": "Photo: Michael Barera, CC BY-SA 4.0",
+    "city_image_source": "https://commons.wikimedia.org/wiki/File:Carrollton_July_2019_09_(Carrollton_Square).jpg"
   }
 ]

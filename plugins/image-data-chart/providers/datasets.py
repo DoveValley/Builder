@@ -274,6 +274,8 @@ def fetch_city(city, decls):
 
     for ds, group in by_ds.items():
         types = [d["data_type"] for d in group]
+        for d in group:
+            types += [e["data_type"] for e in d.get("extras") or []]
         st = nearest_station(lat, lng, types, ds)
         if not st:
             problems.append(f"{city.get('city')}: no {ds} station carries {types}")
@@ -293,6 +295,12 @@ def fetch_city(city, decls):
                 problems.append(f"{city.get('city')}: {d['data_type']} absent at {sid}")
                 continue
             updates[d["data_key"]] = v
+            for e in d.get("extras") or []:
+                ev = vals.get(e["data_type"])
+                if ev is None:
+                    problems.append(f"{city.get('city')}: {e['data_type']} absent at {sid}")
+                    continue
+                updates[e["data_key"]] = ev
             sk = d.get("source_key")
             if sk:
                 # Two charts on DIFFERENT datasets must not share a source_key. The monthly
@@ -370,6 +378,12 @@ def chart_fetch_decls(niche, root=None):
             # fetch_city's benchmark branch never fired and compare charts silently kept
             # their invented statewide figure (Texas showed 34 in against a real 28.6).
             "benchmark": fe.get("benchmark") or {},
+            # Extra fields retrieved from the SAME station as this chart's own figure. They
+            # drive no chart; they exist because build_context passes every city field
+            # through as a prompt token, so a prose archetype can use a real number instead
+            # of "general regional climate knowledge".
+            "extras": [e for e in (fe.get("extras") or [])
+                       if isinstance(e, dict) and e.get("data_key") and e.get("data_type")],
             "chart": os.path.basename(f),
         })
     return out
