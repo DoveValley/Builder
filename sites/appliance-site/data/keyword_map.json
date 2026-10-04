@@ -1,1002 +1,1164 @@
 {
-    "niche": "appliance repair",
-    "services": [
-        {
-            "primary": "appliance repair {city}, {ST}",
-            "slug": "appliance-repair",
-            "section": "home",
-            "tier": "",
-            "secondary": [
-                "appliance repair near me",
-                "same day appliance repair {city}",
-                "home appliance repair {city}"
-            ],
-            "pool": "pinned"
-        },
-        {
-            "primary": "refrigerator repair {city}, {ST}",
-            "slug": "refrigerator-repair",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [
-                "refrigerator not cooling",
-                "fridge repair near me",
-                "same day refrigerator repair",
-                "ice maker not working"
-            ],
-            "pool": "pinned"
-        },
-        {
-            "primary": "washer repair {city}, {ST}",
-            "slug": "washer-repair",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [
-                "washing machine repair",
-                "washer not draining",
-                "washer won't spin",
-                "washing machine repair near me"
-            ],
-            "pool": "pinned"
-        },
-        {
-            "primary": "dryer repair {city}, {ST}",
-            "slug": "dryer-repair",
-            "section": "landing",
-            "tier": "high-2",
-            "secondary": [
-                "dryer not heating",
-                "dryer not spinning",
-                "dryer repair near me",
-                "same day dryer repair"
-            ],
-            "pool": "rotate"
-        },
-        {
-            "primary": "dishwasher repair {city}, {ST}",
-            "slug": "dishwasher-repair",
-            "section": "landing",
-            "tier": "high-2",
-            "secondary": [
-                "dishwasher not draining",
-                "dishwasher leaking",
-                "dishwasher not cleaning",
-                "dishwasher repair near me"
-            ],
-            "pool": "pinned"
-        },
-        {
-            "primary": "oven repair {city}, {ST}",
-            "slug": "oven-repair",
-            "section": "landing",
-            "tier": "high-3",
-            "secondary": [
-                "oven not heating",
-                "gas oven repair {city}",
-                "electric oven repair",
-                "oven temperature problems"
-            ],
-            "pool": "rotate"
-        },
-        {
-            "primary": "range repair {city}, {ST}",
-            "slug": "range-repair",
-            "section": "landing",
-            "tier": "medium-1",
-            "secondary": [
-                "gas range repair {city}",
-                "electric range repair",
-                "range burner not working",
-                "range oven repair"
-            ],
-            "pool": "rotate"
-        },
-        {
-            "primary": "cooktop repair {city}, {ST}",
-            "slug": "cooktop-repair",
-            "section": "landing",
-            "tier": "medium-2",
-            "secondary": [
-                "gas cooktop repair",
-                "electric cooktop repair",
-                "induction cooktop repair",
-                "cooktop burner not working"
-            ],
-            "pool": "rotate"
-        },
-        {
-            "primary": "freezer repair {city}, {ST}",
-            "slug": "freezer-repair",
-            "section": "landing",
-            "tier": "medium-1",
-            "secondary": [
-                "freezer not freezing",
-                "chest freezer repair {city}",
-                "upright freezer repair",
-                "freezer repair near me"
-            ],
-            "pool": "rotate"
-        },
-        {
-            "primary": "whirlpool appliance repair {city}, {ST}",
-            "slug": "whirlpool-appliance-repair",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "maytag appliance repair {city}, {ST}",
-            "slug": "maytag-appliance-repair",
-            "section": "landing",
-            "tier": "high-3",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "ge appliance repair {city}, {ST}",
-            "slug": "ge-appliance-repair",
-            "section": "landing",
-            "tier": "high-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "ge monogram appliance repair {city}, {ST}",
-            "slug": "ge-monogram-appliance-repair",
-            "section": "landing",
-            "tier": "low-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "kitchenaid appliance repair {city}, {ST}",
-            "slug": "kitchenaid-appliance-repair",
-            "section": "landing",
-            "tier": "medium-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "lg appliance repair {city}, {ST}",
-            "slug": "lg-appliance-repair",
-            "section": "landing",
-            "tier": "high-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "samsung appliance repair {city}, {ST}",
-            "slug": "samsung-appliance-repair",
-            "section": "landing",
-            "tier": "high-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "frigidaire appliance repair {city}, {ST}",
-            "slug": "frigidaire-appliance-repair",
-            "section": "landing",
-            "tier": "medium-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "bosch appliance repair {city}, {ST}",
-            "slug": "bosch-appliance-repair",
-            "section": "landing",
-            "tier": "medium-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "kenmore appliance repair {city}, {ST}",
-            "slug": "kenmore-appliance-repair",
-            "section": "landing",
-            "tier": "medium-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "amana appliance repair {city}, {ST}",
-            "slug": "amana-appliance-repair",
-            "section": "landing",
-            "tier": "medium-3",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "jennair appliance repair {city}, {ST}",
-            "slug": "jennair-appliance-repair",
-            "section": "landing",
-            "tier": "low-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "dacor appliance repair {city}, {ST}",
-            "slug": "dacor-appliance-repair",
-            "section": "landing",
-            "tier": "low-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "sub-zero appliance repair {city}, {ST}",
-            "slug": "sub-zero-appliance-repair",
-            "section": "landing",
-            "tier": "low-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "wolf appliance repair {city}, {ST}",
-            "slug": "wolf-appliance-repair",
-            "section": "landing",
-            "tier": "low-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "viking appliance repair {city}, {ST}",
-            "slug": "viking-appliance-repair",
-            "section": "landing",
-            "tier": "low-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "thermador appliance repair {city}, {ST}",
-            "slug": "thermador-appliance-repair",
-            "section": "landing",
-            "tier": "low-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "miele appliance repair {city}, {ST}",
-            "slug": "miele-appliance-repair",
-            "section": "landing",
-            "tier": "low-2",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Dacor Refrigerator Repair {city}, {ST}",
-            "slug": "dacor-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Stove Repair {city}, {ST}",
-            "slug": "ge-stove-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "LG Cooktop Repair {city}, {ST}",
-            "slug": "lg-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Amana Dishwasher Repair {city}, {ST}",
-            "slug": "amana-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Sub Zero Refrigerator Repair {city}, {ST}",
-            "slug": "sub-zero-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Refrigerator Repair {city}, {ST}",
-            "slug": "ge-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Frigidaire Dryer Repair {city}, {ST}",
-            "slug": "frigidaire-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Oven Repair {city}, {ST}",
-            "slug": "ge-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Dacor Oven Repair {city}, {ST}",
-            "slug": "dacor-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Maytag Range Repair {city}, {ST}",
-            "slug": "maytag-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Maytag Refrigerator Repair {city}, {ST}",
-            "slug": "maytag-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Viking Dishwasher Repair {city}, {ST}",
-            "slug": "viking-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kenmore Washer Repair {city}, {ST}",
-            "slug": "kenmore-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Washer Repair {city}, {ST}",
-            "slug": "whirlpool-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Maytag Washer Repair {city}, {ST}",
-            "slug": "maytag-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kenmore Oven Repair {city}, {ST}",
-            "slug": "kenmore-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "LG Oven Repair {city}, {ST}",
-            "slug": "lg-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Miele Oven Repair {city}, {ST}",
-            "slug": "miele-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Garbage Disposal Repair {city}, {ST}",
-            "slug": "garbage-disposal-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Jennair Refrigerator Repair {city}, {ST}",
-            "slug": "jennair-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kenmore Dryer Repair {city}, {ST}",
-            "slug": "kenmore-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Refrigerator Repair {city}, {ST}",
-            "slug": "whirlpool-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Frigidaire Washer Repair {city}, {ST}",
-            "slug": "frigidaire-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Bosch Oven Repair {city}, {ST}",
-            "slug": "bosch-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Dacor Range Repair {city}, {ST}",
-            "slug": "dacor-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Thermador Cooktop Repair {city}, {ST}",
-            "slug": "thermador-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Monogram Refrigerator Repair {city}, {ST}",
-            "slug": "ge-monogram-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kitchenaid Cooktop Repair {city}, {ST}",
-            "slug": "kitchenaid-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Viking Cooktop Repair {city}, {ST}",
-            "slug": "viking-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Bosch Dryer Repair {city}, {ST}",
-            "slug": "bosch-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Viking Freezer Repair {city}, {ST}",
-            "slug": "viking-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Dacor Dishwasher Repair {city}, {ST}",
-            "slug": "dacor-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Sub Zero Freezer Repair {city}, {ST}",
-            "slug": "sub-zero-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kitchenaid Freezer Repair {city}, {ST}",
-            "slug": "kitchenaid-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Amana Washer Repair {city}, {ST}",
-            "slug": "amana-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Frigidaire Dishwasher Repair {city}, {ST}",
-            "slug": "frigidaire-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Bosch Refrigerator Repair {city}, {ST}",
-            "slug": "bosch-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Dishwasher Repair {city}, {ST}",
-            "slug": "whirlpool-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kenmore Dishwasher Repair {city}, {ST}",
-            "slug": "kenmore-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Oven Repair {city}, {ST}",
-            "slug": "whirlpool-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Range Repair {city}, {ST}",
-            "slug": "whirlpool-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Freezer Repair {city}, {ST}",
-            "slug": "whirlpool-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Miele Refrigerator Repair {city}, {ST}",
-            "slug": "miele-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Freezer Repair {city}, {ST}",
-            "slug": "ge-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Dacor Cooktop Repair {city}, {ST}",
-            "slug": "dacor-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Jennair Oven Repair {city}, {ST}",
-            "slug": "jennair-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Thermador Dishwasher Repair {city}, {ST}",
-            "slug": "thermador-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Miele Dishwasher Repair {city}, {ST}",
-            "slug": "miele-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Wolf Range Repair {city}, {ST}",
-            "slug": "wolf-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Bosch Cooktop Repair {city}, {ST}",
-            "slug": "bosch-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Miele Washer Repair {city}, {ST}",
-            "slug": "miele-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kitchenaid Oven Repair {city}, {ST}",
-            "slug": "kitchenaid-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kitchenaid Dishwasher Repair {city}, {ST}",
-            "slug": "kitchenaid-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Dryer Repair {city}, {ST}",
-            "slug": "whirlpool-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Viking Range Repair {city}, {ST}",
-            "slug": "viking-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Maytag Dishwasher Repair {city}, {ST}",
-            "slug": "maytag-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Range Repair {city}, {ST}",
-            "slug": "ge-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Viking Oven Repair {city}, {ST}",
-            "slug": "viking-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kenmore Refrigerator Repair {city}, {ST}",
-            "slug": "kenmore-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Ice Machine Repair {city}, {ST}",
-            "slug": "ice-machine-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Maytag Oven Repair {city}, {ST}",
-            "slug": "maytag-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Miele Freezer Repair {city}, {ST}",
-            "slug": "miele-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Bosch Dishwasher Repair {city}, {ST}",
-            "slug": "bosch-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Amana Oven Repair {city}, {ST}",
-            "slug": "amana-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Samsung Freezer Repair {city}, {ST}",
-            "slug": "samsung-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Amana Refrigerator Repair {city}, {ST}",
-            "slug": "amana-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kitchenaid Washer Repair {city}, {ST}",
-            "slug": "kitchenaid-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Amana Dryer Repair {city}, {ST}",
-            "slug": "amana-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Stove Repair {city}, {ST}",
-            "slug": "stove-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Thermador Oven Repair {city}, {ST}",
-            "slug": "thermador-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Whirlpool Cooktop Repair {city}, {ST}",
-            "slug": "whirlpool-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Wolf Cooktop Repair {city}, {ST}",
-            "slug": "wolf-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Viking Refrigerator Repair {city}, {ST}",
-            "slug": "viking-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Frigidaire Refrigerator Repair {city}, {ST}",
-            "slug": "frigidaire-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Jennair Dishwasher Repair {city}, {ST}",
-            "slug": "jennair-dishwasher-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "GE Cooktop Repair {city}, {ST}",
-            "slug": "ge-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Frigidaire Freezer Repair {city}, {ST}",
-            "slug": "frigidaire-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Thermador Range Repair {city}, {ST}",
-            "slug": "thermador-range-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Trash Compactor Repair {city}, {ST}",
-            "slug": "trash-compactor-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Ice Maker Repair {city}, {ST}",
-            "slug": "ice-maker-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Wine Cooler Repair {city}, {ST}",
-            "slug": "wine-cooler-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Samsung Refrigerator Repair {city}, {ST}",
-            "slug": "samsung-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "KitchenAid Refrigerator Repair {city}, {ST}",
-            "slug": "kitchenaid-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "LG Dryer Repair {city}, {ST}",
-            "slug": "lg-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Thermador Refrigerator Repair {city}, {ST}",
-            "slug": "thermador-refrigerator-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Bosch Washer Repair {city}, {ST}",
-            "slug": "bosch-washer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Maytag Dryer Repair {city}, {ST}",
-            "slug": "maytag-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Frigidaire Oven Repair {city}, {ST}",
-            "slug": "frigidaire-oven-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Samsung Cooktop Repair {city}, {ST}",
-            "slug": "samsung-cooktop-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Miele Dryer Repair {city}, {ST}",
-            "slug": "miele-dryer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        },
-        {
-            "primary": "Kenmore Freezer Repair {city}, {ST}",
-            "slug": "kenmore-freezer-repair",
-            "section": "landing",
-            "tier": "mid-1",
-            "secondary": [],
-            "pool": "rotate"
-        }
-    ],
-    "page_pool": {
-        "enabled": true,
-        "counts": [
-            10,
-            14,
-            18
-        ]
+  "niche": "appliance repair",
+  "services": [
+    {
+      "primary": "appliance repair {city}, {ST}",
+      "slug": "appliance-repair",
+      "section": "home",
+      "tier": "",
+      "secondary": [
+        "appliance repair near me",
+        "same day appliance repair {city}",
+        "home appliance repair {city}"
+      ],
+      "pool": "pinned"
     },
-    "updated_at": "2026-09-09T00:02:07+00:00"
+    {
+      "primary": "refrigerator repair {city}, {ST}",
+      "slug": "refrigerator-repair",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "refrigerator not cooling",
+        "fridge repair near me",
+        "same day refrigerator repair",
+        "ice maker not working"
+      ],
+      "pool": "pinned"
+    },
+    {
+      "primary": "washer repair {city}, {ST}",
+      "slug": "washer-repair",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "washing machine repair",
+        "washer not draining",
+        "washer won't spin",
+        "washing machine repair near me"
+      ],
+      "pool": "pinned"
+    },
+    {
+      "primary": "dryer repair {city}, {ST}",
+      "slug": "dryer-repair",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "dryer not heating",
+        "dryer not spinning",
+        "dryer repair near me",
+        "same day dryer repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "dishwasher repair {city}, {ST}",
+      "slug": "dishwasher-repair",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "dishwasher not draining",
+        "dishwasher leaking",
+        "dishwasher not cleaning",
+        "dishwasher repair near me"
+      ],
+      "pool": "pinned"
+    },
+    {
+      "primary": "oven repair {city}, {ST}",
+      "slug": "oven-repair",
+      "section": "landing",
+      "tier": "high-3",
+      "secondary": [
+        "oven not heating",
+        "gas oven repair {city}",
+        "electric oven repair",
+        "oven temperature problems"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "range repair {city}, {ST}",
+      "slug": "range-repair",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "gas range repair {city}",
+        "electric range repair",
+        "range burner not working",
+        "range oven repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "cooktop repair {city}, {ST}",
+      "slug": "cooktop-repair",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "gas cooktop repair",
+        "electric cooktop repair",
+        "induction cooktop repair",
+        "cooktop burner not working"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "freezer repair {city}, {ST}",
+      "slug": "freezer-repair",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "freezer not freezing",
+        "chest freezer repair {city}",
+        "upright freezer repair",
+        "freezer repair near me"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "whirlpool appliance repair {city}, {ST}",
+      "slug": "whirlpool-appliance-repair",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "whirlpool appliance repair near me",
+        "whirlpool appliance service",
+        "whirlpool appliance repair service",
+        "whirlpool appliance technician",
+        "whirlpool appliance repair cost",
+        "same day whirlpool appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "maytag appliance repair {city}, {ST}",
+      "slug": "maytag-appliance-repair",
+      "section": "landing",
+      "tier": "high-3",
+      "secondary": [
+        "maytag appliance repair near me",
+        "maytag appliance service",
+        "maytag appliance repair service",
+        "maytag appliance technician",
+        "maytag appliance repair cost",
+        "same day maytag appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "ge appliance repair {city}, {ST}",
+      "slug": "ge-appliance-repair",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "ge appliance repair near me",
+        "ge appliance service",
+        "ge appliance repair service",
+        "ge appliance technician",
+        "ge appliance repair cost",
+        "same day ge appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "ge monogram appliance repair {city}, {ST}",
+      "slug": "ge-monogram-appliance-repair",
+      "section": "landing",
+      "tier": "low-1",
+      "secondary": [
+        "ge monogram appliance repair near me",
+        "ge monogram appliance service",
+        "ge monogram appliance repair service",
+        "ge monogram appliance technician",
+        "ge monogram appliance repair cost",
+        "ge monogram home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "kitchenaid appliance repair {city}, {ST}",
+      "slug": "kitchenaid-appliance-repair",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "kitchenaid appliance repair near me",
+        "kitchenaid appliance service",
+        "kitchenaid appliance repair service",
+        "kitchenaid appliance technician",
+        "kitchenaid appliance repair cost",
+        "same day kitchenaid appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "lg appliance repair {city}, {ST}",
+      "slug": "lg-appliance-repair",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "lg appliance repair near me",
+        "lg appliance service",
+        "lg appliance repair service",
+        "lg appliance technician",
+        "lg appliance repair cost",
+        "same day lg appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "samsung appliance repair {city}, {ST}",
+      "slug": "samsung-appliance-repair",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "samsung appliance repair near me",
+        "samsung appliance service",
+        "samsung appliance repair service",
+        "samsung appliance technician",
+        "samsung appliance repair cost",
+        "same day samsung appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "frigidaire appliance repair {city}, {ST}",
+      "slug": "frigidaire-appliance-repair",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "frigidaire appliance repair near me",
+        "frigidaire appliance service",
+        "frigidaire appliance repair service",
+        "frigidaire appliance technician",
+        "frigidaire appliance repair cost",
+        "same day frigidaire appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "bosch appliance repair {city}, {ST}",
+      "slug": "bosch-appliance-repair",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "bosch appliance repair near me",
+        "bosch appliance service",
+        "bosch appliance repair service",
+        "bosch appliance technician",
+        "bosch appliance repair cost",
+        "same day bosch appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "kenmore appliance repair {city}, {ST}",
+      "slug": "kenmore-appliance-repair",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "kenmore appliance repair near me",
+        "kenmore appliance service",
+        "kenmore appliance repair service",
+        "kenmore appliance technician",
+        "kenmore appliance repair cost",
+        "same day kenmore appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "amana appliance repair {city}, {ST}",
+      "slug": "amana-appliance-repair",
+      "section": "landing",
+      "tier": "medium-3",
+      "secondary": [
+        "amana appliance repair near me",
+        "amana appliance service",
+        "amana appliance repair service",
+        "amana appliance technician",
+        "amana appliance repair cost",
+        "same day amana appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "jennair appliance repair {city}, {ST}",
+      "slug": "jennair-appliance-repair",
+      "section": "landing",
+      "tier": "low-1",
+      "secondary": [
+        "jennair appliance repair near me",
+        "jennair appliance service",
+        "jennair appliance repair service",
+        "jennair appliance technician",
+        "jennair appliance repair cost",
+        "jennair home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "dacor appliance repair {city}, {ST}",
+      "slug": "dacor-appliance-repair",
+      "section": "landing",
+      "tier": "low-2",
+      "secondary": [
+        "dacor appliance repair near me",
+        "dacor appliance service",
+        "dacor appliance repair service",
+        "dacor appliance technician",
+        "dacor appliance repair cost",
+        "dacor home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "sub-zero appliance repair {city}, {ST}",
+      "slug": "sub-zero-appliance-repair",
+      "section": "landing",
+      "tier": "low-1",
+      "secondary": [
+        "sub-zero appliance repair near me",
+        "sub-zero appliance service",
+        "sub-zero appliance repair service",
+        "sub-zero appliance technician",
+        "sub-zero appliance repair cost",
+        "sub-zero home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "wolf appliance repair {city}, {ST}",
+      "slug": "wolf-appliance-repair",
+      "section": "landing",
+      "tier": "low-1",
+      "secondary": [
+        "wolf appliance repair near me",
+        "wolf appliance service",
+        "wolf appliance repair service",
+        "wolf appliance technician",
+        "wolf appliance repair cost",
+        "wolf home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "viking appliance repair {city}, {ST}",
+      "slug": "viking-appliance-repair",
+      "section": "landing",
+      "tier": "low-2",
+      "secondary": [
+        "viking appliance repair near me",
+        "viking appliance service",
+        "viking appliance repair service",
+        "viking appliance technician",
+        "viking appliance repair cost",
+        "viking home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "thermador appliance repair {city}, {ST}",
+      "slug": "thermador-appliance-repair",
+      "section": "landing",
+      "tier": "low-2",
+      "secondary": [
+        "thermador appliance repair near me",
+        "thermador appliance service",
+        "thermador appliance repair service",
+        "thermador appliance technician",
+        "thermador appliance repair cost",
+        "thermador home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "miele appliance repair {city}, {ST}",
+      "slug": "miele-appliance-repair",
+      "section": "landing",
+      "tier": "low-2",
+      "secondary": [
+        "miele appliance repair near me",
+        "miele appliance service",
+        "miele appliance repair service",
+        "miele appliance technician",
+        "miele appliance repair cost",
+        "miele home appliance repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Dacor Refrigerator Repair {city}, {ST}",
+      "slug": "dacor-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Stove Repair {city}, {ST}",
+      "slug": "ge-stove-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "LG Cooktop Repair {city}, {ST}",
+      "slug": "lg-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Amana Dishwasher Repair {city}, {ST}",
+      "slug": "amana-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Sub Zero Refrigerator Repair {city}, {ST}",
+      "slug": "sub-zero-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Refrigerator Repair {city}, {ST}",
+      "slug": "ge-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Frigidaire Dryer Repair {city}, {ST}",
+      "slug": "frigidaire-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Oven Repair {city}, {ST}",
+      "slug": "ge-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Dacor Oven Repair {city}, {ST}",
+      "slug": "dacor-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Maytag Range Repair {city}, {ST}",
+      "slug": "maytag-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Maytag Refrigerator Repair {city}, {ST}",
+      "slug": "maytag-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Viking Dishwasher Repair {city}, {ST}",
+      "slug": "viking-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kenmore Washer Repair {city}, {ST}",
+      "slug": "kenmore-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Washer Repair {city}, {ST}",
+      "slug": "whirlpool-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Maytag Washer Repair {city}, {ST}",
+      "slug": "maytag-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kenmore Oven Repair {city}, {ST}",
+      "slug": "kenmore-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "LG Oven Repair {city}, {ST}",
+      "slug": "lg-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Miele Oven Repair {city}, {ST}",
+      "slug": "miele-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Garbage Disposal Repair {city}, {ST}",
+      "slug": "garbage-disposal-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [
+        "garbage disposal not working",
+        "garbage disposal humming",
+        "garbage disposal leaking",
+        "garbage disposal jammed",
+        "garbage disposal repair near me"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Jennair Refrigerator Repair {city}, {ST}",
+      "slug": "jennair-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kenmore Dryer Repair {city}, {ST}",
+      "slug": "kenmore-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Refrigerator Repair {city}, {ST}",
+      "slug": "whirlpool-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Frigidaire Washer Repair {city}, {ST}",
+      "slug": "frigidaire-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Bosch Oven Repair {city}, {ST}",
+      "slug": "bosch-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Dacor Range Repair {city}, {ST}",
+      "slug": "dacor-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Thermador Cooktop Repair {city}, {ST}",
+      "slug": "thermador-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Monogram Refrigerator Repair {city}, {ST}",
+      "slug": "ge-monogram-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kitchenaid Cooktop Repair {city}, {ST}",
+      "slug": "kitchenaid-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Viking Cooktop Repair {city}, {ST}",
+      "slug": "viking-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Bosch Dryer Repair {city}, {ST}",
+      "slug": "bosch-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Viking Freezer Repair {city}, {ST}",
+      "slug": "viking-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Dacor Dishwasher Repair {city}, {ST}",
+      "slug": "dacor-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Sub Zero Freezer Repair {city}, {ST}",
+      "slug": "sub-zero-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kitchenaid Freezer Repair {city}, {ST}",
+      "slug": "kitchenaid-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Amana Washer Repair {city}, {ST}",
+      "slug": "amana-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Frigidaire Dishwasher Repair {city}, {ST}",
+      "slug": "frigidaire-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Bosch Refrigerator Repair {city}, {ST}",
+      "slug": "bosch-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Dishwasher Repair {city}, {ST}",
+      "slug": "whirlpool-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kenmore Dishwasher Repair {city}, {ST}",
+      "slug": "kenmore-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Oven Repair {city}, {ST}",
+      "slug": "whirlpool-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Range Repair {city}, {ST}",
+      "slug": "whirlpool-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Freezer Repair {city}, {ST}",
+      "slug": "whirlpool-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Miele Refrigerator Repair {city}, {ST}",
+      "slug": "miele-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Freezer Repair {city}, {ST}",
+      "slug": "ge-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Dacor Cooktop Repair {city}, {ST}",
+      "slug": "dacor-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Jennair Oven Repair {city}, {ST}",
+      "slug": "jennair-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Thermador Dishwasher Repair {city}, {ST}",
+      "slug": "thermador-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Miele Dishwasher Repair {city}, {ST}",
+      "slug": "miele-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Wolf Range Repair {city}, {ST}",
+      "slug": "wolf-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Bosch Cooktop Repair {city}, {ST}",
+      "slug": "bosch-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Miele Washer Repair {city}, {ST}",
+      "slug": "miele-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kitchenaid Oven Repair {city}, {ST}",
+      "slug": "kitchenaid-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kitchenaid Dishwasher Repair {city}, {ST}",
+      "slug": "kitchenaid-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Dryer Repair {city}, {ST}",
+      "slug": "whirlpool-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Viking Range Repair {city}, {ST}",
+      "slug": "viking-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Maytag Dishwasher Repair {city}, {ST}",
+      "slug": "maytag-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Range Repair {city}, {ST}",
+      "slug": "ge-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Viking Oven Repair {city}, {ST}",
+      "slug": "viking-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kenmore Refrigerator Repair {city}, {ST}",
+      "slug": "kenmore-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Ice Machine Repair {city}, {ST}",
+      "slug": "ice-machine-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [
+        "commercial ice machine repair",
+        "ice machine not making ice",
+        "ice machine leaking",
+        "ice machine cleaning and repair",
+        "ice machine repair near me"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Maytag Oven Repair {city}, {ST}",
+      "slug": "maytag-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Miele Freezer Repair {city}, {ST}",
+      "slug": "miele-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Bosch Dishwasher Repair {city}, {ST}",
+      "slug": "bosch-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Amana Oven Repair {city}, {ST}",
+      "slug": "amana-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Samsung Freezer Repair {city}, {ST}",
+      "slug": "samsung-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Amana Refrigerator Repair {city}, {ST}",
+      "slug": "amana-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kitchenaid Washer Repair {city}, {ST}",
+      "slug": "kitchenaid-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Amana Dryer Repair {city}, {ST}",
+      "slug": "amana-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Stove Repair {city}, {ST}",
+      "slug": "stove-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [
+        "stove repair near me",
+        "gas stove repair",
+        "electric stove repair",
+        "stove burner not working",
+        "stove top repair"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Thermador Oven Repair {city}, {ST}",
+      "slug": "thermador-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Whirlpool Cooktop Repair {city}, {ST}",
+      "slug": "whirlpool-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Wolf Cooktop Repair {city}, {ST}",
+      "slug": "wolf-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Viking Refrigerator Repair {city}, {ST}",
+      "slug": "viking-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Frigidaire Refrigerator Repair {city}, {ST}",
+      "slug": "frigidaire-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Jennair Dishwasher Repair {city}, {ST}",
+      "slug": "jennair-dishwasher-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "GE Cooktop Repair {city}, {ST}",
+      "slug": "ge-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Frigidaire Freezer Repair {city}, {ST}",
+      "slug": "frigidaire-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Thermador Range Repair {city}, {ST}",
+      "slug": "thermador-range-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Trash Compactor Repair {city}, {ST}",
+      "slug": "trash-compactor-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [
+        "trash compactor not compacting",
+        "trash compactor jammed",
+        "kitchen trash compactor repair",
+        "trash compactor door repair",
+        "trash compactor repair near me"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Ice Maker Repair {city}, {ST}",
+      "slug": "ice-maker-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [
+        "ice maker not making ice",
+        "refrigerator ice maker repair",
+        "ice maker leaking",
+        "built in ice maker repair",
+        "ice maker repair near me"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Wine Cooler Repair {city}, {ST}",
+      "slug": "wine-cooler-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [
+        "wine cooler not cooling",
+        "wine fridge repair",
+        "built in wine cooler repair",
+        "wine cooler temperature problems",
+        "wine cooler repair near me"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Samsung Refrigerator Repair {city}, {ST}",
+      "slug": "samsung-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "KitchenAid Refrigerator Repair {city}, {ST}",
+      "slug": "kitchenaid-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "LG Dryer Repair {city}, {ST}",
+      "slug": "lg-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Thermador Refrigerator Repair {city}, {ST}",
+      "slug": "thermador-refrigerator-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Bosch Washer Repair {city}, {ST}",
+      "slug": "bosch-washer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Maytag Dryer Repair {city}, {ST}",
+      "slug": "maytag-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Frigidaire Oven Repair {city}, {ST}",
+      "slug": "frigidaire-oven-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Samsung Cooktop Repair {city}, {ST}",
+      "slug": "samsung-cooktop-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Miele Dryer Repair {city}, {ST}",
+      "slug": "miele-dryer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    },
+    {
+      "primary": "Kenmore Freezer Repair {city}, {ST}",
+      "slug": "kenmore-freezer-repair",
+      "section": "landing",
+      "tier": "mid-1",
+      "secondary": [],
+      "pool": "rotate"
+    }
+  ],
+  "page_pool": {
+    "enabled": true,
+    "counts": [
+      10,
+      14,
+      18
+    ]
+  },
+  "updated_at": "2026-10-04T18:34:12+00:00"
 }
