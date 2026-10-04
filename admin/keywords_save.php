@@ -19,13 +19,16 @@ $action = $_POST['action'] ?? '';
 if ($action === 'save_primaries') {
     $existing = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) ?: []) : [];
 
-    $names  = $_POST['kw_primary']   ?? [];
-    $slugs  = $_POST['kw_slug']      ?? [];
-    $tiers  = $_POST['kw_tier']      ?? [];
-    $sects  = $_POST['kw_section']   ?? [];
-    $seces  = $_POST['kw_secondary'] ?? [];
-    $pools  = $_POST['kw_pool']      ?? [];
-    if (!is_array($names)) $names = [];
+    // All six are read by index in the loop below, so a crafted scalar POST
+    // (kw_tier=abc) must not reach it — PHP would read string offsets instead of
+    // rows. Previously only kw_primary was guarded.
+    $arr = fn(string $k) => is_array($_POST[$k] ?? null) ? $_POST[$k] : [];
+    $names = $arr('kw_primary');
+    $slugs = $arr('kw_slug');
+    $tiers = $arr('kw_tier');
+    $sects = $arr('kw_section');
+    $seces = $arr('kw_secondary');
+    $pools = $arr('kw_pool');
 
     $slugify = fn(string $s) => trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($s)), '-');
     $validTier    = ['high-1','high-2','high-3','medium-1','medium-2','medium-3','low-1','low-2','low-3',''];

@@ -303,7 +303,10 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
             <div id="pp-counts" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;<?= $ppEnabled ? '' : 'opacity:.55;' ?>">
                 <label style="<?= $lbl ?>">Pages per site &mdash; a domain lands on ONE of these totals (picked per domain, not the same for every site)</label>
                 <div style="display:flex;gap:8px;align-items:center;">
-                    <?php for ($ci = 0; $ci < 3; $ci++): ?>
+                    <?php /* Three is the designed shape, but render more if more are on
+                             file — a count with no box is invisible here and would be
+                             dropped by the next save. */ ?>
+                    <?php $ppBoxes = max(3, count($ppCounts)); for ($ci = 0; $ci < $ppBoxes; $ci++): ?>
                         <input type="number" name="pp_counts[]" min="1" step="1"
                                value="<?= h((string)($ppCounts[$ci] ?? '')) ?>" style="width:80px;">
                     <?php endfor; ?>
@@ -440,11 +443,11 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
         else { var n=item.nextElementSibling; if(n && n.classList.contains('kw-item')) c.insertBefore(n,item); }
         kwRenumber(c);
     }
-    function kwAddItem(containerId, section, primary, slug, tier, secondary){
+    function kwAddItem(containerId, section, primary, slug, tier, secondary, pool){
         var c=document.getElementById(containerId);
         var d=document.createElement('div'); d.className='kw-item';
         d.style.cssText='border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;';
-        d.innerHTML=kwItemHtml(section, primary, slug, tier, secondary);
+        d.innerHTML=kwItemHtml(section, primary, slug, tier, secondary, pool);
         c.appendChild(d); kwRenumber(c); return d;
     }
     function kwDlSlug(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
