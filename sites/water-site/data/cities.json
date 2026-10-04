@@ -20342,7 +20342,7 @@
       }
     ],
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -20733,7 +20733,11 @@
     "local_note": "Most homes in Mitchell were built with full basements, which is standard construction practice in this part of South Dakota due to the climate and soil conditions. The dominant water-damage risk is seasonal flooding from spring snowmelt and heavy rain events along the James River and local drainages, along with basement seepage during intense summer thunderstorms.",
     "neighborhoods": [
       "Downtown Mitchell",
-      "Lake Mitchell area"
+      "Lake Mitchell area",
+      "Dakota Wesleyan University area",
+      "Mitchell Technical College area",
+      "West Mitchell",
+      "North Mitchell"
     ],
     "population": 15660,
     "flood_years": [
@@ -20901,7 +20905,10 @@
     "neighborhoods": [
       "Downtown Idaho Falls",
       "Snake River Landing",
-      "Sunnyside"
+      "Sunnyside",
+      "Tautphaus Park",
+      "Woodland Hills",
+      "Southgate"
     ],
     "population": 66000,
     "flood_years": [
@@ -21891,7 +21898,9 @@
     "local_note": "Most homes in Kaukauna are built with full basements, typical for northeastern Wisconsin's cold climate and frost-depth building codes. The dominant water-damage risks are spring snowmelt combined with heavy spring rains causing basement and sump-pump related flooding, along with occasional summer flash flooding from intense thunderstorms.",
     "neighborhoods": [
       "Downtown Kaukauna",
-      "Thilmany"
+      "Thilmany",
+      "Janssen Park",
+      "Rockledge"
     ],
     "population": 16856,
     "flood_years": [
@@ -22020,7 +22029,7 @@
       }
     ],
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -22228,7 +22237,9 @@
     "market_blurb": "Grimes, Iowa is one of the fastest-growing suburbs in the Des Moines metro, with an economy built on retail, residential construction, and local services supporting its rapidly expanding population. The city's growth has drawn major retail investment, including large-format stores, alongside healthcare clinics and professional offices serving new subdivisions. Grimes continues to benefit from spillover development and employment tied to the broader Des Moines-West Des Moines metro economy.",
     "local_note": "Most homes in Grimes are built with full basements, consistent with central Iowa construction norms and the region's frost line depth. The dominant water-damage risks are heavy seasonal spring and summer rainstorms and periodic snowmelt runoff, which can cause basement seepage and localized flash flooding.",
     "neighborhoods": [
-      "Brick Towne"
+      "Brick Towne",
+      "Downtown Grimes",
+      "Gateway Drive corridor"
     ],
     "population": 21000,
     "flood_years": [
@@ -22357,7 +22368,7 @@
       }
     ],
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -22568,7 +22579,12 @@
       "Downtown Carson City Historic District",
       "Westside",
       "Eagle Valley",
-      "Kings Canyon"
+      "Kings Canyon",
+      "Silver Oak",
+      "Lakeview",
+      "Goni Road",
+      "Timberline Estates",
+      "Empire"
     ],
     "population": 58000,
     "flood_years": [
@@ -22738,8 +22754,10 @@
       "Sun Willows"
     ],
     "population": 80000,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1996
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       20,
       14,
@@ -22896,7 +22914,10 @@
     "local_note": "Most homes in Wixom were built with full basements, typical of southeastern Michigan construction, making basement seepage and sump pump failure common water-damage concerns. The dominant regional risk is a combination of spring snowmelt and heavy seasonal thunderstorms that can overwhelm drainage and cause basement flooding.",
     "neighborhoods": [
       "Loon Lake",
-      "Village Oaks"
+      "Village Oaks",
+      "Beck North",
+      "Downtown Wixom",
+      "Potters Lake"
     ],
     "population": 13700,
     "flood_years": [
@@ -23226,7 +23247,8 @@
       "The Westwinds",
       "Cahoon Park",
       "Huntington Reservation",
-      "Clague Park"
+      "Clague Park",
+      "Columbia Park"
     ],
     "population": 15651,
     "flood_years": [
@@ -23393,7 +23415,11 @@
     "local_note": "Most Wilsonville homes are built on slab or crawl-space foundations typical of the Willamette Valley, with full basements being less common. The dominant water-damage risk in the area comes from heavy seasonal Pacific storm rainfall in fall and winter, which can cause roof, gutter overflow, and localized flash flooding problems, especially near the Willamette River and area creeks.",
     "neighborhoods": [
       "Villebois",
-      "Charbonneau"
+      "Charbonneau",
+      "Old Town Wilsonville",
+      "Town Center",
+      "Wilsonville Meadows",
+      "Canyon Creek"
     ],
     "population": 26000,
     "flood_years": [
@@ -23556,7 +23582,11 @@
     "local_note": "Most homes in Homewood are older construction with full basements, typical of Chicago-area suburbs, which makes basement seepage and sump pump failure common water-damage concerns. The dominant regional water-damage risk is heavy seasonal rainfall and spring snowmelt, which can overwhelm aging storm sewers and basement drainage systems.",
     "neighborhoods": [
       "Downtown Homewood",
-      "Homewood Historic District"
+      "Homewood Historic District",
+      "Hart Park District",
+      "West Homewood",
+      "East Homewood",
+      "Homewood Park"
     ],
     "population": 19300,
     "flood_years": [
@@ -23862,7 +23892,7 @@
       }
     ],
     "_research_declined": {
-      "flood_years": 1
+      "flood_years": 2
     },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
@@ -24239,7 +24269,11 @@
       "Fountain Green",
       "Tollgate",
       "Hickory",
-      "Bynum Run"
+      "Bynum Run",
+      "Emerald Hills",
+      "Amyclae",
+      "Boulton",
+      "Prospect Mill"
     ],
     "population": 10290,
     "flood_years": [
@@ -24407,7 +24441,10 @@
       "Sylvan Old Town",
       "Rusch Park",
       "Birdcage",
-      "Sunrise Oaks"
+      "Sunrise Oaks",
+      "Stock Ranch",
+      "Tempo",
+      "Mariposa"
     ],
     "population": 87576,
     "flood_years": [
@@ -24573,7 +24610,8 @@
       "South Freeport",
       "Nautical Mile",
       "Downtown Freeport",
-      "Randall Park"
+      "Randall Park",
+      "North Freeport"
     ],
     "population": 43300,
     "flood_years": [
@@ -24745,7 +24783,11 @@
       "Downtown Kokomo",
       "Highland Park",
       "Foster Park area",
-      "Kokomo Country Club area"
+      "Kokomo Country Club area",
+      "Old Silk Stocking Historic District",
+      "Vermont Street Historic District",
+      "Indian Heights",
+      "Bon Air"
     ],
     "population": 59000,
     "flood_years": [
@@ -25073,7 +25115,11 @@
     "market_blurb": "Calexico's economy is anchored by its position as one of the busiest U.S.-Mexico border crossings, driving strong international trade, logistics, and cross-border retail activity. Agriculture tied to the broader Imperial Valley also remains a major employment source, alongside government services and public education. The city's proximity to Mexicali makes it a key commercial gateway for goods and labor moving between the two countries.",
     "local_note": "Most homes in Calexico are built on slab-on-grade foundations, typical for this hot desert region with minimal frost risk. The dominant water-damage risk is flash flooding from intense summer monsoon thunderstorms and occasional canal or drainage system overflow rather than prolonged seasonal rain.",
     "neighborhoods": [
-      "Downtown Calexico"
+      "Downtown Calexico",
+      "Rockwood",
+      "Las Palmas",
+      "Northside Calexico",
+      "Southside Calexico"
     ],
     "population": 38864,
     "flood_years": [
@@ -26266,7 +26312,9 @@
       "Downtown Wisconsin Rapids",
       "South Side",
       "East Side",
-      "Biron"
+      "West Side",
+      "Biron",
+      "Central Wisconsin Rapids"
     ],
     "population": 17547,
     "flood_years": [
@@ -26592,7 +26640,10 @@
     "neighborhoods": [
       "Lago Mar",
       "Moses Lake",
-      "Nessler Park"
+      "Nessler Park",
+      "Bayside Terrace",
+      "La Marina",
+      "Highlands Addition"
     ],
     "population": 51898,
     "flood_years": [
@@ -26939,7 +26990,12 @@
     "market_blurb": "Henderson, Kentucky's economy is anchored by manufacturing, with firms like Gibbs Die Casting and Accuride producing automotive components, alongside paper production at Pratt Industries. Healthcare and education are major employment sectors through Deaconess Henderson Hospital and Henderson County Schools, while the city's Ohio River location supports agriculture, logistics, and energy industries including nearby aluminum smelting operations.",
     "local_note": "Many homes in Henderson, especially older ones near downtown and the riverfront, have basements or crawl spaces, while newer subdivisions often use slab foundations. The dominant water-damage risk in the area is Ohio River flooding combined with heavy seasonal rainfall and localized flash flooding.",
     "neighborhoods": [
-      "Downtown Henderson"
+      "Downtown Henderson",
+      "North Main Street Historic District",
+      "Audubon Park",
+      "Central Park",
+      "Atkinson Park neighborhood",
+      "Elm Street-Clay Street Historic District"
     ],
     "population": 28000,
     "flood_years": [
@@ -27103,11 +27159,17 @@
       "Copper Rock",
       "Coral Canyon",
       "Sky Mountain",
-      "Sand Hollow"
+      "Sand Hollow",
+      "Meadow Valley Farms",
+      "Royal Oaks"
     ],
     "population": 21000,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      2005,
+      2010,
+      2012
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       20,
       12,
@@ -27393,7 +27455,7 @@
       }
     ],
     "_research_declined": {
-      "flood_years": 1
+      "flood_years": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -27429,7 +27491,12 @@
     "market_blurb": "Sycamore, Illinois, the DeKalb County seat, has an economy rooted in manufacturing, agriculture, and public services, anchored by longtime employers like Ideal Industries. Healthcare and education also play significant roles, with Northwestern Medicine Kishwaukee Hospital and the local school district among the city's largest employers. Its historic downtown and surrounding farmland reflect a blend of small-town commerce and agricultural heritage typical of north-central Illinois.",
     "local_note": "Homes in Sycamore typically have full basements, consistent with standard Midwest residential construction, making sump pump failures and basement seepage common concerns. The dominant water-damage risk in the area comes from heavy seasonal rainfall and spring snowmelt, which can lead to localized flash flooding and groundwater intrusion.",
     "neighborhoods": [
-      "Downtown Sycamore Historic District"
+      "Downtown Sycamore Historic District",
+      "Foxfield Subdivision",
+      "Windsor Woods",
+      "Natures Crossing",
+      "Sycamore Trails",
+      "South Sycamore"
     ],
     "population": 18931,
     "flood_years": [
@@ -27752,7 +27819,9 @@
     ],
     "market_blurb": "Molalla, Oregon sits in a historically agricultural and timber-producing area of Clackamas County, with the local economy supported by farming, nurseries, and small manufacturing businesses. The city continues to see growth tied to residential construction as it serves as an affordable bedroom community within commuting distance of the Portland metro area.",
     "local_note": "Homes in Molalla are predominantly built on crawl space foundations, common throughout the Willamette Valley, with some older homes having partial basements. The dominant water-damage risk in the area is heavy seasonal rainfall during the fall and winter months, which can lead to crawl space moisture intrusion and localized flash flooding near the Molalla River.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Downtown Molalla"
+    ],
     "population": 10140,
     "flood_years": [
       1996,
@@ -27875,7 +27944,7 @@
       }
     ],
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -27913,7 +27982,10 @@
     "neighborhoods": [
       "Old Town Lompoc",
       "Vandenberg Village",
-      "La Purisima Hills"
+      "Mission Hills",
+      "La Purisima Hills",
+      "Country Club Estates",
+      "Mesa Oaks"
     ],
     "population": 42000,
     "flood_years": [
@@ -28912,7 +28984,10 @@
     "local_note": "Most homes in Vermillion are built with full basements, typical of the Upper Midwest, making them susceptible to seepage and sump pump failures during spring snowmelt and heavy spring/summer rains. The dominant water-damage risk in the area comes from spring snowmelt combined with heavy seasonal rainfall, which can also contribute to Missouri River and local waterway flooding.",
     "neighborhoods": [
       "Downtown Vermillion",
-      "Prentis Park"
+      "Prentis Park",
+      "University District",
+      "Austin Addition",
+      "West Vermillion"
     ],
     "population": 11407,
     "flood_years": [
@@ -29255,7 +29330,11 @@
     "local_note": "Most homes in Nogales are built on slab-on-grade foundations, typical of the arid Southwest. The dominant water-damage risk is flash flooding, particularly from intense summer monsoon storms that overwhelm the Nogales Wash and surrounding arroyos.",
     "neighborhoods": [
       "Downtown Nogales",
-      "Mariposa"
+      "Mariposa",
+      "Buena Vista",
+      "Los Alisos",
+      "Nogales Heights",
+      "Kennedy Park area"
     ],
     "population": 19500,
     "flood_years": [
@@ -29586,11 +29665,18 @@
       "Downtown Georgetown Historic District",
       "Silver Lake",
       "Indian Creek",
-      "Lanes Run"
+      "Lanes Run",
+      "Camden Station",
+      "Great Crossing",
+      "Cardome",
+      "Stonecrest"
     ],
     "population": 37700,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1997,
+      2010
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       20,
       16,
@@ -29917,8 +30003,12 @@
     "market_blurb": "Franklin, Kentucky serves as the Simpson County seat and benefits from its location along I-65 between Bowling Green and Nashville, supporting a strong manufacturing and logistics base. Automotive parts, battery, and rubber/plastics manufacturers such as Johnson Controls and Firestone Industrial Products anchor the local economy, alongside food processing and agriculture. The city's proximity to Nashville also draws commuters and regional distribution activity.",
     "local_note": "Homes in Franklin are commonly built on crawl spaces and slab foundations, with some older homes in town having basements; the dominant water-damage risk in this part of south-central Kentucky is heavy seasonal rain and flash flooding, particularly in spring.",
     "neighborhoods": [
+      "Downtown Franklin",
       "The Maples",
-      "Downtown Franklin"
+      "Lakeview",
+      "South Franklin",
+      "Stockton Valley",
+      "College Street District"
     ],
     "population": 9500,
     "flood_years": [
@@ -30080,7 +30170,10 @@
     "neighborhoods": [
       "Pelican Point",
       "Cornerview",
-      "Riverstone"
+      "Riverstone",
+      "Sherwood Forest",
+      "Oak Shadows",
+      "Hidden Lake"
     ],
     "population": 12491,
     "flood_years": [
@@ -30248,7 +30341,8 @@
       "Downtown Crawfordsville Historic District",
       "Elston Grove Historic District",
       "Pike-Wabash Historic District",
-      "Lane Place"
+      "Lane Place",
+      "Wabash College Mall Historic District"
     ],
     "population": 15915,
     "flood_years": [
@@ -30411,7 +30505,12 @@
     "local_note": "Many homes in Kankakee, especially in older neighborhoods, were built with full basements, which are common across this part of Illinois, while newer construction sometimes uses crawl spaces. The dominant water-damage risk in the area is heavy seasonal rain and spring snowmelt that can cause the Kankakee River and area creeks to flood, along with flash flooding from intense summer storms.",
     "neighborhoods": [
       "Riverview Historic District",
-      "Downtown Kankakee"
+      "Downtown Kankakee",
+      "North Kankakee",
+      "South Kankakee",
+      "Cobb Park",
+      "Bird Park",
+      "Kankakee Courthouse Square Historic District"
     ],
     "population": 24100,
     "flood_years": [
@@ -30570,7 +30669,11 @@
     "local_note": "Most homes in Thibodaux are built on slab-on-grade or raised pier foundations due to the area's high water table and flood-prone bayou terrain. The dominant water-damage risk is hurricane-driven storm surge and heavy rainfall flooding, given Thibodaux's location along Bayou Lafourche in low-lying south Louisiana.",
     "neighborhoods": [
       "Downtown Thibodaux Historic District",
-      "Acadia Plantation area"
+      "Acadia Plantation area",
+      "Southdown Plantation area",
+      "Bayou Gardens",
+      "Myrtle Grove",
+      "Laurel Oaks"
     ],
     "population": 14500,
     "flood_years": [
@@ -30740,8 +30843,10 @@
       "Clinton County Courthouse Square Historic District"
     ],
     "population": 16297,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      2008
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       26,
       22,
@@ -30862,7 +30967,6 @@
       }
     ],
     "_research_declined": {
-      "flood_years": 1,
       "neighborhoods": 1
     },
     "_researched": 1,
@@ -31066,11 +31170,18 @@
     "local_note": "Many homes in Highland, built in the mid-20th century or earlier, feature full basements, typical of the Midwest region, which makes them susceptible to seepage and sump pump failures during heavy rain events. The dominant water-damage risk in this part of Illinois is heavy seasonal rainfall and flash flooding, particularly in spring and early summer.",
     "neighborhoods": [
       "Downtown Highland",
-      "Silver Lake"
+      "Silver Lake",
+      "Lindendale Park",
+      "Glik Park",
+      "Rotary Park",
+      "Korte Recreation Complex"
     ],
     "population": 10152,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1993,
+      2008
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       24,
       18,
@@ -31101,8 +31212,14 @@
       2
     ],
     "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals (Lambert-St. Louis International Airport, nearest long-term station)",
-    "homes_by_decade": {},
-    "homes_by_decade_source": "",
+    "homes_by_decade": {
+      "Before 1960": 40,
+      "1960-1979": 20,
+      "1980-1999": 20,
+      "2000-2009": 12,
+      "2010 or later": 8
+    },
+    "homes_by_decade_source": "US Census ACS 2019-2023 5-year estimates (approximate, regional housing age pattern)",
     "hot_days_monthly": [
       0,
       0,
@@ -31227,7 +31344,9 @@
       "Downtown Livermore",
       "Springtown",
       "South Livermore",
-      "Livermore Valley Wine Country"
+      "Livermore Valley Wine Country",
+      "Sunset",
+      "Vineyards"
     ],
     "population": 87955,
     "flood_years": [
@@ -31719,7 +31838,10 @@
     "local_note": "Most homes in El Reno are built on slab foundations, typical for central Oklahoma's clay-heavy soils, though some older homes in historic parts of town have crawl spaces. The dominant water-damage risk in the area is flash flooding from heavy seasonal thunderstorms, particularly in spring and early summer.",
     "neighborhoods": [
       "Downtown El Reno",
-      "Fort Reno Historic District"
+      "Fort Reno Historic District",
+      "Rock Island Historic District",
+      "South Rock Island Historic District",
+      "Route 66 Historic District"
     ],
     "population": 16989,
     "flood_years": [
@@ -32047,8 +32169,12 @@
     "local_note": "Most homes in Newman are built on concrete slab foundations, typical of California's Central Valley. The dominant water-damage risk is heavy seasonal winter rain combined with occasional atmospheric river storms that can cause localized flooding near the San Joaquin River and area irrigation canals.",
     "neighborhoods": [],
     "population": 11500,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1997,
+      2017,
+      2023
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       5,
       3,
@@ -32165,8 +32291,7 @@
       }
     ],
     "_research_declined": {
-      "flood_years": 1,
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -32203,11 +32328,17 @@
     "local_note": "Most homes in Glasgow are built on crawl spaces or slab foundations, consistent with the region's clay-heavy soils, though some older homes in town have basements. The dominant water-damage risk is heavy seasonal rainfall and flash flooding, particularly in spring, which can overwhelm drainage and lead to crawl space and basement water intrusion.",
     "neighborhoods": [
       "Downtown Glasgow",
-      "Glasgow Historic District"
+      "Glasgow Historic District",
+      "South Green Street area",
+      "Glasgow Square"
     ],
     "population": 14500,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      2010,
+      2019,
+      2021
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       20,
       16,
@@ -32328,8 +32459,7 @@
       }
     ],
     "_research_declined": {
-      "flood_years": 1,
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -32367,7 +32497,11 @@
     "neighborhoods": [
       "Downtown Belton",
       "Sparta",
-      "Lake Belton area"
+      "Lake Belton area",
+      "Miller Heights",
+      "Westcliff Estates",
+      "Wildflower Country Club area",
+      "Yettie Polk Park area"
     ],
     "population": 23836,
     "flood_years": [
@@ -32530,7 +32664,11 @@
     "local_note": "Most homes in Savage are built with full basements, typical of the Upper Midwest, making them susceptible to seepage and sump-pump failures. The dominant water-damage risks are spring snowmelt combined with heavy seasonal rain events, along with periodic Minnesota River flooding.",
     "neighborhoods": [
       "Downtown Savage",
-      "Glynwater"
+      "Glynwater",
+      "Hidden Valley",
+      "Bloomfield",
+      "Murphy's Landing",
+      "Dakota Heights"
     ],
     "population": 31284,
     "flood_years": [
@@ -32695,7 +32833,9 @@
     "market_blurb": "Shelbyville, Indiana, the seat of Shelby County, has a diversified economy anchored by manufacturing firms like Knauf Insulation and NTN Driveshaft, along with the regional draw of Horseshoe Indianapolis racino. Healthcare, agriculture, and local government round out the employment base, with Shelbyville's position along I-74 supporting logistics and distribution activity. The city serves as a commercial hub for the surrounding rural Shelby County area.",
     "local_note": "Homes in Shelbyville are commonly built with full or partial basements, typical of central Indiana construction, making basement seepage and sump pump failures a common water-damage concern. The dominant regional risk is heavy seasonal rainfall and spring flash flooding, particularly along the Blue River and its tributaries.",
     "neighborhoods": [
-      "Downtown Shelbyville"
+      "Downtown Shelbyville",
+      "Shelbyville Downtown Historic District",
+      "Blue River area"
     ],
     "population": 20000,
     "flood_years": [
@@ -32823,7 +32963,7 @@
       }
     ],
     "_research_declined": {
-      "neighborhoods": 1
+      "neighborhoods": 2
     },
     "_researched": 1,
     "neighborhoods_source": "verified"
@@ -32860,7 +33000,12 @@
     "local_note": "Most homes in Bogalusa are built on slab or pier-and-beam foundations, consistent with the region's clay soils and humid subtropical climate. The dominant water-damage risk here is heavy seasonal rainfall and flash flooding, with added exposure to remnant hurricane rainfall bands moving inland from the Gulf.",
     "neighborhoods": [
       "Bogalusa Historic District",
-      "Cassidy Park"
+      "Cassidy Park",
+      "Columbia Street Historic District",
+      "East Bogalusa",
+      "West Bogalusa",
+      "Poplas Quarters",
+      "Tung Avenue area"
     ],
     "population": 10700,
     "flood_years": [
@@ -33027,7 +33172,12 @@
       "Woodmoor",
       "Jackson Creek",
       "Kings Deer",
-      "Wakonda Hills"
+      "Wakonda Hills",
+      "Monument Ridge",
+      "Higby Woods",
+      "Forest Lakes",
+      "Promontory Pointe",
+      "Sanctuary Pointe"
     ],
     "population": 11000,
     "flood_years": [
@@ -33182,7 +33332,10 @@
     "neighborhoods": [
       "Braytonville",
       "Blackinton",
-      "Greylock"
+      "Greylock",
+      "Beaver",
+      "Notch",
+      "Brooklyn"
     ],
     "population": 12700,
     "flood_years": [
@@ -33857,7 +34010,10 @@
     "local_note": "Most homes in Bethel Park were built mid-20th century on basement foundations, common throughout this hilly, clay-soil region of western Pennsylvania. The dominant water-damage risk is heavy seasonal rain and spring snowmelt driving basement seepage and localized flash flooding, particularly in low-lying areas near streams and culverts.",
     "neighborhoods": [
       "Library",
-      "Bethel Village"
+      "Bethel Village",
+      "Prestonwood",
+      "Fairhaven",
+      "Brightwood Estates"
     ],
     "population": 32000,
     "flood_years": [
@@ -34033,8 +34189,15 @@
       "Seaview"
     ],
     "population": 42853,
-    "flood_years_source": "",
-    "flood_years": [],
+    "flood_years_source": "NOAA Storm Events Database",
+    "flood_years": [
+      1990,
+      1995,
+      1996,
+      2003,
+      2006,
+      2009
+    ],
     "freeze_days_monthly": [
       8,
       6,
@@ -34351,7 +34514,11 @@
     "market_blurb": "Menomonee Falls, Wisconsin is a large Milwaukee-area suburb anchored by corporate and industrial employers, most notably the headquarters of Kohl's Corporation and a cluster of manufacturing firms within its sizable business park. Healthcare, logistics, and professional services round out the local economy, supported by proximity to the greater Milwaukee metro labor market. The village's mix of long-established manufacturing and newer corporate office space has kept its economic base relatively diverse and stable.",
     "local_note": "Most homes in Menomonee Falls were built with full basements, consistent with southeastern Wisconsin construction norms, which makes them susceptible to seepage and backup issues during heavy snowmelt and spring rain events. The dominant water-damage risks in the area are spring snowmelt flooding and heavy seasonal thunderstorm rainfall, which can overwhelm aging storm sewer and sump systems.",
     "neighborhoods": [
-      "Downtown Menomonee Falls"
+      "Downtown Menomonee Falls",
+      "Main Street Historic District",
+      "Village Park",
+      "Lime Kiln Park area",
+      "North Hills"
     ],
     "population": 38842,
     "flood_years": [
