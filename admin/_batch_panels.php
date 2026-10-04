@@ -987,7 +987,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 </select>
             </span>
         </label>
-        <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI)</label>
+        <label class="hint"><input type="checkbox" id="ms-force"> Force (rebuild everything, refresh AI, no research refresh)</label>
         <button type="button" class="btn btn-primary" id="ms-run-btn" onclick="msRun()">Generate sites</button>
     </div>
     <!-- Interruption note. Research runs first inside a generate run and a full pass is
