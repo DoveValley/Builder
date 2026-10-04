@@ -26,7 +26,20 @@
         "mold cleanup",
         "mold abatement",
         "mold smell removal",
-        "musty odor removal"
+        "musty odor removal",
+        "mold mitigation",
+        "mold mitigation services",
+        "mold mitigation company",
+        "emergency mold mitigation",
+        "mold containment",
+        "mold remediation vs mitigation",
+        "mold damage restoration",
+        "mold damage services",
+        "mold damage repair",
+        "mold damage cleanup",
+        "structural drying",
+        "water damage mold",
+        "mold after water damage"
       ],
       "pool": "pinned"
     },
@@ -43,7 +56,7 @@
         "water damage mold",
         "mold after water damage"
       ],
-      "pool": "pinned"
+      "pool": "skip"
     },
     {
       "primary": "mold inspection {city}, {ST}",
@@ -54,7 +67,12 @@
         "mold inspection and testing",
         "home mold inspection",
         "mold inspection near me",
-        "mold assessment"
+        "mold assessment",
+        "mold testing",
+        "mold testing services",
+        "mold spore testing",
+        "mold sampling",
+        "mold lab testing"
       ],
       "pool": "pinned"
     },
@@ -84,7 +102,7 @@
         "mold sampling",
         "mold lab testing"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "commercial mold remediation {city}, {ST}",
@@ -97,7 +115,7 @@
         "office mold removal",
         "commercial mold removal near me"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "mold mitigation {city}, {ST}",
@@ -111,7 +129,7 @@
         "mold containment",
         "mold remediation vs mitigation"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "crawl space mold removal {city}, {ST}",
@@ -307,13 +325,13 @@
       "pool": "rotate"
     }
   ],
-  "updated_at": "2026-10-04T17:25:02+00:00",
+  "updated_at": "2026-10-04T18:03:35+00:00",
   "page_pool": {
     "enabled": true,
     "counts": [
-      8,
-      10,
-      12
+      9,
+      11,
+      13
     ]
   }
 }
