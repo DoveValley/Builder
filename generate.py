@@ -381,7 +381,12 @@ def _get_client(api_key):
         with _client_lock:
             if _client is None:
                 import anthropic
-                _client = anthropic.Anthropic(api_key=api_key)
+                # timeout: a research call that has not answered in 2 min is stuck,
+                # not slow (they land in ~30s). max_retries=0: call_claude owns the
+                # retry loop and logs each attempt; the SDK retries silently and the
+                # two layers multiply (3 x 6 attempts x 600s read = hours of silence).
+                _client = anthropic.Anthropic(
+                    api_key=api_key, timeout=120.0, max_retries=0)
     return _client
 
 
