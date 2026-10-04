@@ -144,7 +144,8 @@ function pest_season_also($also, array $sources, ?array $default): array {
             if (trim($a) === '') continue;
             $out[] = ['verbatim' => $a,
                       'url' => (string) ($default['url'] ?? ''),
-                      'short' => (string) ($default['short'] ?? '')];
+                      'short' => (string) ($default['short'] ?? ''),
+                      'label' => (string) ($default['label'] ?? '')];
             continue;
         }
         if (!is_array($a) || trim((string) ($a['verbatim'] ?? '')) === '') continue;
@@ -152,7 +153,8 @@ function pest_season_also($also, array $sources, ?array $default): array {
         if (!is_array($s)) continue;                 // named a source we do not have: drop it
         $out[] = ['verbatim' => (string) $a['verbatim'],
                   'url' => (string) ($s['url'] ?? ''),
-                  'short' => (string) ($s['short'] ?? '')];
+                  'short' => (string) ($s['short'] ?? ''),
+                  'label' => (string) ($s['label'] ?? '')];
     }
     return $out;
 }
@@ -252,16 +254,45 @@ function pest_season_css(): string {
     $done = true;
     return '<style>'
         . '.ps-wrap{margin:0 0 6px}'
-        . '.ps-quote{margin:14px 0 0;padding:14px 16px;background:#f8fafc;'
+        . '.ps-quotes{margin:14px 0 0;padding:14px 16px;background:#f8fafc;'
         . 'border-left:3px solid #fd783b;border-radius:0 8px 8px 0}'
-        . '.ps-quote p{margin:0 0 6px;font-size:1.02rem;color:#1e3a5f;line-height:1.55}'
-        . '.ps-quote p:last-child{margin-bottom:0}'
-        . '.ps-also{margin:8px 0 0;font-size:.94rem;color:#334155;line-height:1.55}'
+        . '.ps-quote{margin:0 0 8px;padding:0;border:0}'
+        . '.ps-quote:last-of-type{margin-bottom:0}'
+        . '.ps-quote p{margin:0;font-size:1.02rem;color:#1e3a5f;line-height:1.55}'
+        . '.ps-also p{font-size:.94rem;color:#334155}'
+        . '.ps-cite{font-style:normal}'
         . '.ps-cite{font-size:.8rem}'
         . '.ps-ctx{display:block;margin-top:8px;color:#475569;font-size:.88rem;line-height:1.55}'
         . '.ps-local{margin:14px 0 0;color:#334155;line-height:1.6}'
         . '.ps-local .ps-cite{display:block;margin-top:4px;color:#64748b}'
         . '</style>';
+}
+
+/**
+ * One quoted sentence with its own attribution.
+ *
+ * `cite` on the blockquote names the source document, and <cite> marks the work in the visible
+ * attribution — both are correct HTML for a quotation. Neither is a ranking factor: Google has
+ * said it ignores the cite attribute, and no rich result consumes <cite>. The part that counts
+ * is the followed link to the .gov/.edu inside it.
+ *
+ * The full source title goes in the link's title attribute rather than the visible text, so the
+ * attribution stays short on the page without losing which document it actually was.
+ */
+function pest_season_quote(string $text, string $url, string $short, string $label,
+                           bool $lead): string {
+    if (trim($text) === '') return '';
+    $attr = $url !== '' ? ' cite="' . h($url) . '"' : '';
+    $cls  = $lead ? 'ps-quote' : 'ps-quote ps-also';
+    $out  = '<blockquote class="' . $cls . '"' . $attr . '><p>&ldquo;'
+          . h($text) . '&rdquo;';
+    if ($url !== '') {
+        $out .= ' <cite class="ps-cite"><a href="' . h($url) . '" target="_blank"'
+              . ' rel="noopener"'
+              . ($label !== '' ? ' title="' . h($label) . '"' : '')
+              . '>' . h($short !== '' ? $short : 'source') . '</a></cite>';
+    }
+    return $out . '</p></blockquote>';
 }
 
 /** Render, or '' when this page has nothing citable. */
@@ -297,16 +328,22 @@ function pest_season_render(array $attrs = []): string {
     $h .= '<h2>' . h($head) . '</h2>';
     if ($intro !== '') $h .= '<p>' . h(resolve_shortcodes($intro)) . '</p>';
 
-    $h .= '<blockquote class="ps-quote"><p>&ldquo;' . h($r['verbatim']) . '&rdquo;'
-        . $cite($r['source_url'], $r['source_short']) . '</p>';
+    // Each quoted sentence is its own <blockquote cite>, not one blockquote wrapping all of
+    // them. A blockquote carries a SINGLE cite URL, and termite quotes two publishers — UGA
+    // for the swarm behaviour, Penn State for the Pennsylvania window. Sharing one cite
+    // attribute would attribute the Pennsylvania sentence to the Georgia publication, the
+    // precise error that sourced `also` entries exist to prevent. Grouped visually by CSS.
+    $h .= '<div class="ps-quotes">';
+    $h .= pest_season_quote($r['verbatim'], $r['source_url'], $r['source_short'],
+                            $r['source_label'], true);
     foreach ($r['also'] as $a) {
-        $h .= '<p class="ps-also">&ldquo;' . h((string) $a['verbatim']) . '&rdquo;'
-            . $cite((string) $a['url'], (string) $a['short']) . '</p>';
+        $h .= pest_season_quote((string) $a['verbatim'], (string) $a['url'],
+                                (string) $a['short'], (string) ($a['label'] ?? ''), false);
     }
     if ($r['context'] !== '') {
-        $h .= '<span class="ps-ctx">' . h($r['context']) . '</span>';
+        $h .= '<p class="ps-ctx">' . h($r['context']) . '</p>';
     }
-    $h .= '</blockquote>';
+    $h .= '</div>';
 
     if ($r['local'] !== '') {
         $h .= '<p class="ps-local">' . h($r['local']);
