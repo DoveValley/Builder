@@ -10,7 +10,8 @@ $kwFile = dirname(TEMPLATES_FILE) . '/keyword_map.json';
 $kwMap  = file_exists($kwFile) ? (json_decode(file_get_contents($kwFile), true) ?: []) : [];
 $services = $kwMap['services'] ?? [];
 $niche    = trim($kwMap['niche'] ?? '');
-$ppCounts = $kwMap['page_pool']['counts'] ?? [];
+$ppCounts  = $kwMap['page_pool']['counts'] ?? [];
+$ppEnabled = ($kwMap['page_pool']['enabled'] ?? false) === true;
 
 require_once __DIR__ . '/../../includes/keyword_roles.php';
 require_once __DIR__ . '/../../includes/multisite/page_pool.php';
@@ -57,22 +58,30 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
     ?>
         <div class="kw-item" style="border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;">
             <div style="margin-bottom:8px;">
-                <label style="<?= $lbl ?>">Primary keyword <?php if ($roleLab): ?><span style="<?= keyword_role_chip_style($roleLab) ?>margin-left:6px;"><?= h($roleLab) ?></span><?php endif; ?></label>
-                <div style="display:flex;gap:8px;align-items:center;">
-                    <span class="kw-num" style="<?= $numStyle ?>"><?= $idx + 1 ?></span>
-                    <input type="text" name="kw_primary[]" value="<?= h($nm) ?>" style="flex:1;min-width:0;">
-                    <select name="kw_tier[]" style="width:120px;flex:none;" title="Tier / priority"><option value="">Tier…</option><?php foreach ($tierOpts as $v=>$l): ?><option value="<?= $v ?>" <?= $ti===$v?'selected':'' ?>><?= $l ?></option><?php endforeach; ?></select>
+                <div style="display:flex;gap:8px;align-items:flex-end;">
+                    <span class="kw-num" style="<?= $numStyle ?>margin-bottom:4px;"><?= $idx + 1 ?></span>
+                    <div style="flex:1;min-width:0;">
+                        <label style="<?= $lbl ?>">Primary keyword <?php if ($roleLab): ?><span style="<?= keyword_role_chip_style($roleLab) ?>margin-left:6px;"><?= h($roleLab) ?></span><?php endif; ?></label>
+                        <input type="text" name="kw_primary[]" value="<?= h($nm) ?>" style="width:100%;">
+                    </div>
+                    <div style="width:120px;flex:none;">
+                        <label style="<?= $lbl ?>">Priority</label>
+                        <select name="kw_tier[]" style="width:100%;" title="Tier / priority"><option value="">Tier…</option><?php foreach ($tierOpts as $v=>$l): ?><option value="<?= $v ?>" <?= $ti===$v?'selected':'' ?>><?= $l ?></option><?php endforeach; ?></select>
+                    </div>
                     <?php if ($section === 'landing'): ?>
-                    <select name="kw_pool[]" style="width:170px;flex:none;" title="Which sites build this page">
-                        <?php foreach ($poolOpts as $v=>$l): ?><option value="<?= $v ?>" <?= $po===$v?'selected':'' ?>><?= h($l) ?></option><?php endforeach; ?>
-                    </select>
+                    <div style="width:170px;flex:none;">
+                        <label style="<?= $lbl ?>">Which sites build it</label>
+                        <select name="kw_pool[]" style="width:100%;" title="Which sites build this page">
+                            <?php foreach ($poolOpts as $v=>$l): ?><option value="<?= $v ?>" <?= $po===$v?'selected':'' ?>><?= h($l) ?></option><?php endforeach; ?>
+                        </select>
+                    </div>
                     <?php else: ?>
                     <input type="hidden" name="kw_pool[]" value="">
                     <?php endif; ?>
                     <input type="hidden" name="kw_section[]" value="<?= h($section) ?>">
-                    <button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>
-                    <button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,1)" title="Move down">&darr;</button>
-                    <button type="button" class="btn btn-danger" style="padding:2px 9px;flex:none;" onclick="kwDel(this)" title="Remove keyword">&times;</button>
+                    <button type="button" class="btn" style="padding:2px 8px;flex:none;margin-bottom:1px;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>
+                    <button type="button" class="btn" style="padding:2px 8px;flex:none;margin-bottom:1px;" onclick="kwMove(this,1)" title="Move down">&darr;</button>
+                    <button type="button" class="btn btn-danger" style="padding:2px 9px;flex:none;margin-bottom:1px;" onclick="kwDel(this)" title="Remove keyword">&times;</button>
                 </div>
             </div>
             <div style="margin-bottom:8px;">
@@ -166,17 +175,77 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
     <?php endif; ?>
 
     <div class="card" style="margin-bottom:16px;">
-        <h2 style="margin-top:0;margin-bottom:8px;">How to build your keyword map</h2>
-        <p class="hint" style="margin:0 0 10px;">
-            <strong>Model:</strong> one site per city, long-tail <code>keyword + city</code>. Every keyword becomes a page with a <strong>primary</strong>
-            (the page's main target), its <strong>secondary</strong> keywords (variants worked into the title, H2s, and FAQ), and a <strong>tier</strong> (priority).
-            This map is the source of truth that feeds the Bulk Template Generator.
+        <h2 style="margin-top:0;margin-bottom:8px;">How this tab works</h2>
+        <p class="hint" style="margin:0 0 12px;">
+            One site per city. <strong>Every row below becomes one page</strong>, targeting that keyword plus the
+            city (e.g. &ldquo;<?= h($niche ?: 'your service') ?> {city}, {ST}&rdquo;). This map is the source of
+            truth for the Bulk Template Generator &mdash; nothing gets built that isn&rsquo;t listed here.
         </p>
+
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
+            <div class="hint" style="font-weight:700;color:#1e3a5f;margin-bottom:6px;">What each field on a row does</div>
+            <ul class="hint" style="margin:0;padding-left:18px;line-height:1.75;">
+                <li><strong>Keyword (primary)</strong> &mdash; the page&rsquo;s main target. The city and state are
+                    filled in per site, so you write the service only.</li>
+                <li><strong>Slug</strong> &mdash; the page&rsquo;s URL.</li>
+                <li><strong>Tier</strong> &mdash; your own priority judgement, <code>high-1</code> down to
+                    <code>low-3</code>. It sorts this list with the <em>Sort: High &rarr; Low</em> button.
+                    <strong>It does not decide what gets built</strong> &mdash; with one exception: if you never
+                    touch the Pool dropdown, the tier picks a default for you
+                    (<code>high-1</code> &rarr; Pinned, any <code>low-</code> &rarr; Skip, everything else
+                    &rarr; Rotate). Once Pool is set, tier is just priority.</li>
+                <li><strong>Secondary keywords</strong> &mdash; comma-separated variants. These get worked into the
+                    page title, the H2s and the FAQ. They don&rsquo;t create pages of their own.</li>
+                <li><strong>Pool</strong> (Landing Pages only) &mdash; the switch that actually decides whether the
+                    page gets built. See below.</li>
+            </ul>
+        </div>
+
+        <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
+            <div class="hint" style="font-weight:700;color:#92400e;margin-bottom:6px;">
+                What decides whether a landing page gets built
+            </div>
+            <ul class="hint" style="margin:0 0 8px;padding-left:18px;line-height:1.75;">
+                <li><strong>Pinned &mdash; always built.</strong> Every site in this niche gets this page. No exceptions.</li>
+                <li><strong>Rotate &mdash; eligible.</strong> Goes into the draw. Some sites get it, some don&rsquo;t.</li>
+                <li><strong>Skip &mdash; never built.</strong> Never appears on any site.</li>
+            </ul>
+            <p class="hint" style="margin:0 0 8px;">
+                <strong>Pages per site</strong> (the three boxes in section 4) sets how many landing pages a site ends
+                up with. You give three totals; <strong>each domain lands on one of them</strong>, chosen from its own
+                name &mdash; so the fleet doesn&rsquo;t all have an identical page count. Pinned pages go in first,
+                then the remainder is filled from the Rotate pool, picked by the domain name so it&rsquo;s stable
+                rather than random.
+            </p>
+            <p class="hint" style="margin:0;">
+                <em>Example:</em> totals of 12/14/16 with 3 Pinned and 19 Rotate &mdash; a domain that lands on 14
+                builds its 3 Pinned pages plus 11 of the 19 Rotate pages. A different domain in the same niche builds
+                a different 11.
+            </p>
+        </div>
+
+        <div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
+            <div class="hint" style="font-weight:700;color:#991b1b;margin-bottom:6px;">Two things that catch people out</div>
+            <ul class="hint" style="margin:0;padding-left:18px;line-height:1.75;">
+                <li><strong>The page choice locks in on a site&rsquo;s first build.</strong> Changing Tier, Pool or the
+                    page counts here only affects domains that have <em>never been built</em>. An already-built site
+                    reuses the selection saved at
+                    <code>sites/{niche}/multisite/cache/{domain}.pagepool.json</code> on every rebuild, so its pages
+                    never change underneath it. Delete that file if you genuinely want a built site re-drawn.</li>
+                <li><strong>Saving here never switches pooling on.</strong> Pooling only runs when
+                    <code>page_pool.enabled</code> is <code>true</code> in that niche&rsquo;s
+                    <code>data/keyword_map.json</code> &mdash; a deliberate one-time decision, not something a routine
+                    keyword edit should flip. While it&rsquo;s off, every page that isn&rsquo;t Skip is built on every
+                    site.</li>
+            </ul>
+        </div>
+
+        <div class="hint" style="font-weight:700;color:#1e3a5f;margin-bottom:6px;">Building the list in the first place</div>
         <ol class="hint" style="margin:0 0 14px;padding-left:20px;line-height:1.7;">
-            <li><strong>Get the prompt.</strong> Download the prompt template, then fill in the <code>[BRACKETS]</code> — your niche — and attach your keyword data (a Google Keyword Planner or Ahrefs CSV export).</li>
-            <li><strong>Generate the list.</strong> Paste it into an AI assistant. It clusters your keywords into pages: one <strong>Home</strong> head term, optional <strong>Core</strong> category pages, and one <strong>Landing</strong> page per service — each with a primary, secondaries, and a tier.</li>
+            <li><strong>Get the prompt.</strong> Download the prompt template, then fill in the <code>[BRACKETS]</code> &mdash; your niche &mdash; and attach your keyword data (a Google Keyword Planner or Ahrefs CSV export).</li>
+            <li><strong>Generate the list.</strong> Paste it into an AI assistant. It clusters your keywords into pages: one <strong>Home</strong> head term, optional <strong>Core</strong> category pages, and one <strong>Landing</strong> page per service &mdash; each with a primary, secondaries, and a tier.</li>
             <li><strong>Check the format.</strong> The sample output shows exactly what a finished list looks like (any niche follows the same shape).</li>
-            <li><strong>Enter it here.</strong> Type the results into the Home / Core / Landing sections below and click <strong>Save</strong>.</li>
+            <li><strong>Enter it here.</strong> Type the results into the Home / Core / Landing sections below, set the Pool on each landing row, and click <strong>Save</strong>.</li>
         </ol>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <a class="btn" href="/uploads/keyword-map-prompt.txt" download="keyword-map-prompt.txt">&#11015; Prompt template (.txt)</a>
@@ -213,14 +282,41 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
             </div>
             <p class="hint" style="margin:0 0 12px;"><?= $def['hint'] ?></p>
             <?php if ($key === 'landing'): ?>
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;">
+            <?php /* Marker: proves the landing section was on the submitted form, so an
+                     unchecked box means "off" rather than "this form never asked". */ ?>
+            <input type="hidden" name="pp_present" value="1">
+            <div style="background:<?= $ppEnabled ? '#f0fdf4' : '#fef2f2' ?>;border:1px solid <?= $ppEnabled ? '#86efac' : '#fca5a5' ?>;border-radius:6px;padding:10px 12px;margin-bottom:10px;">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:700;color:<?= $ppEnabled ? '#166534' : '#991b1b' ?>;">
+                    <input type="checkbox" name="pp_enabled" value="1" style="width:auto;flex:none;"
+                           onclick="return ppConfirmToggle(this)" <?= $ppEnabled ? 'checked' : '' ?>>
+                    Page pooling is <?= $ppEnabled ? 'ON' : 'OFF' ?>
+                </label>
+                <p class="hint" style="margin:6px 0 0;">
+                    <strong>On:</strong> each site builds only its own subset &mdash; Pinned pages plus a fill from
+                    Rotate, up to the per-site total below. <strong>Off:</strong> every page that isn&rsquo;t Skip is
+                    built on every site, and the totals below are ignored.
+                    Changing this only affects domains that have <em>never been built</em>; a site that already exists
+                    keeps the pages it was built with.
+                </p>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:14px;<?= $ppEnabled ? '' : 'opacity:.55;' ?>">
                 <label style="<?= $lbl ?>">Pages per site &mdash; a domain lands on ONE of these totals (picked per domain, not the same for every site)</label>
                 <div style="display:flex;gap:8px;align-items:center;">
                     <?php for ($ci = 0; $ci < 3; $ci++): ?>
                         <input type="number" name="pp_counts[]" min="1" step="1"
                                value="<?= h((string)($ppCounts[$ci] ?? '')) ?>" style="width:80px;">
                     <?php endfor; ?>
-                    <span class="hint">Pinned pages count toward this total; the rest fill from Rotate.</span>
+                    <span class="hint">Pinned pages count toward this total; the rest fill from Rotate.
+                    <?php $ppElig = 0; foreach ($bySection['landing'] as $_s) {
+                        $_p = $_s['pool'] ?? ms_page_pool_default_for_tier((string)($_s['tier'] ?? ''));
+                        if ($_p !== 'skip') $ppElig++;
+                    } $ppMax = $ppCounts ? max($ppCounts) : 0; ?>
+                    <?php if ($ppEnabled && $ppMax >= $ppElig && $ppElig > 0): ?>
+                        <br><strong style="color:#92400e;">Note:</strong> <?= (int) $ppElig ?> pages are eligible and the
+                        highest total here is <?= (int) $ppMax ?> &mdash; domains that land on it build
+                        <em>everything</em>, so pooling changes nothing for them. Lower the top number to prune.
+                    <?php endif; ?>
+                    </span>
                 </div>
             </div>
             <?php endif; ?>
@@ -235,6 +331,18 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
     </form>
 
     <script>
+    function ppConfirmToggle(el) {
+        var msg = el.checked
+            ? 'Turn page pooling ON?\n\nEach site builds only some of these pages \u2014 the Pinned ones '
+              + 'plus a fill from Rotate, up to one of the per-site totals.'
+            : 'Turn page pooling OFF?\n\nEvery page that is not Skip gets built on every site. '
+              + 'The per-site totals are ignored.';
+        msg += '\n\nTakes effect when you Save, and only for sites not built yet.';
+        if (confirm(msg)) return true;
+        el.checked = !el.checked;
+        return false;
+    }
+
     var KW_TIERS = <?= json_encode($tierOpts) ?>;
     var KW_TIER_RANK = <?= json_encode($tierRank) ?>;
     var KW_POOLS = <?= json_encode($poolOpts) ?>;
@@ -247,21 +355,29 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
             var pv = pool || 'rotate';
             var p='';
             for(var pk in KW_POOLS){ p+='<option value="'+pk+'"'+(pv===pk?' selected':'')+'>'+KW_POOLS[pk]+'</option>'; }
-            poolField = '<select name="kw_pool[]" style="width:170px;flex:none;" title="Which sites build this page">'+p+'</select>';
+            poolField = '<div style="width:170px;flex:none;">'+
+                          '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Which sites build it</label>'+
+                          '<select name="kw_pool[]" style="width:100%;" title="Which sites build this page">'+p+'</select>'+
+                        '</div>';
         } else {
             poolField = '<input type="hidden" name="kw_pool[]" value="">';
         }
         return '<div style="margin-bottom:8px;">'+
-                 '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Primary keyword</label>'+
-                 '<div style="display:flex;gap:8px;align-items:center;">'+
-                   '<span class="kw-num" style="flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;"></span>'+
-                   '<input type="text" name="kw_primary[]" value="'+kwEsc(primary)+'" style="flex:1;min-width:0;">'+
-                   '<select name="kw_tier[]" style="width:120px;flex:none;" title="Tier / priority">'+t+'</select>'+
+                 '<div style="display:flex;gap:8px;align-items:flex-end;">'+
+                   '<span class="kw-num" style="flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;margin-bottom:4px;"></span>'+
+                   '<div style="flex:1;min-width:0;">'+
+                     '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Primary keyword</label>'+
+                     '<input type="text" name="kw_primary[]" value="'+kwEsc(primary)+'" style="width:100%;">'+
+                   '</div>'+
+                   '<div style="width:120px;flex:none;">'+
+                     '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Priority</label>'+
+                     '<select name="kw_tier[]" style="width:100%;" title="Tier / priority">'+t+'</select>'+
+                   '</div>'+
                    poolField+
                    '<input type="hidden" name="kw_section[]" value="'+kwEsc(section)+'">'+
-                   '<button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>'+
-                   '<button type="button" class="btn" style="padding:2px 8px;flex:none;" onclick="kwMove(this,1)" title="Move down">&darr;</button>'+
-                   '<button type="button" class="btn btn-danger" style="padding:2px 9px;flex:none;" onclick="kwDel(this)" title="Remove keyword">&times;</button>'+
+                   '<button type="button" class="btn" style="padding:2px 8px;flex:none;margin-bottom:1px;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>'+
+                   '<button type="button" class="btn" style="padding:2px 8px;flex:none;margin-bottom:1px;" onclick="kwMove(this,1)" title="Move down">&darr;</button>'+
+                   '<button type="button" class="btn btn-danger" style="padding:2px 9px;flex:none;margin-bottom:1px;" onclick="kwDel(this)" title="Remove keyword">&times;</button>'+
                  '</div>'+
                '</div>'+
                '<div style="margin-bottom:8px;">'+

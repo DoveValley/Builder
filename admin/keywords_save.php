@@ -84,13 +84,19 @@ if ($action === 'save_primaries') {
     sort($counts);
     if (!$counts) $counts = MS_PAGE_POOL_DEFAULT_COUNTS;
 
-    // 'enabled' is preserved from whatever was already on file, never set true here —
-    // page pooling is an explicit, deliberate opt-in per master (see
-    // ms_page_pool_config()), not something a routine keyword edit should switch on.
+    // Page pooling is now a control on the Keywords tab rather than a hand-edit in
+    // keyword_map.json. It is still a deliberate choice, not inferred from tier data:
+    // the form posts `pp_present` whenever the Landing section was actually rendered,
+    // so an unchecked box means the user turned it off — while a form that never
+    // carried the section (or an API/partial post) leaves the stored value alone
+    // instead of silently switching pooling off for the whole niche.
+    $ppEnabled = isset($_POST['pp_present'])
+        ? !empty($_POST['pp_enabled'])
+        : (bool) ($existing['page_pool']['enabled'] ?? false);
     $map = [
         'niche'      => trim($_POST['niche'] ?? ($existing['niche'] ?? '')),
         'services'   => $services,
-        'page_pool'  => ['enabled' => (bool) ($existing['page_pool']['enabled'] ?? false), 'counts' => $counts],
+        'page_pool'  => ['enabled' => $ppEnabled, 'counts' => $counts],
         'updated_at' => date('c'),
     ];
     $content = json_encode($map, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
