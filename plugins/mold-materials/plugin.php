@@ -177,6 +177,8 @@ function mold_materials_resolve(string $locationOverride = '', string $slugOverr
         // id => url, so a universal quote or a legend entry can cite itself
         'source_urls'   => array_map(fn($s) => $s['url'] ?? '', $d['sources'] ?? []),
         'source_shorts' => array_map(fn($s) => $s['short'] ?? 'EPA', $d['sources'] ?? []),
+        // full document titles, for the link title attribute
+        'source_labels' => array_map(fn($s) => $s['label'] ?? '', $d['sources'] ?? []),
     ];
 }
 
@@ -210,7 +212,7 @@ function mold_materials_css(): string {
         . '.mm-as{display:block;font-weight:400;color:#475569;font-size:.88rem;margin-top:2px}'
         . '.mm-m{display:block;font-size:.86rem;color:#334155;line-height:1.5}'
         . '.mm-rm{color:#991b1b;font-weight:700}'
-        . '.mm-src{font-size:.78rem}'
+        . '.mm-src{font-size:.78rem;font-style:normal}'
         . '.mm-leg{margin:12px 0 0;padding:12px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px}'
         . '.mm-leg h3,.mm-box h3{margin:0 0 8px;font-size:.92rem;color:#1e3a5f}'
         . '.mm-leg dt{font-weight:700;color:#1e3a5f;font-size:.88rem;margin-top:6px}'
@@ -230,11 +232,32 @@ function mold_materials_css(): string {
         . '}</style>';
 }
 
-/** One cited link, using the source's own short title rather than a bare "EPA". */
-function mold_materials_cite(string $url, string $short): string {
+/**
+ * One cited link, using the source's own short title rather than a bare "EPA".
+ *
+ * Wrapped in <cite>, which is the element for the title of a referenced work, with the full
+ * document title on the link's title attribute so the visible text stays short. Neither is a
+ * ranking factor — Google ignores the cite attribute and no rich result reads <cite>. The
+ * signal is the followed .gov link itself; this is correct markup around it.
+ */
+function mold_materials_cite(string $url, string $short, string $label = ''): string {
     if ($url === '') return '';
-    return ' <a class="mm-src" href="' . h($url) . '" target="_blank" rel="noopener">'
-        . h($short !== '' ? $short : 'EPA') . '</a>';
+    return ' <cite class="mm-src"><a href="' . h($url) . '" target="_blank" rel="noopener"'
+        . ($label !== '' ? ' title="' . h($label) . '"' : '')
+        . '>' . h($short !== '' ? $short : 'EPA') . '</a></cite>';
+}
+
+/**
+ * An inline quotation with its source.
+ *
+ * <q> rather than <blockquote> because every EPA quote here sits inside an <li> or <dd>
+ * alongside our own prose, not as a standalone block. The manual &ldquo;/&rdquo; entities are
+ * deliberately NOT emitted: the browser supplies quotation marks for <q>, and doing both
+ * produces doubled quotes.
+ */
+function mold_materials_q(string $text, string $url): string {
+    if (trim($text) === '') return '';
+    return '<q' . ($url !== '' ? ' cite="' . h($url) . '"' : '') . '>' . h($text) . '</q>';
 }
 
 /** Render the block, or '' when this page has nothing to show. */
@@ -285,8 +308,9 @@ function mold_materials_render(array $attrs = []): string {
             $h .= '<tr><th scope="row"><span class="mm-mat">' . h($row['label']) . '</span>'
                 . '<span class="mm-as">' . h($row['as']) . '</span>';
             if ($row['source_url'] !== '') {
-                $h .= '<span class="mm-as mm-src">'
-                    . trim(mold_materials_cite($row['source_url'], $row['source_short'])) . '</span>';
+                $h .= '<span class="mm-as">'
+                    . trim(mold_materials_cite($row['source_url'], $row['source_short'],
+                                               (string) ($row['source_label'] ?? ''))) . '</span>';
             }
             $h .= '</th>';
             foreach ($bandKeys as $b) {
@@ -314,8 +338,9 @@ function mold_materials_render(array $attrs = []): string {
             $cls = ((string) $n === '4') ? ' class="mm-rm"' : '';
             $su  = $r['source_urls'][$m['source'] ?? ''] ?? '';
             $h .= '<dt' . $cls . '>' . h($m['label']) . '</dt>'
-                . '<dd>&ldquo;' . h((string) ($m['detail'] ?? '')) . '&rdquo;'
-                . mold_materials_cite($su, $r['source_shorts'][$m['source'] ?? ''] ?? 'EPA')
+                . '<dd>' . mold_materials_q((string) ($m['detail'] ?? ''), $su)
+                . mold_materials_cite($su, $r['source_shorts'][$m['source'] ?? ''] ?? 'EPA',
+                                      $r['source_labels'][$m['source'] ?? ''] ?? '')
                 . '</dd>';
         }
         $h .= '</dl></div>';
@@ -332,8 +357,9 @@ function mold_materials_render(array $attrs = []): string {
         $h .= '<div class="mm-box"><h3>' . h($heading) . '</h3><ul>';
         foreach ($r[$bucket] as $row) {
             $h .= '<li><strong>' . h($row['label']) . '</strong> — ' . h($row['as']) . '. '
-                . '&ldquo;' . h($row['verbatim']) . '&rdquo;'
-                . mold_materials_cite($row['source_url'], $row['source_short']);
+                . mold_materials_q((string) $row['verbatim'], (string) $row['source_url'])
+                . mold_materials_cite($row['source_url'], $row['source_short'],
+                                      (string) ($row['source_label'] ?? ''));
             if ($row['context'] !== '') {
                 $h .= '<span class="mm-ctx">' . h($row['context']) . '</span>';
             }
@@ -350,9 +376,13 @@ function mold_materials_render(array $attrs = []): string {
         $h .= '<ul class="mm-assume">';
         foreach ($r['universal'] as $u) {
             if (empty($u['verbatim'])) continue;
-            $h .= '<li><em>&ldquo;' . h($u['verbatim']) . '&rdquo;</em>'
+            $h .= '<li><em>'
+                . mold_materials_q((string) $u['verbatim'],
+                                   $r['source_urls'][$u['source'] ?? ''] ?? '')
+                . '</em>'
                 . mold_materials_cite($r['source_urls'][$u['source'] ?? ''] ?? '',
-                                      $r['source_shorts'][$u['source'] ?? ''] ?? 'EPA')
+                                      $r['source_shorts'][$u['source'] ?? ''] ?? 'EPA',
+                                      $r['source_labels'][$u['source'] ?? ''] ?? '')
                 . '</li>';
         }
         $h .= '</ul>';
