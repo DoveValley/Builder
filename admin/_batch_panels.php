@@ -311,7 +311,17 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 panel just reads its output file — reopen the tab to pick the view back up.<br>
                 <strong>If it looks frozen, give it 3 minutes.</strong> One city can sit up to 2 minutes
                 waiting on the API before it gives up and retries, and each retry prints its own line here.
-                No new output past that means it really is stuck — restart it.
+                No new output past that means it really is stuck — restart it.<br>
+                <strong>Unlike Generate sites, this panel cannot tell you it died.</strong> It only knows the
+                job finished by a marker written after the last city, so a job that was killed never writes
+                one and this output just sits there looking unfinished. Judge it by whether new lines are
+                still appearing, not by the absence of a finish.<br>
+                <strong>And a &ldquo;Research is already running&rdquo; refusal is not proof it is alive.</strong>
+                Anything that wrote to its output within the last hour counts as running, so if it died
+                mid-pass this button can stay blocked for up to an hour afterwards. That is only a delay, not
+                lost work — the cities saved up to the last checkpoint are on file, and the run you start
+                later skips them. If you need it sooner, a full <strong>Generate sites</strong> run does the
+                same research and is gated on a live process check instead.
             </p>
             <p class="hint" style="margin:6px 0 0;">Research already runs on its own, automatically, every time you generate sites — this button is only a manual trigger to run that same check now. With neither box ticked, it decides on its own, city by city and field by field, what actually needs asking — it never blindly redoes work that's already correct, so clicking it again later is free if nothing's missing. Tick <strong>Dry run</strong> to preview with no API cost, or <strong>Force</strong> to override that self-deciding behavior and redo every city from scratch.</p>
             <pre id="ms-research-out" style="display:none;margin-top:14px;background:#0f172a;color:#e2e8f0;padding:12px;border-radius:6px;font-size:0.8rem;max-height:340px;overflow:auto;white-space:pre-wrap;"></pre>
@@ -997,7 +1007,20 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         panel only polls its progress &mdash; reopen the tab to pick the view back up.<br>
         <strong>If it looks frozen, give it 3 minutes.</strong> A single city can sit up to 2 minutes
         waiting on the API before it gives up and retries, and each retry prints its own line. No new
-        output past that means it really is stuck &mdash; restart it.
+        output past that means it really is stuck &mdash; restart it.<br>
+        <strong>The label above the progress bar tells you which it is</strong>, and it works this out
+        itself by checking whether the job&rsquo;s process is still alive:
+        <span style="color:#2563eb;font-weight:600;">RUNNING</span> alive and working &middot;
+        <span style="color:#92400e;font-weight:600;">STALE</span> the process died &mdash; press Generate
+        sites again &middot;
+        <span style="color:#166534;font-weight:600;">DONE</span> finished &middot;
+        <span style="color:#991b1b;font-weight:600;">FAILED</span> finished with errors.
+        A job that died turns amber on its own, so you do not have to work that out. The gap is a job that
+        is alive but stuck: it honestly still reads RUNNING, and the tell is the <em>x/y done</em> counter
+        not moving.<br>
+        <strong>Either way, pressing Generate sites again is always safe.</strong> If the run really is
+        alive it just refuses with &ldquo;This batch is already running&rdquo; and starts nothing; if it is
+        dead it starts a fresh one and skips whatever already built. You never have to diagnose it first.
     </p>
     <div id="ms-run-progress" style="margin-top:16px;"></div>
 
