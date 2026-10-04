@@ -1950,8 +1950,12 @@
       "Texas and Pacific Railroad Historic District"
     ],
     "population": 23392,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      2015,
+      2016,
+      2019
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       12,
       8,
@@ -2071,9 +2075,6 @@
         "miles": 40
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "verified"
   },
@@ -5043,8 +5044,11 @@
       "Griffin Gate"
     ],
     "population": 322570,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1997,
+      2010
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       19,
       15,
@@ -5164,9 +5168,6 @@
         "miles": 35
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
   },
@@ -7044,11 +7045,11 @@
         "miles": 18
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "OpenStreetMap + verified"
+    "neighborhoods_source": "OpenStreetMap + verified",
+    "_research_declined": {
+      "flood_years": 1
+    }
   },
   {
     "id": "wilmington-de",
@@ -8821,8 +8822,11 @@
       "Kicker Road area"
     ],
     "population": 26196,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1990,
+      2020
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       12,
       8,
@@ -8942,9 +8946,6 @@
         "miles": 25
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
   },
@@ -17097,11 +17098,11 @@
         "miles": 5
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "_research_declined": {
+      "flood_years": 1
+    }
   },
   {
     "id": "plainfield-il",
@@ -18288,11 +18289,11 @@
         "miles": 30
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "_research_declined": {
+      "flood_years": 1
+    }
   },
   {
     "id": "plymouth-mi",
@@ -20213,7 +20214,12 @@
     ],
     "market_blurb": "Festus, Missouri, sits along the Mississippi River corridor in Jefferson County and has long been anchored by heavy industry, including cement and building-materials production, alongside a growing healthcare sector led by Mercy Hospital Jefferson. Retail and service businesses along US-61 serve both Festus and surrounding Jefferson County communities, while the Festus R-VI School District is one of the area's largest employers. The local economy blends legacy manufacturing with steady regional healthcare and retail growth.",
     "local_note": "Homes in and around Festus typically have full or partial basements, consistent with the region's clay soils and deeper frost line. The dominant water-damage risk here is heavy seasonal rain and flash flooding, particularly from spring and summer storms that can overwhelm nearby creeks like Joachim Creek and the Big River.",
-    "neighborhoods": [],
+    "neighborhoods": [
+      "Downtown Festus",
+      "Westfield",
+      "Festus City Park area",
+      "Mill Street District"
+    ],
     "population": 12282,
     "flood_years": [
       1993,
@@ -20341,11 +20347,11 @@
         "miles": 25
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "_research_declined": {
+      "neighborhoods": 1
+    }
   },
   {
     "id": "spokane-wa",
@@ -21900,7 +21906,8 @@
       "Downtown Kaukauna",
       "Thilmany",
       "Janssen Park",
-      "Rockledge"
+      "Rockledge",
+      "1000 Islands"
     ],
     "population": 16856,
     "flood_years": [
@@ -22028,9 +22035,6 @@
         "miles": 12
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "verified"
   },
@@ -22239,7 +22243,9 @@
     "neighborhoods": [
       "Brick Towne",
       "Downtown Grimes",
-      "Gateway Drive corridor"
+      "Gateway Drive corridor",
+      "Tallgrass",
+      "Monarch Pointe"
     ],
     "population": 21000,
     "flood_years": [
@@ -22367,9 +22373,6 @@
         "miles": 9
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "verified"
   },
@@ -23770,8 +23773,12 @@
       "Riverside"
     ],
     "population": 100600,
-    "flood_years": [],
-    "flood_years_source": "",
+    "flood_years": [
+      1990,
+      2014,
+      2020
+    ],
+    "flood_years_source": "NOAA Storm Events Database",
     "freeze_days_monthly": [
       9,
       6,
@@ -23891,9 +23898,6 @@
         "miles": 12
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "OpenStreetMap + verified"
   },
@@ -27454,11 +27458,11 @@
         "miles": 12
       }
     ],
-    "_research_declined": {
-      "flood_years": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "_research_declined": {
+      "flood_years": 1
+    }
   },
   {
     "id": "sycamore-il",
@@ -27820,7 +27824,9 @@
     "market_blurb": "Molalla, Oregon sits in a historically agricultural and timber-producing area of Clackamas County, with the local economy supported by farming, nurseries, and small manufacturing businesses. The city continues to see growth tied to residential construction as it serves as an affordable bedroom community within commuting distance of the Portland metro area.",
     "local_note": "Homes in Molalla are predominantly built on crawl space foundations, common throughout the Willamette Valley, with some older homes having partial basements. The dominant water-damage risk in the area is heavy seasonal rainfall during the fall and winter months, which can lead to crawl space moisture intrusion and localized flash flooding near the Molalla River.",
     "neighborhoods": [
-      "Downtown Molalla"
+      "Downtown Molalla",
+      "Heron Pointe",
+      "Molalla Avenue District"
     ],
     "population": 10140,
     "flood_years": [
@@ -27943,11 +27949,11 @@
         "miles": 16
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "_research_declined": {
+      "neighborhoods": 1
+    }
   },
   {
     "id": "lompoc-ca",
@@ -32290,11 +32296,11 @@
         "miles": 20
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
-    "neighborhoods_source": "verified"
+    "neighborhoods_source": "verified",
+    "_research_declined": {
+      "neighborhoods": 1
+    }
   },
   {
     "id": "glasgow-ky",
@@ -32329,6 +32335,7 @@
     "neighborhoods": [
       "Downtown Glasgow",
       "Glasgow Historic District",
+      "Glasgow Commercial Historic District",
       "South Green Street area",
       "Glasgow Square"
     ],
@@ -32458,9 +32465,6 @@
         "miles": 30
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "verified"
   },
@@ -32835,7 +32839,9 @@
     "neighborhoods": [
       "Downtown Shelbyville",
       "Shelbyville Downtown Historic District",
-      "Blue River area"
+      "Blue River area",
+      "Shelbyville Town Square",
+      "Blue River Memorial Park area"
     ],
     "population": 20000,
     "flood_years": [
@@ -32962,9 +32968,6 @@
         "miles": 10
       }
     ],
-    "_research_declined": {
-      "neighborhoods": 2
-    },
     "_researched": 1,
     "neighborhoods_source": "verified"
   },
