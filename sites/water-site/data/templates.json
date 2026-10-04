@@ -8285,5 +8285,323 @@
         "map_info_1"
       ]
     ]
+  },
+  {
+    "id": "tpl_water_damage_insurance_claim",
+    "base": 0,
+    "title": "Water Damage Insurance Claim in {city_state} | {business}",
+    "slug_pattern": "water-damage-insurance-claim-{city_slug}",
+    "page_type": "template",
+    "service": "Water Damage Insurance Claim",
+    "generation_steps": [
+      {
+        "step": "city_vars"
+      }
+    ],
+    "content_blocks": [
+      {
+        "type": "hero_split",
+        "hs_heading": "Water Damage Insurance Claim in {city_state}",
+        "hs_subtext": "<p>Starting a {service} in {city}? {business} connects you with a local {city_state} provider who can inspect the damage and help document it for your paperwork — available 24/7 to get things moving quickly.</p>",
+        "hs_btn_text": "{phone}",
+        "hs_btn_url": "tel:{tel}",
+        "hs_caption1": "",
+        "hs_caption2": "",
+        "hs_photo_alt": "Water damage insurance claim support in {city_state} by {business}",
+        "hs_image_side": "right",
+        "hs_bg_color": "#eef4fb",
+        "hs_photo": "sites/water-site/uploads/media/ai_a468fa_003717.webp",
+        "hs_bg_photo": "",
+        "hs_mobile_order": "img_first",
+        "ai_type_id": "hero_subtext",
+        "ai_inject_field": "hs_subtext",
+        "ai_inject_mode": "replace",
+        "_ai_locked": false,
+        "_ai_generated": false,
+        "id": "hero_split_1"
+      },
+      {
+        "type": "trust_bar",
+        "tb_bg": "accent",
+        "tb_bg_custom": "#f3f6f7",
+        "tb_items": "@safe_trust_badges",
+        "anchor": "trust_bar",
+        "id": "trust_bar_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "city_intro",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "left",
+        "it_photo": "sites/water-site/uploads/media/ai_7d4e94_981678.webp",
+        "it_alt": "Water damage insurance claim help in {city_state} by {business}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "_ai_locked": false,
+        "_ai_generated": false,
+        "id": "ai_block_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "feature_columns_local",
+        "ai_mode": "standalone",
+        "ai_render_as": "feature_columns",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "_ai_locked": false,
+        "_ai_generated": false,
+        "id": "ai_block_2"
+      },
+      {
+        "type": "steps",
+        "steps_heading": "How Our {service} Process Works in {city_state}?",
+        "steps_items": [
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Contact {business}",
+            "text": "Tell us what happened. We connect you with a local {service} provider fast, often the same day."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Damage Documentation",
+            "text": "Your matched local provider inspects the property, identifies the water source, and records details that can help support your insurance claim."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Mitigation & Drying",
+            "text": "Your provider begins water extraction and structural drying while keeping notes and photos that may support your claim paperwork."
+          },
+          {
+            "image": "",
+            "alt": "",
+            "heading": "Repairs & Records",
+            "text": "Your provider completes cleaning, sanitizing, and repairs, and can provide documentation you may submit alongside your insurance claim."
+          }
+        ],
+        "ai_type_id": "steps_local",
+        "id": "steps_1",
+        "steps_subtext": "From your initial call to the final documentation, we connect you with a local provider ready to help you through every step of your {service}.",
+        "steps_style": "card"
+      },
+      {
+        "type": "cta_banner",
+        "anchor": "mid_cta",
+        "cb_text": "Dealing with {service} in {city}? Get fast, professional help.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "header",
+        "cb_bg_custom": "#2563eb",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_1"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "local_relevance",
+        "ai_mode": "standalone",
+        "ai_render_as": "image_text",
+        "it_image_side": "right",
+        "it_photo": "{chart_group_structure}",
+        "it_alt": "{chart_group_structure_alt}",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "_ai_locked": false,
+        "_ai_generated": false,
+        "_it_photo_prechart": "sites/water-site/uploads/media/traditional-two-story-home-exterior-lufkin-tx.webp",
+        "it_ratio": "auto",
+        "it_layout": "stacked",
+        "it_caption": "{chart_group_structure_caption}",
+        "id": "ai_block_3"
+      },
+      {
+        "type": "ai_block",
+        "ai_type_id": "seasonal_calendar",
+        "ai_mode": "standalone",
+        "ai_render_as": "steps",
+        "ai_inject_target": null,
+        "ai_inject_field": null,
+        "ai_inject_mode": null,
+        "ai_prompt_override": "",
+        "_ai_locked": false,
+        "_ai_generated": false,
+        "id": "ai_block_4"
+      },
+      {
+        "type": "related_links",
+        "rl_heading": "Related Services",
+        "rl_max": 3,
+        "rl_items": [
+          {
+            "url": "/water-damage-repair-{city_slug}",
+            "text": "water damage repair"
+          },
+          {
+            "url": "/water-mitigation-{city_slug}",
+            "text": "water mitigation"
+          },
+          {
+            "url": "/water-damage-reconstruction-{city_slug}",
+            "text": "water damage reconstruction"
+          },
+          {
+            "url": "/contents-restoration-{city_slug}",
+            "text": "contents restoration & pack-out"
+          },
+          {
+            "url": "/commercial-water-damage-restoration-{city_slug}",
+            "text": "commercial water damage restoration"
+          },
+          {
+            "url": "/flood-damage-restoration-{city_slug}",
+            "text": "flood damage restoration"
+          },
+          {
+            "url": "/storm-damage-restoration-{city_slug}",
+            "text": "storm damage restoration"
+          }
+        ],
+        "id": "related_links_1"
+      },
+      {
+        "type": "faq_two_col",
+        "fq_heading": "{primary_keyword} FAQs — {city_state}",
+        "fq_bg_color": "#ffffff",
+        "fq_item_bg": "#d9d9d9",
+        "fq_head_color": "header",
+        "fq_icon_bg": "accent",
+        "fq_head_color_custom": "#120575",
+        "fq_icon_bg_custom": "#fd783b",
+        "ai_type_id": "faq_local",
+        "ai_inject_field": "fq_items",
+        "ai_inject_mode": "replace",
+        "fq_items": [
+          {
+            "question": "How soon should I file a water damage insurance claim?",
+            "answer": "<p>As soon as it's safe to do so. Reporting the damage promptly and starting documentation right away helps keep your water damage insurance claim moving and reduces the chance of delays with your insurer.</p>"
+          },
+          {
+            "question": "What should I document for a water damage insurance claim?",
+            "answer": "<p>Photos and notes of the affected areas, a list of damaged belongings, and a record of when the water damage occurred all help support a water damage insurance claim. Local providers can help capture this documentation on-site.</p>"
+          },
+          {
+            "question": "Will my insurance cover the water damage?",
+            "answer": "<p>Coverage depends on your specific policy and the cause of the damage. We can't guarantee what your insurer will approve, but clear, on-site documentation can help support your water damage insurance claim.</p>"
+          },
+          {
+            "question": "Can local providers help with both my claim and the repairs?",
+            "answer": "<p>Yes. The independent local providers in our network can document the damage to support your water damage insurance claim and coordinate the repair work, from initial assessment through completed repairs.</p>"
+          }
+        ],
+        "_ai_locked": false,
+        "_ai_generated": false,
+        "id": "faq_two_col_1"
+      },
+      {
+        "type": "cta_banner",
+        "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
+        "cb_subtext": "",
+        "cb_btn_text": "Call Now — {phone}",
+        "cb_btn_url": "tel:{tel}",
+        "cb_bg": "accent",
+        "cb_bg_custom": "#0d2340",
+        "cb_text_color": "#ffffff",
+        "cb_padding": "compact",
+        "id": "cta_banner_2"
+      },
+      {
+        "type": "map_info",
+        "mi_map_heading": "Areas We Serve Near {city}, {state}",
+        "mi_info_heading": "{city_state} Information",
+        "mi_info_text": "{city_spotlight}",
+        "mi_info_alt": "{city_image_alt}",
+        "mi_info_credit": "{city_image_credit}",
+        "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+        "mi_head_color": "header",
+        "mi_head_color_custom": "#120575",
+        "mi_info_photo": "{city_image}",
+        "mi_map_side": "top",
+        "mi_map_caption": "{city_map_caption}",
+        "id": "map_info_1"
+      }
+    ],
+    "seo": {
+      "seo_title": "Water Damage Insurance Claim in {city_state} | {business}",
+      "canonical_url": "",
+      "meta_description": "Local providers help assess and document water damage to support your insurance claim. Serving {city_state}. Call {phone}.",
+      "meta_keywords": "water damage insurance claim {city} {SS}, water damage claim help {city}, water damage claim documentation {city}, file a water damage claim {city}",
+      "og_title": "Water Damage Insurance Claim in {city_state} | {business}",
+      "og_description": "24/7 help with water damage insurance claims in {city_state}. Fast, professional local response.",
+      "og_image": "sites/water-site/uploads/media/ai_a468fa_003717.webp",
+      "service_name": "Water Damage Insurance Claim",
+      "service_type": "Water Damage Insurance Claim",
+      "service_area": "{city_state} and surrounding areas",
+      "service_description": "Water damage insurance claim support for homes and businesses in {city_state}, including damage documentation, claim assessment and repair coordination.",
+      "bc_label": "Water Damage Insurance Claim",
+      "bc_mid_label": "",
+      "bc_mid_url": "",
+      "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Water Damage Insurance Claim\",\n    \"name\": \"Water Damage Insurance Claim Help in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 water damage insurance claim help in {city_state} — damage documentation, claim assessment and repair coordination.\"\n}",
+      "primary_keyword": "water damage insurance claim",
+      "secondary_keywords": "water damage claim documentation, water damage claim assessment, insurance claim support, water damage claim help"
+    },
+    "base_role": "Restoration",
+    "layout_enabled": true,
+    "layout_variants": [
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_4",
+        "ai_block_3",
+        "faq_two_col_1",
+        "service_cards_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "cta_banner_1",
+        "steps_1",
+        "ai_block_4",
+        "ai_block_3",
+        "service_cards_1",
+        "faq_two_col_1",
+        "cta_banner_2",
+        "custom_html_1",
+        "map_info_1"
+      ],
+      [
+        "hero_split_1",
+        "trust_bar_1",
+        "ai_block_1",
+        "ai_block_2",
+        "steps_1",
+        "cta_banner_1",
+        "ai_block_3",
+        "service_cards_1",
+        "ai_block_4",
+        "cta_banner_2",
+        "faq_two_col_1",
+        "custom_html_1",
+        "map_info_1"
+      ]
+    ]
   }
 ]
