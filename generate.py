@@ -1548,6 +1548,94 @@ def _missing_research_fields(city_data, chart_fields):
         missing.append(key)
     return missing
 
+def report_research_completeness(paths):
+    """Read-only: which declared research fields each city still lacks, and whether
+    another pass would help. Returns an exit code (0 clean, 1 retryable gaps exist).
+
+    Reuses _missing_research_fields() for both halves rather than reimplementing its
+    rules — notably that a field can be present and still too THIN to count (the prompt
+    asks for 6-10 neighbourhoods and a city that got two kept two forever), and that a
+    field declined twice is settled on purpose.
+    """
+    raw = load_json(paths['cities']) or []
+    cities = raw if isinstance(raw, list) else (raw.get('cities') or [])
+    brief = load_json(os.path.join(paths['site_dir'], 'multisite', 'niche_brief.json')) or {}
+    fields = research_fields(brief)
+
+    _log(f'\n{"=" * 62}')
+    _log(f'Research completeness · {os.path.basename(paths["site_dir"])}')
+    _log(f'{"=" * 62}')
+    if not cities:
+        _warn('  No cities in cities.json')
+        return 0
+    if not brief.get('uses_research_fields'):
+        _log('  This niche does not use research fields (niche_brief.uses_research_fields is off).')
+    if not fields:
+        _log(f'  {len(cities)} cities · no declared research fields beyond the prompt itself.')
+        return 0
+
+    keys = [f[0] for f in fields]
+    retry_by_field = {k: [] for k in keys}
+    settled_by_field = {k: [] for k in keys}
+    per_city = []
+
+    for c in cities:
+        name = f'{c.get("city", "?")}, {c.get("SS", "?")}'
+        retry = set(_missing_research_fields(c, fields))
+        # Same call with the decline history removed returns EVERY gap, settled ones
+        # included — so the thin/empty rule is applied once, by its owner, not twice.
+        bare = {k: v for k, v in c.items() if k not in ('_research_declined', '_chart_declined')}
+        allgaps = set(_missing_research_fields(bare, fields))
+        settled = allgaps - retry
+        for k in retry:
+            retry_by_field[k].append(name)
+        for k in settled:
+            settled_by_field[k].append(name)
+        if allgaps:
+            per_city.append((len(allgaps), len(retry), name))
+
+    n = len(cities)
+    _log(f'  {n} cities · {len(keys)} declared research fields\n')
+    _log(f'  {"field":28} {"have":>9}  {"retryable":>9}  {"settled":>8}')
+    worst_field, worst_retry = None, 0
+    for k in keys:
+        r, s = len(retry_by_field[k]), len(settled_by_field[k])
+        have = n - r - s
+        flag = ''
+        if r > worst_retry:
+            worst_field, worst_retry = k, r
+        if r and r >= max(5, n // 10):
+            flag = '  <- many cities, same field: suspect an upstream outage, not missing data'
+        # Green only when every city has it; red for anything short of that, so an
+        # 8-of-10 never reads as acceptable at a glance. Padded BEFORE colouring —
+        # ANSI codes are zero-width but would otherwise be counted by the f-string
+        # width and break the column. _c() strips colour when not a TTY.
+        cell = _c('32' if have == n else '31', f'{have:>4}/{n:<4}')
+        _log(f'  {k[:28]:28} {cell}  {r:>9}  {s:>8}{flag}')
+
+    tot_retry = sum(len(v) for v in retry_by_field.values())
+    tot_settled = sum(len(v) for v in settled_by_field.values())
+    _log('')
+    if per_city:
+        per_city.sort(reverse=True)
+        _log('  thinnest cities (gaps / of which retryable):')
+        for gaps, retry, name in per_city[:8]:
+            _log(f'     {name:28} {gaps} gap(s), {retry} retryable')
+        _log('')
+
+    if tot_retry:
+        _ok(f'  Another research pass would attempt {tot_retry} gap(s) '
+            f'across {len({c for v in retry_by_field.values() for c in v})} city/cities.')
+        if worst_field:
+            _log(f'  Biggest single gap: {worst_field} ({worst_retry} cities).')
+    else:
+        _ok('  Nothing retryable — this is as complete as research will get.')
+    if tot_settled:
+        _log(f'  {tot_settled} gap(s) are settled (declined twice) and will not be re-asked.')
+    _log(f'{"=" * 62}')
+    return 1 if tot_retry else 0
+
+
 def run_research_step(paths, api_key, dry_run=False, city_filter=None, tag_ids=None, force=False):
     """
     For every city in cities.json that lacks research fields, call Claude to fill them.
@@ -2524,6 +2612,9 @@ def main():
     ap.add_argument('--tag',             default=None,        help='Limit to cities carrying this tag in cities.json (e.g. tier1)')
     ap.add_argument('--refresh',         action='store_true', help='Regenerate even _ai_locked blocks')
     ap.add_argument('--research',        action='store_true', help='Research missing city data before generating content')
+    ap.add_argument('--research-report', action='store_true', dest='research_report',
+                    help='Print a read-only research completeness report and exit. '
+                         'No API key needed, nothing written, no cost.')
     ap.add_argument('--research-only',   action='store_true', dest='research_only',
                     help='Only run the research step — do not generate content blocks')
     ap.add_argument('--research-force',  action='store_true', dest='research_force',
@@ -2588,6 +2679,12 @@ def main():
     if not os.path.isdir(paths['site_dir']):
         _err(f'Site directory not found: {paths["site_dir"]}')
         sys.exit(1)
+
+    # Read-only report. Deliberately placed BEFORE the ANTHROPIC_API_KEY requirement
+    # below: it makes no API call and writes nothing, so it must run on a box with no
+    # key configured.
+    if args.research_report:
+        sys.exit(report_research_completeness(paths))
 
     tag_ids = resolve_tag_city_ids(paths, args.tag)
     if args.tag and not tag_ids:
