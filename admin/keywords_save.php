@@ -97,7 +97,9 @@ if ($action === 'save_primaries') {
         ? !empty($_POST['pp_enabled'])
         : (bool) ($existing['page_pool']['enabled'] ?? false);
     $map = [
-        'niche'      => trim($_POST['niche'] ?? ($existing['niche'] ?? '')),
+        // is_string, not just ??: trim() on an array is a TypeError in PHP 8, so a
+        // niche[]= POST would fatal the whole save. Same class as the kw_* guards above.
+        'niche'      => trim(is_string($_POST['niche'] ?? null) ? $_POST['niche'] : (string) ($existing['niche'] ?? '')),
         'services'   => $services,
         'page_pool'  => ['enabled' => $ppEnabled, 'counts' => $counts],
         'updated_at' => date('c'),
