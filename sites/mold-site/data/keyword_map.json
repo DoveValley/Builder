@@ -25,8 +25,6 @@
         "mold removal near me",
         "mold cleanup",
         "mold abatement",
-        "bathroom mold removal",
-        "shower mold removal",
         "mold smell removal",
         "musty odor removal"
       ],
@@ -187,12 +185,129 @@
       "tier": "medium-1",
       "secondary": [
         "air quality inspection",
-        "indoor air quality mold"
+        "indoor air quality mold",
+        "indoor air quality test",
+        "mold spore testing",
+        "air sampling for mold",
+        "indoor air quality assessment"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "bathroom mold removal {city}, {ST}",
+      "slug": "bathroom-mold-removal",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "bathroom mold remediation",
+        "shower mold removal",
+        "mold on bathroom ceiling",
+        "mold around bathtub",
+        "bathroom tile mold removal",
+        "get rid of bathroom mold"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "ceiling mold removal {city}, {ST}",
+      "slug": "ceiling-mold-removal",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "mold on ceiling",
+        "ceiling mold remediation",
+        "mold on ceiling from a leak",
+        "ceiling mold treatment",
+        "bathroom ceiling mold"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "drywall mold removal {city}, {ST}",
+      "slug": "drywall-mold-removal",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "mold behind drywall",
+        "mold in walls",
+        "wall mold removal",
+        "mold on drywall",
+        "drywall mold remediation",
+        "mold inside a wall cavity"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "air duct mold removal {city}, {ST}",
+      "slug": "air-duct-mold-removal",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "mold in air ducts",
+        "hvac mold removal",
+        "mold in air vents",
+        "air duct mold remediation",
+        "ac duct mold cleaning"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "kitchen mold removal {city}, {ST}",
+      "slug": "kitchen-mold-removal",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "mold under the kitchen sink",
+        "kitchen mold remediation",
+        "mold behind the refrigerator",
+        "mold in kitchen cabinets",
+        "kitchen mold cleanup"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "carpet mold removal {city}, {ST}",
+      "slug": "carpet-mold-removal",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "mold under carpet",
+        "carpet mold remediation",
+        "mold in carpet padding",
+        "wet carpet mold",
+        "carpet mold treatment"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "garage mold removal {city}, {ST}",
+      "slug": "garage-mold-removal",
+      "section": "landing",
+      "tier": "medium-2",
+      "secondary": [
+        "garage mold remediation",
+        "mold on garage walls",
+        "mold on the garage ceiling",
+        "garage mold cleanup"
+      ],
+      "pool": "rotate"
+    },
+    {
+      "primary": "real estate mold inspection {city}, {ST}",
+      "slug": "real-estate-mold-inspection",
+      "section": "landing",
+      "tier": "medium-1",
+      "secondary": [
+        "mold inspection before buying a house",
+        "mold inspection for a home sale",
+        "pre purchase mold inspection",
+        "real estate mold testing",
+        "mold inspection for closing"
       ],
       "pool": "rotate"
     }
   ],
-  "updated_at": "2026-07-12T04:19:04+00:00",
+  "updated_at": "2026-10-04T17:25:02+00:00",
   "page_pool": {
     "enabled": true,
     "counts": [
