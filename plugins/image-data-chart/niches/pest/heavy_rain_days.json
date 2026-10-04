@@ -32,6 +32,7 @@
   ],
   "fetch": {
     "provider": "noaa_normals_monthly",
-    "data_type": "MLY-PRCP-AVGNDS-GE050HI"
+    "data_type": "MLY-PRCP-AVGNDS-GE100HI",
+    "note": "Days with >= 1.00 in. Must match the chart title and caption, which both say 'an inch or more' — GE050HI would have shown roughly double."
   }
 }
