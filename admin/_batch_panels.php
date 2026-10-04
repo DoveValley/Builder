@@ -309,9 +309,11 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 or overwritten.<br>
                 <strong>Closing this tab won&rsquo;t stop it.</strong> The job runs on the server and this
                 panel just reads its output file — reopen the tab to pick the view back up.<br>
-                <strong>If it looks frozen, give it 3 minutes.</strong> One city can sit up to 2 minutes
-                waiting on the API before it gives up and retries, and each retry prints its own line here.
-                No new output past that means it really is stuck — restart it.<br>
+                <strong>A quiet box does not mean it has stalled.</strong> Output is buffered and
+                arrives in roughly 8KB blocks, so this can sit unchanged for minutes and then jump several
+                pages at once. Low CPU is normal too — research waits on the API rather than computing, and
+                a single city can sit up to 2 minutes before it gives up and retries. Judge silence over
+                <strong>10 minutes</strong>, not 3.<br>
                 <strong>Unlike Generate sites, this panel cannot tell you it died.</strong> It only knows the
                 job finished by a marker written after the last city, so a job that was killed never writes
                 one and this output just sits there looking unfinished. Judge it by whether new lines are
@@ -1005,11 +1007,14 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         Force unticked &mdash; unless you genuinely do want everything redone.<br>
         <strong>Closing this tab won&rsquo;t stop it.</strong> The run is detached on the server and this
         panel only polls its progress &mdash; reopen the tab to pick the view back up.<br>
-        <strong>If it looks frozen, give it 3 minutes.</strong> A single city can sit up to 2 minutes
-        waiting on the API before it gives up and retries, and each retry prints its own line. No new
-        output past that means it really is stuck &mdash; restart it.<br>
-        <strong>The label above the progress bar tells you which it is</strong>, and it works this out
-        itself by checking whether the job&rsquo;s process is still alive:
+        <strong>A quiet log does not mean it has stalled.</strong> The research stage buffers its
+        output and writes it out in roughly 8KB blocks, so this run&rsquo;s log sits unchanged for
+        minutes and then jumps several pages at once. Low CPU is normal too &mdash; research spends its
+        time waiting on the API, not computing. A single city can also sit up to 2 minutes before it
+        gives up and retries. So judge silence over <strong>10 minutes</strong>, not 3, and do not read
+        a still log as a dead job.<br>
+        <strong>Trust the state label instead</strong> &mdash; it is worked out from whether the
+        job&rsquo;s process is actually alive, so unlike the log it cannot be fooled by buffering:
         <span style="color:#2563eb;font-weight:600;">RUNNING</span> alive and working &middot;
         <span style="color:#92400e;font-weight:600;">STALE</span> the process died &mdash; press Generate
         sites again &middot;
