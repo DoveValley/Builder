@@ -72,7 +72,7 @@
         "warehouse pest control",
         "industrial pest control"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "termite inspection {city}, {ST}",
@@ -141,9 +141,15 @@
         "rat removal",
         "rodent control",
         "rodent exterminator",
-        "get rid of rats"
+        "get rid of rats",
+        "mouse exterminator",
+        "mouse control",
+        "mice control",
+        "mice exterminator",
+        "mouse removal",
+        "get rid of mice"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "restaurant pest control {city}, {ST}",
@@ -170,7 +176,7 @@
         "emergency exterminator",
         "24 hour exterminator"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "flea pest control {city}, {ST}",
@@ -199,7 +205,7 @@
         "mouse removal",
         "get rid of mice"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "spider pest control {city}, {ST}",
@@ -267,7 +273,7 @@
         "wasp spray service",
         "get rid of wasps"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "bee removal {city}, {ST}",
@@ -322,7 +328,7 @@
         "scorpion removal",
         "get rid of scorpions"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "hornet removal {city}, {ST}",
@@ -335,7 +341,7 @@
         "hornet control",
         "get rid of hornets"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "pest control plans {city}, {ST}",
@@ -360,7 +366,23 @@
         "wasp nest treatment",
         "wasp nest removal near me",
         "remove wasp nest",
-        "wasp nest exterminator"
+        "wasp nest exterminator",
+        "wasp exterminator",
+        "wasp control",
+        "wasp pest control",
+        "wasp removal",
+        "wasp spray service",
+        "get rid of wasps",
+        "hornet removal",
+        "hornet exterminator",
+        "hornet nest removal",
+        "hornet control",
+        "get rid of hornets",
+        "yellow jacket control",
+        "yellow jacket exterminator",
+        "yellow jacket nest removal",
+        "yellow jacket removal",
+        "get rid of yellow jackets"
       ],
       "pool": "rotate"
     },
@@ -375,7 +397,7 @@
         "yellow jacket removal",
         "get rid of yellow jackets"
       ],
-      "pool": "rotate"
+      "pool": "skip"
     },
     {
       "primary": "silverfish control {city}, {ST}",
@@ -430,13 +452,13 @@
       "pool": "rotate"
     }
   ],
-  "updated_at": "2026-07-09T18:44:33+00:00",
+  "updated_at": "2026-10-04T16:30:08+00:00",
   "page_pool": {
     "enabled": true,
     "counts": [
-      12,
       14,
-      16
+      16,
+      18
     ]
   }
 }
