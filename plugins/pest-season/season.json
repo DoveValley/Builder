@@ -2,7 +2,6 @@
   "_about": "Per-pest seasonal activity, each a VERBATIM quote from a named public source with a working URL, paired with that city's own retrieved NOAA figures. Same rule as mold-materials: no source, no entry. A pest with no citable statement gets NO block at all — a freeze window on a bed bug page would be filler, and bed bugs have no season.",
   "_why_both_halves": "The quote alone is national and adds nothing Google cannot get from CDC or the extension service directly. The local figures alone are climate, not pest. It is the pairing that is new: published biology set against this city's own measured climate, both cited. That is the information gain.",
   "_not_included": {
-    "termite-treatment": "BLOCKED, not forgotten. UGA B1209 gives four different swarm windows by SPECIES — eastern subterranean February-April, dark southeastern April-June, light southeastern July-September, Formosan April-July — and which species is present depends on region. Stating one window nationally would be wrong. Needs a species-to-region mapping, which is its own research task. This is also the only PINNED pest page, so it is the highest-value gap.",
     "mosquito-control": "NO SOURCE. The universally repeated '50F and mosquitoes go dormant' traces only to a 1970s CDC handbook PDF, not any current CDC or extension page; searches of both returned academic papers and patents instead. By the rule that disqualified the mold flood PDF, it does not ship.",
     "others": "ant, carpenter ant, flea, wasp, bee, spider, cricket, silverfish, rodent — not yet attempted. Adding one is a JSON entry, no code."
   },
@@ -21,6 +20,16 @@
       "label": "Penn State Extension — Brown Marmorated Stink Bug",
       "short": "Penn State Extension",
       "url": "https://extension.psu.edu/brown-marmorated-stink-bug"
+    },
+    "uga_c868": {
+      "label": "University of Georgia Extension — Identifying the Formosan Subterranean Termite (C868)",
+      "short": "UGA Extension",
+      "url": "https://fieldreport.caes.uga.edu/publications/C868/identifying-the-formosan-subterranean-termite/"
+    },
+    "psu_est": {
+      "label": "Penn State Extension — Eastern Subterranean Termites",
+      "short": "Penn State Extension",
+      "url": "https://extension.psu.edu/eastern-subterranean-termites"
     }
   },
   "pests": {
@@ -69,6 +78,30 @@
         "freeze_first_fall",
         "freeze_last_spring"
       ]
+    },
+    "termite-treatment": {
+      "label": "termite",
+      "heading": "When do termites swarm in {city}, {SS}?",
+      "verbatim": "Native subterranean termites begin swarming in February/March, swarm during the day, and are not attracted to lights.",
+      "also": [
+        {
+          "verbatim": "Formosan termites (1) swarm at night; (2) swarm in late May and/or early June (in Georgia), and (3) swarmers are attracted to light.",
+          "source": "uga_c868"
+        },
+        {
+          "verbatim": "In Pennsylvania, swarms of winged termites usually emerge between February and June.",
+          "source": "psu_est"
+        }
+      ],
+      "source": "uga_c868",
+      "context": "The behaviour is the part that travels: a swarm in daylight that ignores a porch light is a native subterranean termite, while a swarm after dark drawn to the light is Formosan. The months do not travel — the same native species begins in February or March in Georgia but can emerge any time from February to June in Pennsylvania, so the dates below matter more than either range.",
+      "local": "In {city} the average last spring freeze falls on {freeze_last_spring}, and the frost-free stretch runs to {freeze_first_fall} — about {frost_free_days} days.",
+      "local_source_field": "frost_free_source",
+      "needs": [
+        "freeze_last_spring",
+        "freeze_first_fall",
+        "frost_free_days"
+      ]
     }
   },
   "intros": [
@@ -79,6 +112,7 @@
   "_sourcing_notes": {
     "tick-treatment": "CDC's sentence carries its own year-round caveat, so it is quoted whole. Trimming it to 'April-September' would make it say something CDC deliberately does not say.",
     "fire-ant-control": "The strongest entry in this file, because it is a temperature threshold rather than a calendar and therefore pairs directly with the city's own measured temperatures instead of restating a generic season.",
-    "stink-bug-control": "Two separate quotes from one source, giving both ends of the cycle. Both sit either side of this city's own freeze dates, which is what makes the local figures worth printing beside them."
+    "stink-bug-control": "Two separate quotes from one source, giving both ends of the cycle. Both sit either side of this city's own freeze dates, which is what makes the local figures worth printing beside them.",
+    "termite-treatment": "No species-to-region map was obtainable from a source passing our own test: UGA C868 is Georgia-specific on distribution and LSU AgCenter, the actual authority, serves an unverifiable certificate. So the entry leads with the day/night and light-attraction contrast, which is geography-independent and more actionable than a month range, and quotes BOTH a Georgia and a Pennsylvania window — each against its own source — to show the months are regional rather than implying one applies everywhere."
   }
 }

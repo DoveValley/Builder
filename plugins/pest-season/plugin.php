@@ -128,6 +128,34 @@ function pest_season_local(string $tpl, array $city): string {
     return $out;
 }
 
+/**
+ * Normalise `also` entries to [{verbatim, url, short}].
+ *
+ * A string inherits the entry's own source. An object may name a different one — which the
+ * termite entry needs, because it quotes a Georgia publication and a Pennsylvania one to show
+ * that swarm months shift with latitude. An entry naming a source that does not exist is
+ * DROPPED, not rendered uncited.
+ */
+function pest_season_also($also, array $sources, ?array $default): array {
+    $out = [];
+    foreach ((array) $also as $a) {
+        if (is_string($a)) {
+            if (trim($a) === '') continue;
+            $out[] = ['verbatim' => $a,
+                      'url' => (string) ($default['url'] ?? ''),
+                      'short' => (string) ($default['short'] ?? '')];
+            continue;
+        }
+        if (!is_array($a) || trim((string) ($a['verbatim'] ?? '')) === '') continue;
+        $s = $sources[$a['source'] ?? ''] ?? null;
+        if (!is_array($s)) continue;                 // named a source we do not have: drop it
+        $out[] = ['verbatim' => (string) $a['verbatim'],
+                  'url' => (string) ($s['url'] ?? ''),
+                  'short' => (string) ($s['short'] ?? '')];
+    }
+    return $out;
+}
+
 /** Everything this page needs, or null when there is nothing citable to say. */
 function pest_season_resolve(string $override = ''): ?array {
     $d = pest_season_data();
@@ -152,7 +180,11 @@ function pest_season_resolve(string $override = ''): ?array {
         'key' => $key, 'label' => $p['label'] ?? $key,
         'heading' => (string) ($p['heading'] ?? ''),
         'verbatim' => (string) $p['verbatim'],
-        'also' => array_values(array_filter((array) ($p['also'] ?? []))),
+        // An `also` entry may be a plain string (uses this entry's own source) or
+        // {verbatim, source} with its own. Needed because termite quotes TWO publications —
+        // a Georgia one and a Pennsylvania one — to show that the months are regional, and
+        // attributing the Pennsylvania sentence to the Georgia publication would be false.
+        'also' => pest_season_also($p['also'] ?? [], $d['sources'] ?? [], $src),
         'context' => (string) ($p['context'] ?? ''),
         'source_url' => (string) ($src['url'] ?? ''),
         'source_short' => (string) ($src['short'] ?? 'source'),
@@ -225,7 +257,8 @@ function pest_season_render(array $attrs = []): string {
     $h .= '<blockquote class="ps-quote"><p>&ldquo;' . h($r['verbatim']) . '&rdquo;'
         . $cite($r['source_url'], $r['source_short']) . '</p>';
     foreach ($r['also'] as $a) {
-        $h .= '<p class="ps-also">&ldquo;' . h((string) $a) . '&rdquo;</p>';
+        $h .= '<p class="ps-also">&ldquo;' . h((string) $a['verbatim']) . '&rdquo;'
+            . $cite((string) $a['url'], (string) $a['short']) . '</p>';
     }
     if ($r['context'] !== '') {
         $h .= '<span class="ps-ctx">' . h($r['context']) . '</span>';

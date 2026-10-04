@@ -1425,6 +1425,11 @@
         "id": "trust_bar_1"
       },
       {
+        "type": "custom_html",
+        "anchor": "season",
+        "html": "<!--pest_season-->"
+      },
+      {
         "type": "ai_block",
         "ai_type_id": "city_intro",
         "ai_mode": "standalone",
