@@ -12,9 +12,7 @@
         "water damage cleanup",
         "water damage company",
         "water damage restoration services",
-        "water damage restoration near me",
-        "water damage insurance claim",
-        "insurance claim assistance"
+        "water damage restoration near me"
       ]
     },
     {
@@ -55,7 +53,7 @@
         "home water damage repair",
         "water damage repair services"
       ],
-      "pool": "pinned"
+      "pool": "rotate"
     },
     {
       "primary": "water mitigation {city}, {ST}",
@@ -83,7 +81,7 @@
         "water damage restoration near me",
         "emergency water damage cleanup"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "sewage cleanup {city}, {ST}",
@@ -281,7 +279,7 @@
         "washing machine overflow",
         "dishwasher leak cleanup"
       ],
-      "pool": "skip"
+      "pool": "rotate"
     },
     {
       "primary": "flooded bathroom cleanup {city}, {ST}",
@@ -341,6 +339,22 @@
         "ice dam water damage"
       ],
       "pool": "skip"
+    },
+    {
+      "primary": "water damage insurance claim {city}, {ST}",
+      "slug": "water-damage-insurance-claim",
+      "section": "landing",
+      "tier": "high-2",
+      "secondary": [
+        "does insurance cover water damage",
+        "water damage insurance claim help",
+        "water damage claim denied",
+        "how to file a water damage claim",
+        "insurance claim assistance",
+        "homeowners insurance water damage",
+        "water damage insurance adjuster"
+      ],
+      "pool": "pinned"
     }
   ],
   "updated_at": "2026-07-12T00:06:08+00:00",
