@@ -1695,8 +1695,13 @@ def _apply_chart_fetches(paths, cities, brief, dry_run=False, force=False,
             continue
 
         # Already retrieved, nothing missing, not forced: don't re-hit the API every run.
-        if not force and city.get('noaa_fetched_at') and all(
-                city.get(d['data_key']) not in (None, '', [], {}) for d in decls):
+        #
+        # The test is KEY PRESENCE, not truthiness. An empty answer can be the correct one —
+        # a county with no recorded flood events stores {} — and treating that as a gap made
+        # those cities re-fetch on every run forever. A failed fetch writes no key at all, so
+        # it is still retried.
+        if not force and city.get('figures_fetched_at') and all(
+                d['data_key'] in city for d in decls):
             continue
 
         updates, problems = noaa_normals.fetch_city(city, decls)

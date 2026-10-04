@@ -306,12 +306,6 @@ function pest_season_render(array $attrs = []): string {
     $intro = $r['intros']
         ? (string) $r['intros'][pest_season_lane($host, count($r['intros']))] : '';
 
-    $cite = function (string $url, string $short): string {
-        if ($url === '') return '';
-        return ' <a class="ps-cite" href="' . h($url) . '" target="_blank" rel="noopener">'
-            . h($short) . '</a>';
-    };
-
     // The content-block div MUST come first: blocks.php:788 only takes the raw path (skipping
     // the custom_html wrapper, and injecting our anchor id) when the HTML starts with one. A
     // leading <style> breaks that match and nests this inside .content-block, which is

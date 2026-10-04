@@ -63,12 +63,7 @@
           "text": "In {city} the frost-free stretch — the span between the average last spring freeze and the average first autumn freeze — runs from {freeze_last_spring} to {freeze_first_fall}, about {frost_free_days} days."
         }
       ],
-      "local_source_field": "frost_free_source",
-      "needs": [
-        "freeze_last_spring",
-        "freeze_first_fall",
-        "frost_free_days"
-      ]
+      "local_source_field": "frost_free_source"
     },
     "fire-ant-control": {
       "label": "fire ant",
@@ -80,10 +75,7 @@
       "source": "uga_b1191",
       "context": "Because that is a temperature rule rather than a date, it can be read directly against the local figures below — the months that cross 90 °F are the months when foraging slows at the top end.",
       "local": "{city} averages {hot_days_peak} days at or above 90 °F in {hot_days_peak_month} — the stretch when UGA's upper limit is being crossed — and {hot_days_year} such days across the year.",
-      "local_source_field": "hot_days_source",
-      "needs": [
-        "hot_days_monthly"
-      ]
+      "local_source_field": "hot_days_source"
     },
     "stink-bug-control": {
       "label": "stink bug",
@@ -95,11 +87,7 @@
       "source": "psu_bmsb",
       "context": "Two windows rather than one, then: into the building through autumn, back out the following spring.",
       "local": "{city}'s first autumn freeze averages {freeze_first_fall} and its last spring freeze {freeze_last_spring}, so the September-October move indoors here runs ahead of the cold rather than after it.",
-      "local_source_field": "frost_free_source",
-      "needs": [
-        "freeze_first_fall",
-        "freeze_last_spring"
-      ]
+      "local_source_field": "frost_free_source"
     },
     "termite-treatment": {
       "label": "termite",
@@ -118,12 +106,7 @@
       "source": "uga_c868",
       "context": "The behaviour is the part that travels: a swarm in daylight that ignores a porch light is a native subterranean termite, while a swarm after dark drawn to the light is Formosan. The months do not travel — the same native species begins in February or March in Georgia but can emerge any time from February to June in Pennsylvania, so the dates below matter more than either range.",
       "local": "In {city} the average last spring freeze falls on {freeze_last_spring}, and the frost-free stretch runs to {freeze_first_fall} — about {frost_free_days} days.",
-      "local_source_field": "frost_free_source",
-      "needs": [
-        "freeze_last_spring",
-        "freeze_first_fall",
-        "frost_free_days"
-      ]
+      "local_source_field": "frost_free_source"
     },
     "mosquito-control": {
       "label": "mosquito",
@@ -175,5 +158,6 @@
     "mosquito-control": "Third attempt. CDC's current pages carry no temperature threshold and the ubiquitous 'below 50F they go dormant' traces only to a 1970s CDC handbook PDF; two rounds of extension searches returned academic papers and patents. MSU Extension states it in HTML, so that is the citation, quoted whole including 'here in the South'.",
     "termite-inspection": "alias_of termite-treatment. Both inspection pages are about finding termites, so the swarm-behaviour cues apply unchanged; only the heading differs."
   },
-  "_per_city": "`local` may be a list of {when, text} variants tested against the city's own retrieved figures. The quote is identical fleet-wide by necessity; the sentence around it is not. This is variation because the data differs, not variation for its own sake."
+  "_per_city": "`local` may be a list of {when, text} variants tested against the city's own retrieved figures. The quote is identical fleet-wide by necessity; the sentence around it is not. This is variation because the data differs, not variation for its own sake.",
+  "_why_no_needs_key": "A `needs` list was declared on several entries and never read — the mold-materials audit finding repeated. pest_season_local() already enforces it: a sentence whose token will not resolve is voided entirely rather than rendered with a gap, so the requirement is expressed by the code that depends on it."
 }

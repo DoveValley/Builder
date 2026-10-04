@@ -351,7 +351,14 @@ function city_chart_table_html(array $def, array $series, array $city): string
     // retrieved -- including figures that were never retrieved from anywhere, which is how
     // AI-written numbers came to carry a NOAA citation and today's date. A field whose
     // retrieval date is unknown now says nothing rather than claiming today.
-    $fetched = trim((string) ($city['noaa_fetched_at'] ?? ''));
+    // The date must belong to THIS chart's figure. Only the NOAA-station branch sets
+    // noaa_fetched_at, so reading it for a Census or Storm-Events chart printed the date NOAA
+    // was fetched and asserted a freshness that figure never had.
+    $provDate = ['census_acs_homes' => 'acs_fetched_at',
+                 'noaa_storm_events' => 'flood_fetched_at'];
+    $provider = (string) (($def['fetch']['provider'] ?? '') ?: '');
+    $dateKey  = $provDate[$provider] ?? 'noaa_fetched_at';
+    $fetched  = trim((string) ($city[$dateKey] ?? $city['figures_fetched_at'] ?? ''));
     $ts = $fetched !== '' ? strtotime($fetched) : false;
     $method = $ts ? 'Retrieved ' . date('F j, Y', $ts) . '.' : '';
     if ($source !== '') {

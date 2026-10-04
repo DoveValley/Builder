@@ -253,6 +253,10 @@ def fetch_city(city, decls):
         updates[d["data_key"]] = vals
         if d.get("source_key"):
             updates[d["source_key"]] = src
+        # Its OWN retrieval date. charts.php prints "Retrieved <date>" per chart, and reading
+        # the NOAA date here would claim a freshness this figure never had.
+        updates["acs_fetched_at"] = datetime.date.today().isoformat()
+        updates["figures_fetched_at"] = updates["acs_fetched_at"]
 
     # Flood history is a county lookup, not a station reading, so it is handled before the
     # station logic and never contributes to the station choice.
@@ -265,6 +269,8 @@ def fetch_city(city, decls):
         if d.get("source_key"):
             updates[d["source_key"]] = src
         updates.update({k: v for k, v in extra.items() if v is not None})
+        updates["flood_fetched_at"] = datetime.date.today().isoformat()
+        updates["figures_fetched_at"] = updates["flood_fetched_at"]
 
     by_ds = {}
     for d in decls:
@@ -317,6 +323,7 @@ def fetch_city(city, decls):
         updates["noaa_station"] = sid
         updates["noaa_station_miles"] = miles
         updates["noaa_fetched_at"] = datetime.date.today().isoformat()
+        updates["figures_fetched_at"] = updates["noaa_fetched_at"]
 
     # A compare chart's benchmark is a statewide figure, not a station reading, so it comes
     # from a different product. Declared on the chart beside the city figure it compares to.
