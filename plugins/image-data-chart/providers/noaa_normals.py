@@ -222,6 +222,16 @@ def fetch_city(city, decls):
 
     updates, problems = {}, []
 
+    # Housing age is a place/county lookup against the ACS index.
+    for d in [x for x in decls if x.get("provider") == "census_acs_homes"]:
+        vals, src = homes_by_decade(lat, lng)
+        if not vals:
+            problems.append(f"{city.get('city')}: no ACS housing-age record for this location")
+            continue
+        updates[d["data_key"]] = vals
+        if d.get("source_key"):
+            updates[d["source_key"]] = src
+
     # Flood history is a county lookup, not a station reading, so it is handled before the
     # station logic and never contributes to the station choice.
     for d in [x for x in decls if x.get("provider") == "noaa_storm_events"]:
@@ -236,7 +246,7 @@ def fetch_city(city, decls):
 
     by_ds = {}
     for d in decls:
-        if d.get("provider") == "noaa_storm_events":
+        if d.get("provider") in LOOKUP_PROVIDERS:
             continue
         by_ds.setdefault(d.get("dataset") or DS_MONTHLY, []).append(d)
 
@@ -261,8 +271,19 @@ def fetch_city(city, decls):
                 problems.append(f"{city.get('city')}: {d['data_type']} absent at {sid}")
                 continue
             updates[d["data_key"]] = v
-            if d.get("source_key"):
-                updates[d["source_key"]] = src
+            sk = d.get("source_key")
+            if sk:
+                # Two charts on DIFFERENT datasets must not share a source_key. The monthly
+                # and annual station searches are independent, so a shared key means one
+                # series ends up citing a station its numbers did not come from — Juneau
+                # resolved 0.4 mi for annual and 6.5 mi for monthly. Report, do not overwrite.
+                if sk in updates and updates[sk] != src:
+                    problems.append(
+                        f"{city.get('city')}: source_key '{sk}' already set by another "
+                        f"dataset with a different station — not overwriting "
+                        f"(kept: {updates[sk]!r})")
+                else:
+                    updates[sk] = src
         updates["noaa_station"] = sid
         updates["noaa_station_miles"] = miles
         updates["noaa_fetched_at"] = datetime.date.today().isoformat()
@@ -312,8 +333,10 @@ def chart_fetch_decls(niche, root=None):
         fe = cfg.get("fetch")
         if not isinstance(fe, dict):
             continue
-        # storm-events declarations are a county lookup and carry no NOAA data_type
-        if not fe.get("data_type") and fe.get("provider") != "noaa_storm_events":
+        # Only the NOAA-normals providers need a data_type. The lookup providers resolve a
+        # geography and read an index, so requiring data_type would silently exclude them —
+        # which is how a declaration can look correct and never fire.
+        if not fe.get("data_type") and fe.get("provider") not in LOOKUP_PROVIDERS:
             continue
         out.append({
             "data_key": (cfg.get("data_key") or "").strip(),
@@ -429,3 +452,83 @@ def flood_decades(lat, lng):
         "flood_most_recent": rec.get("most_recent"),
         "flood_first_recorded": rec.get("first"),
     }
+
+
+# ---------------------------------------------------------------- housing age (ACS)
+
+LOOKUP_PROVIDERS = {"noaa_storm_events", "census_acs_homes"}
+
+_ACS = {"loaded": False, "data": None}
+
+
+def _acs_index():
+    if not _ACS["loaded"]:
+        _ACS["loaded"] = True
+        p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "acs_homes_index.json")
+        try:
+            with open(p, encoding="utf-8") as fh:
+                _ACS["data"] = json.load(fh)
+        except Exception:
+            _ACS["data"] = None
+    return _ACS["data"]
+
+
+def place_geoid(lat, lng):
+    """(geoid, name) of the incorporated place containing a point, or (None, None).
+
+    Not every city in the list is a separate Census place, which is why homes_by_decade
+    falls back to the county rather than returning nothing.
+    """
+    key = f"place|{round(float(lat), 4)},{round(float(lng), 4)}"
+    c = _cache_load("county")      # same cache file; keys are namespaced
+    if key in c:
+        return tuple(c[key]) if c[key] else (None, None)
+    q = urllib.parse.urlencode({
+        "x": lng, "y": lat, "benchmark": "Public_AR_Current",
+        "vintage": "Current_Current", "layers": "Incorporated Places", "format": "json"})
+    try:
+        d = _get(f"{CENSUS}?{q}")
+        geos = d["result"]["geographies"]
+        rows = []
+        for k, v in geos.items():
+            if "Place" in k:
+                rows = v or []
+                break
+        pl = rows[0]
+        val = [pl["GEOID"], pl.get("NAME") or ""]
+    except Exception:
+        val = None
+    c[key] = val
+    _cache_save("county")
+    return tuple(val) if val else (None, None)
+
+
+def homes_by_decade(lat, lng):
+    """({bucket: percent}, source) for a point, or ({}, '').
+
+    Prefers the incorporated place; falls back to the county and SAYS SO in the source, so a
+    county figure is never passed off as a city figure.
+    """
+    idx = _acs_index()
+    if not idx:
+        return {}, ""
+    meta = idx.get("meta") or {}
+    labels = meta.get("_buckets") or []
+    base = (f"US Census Bureau, American Community Survey {meta.get('_year')} 5-year "
+            f"estimates, table {meta.get('_table')}")
+
+    gid, name = place_geoid(lat, lng)
+    rec = (idx.get("places") or {}).get(gid) if gid else None
+    if rec:
+        vals, units = rec
+        return (dict(zip(labels, vals)),
+                f"{base} — {name} ({units:,} housing units)")
+
+    fips, cname = county_fips(lat, lng)
+    rec = (idx.get("counties") or {}).get(fips) if fips else None
+    if rec:
+        vals, units = rec
+        return (dict(zip(labels, vals)),
+                f"{base} — {cname} ({units:,} housing units; county figure, as this "
+                f"location is not a separate Census place)")
+    return {}, ""

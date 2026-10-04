@@ -7,10 +7,6 @@
   "unit": "%",
   "title": "When {city}, {SS} homes were built",
   "alt": "Chart of the age of the housing stock in {city}, {SS}, by share built in each period. {summary}",
-  "research": {
-    "ask": "\"homes_by_decade\" — the age of {city}'s housing stock, as an object whose keys are exactly \"Before 1960\", \"1960-1979\", \"1980-1999\", \"2000-2009\", \"2010 or later\" and whose values are the plain-number PERCENTAGE of homes built in each period, adding to about 100",
-    "source_ask": "\"homes_by_decade_source\" — the source of those housing figures (e.g. \"US Census ACS 2019-2023 5-year estimates\")"
-  },
   "captions": [
     "The largest share of housing in {city}, {SS} was built {peak}, at {peak_value} of the stock. Weather decides when pests move; the building decides whether they get in. Older sill plates, settled slabs and worn weather-stripping are the routes most infestations use.",
     "In {city}, homes built {peak} make up {peak_value} of the housing. Decades of freeze-thaw and wet-dry cycles open gaps around foundations and utility penetrations — the same seasonal pressure that moves pests also makes older structures easier to enter.",
@@ -18,5 +14,9 @@
   ],
   "groups": [
     "structure"
-  ]
+  ],
+  "fetch": {
+    "provider": "census_acs_homes",
+    "note": "Place/county lookup against providers/acs_homes_index.json, built from the ACS table-based summary file for B25034. api.census.gov now requires a key; www2.census.gov serves the same data without one."
+  }
 }
