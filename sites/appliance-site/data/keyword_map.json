@@ -1660,6 +1660,33 @@
         "same day kenmore freezer repair"
       ],
       "pool": "rotate"
+    },
+    {
+      "primary": "brand appliance repair {city}, {ST}",
+      "slug": "brand-appliance-repair",
+      "section": "landing",
+      "tier": "low-3",
+      "secondary": [],
+      "pool": "skip",
+      "note": "Master template (Leaf) — clone source, not a page"
+    },
+    {
+      "primary": "appliance type repair {city}, {ST}",
+      "slug": "appliance-type-repair",
+      "section": "landing",
+      "tier": "low-3",
+      "secondary": [],
+      "pool": "skip",
+      "note": "Master template (Type Hub) — clone source, not a page"
+    },
+    {
+      "primary": "brand appliance repair hub {city}, {ST}",
+      "slug": "brand-appliance-repair-hub",
+      "section": "landing",
+      "tier": "low-3",
+      "secondary": [],
+      "pool": "skip",
+      "note": "Master template (Brand Hub) — clone source, not a page"
     }
   ],
   "page_pool": {
@@ -1670,5 +1697,5 @@
       30
     ]
   },
-  "updated_at": "2026-10-04T18:53:34+00:00"
+  "updated_at": "2026-10-04T19:05:13+00:00"
 }
