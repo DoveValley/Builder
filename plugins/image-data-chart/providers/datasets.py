@@ -1,39 +1,61 @@
 #!/usr/bin/env python3
 """
-Real NOAA 1991-2020 Climate Normals for a city, so chart figures are retrieved rather than
-guessed.
+Published figures for a city, retrieved from public datasets, so chart values are looked up
+rather than invented.
 
 WHY THIS EXISTS
-Chart definitions declared a `research.ask` for figures like rainfall_monthly AND a
-`research.source_ask` that literally suggested the citation to use:
+Chart definitions used to declare a `research.ask` for their figures AND a
+`research.source_ask` that named the citation to use:
 
     "source_ask": "... the source of those figures (e.g. \"NOAA 1991-2020 Climate Normals\")"
 
-So the research model was handed a citation and asked to supply numbers to match it. It
-obliged. Measured across 212 city records, the stored values were off from the real normals
-by a median of 11% (rainfall) to 30% (heavy rain days), with individual months wrong by
-10-30x -- Greenville SC claimed 4 days above 90F in May against a real 0.2. humidity_monthly
-was worse than inaccurate: NOAA's normals publish NO moisture variable at all beyond
-precipitation, so those 12 values could not have come from the cited source under any
-reading. All of it shipped as a crawlable HTML data table (blocks.php:77) naming a specific
-NOAA station, under a "Retrieved <date>" stamp that was really just the build date.
+The research model was therefore handed a source and asked to supply numbers consistent with
+it, which it duly did. What that produced, measured against the real data:
 
-WHAT THIS GUARANTEES
-  - A value is either retrieved from NOAA or absent. There is no fallback, no estimate, no
-    nearest-guess. A failed fetch leaves the field alone and is reported.
-  - The source string names the station ACTUALLY used and its distance from the city, because
-    "NOAA 1991-2020 Climate Normals (Denver, CO station)" for a Littleton page is only honest
-    if the reader can see it was 10 miles away.
+  weather          212 records. Median error 11% (rainfall) to 30% (heavy rain days), with
+                   single months out by an order of magnitude -- Carrollton TX held 12 days
+                   above 90F in June against a real 22.4. heavy_rain_days was worse: the
+                   stored values tracked a >=0.50in threshold while the chart asks for
+                   >=1.00in, so they were wrong by about 2x (119% median at the right
+                   threshold).
+  humidity         212 records citing a NOAA product that publishes no moisture variable at
+                   all. Unsourceable under any reading; replaced by days-with-rain.
+  flood_years      Asked the model for "MAJOR, well-documented" floods and to judge its own
+                   confidence. Understated flood frequency in 200 of 202 cities, median 6x
+                   and up to 28x. Dallas claimed 1908 and 1949, which the cited database
+                   cannot contain -- it does not record floods before 1996.
+  homes_by_decade  1,060 percentages, 100% of them whole numbers and 70.8% multiples of five.
+                   ACS percentages come from unit counts and carry decimals; this dataset had
+                   none anywhere.
+
+All of it rendered as a crawlable HTML data table (blocks.php:77) naming a specific source,
+under a "Retrieved <date>" line that was really just the build date.
+
+WHAT IT READS  (no API keys -- api.census.gov now requires one, these do not)
+  NOAA Climate Normals 1991-2020   monthly and annual, by station    ncei.noaa.gov
+  NOAA Climate at a Glance         statewide precipitation            ncei.noaa.gov
+  NOAA Storm Events                county flood history, via a built index
+  Census ACS 5-year, B25034        housing age, via a built index from www2.census.gov
+  Census geocoder                  lat/lng -> county FIPS and incorporated place
+
+WHAT IT GUARANTEES
+  - A value is retrieved or absent. No estimate, no fallback to a nearby figure, no guess.
+    A failure is reported to the caller, which logs it.
+  - The source string names the geography ACTUALLY used and its distance or type, because
+    "NOAA 1991-2020 Climate Normals (Denver, CO station)" on a Littleton page is only honest
+    if the reader can see how far away that was. Likewise a county housing figure says it is
+    a county figure.
+  - Stations are accepted only if they carry EVERY data type asked of them, so one station is
+    never cited for a series it is missing.
+  - Two charts on different datasets may not share a source_key. They did once, and half of
+    water's monthly rainfall tables cited the annual station instead of their own.
   - fetched_at is the real retrieval date, stored with the data, so "Retrieved ..." stops
     being re-stamped to the build date on every rebuild.
-  - Stations are only accepted if they actually carry every data type asked of them, so a
-    station is never used for one field and silently missing another.
 
-NO API KEY. Both services are open:
-  station search  https://www.ncei.noaa.gov/access/services/search/v1/data
-  data            https://www.ncei.noaa.gov/access/services/data/v1
-  county FIPS     https://geocoding.geo.census.gov/geocoder (FCC's equivalent is currently
-                  returning a backend auth fault, so Census is the one that works)
+ADDING A CITY needs no new research and no new file: every dataset here is national and keyed
+on coordinates. Verified against twelve places outside the current list, including Juneau,
+Kailua-Kona, Washington DC, an independent city, a tiny mountain town and an unincorporated
+CDP -- 12/12 with no gaps.
 """
 import json, os, math, time, urllib.parse, urllib.request, datetime
 

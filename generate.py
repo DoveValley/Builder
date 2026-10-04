@@ -1670,9 +1670,9 @@ def _apply_chart_fetches(paths, cities, brief, dry_run=False, force=False,
     # on sys.path to work.
     import importlib.util
     _pp = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'plugins',
-                       'image-data-chart', 'providers', 'noaa_normals.py')
+                       'image-data-chart', 'providers', 'datasets.py')
     try:
-        _spec = importlib.util.spec_from_file_location('ms_noaa_normals', _pp)
+        _spec = importlib.util.spec_from_file_location('ms_chart_datasets', _pp)
         noaa_normals = importlib.util.module_from_spec(_spec)
         _spec.loader.exec_module(noaa_normals)
     except Exception as e:
