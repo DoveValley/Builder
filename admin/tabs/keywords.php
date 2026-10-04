@@ -46,20 +46,25 @@ foreach ($services as $s) {
 
 $lbl = 'display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;';
 
-// Render the saved keywords for one section, one stacked .kw-item block per keyword.
-// Each block emits exactly one of every kw_* field so the POST arrays stay index-aligned.
+// ONE source for a keyword row. $renderRow emits a single .kw-item; $renderItems
+// loops it for saved rows, and the <template> blocks at the bottom of the page emit
+// it once more with empty values for "+ Add keyword" to clone. The row markup used
+// to exist twice — here and in a JS string builder — which meant every change needed
+// a paired edit in two languages, and a missed one showed up as rows that looked
+// different depending on whether they were saved or just added.
+// Each row emits exactly one of every kw_* field so the POST arrays stay index-aligned.
 $numStyle = 'flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;';
-$renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts, $lbl, $numStyle, $roleInfo) {
-    foreach ($rows as $idx => $s):
+$renderRow = function (array $s, string $section, ?int $idx) use ($tierOpts, $poolOpts, $lbl, $numStyle, $roleInfo) {
         $nm = $s['primary'] ?? ''; $sl = $s['slug'] ?? ''; $ti = $s['tier'] ?? '';
         $po = $s['pool'] ?? ms_page_pool_default_for_tier($ti);
         $secStr = implode(', ', array_map('trim', (array)($s['secondary'] ?? [])));
-        $roleLab = $roleInfo['roles'][$sl]['label'] ?? '';
+        // No slug on a template row, so no role chip — kwRenumber fills the number.
+        $roleLab = $sl !== '' ? ($roleInfo['roles'][$sl]['label'] ?? '') : '';
     ?>
         <div class="kw-item" style="border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;">
             <div style="margin-bottom:8px;">
                 <div style="display:flex;gap:8px;align-items:flex-end;">
-                    <span class="kw-num" style="<?= $numStyle ?>margin-bottom:4px;"><?= $idx + 1 ?></span>
+                    <span class="kw-num" style="<?= $numStyle ?>margin-bottom:4px;"><?= $idx === null ? '' : $idx + 1 ?></span>
                     <div style="flex:1;min-width:0;">
                         <label style="<?= $lbl ?>">Primary keyword <?php if ($roleLab): ?><span style="<?= keyword_role_chip_style($roleLab) ?>margin-left:6px;"><?= h($roleLab) ?></span><?php endif; ?></label>
                         <input type="text" name="kw_primary[]" value="<?= h($nm) ?>" style="width:100%;">
@@ -93,7 +98,10 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
                 <textarea name="kw_secondary[]" rows="2" style="width:100%;font-size:.85rem;"><?= h($secStr) ?></textarea>
             </div>
         </div>
-    <?php endforeach;
+    <?php
+};
+$renderItems = function (array $rows, string $section) use ($renderRow) {
+    foreach ($rows as $idx => $s) $renderRow($s, $section, $idx);
 };
 ?>
 <div class="tab-content" style="<?= $tab === 'keywords' ? '' : 'display:none;' ?>">
@@ -334,6 +342,12 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
         <button type="submit" class="btn">Save</button>
     </form>
 
+    <?php /* Blank rows for "+ Add keyword" to clone — same $renderRow as the saved
+             rows above, so the two can never drift apart. */ ?>
+    <?php foreach (array_keys($sectionDefs) as $tplSection): ?>
+    <template id="kw-tpl-<?= h($tplSection) ?>"><?php $renderRow([], $tplSection, null); ?></template>
+    <?php endforeach; ?>
+
     <script>
     // The state on file, so the 'not saved yet' marker only shows on a real change.
     var PP_SAVED = <?= $ppEnabled ? 'true' : 'false' ?>;
@@ -369,50 +383,6 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
 
     var KW_TIERS = <?= json_encode($tierOpts) ?>;
     var KW_TIER_RANK = <?= json_encode($tierRank) ?>;
-    var KW_POOLS = <?= json_encode($poolOpts) ?>;
-    function kwEsc(v){ return (v==null?'':(''+v)).replace(/"/g,'&quot;'); }
-    function kwText(v){ return (v==null?'':(''+v)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-    function kwItemHtml(section, primary, slug, tier, secondary, pool){
-        var t='<option value="">Tier…</option>'; for(var k in KW_TIERS){ t+='<option value="'+k+'"'+(tier===k?' selected':'')+'>'+KW_TIERS[k]+'</option>'; }
-        var poolField;
-        if(section==='landing'){
-            var pv = pool || 'rotate';
-            var p='';
-            for(var pk in KW_POOLS){ p+='<option value="'+pk+'"'+(pv===pk?' selected':'')+'>'+KW_POOLS[pk]+'</option>'; }
-            poolField = '<div style="width:170px;flex:none;">'+
-                          '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Which sites build it</label>'+
-                          '<select name="kw_pool[]" style="width:100%;" title="Which sites build this page">'+p+'</select>'+
-                        '</div>';
-        } else {
-            poolField = '<input type="hidden" name="kw_pool[]" value="">';
-        }
-        return '<div style="margin-bottom:8px;">'+
-                 '<div style="display:flex;gap:8px;align-items:flex-end;">'+
-                   '<span class="kw-num" style="flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding:0 7px;background:#7c3aed;color:#fff;border-radius:12px;font-size:.78rem;font-weight:700;margin-bottom:4px;"></span>'+
-                   '<div style="flex:1;min-width:0;">'+
-                     '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Primary keyword</label>'+
-                     '<input type="text" name="kw_primary[]" value="'+kwEsc(primary)+'" style="width:100%;">'+
-                   '</div>'+
-                   '<div style="width:120px;flex:none;">'+
-                     '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Priority</label>'+
-                     '<select name="kw_tier[]" style="width:100%;" title="Tier / priority">'+t+'</select>'+
-                   '</div>'+
-                   poolField+
-                   '<input type="hidden" name="kw_section[]" value="'+kwEsc(section)+'">'+
-                   '<button type="button" class="btn" style="padding:2px 8px;flex:none;margin-bottom:1px;" onclick="kwMove(this,-1)" title="Move up">&uarr;</button>'+
-                   '<button type="button" class="btn" style="padding:2px 8px;flex:none;margin-bottom:1px;" onclick="kwMove(this,1)" title="Move down">&darr;</button>'+
-                   '<button type="button" class="btn btn-danger" style="padding:2px 9px;flex:none;margin-bottom:1px;" onclick="kwDel(this)" title="Remove keyword">&times;</button>'+
-                 '</div>'+
-               '</div>'+
-               '<div style="margin-bottom:8px;">'+
-                 '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Slug base</label>'+
-                 '<input type="text" name="kw_slug[]" value="'+kwEsc(slug)+'" style="width:100%;font-family:monospace;font-size:.85rem;">'+
-               '</div>'+
-               '<div>'+
-                 '<label style="display:block;font-size:.72rem;font-weight:600;color:#64748b;margin:0 0 2px;">Secondary keywords <span style="font-weight:400;">(comma or line separated)</span></label>'+
-                 '<textarea name="kw_secondary[]" rows="2" style="width:100%;font-size:.85rem;">'+kwText(secondary)+'</textarea>'+
-               '</div>';
-    }
     function kwRenumber(container){
         var items=container.querySelectorAll(':scope > .kw-item');
         for(var i=0;i<items.length;i++){ var n=items[i].querySelector('.kw-num'); if(n) n.textContent=(i+1); }
@@ -443,11 +413,19 @@ $renderItems = function (array $rows, string $section) use ($tierOpts, $poolOpts
         else { var n=item.nextElementSibling; if(n && n.classList.contains('kw-item')) c.insertBefore(n,item); }
         kwRenumber(c);
     }
+    // Clone the server-rendered blank row rather than rebuilding it here. Values are
+    // set on the DOM nodes, so there is no HTML escaping to get wrong either.
     function kwAddItem(containerId, section, primary, slug, tier, secondary, pool){
         var c=document.getElementById(containerId);
-        var d=document.createElement('div'); d.className='kw-item';
-        d.style.cssText='border:1px solid #e2e8f0;border-radius:6px;padding:10px 12px;margin-bottom:10px;background:#fff;';
-        d.innerHTML=kwItemHtml(section, primary, slug, tier, secondary, pool);
+        var tpl=document.getElementById('kw-tpl-'+section);
+        if(!c || !tpl) return null;
+        var d=tpl.content.firstElementChild.cloneNode(true);
+        var set=function(sel,val){ var el=d.querySelector(sel); if(el && val!=null && val!=='') el.value=val; };
+        set('input[name="kw_primary[]"]', primary);
+        set('input[name="kw_slug[]"]', slug);
+        set('select[name="kw_tier[]"]', tier);
+        set('textarea[name="kw_secondary[]"]', secondary);
+        set('select[name="kw_pool[]"]', pool);
         c.appendChild(d); kwRenumber(c); return d;
     }
     function kwDlSlug(s){ return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
