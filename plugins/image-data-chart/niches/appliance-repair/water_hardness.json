@@ -16,8 +16,8 @@
   "title": "Water hardness in {city}, {SS}",
   "alt": "Chart comparing water hardness in {city}, {SS} against the threshold for hard water. {summary}",
   "research": {
-    "ask": "\"water_hardness_gpg\" — the average hardness of the municipal water supply serving {city}, {SS}, in GRAINS PER GALLON as a plain number (divide ppm or mg/L by 17.1 if the published figure is in those units). Use the figure published by the local water utility or a state/USGS survey",
-    "source_ask": "\"water_hardness_source\" — the source of that hardness figure (e.g. the utility's annual water quality report, or USGS)"
+    "ask": "\"water_hardness_gpg\" — the average hardness of the municipal water supply serving {city}, {SS}, in GRAINS PER GALLON as a plain number (divide ppm or mg/L by 17.1 if the published figure is in those units). Use the figure published by the local water utility or a state/USGS survey. Omit this field rather than estimating: a plausible-looking hardness figure with a citation attached is worse than no figure at all.",
+    "source_ask": "\"water_hardness_source\" — name the SPECIFIC published document this figure came from: the water utility's own annual water quality report (give the utility name and the report year), or a named USGS dataset. Do not answer with a generic organisation name. If you cannot identify a specific published figure for this city's municipal supply, omit water_hardness_gpg entirely."
   },
   "captions": [
     "Water serving {city}, {SS} measures {self_value}; water is classified hard from {benchmark_value}. {difference} Dissolved mineral comes out of solution on heating elements and valves, so hardness decides how fast scale builds in a dishwasher, washing machine or water heater.",
@@ -27,5 +27,6 @@
   "groups": [
     "age",
     "water"
-  ]
+  ],
+  "_note": "NOT converted to fetch. The USGS/EPA Water Quality Portal does return hardness samples by county FIPS (1,415 for Angelina County TX), but they mix surface water and groundwater and ranged 1-614 mg/L there, so a county median is not the municipal supply figure this chart claims. Publishing it would be a new wrong number with a better citation. Needs its own pass — probably a hardness BAND from groundwater-only samples rather than a precise gpg value."
 }

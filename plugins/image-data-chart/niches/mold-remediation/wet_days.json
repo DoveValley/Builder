@@ -1,0 +1,39 @@
+{
+  "id": "wet_days",
+  "name": "Days with measurable rain by month",
+  "type": "bars",
+  "data_key": "wet_days_monthly",
+  "source_key": "wet_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days with measurable rain each month in {city}, {SS}",
+  "alt": "Chart of the average number of days with measurable rain each month in {city}, {SS} — the wet months that keep materials damp. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-PRCP-AVGNDS-GE010HI",
+    "note": "Days with >= 0.10 in. Replaces humidity_monthly: NOAA's normals publish no moisture variable beyond precipitation, so the humidity figures could not have come from the source they cited. This is a rain-frequency measure and the captions describe it as such — it is not a humidity substitute."
+  },
+  "captions": [
+    "{city} sees measurable rain on about {total} days a year, most often in {peak}. Mould needs moisture more than it needs heat, and it is repeated wetting rather than annual totals that keeps materials damp long enough for growth to start.",
+    "Rain falls on roughly {total} days a year in {city}, {SS}, peaking in {peak} and easing to {low_value} in {low}. Material that never fully dries between wettings is where growth takes hold, which is why the wet stretches matter more than the dry months.",
+    "{city} records measurable rain on about {total} days a year. Frequency is the useful number: a roof, a window seal or a grading fault is tested on every one of those days, and what decides the outcome is whether the material dries out before the next one."
+  ],
+  "groups": [
+    "heat",
+    "moisture",
+    "structure"
+  ]
+}

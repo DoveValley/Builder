@@ -1,0 +1,37 @@
+{
+  "id": "wet_days",
+  "name": "Days with measurable rain by month",
+  "type": "bars",
+  "data_key": "wet_days_monthly",
+  "source_key": "wet_days_source",
+  "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "unit": "days",
+  "title": "Days with measurable rain each month in {city}, {SS}",
+  "alt": "Chart of the average number of days with measurable rain each month in {city}, {SS} — the damp stretches that put the load on dryers. {summary}",
+  "fetch": {
+    "provider": "noaa_normals_monthly",
+    "data_type": "MLY-PRCP-AVGNDS-GE010HI",
+    "note": "Days with >= 0.10 in. Replaces humidity_monthly: NOAA's normals publish no moisture variable beyond precipitation, so the humidity figures could not have come from the source they cited. This is a rain-frequency measure and the captions describe it as such — it is not a humidity substitute."
+  },
+  "captions": [
+    "{city} sees measurable rain on about {total} days a year, most often in {peak}. Wet spells put the load on a dryer and a dehumidifier at the same time, which is when a worn heating element or a blocked vent finally shows itself.",
+    "Rain falls on roughly {total} days a year in {city}, {SS}, peaking in {peak}. Laundry that cannot dry outdoors goes through the machine instead, so the wettest months are when dryers work hardest.",
+    "{city} records measurable rain on about {total} days a year. The damp stretches are when moisture problems surface indoors, and when a dryer that vents poorly starts taking two cycles to do one load."
+  ],
+  "groups": [
+    "drying"
+  ]
+}
