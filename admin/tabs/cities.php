@@ -238,6 +238,26 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
             <button type="button" class="ai-run-btn" id="city-research-all-btn"
                     style="font-size:.75rem;padding:5px 12px;"
                     onclick="cityResearchAll()">&#128269; Research cities<?= $neverResearchedCount > 0 ? ' (' . $neverResearchedCount . ' never researched)' : '' ?></button>
+            <?php
+            // Cities short on neighbourhoods. A normal research pass CANNOT fix these: once a
+            // city is marked neighborhoods_source=verified, sync_osm_neighborhoods() skips it
+            // forever — including the ones left empty by an Overpass timeout. This button
+            // clears that marker for the short cities only and re-queries OSM for just them.
+            $_hoodMin = 3;
+            $_amCfg = BASE_DIR . '/plugins/image-area-map/research.json';
+            if (is_file($_amCfg)) {
+                $_am = json_decode((string) file_get_contents($_amCfg), true);
+                foreach (($_am['fields'] ?? []) as $_f) {
+                    if (($_f['data_key'] ?? '') === 'neighborhoods') { $_hoodMin = (int) ($_f['min_items'] ?? 3); }
+                }
+            }
+            $_hoodGaps = count(array_filter($cities, fn($c) => count($c['neighborhoods'] ?? []) < $_hoodMin));
+            if ($_hoodGaps > 0): ?>
+            <button type="button" class="ai-run-btn" id="city-research-gaps-btn"
+                    style="font-size:.75rem;padding:5px 12px;background:#0f766e;"
+                    title="Clears the verified marker on cities with fewer than <?= $_hoodMin ?> neighborhoods and re-queries OpenStreetMap for just those. Does not re-run the research prompt."
+                    onclick="cityResearchAll('gaps')">&#9851; Retry <?= $_hoodGaps ?> thin neighborhood list<?= $_hoodGaps === 1 ? '' : 's' ?></button>
+            <?php endif; ?>
             <div class="ai-spinner" id="city-research-all-spinner"></div>
             <span id="city-research-all-status" style="font-size:.78rem;font-weight:400;color:#6b7280;"></span>
             <?php endif; ?>
@@ -314,32 +334,44 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
 
     <?php if (!empty($cities)): ?>
     <script>
-    window.cityResearchAll = function () {
+    window.cityResearchAll = function (mode) {
+        // mode === 'gaps' -> neighbourhood-only retry (action=research_gaps). Shares this
+        // function because the streaming/ticker/status plumbing is identical; only the
+        // confirm text and the posted action differ.
+        var gaps    = (mode === 'gaps');
         var btn     = document.getElementById('city-research-all-btn');
+        var gapsBtn = document.getElementById('city-research-gaps-btn');
         var spinner = document.getElementById('city-research-all-spinner');
         var status  = document.getElementById('city-research-all-status');
         var force   = document.getElementById('city-research-all-force').checked;
         if (!btn) return;
-        var msg = force
+        var msg = gaps
+            ? 'Retry the thin neighborhood lists?\n\nThis clears the "verified" marker on cities '
+              + 'below the minimum and re-queries OpenStreetMap for just those — including the ones '
+              + 'a gateway timeout left empty. It does NOT re-run the research prompt, so it costs '
+              + 'only a verification call per unconfirmed name.'
+            : force
             ? 'Force will re-research ALL <?= count($cities) ?> cities on this site, even ones already complete — full API cost, not just whatever is actually missing. Continue?'
             : 'Research this site\'s <?= count($cities) ?> ' + '<?= count($cities) === 1 ? "city" : "cities" ?>'
               + ' with AI? It decides on its own what\'s actually missing — a city already fully researched is skipped automatically.';
         if (!confirm(msg)) return;
 
         btn.disabled = true;
+        if (gapsBtn) gapsBtn.disabled = true;
         spinner.classList.add('on');
-        status.textContent = 'Researching…';
+        status.textContent = gaps ? 'Retrying neighborhoods…' : 'Researching…';
         status.style.color = '';
 
         var startedAt = Date.now();
         var ticker = setInterval(function () {
-            status.textContent = 'Researching… ' + ((Date.now() - startedAt) / 1000).toFixed(0) + 's';
+            status.textContent = (gaps ? 'Retrying neighborhoods… ' : 'Researching… ')
+                + ((Date.now() - startedAt) / 1000).toFixed(0) + 's';
         }, 1000);
 
         var fd = new FormData();
         fd.append('csrf_token', <?= json_encode($csrfToken) ?>);
-        fd.append('action', 'research');
-        if (force) fd.append('force', '1');
+        fd.append('action', gaps ? 'research_gaps' : 'research');
+        if (force && !gaps) fd.append('force', '1');
         // No city_id — generate.py's --research-only runs with no --file filter,
         // which processes every city in cities.json still missing research data
         // (skipping ones that already have it, unless Force is ticked), in one pass.
@@ -354,6 +386,7 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
             } else if (msg.type === 'done') {
                 clearInterval(ticker);
                 btn.disabled = false;
+                if (gapsBtn) gapsBtn.disabled = false;
                 spinner.classList.remove('on');
                 if (msg.success) {
                     status.textContent = 'Done — reloading…';
@@ -389,6 +422,7 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
         .catch(function (err) {
             clearInterval(ticker);
             btn.disabled = false;
+            if (gapsBtn) gapsBtn.disabled = false;
             spinner.classList.remove('on');
             status.textContent = 'Request failed: ' + err.message;
             status.style.color = '#dc2626';

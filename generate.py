@@ -1112,18 +1112,46 @@ Rules:
 
 OSM_UA = 'homepage-builder/1.0 (site generator; neighbourhood verification)'
 
-def _osm_get(url, data=None, timeout=45):
-    import urllib.request, urllib.parse
-    req = urllib.request.Request(url, data=(urllib.parse.urlencode(data).encode() if data else None),
-                                 headers={'User-Agent': OSM_UA})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode('utf-8', 'replace'))
+def _osm_get(url, data=None, timeout=45, attempts=3):
+    """
+    One GET against Nominatim/Overpass, retried on the statuses they actually return under load.
+
+    There was no retry here, and a single transient failure is fatal to the whole query: one
+    mold run logged 17x HTTP 504 and 6x HTTP 429, and every one of those cost a city its
+    neighbourhood list. Only transient codes are retried -- a 400 is our bad query and retrying
+    it just wastes the endpoint's patience. The backoff is deliberately unhurried because a 429
+    means we are the problem, and Overpass is a free shared service.
+    """
+    import urllib.request, urllib.parse, urllib.error, time as _time
+    last = None
+    for attempt in range(max(1, attempts)):
+        try:
+            req = urllib.request.Request(url, data=(urllib.parse.urlencode(data).encode() if data else None),
+                                         headers={'User-Agent': OSM_UA})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode('utf-8', 'replace'))
+        except urllib.error.HTTPError as exc:
+            last = exc
+            if exc.code not in (429, 500, 502, 503, 504):
+                raise
+        except Exception as exc:           # timeouts, resets, truncated JSON
+            last = exc
+        if attempt < attempts - 1:
+            _time.sleep(5 * (2 ** attempt))   # 5s, then 10s
+    raise last
 
 
 def osm_neighborhoods(city, state):
     """
-    Real named areas inside a city, from OpenStreetMap. ([], '') when it has none — which is a
-    valid answer, not a failure.
+    Real named areas inside a city, from OpenStreetMap.
+
+    Returns (names, source). The SOURCE distinguishes the three outcomes, because the caller
+    has to treat them differently and could not previously tell them apart:
+        (names, 'OpenStreetMap')  found something
+        ([],    '')               OSM genuinely has none, or no city boundary — a real answer
+        ([],    'error')          the query FAILED upstream — says nothing about the city
+    Both except branches used to return ([], '') like a real empty, which is how a 504 ended up
+    recorded as "verified: this city has no neighbourhoods" permanently.
 
     Two steps on purpose: resolve the city to its own OSM boundary first, then search inside
     that. Matching an area by name alone would happily pick a Springfield in the wrong state.
@@ -1137,7 +1165,7 @@ def osm_neighborhoods(city, state):
                             {'q': f'{city}, {state}, USA', 'format': 'json', 'limit': 5}))
     except Exception as exc:
         _warn(f'    OSM lookup failed for {city}: {exc}')
-        return [], ''
+        return [], 'error'
     rel = next((h for h in hits if h.get('osm_type') == 'relation'), None)
     if not rel:
         return [], ''
@@ -1151,7 +1179,7 @@ def osm_neighborhoods(city, state):
         d = _osm_get('https://overpass-api.de/api/interpreter', {'data': q})
     except Exception as exc:
         _warn(f'    OSM area query failed for {city}: {exc}')
-        return [], ''
+        return [], 'error'
 
     names = set()
     for e in d.get('elements', []):
@@ -1208,6 +1236,52 @@ def verify_neighborhoods(city, state, candidates, api_key, dry_run=False):
     return out
 
 
+def neighborhoods_min_items():
+    """The min_items declared for `neighborhoods`, from whichever plugin declares it.
+
+    Read rather than hardcoded: it lives in plugins/image-area-map/research.json and has
+    already moved once (5 -> 3, when verification started removing unverifiable names and a
+    small town's honest count turned out to be 1-4 real districts).
+    """
+    for fld in plugin_research_fields():
+        if fld[0] == 'neighborhoods':
+            return int(fld[4] or 0)
+    return 0
+
+
+def unverify_neighborhood_gaps(paths, dry_run=False):
+    """Clear neighborhoods_source on every city below min_items, and return their ids.
+
+    sync_osm_neighborhoods() skips anything already marked verified, which is correct for the
+    normal case -- re-verifying a complete city re-bills a Claude call per name for no gain.
+    But it also means a city that came out short can never be retried, whether it fell short
+    because Overpass timed out or because the threshold later changed. This is the deliberate
+    un-marking that makes a retry possible, and it touches ONLY cities under the threshold.
+    """
+    rows = load_json(paths['cities']) or []
+    mi = neighborhoods_min_items()
+    if mi <= 0:
+        _warn('  No min_items declared for neighborhoods — nothing to retry.')
+        return set()
+    ids, cleared = set(), 0
+    for i, c in enumerate(rows):
+        if len(c.get('neighborhoods') or []) >= mi:
+            continue
+        cid = c.get('id')
+        if cid:
+            ids.add(cid)
+        if c.get('neighborhoods_source'):
+            cleared += 1
+            if not dry_run:
+                rows[i] = {k: v for k, v in c.items() if k != 'neighborhoods_source'}
+    _log(f'\n── Neighbourhood retry ──────────────────────────────')
+    _log(f'  min_items={mi}: {len(ids)} city/cities below it, '
+         f'{cleared} verified-marker(s) cleared so they re-query')
+    if cleared and not dry_run:
+        save_json(paths['cities'], rows)
+    return ids
+
+
 def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None, tag_ids=None):
     """
     Rebuild every city's neighbourhood list from names that can actually be stood behind.
@@ -1242,6 +1316,9 @@ def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None,
             continue
         had = list(c.get('neighborhoods') or [])
         osm, _src = osm_neighborhoods(name, c.get('state', ''))
+        # 'error' means the OSM query itself failed, which tells us nothing about the city.
+        # Marking it verified anyway is what locked 4 cities out of every future pass.
+        osm_failed = (_src == 'error')
         if osm:
             _ok(f'  {name} — OSM confirms {len(osm)}: ' + ', '.join(osm))
 
@@ -1258,8 +1335,16 @@ def sync_osm_neighborhoods(paths, api_key=None, dry_run=False, city_filter=None,
         if not names:
             _warn(f'  {name} — no area name could be verified; the list is empty')
         if not dry_run:
-            rows[i] = {**c, 'neighborhoods': names,
-                       'neighborhoods_source': 'OpenStreetMap + verified' if osm else 'verified'}
+            row = {**c, 'neighborhoods': names}
+            if osm_failed:
+                # Leave neighborhoods_source alone so the skip at the top of this loop does
+                # NOT fire next time: a gateway timeout must not be recorded as a finding.
+                # Whatever verification salvaged is still saved — just not called final.
+                _warn(f'    {name} — upstream query failed, leaving it retryable '
+                      f'(not marking it verified)')
+            else:
+                row['neighborhoods_source'] = 'OpenStreetMap + verified' if osm else 'verified'
+            rows[i] = row
         changed += 1
     if changed and not dry_run:
         save_json(paths['cities'], rows)
@@ -2708,6 +2793,10 @@ def main():
                          'No API key needed, nothing written, no cost.')
     ap.add_argument('--research-only',   action='store_true', dest='research_only',
                     help='Only run the research step — do not generate content blocks')
+    ap.add_argument('--neighborhoods-retry', action='store_true', dest='neighborhoods_retry',
+                    help='Retry ONLY the cities whose neighbourhood list is below min_items: '
+                         'clear their verified marker and re-query OSM for just those. Skips '
+                         'the research prompt entirely — their other fields are already on file.')
     ap.add_argument('--research-force',  action='store_true', dest='research_force',
                     help='Re-research every matched city regardless of what it already has '
                          '(a rewritten research prompt, or facts believed stale/wrong). '
@@ -2833,7 +2922,17 @@ def main():
     researched = 0
 
     # ── Step 1: Research (fills cities.json research fields) ──────────────────
-    if args.research:
+    if args.research and args.neighborhoods_retry:
+        # Neighbourhood-only retry. The research prompt has nothing to add for these cities —
+        # their industries/employers/figures are already on file — and running it would re-bill
+        # the whole prompt to fix one list. So this un-marks just the short cities and re-queries
+        # OSM for exactly those.
+        gap_ids = unverify_neighborhood_gaps(paths, dry_run=args.dry_run)
+        researched = sync_osm_neighborhoods(paths, api_key=api_key, dry_run=args.dry_run,
+                                            tag_ids=gap_ids) if gap_ids else 0
+        if not gap_ids:
+            _ok('  Every city already meets min_items — nothing to retry.')
+    elif args.research:
         researched = run_research_step(paths, api_key, dry_run=args.dry_run, city_filter=args.file,
                                         tag_ids=tag_ids, force=args.research_force)
         # The research prompt's own "only real, verified names" instruction is the ONLY

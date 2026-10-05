@@ -145,9 +145,32 @@ if (!file_exists($script)) {
 
 $parts = [escapeshellarg($python), '-u', escapeshellarg($script), '--site', escapeshellarg(ACTIVE_SITE_ID)];
 
+// BOTH research actions write cities.json, so both must refuse to run while a pass is in
+// flight — see research_in_flight() for why this is a ps scan and not a lock file.
+if ($action === 'research' || $action === 'research_gaps') {
+    $rif = research_in_flight((string) ACTIVE_SITE_ID);
+    if ($rif !== null) {
+        $ago = $rif['secs'] >= 60 ? intdiv($rif['secs'], 60) . ' min' : $rif['secs'] . ' sec';
+        ndjson_done(false, null, null,
+            'Research is already running for ' . ACTIVE_SITE_ID . ' — started ' . $ago
+            . ' ago (pid ' . $rif['pid'] . '). Let it finish: a second pass would have '
+            . 'two processes writing cities.json. Watch progress on the Batch tab.');
+        exit;
+    }
+}
+
 switch ($action) {
     case 'sync':
         $parts[] = '--sync-templates';
+        if ($dryRun) $parts[] = '--dry-run';
+        break;
+
+    case 'research_gaps':
+        // Neighbourhood-only retry: clears the verified marker on cities below min_items and
+        // re-queries OSM for just those. Separate action rather than a flag on 'research'
+        // because it must NOT run the research prompt — see --neighborhoods-retry.
+        $parts[] = '--research-only';
+        $parts[] = '--neighborhoods-retry';
         if ($dryRun) $parts[] = '--dry-run';
         break;
 
@@ -158,17 +181,6 @@ switch ($action) {
         // and the only visible symptom was "Researching... Ns" counting up while nothing
         // changed. Refuse, and say what is running and for how long -- the client renders
         // a done-event's `error` in red, so this reaches the operator as a real message.
-        $rif = research_in_flight((string) ACTIVE_SITE_ID);
-        if ($rif !== null) {
-            $ago = $rif['secs'] >= 60
-                ? intdiv($rif['secs'], 60) . ' min'
-                : $rif['secs'] . ' sec';
-            ndjson_done(false, null, null,
-                'Research is already running for ' . ACTIVE_SITE_ID . ' — started ' . $ago
-                . ' ago (pid ' . $rif['pid'] . '). Let it finish: a second pass would have '
-                . 'two processes writing cities.json. Watch progress on the Batch tab.');
-            exit;
-        }
         $parts[] = '--research-only';
         if ($cityId) { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
         if ($tag)    { $parts[] = '--tag';  $parts[] = escapeshellarg($tag); }
