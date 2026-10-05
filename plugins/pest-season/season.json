@@ -104,7 +104,7 @@
         }
       ],
       "source": "uga_c868",
-      "context": "The behaviour is the part that travels: a swarm in daylight that ignores a porch light is a native subterranean termite, while a swarm after dark drawn to the light is Formosan. The months do not travel — the same native species begins in February or March in Georgia but can emerge any time from February to June in Pennsylvania, so the dates below matter more than either range.",
+      "context": "The behavior is the part that travels: a swarm in daylight that ignores a porch light is a native subterranean termite, while a swarm after dark drawn to the light is Formosan. The months do not travel — the same native species begins in February or March in Georgia but can emerge any time from February to June in Pennsylvania, so the dates below matter more than either range.",
       "local": "In {city} the average last spring freeze falls on {freeze_last_spring}, and the frost-free stretch runs to {freeze_first_fall} — about {frost_free_days} days.",
       "local_source_field": "frost_free_source"
     },
@@ -156,7 +156,7 @@
     "stink-bug-control": "Two separate quotes from one source, giving both ends of the cycle. Both sit either side of this city's own freeze dates, which is what makes the local figures worth printing beside them.",
     "termite-treatment": "No species-to-region map was obtainable from a source passing our own test: UGA C868 is Georgia-specific on distribution and LSU AgCenter, the actual authority, serves an unverifiable certificate. So the entry leads with the day/night and light-attraction contrast, which is geography-independent and more actionable than a month range, and quotes BOTH a Georgia and a Pennsylvania window — each against its own source — to show the months are regional rather than implying one applies everywhere.",
     "mosquito-control": "Third attempt. CDC's current pages carry no temperature threshold and the ubiquitous 'below 50F they go dormant' traces only to a 1970s CDC handbook PDF; two rounds of extension searches returned academic papers and patents. MSU Extension states it in HTML, so that is the citation, quoted whole including 'here in the South'.",
-    "termite-inspection": "alias_of termite-treatment. Both inspection pages are about finding termites, so the swarm-behaviour cues apply unchanged; only the heading differs."
+    "termite-inspection": "alias_of termite-treatment. Both inspection pages are about finding termites, so the swarm-behavior cues apply unchanged; only the heading differs."
   },
   "_per_city": "`local` may be a list of {when, text} variants tested against the city's own retrieved figures. The quote is identical fleet-wide by necessity; the sentence around it is not. This is variation because the data differs, not variation for its own sake.",
   "_why_no_needs_key": "A `needs` list was declared on several entries and never read — the mold-materials audit finding repeated. pest_season_local() already enforces it: a sentence whose token will not resolve is voided entirely rather than rendered with a gap, so the requirement is expressed by the code that depends on it."
