@@ -947,5 +947,55 @@
     "output_tokens": 209495,
     "api_calls": 91,
     "estimated_cost_usd": 3.460986
+  },
+  {
+    "run_id": "22ac3122-7411-45dd-8c17-6565fef47329",
+    "started_at": "2026-10-05T18:51:02.776451Z",
+    "finished_at": "2026-10-05T18:51:02.805725Z",
+    "duration_ms": 29,
+    "dry_run": false,
+    "options": {
+      "site": "appliance-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "api_calls": 0,
+    "estimated_cost_usd": 0.0
+  },
+  {
+    "run_id": "4ba54b8e-0f87-4ff3-bdda-1b11d0fcdc64",
+    "started_at": "2026-10-05T19:17:21.771453Z",
+    "finished_at": "2026-10-05T19:17:21.808974Z",
+    "duration_ms": 37,
+    "dry_run": false,
+    "options": {
+      "site": "appliance-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "api_calls": 0,
+    "estimated_cost_usd": 0.0
   }
 ]
