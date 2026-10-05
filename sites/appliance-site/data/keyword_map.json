@@ -166,7 +166,7 @@
         "whirlpool appliance repair cost",
         "same day whirlpool appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 3600,
       "cpc": 11.38,
       "kd": 0,
@@ -185,7 +185,7 @@
         "maytag appliance repair cost",
         "same day maytag appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 1900,
       "cpc": 10.84,
       "kd": 11,
@@ -223,7 +223,7 @@
         "ge monogram appliance repair cost",
         "ge monogram home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 110,
       "cpc": 14.71,
       "kd": 12,
@@ -242,7 +242,7 @@
         "kitchenaid appliance repair cost",
         "same day kitchenaid appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 1300,
       "cpc": 10.14,
       "kd": 1,
@@ -261,7 +261,7 @@
         "lg appliance repair cost",
         "same day lg appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 4400,
       "cpc": 9.07,
       "kd": 5,
@@ -280,7 +280,7 @@
         "samsung appliance repair cost",
         "same day samsung appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 4400,
       "cpc": 11.13,
       "kd": 15,
@@ -299,7 +299,7 @@
         "frigidaire appliance repair cost",
         "same day frigidaire appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 1600,
       "cpc": 9.29,
       "kd": 1,
@@ -318,7 +318,7 @@
         "bosch appliance repair cost",
         "same day bosch appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 1600,
       "cpc": 10.27,
       "kd": 0,
@@ -337,7 +337,7 @@
         "kenmore appliance repair cost",
         "same day kenmore appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 880,
       "cpc": 8.51,
       "kd": 10,
@@ -356,7 +356,7 @@
         "amana appliance repair cost",
         "same day amana appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 210,
       "cpc": 14.09,
       "kd": 5,
@@ -375,7 +375,7 @@
         "jennair appliance repair cost",
         "jennair home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 480,
       "cpc": 8.42,
       "kd": 0,
@@ -394,7 +394,7 @@
         "dacor appliance repair cost",
         "dacor home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 320,
       "cpc": 11.07,
       "kd": 0,
@@ -413,7 +413,7 @@
         "sub-zero appliance repair cost",
         "sub-zero home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 880,
       "cpc": 30.2,
       "kd": 8,
@@ -432,7 +432,7 @@
         "wolf appliance repair cost",
         "wolf home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 880,
       "cpc": 28.23,
       "kd": 3,
@@ -451,7 +451,7 @@
         "viking appliance repair cost",
         "viking home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 1000,
       "cpc": 30.91,
       "kd": 0,
@@ -470,7 +470,7 @@
         "thermador appliance repair cost",
         "thermador home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 880,
       "cpc": 13.94,
       "kd": 0,
@@ -489,7 +489,7 @@
         "miele appliance repair cost",
         "miele home appliance repair"
       ],
-      "pool": "rotate",
+      "pool": "pinned",
       "volume": 880,
       "cpc": 6.82,
       "kd": 0,
@@ -2176,9 +2176,9 @@
   "page_pool": {
     "enabled": true,
     "counts": [
-      50,
       55,
-      60
+      60,
+      65
     ]
   },
   "updated_at": "2026-10-04T19:18:01+00:00",
