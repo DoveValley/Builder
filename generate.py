@@ -2941,11 +2941,15 @@ def main():
         # here: a city already verified is skipped for free, so re-running this costs
         # nothing once every city has been through it once.
         sync_osm_neighborhoods(paths, api_key=api_key, dry_run=args.dry_run, city_filter=args.file, tag_ids=tag_ids)
-        if args.research_only:
-            _log(f'\n{"═"*54}')
-            _ok(f'Research complete: {researched} city/cities enriched')
-            _log(f'{"═"*54}')
-            return
+
+    # Outside the branches on purpose: --research-only must stop here whichever research path
+    # ran. While this sat inside the elif above, --neighborhoods-retry did its work and then
+    # carried on into page generation.
+    if args.research and args.research_only:
+        _log(f'\n{"═"*54}')
+        _ok(f'Research complete: {researched} city/cities enriched')
+        _log(f'{"═"*54}')
+        return
 
     # Reload city index after research may have written new data
     c_idx = cities_index(paths)
