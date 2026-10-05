@@ -2225,7 +2225,12 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             // appliance becomes a small label above its code, which reads the same and
             // costs no horizontal room.
             $ecIsHub = !empty($ec['hub']);
-            echo '<div class="ec-tablewrap"><table class="ec-table">';
+            // tabindex+role: .ec-tablewrap is overflow-x:auto, and a scroll container is
+            // unreachable by keyboard unless it is focusable. A named region is required --
+            // an unnamed role="region" announces "region" and tells the user nothing -- so
+            // it borrows the <h2> printed just above, which is also unique on the page.
+            echo '<div class="ec-tablewrap" role="region" tabindex="0" aria-label="'
+                . h($ecHeading) . '"><table class="ec-table">';
             echo '<thead><tr><th scope="col">' . ($ecIsHub ? 'Appliance &amp; code' : 'Code')
                 . '</th><th scope="col">What it means</th></tr></thead><tbody>';
             foreach ($ecRows as $r) {
