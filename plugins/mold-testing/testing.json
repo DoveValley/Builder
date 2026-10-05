@@ -1,0 +1,135 @@
+{
+  "_about": "What mold sampling can and cannot establish, quoted verbatim from EPA, paired with the city's own retrieved flood history and housing age. Fills the three live mold pages that had no factual block: mold-inspection (PINNED, so on every site), air-quality-testing and real-estate-mold-inspection. Same rule as mold-materials and pest-season: no source, no line.",
+  "_framing": "LEADS WITH WHAT SAMPLING CAN DO, then who should do it, then the honest context that EPA considers it unnecessary when growth is already visible. That order was chosen deliberately: the quotes are all accurate either way, but leading with 'sampling is usually unnecessary' on a testing page talks a caller out of the service, and revenue here is per call. The 'unnecessary' line still appears — omitting it would be dishonest and it is the reason nobody can quote a safe spore count — but as context rather than as the headline.",
+  "_seo": "Each of the three pages gets a DIFFERENT question-shaped h2 so they do not compete with each other in the same SERP: an inspection query, a testing query and a real-estate query are three different intents. Per-city flood history and housing age mean the prose differs per site, not just the city name.",
+  "sources": {
+    "epa_sampling": {
+      "label": "EPA — Mold Testing or Sampling",
+      "short": "EPA",
+      "url": "https://www.epa.gov/mold/mold-testing-or-sampling"
+    },
+    "epa_standards": {
+      "label": "EPA — Are there federal regulations or standards regarding mold?",
+      "short": "EPA",
+      "url": "https://www.epa.gov/mold/are-there-federal-regulations-or-standards-regarding-mold"
+    }
+  },
+  "pages": {
+    "mold-inspection": {
+      "label": "mold inspection",
+      "heading": "What does a mold inspection look for in {city}, {SS}?",
+      "verbatim": "Surface sampling may be useful to determine if an area has been adequately cleaned or remediated.",
+      "source": "epa_sampling",
+      "also": [
+        {
+          "verbatim": "Sampling for mold should be conducted by professionals who have specific experience in designing mold sampling protocols, sampling methods and interpreting results.",
+          "source": "epa_sampling"
+        }
+      ],
+      "context": "So sampling earns its place at the two ends of a job — confirming what is there when it is hidden, and confirming it has gone once the work is done. EPA is equally clear that it is not always needed: in most cases, if visible mold growth is present, sampling is unnecessary, and there is no federal number a result can be measured against.",
+      "context_also": [
+        {
+          "verbatim": "In most cases, if visible mold growth is present, sampling is unnecessary.",
+          "source": "epa_sampling"
+        },
+        {
+          "verbatim": "Standards or Threshold Limit Values (TLVs) for airborne concentrations of mold, or mold spores, have not been set.",
+          "source": "epa_standards"
+        }
+      ],
+      "local": [
+        {
+          "when": {
+            "field": "flood_years_with_events",
+            "gt": 15
+          },
+          "text": "There is a reason to look harder here than the visible surface: {flood_county} has recorded flood events in {flood_years_with_events} separate years, most recently in {flood_most_recent}. Water that arrived years ago leaves growth behind whether or not anyone found it at the time."
+        },
+        {
+          "when": {
+            "field": "flood_years_with_events",
+            "lt": 1
+          },
+          "text": "No flood events are on record for {flood_county} in the period the National Weather Service covers, so the usual sources in {city} are plumbing, roofing and condensation rather than flooding — which tend to be the hidden kind."
+        },
+        {
+          "text": "{flood_county} has recorded flood events in {flood_years_with_events} separate years, most recently in {flood_most_recent} — history worth knowing before deciding how far to look."
+        }
+      ],
+      "local_source_field": "flood_events_source"
+    },
+    "air-quality-testing": {
+      "label": "mold testing",
+      "heading": "Do you need mold testing in {city}, {SS}?",
+      "verbatim": "Surface sampling may be useful to determine if an area has been adequately cleaned or remediated.",
+      "source": "epa_sampling",
+      "also": [
+        {
+          "verbatim": "Sampling for mold should be conducted by professionals who have specific experience in designing mold sampling protocols, sampling methods and interpreting results.",
+          "source": "epa_sampling"
+        }
+      ],
+      "context": "That is the honest answer to when testing is worth paying for: to find what is hidden, and to verify a clean-up. What it cannot do is produce a pass or fail, because no federal threshold exists to measure a result against — which is why no one can tell you a safe spore count.",
+      "context_also": [
+        {
+          "verbatim": "Currently, there are no EPA regulations or standards for airborne mold contaminants.",
+          "source": "epa_standards"
+        },
+        {
+          "verbatim": "In most cases, if visible mold growth is present, sampling is unnecessary.",
+          "source": "epa_sampling"
+        }
+      ],
+      "local": [
+        {
+          "when": {
+            "field": "flood_years_with_events",
+            "gt": 15
+          },
+          "text": "In {city} that question comes up often for a reason: {flood_county} has flood events on record in {flood_years_with_events} separate years, and water that sat inside a wall does not announce itself."
+        },
+        {
+          "text": "{flood_county} has flood events on record in {flood_years_with_events} separate years, most recently {flood_most_recent}."
+        }
+      ],
+      "local_source_field": "flood_events_source"
+    },
+    "real-estate-mold-inspection": {
+      "label": "real-estate mold inspection",
+      "heading": "What does a mold inspection mean for a {city}, {SS} home sale?",
+      "verbatim": "Standards or Threshold Limit Values (TLVs) for airborne concentrations of mold, or mold spores, have not been set.",
+      "source": "epa_standards",
+      "also": [
+        {
+          "verbatim": "Currently, there are no EPA regulations or standards for airborne mold contaminants.",
+          "source": "epa_standards"
+        }
+      ],
+      "context": "That matters more in a transaction than anywhere else, because it means no result can make a house pass or fail. What an inspection can establish is where moisture is getting in and whether a previous clean-up actually worked — which is what a buyer, a seller and a lender are each really asking.",
+      "context_also": [
+        {
+          "verbatim": "Surface sampling may be useful to determine if an area has been adequately cleaned or remediated.",
+          "source": "epa_sampling"
+        }
+      ],
+      "local": [
+        {
+          "when": {
+            "field": "homes_pre_1960",
+            "gt": 25
+          },
+          "text": "Housing age is part of the picture in {city}: {homes_pre_1960} of homes here predate 1960, and older construction hides more of its plumbing and framing behind finished surfaces. {flood_county} also has flood events on record in {flood_years_with_events} separate years."
+        },
+        {
+          "text": "In {city}, {homes_pre_1960} of homes predate 1960, and {flood_county} has flood events on record in {flood_years_with_events} separate years — both worth knowing before a sale rather than after."
+        }
+      ],
+      "local_source_field": "homes_by_decade_source"
+    }
+  },
+  "intros": [
+    "Testing is worth paying for when it answers a question looking cannot. Below is what EPA says sampling establishes, and what it does not.",
+    "The useful question is not whether to test but what a test can settle. EPA is specific about both halves of that, and this is its published position.",
+    "Before paying for sampling it is worth knowing what a result can and cannot establish. EPA publishes an answer, quoted here as written."
+  ]
+}

@@ -488,7 +488,10 @@ def flood_decades(lat, lng):
         return {}, src, {"flood_county": cname, "flood_county_fips": fips,
                          "flood_events_total": 0}
     return rec.get("decades") or {}, src, {
-        "flood_county": rec.get("county") or cname,
+        # Census name first: it carries the right suffix for every geography type ("Angelina
+        # County", "Juneau City and Borough", a Louisiana parish), where Storm Events CZ_NAME
+        # is bare ("Angelina") and reads wrong in a sentence.
+        "flood_county": cname or rec.get("county"),
         "flood_county_fips": fips,
         "flood_events_total": rec.get("total_events"),
         "flood_years_with_events": rec.get("years_with_events"),
