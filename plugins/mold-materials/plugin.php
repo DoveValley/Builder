@@ -111,6 +111,127 @@ function mold_materials_location_for(string $slug): string {
     return $best;
 }
 
+/** Trim a float for display: 24.0 -> "24", 6.6 -> "6.6". */
+function mold_materials_num($v): string {
+    if (!is_numeric($v)) return '';
+    $f = (float) $v;
+    return $f == (int) $f ? (string) (int) $f : (string) round($f, 1);
+}
+
+/**
+ * Display strings and a numeric map, derived from one city record.
+ *
+ * Kept in one place because the per-city paragraph is the entire anti-fingerprint mechanism:
+ * a token that silently resolves to nothing voids the sentence, and a voided sentence means
+ * this page falls back to text another city also shows.
+ */
+function mold_materials_tokens(array $city): array {
+    $mon = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+            'August', 'September', 'October', 'November', 'December'];
+    $agg = function (string $field) use ($city, $mon) {
+        $a = $city[$field] ?? null;
+        if (!is_array($a) || count($a) !== 12) return [null, null, null];
+        $v = array_map('floatval', array_values($a));
+        $i = array_search(max($v), $v, true);
+        return [array_sum($v), max($v), $mon[$i] ?? null];
+    };
+    [$wdY, $wdP, $wdM] = $agg('wet_days_monthly');
+    [$hrY, ,     $hrM] = $agg('heavy_rain_days_monthly');
+    [$fzY, ,     $fzM] = $agg('freeze_days_monthly');
+    [$htY, $htP, $htM] = $agg('hot_days_monthly');
+    [$rnY, ,     ]     = $agg('rainfall_monthly');
+
+    $pre = $p2010 = null;
+    $h = $city['homes_by_decade'] ?? null;
+    if (is_array($h)) {
+        if (isset($h['Before 1960']) && is_numeric($h['Before 1960']))     $pre   = (float) $h['Before 1960'];
+        if (isset($h['2010 or later']) && is_numeric($h['2010 or later'])) $p2010 = (float) $h['2010 or later'];
+    }
+    $peakDecade = null;
+    $fd = $city['flood_events_by_decade'] ?? null;
+    if (is_array($fd) && $fd) { arsort($fd); $peakDecade = (string) array_key_first($fd); }
+    $pct = fn($v) => $v === null ? '' : mold_materials_num($v) . '%';
+
+    return [[
+        '{city}'                    => (string) ($city['city'] ?? ''),
+        '{SS}'                      => (string) ($city['SS'] ?? ''),
+        '{state}'                   => (string) ($city['state'] ?? ''),
+        '{wet_days_year}'           => mold_materials_num($wdY),
+        '{wet_days_peak}'           => mold_materials_num($wdP),
+        '{wet_days_peak_month}'     => (string) ($wdM ?? ''),
+        '{rainfall_year}'           => mold_materials_num($rnY),
+        '{heavy_rain_year}'         => mold_materials_num($hrY),
+        '{heavy_rain_peak_month}'   => (string) ($hrM ?? ''),
+        '{freeze_nights_year}'      => mold_materials_num($fzY),
+        '{freeze_peak_month}'       => (string) ($fzM ?? ''),
+        '{hot_days_year}'           => mold_materials_num($htY),
+        '{hot_days_peak}'           => mold_materials_num($htP),
+        '{hot_days_peak_month}'     => (string) ($htM ?? ''),
+        '{homes_pre_1960}'          => $pct($pre),
+        '{homes_2010_plus}'         => $pct($p2010),
+        '{flood_county}'            => (string) ($city['flood_county'] ?? ''),
+        '{flood_years_with_events}' => (string) ($city['flood_years_with_events'] ?? ''),
+        '{flood_most_recent}'       => (string) ($city['flood_most_recent'] ?? ''),
+        '{flood_peak_decade}'       => (string) ($peakDecade ?? ''),
+    ], [
+        'wet_days_year'           => $wdY,
+        'heavy_rain_year'         => $hrY,
+        'freeze_nights_year'      => $fzY,
+        'hot_days_year'           => $htY,
+        'homes_pre_1960_num'      => $pre,
+        'flood_years_with_events' => $city['flood_years_with_events'] ?? null,
+    ]];
+}
+
+/**
+ * The per-city paragraph for this location's metric.
+ *
+ * Band chosen by the city's own figures; PHRASING chosen by crc32 of the city slug, so two
+ * cities in the same band get different sentence structures rather than one skeleton with
+ * different numbers. A band whose `when` field is missing or non-numeric is skipped rather
+ * than treated as matching, and a phrasing with an unresolvable token falls through.
+ */
+function mold_materials_pick_local(string $metric, array $city, string $loc = ''): string {
+    $d = mold_materials_data();
+    $bank = $d['local'][$metric] ?? null;
+    if (!is_array($bank)) return '';
+    [$str, $num] = mold_materials_tokens($city);
+    // Seeded on city AND location. On the city alone, every location sharing a metric showed
+    // the identical paragraph — basement, carpet and crawl space all use flood history, so one
+    // site got 6 distinct paragraphs across 14 pages instead of 14. Including the location
+    // keeps it deterministic and still lets two sites covering the same city agree with each
+    // other, which they should: the facts are the same.
+    $slug = (string) ($city['city_slug'] ?? ($city['city'] ?? '')) . '|' . $loc;
+
+    foreach ($bank as $band) {
+        if (!is_array($band)) continue;
+        $w = $band['when'] ?? null;
+        if (is_array($w) && !empty($w['field'])) {
+            $v = $num[$w['field']] ?? null;
+            if (!is_numeric($v)) continue;
+            $v = (float) $v;
+            if (isset($w['gt']) && !($v >  (float) $w['gt'])) continue;
+            if (isset($w['lt']) && !($v <  (float) $w['lt'])) continue;
+        }
+        $texts = $band['texts'] ?? (isset($band['text']) ? [$band['text']] : []);
+        $texts = array_values(array_filter((array) $texts, fn($t) => trim((string) $t) !== ''));
+        if (!$texts) continue;
+        // city-seeded, so the skeleton differs between cities and is stable for one city
+        $start = $slug !== '' ? (int) (crc32(strtolower($slug)) % count($texts)) : 0;
+        for ($i = 0; $i < count($texts); $i++) {
+            $tpl = (string) $texts[($start + $i) % count($texts)];
+            $out = strtr($tpl, $str);
+            if (preg_match('/\{[a-z_0-9]+\}/', $out)) continue;
+            $empty = false;
+            foreach ($str as $tok => $sv) {
+                if (strpos($tpl, $tok) !== false && trim((string) $sv) === '') $empty = true;
+            }
+            if (!$empty) return $out;
+        }
+    }
+    return '';
+}
+
 /**
  * Everything the block needs for one location, or NULL when there is nothing to show.
  * Null is the normal case on a non-mold page, which is why no caller needs a guard.
@@ -165,9 +286,21 @@ function mold_materials_resolve(string $locationOverride = '', string $slugOverr
     }
     ksort($legend, SORT_NUMERIC);
 
+    $city = function_exists('city_chart_current_city') ? city_chart_current_city() : [];
+    $metric = (string) ($loc['metric'] ?? '');
+    $local = $metric !== '' ? mold_materials_pick_local($metric, $city, $key) : '';
+    $localSrc = [];
+    if ($local !== '') {
+        foreach ((array) ($d['local_sources'][$metric] ?? []) as $f) {
+            $v = trim((string) ($city[$f] ?? ''));
+            if ($v !== '' && !in_array($v, $localSrc, true)) $localSrc[] = $v;
+        }
+    }
+
     return [
         'key' => $key,
         'label'  => $loc['label'] ?? $key,
+        'metric' => $metric, 'local' => $local, 'local_sources' => $localSrc,
         'phrase' => $loc['phrase'] ?? ('a ' . ($loc['label'] ?? $key)),
         'where'  => $loc['where']  ?? ('in a ' . ($loc['label'] ?? $key)),
         'note' => $loc['note'] ?? '',
@@ -223,6 +356,7 @@ function mold_materials_css(): string {
         . '.mm-assume{margin:14px 0 0;padding:0;list-style:none}'
         . '.mm-assume li{margin-bottom:6px;color:#475569;font-size:.88rem;line-height:1.55}'
         . '.mm-note{margin:14px 0 0;color:#334155}'
+        . '.mm-local{padding-top:10px;border-top:1px solid #e2e8f0}'
         . '@media(max-width:700px){'
         . '.mm-tbl thead{display:none}'
         . '.mm-tbl tr{display:block;border-bottom:1px solid #e2e8f0;padding:10px 0}'
@@ -390,6 +524,18 @@ function mold_materials_render(array $attrs = []): string {
 
     if ($r['note'] !== '') {
         $h .= '<p class="mm-note">' . h(resolve_shortcodes($r['note'])) . '</p>';
+    }
+
+    // The per-city paragraph — the only part of this block that differs between sites. The EPA
+    // rows are identical fleet-wide because they are quotes, and the note above is written per
+    // LOCATION, so until this existed 14 pages x 100 sites were byte-identical.
+    if ($r['local'] !== '') {
+        $h .= '<p class="mm-note mm-local">' . h($r['local']);
+        if ($r['local_sources']) {
+            $h .= '<span class="mm-as mm-src">'
+                . h('Source: ' . implode(' · ', $r['local_sources'])) . '</span>';
+        }
+        $h .= '</p>';
     }
 
     $h .= '</div></div>';

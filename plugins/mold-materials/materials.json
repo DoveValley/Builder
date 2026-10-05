@@ -1,8 +1,6 @@
 {
   "_about": "Per-location 'what gets cleaned vs what comes out' data for mold-site. EVERY row traces to a public EPA page via `source`, and that page must be readable HTML a visitor can actually check — a scanned PDF fails this test the same way the paid IICRC S520 does. If EPA does not cover a material, it gets no row: a 4-row table is correct, an invented 5th is not. NEVER paraphrase a `verbatim` string or a method `detail`: those are quoted and the citation depends on them being exact. `context` is OUR prose explaining what the quote does and does not say, and it is REQUIRED on any material whose quote could be read as saying more than EPA said. Our own prose — intros, notes, `context`, the `as` labels — is ours to write and vary. All three area bands are rendered, because the bands are the differentiator: they answer 'how bad is this and what will it cost', which is the question behind the search.",
-
   "_removal_rule": "`always_removed: true` means EPA's own words state the material is removed/replaced/discarded with no area threshold. It is NOT a judgement call. duct_metal deliberately lacks it: EPA lists its quote as a condition under which duct CLEANING is recommended, and says bare sheet metal can be cleaned — so putting it in the removal box, as this plugin originally did, asserted the opposite of the source.",
-
   "sources": {
     "epa_t1": {
       "label": "EPA — Mold Remediation in Schools and Commercial Buildings, Table 1: Water Damage — Cleanup and Mold Prevention",
@@ -30,192 +28,809 @@
       "url": "https://www.epa.gov/emergencies-iaq/flood-cleanup-protect-indoor-air-and-your-health"
     }
   },
-
   "bands": {
-    "small":  { "label": "Under 10 sq ft",  "aside": "about a cabinet door, or one ceiling tile" },
-    "medium": { "label": "10 to 100 sq ft", "aside": "roughly one wall, or a small bathroom" },
-    "large":  { "label": "Over 100 sq ft",  "aside": "more than one room's worth of surface" }
+    "small": {
+      "label": "Under 10 sq ft",
+      "aside": "about a cabinet door, or one ceiling tile"
+    },
+    "medium": {
+      "label": "10 to 100 sq ft",
+      "aside": "roughly one wall, or a small bathroom"
+    },
+    "large": {
+      "label": "Over 100 sq ft",
+      "aside": "more than one room's worth of surface"
+    }
   },
-
   "methods": {
-    "1": { "label": "Wet vacuum", "detail": "Wet vacuums are vacuum cleaners designed to collect water. They can be used to remove water from floors, carpets and hard surfaces where water has accumulated.", "source": "epa_methods" },
-    "2": { "label": "Damp wipe", "detail": "Mold can generally be removed from nonporous (hard) surfaces by wiping or scrubbing with water, or water and detergent.", "source": "epa_methods" },
-    "3": { "label": "HEPA vacuum", "detail": "HEPA (High-Efficiency Particulate Air) vacuums are recommended for final cleanup of remediation areas after materials have been thoroughly dried and contaminated materials removed.", "source": "epa_methods" },
-    "4": { "label": "Remove and discard", "detail": "Building materials and furnishings that are contaminated with mold growth and are not salvageable should be double-bagged using 6-mil polyethylene sheeting.", "source": "epa_methods" }
+    "1": {
+      "label": "Wet vacuum",
+      "detail": "Wet vacuums are vacuum cleaners designed to collect water. They can be used to remove water from floors, carpets and hard surfaces where water has accumulated.",
+      "source": "epa_methods"
+    },
+    "2": {
+      "label": "Damp wipe",
+      "detail": "Mold can generally be removed from nonporous (hard) surfaces by wiping or scrubbing with water, or water and detergent.",
+      "source": "epa_methods"
+    },
+    "3": {
+      "label": "HEPA vacuum",
+      "detail": "HEPA (High-Efficiency Particulate Air) vacuums are recommended for final cleanup of remediation areas after materials have been thoroughly dried and contaminated materials removed.",
+      "source": "epa_methods"
+    },
+    "4": {
+      "label": "Remove and discard",
+      "detail": "Building materials and furnishings that are contaminated with mold growth and are not salvageable should be double-bagged using 6-mil polyethylene sheeting.",
+      "source": "epa_methods"
+    }
   },
-
   "universal": [
-    { "id": "clean_water", "verbatim": "These guidelines are for damage caused by clean water. If you know or suspect that the water source is contaminated with sewage, or chemical or biological pollutants, then Personal Protective Equipment and containment are required by OSHA.", "source": "epa_t1" },
-    { "id": "porous", "verbatim": "Porous materials that are wet and have mold growing on them may have to be discarded.", "source": "epa_methods" },
-    { "id": "wet_window", "verbatim": "Mold can grow on wood, drywall, carpet and furniture if they remain wet for more than 24 hours.", "source": "epa_flood" }
+    {
+      "id": "clean_water",
+      "verbatim": "These guidelines are for damage caused by clean water. If you know or suspect that the water source is contaminated with sewage, or chemical or biological pollutants, then Personal Protective Equipment and containment are required by OSHA.",
+      "source": "epa_t1"
+    },
+    {
+      "id": "porous",
+      "verbatim": "Porous materials that are wet and have mold growing on them may have to be discarded.",
+      "source": "epa_methods"
+    },
+    {
+      "id": "wet_window",
+      "verbatim": "Mold can grow on wood, drywall, carpet and furniture if they remain wet for more than 24 hours.",
+      "source": "epa_flood"
+    }
   ],
-
   "materials": {
-    "wallboard":       { "label": "Wallboard", "methods": { "small": [3], "medium": [3, 4], "large": [3, 4] }, "source": "epa_t2" },
-    "carpet":          { "label": "Carpet and backing", "methods": { "small": [1, 3], "medium": [1, 3, 4], "large": [1, 3, 4] }, "source": "epa_t2" },
-    "concrete":        { "label": "Concrete or cinder block", "methods": { "small": [1, 3], "medium": [1, 3], "large": [1, 3] }, "source": "epa_t2" },
-    "porous_flooring": { "label": "Hard surface, porous flooring", "methods": { "small": [1, 2, 3], "medium": [1, 2, 3], "large": [1, 2, 3, 4] }, "source": "epa_t2" },
-    "non_porous":      { "label": "Non-porous, hard surfaces", "methods": { "small": [1, 2, 3], "medium": [1, 2, 3], "large": [1, 2, 3] }, "source": "epa_t2" },
-    "upholstered":     { "label": "Upholstered furniture and drapes", "methods": { "small": [1, 3], "medium": [1, 3, 4], "large": [1, 2, 4] }, "source": "epa_t2" },
-    "wood":            { "label": "Wood surfaces", "methods": { "small": [1, 2, 3], "medium": [1, 2, 3], "large": [1, 2, 3, 4] }, "source": "epa_t2" },
-    "books_papers":    { "label": "Books and papers", "methods": { "small": [3], "medium": [3], "large": [3] }, "source": "epa_t2" },
-
-    "insulation":      { "label": "Fiberglass or other insulation", "always_removed": true, "verbatim": "Fiber glass, or any other insulation material that is wet or visibly moldy (or if an unacceptable odor is present) should be removed and replaced by a qualified heating and cooling system contractor.", "source": "epa_duct", "context": "EPA states this in its heating-and-cooling guidance and it is quoted here as written. Its water-damage table reaches the same conclusion for both fiberglass and cellulose insulation." },
-    "duct_insulation": { "label": "Insulated air ducts", "always_removed": true, "verbatim": "If you have insulated air ducts and the insulation gets wet or moldy it cannot be effectively cleaned and should be removed and replaced.", "source": "epa_duct", "context": "The affected runs are what get replaced — not necessarily the whole system." },
-    "ceiling_tile":    { "label": "Ceiling tiles", "always_removed": true, "verbatim": "Discard and replace.", "source": "epa_t1", "context": "This is the action EPA's water-damage table gives for ceiling tiles. It is the one material here with no size threshold to weigh." },
-
-    "duct_metal":      { "label": "Hard-surface (sheet metal) ducts", "verbatim": "There is substantial visible mold growth inside hard surface (e.g., sheet metal) ducts or on other components of your heating and cooling system.", "source": "epa_duct", "context": "EPA lists this as a condition under which duct CLEANING is recommended — not as a reason to replace the ducts. It says treating mold on bare sheet metal is much easier, and that cleaning and treatment with an EPA-registered biocide are possible." }
+    "wallboard": {
+      "label": "Wallboard",
+      "methods": {
+        "small": [
+          3
+        ],
+        "medium": [
+          3,
+          4
+        ],
+        "large": [
+          3,
+          4
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "carpet": {
+      "label": "Carpet and backing",
+      "methods": {
+        "small": [
+          1,
+          3
+        ],
+        "medium": [
+          1,
+          3,
+          4
+        ],
+        "large": [
+          1,
+          3,
+          4
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "concrete": {
+      "label": "Concrete or cinder block",
+      "methods": {
+        "small": [
+          1,
+          3
+        ],
+        "medium": [
+          1,
+          3
+        ],
+        "large": [
+          1,
+          3
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "porous_flooring": {
+      "label": "Hard surface, porous flooring",
+      "methods": {
+        "small": [
+          1,
+          2,
+          3
+        ],
+        "medium": [
+          1,
+          2,
+          3
+        ],
+        "large": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "non_porous": {
+      "label": "Non-porous, hard surfaces",
+      "methods": {
+        "small": [
+          1,
+          2,
+          3
+        ],
+        "medium": [
+          1,
+          2,
+          3
+        ],
+        "large": [
+          1,
+          2,
+          3
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "upholstered": {
+      "label": "Upholstered furniture and drapes",
+      "methods": {
+        "small": [
+          1,
+          3
+        ],
+        "medium": [
+          1,
+          3,
+          4
+        ],
+        "large": [
+          1,
+          2,
+          4
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "wood": {
+      "label": "Wood surfaces",
+      "methods": {
+        "small": [
+          1,
+          2,
+          3
+        ],
+        "medium": [
+          1,
+          2,
+          3
+        ],
+        "large": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "books_papers": {
+      "label": "Books and papers",
+      "methods": {
+        "small": [
+          3
+        ],
+        "medium": [
+          3
+        ],
+        "large": [
+          3
+        ]
+      },
+      "source": "epa_t2"
+    },
+    "insulation": {
+      "label": "Fiberglass or other insulation",
+      "always_removed": true,
+      "verbatim": "Fiber glass, or any other insulation material that is wet or visibly moldy (or if an unacceptable odor is present) should be removed and replaced by a qualified heating and cooling system contractor.",
+      "source": "epa_duct",
+      "context": "EPA states this in its heating-and-cooling guidance and it is quoted here as written. Its water-damage table reaches the same conclusion for both fiberglass and cellulose insulation."
+    },
+    "duct_insulation": {
+      "label": "Insulated air ducts",
+      "always_removed": true,
+      "verbatim": "If you have insulated air ducts and the insulation gets wet or moldy it cannot be effectively cleaned and should be removed and replaced.",
+      "source": "epa_duct",
+      "context": "The affected runs are what get replaced — not necessarily the whole system."
+    },
+    "ceiling_tile": {
+      "label": "Ceiling tiles",
+      "always_removed": true,
+      "verbatim": "Discard and replace.",
+      "source": "epa_t1",
+      "context": "This is the action EPA's water-damage table gives for ceiling tiles. It is the one material here with no size threshold to weigh."
+    },
+    "duct_metal": {
+      "label": "Hard-surface (sheet metal) ducts",
+      "verbatim": "There is substantial visible mold growth inside hard surface (e.g., sheet metal) ducts or on other components of your heating and cooling system.",
+      "source": "epa_duct",
+      "context": "EPA lists this as a condition under which duct CLEANING is recommended — not as a reason to replace the ducts. It says treating mold on bare sheet metal is much easier, and that cleaning and treatment with an EPA-registered biocide are possible."
+    }
   },
-
   "intros": [
     "The honest answer to “does this come out, or can it be cleaned?” turns on two things — what the material is, and how many square feet are affected. Those are the two axes of the EPA’s own remediation table, reproduced below for the materials usually found {where}.",
     "Whether a material is cleaned in place or removed is not decided by how bad the mold looks. It is decided by what the material is made of and how large the affected area is. Below is the EPA’s published guidance on both counts, for {phrase}.",
     "Two questions decide the scope of any mold job: what is it growing on, and how much of it is there. The EPA publishes an answer for both, and this is that guidance applied to the materials you would expect {where}."
   ],
-
   "locations": {
     "bathroom": {
-      "label": "bathroom", "phrase": "a bathroom", "where": "in a bathroom",
+      "label": "bathroom",
+      "phrase": "a bathroom",
+      "where": "in a bathroom",
       "note": "Mold that keeps returning along the caulk line usually means water is getting behind the surface rather than sitting on it. The tile itself cleans up and stays; the wallboard behind the surround is the part that decides the size of the job. Worth checking the extract fan too — if it discharges into the roof space instead of outside, the duct is often wetter than the bathroom.",
       "rows": [
-        ["non_porous", "wall and floor tile, the tub or shower surround, fixtures"],
-        ["wallboard", "the drywall behind tile and around the tub surround"],
-        ["wood", "vanity framing, trim and the cabinet carcase"],
-        ["porous_flooring", "sheet vinyl or tile flooring and the subfloor beneath it"],
-        ["duct_insulation", "the flexible extract duct from the bathroom fan"]
-      ]
+        [
+          "non_porous",
+          "wall and floor tile, the tub or shower surround, fixtures"
+        ],
+        [
+          "wallboard",
+          "the drywall behind tile and around the tub surround"
+        ],
+        [
+          "wood",
+          "vanity framing, trim and the cabinet carcase"
+        ],
+        [
+          "porous_flooring",
+          "sheet vinyl or tile flooring and the subfloor beneath it"
+        ],
+        [
+          "duct_insulation",
+          "the flexible extract duct from the bathroom fan"
+        ]
+      ],
+      "metric": "wet_days"
     },
     "ceiling": {
-      "label": "ceiling", "phrase": "a ceiling", "where": "on a ceiling",
+      "label": "ceiling",
+      "phrase": "a ceiling",
+      "where": "on a ceiling",
       "note": "Ceiling mold nearly always means water arriving from above — a roof, a supply or waste line, or a bathroom on the floor above. The ceiling is the symptom, so cleaning it without finding the source buys a few months at most. Drop-ceiling tile is the one material here with no decision to make: EPA's water-damage table lists it as discard and replace.",
       "rows": [
-        ["wallboard", "the ceiling drywall itself"],
-        ["ceiling_tile", "drop-ceiling or acoustic tiles"],
-        ["wood", "joists and framing in the cavity above"],
-        ["insulation", "any insulation sitting on top of the ceiling"]
-      ]
+        [
+          "wallboard",
+          "the ceiling drywall itself"
+        ],
+        [
+          "ceiling_tile",
+          "drop-ceiling or acoustic tiles"
+        ],
+        [
+          "wood",
+          "joists and framing in the cavity above"
+        ],
+        [
+          "insulation",
+          "any insulation sitting on top of the ceiling"
+        ]
+      ],
+      "metric": "heavy_rain"
     },
     "drywall": {
-      "label": "wall cavity", "phrase": "a wall cavity", "where": "in a wall cavity",
+      "label": "wall cavity",
+      "phrase": "a wall cavity",
+      "where": "in a wall cavity",
       "note": "What shows on the painted face is usually smaller than what is inside the cavity, because the paper facing and the stud bay stay wet long after the surface looks dry. That is why the area measured on the wall and the area actually remediated are rarely the same number. The studs behind are often salvageable even when the board is not.",
       "rows": [
-        ["wallboard", "the wallboard itself, both faces"],
-        ["wood", "studs, plates and sheathing behind it"],
-        ["insulation", "batt or blown insulation in the stud bay"]
-      ]
+        [
+          "wallboard",
+          "the wallboard itself, both faces"
+        ],
+        [
+          "wood",
+          "studs, plates and sheathing behind it"
+        ],
+        [
+          "insulation",
+          "batt or blown insulation in the stud bay"
+        ]
+      ],
+      "metric": "housing_age"
     },
     "kitchen": {
-      "label": "kitchen", "phrase": "a kitchen", "where": "in a kitchen",
+      "label": "kitchen",
+      "phrase": "a kitchen",
+      "where": "in a kitchen",
       "note": "Under-sink and behind-appliance leaks are slow, so the cabinet floor and the wall behind are usually worse than anything visible at the front. Cabinet boxes are the awkward case: the carcase is wood, so EPA's wood guidance applies, but particleboard and MDF behave more like wallboard once they have swollen. Counters, splashbacks and sinks clean up and stay.",
       "rows": [
-        ["non_porous", "tile, stone or laminate counters, splashbacks and sinks"],
-        ["wood", "cabinet boxes, toe kicks and shelving"],
-        ["wallboard", "the wall behind cabinets, the sink and the dishwasher"],
-        ["porous_flooring", "vinyl or tile flooring and the subfloor beneath it"]
-      ]
+        [
+          "non_porous",
+          "tile, stone or laminate counters, splashbacks and sinks"
+        ],
+        [
+          "wood",
+          "cabinet boxes, toe kicks and shelving"
+        ],
+        [
+          "wallboard",
+          "the wall behind cabinets, the sink and the dishwasher"
+        ],
+        [
+          "porous_flooring",
+          "vinyl or tile flooring and the subfloor beneath it"
+        ]
+      ],
+      "metric": "housing_age"
     },
     "carpet": {
-      "label": "carpeted room", "phrase": "a carpeted room", "where": "in a carpeted room",
+      "label": "carpeted room",
+      "phrase": "a carpeted room",
+      "where": "in a carpeted room",
       "note": "The pad under the carpet holds far more water than the carpet itself, which is why the pad usually decides the outcome. EPA allows cleaning at small areas but adds removal once the affected area passes ten square feet. Anything upholstered that was standing in it is judged separately — furniture and drapes often come out when the carpet does.",
       "rows": [
-        ["carpet", "the carpet and its backing, and the pad beneath"],
-        ["porous_flooring", "the subfloor under the carpet"],
-        ["upholstered", "furniture and drapes that were standing in it"]
-      ]
+        [
+          "carpet",
+          "the carpet and its backing, and the pad beneath"
+        ],
+        [
+          "porous_flooring",
+          "the subfloor under the carpet"
+        ],
+        [
+          "upholstered",
+          "furniture and drapes that were standing in it"
+        ]
+      ],
+      "metric": "flood"
     },
     "attic": {
-      "label": "attic", "phrase": "an attic", "where": "in an attic",
+      "label": "attic",
+      "phrase": "an attic",
+      "where": "in an attic",
       "note": "Attic mold is usually a ventilation fault rather than a leak — most often a bathroom fan discharging into the attic, or soffit vents blocked by insulation. The sheathing and rafters are wood, so they can often be cleaned and kept. The insulation underneath them cannot, and nor can any insulated duct running through the space.",
       "rows": [
-        ["wood", "roof sheathing, rafters and trusses"],
-        ["insulation", "batt or blown insulation across the attic floor"],
-        ["duct_insulation", "insulated HVAC ducts run through the roof space"],
-        ["wallboard", "the ceiling drywall below, seen from above"]
-      ]
+        [
+          "wood",
+          "roof sheathing, rafters and trusses"
+        ],
+        [
+          "insulation",
+          "batt or blown insulation across the attic floor"
+        ],
+        [
+          "duct_insulation",
+          "insulated HVAC ducts run through the roof space"
+        ],
+        [
+          "wallboard",
+          "the ceiling drywall below, seen from above"
+        ]
+      ],
+      "metric": "freeze"
     },
     "basement": {
-      "label": "basement", "phrase": "a basement", "where": "in a basement",
+      "label": "basement",
+      "phrase": "a basement",
+      "where": "in a basement",
       "note": "Below-grade walls can pass moisture continuously without ever showing a leak, which is why basement mold often returns after a surface-only cleaning. Concrete and block are the forgiving part — EPA never lists them for removal at any size. The expensive part is whatever was finished or stored against them.",
       "rows": [
-        ["concrete", "poured or block foundation walls and the slab"],
-        ["wallboard", "finished walls and any framed partitions"],
-        ["wood", "framing, stair stringers and stored timber"],
-        ["carpet", "carpet and pad in a finished basement"],
-        ["books_papers", "stored books, documents and cardboard"]
-      ]
+        [
+          "concrete",
+          "poured or block foundation walls and the slab"
+        ],
+        [
+          "wallboard",
+          "finished walls and any framed partitions"
+        ],
+        [
+          "wood",
+          "framing, stair stringers and stored timber"
+        ],
+        [
+          "carpet",
+          "carpet and pad in a finished basement"
+        ],
+        [
+          "books_papers",
+          "stored books, documents and cardboard"
+        ]
+      ],
+      "metric": "flood"
     },
     "crawl-space": {
-      "label": "crawl space", "phrase": "a crawl space", "where": "in a crawl space",
+      "label": "crawl space",
+      "phrase": "a crawl space",
+      "where": "in a crawl space",
       "note": "A missing or torn vapor barrier lets ground moisture into the framing continuously, so the lasting fix is the barrier and the drainage rather than the cleaning. Joists and subfloor are wood and are usually salvageable even at large areas. The batt insulation between them is not — and pulling it is often how the real extent of the problem first becomes visible.",
       "rows": [
-        ["wood", "floor joists, subfloor, beams and piers"],
-        ["insulation", "batt insulation between the joists"],
-        ["concrete", "block piers, stem walls and any slab"]
-      ]
+        [
+          "wood",
+          "floor joists, subfloor, beams and piers"
+        ],
+        [
+          "insulation",
+          "batt insulation between the joists"
+        ],
+        [
+          "concrete",
+          "block piers, stem walls and any slab"
+        ]
+      ],
+      "metric": "flood"
     },
     "garage": {
-      "label": "garage", "phrase": "a garage", "where": "in a garage",
+      "label": "garage",
+      "phrase": "a garage",
+      "where": "in a garage",
       "note": "Garages combine a cold slab with poor ventilation, so condensation on the walls can produce mold with no leak involved at all. The slab and any block walls are the easy part and stay. What comes out tends to be stored cardboard and anything framed or finished against an exterior wall.",
       "rows": [
-        ["concrete", "the slab and any block walls"],
-        ["wallboard", "finished or partly finished walls and ceiling"],
-        ["wood", "framing, shelving and stored timber"],
-        ["books_papers", "stored cardboard, books and paperwork"]
-      ]
+        [
+          "concrete",
+          "the slab and any block walls"
+        ],
+        [
+          "wallboard",
+          "finished or partly finished walls and ceiling"
+        ],
+        [
+          "wood",
+          "framing, shelving and stored timber"
+        ],
+        [
+          "books_papers",
+          "stored cardboard, books and paperwork"
+        ]
+      ],
+      "metric": "freeze"
     },
     "air-duct": {
-      "label": "duct system", "phrase": "a duct system", "where": "in a duct system",
+      "label": "duct system",
+      "phrase": "a duct system",
+      "where": "in a duct system",
       "note": "EPA draws a hard line here, and it is the thing worth knowing before you accept a quote: hard sheet-metal ducts can be cleaned, but insulated ducts whose insulation is wet or moldy cannot. EPA also treats duct cleaning as warranted when there is substantial visible growth inside hard-surface ducts — not as routine maintenance. If the affected runs are flexible insulated duct, the honest answer is replacing those runs.",
       "rows": [
-        ["duct_metal", "sheet-metal trunks, branches and boots"],
-        ["duct_insulation", "flexible or internally lined insulated ducts"],
-        ["non_porous", "registers, grilles and the air handler cabinet"]
-      ]
+        [
+          "duct_metal",
+          "sheet-metal trunks, branches and boots"
+        ],
+        [
+          "duct_insulation",
+          "flexible or internally lined insulated ducts"
+        ],
+        [
+          "non_porous",
+          "registers, grilles and the air handler cabinet"
+        ]
+      ],
+      "metric": "hot_days"
     },
     "air-conditioner": {
-      "label": "cooling system", "phrase": "a cooling system", "where": "in a cooling system",
+      "label": "cooling system",
+      "phrase": "a cooling system",
+      "where": "in a cooling system",
       "note": "A blocked condensate drain keeps the pan permanently wet, which is why air-conditioner mold comes straight back when only the visible growth is cleaned. The pan, coil housing and blower cabinet are non-porous and clean up. The wall and floor of the air-handler closet are usually the part that has quietly been wet the longest.",
       "rows": [
-        ["non_porous", "the drain pan, coil housing and blower cabinet"],
-        ["duct_insulation", "insulated supply ducts off the air handler"],
-        ["wallboard", "the air-handler closet walls and ceiling"],
-        ["porous_flooring", "the closet or platform floor under the unit"]
-      ]
+        [
+          "non_porous",
+          "the drain pan, coil housing and blower cabinet"
+        ],
+        [
+          "duct_insulation",
+          "insulated supply ducts off the air handler"
+        ],
+        [
+          "wallboard",
+          "the air-handler closet walls and ceiling"
+        ],
+        [
+          "porous_flooring",
+          "the closet or platform floor under the unit"
+        ]
+      ],
+      "metric": "hot_days"
     },
     "mold-removal": {
-      "label": "home", "phrase": "a home", "where": "in a home",
+      "label": "home",
+      "phrase": "a home",
+      "where": "in a home",
       "note": "What gets saved depends less on how the mold looks than on what the material is and how long it stayed wet — which is why two rooms with identical staining can need very different work. EPA's own framing is two-dimensional: the material on one axis, the size of the affected area on the other. Nothing in it turns on color or species.",
       "rows": [
-        ["wallboard", "drywall and plasterboard"],
-        ["wood", "framing, subfloor and trim"],
-        ["non_porous", "tile, glass, metal and sealed hard surfaces"],
-        ["carpet", "carpet, backing and pad"],
-        ["insulation", "batt or blown insulation"],
-        ["concrete", "slabs, foundation walls and block"]
-      ]
+        [
+          "wallboard",
+          "drywall and plasterboard"
+        ],
+        [
+          "wood",
+          "framing, subfloor and trim"
+        ],
+        [
+          "non_porous",
+          "tile, glass, metal and sealed hard surfaces"
+        ],
+        [
+          "carpet",
+          "carpet, backing and pad"
+        ],
+        [
+          "insulation",
+          "batt or blown insulation"
+        ],
+        [
+          "concrete",
+          "slabs, foundation walls and block"
+        ]
+      ],
+      "metric": "wet_days"
     },
     "commercial-mold-remediation": {
-      "label": "commercial building", "phrase": "a commercial building", "where": "in a commercial building",
+      "label": "commercial building",
+      "phrase": "a commercial building",
+      "where": "in a commercial building",
       "note": "Commercial interiors add two materials that rarely survive — drop-ceiling tile and tile carpet — and both are usually cheaper to replace than to clean around. Sealed floors, glazing and structural concrete stay. Stock, files and cardboard are judged as paper, which EPA treats as a HEPA-vacuum item at every size rather than a removal.",
       "rows": [
-        ["ceiling_tile", "drop-ceiling tiles and grid infill"],
-        ["carpet", "broadloom or tile carpet and its backing"],
-        ["wallboard", "partition walls and demountable panels"],
-        ["non_porous", "sealed floors, metal fixtures and glazing"],
-        ["concrete", "slabs, cores and block walls"],
-        ["books_papers", "stored files, stock and cardboard"]
-      ]
+        [
+          "ceiling_tile",
+          "drop-ceiling tiles and grid infill"
+        ],
+        [
+          "carpet",
+          "broadloom or tile carpet and its backing"
+        ],
+        [
+          "wallboard",
+          "partition walls and demountable panels"
+        ],
+        [
+          "non_porous",
+          "sealed floors, metal fixtures and glazing"
+        ],
+        [
+          "concrete",
+          "slabs, cores and block walls"
+        ],
+        [
+          "books_papers",
+          "stored files, stock and cardboard"
+        ]
+      ],
+      "metric": "housing_age"
     },
     "black-mold-removal": {
-      "label": "home", "phrase": "a home", "where": "in a home",
+      "label": "home",
+      "phrase": "a home",
+      "where": "in a home",
       "note": "EPA's guidance does not change with the color of the growth. What decides whether something is cleaned or removed is the material and the size of the affected area — the same two axes as any other mold. Treating a dark growth as automatically more serious usually just means paying to remove material the EPA's own table says could have been cleaned.",
       "rows": [
-        ["wallboard", "drywall and plasterboard"],
-        ["wood", "framing, subfloor and trim"],
-        ["non_porous", "tile, glass, metal and sealed hard surfaces"],
-        ["carpet", "carpet, backing and pad"],
-        ["insulation", "batt or blown insulation"]
-      ]
+        [
+          "wallboard",
+          "drywall and plasterboard"
+        ],
+        [
+          "wood",
+          "framing, subfloor and trim"
+        ],
+        [
+          "non_porous",
+          "tile, glass, metal and sealed hard surfaces"
+        ],
+        [
+          "carpet",
+          "carpet, backing and pad"
+        ],
+        [
+          "insulation",
+          "batt or blown insulation"
+        ]
+      ],
+      "metric": "heavy_rain"
     }
-  }
+  },
+  "local": {
+    "wet_days": [
+      {
+        "when": {
+          "field": "wet_days_year",
+          "gt": 120
+        },
+        "texts": [
+          "{city} has measurable rain on about {wet_days_year} days a year — roughly one day in three — so material that is slow to dry rarely gets a long enough gap to finish.",
+          "Rain falls on {city} on something like {wet_days_year} days a year, peaking in {wet_days_peak_month}. The question for any damp surface here is not whether it gets wet but whether it dries before the next one.",
+          "With around {wet_days_year} wet days a year, {city} gives a building very few dry stretches — and it is the stretches, not the totals, that decide whether growth starts."
+        ]
+      },
+      {
+        "when": {
+          "field": "wet_days_year",
+          "lt": 70
+        },
+        "texts": [
+          "{city} is comparatively dry, with measurable rain on only about {wet_days_year} days a year, so growth here usually traces to a leak or to condensation rather than to weather.",
+          "At roughly {wet_days_year} wet days a year, {city}'s climate is not the driver — which normally means the moisture is coming from inside the building.",
+          "Only about {wet_days_year} days a year bring measurable rain to {city}. When mould turns up in a dry climate the source is nearly always plumbing, an appliance or cold surfaces."
+        ]
+      },
+      {
+        "texts": [
+          "{city} sees measurable rain on about {wet_days_year} days a year, most often in {wet_days_peak_month}, against roughly {rainfall_year} inches in total.",
+          "Measurable rain falls on {city} about {wet_days_year} days a year and totals around {rainfall_year} inches, concentrated in {wet_days_peak_month}.",
+          "Roughly {rainfall_year} inches of rain reaches {city} across about {wet_days_year} days, with {wet_days_peak_month} the wettest of them."
+        ]
+      }
+    ],
+    "heavy_rain": [
+      {
+        "when": {
+          "field": "heavy_rain_year",
+          "gt": 10
+        },
+        "texts": [
+          "{city} gets around {heavy_rain_year} days a year with an inch or more of rain, most of them in {heavy_rain_peak_month} — and a downpour finds a flashing or a seal that a drizzle never would.",
+          "About {heavy_rain_year} times a year, rain over {city} exceeds an inch in a day. Those are the days that test a roof rather than wet it.",
+          "An inch or more falls on {city} on roughly {heavy_rain_year} days a year. It is this handful of days, concentrated in {heavy_rain_peak_month}, that puts water where it was not meant to go."
+        ]
+      },
+      {
+        "texts": [
+          "{city} averages about {heavy_rain_year} days a year with an inch or more of rain, most often in {heavy_rain_peak_month}.",
+          "Days of an inch or more reach {city} roughly {heavy_rain_year} times a year, peaking in {heavy_rain_peak_month}.",
+          "Heavy rain — an inch or more in a day — arrives in {city} on about {heavy_rain_year} days a year."
+        ]
+      }
+    ],
+    "housing_age": [
+      {
+        "when": {
+          "field": "homes_pre_1960_num",
+          "gt": 25
+        },
+        "texts": [
+          "{homes_pre_1960} of homes in {city} predate 1960. Older construction hides more of its plumbing and framing behind finished surfaces, which is why what shows on the wall is usually smaller than what is behind it.",
+          "In {city}, {homes_pre_1960} of the housing stock went up before 1960 — an era of plaster, unlined cavities and supply lines that were never meant to be inspected.",
+          "With {homes_pre_1960} of {city} homes built before 1960, a lot of the local building stock predates the materials and detailing that keep moisture out of a cavity."
+        ]
+      },
+      {
+        "when": {
+          "field": "homes_pre_1960_num",
+          "lt": 8
+        },
+        "texts": [
+          "{city}'s housing is comparatively new — only {homes_pre_1960} predates 1960 and {homes_2010_plus} was built from 2010 onwards — so growth here is more often a failed fitting than an aged cavity.",
+          "Only {homes_pre_1960} of {city} homes were built before 1960, with {homes_2010_plus} since 2010. In newer stock the cause is usually a specific failure rather than general deterioration.",
+          "At {homes_pre_1960} pre-1960 and {homes_2010_plus} built since 2010, {city}'s housing is young enough that a mould problem normally points to one identifiable source."
+        ]
+      },
+      {
+        "texts": [
+          "In {city}, {homes_pre_1960} of homes predate 1960 and {homes_2010_plus} were built from 2010 onwards.",
+          "{city}'s housing splits roughly {homes_pre_1960} before 1960 and {homes_2010_plus} from 2010 on — two very different sets of problems.",
+          "About {homes_pre_1960} of {city} homes are pre-1960, while {homes_2010_plus} date from 2010 or later."
+        ]
+      }
+    ],
+    "flood": [
+      {
+        "when": {
+          "field": "flood_years_with_events",
+          "gt": 15
+        },
+        "texts": [
+          "This is not rare locally: {flood_county} has recorded flood events in {flood_years_with_events} separate years, most often in the {flood_peak_decade}, and most recently in {flood_most_recent}. Water that sat years ago leaves growth behind whether anyone found it or not.",
+          "{flood_county} carries flood events in {flood_years_with_events} different years on the National Weather Service record, the latest in {flood_most_recent} — which is a long history of water arriving somewhere it had to be dried out of.",
+          "Flooding is part of the record here, not an exception: {flood_years_with_events} separate years in {flood_county}, concentrated in the {flood_peak_decade}."
+        ]
+      },
+      {
+        "when": {
+          "field": "flood_years_with_events",
+          "lt": 1
+        },
+        "texts": [
+          "No flood events are on record for {flood_county} in the period the National Weather Service covers, so water here arrives from plumbing and roofing rather than from outside.",
+          "{flood_county} has no recorded flood events in that period — which makes an interior source the place to start looking.",
+          "Nothing is on the flood record for {flood_county}, so the usual culprits locally are pipes, appliances and condensation."
+        ]
+      },
+      {
+        "texts": [
+          "{flood_county} has recorded flood events in {flood_years_with_events} separate years, most recently {flood_most_recent}.",
+          "On the National Weather Service record, {flood_county} shows flood events in {flood_years_with_events} years, the latest {flood_most_recent}.",
+          "Flood events appear in {flood_years_with_events} separate years for {flood_county}, {flood_most_recent} being the most recent."
+        ]
+      }
+    ],
+    "freeze": [
+      {
+        "when": {
+          "field": "freeze_nights_year",
+          "gt": 90
+        },
+        "texts": [
+          "{city} spends about {freeze_nights_year} nights a year at or below freezing, most of them in {freeze_peak_month}. Cold surfaces are condensing surfaces, and an unheated space stays cold long after the air outside has warmed.",
+          "With roughly {freeze_nights_year} freezing nights a year in {city}, any uninsulated surface spends months below the dew point of the air touching it.",
+          "About {freeze_nights_year} nights a year drop to freezing in {city} — a long season for warm indoor air to meet a cold surface and leave water on it."
+        ]
+      },
+      {
+        "when": {
+          "field": "freeze_nights_year",
+          "lt": 15
+        },
+        "texts": [
+          "Freezing nights are rare in {city} — about {freeze_nights_year} a year — so condensation here is driven by humid air against air-conditioned surfaces rather than by cold ones.",
+          "{city} sees only around {freeze_nights_year} freezing nights a year, which makes summer condensation the more likely story than winter.",
+          "At roughly {freeze_nights_year} nights below freezing annually, {city}'s condensation problem runs the other way — cooled surfaces in humid air."
+        ]
+      },
+      {
+        "texts": [
+          "{city} records about {freeze_nights_year} nights a year at or below freezing, most of them in {freeze_peak_month}.",
+          "Around {freeze_nights_year} nights a year reach freezing in {city}, peaking in {freeze_peak_month}.",
+          "Freezing nights number roughly {freeze_nights_year} a year in {city}, concentrated in {freeze_peak_month}."
+        ]
+      }
+    ],
+    "hot_days": [
+      {
+        "when": {
+          "field": "hot_days_year",
+          "gt": 60
+        },
+        "texts": [
+          "{city} has about {hot_days_year} days a year at or above 90 °F, {hot_days_peak} of them in {hot_days_peak_month} alone. That is a long cooling season, and a cooling coil removes water from the air every hour it runs.",
+          "With roughly {hot_days_year} days over 90 °F a year, air conditioning in {city} runs for months — and everything it cools below the dew point collects condensate.",
+          "Around {hot_days_year} days a year top 90 °F in {city}. The longer a system runs, the more water passes through it and the more a blocked drain matters."
+        ]
+      },
+      {
+        "when": {
+          "field": "hot_days_year",
+          "lt": 10
+        },
+        "texts": [
+          "{city} only reaches 90 °F on about {hot_days_year} days a year, so cooling runs briefly and condensate is less of a factor than heating-season moisture.",
+          "At roughly {hot_days_year} days above 90 °F, {city}'s cooling season is short enough that the usual moisture story here is a winter one.",
+          "With about {hot_days_year} days over 90 °F annually, {city} puts far less water through a cooling system than a hot climate does."
+        ]
+      },
+      {
+        "texts": [
+          "{city} averages about {hot_days_year} days a year at or above 90 °F, {hot_days_peak} of them in {hot_days_peak_month}.",
+          "Days at or above 90 °F number roughly {hot_days_year} a year in {city}, peaking at {hot_days_peak} in {hot_days_peak_month}.",
+          "About {hot_days_year} days a year reach 90 °F in {city}, most of them in {hot_days_peak_month}."
+        ]
+      }
+    ]
+  },
+  "local_sources": {
+    "wet_days": [
+      "wet_days_source",
+      "rainfall_source"
+    ],
+    "heavy_rain": [
+      "heavy_rain_days_source"
+    ],
+    "housing_age": [
+      "homes_by_decade_source"
+    ],
+    "flood": [
+      "flood_events_source"
+    ],
+    "freeze": [
+      "rainfall_source"
+    ],
+    "hot_days": [
+      "hot_days_source"
+    ]
+  },
+  "_per_city": "mold-materials read NO city field until 2026-10-04: 14 pages x 100 sites of identical text. Each location now also carries a `metric`, and `local` holds a sentence bank per metric with THREE phrasings per band chosen by crc32 of the city slug — so the sentence SKELETON varies between cities, not only the numbers. No AI: deterministic, free, and auditable. The EPA rows stay identical fleet-wide because they are quotes."
 }

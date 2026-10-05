@@ -155,12 +155,26 @@
     "wet_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
     "noaa_station": "USW00093987",
     "noaa_station_miles": 7.2,
-    "noaa_fetched_at": "2026-10-04",
+    "noaa_fetched_at": "2026-10-05",
     "county_fips": "48005",
     "county_name": "Angelina County",
     "figures_fetched_at": "2026-10-05",
     "flood_fetched_at": "2026-10-05",
-    "acs_fetched_at": "2026-10-04"
+    "acs_fetched_at": "2026-10-05",
+    "freeze_days_monthly": [
+      10.3,
+      4.8,
+      1.8,
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.1,
+      2.9,
+      8.2
+    ]
   },
   {
     "id": "vista-ca",
@@ -322,11 +336,25 @@
     "wet_days_source": "NOAA 1991-2020 Climate Normals, VISTA, CA US station (2.4 mi from Vista)",
     "noaa_station": "USC00049378",
     "noaa_station_miles": 2.4,
-    "noaa_fetched_at": "2026-10-04",
+    "noaa_fetched_at": "2026-10-05",
     "county_fips": "06073",
     "county_name": "San Diego County",
     "figures_fetched_at": "2026-10-05",
     "flood_fetched_at": "2026-10-05",
-    "acs_fetched_at": "2026-10-04"
+    "acs_fetched_at": "2026-10-05",
+    "freeze_days_monthly": [
+      0.5,
+      0.2,
+      0.2,
+      0.1,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.2
+    ]
   }
 ]
