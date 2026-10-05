@@ -620,6 +620,7 @@ ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+__HOST_CANONICAL__
     # Bare directory request (no trailing slash) -> https + slash in one hop. See the
     # mod_dir block above for why this doesn't try to detect/preserve the incoming
     # scheme the way the next rule does — for this one case we just always want https
@@ -686,6 +687,37 @@ HTACCESS;
             progress_log(count($redirsRaw) . ' redirect(s) added to .htaccess.');
         }
     }
+
+    // ── Host canonicalisation ─────────────────────────────────────────────────────
+    // Serving the same page on both www and non-www makes Google track two copies of
+    // every URL. On granitepmacademy.com that turned 443 sitemap entries into 895 known
+    // URLs: 111 were excluded as "Alternate page with proper canonical tag" (so the
+    // canonical <link> WAS working — after Google had already spent the crawl fetching
+    // them), while 307 pages sat in "Discovered - currently not indexed", never fetched
+    // at all. A canonical tag is a hint applied after retrieval; only the server can
+    // stop the duplicate being retrieved in the first place.
+    //
+    // Redirects to whatever host canonical_domain names rather than hardcoding a
+    // www-stripping rule, because this generator runs for every site in the fleet and a
+    // site whose canonical IS the www host would be broken by the blanket version.
+    //
+    // Omitted entirely when there is no canonical domain: an empty host would emit
+    // `RewriteRule ^ https://%{REQUEST_URI}` and 301 every request into a broken URL.
+    $canonHost = $canonicalDomain !== ''
+        ? (string) parse_url($canonicalDomain, PHP_URL_HOST)
+        : '';
+    $hostRule = '';
+    if ($canonHost !== '') {
+        $hostRule =
+            "    # Canonical host. Both www and non-www answering 200 means Google crawls\n"
+            . "    # and tracks two copies of every URL, which starves the pages it has not\n"
+            . "    # reached yet. Writes the final https+host URL in one hop rather than\n"
+            . "    # handing off to the http->https rule below for a second redirect.\n"
+            . "    RewriteCond %{HTTP_HOST} !^" . preg_quote($canonHost) . "$ [NC]\n"
+            . "    RewriteCond %{HTTP_HOST} !^$\n"
+            . "    RewriteRule ^ https://" . $canonHost . "%{REQUEST_URI} [L,R=301]\n";
+    }
+    $htaccess = str_replace("__HOST_CANONICAL__\n", $hostRule, $htaccess);
 
     gen_write($outputBase . '.htaccess', $htaccess);
     progress_log('Generated: .htaccess.');
