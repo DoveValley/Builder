@@ -231,12 +231,43 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
         $neverResearchedCount = count(array_filter($cities, fn($c) =>
             empty($c['_researched']) && empty($c['industries']) && empty($c['top_employers'])));
         ?>
+        <?php
+        // Is a pass running RIGHT NOW? Said here, on load, because the only previous signal was
+        // a small <span> that appeared after a click — which read as a dead button rather than
+        // as "already working". research_in_flight() lives in includes/helpers.php; it scans the
+        // process table, so it sees runs started by the Batch tab's launcher too.
+        $_rif = function_exists('research_in_flight')
+            ? research_in_flight((string) ACTIVE_SITE_ID) : null;
+        $_rifAgo = '';
+        if ($_rif) {
+            $_rifAgo = $_rif['secs'] >= 60
+                ? intdiv($_rif['secs'], 60) . ' min'
+                : $_rif['secs'] . ' sec';
+        }
+        ?>
+        <?php if ($_rif): ?>
+        <div style="margin:0 0 14px;padding:12px 16px;border:1px solid #fcd34d;background:#fffbeb;
+                    border-radius:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <span style="font-size:1.1rem;">&#9203;</span>
+            <div style="flex:1;min-width:260px;">
+                <strong style="color:#92400e;">Research is running for <?= h(ACTIVE_SITE_ID) ?>
+                    &mdash; started <?= h($_rifAgo) ?> ago.</strong>
+                <div style="font-size:.82rem;color:#92400e;margin-top:3px;">
+                    The buttons below are disabled until it finishes. Starting a second pass would
+                    have two processes writing <code>cities.json</code>. Live progress is in the
+                    Batch tab's research log (pid <?= (int) $_rif['pid'] ?>).
+                </div>
+            </div>
+            <a href="?tab=cities" style="font-size:.8rem;color:#92400e;font-weight:600;">Check again</a>
+        </div>
+        <?php endif; ?>
         <h2 style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
             <span>Cities <span style="font-weight:400;font-size:0.85em;color:#888;">(<?= count($cities) ?>)</span></span>
             <?php if (!empty($cities)): ?>
             <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;font-weight:400;margin:0;"><input type="checkbox" id="city-research-all-force" style="width:auto;"> Force (redo every city, ignore what's already on file)</label>
             <button type="button" class="ai-run-btn" id="city-research-all-btn"
                     style="font-size:.75rem;padding:5px 12px;"
+                    <?= $_rif ? 'disabled title="A research pass is already running"' : '' ?>
                     onclick="cityResearchAll()">&#128269; Research cities<?= $neverResearchedCount > 0 ? ' (' . $neverResearchedCount . ' never researched)' : '' ?></button>
             <?php
             // Cities short on neighbourhoods. A normal research pass CANNOT fix these: once a
@@ -255,6 +286,7 @@ Austin,Texas,TX,austin-tx,(512) 555-0100,+15125550100,78701,,30.2672,-97.7431,,t
             if ($_hoodGaps > 0): ?>
             <button type="button" class="ai-run-btn" id="city-research-gaps-btn"
                     style="font-size:.75rem;padding:5px 12px;background:#0f766e;"
+                    <?= $_rif ? 'disabled' : '' ?>
                     title="Clears the verified marker on cities with fewer than <?= $_hoodMin ?> neighborhoods and re-queries OpenStreetMap for just those. Does not re-run the research prompt."
                     onclick="cityResearchAll('gaps')">&#9851; Retry <?= $_hoodGaps ?> thin neighborhood list<?= $_hoodGaps === 1 ? '' : 's' ?></button>
             <?php endif; ?>
