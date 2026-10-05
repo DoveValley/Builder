@@ -1,0 +1,713 @@
+{
+  "_about": "EPA Table 1 (Water Damage — Cleanup and Mold Prevention) applied per page, with a per-CITY second half built from retrieved figures. Every row is verbatim from EPA with a live link. No source, no row.",
+  "_anti_fingerprint": "The EPA quotes are identical fleet-wide — that is what a quote is. Everything else varies: the per-city sentence is generated from the city's own retrieved figures via `when` conditions, and the METRIC differs by page (freezing nights on the burst-pipe page, flood history on the basement page, heavy-rain days on the roof page, housing age on the appliance pages, rainfall elsewhere). So two pages on one site differ from each other AND the same page differs between sites. This is the gap mold-materials has: its location notes are hand-written per location and therefore identical across all 100 sites.",
+  "_scope_rule": "Table 1 is CLEAN WATER ONLY, by EPA's own caveat. sewage-cleanup therefore gets no drying rows at all — it gets the caveat as its content, which is more use there than a drying table would be. roof-tarping and emergency-board-up are prevention services, so they get the 24-48 hour window without a material table.",
+  "_seo": "Each page has its own question-shaped h2 built on a real query form — 'Can wet drywall be saved in {city}, {SS}?', 'Can a water-damaged hardwood floor be dried…' — so 24 pages do not compete with one another. Table carries a <caption> and scope attributes; quotes use <q cite> and <cite> with the full document title.",
+  "sources": {
+    "epa_t1": {
+      "label": "EPA — Mold Remediation in Schools and Commercial Buildings, Table 1: Water Damage — Cleanup and Mold Prevention",
+      "short": "EPA, Table 1",
+      "url": "https://www.epa.gov/mold/mold-remediation-schools-and-commercial-buildings-guide-chapter-4"
+    },
+    "epa_t1_page": {
+      "label": "EPA — Water Damage Table (Mold Prevention)",
+      "short": "EPA",
+      "url": "https://www.epa.gov/mold/water-damage-table-mold-prevention-mold-remediation-schools-and-commercial-buildings"
+    },
+    "epa_flood": {
+      "label": "EPA — Flood Cleanup to Protect Indoor Air and Your Health",
+      "short": "EPA, flood cleanup",
+      "url": "https://www.epa.gov/emergencies-iaq/flood-cleanup-protect-indoor-air-and-your-health"
+    }
+  },
+  "window": {
+    "verbatim": "gives guidelines for response to clean water damage within 24-48 hours to prevent mold growth",
+    "source": "epa_t1_page",
+    "lead_in": "EPA describes its own water-damage table as one that"
+  },
+  "materials": {
+    "wallboard": {
+      "label": "Wallboard (drywall)",
+      "verbatim": "May be dried in place if there is no obvious swelling and the seams are intact. If not, remove, discard, and replace. Ventilate the wall cavity, if possible.",
+      "source": "epa_t1",
+      "context": "That is a test anyone can run before a quote is written: look for swelling, and look at whether the seams have opened."
+    },
+    "wood": {
+      "label": "Wood surfaces",
+      "verbatim": "Remove moisture immediately and use dehumidifiers, gentle heat, and fans for drying. (Use caution when applying heat to hardwood floors.) Treated or finished wood surfaces may be cleaned with mild detergent and clean water and allowed to dry. Wet paneling should be pried away from wall for drying.",
+      "source": "epa_t1",
+      "context": "Note EPA's own parenthesis about heat and hardwood — aggressive drying is how a floor that could have been saved ends up cupped."
+    },
+    "carpet": {
+      "label": "Carpet and backing",
+      "verbatim": "Remove water with water extraction vacuum. Reduce ambient humidity levels with dehumidifier. Accelerate drying process with fans.",
+      "source": "epa_t1"
+    },
+    "upholstered": {
+      "label": "Upholstered furniture",
+      "verbatim": "Remove water with water extraction vacuum. Accelerate drying process with dehumidifiers, fans, and/or heaters. May be difficult to completely dry within 48 hours. If the piece is valuable, you may wish to consult a restoration/water damage professional who specializes in furniture.",
+      "source": "epa_t1",
+      "context": "EPA is explicit that 48 hours may not be enough for upholstery, which is why furniture is usually the first thing to lose and the last thing people think of."
+    },
+    "concrete": {
+      "label": "Concrete or cinder block",
+      "verbatim": "Remove water with water extraction vacuum. Accelerate drying process with dehumidifiers, fans, and/or heaters.",
+      "source": "epa_t1"
+    },
+    "ceiling_tile": {
+      "label": "Ceiling tiles",
+      "verbatim": "Discard and replace.",
+      "source": "epa_t1",
+      "context": "The one material on this list with no decision to make."
+    },
+    "insulation_fg": {
+      "label": "Insulation — fibreglass",
+      "verbatim": "Discard and replace.",
+      "source": "epa_t1"
+    },
+    "insulation_cel": {
+      "label": "Insulation — cellulose",
+      "verbatim": "Discard and replace.",
+      "source": "epa_t1"
+    }
+  },
+  "universal": [
+    {
+      "id": "mold_24h",
+      "verbatim": "Mold can grow on wood, drywall, carpet and furniture if they remain wet for more than 24 hours.",
+      "source": "epa_flood"
+    },
+    {
+      "id": "clean_water",
+      "verbatim": "These guidelines are for damage caused by clean water. If you know or suspect that the water source is contaminated with sewage, or chemical or biological pollutants, then Personal Protective Equipment and containment are required by OSHA.",
+      "source": "epa_t1"
+    }
+  ],
+  "local": {
+    "freeze": [
+      {
+        "when": {
+          "field": "freeze_nights_year",
+          "gt": 90
+        },
+        "text": "{city} averages {freeze_nights_year} nights a year at or below freezing, with {freeze_peak} of them in {freeze_peak_month} alone — a long window in which an unheated run of pipe can let go."
+      },
+      {
+        "when": {
+          "field": "freeze_nights_year",
+          "lt": 10
+        },
+        "text": "Hard freezes are rare in {city} — about {freeze_nights_year} nights a year below freezing — which is exactly why pipe runs here are often less protected than they would be further north."
+      },
+      {
+        "text": "{city} sees about {freeze_nights_year} nights a year at or below freezing, most of them in {freeze_peak_month}."
+      }
+    ],
+    "flood": [
+      {
+        "when": {
+          "field": "flood_years_with_events",
+          "gt": 15
+        },
+        "text": "This is not a rare event locally: {flood_county} has recorded flood events in {flood_years_with_events} separate years, most often in the {flood_peak_decade}, and most recently in {flood_most_recent}."
+      },
+      {
+        "when": {
+          "field": "flood_years_with_events",
+          "lt": 1
+        },
+        "text": "No flood events are on record for {flood_county} in the period the National Weather Service covers, so water here more often arrives from plumbing and roofing than from outside."
+      },
+      {
+        "text": "{flood_county} has recorded flood events in {flood_years_with_events} separate years, most recently {flood_most_recent}."
+      }
+    ],
+    "heavy_rain": [
+      {
+        "when": {
+          "field": "heavy_rain_year",
+          "gt": 10
+        },
+        "text": "{city} gets around {heavy_rain_year} days a year with an inch or more of rain, concentrated in {heavy_rain_peak_month} — and it is the downpours rather than the annual total that find a weak flashing or an undersized gutter."
+      },
+      {
+        "text": "{city} averages {heavy_rain_year} days a year with an inch or more of rain, most often in {heavy_rain_peak_month}."
+      }
+    ],
+    "housing_age": [
+      {
+        "when": {
+          "field": "homes_pre_1960_num",
+          "gt": 25
+        },
+        "text": "Housing age matters here: {homes_pre_1960} of homes in {city} predate 1960, and supply lines, shut-offs and appliance connections of that vintage are the ones that fail without warning."
+      },
+      {
+        "when": {
+          "field": "homes_pre_1960_num",
+          "lt": 8
+        },
+        "text": "{city}'s housing stock is comparatively new — only {homes_pre_1960} predates 1960, with {homes_2010_plus} built from 2010 onwards — so failures here are more often fittings and appliances than aged pipe."
+      },
+      {
+        "text": "In {city}, {homes_pre_1960} of homes predate 1960 and {homes_2010_plus} were built from 2010 onwards."
+      }
+    ],
+    "rainfall": [
+      {
+        "when": {
+          "field": "rainfall_annual",
+          "gt": 45
+        },
+        "text": "{city} takes about {rainfall_annual} inches of rain a year against {rainfall_state_avg} for {state} as a whole, spread over roughly {wet_days_year} days with measurable rain — a lot of chances for a building envelope to be tested."
+      },
+      {
+        "when": {
+          "field": "rainfall_annual",
+          "lt": 20
+        },
+        "text": "At about {rainfall_annual} inches a year against {rainfall_state_avg} statewide, {city} is dry enough that most interior water damage here starts inside the building rather than outside it."
+      },
+      {
+        "text": "{city} takes about {rainfall_annual} inches of rain a year against {rainfall_state_avg} for {state}, over roughly {wet_days_year} days with measurable rain."
+      }
+    ]
+  },
+  "pages": {
+    "drywall-water-damage-repair": {
+      "label": "water-damaged drywall",
+      "heading": "Can wet drywall be saved in {city}, {SS}?",
+      "mode": "table",
+      "metric": "rainfall",
+      "rows": [
+        [
+          "wallboard",
+          "the board itself, both faces"
+        ],
+        [
+          "insulation_fg",
+          "batt insulation in the stud bay behind it"
+        ],
+        [
+          "wood",
+          "the studs and plates the board is fixed to"
+        ]
+      ]
+    },
+    "carpet-water-damage": {
+      "label": "water-damaged carpet",
+      "heading": "Can water-damaged carpet be saved in {city}, {SS}?",
+      "mode": "table",
+      "metric": "rainfall",
+      "rows": [
+        [
+          "carpet",
+          "the carpet and its backing, and the pad beneath"
+        ],
+        [
+          "concrete",
+          "a slab subfloor underneath"
+        ],
+        [
+          "wood",
+          "a timber subfloor underneath"
+        ]
+      ]
+    },
+    "hardwood-floor-water-damage": {
+      "label": "water-damaged hardwood",
+      "heading": "Can a water-damaged hardwood floor be dried in {city}, {SS}?",
+      "mode": "table",
+      "metric": "rainfall",
+      "rows": [
+        [
+          "wood",
+          "the boards, and any timber subfloor below them"
+        ],
+        [
+          "concrete",
+          "a slab beneath an engineered floor"
+        ]
+      ]
+    },
+    "ceiling-water-damage": {
+      "label": "water-damaged ceiling",
+      "heading": "Does a water-damaged ceiling have to be replaced in {city}, {SS}?",
+      "mode": "table",
+      "metric": "heavy_rain",
+      "rows": [
+        [
+          "ceiling_tile",
+          "drop-ceiling or acoustic tiles"
+        ],
+        [
+          "wallboard",
+          "a plasterboard ceiling"
+        ],
+        [
+          "insulation_fg",
+          "insulation sitting on top of it"
+        ],
+        [
+          "wood",
+          "the joists above"
+        ]
+      ]
+    },
+    "attic-water-damage": {
+      "label": "attic water damage",
+      "heading": "What dries and what comes out of an attic in {city}, {SS}?",
+      "mode": "table",
+      "metric": "heavy_rain",
+      "rows": [
+        [
+          "insulation_fg",
+          "batt or blown insulation across the attic floor"
+        ],
+        [
+          "insulation_cel",
+          "cellulose insulation, if that is what is up there"
+        ],
+        [
+          "wood",
+          "roof sheathing, rafters and trusses"
+        ],
+        [
+          "wallboard",
+          "the ceiling below, seen from above"
+        ]
+      ]
+    },
+    "flooded-basement-cleanup": {
+      "label": "flooded basement",
+      "heading": "What gets dried and what gets replaced in a {city} basement?",
+      "mode": "table",
+      "metric": "flood",
+      "rows": [
+        [
+          "concrete",
+          "the slab and the foundation walls"
+        ],
+        [
+          "wallboard",
+          "finished walls and framed partitions"
+        ],
+        [
+          "carpet",
+          "carpet and pad in a finished basement"
+        ],
+        [
+          "insulation_fg",
+          "insulation in any framed wall"
+        ]
+      ]
+    },
+    "contents-restoration": {
+      "label": "contents restoration",
+      "heading": "Can water-damaged furniture be restored in {city}, {SS}?",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "upholstered",
+          "sofas, chairs and anything with a filled cushion"
+        ],
+        [
+          "wood",
+          "case furniture, tables and timber frames"
+        ],
+        [
+          "carpet",
+          "rugs that were standing in it"
+        ]
+      ]
+    },
+    "roof-leak-water-damage": {
+      "label": "roof leak damage",
+      "heading": "What does a roof leak ruin in {city}, {SS}?",
+      "mode": "table",
+      "metric": "heavy_rain",
+      "rows": [
+        [
+          "ceiling_tile",
+          "drop-ceiling tiles directly below"
+        ],
+        [
+          "wallboard",
+          "the ceiling and the wall head"
+        ],
+        [
+          "insulation_fg",
+          "wet insulation in the roof space"
+        ],
+        [
+          "wood",
+          "sheathing, rafters and trim"
+        ]
+      ]
+    },
+    "burst-pipe-water-damage": {
+      "label": "burst pipe damage",
+      "heading": "What a burst pipe ruins, and what dries, in {city}, {SS}",
+      "mode": "table",
+      "metric": "freeze",
+      "rows": [
+        [
+          "wallboard",
+          "the wall the pipe runs in"
+        ],
+        [
+          "insulation_fg",
+          "insulation in that stud bay"
+        ],
+        [
+          "wood",
+          "framing and any timber floor below"
+        ],
+        [
+          "carpet",
+          "carpet and pad in the path of the water"
+        ]
+      ]
+    },
+    "water-heater-leak": {
+      "label": "water heater leak",
+      "heading": "What a water-heater leak damages in {city}, {SS}",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "wallboard",
+          "the closet or garage wall beside it"
+        ],
+        [
+          "concrete",
+          "a slab or garage floor"
+        ],
+        [
+          "wood",
+          "a timber platform or the floor below"
+        ],
+        [
+          "carpet",
+          "carpet in an adjoining room"
+        ]
+      ]
+    },
+    "appliance-leak-cleanup": {
+      "label": "appliance leak",
+      "heading": "What an appliance leak damages in {city}, {SS}",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "wallboard",
+          "the wall behind the appliance"
+        ],
+        [
+          "wood",
+          "cabinet carcases and the subfloor"
+        ],
+        [
+          "carpet",
+          "carpet in the adjoining room"
+        ],
+        [
+          "concrete",
+          "a slab beneath"
+        ]
+      ]
+    },
+    "toilet-overflow-cleanup": {
+      "label": "toilet overflow",
+      "heading": "What gets dried after a toilet overflow in {city}, {SS}",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "wallboard",
+          "the bathroom wall and the one behind it"
+        ],
+        [
+          "wood",
+          "the subfloor and vanity carcase"
+        ],
+        [
+          "carpet",
+          "carpet in the hallway beyond"
+        ]
+      ]
+    },
+    "flooded-bathroom-cleanup": {
+      "label": "flooded bathroom",
+      "heading": "What dries and what comes out of a {city} bathroom?",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "wallboard",
+          "the wall behind tile and around the tub"
+        ],
+        [
+          "wood",
+          "vanity framing and the subfloor"
+        ],
+        [
+          "concrete",
+          "a slab beneath the floor finish"
+        ]
+      ]
+    },
+    "storm-damage-restoration": {
+      "label": "storm damage",
+      "heading": "What storm water ruins in {city}, {SS}, and what dries",
+      "mode": "table",
+      "metric": "heavy_rain",
+      "rows": [
+        [
+          "ceiling_tile",
+          "tiles below a breach"
+        ],
+        [
+          "wallboard",
+          "ceilings and wall heads"
+        ],
+        [
+          "insulation_fg",
+          "wet insulation"
+        ],
+        [
+          "wood",
+          "sheathing, framing and trim"
+        ],
+        [
+          "carpet",
+          "carpet in affected rooms"
+        ]
+      ]
+    },
+    "flood-damage-restoration": {
+      "label": "flood damage",
+      "heading": "What survives a flood in {city}, {SS}, and what does not",
+      "mode": "table",
+      "metric": "flood",
+      "rows": [
+        [
+          "concrete",
+          "slabs and foundation walls"
+        ],
+        [
+          "wallboard",
+          "wallboard to the water line and above it"
+        ],
+        [
+          "carpet",
+          "carpet and pad"
+        ],
+        [
+          "insulation_fg",
+          "insulation in any wetted wall"
+        ],
+        [
+          "upholstered",
+          "furniture that stood in it"
+        ]
+      ]
+    },
+    "emergency-water-damage": {
+      "label": "emergency water damage",
+      "heading": "What has to be decided in the first 48 hours in {city}, {SS}",
+      "mode": "table",
+      "metric": "rainfall",
+      "rows": [
+        [
+          "wallboard",
+          "wallboard, which is the usual swelling-or-not decision"
+        ],
+        [
+          "carpet",
+          "carpet and pad"
+        ],
+        [
+          "wood",
+          "framing and timber floors"
+        ],
+        [
+          "insulation_fg",
+          "any wetted insulation"
+        ]
+      ]
+    },
+    "water-damage-repair": {
+      "label": "water damage repair",
+      "heading": "What can be dried and what has to be replaced in {city}, {SS}",
+      "mode": "table",
+      "metric": "rainfall",
+      "rows": [
+        [
+          "wallboard",
+          "wallboard and plasterboard"
+        ],
+        [
+          "wood",
+          "framing, trim and timber floors"
+        ],
+        [
+          "carpet",
+          "carpet, backing and pad"
+        ],
+        [
+          "concrete",
+          "slabs and block"
+        ],
+        [
+          "insulation_fg",
+          "batt insulation"
+        ]
+      ]
+    },
+    "water-mitigation": {
+      "label": "water mitigation",
+      "heading": "What mitigation saves in {city}, {SS}, and what it cannot",
+      "mode": "table",
+      "metric": "rainfall",
+      "rows": [
+        [
+          "wallboard",
+          "wallboard, dried in place where it can be"
+        ],
+        [
+          "carpet",
+          "carpet and pad"
+        ],
+        [
+          "wood",
+          "framing and timber floors"
+        ],
+        [
+          "ceiling_tile",
+          "any drop-ceiling tile"
+        ]
+      ]
+    },
+    "water-damage-inspection": {
+      "label": "water damage inspection",
+      "heading": "What a water damage inspection decides in {city}, {SS}",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "wallboard",
+          "whether the board is swollen or the seams have opened"
+        ],
+        [
+          "wood",
+          "whether framing and floors are drying or holding moisture"
+        ],
+        [
+          "insulation_fg",
+          "whether insulation is wet, which settles it"
+        ],
+        [
+          "carpet",
+          "whether pad and backing can be saved"
+        ]
+      ]
+    },
+    "commercial-water-damage-restoration": {
+      "label": "commercial water damage",
+      "heading": "What a commercial building loses to water in {city}, {SS}",
+      "mode": "table",
+      "metric": "flood",
+      "rows": [
+        [
+          "ceiling_tile",
+          "drop-ceiling tiles and grid infill"
+        ],
+        [
+          "wallboard",
+          "partition walls and demountable panels"
+        ],
+        [
+          "carpet",
+          "broadloom or tile carpet"
+        ],
+        [
+          "concrete",
+          "slabs and cores"
+        ],
+        [
+          "insulation_fg",
+          "insulation in any wetted partition"
+        ]
+      ]
+    },
+    "water-damage-insurance-claim": {
+      "label": "water damage insurance claim",
+      "heading": "What an insurer's estimate turns on in {city}, {SS}",
+      "mode": "table",
+      "metric": "housing_age",
+      "rows": [
+        [
+          "wallboard",
+          "dried in place or replaced — the single biggest line either way"
+        ],
+        [
+          "carpet",
+          "carpet and pad, usually itemised separately"
+        ],
+        [
+          "wood",
+          "framing and flooring"
+        ],
+        [
+          "insulation_fg",
+          "insulation, which EPA does not allow drying in place"
+        ]
+      ]
+    },
+    "roof-tarping": {
+      "label": "roof tarping",
+      "heading": "Why tarping in {city}, {SS} is measured in hours",
+      "mode": "window",
+      "metric": "heavy_rain"
+    },
+    "emergency-board-up": {
+      "label": "emergency board-up",
+      "heading": "Why board-up in {city}, {SS} is measured in hours",
+      "mode": "window",
+      "metric": "heavy_rain"
+    },
+    "sewage-cleanup": {
+      "label": "sewage cleanup",
+      "heading": "Why sewage cleanup in {city}, {SS} is not a drying job",
+      "mode": "contaminated",
+      "metric": "flood",
+      "lead": "EPA's water-damage guidance stops at the door here, and says so itself."
+    }
+  },
+  "intros": [
+    "The first decision after water is not how to dry it but what can be dried at all. EPA publishes an answer material by material, and this is that guidance applied to {label}.",
+    "Some of what water touches can be dried in place and some of it has to leave the building. EPA sets that out material by material, reproduced below for {label}.",
+    "What gets saved is decided in the first day or two, by material rather than by how bad it looks. Below is EPA's published guidance for {label}."
+  ],
+  "local_sources": {
+    "freeze": [
+      "freeze_source"
+    ],
+    "flood": [
+      "flood_events_source"
+    ],
+    "heavy_rain": [
+      "heavy_rain_days_source"
+    ],
+    "housing_age": [
+      "homes_by_decade_source"
+    ],
+    "rainfall": [
+      "rainfall_annual_source",
+      "rainfall_state_avg_source",
+      "wet_days_source"
+    ]
+  }
+}
