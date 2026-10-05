@@ -28,6 +28,47 @@ function ndjson_done(bool $ok, ?int $exitCode = null, ?array $lastLog = null, ?s
     ndjson_emit($r);
 }
 
+/**
+ * Is a research pass for this site ALREADY running -- started by EITHER launcher?
+ *
+ * Two entry points run the same work: this file (Cities tab, --site <id>) and
+ * multisite/research_cities.php (Batch tab, --site-dir <path>/sites/<id>). Only the latter
+ * had a concurrency guard, so the Cities-tab button would happily start a second
+ * generate.py writing the same cities.json while the first was mid-pass. The process table
+ * is the only place both launchers are visible -- a lock file taken here would not see a
+ * run started over there, which is precisely the case that bit.
+ *
+ * Returns ['pid'=>int,'secs'=>int] for the live run, or null.
+ *
+ * Fails OPEN on purpose: if ps cannot be read we return null and let the run proceed. A
+ * missed detection costs the old behaviour; a false positive costs a button that never works.
+ */
+function research_in_flight(string $siteId): ?array
+{
+    if ($siteId === '' || !preg_match('/^[A-Za-z0-9._-]{1,64}$/', $siteId)) return null;
+    $ps = @shell_exec('ps -eo pid=,etimes=,args= 2>/dev/null');
+    if (!is_string($ps) || trim($ps) === '') return null;
+    $me = getmypid();
+    $q  = preg_quote($siteId, '#');
+    foreach (explode("\n", $ps) as $ln) {
+        if (!preg_match('/^\s*(\d+)\s+(\d+)\s+(.+)$/', $ln, $m)) continue;
+        $pid = (int) $m[1];
+        $secs = (int) $m[2];
+        $args = $m[3];
+        if ($pid === $me) continue;
+        if (strpos($args, 'generate.py') === false) continue;
+        if (strpos($args, '--research-only') === false) continue;
+        // sh -c wrappers carry the same args, so the child and its shell both match;
+        // either one is proof a pass is live, and we only report the first.
+        if (!preg_match('#--site\s+\x27?' . $q . '\x27?(\s|$)#', $args)
+            && !preg_match('#--site-dir\s+\x27?[^\s\x27]*/sites/' . $q . '\x27?(\s|$)#', $args)) {
+            continue;
+        }
+        return ['pid' => $pid, 'secs' => $secs];
+    }
+    return null;
+}
+
 // ── Auth ──────────────────────────────────────────────────────────────────────
 if (empty($_SESSION['admin_logged_in'])) {
     http_response_code(403);
@@ -111,6 +152,23 @@ switch ($action) {
         break;
 
     case 'research':
+        // ai_generate.php had no concurrency guard at all, while the Batch tab's launcher
+        // (ms_launch_job) has always had one. So this button would start a SECOND
+        // generate.py against the same cities.json whenever a pass was already in flight,
+        // and the only visible symptom was "Researching... Ns" counting up while nothing
+        // changed. Refuse, and say what is running and for how long -- the client renders
+        // a done-event's `error` in red, so this reaches the operator as a real message.
+        $rif = research_in_flight((string) ACTIVE_SITE_ID);
+        if ($rif !== null) {
+            $ago = $rif['secs'] >= 60
+                ? intdiv($rif['secs'], 60) . ' min'
+                : $rif['secs'] . ' sec';
+            ndjson_done(false, null, null,
+                'Research is already running for ' . ACTIVE_SITE_ID . ' — started ' . $ago
+                . ' ago (pid ' . $rif['pid'] . '). Let it finish: a second pass would have '
+                . 'two processes writing cities.json. Watch progress on the Batch tab.');
+            exit;
+        }
         $parts[] = '--research-only';
         if ($cityId) { $parts[] = '--file'; $parts[] = escapeshellarg($cityId); }
         if ($tag)    { $parts[] = '--tag';  $parts[] = escapeshellarg($tag); }
