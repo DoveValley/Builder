@@ -56,7 +56,9 @@
           "text": "{flood_county} has recorded flood events in {flood_years_with_events} separate years, most recently in {flood_most_recent} — history worth knowing before deciding how far to look."
         }
       ],
-      "local_source_field": "flood_events_source"
+      "local_source_fields": [
+        "flood_events_source"
+      ]
     },
     "air-quality-testing": {
       "label": "mold testing",
@@ -92,7 +94,9 @@
           "text": "{flood_county} has flood events on record in {flood_years_with_events} separate years, most recently {flood_most_recent}."
         }
       ],
-      "local_source_field": "flood_events_source"
+      "local_source_fields": [
+        "flood_events_source"
+      ]
     },
     "real-estate-mold-inspection": {
       "label": "real-estate mold inspection",
@@ -124,7 +128,10 @@
           "text": "In {city}, {homes_pre_1960} of homes predate 1960, and {flood_county} has flood events on record in {flood_years_with_events} separate years — both worth knowing before a sale rather than after."
         }
       ],
-      "local_source_field": "homes_by_decade_source"
+      "local_source_fields": [
+        "homes_by_decade_source",
+        "flood_events_source"
+      ]
     }
   },
   "intros": [

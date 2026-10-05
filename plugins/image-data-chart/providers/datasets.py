@@ -307,6 +307,12 @@ def fetch_city(city, decls):
                     problems.append(f"{city.get('city')}: {e['data_type']} absent at {sid}")
                     continue
                 updates[e["data_key"]] = ev
+                # An extra may name its OWN source_key. It comes from the same station as the
+                # chart's figure, so the string is identical — but a field that cites
+                # `rainfall_source` for a freezing-night figure mis-cites the moment rainfall
+                # is re-sourced separately.
+                if e.get("source_key"):
+                    updates[e["source_key"]] = src
             sk = d.get("source_key")
             if sk:
                 # Two charts on DIFFERENT datasets must not share a source_key. The monthly

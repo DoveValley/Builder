@@ -162,11 +162,18 @@ function mold_testing_resolve(string $override = ''): ?array {
     if (!is_array($src)) return null;                 // no citable source: no block
 
     $city = function_exists('city_chart_current_city') ? city_chart_current_city() : [];
-    $local = $localSrc = '';
+    $local = '';
+    $localSrc = [];
     if (!empty($p['local'])) {
         $local = mold_testing_pick_local($p['local'], $city);
         if ($local !== '') {
-            $localSrc = trim((string) ($city[$p['local_source_field'] ?? ''] ?? ''));
+            // A LIST, because a sentence may draw on more than one dataset — the real-estate
+            // page states both a housing-age share and a flood-year count, and citing only the
+            // first put a flood figure under the ACS citation.
+            foreach ((array) ($p['local_source_fields'] ?? []) as $f) {
+                $v = trim((string) ($city[$f] ?? ''));
+                if ($v !== '' && !in_array($v, $localSrc, true)) $localSrc[] = $v;
+            }
         }
     }
     return [
@@ -177,7 +184,7 @@ function mold_testing_resolve(string $override = ''): ?array {
         'also' => mold_testing_quotes($p['also'] ?? [], $srcs, $src),
         'context' => (string) ($p['context'] ?? ''),
         'context_also' => mold_testing_quotes($p['context_also'] ?? [], $srcs, $src),
-        'local' => $local, 'local_source' => $localSrc,
+        'local' => $local, 'local_sources' => $localSrc,
         'intros' => (array) ($d['intros'] ?? []),
         'city' => (string) ($city['city'] ?? ''), 'SS' => (string) ($city['SS'] ?? ''),
     ];
@@ -271,8 +278,9 @@ function mold_testing_render(array $attrs = []): string {
 
     if ($r['local'] !== '') {
         $h .= '<p class="mt-local">' . h($r['local']);
-        if ($r['local_source'] !== '') {
-            $h .= '<span class="mt-cite">' . h('Source: ' . $r['local_source']) . '</span>';
+        if ($r['local_sources']) {
+            $h .= '<span class="mt-cite">'
+                . h('Source: ' . implode(' · ', $r['local_sources'])) . '</span>';
         }
         $h .= '</p>';
     }

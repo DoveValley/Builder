@@ -37,7 +37,8 @@
       {
         "data_key": "freeze_days_monthly",
         "data_type": "MLY-TMIN-AVGNDS-LSTH032",
-        "note": "Nights at or below freezing, by month. mold has no freeze chart, but cold-surface condensation is the real driver on attic and garage pages."
+        "note": "Nights at or below freezing, by month. mold has no freeze chart, but cold-surface condensation is the real driver on attic and garage pages.",
+        "source_key": "freeze_source"
       }
     ]
   }
