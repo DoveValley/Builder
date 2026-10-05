@@ -4353,7 +4353,8 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     background: #fff;
     border: 1px solid var(--color-border, #e5e7eb);
     border-radius: var(--radius, 8px);
-    overflow: hidden;                 /* clips the zebra rows to the rounded corners */
+    overflow-x: auto;                 /* a long code row scrolls instead of being clipped away */
+    overflow-y: hidden;               /* both axes non-visible, so the rounded corners still clip the zebra rows */
     box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 .ec-table {
