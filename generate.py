@@ -2948,7 +2948,13 @@ def main():
     if args.research and args.research_only:
         _log(f'\n{"═"*54}')
         _ok(f'Research complete: {researched} city/cities enriched')
+        in_tok, out_tok = _total_tokens()
+        if _usage['api_calls']:
+            _log(f'  Tokens   : {in_tok:,} in / {out_tok:,} out  ({_usage["api_calls"]} calls)')
+            _log(f'  Est. cost: ${_estimated_cost_usd():.4f}')
         _log(f'{"═"*54}')
+        if not args.dry_run:
+            write_generation_log(paths, args, total, researched, _started_at_ts)
         return
 
     # Reload city index after research may have written new data
