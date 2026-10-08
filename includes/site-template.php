@@ -415,8 +415,14 @@ if (empty($seo['og_image'])) {
 <?php
 // ── Shared header variables (available to all header partials) ────────────
 $isSticky      = !empty($header['sticky']);
-// $navBg resolved near the top of this file (header bar color, option A).
-$navText       = $header['nav_text']        ?? '#ffffff';
+// $navBg resolved near the top of this file (header bar color, option A). nav_text is a raw,
+// independently-stored admin field — no preset sets it, so it always fell through to this
+// default, with no connection to whatever nav_bg actually resolved to. Drives the ENTIRE
+// header's text (logo, nav links, hamburger lines, phone button, CTA button) plus the sticky
+// bottom bar — same unsafe-default pattern as the accent-skin fix (ms_derive_skin_colors), just
+// at the admin-field layer instead of the theme-preset layer. Confirmed live:
+// gannmoldremediation.com's header phone button (nav_bg: accent, #EF6B18) failed AA at 3.09:1.
+$navText       = $header['nav_text']        ?? contrast_text_color($navBg);
 $btnStyle      = $header['phone_btn_style'] ?? 'outline';
 $infoItems     = $header['info_items']      ?? [];
 $logoHeight    = max(32, min(120, (int)($header['logo_max_height'] ?? 56)));

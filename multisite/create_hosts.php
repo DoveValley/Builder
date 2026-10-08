@@ -191,29 +191,77 @@ if ($queue) {
     }
 }
 
-$slots = [];   // ordered sequence of server arrays — position IS the order rows are handed out
-while ($need) {
-    $round = array_keys($need);
-    shuffle($round);
-    if ($last !== null && count($round) > 1 && $round[0] === $last) {
-        $j = random_int(1, count($round) - 1);
-        [$round[0], $round[$j]] = [$round[$j], $round[0]];
-    }
-    foreach ($round as $sid) {
-        $slots[] = $fleet[$sid];
-        $last = $sid;
-        if (--$need[$sid] <= 0) unset($need[$sid]);
+/** A domain's registrar, straight from fleet.db — params.csv has no such column.
+ *  Falls back to buy_registrar (the "bought through" field) when the main
+ *  registrar field is blank, same fallback already used when reporting this
+ *  elsewhere. Blank means genuinely unknown, not a box-full-of-noise.*/
+function ch_registrar_of(string $domain): string
+{
+    $rec = infra_state_get_domain($domain);
+    $r = trim((string) ($rec['registrar'] ?? ''));
+    if ($r === '') $r = trim((string) ($rec['buy_registrar'] ?? ''));
+    return $r;
+}
+
+// Registrar tiebreak: among the boxes eligible for a given row, prefer whichever
+// already holds the FEWEST domains of that row's own registrar — so 20 domains
+// bought in one big namecheap run don't all pile onto the same handful of boxes
+// just because they happen to queue up together. Seeded from every row THIS BATCH
+// already has hosted (matching ftp_host to a box, same as $haveByServerId above),
+// not just what this run is about to place, so a staged run sees the real mix.
+$registrarCountByBox = [];   // server_id => [registrar => count]
+foreach ($rows as $r) {
+    $h = trim((string) ($r['ftp_host'] ?? ''));
+    if ($h === '') continue;
+    foreach ($fleet as $sid => $srv) {
+        if (($srv['host'] ?? '') === $h) {
+            $reg = ch_registrar_of(strtolower(trim((string) ($r['domain'] ?? ''))));
+            $registrarCountByBox[$sid][$reg] = ($registrarCountByBox[$sid][$reg] ?? 0) + 1;
+            break;
+        }
     }
 }
 
-// Rows are handed the sequence in THEIR OWN order (not shuffled) — this batch's row
-// order is the intended go-live sequence (see the target-list editor), so the "no
-// box repeats until every box has had a turn" guarantee above applies directly to
-// the order sites will actually go live in, not to some other order nobody sees.
-$assignment = [];   // row index => server
-$n = min(count($slots), count($queue));
-for ($i = 0; $i < $n; $i++) $assignment[$queue[$i]] = $slots[$i];
-$unplaced = array_slice($queue, $n);
+// Rows are handed out in THEIR OWN order (not shuffled) — this batch's row order is
+// the intended go-live sequence (see the target-list editor). Box choice per row is
+// what's randomized/balanced, one round at a time: a round hands every
+// still-needy box exactly one domain before any box can be picked a second time,
+// same guarantee as before — just decided per row now (greedy, registrar-first)
+// instead of pre-shuffled into a position-indexed slot list, because the registrar
+// tiebreak needs to know which domain is about to land before it can pick a box.
+$assignment    = [];   // row index => server
+$roundLeft     = [];   // server_id => still eligible THIS round (reset when empty)
+$unplaced      = [];
+foreach ($queue as $idx) {
+    if (!$need) { $unplaced[] = $idx; continue; }   // plan has no more room anywhere
+
+    if (!$roundLeft) $roundLeft = $need;   // start a fresh round: every box still owed something
+
+    $candidates = array_keys($roundLeft);
+    // Same boundary guard as before: don't let the very first pick of a new round
+    // repeat the box the previous row (this run, or the real row right before it
+    // on a resumed run) just landed on — only matters when another choice exists.
+    if ($last !== null && count($candidates) > 1 && in_array($last, $candidates, true)) {
+        $withoutLast = array_values(array_diff($candidates, [$last]));
+        if ($withoutLast) $candidates = $withoutLast;
+    }
+
+    $domain = $todo[$idx];
+    $reg    = ch_registrar_of($domain);
+    $best = null; $bestCount = null;
+    foreach ($candidates as $sid) {
+        $c = $registrarCountByBox[$sid][$reg] ?? 0;
+        if ($bestCount === null || $c < $bestCount) { $best = [$sid]; $bestCount = $c; }
+        elseif ($c === $bestCount) { $best[] = $sid; }
+    }
+    $sid = $best[array_rand($best)];   // tie-break randomly among equally-good boxes
+
+    $assignment[$idx] = $fleet[$sid];
+    $registrarCountByBox[$sid][$reg] = ($registrarCountByBox[$sid][$reg] ?? 0) + 1;
+    unset($roundLeft[$sid]);
+    if (--$need[$sid] <= 0) unset($need[$sid]);
+    $last = $sid;
+}
 
 foreach ($plan as $p) {
     $c = count(array_filter($assignment, fn($s) => ($s['id'] ?? '') === $p['server_id']));

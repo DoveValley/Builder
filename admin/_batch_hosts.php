@@ -14,7 +14,7 @@
 ?>
 <!-- ===== CREATE HOSTS ===== -->
 <div class="card" id="ms-hosts-card">
-    <h3 style="margin-top:0;">3. Create host</h3>
+    <h3 style="margin-top:0;">3A. Create host &mdash; multiple domains</h3>
     <p class="hint">
         Builds the home for each site on the servers picked above: the vhost, its folder, and an
         FTP login that can write to that folder and nothing else. The credentials come back and are

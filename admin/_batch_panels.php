@@ -77,6 +77,9 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             <input type="text" id="ms-ctm-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
             <button type="button" class="btn btn-primary" id="ms-ctm-btn" onclick="msCtmGetNumbers()">Get CTM Phone Numbers (<span id="ms-ctm-count">0</span> selected)</button>
             <span id="ms-ctm-msg" class="hint" style="margin-left:8px;"></span>
+            <div class="hint" style="margin-top:4px;width:100%;">
+                Area code already typed in that row? Uses it. Blank? Looks it up. Would have to guess? Does nothing — never buys on a guess.
+            </div>
         </div>
         <div id="ms-ctm-results" style="margin-top:8px;font-size:.8rem;"></div>
     </div>
@@ -155,6 +158,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 <?php include __DIR__ . '/_batch_servers.php'; ?>
 
 <?php include __DIR__ . '/_batch_hosts.php'; ?>
+
+<?php include __DIR__ . '/_batch_host_one.php'; ?>
 
 <!-- ===== RUN CARD ===== -->
 <div class="card" id="ms-run-card">

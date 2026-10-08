@@ -17,7 +17,7 @@
 ?>
 <!-- ===== DEPLOYMENT SERVERS ===== -->
 <div class="card" id="ms-servers-card">
-    <h3 style="margin-top:0;">2. Pick deployment servers</h3>
+    <h3 style="margin-top:0;">2. Pick deployment servers &mdash; multiple domains</h3>
     <p class="hint">
         Which boxes this batch goes to and how many sites each takes. The checkbox in the
         header selects or clears every usable box at once; the checkbox on each row includes

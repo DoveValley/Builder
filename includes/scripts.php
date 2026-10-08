@@ -625,6 +625,9 @@ function content_editor_scripts() {
                     <input type="hidden" name="if_photo_existing[]" value="">
                 </div>
                 <div class="form-group"><label>Photo alt text</label><input type="text" name="if_photo_alt[]"></div>
+                <div class="form-group"><label>Mobile stacking order</label>
+                    <select name="if_mobile_order[]"><option value="" selected>Default (HTML source order)</option><option value="img_first">Image first</option><option value="text_first">Text first</option></select>
+                </div>
                 <div class="form-group"><label>Heading</label><input type="text" name="if_heading[]" placeholder="e.g. Quality Pest Prevention"></div>
                 <div class="form-group"><label>Intro paragraph</label><textarea name="if_intro[]" rows="3"></textarea></div>
                 <div class="if-feats-editor" id="if_feats_new_${idx}"></div>

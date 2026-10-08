@@ -94,17 +94,28 @@
         var layout = document.getElementById(uid);
         if (!layout) return;
         var activeBg = btn.dataset.activeBg || 'var(--color-header-bg,#120575)';
+        // Server-computed WCAG-contrast text color (blocks.php's contrast_text_color()) for
+        // this block's active-bg — can't recompute contrast in JS without duplicating the
+        // luminance formula, so the server hands it over via the same data attribute it uses
+        // to render the first (default-active) tab.
+        var activeText = btn.dataset.activeText || '#fff';
         layout.querySelectorAll('.ts-tab').forEach(function(t) {
             t.classList.remove('ts-tab-active');
             t.style.background = '';
             t.style.color = '';
+            var icon = t.querySelector('.ts-tab-icon');
+            if (icon) icon.style.filter = '';
         });
         layout.querySelectorAll('.ts-panel').forEach(function(p) {
             p.setAttribute('hidden', '');
         });
         btn.classList.add('ts-tab-active');
         btn.style.background = activeBg;
-        btn.style.color = '#fff';
+        btn.style.color = activeText;
+        // .ts-tab-active .ts-tab-icon inverts the icon to white via CSS, which only looks right
+        // when the text is also white — override it off when dark text won the contrast pick.
+        var activeIcon = btn.querySelector('.ts-tab-icon');
+        if (activeIcon) activeIcon.style.filter = (activeText === '#fff' || activeText === '#ffffff') ? '' : 'none';
         var panel = layout.querySelector('.ts-panel[data-panel="' + btn.dataset.tab + '"]');
         if (panel) panel.removeAttribute('hidden');
     };

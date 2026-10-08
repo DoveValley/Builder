@@ -219,6 +219,34 @@ function resolve_color($which, $custom = '#333333') {
 }
 
 /**
+ * Pick white or near-black, whichever gives the better WCAG contrast ratio against $bgHex.
+ * For badges/buttons/table headers that paint text directly on a resolve_color() result (accent/
+ * header/footer/custom) — these have historically hardcoded 'color:#fff', which fails AA (4.5:1)
+ * for plenty of real accent colors (confirmed live: gannmoldremediation.com's #EF6B18 scores only
+ * 3.09:1 against white). Same relative-luminance formula as ms_contrast_ratio() in
+ * includes/multisite/visual.php, duplicated rather than shared — that file lives under
+ * includes/multisite/ and isn't loaded on the plain single-site render path blocks.php also serves.
+ */
+function contrast_text_color(string $bgHex): string {
+    $hex = ltrim(trim($bgHex), '#');
+    if (strlen($hex) === 3) $hex = $hex[0].$hex[0].$hex[1].$hex[1].$hex[2].$hex[2];
+    if (!preg_match('/^[0-9a-f]{6}$/i', $hex)) return '#ffffff';
+    $lum = function (string $h): float {
+        $c = array_map(function ($hh) {
+            $v = hexdec($hh) / 255;
+            return $v <= 0.03928 ? $v / 12.92 : pow(($v + 0.055) / 1.055, 2.4);
+        }, [substr($h, 0, 2), substr($h, 2, 2), substr($h, 4, 2)]);
+        return 0.2126 * $c[0] + 0.7152 * $c[1] + 0.0722 * $c[2];
+    };
+    $bgLum = $lum($hex);
+    $ratioTo = function (float $otherLum) use ($bgLum): float {
+        $hi = max($otherLum, $bgLum); $lo = min($otherLum, $bgLum);
+        return ($hi + 0.05) / ($lo + 0.05);
+    };
+    return $ratioTo(1.0) >= $ratioTo($lum('111111')) ? '#ffffff' : '#111111';
+}
+
+/**
  * Render a shared color-mode <select> for the block editor.
  *
  * Admin-UI only: emits the standard {accent, header, footer, custom} option set

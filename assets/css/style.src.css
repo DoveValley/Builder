@@ -425,7 +425,7 @@ a:hover {
     display: inline-block;
     padding: 14px 34px;
     background: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     border-radius: var(--btn-radius, 4px);
     text-decoration: none;
     font-weight: 600;
@@ -489,7 +489,7 @@ a:hover {
     display: inline-block;
     padding: 14px 34px;
     background: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     border-radius: var(--btn-radius, 4px);
     text-decoration: none;
     font-weight: 600;
@@ -541,7 +541,7 @@ a:hover {
 /* Card */
 .pc-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; }
 .pc-card--featured { border-color: var(--color-accent); box-shadow: 0 4px 24px rgba(0,0,0,.1); }
-.pc-badge { display: inline-block; font-size: var(--font-size-eyebrow); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; background: var(--color-accent); padding: 3px 10px; border-radius: 4px; margin-bottom: 10px; white-space: nowrap; }
+.pc-badge { display: inline-block; font-size: var(--font-size-eyebrow); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--skin-accent-heading, #fff); background: var(--color-accent); padding: 3px 10px; border-radius: 4px; margin-bottom: 10px; white-space: nowrap; }
 .pc-inner-badge { display: inline-block; font-size: var(--font-size-eyebrow); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #555; background: #f1f5f9; padding: 3px 9px; border-radius: 4px; margin-bottom: 10px; }
 .pc-name { font-size: var(--font-size-h4); font-weight: 800; color: var(--color-heading, #1e293b); margin: 0 0 4px; }
 .pc-sublabel { font-size: var(--font-size-small); color: #64748b; margin: 0 0 14px; }
@@ -554,7 +554,7 @@ a:hover {
 .pc-meta-wrap { flex: 1; min-width: 0; }
 .pc-meta { font-size: var(--font-size-small); font-weight: 700; color: #1e293b; margin: 0; }
 .pc-meta2 { font-size: var(--font-size-eyebrow); color: #64748b; margin: 3px 0 0; }
-.pc-btn { display: inline-block; flex-shrink: 0; text-align: center; background: var(--color-accent); color: #fff; padding: 10px 18px; border-radius: var(--btn-radius, 4px); text-decoration: none; font-weight: 600; font-size: var(--font-size-small); white-space: nowrap; transition: opacity .15s; }
+.pc-btn { display: inline-block; flex-shrink: 0; text-align: center; background: var(--color-accent); color: var(--skin-accent-heading, #fff); padding: 10px 18px; border-radius: var(--btn-radius, 4px); text-decoration: none; font-weight: 600; font-size: var(--font-size-small); white-space: nowrap; transition: opacity .15s; }
 .pc-btn:hover { opacity: .88; color: #fff; text-decoration: none; }
 
 /* ---- Custom HTML ---- */
@@ -611,7 +611,7 @@ a:hover {
     width: 100%;
     z-index: 501;
     background: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     text-align: center;
     padding: 8px 16px;
     font-size: 0.9rem;
@@ -787,7 +787,7 @@ a:hover {
     width: 64px; height: 64px;
     border-radius: 50%;
     background: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     font-size: var(--font-size-h4);
     font-weight: 700;
     display: flex; align-items: center; justify-content: center;
@@ -949,7 +949,7 @@ a:hover {
     display: inline-block;
     padding: 8px 18px;
     background: var(--color-accent, #2563eb);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     border-radius: var(--btn-radius, 4px);
     text-decoration: none;
     font-size: 0.88rem;
@@ -2066,7 +2066,7 @@ body { padding-bottom: 70px; }
     width: 32px;
     height: 32px;
     background: var(--color-accent, #fd783b);
-    color: #ffffff;
+    color: var(--skin-accent-heading, #fff);
     border: 1px solid rgba(255,255,255,0.35);
     border-radius: 50%;
     display: flex;
@@ -2347,7 +2347,7 @@ body { padding-bottom: 70px; }
 .hs-btn {
     display: inline-block;
     background: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     padding: 13px 20px;
     border-radius: var(--btn-radius, 5px);
     font-weight: 700;
@@ -2462,8 +2462,17 @@ body { padding-bottom: 70px; }
        flex-direction switches to column here, turning that same 380px into a HEIGHT
        basis instead, which pinned this wrapper at 380px tall regardless of the image's
        real (correctly 4:3, now ~275px on a phone-width column) height. Real, live bug,
-       found alongside the aspect-ratio fix a few rules up. */
-    .hs-image-wrap { max-width: 100%; flex-basis: auto; }
+       found alongside the aspect-ratio fix a few rules up.
+       flex-basis:auto alone was not enough, and (confirmed by testing) neither is
+       neutralizing flex-grow/shrink with `flex:none` on its own: this wrapper's only
+       child (.hs-image) is position:absolute, so align-items:stretch giving the wrapper
+       an auto/stretched width is not treated as a DEFINITE width for aspect-ratio's own
+       sizing algorithm on a flex item — the computed height collapsed to 0, hiding the
+       image entirely (not just mis-sized). An explicit `width:100%` (not just max-width)
+       gives aspect-ratio a real, unambiguous width to compute the height from — confirmed
+       live on baileyrestoration.com, where the hero image was invisible on every mobile
+       view until this was added. */
+    .hs-image-wrap { max-width: 100%; width: 100%; flex-basis: auto; }
     /* Same class of bug as .hs-image-wrap above, just never given the same fix: .hs-text's
        own flex:1 1 340px (base rule, desktop-scoped in intent) is ALSO a width basis that
        becomes a 340px height basis once flex-direction switches to column here — a stale
@@ -2718,7 +2727,7 @@ body { padding-bottom: 70px; }
     text-transform: uppercase;
     border-radius: 4px;
 }
-.ts-badge-filled  { background: var(--color-accent,#fd783b); color: #fff; }
+.ts-badge-filled  { background: var(--color-accent,#fd783b); color: var(--skin-accent-heading, #fff); }
 .ts-badge-outline { background: transparent; border: 2px solid var(--color-accent,#fd783b); color: var(--color-accent,#fd783b); }
 /* Heading */
 .ts-heading {
@@ -2865,7 +2874,7 @@ body { padding-bottom: 70px; }
     margin-top: 8px;
     padding: 10px 26px;
     background: var(--color-accent,#fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
     border-radius: var(--btn-radius,5px);
     font-weight: 700;
     font-size: var(--font-size-body);
@@ -3235,6 +3244,15 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
     .if-photo-wrap { flex: none; width: 100%; }
     .if-heading { font-size: var(--font-size-h2); }
     .if-features-grid { grid-template-columns: 1fr; }
+    /* Image on top by default on mobile — matches hero_split/feature_split's default.
+       Source order already has the photo first, so this is a no-op for the default
+       case, but it makes the behavior explicit and gives if_mobile_order's "Image
+       first" option (same value as default) something concrete to also set, exactly
+       like hs-image-wrap/fs-right's own always-present order:-1 base rule. */
+    .if-photo-wrap { order: -1; }
+    .if-mobile-img-first .if-photo-wrap { order: -1; }
+    .if-mobile-text-first .if-photo-wrap { order: 0; }
+    .if-mobile-text-first .if-content { order: -1; }
 }
 
 /* ============================================================
@@ -3725,7 +3743,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .blog-tag-pill.is-active {
     background: var(--color-accent, #fd783b);
     border-color: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
 }
 .blog-empty { text-align: center; color: #6b7280; padding: 40px 0; }
 
@@ -3823,7 +3841,7 @@ a.svc-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.13); transform: translate
 .blog-page-active {
     background: var(--color-accent, #fd783b);
     border-color: var(--color-accent, #fd783b);
-    color: #fff;
+    color: var(--skin-accent-heading, #fff);
 }
 
 /* Single post header (post_meta block) */
@@ -4287,7 +4305,10 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     background: var(--color-accent);
 }
 .block-related-links .section-heading {
-    color: var(--color-btn-text, #fff);
+    /* Background above is --color-accent, so the heading needs the contrast-safe pick that's
+       computed specifically against that color (ms_derive_skin_colors) — not the generic,
+       unconditional --color-btn-text, which can be white against an accent too light for it. */
+    color: var(--skin-accent-heading, #fff);
 }
 .related-links-list {
     list-style: none;

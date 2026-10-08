@@ -685,21 +685,28 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $rightBgCustom= $block['sc_right_bg_custom']?? '#120575';
 
             // Resolve background colors — use concrete hex values
-            $leftStyle  = 'background:' . resolve_color($leftBg,  $leftBgCustom)  . ';';
-            $rightStyle = 'background:' . resolve_color($rightBg, $rightBgCustom) . ';';
+            $leftBgHex  = resolve_color($leftBg,  $leftBgCustom);
+            $rightBgHex = resolve_color($rightBg, $rightBgCustom);
+            $leftStyle  = 'background:' . $leftBgHex  . ';';
+            $rightStyle = 'background:' . $rightBgHex . ';';
+            // .sc-heading/.sc-text/.sc-right-label/.sc-phone (style.src.css) hardcode white —
+            // both panels' backgrounds are independently admin-configurable per side (accent/
+            // header/footer/custom), so a fixed color can't be safe for every combination.
+            $leftTextStyle  = 'color:' . contrast_text_color($leftBgHex)  . ';';
+            $rightTextStyle = 'color:' . contrast_text_color($rightBgHex) . ';';
 
             echo '<div class="content-block block-split-cta"'.$anchorAttr.'>';
             // Left panel
             echo '<div class="sc-panel sc-left" style="'.$leftStyle.'">';
-            if ($leftHeading) echo '<h2 class="sc-heading">'.h($leftHeading).'</h2>';
-            if ($leftText)    echo '<p class="sc-text">'.h($leftText).'</p>';
+            if ($leftHeading) echo '<h2 class="sc-heading" style="'.$leftTextStyle.'">'.h($leftHeading).'</h2>';
+            if ($leftText)    echo '<p class="sc-text" style="'.$leftTextStyle.'">'.h($leftText).'</p>';
             echo '</div>';
             // Right panel
             echo '<div class="sc-panel sc-right" style="'.$rightStyle.'">';
-            if ($rightLabel) echo '<div class="sc-right-label">'.h($rightLabel).'</div>';
+            if ($rightLabel) echo '<div class="sc-right-label" style="'.$rightTextStyle.'">'.h($rightLabel).'</div>';
             if ($rightPhone) {
                 $tel = $rightPhoneUrl ?: 'tel:'.preg_replace('/[^0-9+]/', '', $rightPhone);
-                echo '<a href="'.h($tel).'" class="sc-phone">'.h($rightPhone).'</a>';
+                echo '<a href="'.h($tel).'" class="sc-phone" style="'.$rightTextStyle.'">'.h($rightPhone).'</a>';
             }
             echo '</div>';
             echo '</div>';
@@ -923,7 +930,10 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $photoHtml = '';
             if ($infoPhotoSrc) {
                 $photoHtml .= '<img src="'.h($infoPhotoSrc).'" alt="'.h($infoAlt).'" class="mi-photo" '.img_intrinsic_attrs($infoPhoto).img_srcset($infoPhoto, $pathPrefix).'loading="lazy">';
-                if ($infoCredit) $photoHtml .= '<p class="mi-credit" style="font-size:11px;color:#999;margin-top:6px;">'.h($infoCredit).'</p>';
+                // #999 measured 2.84:1 against white (fails AA's 4.5:1 at this 11px size) —
+                // confirmed live on gannmoldremediation.com. #666 clears it (5.74:1) while
+                // still reading as a muted, secondary caption.
+                if ($infoCredit) $photoHtml .= '<p class="mi-credit" style="font-size:11px;color:#666;margin-top:6px;">'.h($infoCredit).'</p>';
             }
 
             $infoPanel = '<div class="mi-panel mi-info-panel">';
@@ -1077,8 +1087,21 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 // the always-dark, unconditional dark-skin background instead — it
                 // isn't derived from the accent heading pick at all, so it can't
                 // collide with this button's white text on any domain.
+                //
+                // $btnFg for 'accent' must pair with THIS button's own background
+                // ($btnBg, --skin-dark-bg) — NOT with --skin-accent-text, which is
+                // contrast-safe against the ACCENT color, a different background
+                // entirely. Reusing it here was a second instance of the same mistake
+                // this comment already walked through once for $btnBg: it only read
+                // as correct while --skin-accent-text was unconditionally white (safe
+                // on dark either way). Since the WCAG accent-text fix made it
+                // domain-conditional (ms_derive_skin_colors), a domain where it
+                // resolves dark produces dark-on-dark here — confirmed live on
+                // gannmoldremediation.com. --skin-dark-heading is unconditionally
+                // white (ms_derive_skin_colors hardcodes skins.dark.heading), so it
+                // always contrasts against --skin-dark-bg regardless of domain.
                 $btnBg = $cbSkin === 'accent' ? 'var(--skin-dark-bg)' : "var(--skin-{$cbSkin}-heading)";
-                $btnFg = $cbSkin === 'accent' ? "var(--skin-{$cbSkin}-text)" : "var(--skin-{$cbSkin}-bg)";
+                $btnFg = $cbSkin === 'accent' ? 'var(--skin-dark-heading)' : "var(--skin-{$cbSkin}-bg)";
             } else {
                 $bgStyle = resolve_color($bg, $bgCustom);
                 $btnBg   = $textColor;
@@ -1171,9 +1194,11 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 $photoSrc = photo_src($photo, $pathPrefix);
             }
             $tel = $phoneUrl ?: ('tel:'.preg_replace('/[^0-9+]/', '', $phone));
+            $ifMobOrder  = $block['if_mobile_order'] ?? '';
+            $ifMobClass  = $ifMobOrder === 'img_first' ? ' if-mobile-img-first' : ($ifMobOrder === 'text_first' ? ' if-mobile-text-first' : '');
 
             echo '<div class="content-block block-image-features"'.$anchorAttr.' style="background:'.h($bgColor).';">';
-            echo '<div class="container if-inner">';
+            echo '<div class="container if-inner'.$ifMobClass.'">';
 
             // LEFT: photo
             if ($photoSrc) {
@@ -1230,6 +1255,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $btnStyle   = $block['wb_btn_style']  ?? 'filled';
 
             $badgeBgStyle = resolve_color($badgeBg, $badgeBgC);
+            $badgeTextStyle = contrast_text_color($badgeBgStyle);
 
             // 'custom' (the default, for backward compatibility with blocks saved before
             // wb_bg_mode existed) uses wb_bg_color literally, same as always. Any other mode
@@ -1271,12 +1297,12 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             if ($wbCentered) {
                 // Centered layout: single column, all content centered
                 echo '<div class="container" style="text-align:center;">';
-                if ($badge)   echo '<span class="wb-badge" style="display:inline-block;margin-bottom:12px;background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
+                if ($badge)   echo '<span class="wb-badge" style="display:inline-block;margin-bottom:12px;background:'.$badgeBgStyle.';color:'.$badgeTextStyle.';">'.h($badge).'</span>';
                 if ($heading) echo '<'.$wbHeadTag.' class="wb-heading" style="text-align:center;">'.h($heading).'</'.$wbHeadTag.'>';
                 if ($subtext) echo '<p class="wb-subtext" style="max-width:780px;margin:0 auto;text-align:center;">'.h($subtext).'</p>';
                 if ($btnText) {
                     $btnClass = $btnStyle === 'filled' ? 'wb-btn wb-btn-filled' : 'wb-btn wb-btn-outline';
-                    $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';' : '';
+                    $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';color:'.$badgeTextStyle.';' : '';
                     echo '<div style="margin-top:24px;text-align:center;"><a href="'.h($btnUrl).'" class="'.$btnClass.'" style="display:inline-block;'.$btnInlineStyle.'">'.h($btnText).'</a></div>';
                 }
                 echo '</div>';
@@ -1284,13 +1310,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 // Split layout: text left, button right
                 echo '<div class="container wb-inner">';
                 echo '<div class="wb-left">';
-                if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span>';
+                if ($badge)   echo '<span class="wb-badge" style="background:'.$badgeBgStyle.';color:'.$badgeTextStyle.';">'.h($badge).'</span>';
                 if ($heading) echo '<h2 class="wb-heading">'.h($heading).'</h2>';
                 if ($subtext) echo '<p class="wb-subtext">'.h($subtext).'</p>';
                 echo '</div>';
                 if ($btnText) {
                     $btnClass = $btnStyle === 'filled' ? 'wb-btn wb-btn-filled' : 'wb-btn wb-btn-outline';
-                    $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';' : '';
+                    $btnInlineStyle = $btnStyle === 'filled' ? 'background:'.h($badgeBgStyle).';color:'.$badgeTextStyle.';' : '';
                     echo '<div class="wb-right"><a href="'.h($btnUrl).'" class="'.$btnClass.'" style="'.$btnInlineStyle.'">'.h($btnText).'</a></div>';
                 }
                 echo '</div>';
@@ -1312,11 +1338,12 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $iconBg     = $block['sc_icon_bg']    ?? '#fef0e7';
 
             $badgeBgStyle   = resolve_color($badgeBg,   $badgeBgC);
+            $badgeTextStyle = contrast_text_color($badgeBgStyle);
             $headColorStyle = resolve_color($headColor, $headColorC);
 
             echo '<div class="content-block block-service-cards"'.$anchorAttr.'>';
             echo '<div class="container">';
-            if ($badge)   echo '<div class="svc-badge-wrap"><span class="svc-badge" style="background:'.$badgeBgStyle.';color:#fff;">'.h($badge).'</span></div>';
+            if ($badge)   echo '<div class="svc-badge-wrap"><span class="svc-badge" style="background:'.$badgeBgStyle.';color:'.$badgeTextStyle.';">'.h($badge).'</span></div>';
             // !important: a generic rule (assets/css/style.src.css) colors every heading
             // inside a skin-accent/dark/etc section from that skin's own "heading" color,
             // for blocks that don't pick their own — this block DOES (sc_head_color, a real
@@ -1480,13 +1507,20 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $uid = 'ts_' . substr(md5(serialize($block)), 0, 6);
 
             $activeBgStyle = resolve_color($activeBg, $activeBgCustom);
+            $activeTextStyle = contrast_text_color($activeBgStyle);
+            // .ts-tab-active .ts-tab-icon inverts the icon to white via CSS (style.src.css),
+            // which assumes the active tab's text is also white — not true once a light/vivid
+            // active-bg picks dark text above. Override with an inline filter on the one
+            // server-rendered active tab (ti===0); switchTab() in site.src.js mirrors this for
+            // tabs activated by a later click.
+            $activeIconFilterOff = $activeTextStyle !== '#ffffff' ? ' style="filter:none"' : '';
 
             echo '<div class="content-block block-tab-services"'.$anchorAttr.'>';
             echo '<div class="container">';
             // Badges + heading
             if ($badge1 || $badge2) {
                 echo '<div class="ts-badges">';
-                if ($badge1) echo '<span class="ts-badge ts-badge-filled" style="background:'.$activeBgStyle.';color:#fff;">'.h($badge1).'</span>';
+                if ($badge1) echo '<span class="ts-badge ts-badge-filled" style="background:'.$activeBgStyle.';color:'.$activeTextStyle.';">'.h($badge1).'</span>';
                 if ($badge2) echo '<span class="ts-badge ts-badge-outline" style="border-color:'.$activeBgStyle.';color:'.$activeBgStyle.';">'.h($badge2).'</span>';
                 echo '</div>';
             }
@@ -1503,12 +1537,12 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                     $iconSrc = photo_src($icon, $pathPrefix);
                 }
                 $isActive = $ti === 0 ? 'ts-tab-active' : '';
-                $activeInlineStyle = $ti === 0 ? 'background:'.$activeBgStyle.';color:#fff;' : '';
+                $activeInlineStyle = $ti === 0 ? 'background:'.$activeBgStyle.';color:'.$activeTextStyle.';' : '';
                 echo '<button class="ts-tab '.$isActive.'" data-tab="'.$ti.'" data-uid="'.$uid.'"'
                      .' onclick="switchTab(this)"'
                      .($activeInlineStyle ? ' style="'.$activeInlineStyle.'"' : '')
-                     .' data-active-bg="'.$activeBgStyle.'">';
-                if ($iconSrc) echo '<img src="'.h($iconSrc).'" class="ts-tab-icon" alt="'.h($label).'" '.img_intrinsic_attrs($icon).'loading="lazy">';
+                     .' data-active-bg="'.$activeBgStyle.'" data-active-text="'.$activeTextStyle.'">';
+                if ($iconSrc) echo '<img src="'.h($iconSrc).'" class="ts-tab-icon" alt="'.h($label).'"'.($ti === 0 ? $activeIconFilterOff : '').' '.img_intrinsic_attrs($icon).'loading="lazy">';
                 echo '<span>'.h($label).'</span>';
                 echo '</button>';
             }
@@ -1851,6 +1885,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $bgColorC   = $block['bg_color_custom'] ?? '#fd783b';
             $bgItems    = $block['bg_items']        ?? [];
             $colorStyle = resolve_color($bgColor, $bgColorC);
+            $colorTextStyle = contrast_text_color($colorStyle);
             echo '<div class="content-block block-buttons-grid"'.$anchorAttr.' style="background:'.h($bgBg).';">';
             echo '<div class="container">';
             if ($bgHeading) echo '<h2 class="bg-heading">'.h($bgHeading).'</h2>';
@@ -1860,7 +1895,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 $url   = $item['url']   ?? '#';
                 if (!$label) continue;
                 if ($bgStyle === 'filled') {
-                    $btnStyle = 'background:'.$colorStyle.';color:#fff;border:2px solid '.$colorStyle.';';
+                    $btnStyle = 'background:'.$colorStyle.';color:'.$colorTextStyle.';border:2px solid '.$colorStyle.';';
                 } else {
                     $btnStyle = 'background:transparent;color:'.$colorStyle.';border:2px solid '.$colorStyle.';';
                 }
@@ -2014,16 +2049,18 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $tbItems    = $block['tb_items']     ?? [];
             if ($tbItems === '@safe_trust_badges') $tbItems = trust_bar_safe_badges();
             $tbShowIcons = $block['tb_show_icons'] ?? true;   // false = text-only badges
-            // Text/check colors adapt to the bar background (theme vars only): light bars
-            // (subtle/light) -> heading color + accent checks; colored bars -> button-text
-            // color (readable on accent/dark). Needed so text stays legible on a colored bar.
-            // Accent is its own case: the bar's own background IS the accent color, so a
-            // check drawn in "accent" would vanish into it — same reason cta_banner's
-            // accent-skin button draws itself in the palette's dark color for contrast
-            // (var(--skin-accent-heading)) instead of the accent color a plain button uses.
+            // Text/check colors adapt to the bar background: light bars (subtle/light) ->
+            // heading color + accent checks. Colored bars (accent/header/footer/custom) used to
+            // reach for the theme-wide --color-btn-text (or --skin-accent-heading for the accent
+            // case specifically) — both unconditional/single-case, so header/footer/custom bars
+            // still had no real contrast guarantee. tb_bg is admin-selectable to any of the four,
+            // each resolving to a different literal color, so the safe text color has to be
+            // computed from whichever one THIS bar actually resolved to, not assumed from a
+            // theme-wide default or a different color's fix.
             $tbLight       = in_array($tbBg, ['subtle', 'light'], true);
-            $tbTextColor   = $tbLight ? 'var(--color-heading)'  : 'var(--color-btn-text,#fff)';
-            $tbCheckStroke = $tbLight ? 'var(--color-accent)'   : ($tbBg === 'accent' ? 'var(--skin-accent-heading)' : 'var(--color-btn-text,#fff)');
+            $tbOnColorText = contrast_text_color(resolve_color($tbBg, $tbBgCustom));
+            $tbTextColor   = $tbLight ? 'var(--color-heading)' : $tbOnColorText;
+            $tbCheckStroke = $tbLight ? 'var(--color-accent)'  : $tbOnColorText;
             $tbCheck    = '<svg width="1.35em" height="1.35em" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="'.$tbCheckStroke.'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
             $tbRows = '';
             foreach ($tbItems as $tbItem) {
@@ -2307,6 +2344,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $ctBg       = $block['ct_bg']            ?? '#ffffff';
 
             $ctAccent = resolve_color('accent', '#fd783b');
+            $ctAccentText = contrast_text_color($ctAccent);
             $ctHeader = resolve_color('header', '#1e3a5f');
 
             $ctRows = [];
@@ -2331,7 +2369,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 echo '<thead><tr>';
                 echo '<th style="text-align:left;padding:12px 16px;border-bottom:2px solid var(--color-border);width:34%;color:var(--color-muted);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em;"></th>';
                 echo '<th style="text-align:center;padding:12px 16px;border-bottom:2px solid var(--color-border);background:#f9fafb;color:var(--color-muted);font-weight:600;font-size:.9rem;">' . h($ctCol1Head) . '</th>';
-                echo '<th style="text-align:center;padding:12px 16px;background:'.h($ctAccent).';color:#ffffff;font-weight:700;font-size:.95rem;border-radius:8px 8px 0 0;">' . h($ctCol2Head) . '</th>';
+                echo '<th style="text-align:center;padding:12px 16px;background:'.h($ctAccent).';color:'.h($ctAccentText).';font-weight:700;font-size:.95rem;border-radius:8px 8px 0 0;">' . h($ctCol2Head) . '</th>';
                 echo '</tr></thead><tbody>';
                 foreach ($ctRows as $ri => $ctRow) {
                     $rowBg   = $ri % 2 === 0 ? '#ffffff' : '#f9fafb';

@@ -383,6 +383,87 @@ switch ($action) {
             BASE_DIR . '/multisite/create_hosts.php', $hArgs));
         break;
 
+    /* A manual override of a single row's box — "Create host" above spreads the whole
+     * batch round-robin across the plan; this calls the same engine
+     * (infra_provision_one(), via the locked wrapper create_hosts.php itself uses) for
+     * one named domain on one named box, then writes its FTP credentials back into
+     * that row the same way, so Generate/Upload/Go Live see it as already hosted.
+     * Synchronous, not a detached job like 'create_hosts' — a single vhost + restart is
+     * seconds of work, the same cost the Infra console's own per-cell Host button pays
+     * inline. */
+    case 'create_host_one':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
+        require_once __DIR__ . '/infra/lib/hestia_fleet.php';
+        require_once __DIR__ . '/infra/lib/provision.php';
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+
+        $domain   = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $serverId = trim((string) ($_POST['server_id'] ?? ''));
+        $force    = !empty($_POST['force']);
+        if ($domain === '')   { echo json_encode(['error' => 'No domain given.']); break; }
+        if ($serverId === '') { echo json_encode(['error' => 'No box given.']); break; }
+
+        $parsed = ms_parse_csv($paramsPath);
+        $rows   = $parsed['rows'];
+        $header = $parsed['header'];
+        $idx = null;
+        foreach ($rows as $i => $r) {
+            if (strtolower(trim((string) ($r['domain'] ?? ''))) === $domain) { $idx = $i; break; }
+        }
+        if ($idx === null) { echo json_encode(['error' => "{$domain} is not in this batch's target list."]); break; }
+
+        $box = infra_hestia_server($serverId);
+        if (!$box) { echo json_encode(['error' => 'That box is not in the server registry.']); break; }
+
+        // Same live-guard as create_hosts.php/upload_sites.php — a live site's host is
+        // never touched from a batch tool; Correct & Regenerate is the only path for that.
+        $rec = infra_state_get_domain($domain);
+        if ($rec && ($rec['status'] ?? '') === 'live') {
+            echo json_encode(['error' => "{$domain} is LIVE — use Correct & Regenerate to change its infrastructure."]);
+            break;
+        }
+
+        $hasHost = trim((string) ($rows[$idx]['ftp_host'] ?? '')) !== '' && trim((string) ($rows[$idx]['ftp_user'] ?? '')) !== '';
+        if ($hasHost && !$force) {
+            echo json_encode(['error' => "{$domain} already has a host — check Force to recreate it on a different box."]);
+            break;
+        }
+
+        // Tag it into the Infra console's registry under this batch, same as
+        // create_hosts.php does for every row — otherwise the go-live pipeline has
+        // nothing to show for it.
+        infra_state_upsert_domain(['domain' => $domain, 'batch' => $masterId . '/' . $batchId]);
+
+        $res  = infra_provision_locked($domain, $box, null, ['site' => true, 'cf' => false, 'restart' => true]);
+        $rec2 = infra_state_get_domain($domain);
+        $user = (string) ($rec2['ftp_user'] ?? '');
+        $pass = (string) ($rec2['ftp_pass'] ?? '');
+        $ok   = $res['ok'] && $user !== '' && $pass !== '';
+
+        if ($ok) {
+            foreach (['ftp_host', 'ftp_user', 'ftp_pass', 'ftp_path'] as $c) {
+                if (!in_array($c, $header, true)) $header[] = $c;
+            }
+            $rows[$idx]['ftp_host'] = (string) ($box['host'] ?? '');
+            $rows[$idx]['ftp_user'] = $user;
+            $rows[$idx]['ftp_pass'] = $pass;
+            $rows[$idx]['ftp_path'] = '/home/' . $user;
+            ms_write_csv($paramsPath, $header, $rows);
+            @chown($paramsPath, 'www-data'); @chgrp($paramsPath, 'www-data');
+        }
+
+        $tag = $masterId . '/' . $batchId;
+        infra_pipeline_refresh('assign', $tag);
+        infra_pipeline_refresh('host', $tag);
+
+        echo json_encode([
+            'ok'      => $ok,
+            'box'     => $box['label'] ?? $serverId,
+            'message' => implode(' · ', $res['lines'] ?? []),
+        ]);
+        break;
+
     /* Phase 5 — upload what has already been generated. Detached like the others. */
     case 'upload':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
@@ -1259,7 +1340,11 @@ switch ($action) {
             $rowNum = array_search($dom, $rowOrder, true);
             $rowNum = $rowNum === false ? 0 : $rowNum + 1;
             $label  = ctm_build_label($nicheCode, $batchSeq, $rowNum, $ss, $city, $dom);
-            $r = ctm_get_number_for_domain($accountId, $dom, $city, $ss, $label);
+            // A human-typed area code on this row wins outright — see
+            // ctm_get_number_for_domain()'s own doc for why it's trusted over a
+            // lookup instead of double-checked against it.
+            $areaCodeIn = trim((string) ($byDomain[$dom]['area_code'] ?? ''));
+            $r = ctm_get_number_for_domain($accountId, $dom, $city, $ss, $label, $areaCodeIn);
             if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
             $byDomain[$dom]['phone']      = $r['phone'];
             $byDomain[$dom]['area_code']  = $r['area_code'];

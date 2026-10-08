@@ -414,6 +414,8 @@ function parse_blocks_from_post(): array {
                 // Features list
                 $feats = $_POST['if_features'][$i] ?? [];
                 $block['if_features'] = array_values(array_filter(array_map('trim', $feats)));
+                $ifMob = trim($_POST['if_mobile_order'][$i] ?? '');
+                $block['if_mobile_order'] = in_array($ifMob, ['img_first','text_first']) ? $ifMob : '';
                 if ($block['if_heading'] === '' && empty($block['if_features'])) continue 2;
                 break;
 

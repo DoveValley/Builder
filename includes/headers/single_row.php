@@ -70,7 +70,7 @@
                     <?php
                     if ($btnStyle === 'outline')      { $btnClass = 'header-phone-btn-outline'; $btnInline = 'border-color:'.h($navText).';color:'.h($navText).';'; }
                     elseif ($btnStyle === 'plain')    { $btnClass = 'header-phone-btn-plain';   $btnInline = 'color:'.h($navText).';'; }
-                    else                              { $btnClass = 'header-phone-btn-filled';  $btnInline = 'background:var(--color-accent,'.h($navText).');color:#fff;'; }
+                    else                              { $btnClass = 'header-phone-btn-filled';  $btnInline = 'background:var(--color-accent,'.h($navText).');color:'.h(contrast_text_color($theme['accent_color'] ?? '#fd783b')).';'; }
                     ?>
                     <a href="tel:<?= h($telHref) ?>"
                        class="header-phone-btn <?= $btnClass ?>"

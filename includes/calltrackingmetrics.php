@@ -289,6 +289,15 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
         'broken arrow|ok'  => '918', 'syracuse|ut'      => '801', 'alexandria|va'   => '703',
         'morristown|nj'    => '973', 'marietta|ga'      => '770', 'ogden|ut'        => '801',
         'fenton|mo'        => '636', 'plainfield|il'    => '815',
+        // Found one at a time, same as above: the table's 'near' approximation
+        // pulled San Antonio's 210, but Boerne is Hill Country, not San Antonio
+        // proper — its real code is 830.
+        'boerne|tx'        => '830',
+        // Different failure mode, same fix: this one WAS an exact match, but
+        // Frederick has two real area codes on record ("240 301", an
+        // original/overlay pair like Glendale/Provo above) and the lookup just
+        // took whichever was listed first — 240, the newer overlay, not 301.
+        'frederick|md'     => '301',
     ];
     $key = strtolower(trim($city)) . '|' . strtolower(trim($ss));
     if (isset($manual[$key])) return $manual[$key];
@@ -297,10 +306,17 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
     if (!is_file($dbPath)) return null;
     try {
         $db = new PDO('sqlite:' . $dbPath);
-        $st = $db->prepare('SELECT area_codes FROM cities WHERE lower(city) = lower(?) AND ss = ?');
+        $st = $db->prepare('SELECT area_codes, ac_source FROM cities WHERE lower(city) = lower(?) AND ss = ?');
         $st->execute([$city, strtoupper($ss)]);
         $rec = $st->fetch(PDO::FETCH_ASSOC);
-        if ($rec && trim($rec['area_codes'] ?? '') !== '') {
+        // Only an EXACT match is a fact. 'near' is this table's own flag for "borrowed
+        // from a nearby city in the same state" — a guess, not a verified answer, and
+        // guessing here means CTM can buy a real number in the wrong region (found on
+        // Boerne, TX: the table's 'near' pick was San Antonio's 210, but Boerne is
+        // Hill Country and really uses 830). Treat 'near' the same as no row at all —
+        // refuse rather than buy on a guess. Add the real code to $manual above once
+        // it's been checked, same as every other entry in that list.
+        if ($rec && ($rec['ac_source'] ?? '') === 'exact' && trim($rec['area_codes'] ?? '') !== '') {
             $codes = preg_split('/\s+/', trim($rec['area_codes']));
             return $codes[0] ?: null;
         }
@@ -323,12 +339,26 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
  *        admin/multisite_api.php's ctm_get_numbers action), not just the bare
  *        domain, so a sub-account holding numbers for several batches/niches at
  *        once can still tell them apart at a glance.
+ * @param string $areaCodeOverride A human already typed an area code into this
+ *        row — trust it outright and skip the lookup entirely, rather than
+ *        second-guessing a person who may well know the city better than the
+ *        reference table does. Left blank, this falls back to
+ *        ctm_area_code_for_city(), which itself refuses (returns null) rather
+ *        than buy on an unverified guess.
  */
-function ctm_get_number_for_domain(string $accountId, string $domain, string $city, string $ss, string $label): array
+function ctm_get_number_for_domain(string $accountId, string $domain, string $city, string $ss, string $label, string $areaCodeOverride = ''): array
 {
-    $areaCode = ctm_area_code_for_city($city, $ss);
-    if ($areaCode === null) {
-        return ['ok' => false, 'error' => "No known area code for {$city}, {$ss} — not attempted."];
+    $areaCodeOverride = trim($areaCodeOverride);
+    if ($areaCodeOverride !== '') {
+        if (!preg_match('/^\d{3}$/', $areaCodeOverride)) {
+            return ['ok' => false, 'error' => "'{$areaCodeOverride}' isn't a 3-digit area code — fix the row's Area Code field or clear it to look one up."];
+        }
+        $areaCode = $areaCodeOverride;
+    } else {
+        $areaCode = ctm_area_code_for_city($city, $ss);
+        if ($areaCode === null) {
+            return ['ok' => false, 'error' => "No verified area code for {$city}, {$ss} — only an approximate match on record. Type the real area code into this row, or add it to \$manual in ctm_area_code_for_city() once confirmed."];
+        }
     }
 
     $pooled = ctm_pool_numbers($accountId, $areaCode);

@@ -1087,6 +1087,14 @@ function render_content_blocks_editor($blocks) {
                         <label>Photo alt text</label>
                         <input type="text" name="if_photo_alt[]" value="<?= h($block['if_photo_alt'] ?? '') ?>" placeholder="e.g. Pest control technician Katy TX">
                     </div>
+                    <div class="form-group">
+                        <label>Mobile stacking order</label>
+                        <select name="if_mobile_order[]">
+                            <option value=""           <?= ($block['if_mobile_order'] ?? '') === ''           ? 'selected' : '' ?>>Default (HTML source order)</option>
+                            <option value="img_first"  <?= ($block['if_mobile_order'] ?? '') === 'img_first'  ? 'selected' : '' ?>>Image first</option>
+                            <option value="text_first" <?= ($block['if_mobile_order'] ?? '') === 'text_first' ? 'selected' : '' ?>>Text first</option>
+                        </select>
+                    </div>
 
                     <h4 style="margin:12px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Right Content</h4>
                     <div class="form-group">

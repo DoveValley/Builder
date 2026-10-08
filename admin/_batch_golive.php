@@ -317,13 +317,14 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
             ' <button type="button" class="btn" style="padding:1px 6px;font-size:0.72rem;" onclick="msGoLiveSaveDate(\'' + domAttr + '\', this)">Save</button>' +
             ' <span class="gl-sched-msg" style="font-size:11px;"></span>';
 
+        const td = 'style="border-bottom:1px solid #94a3b8;padding:6px 4px;"';
         return '<tr>' +
-            '<td>' + esc(r.domain) + '</td>' +
-            '<td>' + badge(r.zone) + ' ' + zoneBtn + '</td>' +
-            '<td>' + goLiveCell + '</td>' +
-            '<td>' + schedCell + '</td>' +
-            '<td>' + dnsCell + '</td>' +
-            '<td>' + liveCell + '</td>' +
+            '<td ' + td + '>' + esc(r.domain) + '</td>' +
+            '<td ' + td + '>' + badge(r.zone) + ' ' + zoneBtn + '</td>' +
+            '<td ' + td + '>' + goLiveCell + '</td>' +
+            '<td ' + td + '>' + schedCell + '</td>' +
+            '<td ' + td + '>' + dnsCell + '</td>' +
+            '<td ' + td + '>' + liveCell + '</td>' +
             '</tr>';
     }
 
@@ -331,7 +332,7 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         glRows = rows;
         const box = document.getElementById('ms-golive-body');
         if (!rows.length) {
-            box.innerHTML = '<p class="hint">Nothing to show yet — run Create host (card 3) first so a domain has something to tag.</p>';
+            box.innerHTML = '<p class="hint">Nothing to show yet — run Create host (card 3A/3B) first so a domain has something to tag.</p>';
             return;
         }
         const live = rows.filter(r => r.live.state === 'ok').length;

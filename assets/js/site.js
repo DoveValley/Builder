@@ -66,17 +66,22 @@ var uid = btn.dataset.uid;
 var layout = document.getElementById(uid);
 if (!layout) return;
 var activeBg = btn.dataset.activeBg || 'var(--color-header-bg,#120575)';
+var activeText = btn.dataset.activeText || '#fff';
 layout.querySelectorAll('.ts-tab').forEach(function(t) {
 t.classList.remove('ts-tab-active');
 t.style.background = '';
 t.style.color = '';
+var icon = t.querySelector('.ts-tab-icon');
+if (icon) icon.style.filter = '';
 });
 layout.querySelectorAll('.ts-panel').forEach(function(p) {
 p.setAttribute('hidden', '');
 });
 btn.classList.add('ts-tab-active');
 btn.style.background = activeBg;
-btn.style.color = '#fff';
+btn.style.color = activeText;
+var activeIcon = btn.querySelector('.ts-tab-icon');
+if (activeIcon) activeIcon.style.filter = (activeText === '#fff' || activeText === '#ffffff') ? '' : 'none';
 var panel = layout.querySelector('.ts-panel[data-panel="' + btn.dataset.tab + '"]');
 if (panel) panel.removeAttribute('hidden');
 };
