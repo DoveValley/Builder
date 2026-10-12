@@ -263,7 +263,13 @@ table.ro tr:hover td{background:#f8fafc}
     $('ro-build').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
         const live = [...sel].filter(d => (rows.find(x => x.domain === d) || {}).status === 'live').length;
-        if (!confirm('Build & upload ' + sel.size + ' domain(s) now?' + (live ? '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.' : ''))) return;
+        // Named explicitly, not just counted — a bare "1 domain(s)?" gives no chance to
+        // catch a one-row-off misclick (e.g. ticking the row right below the intended
+        // one) before the job launches. Past 8 the list is its own kind of unreadable,
+        // so it falls back to a count there instead.
+        let msg = sel.size <= 8 ? 'Build & upload now?\n\n' + [...sel].join('\n') : 'Build & upload ' + sel.size + ' domain(s) now?';
+        if (live) msg += '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.';
+        if (!confirm(msg)) return;
         const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]) });
         if (r.error) return say(r.error);
         say('Build & upload started for ' + sel.size + ' domain(s).', true);
