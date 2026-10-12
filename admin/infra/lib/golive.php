@@ -73,42 +73,99 @@ function infra_golive_refresh_live(): int
 /**
  * Schedule not-yet-live domains into daily batches.
  *
- * @param array $opts batch — only domains carrying this tag (default: the whole fleet)
- *                    gate  — skip anything that would be refused at release time, and
- *                            say how many were skipped rather than scheduling a date
- *                            that is going to bounce
- * @return array{scheduled:int, skipped:int, first:string, last:string}
+ * @param array $opts batch    — only domains carrying this tag (default: the whole fleet)
+ *                    gate     — skip anything that would be refused at release time, and
+ *                               say how many were skipped rather than scheduling a date
+ *                               that is going to bounce
+ *                    domains  — schedule ONLY these (the Rollout page's ticked rows);
+ *                               any that can't be scheduled come back in `why`
+ *                    time     — 'HH:MM' (INFRA_TZ) written to go_live_time; omitted =
+ *                               leave go_live_time as it is (the original behaviour)
+ *                    continue — count days already holding this batch's OTHER scheduled
+ *                               domains toward $perDay, so scheduling more later
+ *                               carries on after the existing plan instead of
+ *                               doubling up a day
+ * With only batch/gate set this behaves exactly as it always did.
+ * @return array{scheduled:int, skipped:int, first:string, last:string, why:array}
  */
 function infra_golive_schedule(int $perDay, string $startDate, array $opts = []): array
 {
     $perDay = max(1, $perDay);
     $batch  = (string) ($opts['batch'] ?? '');
     $gate   = !empty($opts['gate']);
+    $only   = null;
+    if (isset($opts['domains'])) {
+        $only = [];
+        foreach ((array) $opts['domains'] as $d) { $d = strtolower(trim((string) $d)); if ($d !== '') $only[$d] = true; }
+    }
+    $time = trim((string) ($opts['time'] ?? ''));
+    if ($time !== '' && !preg_match('/^([01]\d|2[0-3]):[0-5]\d$/', $time)) $time = '';
 
     // Only domains that are actually ready to go live — not live, and not stuck in
     // 'partial'/'register-failed'. (Re-scheduling 'queued' is fine.)
-    $rows = array_filter(infra_state_all_domains(), function ($r) use ($batch) {
-        if (!in_array($r['status'] ?? '', ['staged', 'queued'], true)) return false;
-        return $batch === '' || (string) ($r['batch'] ?? '') === $batch;
-    });
+    $all  = infra_state_all_domains();
+    $why  = [];
+    $rows = [];
+    foreach ($all as $dom => $r) {
+        if ($only !== null && !isset($only[$dom])) continue;
+        if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) { if ($only !== null) $why[] = [$dom, 'not in this batch']; continue; }
+        if (!in_array($r['status'] ?? '', ['staged', 'queued'], true)) { if ($only !== null) $why[] = [$dom, 'status is ' . (($r['status'] ?? '') ?: 'blank')]; continue; }
+        $rows[$dom] = $r;
+    }
+    if ($only !== null) foreach (array_keys($only) as $dom) if (!isset($all[$dom])) $why[] = [$dom, 'not in the fleet'];
     ksort($rows);
 
     $start = strtotime($startDate ?: infra_today());
     if ($start === false) $start = time();
+    $day = date('Y-m-d', $start);
+
+    $load = [];
+    if (!empty($opts['continue'])) {
+        foreach ($all as $dom => $r) {
+            if (isset($rows[$dom])) continue;                       // being (re)scheduled now
+            if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) continue;
+            $gla = (string) ($r['go_live_at'] ?? '');
+            if (($r['status'] ?? '') === 'queued' && $gla !== '') $load[$gla] = ($load[$gla] ?? 0) + 1;
+        }
+    }
 
     $i = 0; $skipped = 0; $first = ''; $last = '';
     foreach ($rows as $dom => $r) {
         // Scheduling something the gate will refuse just moves the failure to a date
         // when nobody is watching. Skip it now and report the number.
-        if ($gate && !infra_golive_gate($dom)['ok']) { $skipped++; continue; }
+        if ($gate && !infra_golive_gate($dom)['ok']) { $skipped++; $why[] = [$dom, 'not uploaded yet']; continue; }
 
-        $date = date('Y-m-d', $start + intdiv($i, $perDay) * 86400);
-        infra_state_upsert_domain(['domain' => $dom, 'go_live_at' => $date, 'status' => 'queued']);
-        if ($first === '') $first = $date;
-        $last = $date;
+        while (($load[$day] ?? 0) >= $perDay) $day = date('Y-m-d', strtotime($day . ' +1 day'));
+        $up = ['domain' => $dom, 'go_live_at' => $day, 'status' => 'queued'];
+        if ($time !== '') $up['go_live_time'] = $time;
+        infra_state_upsert_domain($up);
+        $load[$day] = ($load[$day] ?? 0) + 1;
+        if ($first === '') $first = $day;
+        $last = $day;
         $i++;
     }
-    return ['scheduled' => $i, 'skipped' => $skipped, 'first' => $first, 'last' => $last];
+    return ['scheduled' => $i, 'skipped' => $skipped, 'first' => $first, 'last' => $last, 'why' => $why];
+}
+
+/**
+ * Take domains off the calendar: queued → staged, date and time cleared. Only 'queued' —
+ * a domain already switching DNS or live is past the point a date can undo.
+ * @param string $batch only touch domains carrying this tag ('' = any)
+ * @return array{unscheduled:int, why:array}
+ */
+function infra_golive_unschedule(array $domains, string $batch = ''): array
+{
+    $out = ['unscheduled' => 0, 'why' => []];
+    foreach ($domains as $d) {
+        $d = strtolower(trim((string) $d));
+        $r = $d !== '' ? infra_state_get_domain($d) : null;
+        if (!$r) { $out['why'][] = [$d, 'not in the fleet']; continue; }
+        if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) { $out['why'][] = [$d, 'not in this batch']; continue; }
+        if (($r['status'] ?? '') !== 'queued') { $out['why'][] = [$d, 'not scheduled']; continue; }
+        infra_state_upsert_domain(['domain' => $d, 'go_live_at' => '', 'go_live_time' => '', 'status' => 'staged']);
+        $out['unscheduled']++;
+    }
+    return $out;
 }
 
 /**

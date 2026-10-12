@@ -78,6 +78,9 @@ foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $d) {
             <?= h($batch['name']) ?>
         </h1>
         <div>
+            <!-- Simple (rollout.php) / Detailed (this page): two views of the same open batch. -->
+            <a href="rollout.php" style="padding:5px 12px;border:1px solid #cbd5e1;border-radius:6px;text-decoration:none;color:#334155;font-size:.85rem;">Simple</a>
+            <span style="padding:5px 12px;border:1px solid #1e3a8a;border-radius:6px;background:#1e3a8a;color:#fff;font-size:.85rem;margin-right:10px;">Detailed</span>
             <a href="docs.php?doc=multisite" target="_blank" class="preview-link">MultiSite docs &rarr;</a>
             &nbsp;|&nbsp;
             <a href="logout.php">Log out</a>

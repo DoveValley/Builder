@@ -561,6 +561,52 @@ switch ($action) {
      * actions call the pipeline library directly (not admin/infra/actions/pipeline_golive.php,
      * which is built to redirect back to the Bulk tab's own page) and ride this file's
      * own CSRF gate above, same as every other POST action here. */
+    /* Rollout — the simple view (admin/rollout.php). Thin calls into the core modules:
+     * infra/lib/fleet_view.php (status rows), golive.php (schedule/unschedule — the same
+     * scheduler golive_schedule below uses), fleet_settings.php (go-live time, CF cap). */
+    case 'rollout_rows':
+        require_once __DIR__ . '/infra/lib/fleet_view.php';
+        require_once __DIR__ . '/infra/lib/fleet_settings.php';
+        $rtTargets = ms_parse_csv($paramsPath)['rows'] ?? [];
+        $rtCity = [];
+        foreach ($rtTargets as $t) $rtCity[strtolower(trim((string) ($t['domain'] ?? '')))] = trim(($t['city'] ?? '') . (($t['SS'] ?? '') !== '' ? ', ' . $t['SS'] : ''));
+        $rtRows = infra_fleet_view_rows(array_keys($rtCity));
+        foreach ($rtRows as &$rr) $rr['city'] = $rtCity[$rr['domain']] ?? '';
+        unset($rr);
+        echo json_encode(['rows' => $rtRows, 'settings' => infra_fleet_settings(), 'batch' => $masterId . '/' . $batchId,
+                          'today' => infra_today(), 'tomorrow' => date('Y-m-d', strtotime(infra_today() . ' +1 day'))]);
+        break;
+
+    case 'rollout_schedule':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/golive.php';
+        require_once __DIR__ . '/infra/lib/fleet_settings.php';
+        $rtDoms  = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+        $rtStart = trim((string) ($_POST['start'] ?? ''));
+        if (!is_array($rtDoms) || !$rtDoms) { echo json_encode(['error' => 'Tick at least one domain.']); break; }
+        if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $rtStart) || $rtStart < infra_today()) { echo json_encode(['error' => 'Pick a start date from today on.']); break; }
+        echo json_encode(infra_golive_schedule((int) ($_POST['per_day'] ?? 5), $rtStart, [
+            'batch' => $masterId . '/' . $batchId, 'gate' => true, 'domains' => $rtDoms, 'continue' => true,
+            'time'  => infra_fleet_settings()['golive_time'],
+        ]));
+        break;
+
+    case 'rollout_unschedule':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/golive.php';
+        $rtDoms = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+        if (!is_array($rtDoms) || !$rtDoms) { echo json_encode(['error' => 'Tick at least one domain.']); break; }
+        echo json_encode(infra_golive_unschedule($rtDoms, $masterId . '/' . $batchId));
+        break;
+
+    case 'rollout_settings':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/fleet_settings.php';
+        echo json_encode(['settings' => infra_fleet_settings_save([
+            'golive_time' => (string) ($_POST['golive_time'] ?? ''), 'cf_max_per_account' => (string) ($_POST['cf_max_per_account'] ?? ''),
+        ])]);
+        break;
+
     case 'golive_status':
         require_once __DIR__ . '/infra/lib/pipeline.php';
         $tag = $masterId . '/' . $batchId;
