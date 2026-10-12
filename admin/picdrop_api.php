@@ -263,7 +263,7 @@ if ($action === 'adjust') {
 }
 
 // ── PLACE AN IMAGE (from an upload, an AI generation, or the existing library) ────
-if (!in_array($action, ['place', 'generate', 'place_media', 'set_active'], true)) pd_fail('Unknown action.');
+if (!in_array($action, ['place', 'generate', 'place_media', 'set_active', 'remove_side'], true)) pd_fail('Unknown action.');
 
 // The slot decides the output size: match whatever is in it now. Every slot already
 // holds a correctly-sized image, so this is self-configuring — no per-field size table
@@ -361,7 +361,7 @@ function pd_commit(
         'filename'   => basename($newValue),
         'width'      => (int) $nw,
         'height'     => (int) $nh,
-        'note'       => $note ?? '',
+        'note'       => ($note ?? '') . (isset($GLOBALS['pd_file_note']) ? ' · ' . $GLOBALS['pd_file_note'] : ''),
         'screened'   => $screened,
         'prompt'     => $prompt,
         'cost'       => $cost,
@@ -389,6 +389,52 @@ if ($action === 'set_active') {
     $pairsAll[$key]['active'] = $which;
     pd_commit($parts, $slot, $key, $target, null, null, null, null, '', null, null,
         function () use ($pairsAll) { picdrop_pairs_save($pairsAll); });
+}
+
+// Deleting one side of a slot's Real/AI pair (the lightbox's Delete button). The
+// page must never be left without a picture: deleting the side that is live switches
+// the slot to the other side first (same write as "use Real"/"use AI"), and deleting
+// the only photo a slot has is refused. The FILE goes only when nothing else uses it
+// (picdrop_delete_if_unused) — the same image is often another template's photo too.
+if ($action === 'remove_side') {
+    $which = (string) ($_POST['which'] ?? '');
+    if ($which !== 'real' && $which !== 'ai') pd_fail('Choose real or ai.');
+    $label    = $which === 'ai' ? 'AI' : 'Real';
+    $other    = $which === 'ai' ? 'real' : 'ai';
+    $pairsAll = picdrop_pairs_load();
+    $row      = $pairsAll[$key] ?? [];
+    $target   = (string) ($row[$which] ?? '');
+    if ($target === '') pd_fail('There is no ' . $label . ' photo saved for this slot.');
+    $isActive = ($row['active'] ?? 'real') === $which;
+    $fallback = (string) ($row[$other] ?? '');
+    if ($isActive && $fallback === '') {
+        pd_fail('This is the only photo in this slot, so deleting it would leave the page with no image. '
+            . 'Drop, pick or generate a replacement first, then delete this one.');
+    }
+    unset($pairsAll[$key][$which]);
+    if ($isActive) $pairsAll[$key]['active'] = $other;
+
+    $fileNote = function () use ($target): string {
+        $r = picdrop_delete_if_unused($target);
+        if ($r['deleted']) return 'file deleted';
+        if ($r['refs'] && str_starts_with($r['refs'][0], '(')) return 'file kept ' . $r['refs'][0];
+        return $r['refs'] ? 'file kept — still used in ' . count($r['refs']) . ' other place' . (count($r['refs']) === 1 ? '' : 's') : 'file already gone';
+    };
+
+    if ($isActive) {
+        // pd_commit echoes and exits, so the file check runs inside its success hook and
+        // its note rides along on the response.
+        pd_commit($parts, $slot, $key, $fallback, null, null,
+            'deleted ' . $label . ', now using ' . ($other === 'ai' ? 'AI' : 'Real'), null, '', null, null,
+            function () use ($pairsAll, $fileNote) {
+                picdrop_pairs_save($pairsAll);
+                $GLOBALS['pd_file_note'] = $fileNote();
+            });
+    }
+    picdrop_pairs_save($pairsAll);
+    echo json_encode(['success' => true, 'removed_only' => true, 'pair' => picdrop_pairs_get($key),
+                      'note' => 'deleted ' . $label . ' · ' . $fileNote()]);
+    exit;
 }
 
 $screened     = null;

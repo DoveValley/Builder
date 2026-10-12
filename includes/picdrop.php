@@ -808,3 +808,57 @@ function picdrop_reference_prompt(string $prompt, string $mode): string {
     }
     return $prompt . $suffix;
 }
+
+/**
+ * Every place outside the media library that still points at this image: any site's
+ * page data, templates, Pic Drop pairs, and multisite caches (per-domain image maps).
+ * Matched on the file's stem, so a reference to its "-mobile" or a further-derived copy
+ * also counts — erring toward keeping a file, never toward deleting one in use.
+ *
+ * @return string[] relative paths of the JSON files that mention it
+ */
+function picdrop_file_references(string $value): array {
+    $stem = pathinfo(basename($value), PATHINFO_FILENAME);
+    if ($stem === '') return ['(no filename)'];
+    $hits = [];
+    foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $site) {
+        foreach (['data', 'multisite'] as $sub) {
+            if (!is_dir("$site/$sub")) continue;
+            $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("$site/$sub", FilesystemIterator::SKIP_DOTS));
+            foreach ($it as $f) {
+                if ($f->getExtension() !== 'json' || $f->getFilename() === 'media.json') continue;
+                $raw = @file_get_contents($f->getPathname());
+                if ($raw !== false && strpos($raw, $stem) !== false) {
+                    $hits[] = substr($f->getPathname(), strlen(BASE_DIR) + 1);
+                }
+            }
+        }
+    }
+    return $hits;
+}
+
+/**
+ * Delete an image file (plus its -mobile sibling and media-library entry) ONLY when
+ * nothing references it any more. Pic Drop routinely shares one file between a
+ * template's hero, another template's body photo and a social image, so deleting on
+ * request alone would break pages that were never touched.
+ *
+ * @return array{deleted:bool,refs:string[]}
+ */
+function picdrop_delete_if_unused(string $value): array {
+    $path = picdrop_resolve($value);
+    if ($path === null || !is_file($path)) return ['deleted' => false, 'refs' => []];
+    if (!str_starts_with(realpath($path) ?: '', realpath(MEDIA_DIR) ?: "\0")) {
+        return ['deleted' => false, 'refs' => ['(outside this site\'s media library)']];
+    }
+    $refs = picdrop_file_references($value);
+    if ($refs) return ['deleted' => false, 'refs' => $refs];
+
+    $info   = pathinfo($path);
+    $mobile = $info['dirname'] . '/' . $info['filename'] . '-mobile.' . ($info['extension'] ?? 'webp');
+    @unlink($path);
+    if (is_file($mobile)) @unlink($mobile);
+    $name = basename($path);
+    media_save(array_values(array_filter(media_load(), fn($i) => ($i['filename'] ?? '') !== $name)));
+    return ['deleted' => true, 'refs' => []];
+}

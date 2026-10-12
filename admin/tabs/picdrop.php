@@ -181,7 +181,7 @@
                                                 echo '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:#cbd5e1;">no ' . $labelText . '</div>';
                                             } else {
                                                 $activeStyle = $isActive ? 'border:2px solid #2563eb;' : 'border:2px solid transparent;opacity:.75;';
-                                                echo '<img src="/' . h($path) . '" data-full="/' . h($path) . '" data-name="' . h(basename($path)) . '" alt="" title="Click to view full size"'
+                                                echo '<img src="/' . h($path) . '" data-full="/' . h($path) . '" data-name="' . h(basename($path)) . '" data-sid="' . $sid . '" data-key="' . h($s['key']) . '" data-which="' . $which . '" alt="" title="Click to view full size"'
                                                    . ' style="width:63px;height:63px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;' . $activeStyle . '"'
                                                    . ' onerror="this.style.display=\'none\'">';
                                                 echo '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:' . ($isActive ? '#2563eb;font-weight:600;' : '#94a3b8;') . '">';
@@ -420,6 +420,7 @@
                         <span id="pd-lb-name" style="font-weight:600;"></span>
                         <span id="pd-lb-dims"></span>
                         <a id="pd-lb-dl" href="" download="" style="color:#93c5fd;text-decoration:none;">&#11015; Download</a>
+                        <button type="button" id="pd-lb-del" style="display:none;background:none;border:1px solid #f87171;color:#fca5a5;border-radius:5px;padding:3px 10px;cursor:pointer;font-size:.78rem;">&#128465; Delete</button>
                         <button type="button" id="pd-lb-close" style="background:none;border:1px solid #64748b;color:#e2e8f0;border-radius:5px;padding:3px 10px;cursor:pointer;font-size:.78rem;">Close (Esc)</button>
                     </div>
                 </div>
@@ -488,7 +489,14 @@
                 var lbDims = document.getElementById('pd-lb-dims');
                 var lbDl   = document.getElementById('pd-lb-dl');
 
-                function pdOpen(url, name) {
+                // ctx = {sid, key, which} when opened from a slot's Real/AI thumbnail —
+                // the only case where Delete makes sense. Library thumbnails pass none.
+                var lbCtx = null;
+                var lbDel = document.getElementById('pd-lb-del');
+                function pdOpen(url, name, ctx) {
+                    lbCtx = ctx || null;
+                    lbDel.style.display = lbCtx ? '' : 'none';
+                    lbDel.disabled = false;
                     lbName.textContent = name || '';
                     lbDims.textContent = '';
                     lbDl.href = url;
@@ -523,7 +531,10 @@
                     }
                     var img = e.target.closest ? e.target.closest('img[data-full]') : null;
                     if (img) {
-                        pdOpen(img.getAttribute('data-full'), img.getAttribute('data-name'));
+                        var ctx = img.getAttribute('data-which')
+                            ? { sid: img.getAttribute('data-sid'), key: img.getAttribute('data-key'), which: img.getAttribute('data-which') }
+                            : null;
+                        pdOpen(img.getAttribute('data-full'), img.getAttribute('data-name'), ctx);
                     }
                 });
 
@@ -532,6 +543,39 @@
                     if (e.target === lb) pdClose();
                 });
                 document.getElementById('pd-lb-close').addEventListener('click', pdClose);
+
+                lbDel.addEventListener('click', function () {
+                    if (!lbCtx) return;
+                    var c = lbCtx, label = c.which === 'ai' ? 'AI' : 'Real';
+                    if (!confirm('Delete the ' + label + ' photo from this slot?\n\nIf it is the live photo, the slot switches to the other one. '
+                        + 'The file itself is only removed if no other page or template uses it.')) return;
+                    lbDel.disabled = true;
+                    var fd = new FormData();
+                    fd.append('csrf_token', CSRF_TOKEN);
+                    fd.append('action', 'remove_side');
+                    fd.append('key', c.key);
+                    fd.append('which', c.which);
+                    setMeta(c.sid, 'Deleting…', '#2563eb');
+                    fetch('picdrop_api.php', { method: 'POST', body: fd })
+                        .then(function (r) { return r.json(); })
+                        .catch(function () { return { error: 'The server did not return a valid response.' }; })
+                        .then(function (d) {
+                            if (!d || !d.success) {
+                                lbDel.disabled = false;
+                                setMeta(c.sid, (d && d.error) || 'Could not delete.', '#b91c1c');
+                                alert((d && d.error) || 'Could not delete.');
+                                return;
+                            }
+                            pdClose();
+                            if (d.removed_only) {
+                                renderPrev(c.sid, c.key, d.pair);
+                                setMeta(c.sid, d.note, '#15803d');
+                                markDirty();
+                            } else {
+                                applyResult(c.sid, c.key, d);
+                            }
+                        });
+                });
                 document.addEventListener('keydown', function (e) {
                     if (e.key === 'Escape' && lb.style.display !== 'none') pdClose();
                 });
@@ -556,7 +600,7 @@
                             + '<div style="font-size:.62rem;text-align:center;margin-top:2px;color:#cbd5e1;">no ' + labelText + '</div></div>';
                     }
                     var activeStyle = isActive ? 'border:2px solid #2563eb;' : 'border:2px solid transparent;opacity:.75;';
-                    var img = '<img src="/' + path + '?t=' + Date.now() + '" data-full="/' + path + '" data-name="' + path.split('/').pop() + '" alt="" title="Click to view full size"'
+                    var img = '<img src="/' + path + '?t=' + Date.now() + '" data-full="/' + path + '" data-name="' + path.split('/').pop() + '" data-sid="' + sid + '" data-key="' + key + '" data-which="' + which + '" alt="" title="Click to view full size"'
                         + ' style="width:63px;height:63px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;' + activeStyle + '"'
                         + ' onerror="this.style.display=\'none\'">';
                     var label = isActive
