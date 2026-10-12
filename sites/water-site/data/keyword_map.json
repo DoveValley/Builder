@@ -61,12 +61,12 @@
       "section": "landing",
       "tier": "high-2",
       "secondary": [
-        "water extraction",
-        "water removal",
-        "emergency water extraction",
         "structural drying",
         "dehumidification",
-        "water mitigation services"
+        "water mitigation services",
+        "water damage mitigation",
+        "moisture mapping",
+        "water mitigation company"
       ],
       "pool": "rotate"
     },
@@ -102,14 +102,16 @@
       "section": "landing",
       "tier": "high-2",
       "secondary": [
-        "basement flood clean up",
+        "basement flood cleanup",
+        "flooded basement",
+        "basement flooding",
+        "basement flooded what to do",
+        "basement water removal",
         "flooded basement water removal",
         "basement water damage",
-        "wet basement cleanup",
-        "crawl space water damage",
-        "crawl space water removal"
+        "wet basement cleanup"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "commercial water damage restoration {city}, {ST}",
@@ -125,15 +127,18 @@
       "pool": "pinned"
     },
     {
-      "primary": "burst pipe water damage {city}, {ST}",
+      "primary": "burst pipe cleanup {city}, {ST}",
       "slug": "burst-pipe-water-damage",
       "section": "landing",
       "tier": "high-3",
       "secondary": [
-        "burst pipe cleanup",
-        "water line break",
+        "burst pipe water damage",
+        "pipe burst in house",
+        "burst water pipe",
+        "frozen pipe burst",
         "frozen pipe water damage",
-        "broken pipe water damage"
+        "burst pipe in wall",
+        "water line break"
       ],
       "pool": "rotate"
     },
@@ -355,14 +360,45 @@
         "water damage insurance adjuster"
       ],
       "pool": "pinned"
+    },
+    {
+      "primary": "emergency water removal {city}, {ST}",
+      "slug": "emergency-water-removal",
+      "section": "landing",
+      "tier": "high-1",
+      "secondary": [
+        "water extraction",
+        "emergency water extraction",
+        "water extraction service",
+        "water removal services",
+        "emergency water cleanup",
+        "flood water removal",
+        "standing water removal"
+      ],
+      "pool": "pinned"
+    },
+    {
+      "primary": "water damage restoration cost {city}, {ST}",
+      "slug": "water-damage-restoration-cost",
+      "section": "landing",
+      "tier": "high-3",
+      "secondary": [
+        "cost of water damage restoration",
+        "water damage restoration price",
+        "water damage repair cost",
+        "how much does water damage restoration cost",
+        "water mitigation cost",
+        "water damage cleanup cost"
+      ],
+      "pool": "pinned"
     }
   ],
   "updated_at": "2026-07-12T00:06:08+00:00",
   "page_pool": {
     "counts": [
-      14,
       16,
-      18
+      18,
+      20
     ],
     "enabled": true
   }
