@@ -562,14 +562,18 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         ?>
         <p class="hint" style="margin:0 0 8px;">Every checkbox below is saved for this batch the moment you change it
             <span id="ms-opts-msg" style="font-weight:700;transition:opacity .3s;margin-left:6px;"></span></p>
-        <?php foreach ($msTree as $msSec): ?>
+        <?php foreach ($msTree as $msSecIdx => $msSec): $msSecN = $msSecIdx + 1; ?>
         <div style="margin-bottom:12px;">
             <div style="display:flex;align-items:baseline;gap:9px;margin-bottom:5px;">
                 <strong style="font-size:.83rem;color:#1e3a5f;"><?= $msSec['section'] ?></strong>
                 <span class="hint" style="color:#94a3b8;"><?= $msSec['facet'] ?></span>
             </div>
             <div style="display:flex;flex-direction:column;gap:5px;">
-            <?php foreach ($msSec['groups'] as $msT):
+            <?php foreach ($msSec['groups'] as $msGrpIdx => $msT):
+                // A coordinate, not a sequence — "2.4.1" means something stable (section 2,
+                // group 4, lever 1) you can reference in conversation or a ticket, not just
+                // "the 3rd item down" which shifts the moment a row is added above it.
+                $msGrpN = $msSecN . '.' . ($msGrpIdx + 1);
                 [$msIcon, $msFg, $msBg, $msWord] = $msPill[$msT['status']]; ?>
                 <details style="background:#fff;border:1px solid #e2e8f0;border-radius:7px;">
                     <summary style="cursor:pointer;padding:7px 11px;display:flex;align-items:center;gap:9px;font-size:.86rem;">
@@ -581,6 +585,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                         <?php else: ?>
                             <input type="checkbox" disabled onclick="event.stopPropagation()">
                         <?php endif; ?>
+                        <span class="hint" style="font-family:monospace;color:#94a3b8;"><?= $msGrpN ?></span>
                         <span style="font-weight:600;color:<?= $msT['status'] === 'live' ? '#1e3a5f' : '#64748b' ?>;"><?= $msT['label'] ?></span>
                         <span style="background:<?= $msBg ?>;color:<?= $msFg ?>;border-radius:4px;padding:1px 8px;font-size:.7rem;font-weight:700;white-space:nowrap;"><?= $msIcon ?> <?= $msWord ?></span>
                         <span class="hint" style="margin-left:auto;color:#cbd5e1;font-size:.74rem;"><?= count($msT['subs']) ?> items</span>
@@ -589,12 +594,16 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                         <?php if (!empty($msT['note'])): ?>
                             <p class="hint" style="margin:0 0 6px;color:#94a3b8;"><?= $msT['note'] ?></p>
                         <?php endif; ?>
-                        <?php foreach ($msT['subs'] as $msSub):
+                        <?php $msSubN = 0; foreach ($msT['subs'] as $msSub):
                             $msLabel   = $msSub[0];
                             $msMode    = $msSub[1];
                             $msKey     = $msSub[2] ?? null;
                             $msRot     = $msSub[3] ?? null;
                             $msChecked = $msMode === 'control' ? ($msBatchOptions['subs'][$msKey] ?? true) : true;
+                            // Numbered whether or not the row has a lever — a status tick needs
+                            // its own coordinate just as much as a checkbox does, so any row here
+                            // can be pointed at ("what's 2.4.3?") in conversation.
+                            $msSubN++; $msSubCoord = $msGrpN . '.' . $msSubN;
                             if ($msMode === 'control'): ?>
                                 <!-- A real switch: its own skip key, collected by msRun(). Its checked state
                                      also auto-saves per BATCH on change (see msSaveBatchOptions() below) —
@@ -603,6 +612,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                                     <input type="checkbox" class="ms-sub-opt" value="<?= htmlspecialchars($msKey, ENT_QUOTES) ?>"
                                            data-parent="<?= htmlspecialchars($msT['key'] ?? '', ENT_QUOTES) ?>"
                                            <?= $msChecked ? 'checked' : '' ?>>
+                                    <span style="font-family:monospace;color:#cbd5e1;"><?= $msSubCoord ?></span>
                                     <span><?= $msLabel ?></span>
                                 </label>
                                 <?php if ($msRot): ?>
@@ -640,19 +650,19 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                             <?php elseif ($msMode === 'todo'): ?>
                                 <!-- Not built: nothing to switch, so no checkbox. -->
                                 <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#94a3b8;">
-                                    <span>&#128679;</span><span><?= $msLabel ?></span>
+                                    <span>&#128679;</span><span style="font-family:monospace;color:#cbd5e1;"><?= $msSubCoord ?></span><span><?= $msLabel ?></span>
                                 </div>
                             <?php elseif ($msMode === 'off'): ?>
                                 <!-- Built, but nothing switched on behind it — must not read as
                                      running, which a green tick would. -->
                                 <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#92400e;">
-                                    <span>&#9888;</span><span><?= $msLabel ?></span>
+                                    <span>&#9888;</span><span style="font-family:monospace;color:#cbd5e1;"><?= $msSubCoord ?></span><span><?= $msLabel ?></span>
                                 </div>
                             <?php else: ?>
                                 <!-- Happens whenever the parent step runs; not separable, so no
                                      checkbox — an unclickable tick would only look like a control. -->
                                 <div class="hint" style="display:flex;align-items:flex-start;gap:7px;padding:1px 0 1px 22px;color:#334155;">
-                                    <span style="color:#166534;">&#10003;</span><span><?= $msLabel ?></span>
+                                    <span style="color:#166534;">&#10003;</span><span style="font-family:monospace;color:#cbd5e1;"><?= $msSubCoord ?></span><span><?= $msLabel ?></span>
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
