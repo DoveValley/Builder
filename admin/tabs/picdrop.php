@@ -292,8 +292,8 @@
                                         // are written as edits of the current photo (see the reference checkbox
                                         // below, always on), so each opens by anchoring to "the same scene."
                                         $aiPromptTech = 'Photorealistic photo for: ' . $subjectDesc . '. Keep the same scene and equipment. Make sure a technician is in the shot, genuinely working — not posed, not looking at the camera, focused on the tool or equipment. Their head, hands, and the equipment must all be visible in frame. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
-                                        $aiPromptNoTech = 'Similar picture, for: ' . $subjectDesc . ' — keep the same scene and equipment, with only a very subtle change in camera angle. Remove the technician entirely — just the equipment and surroundings. Wide or medium-wide shot, with margin around the equipment since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
-                                        $aiPromptNewPerson = 'Same picture, for: ' . $subjectDesc . ' — keep the exact same scene, composition, and equipment. Replace whoever\'s in the shot with a different-looking person in the same role. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
+                                        $aiPromptNoTech = 'Similar picture, for: ' . $subjectDesc . ' — keep the same scene and equipment, with only a very subtle change in camera angle. Remove the technician entirely — just the equipment and surroundings. The equipment must be fully visible in frame, not cropped off. Wide or medium-wide shot, with margin around the equipment since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
+                                        $aiPromptNewPerson = 'Same picture, for: ' . $subjectDesc . ' — keep the exact same scene, composition, and equipment. Replace whoever\'s in the shot with a different-looking person in the same role. The person and the equipment must both be fully visible in frame, not cropped off. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
                                         // No subject description here, deliberately — unlike the other three,
                                         // this mode isn't adding, removing, or changing anything, so naming the
                                         // equipment/subject just gives the model something to act on instead of
@@ -337,19 +337,19 @@
                                                          special-case. */ ?>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:6px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="tech" checked onchange="pdSetPromptMode('<?= $sid ?>','tech')">
-                                                    Technician
+                                                    <span style="font-family:monospace;color:#94a3b8;">1.</span> Technician
                                                 </label>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="notech" onchange="pdSetPromptMode('<?= $sid ?>','notech')">
-                                                    No technician
+                                                    <span style="font-family:monospace;color:#94a3b8;">2.</span> No technician
                                                 </label>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="newperson" onchange="pdSetPromptMode('<?= $sid ?>','newperson')">
-                                                    Different person
+                                                    <span style="font-family:monospace;color:#94a3b8;">3.</span> Different person
                                                 </label>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="vary" onchange="pdSetPromptMode('<?= $sid ?>','vary')">
-                                                    Subtle variation
+                                                    <span style="font-family:monospace;color:#94a3b8;">4.</span> Subtle variation
                                                 </label>
                                                 <?php endif; ?>
                                                 <div id="<?= $sid ?>_ai_btnrow" style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">

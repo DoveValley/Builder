@@ -780,6 +780,7 @@ function picdrop_vary_prompt(): string {
     return 'Same photo, taken again from a very slightly different camera position. '
          . 'Everything in it stays exactly as it is and nothing new is added — only the viewpoint '
          . 'shifts a little, just enough that it reads as a distinct photo from the original. '
+         . 'Nothing already in frame should end up cropped off at the edges. '
          . 'No visible text or logos.';
 }
 
