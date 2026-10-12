@@ -609,7 +609,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                                 <!-- Rotation pin counts for this scope — read by msRun() alongside the skip list.
                                      Saved per BATCH on change (rotation_settings_save.php), so a value you set
                                      survives a reload instead of resetting to 1/1. -->
-                                <div class="hint" style="display:flex;align-items:center;gap:14px;padding:2px 0 6px 22px;">
+                                <div class="hint" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:2px 0 6px 22px;">
                                     <label style="display:flex;align-items:center;gap:5px;">Don't rotate top
                                         <input type="number" min="0" max="20" step="1" class="ms-rot-opt"
                                                id="ms-<?= htmlspecialchars($msRot['top_field'], ENT_QUOTES) ?>"
@@ -625,6 +625,16 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                                                onchange="msSaveRotation(this)">
                                     </label>
                                     <span class="ms-rot-msg" style="font-weight:700;transition:opacity .3s;"></span>
+                                    <!-- How to switch section order on/off with these two numbers. Mirrors
+                                         layout_rotate_blocks(): it returns the natural order when top + bottom
+                                         >= the page's block count, and layout_generate_variants_for_list() has
+                                         nothing to swap with fewer than 2 movable blocks — so "covers all but one"
+                                         is the exact off condition. 20 is the input's max and covers any page up
+                                         to 21 blocks (water: landing pages have 13, the home page 16). -->
+                                    <span style="flex:1;min-width:220px;max-width:460px;color:#64748b;line-height:1.45;">
+                                        <strong>On:</strong> 1 / 1 (default) &mdash; the first and last sections stay put and a couple of neighbouring sections in between swap, one fixed order per domain.
+                                        <strong>Off:</strong> set <em>Don&rsquo;t rotate top</em> to <strong>20</strong> &mdash; once top + bottom covers all but one section, nothing can move and every site keeps the page&rsquo;s natural order. Unticking the box above turns it off too.
+                                    </span>
                                 </div>
                                 <?php endif; ?>
                             <?php elseif ($msMode === 'todo'): ?>
