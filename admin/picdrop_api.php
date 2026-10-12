@@ -467,9 +467,27 @@ if ($action === 'place') {
         // nothing telling it to preserve what's actually IN the reference (a work
         // van, equipment, etc.) — it was as free to invent as a from-scratch
         // generation, just starting from this image instead of a blank one.
-        $refPrompt = $prompt . ' Keep this photo close to the reference — same setting, same equipment, '
-            . 'same vehicle if one is visible — and apply only the change described above. '
-            . 'If there is a technician or other person in the photo, give them a different face and hairstyle than the reference photo.';
+        //
+        // The part of this instruction beyond "keep it close" depends on which of
+        // Pic Drop's four prompt modes was selected (picdrop.php's $sid.'_ai_mode'
+        // radio group: tech / notech / newperson / vary) — a single fixed "give them
+        // a different face" suffix used to fire on every reference edit regardless of
+        // mode, which fought the "no technician" mode's own instruction and did
+        // nothing useful for the plain "add/describe the technician" default mode.
+        $mode = (string) ($_POST['mode'] ?? 'tech');
+        $refSuffix = ' Keep this photo close to the reference — same setting, same equipment, '
+            . 'same vehicle if one is visible — and apply only the change described above.';
+        if ($mode === 'notech') {
+            $refSuffix .= ' Remove any technician or other person from the scene entirely — show only '
+                . 'the equipment and surroundings, as if no one is present.';
+        } elseif ($mode === 'newperson') {
+            $refSuffix .= ' Give any person in the photo a different face and hairstyle than the '
+                . 'reference photo, while keeping their role the same.';
+        } elseif ($mode === 'vary') {
+            $refSuffix .= ' Keep any person in the photo exactly as they are, unchanged — only vary '
+                . 'the camera angle slightly, nothing else.';
+        }
+        $refPrompt = $prompt . $refSuffix;
         $r = openai_images_edit($refPrompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
         $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);

@@ -5,22 +5,22 @@
         "block_id": "feature_split_1"
     },
     "home::0:hs_photo": {
-        "prompt": "Photorealistic photo for: Hero Split \u2014 Hero photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
+        "prompt": "Photorealistic photo for: Water damage restoration. Wide or medium-wide shot that shows the full scene \u2014 do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person \u2014 do not crop it off or leave it out. This photo will be cropped to fit its slot afterward, so leave margin around the subject and any equipment \u2014 do not compose it edge-to-edge. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.",
         "block_type": "hero_split",
         "block_id": "hero_split_1"
     },
     "home::3:fs_photo": {
-        "prompt": "Photorealistic photo for: Water damage restoration technician. Wide or medium-wide shot that shows the full scene \u2014 do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person \u2014 do not crop it off or leave it out. This photo will be cropped to fit its slot afterward, so leave margin around the subject and any equipment \u2014 do not compose it edge-to-edge. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.",
+        "prompt": "Same picture, for: Water damage example \u2014 keep the exact same scene, composition, and equipment. Replace whoever's in the shot with a different-looking person in the same role. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.",
         "block_type": "feature_split",
         "block_id": "feature_split_1"
     },
     "home::5:ts_tabs.0.photo": {
-        "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Wide or medium-wide shot that shows the full scene \u2014 do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person \u2014 do not crop it off or leave it out. This photo will be cropped to fit its slot afterward, so leave margin around the subject and any equipment \u2014 do not compose it edge-to-edge. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.",
+        "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Keep the same scene and equipment. Make sure a technician is in the shot, genuinely working \u2014 not posed, not looking at the camera, focused on the tool or equipment. Their head, hands, and the equipment must all be visible in frame. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.",
         "block_type": "tab_services",
         "block_id": "tab_services_1"
     },
     "home::5:ts_tabs.2.photo": {
-        "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Natural daylight, documentary photography style, no visible text or logos anywhere, including on hats, uniforms, or clothing.",
+        "prompt": "Photorealistic photo for: Tab Services \u2014 Tab photo. Keep the same scene and equipment. Make sure a technician is in the shot, genuinely working \u2014 not posed, not looking at the camera, focused on the tool or equipment. Their head, hands, and the equipment must all be visible in frame. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.",
         "block_type": "tab_services",
         "block_id": "tab_services_1"
     },
@@ -40,7 +40,7 @@
         "block_id": "image_features_1"
     },
     "home::6:hg_photo": {
-        "prompt": "Photorealistic photo for: Hero Grid \u2014 Hero grid. Bright, well-lit scene with natural daylight \u2014 not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression \u2014 not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing. If tools or machinery are part of the scene, keep them fully in frame \u2014 do not crop them off.",
+        "prompt": "Same picture \u2014 do not change the scene, the equipment, or the person in any way. The only change allowed is a very slight shift in camera angle, just enough that it reads as a distinct photo from the original. No visible text or logos.",
         "block_type": "hero_grid",
         "block_id": "hero_grid_1"
     },

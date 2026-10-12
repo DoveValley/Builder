@@ -281,7 +281,22 @@
                                         $subjectDesc = trim((string) preg_replace('/\s*\{[a-z_]+\}/i', '', $subjectDesc));
                                         $subjectDesc = trim((string) preg_replace('/,\s*$/', '', $subjectDesc));
                                         $subjectDesc = trim((string) preg_replace('/\bin\s*$/i', '', $subjectDesc));
-                                        $aiDefault = 'Photorealistic photo for: ' . $subjectDesc . '. Wide or medium-wide shot that shows the full scene — do not crop in tight or zoom in on just a face or hands. If this scene involves any equipment, tools, machinery, or a vehicle, show it clearly and fully in frame alongside the person — do not crop it off or leave it out. This photo will be cropped to fit its slot afterward, so leave margin around the subject and any equipment — do not compose it edge-to-edge. Bright, well-lit scene with natural daylight — not dark or moody. Any person shown has a professional, neutral appearance and a calm, focused expression — not smiling, not distressed. No visible text or logos anywhere, including on hats, uniforms, or clothing.';
+                                        // Four full prompts, one per mode — not one default with clauses bolted
+                                        // on for the other three, since each mode's subject/intent is different
+                                        // enough that a shared sentence fought itself (a "no technician" clause
+                                        // appended to a sentence whose subject IS a technician, etc). All four
+                                        // are written as edits of the current photo (see the reference checkbox
+                                        // below, always on), so each opens by anchoring to "the same scene."
+                                        $aiPromptTech = 'Photorealistic photo for: ' . $subjectDesc . '. Keep the same scene and equipment. Make sure a technician is in the shot, genuinely working — not posed, not looking at the camera, focused on the tool or equipment. Their head, hands, and the equipment must all be visible in frame. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
+                                        $aiPromptNoTech = 'Similar picture, for: ' . $subjectDesc . ' — keep the same scene and equipment, with only a very subtle change in camera angle. Remove the technician entirely — just the equipment and surroundings. Wide or medium-wide shot, with margin around the equipment since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
+                                        $aiPromptNewPerson = 'Same picture, for: ' . $subjectDesc . ' — keep the exact same scene, composition, and equipment. Replace whoever\'s in the shot with a different-looking person in the same role. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
+                                        // No subject description here, deliberately — unlike the other three,
+                                        // this mode isn't adding, removing, or changing anything, so naming the
+                                        // equipment/subject just gives the model something to act on instead of
+                                        // leave alone. Found by testing: restating "keep the equipment exactly"
+                                        // alongside the subject's own equipment-naming text was adding MORE
+                                        // equipment to the scene, not preserving what was already there.
+                                        $aiPromptVary = 'Same picture — do not change the scene, the equipment, or the person in any way. The only change allowed is a very slight shift in camera angle, just enough that it reads as a distinct photo from the original. No visible text or logos.';
                                         ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
@@ -294,11 +309,41 @@
                                             </div>
                                             <div id="<?= $sid ?>_ai" style="display:none;margin-top:8px;">
                                                 <textarea id="<?= $sid ?>_ai_prompt" rows="4"
-                                                          style="width:100%;font-size:.74rem;padding:6px 7px;border:1px solid #d1d5db;border-radius:5px;box-sizing:border-box;resize:vertical;"><?= h($aiDefault) ?></textarea>
+                                                          data-prompt-tech="<?= h($aiPromptTech) ?>"
+                                                          data-prompt-notech="<?= h($aiPromptNoTech) ?>"
+                                                          data-prompt-newperson="<?= h($aiPromptNewPerson) ?>"
+                                                          data-prompt-vary="<?= h($aiPromptVary) ?>"
+                                                          style="width:100%;font-size:.74rem;padding:6px 7px;border:1px solid #d1d5db;border-radius:5px;box-sizing:border-box;resize:vertical;"><?= h($aiPromptTech) ?></textarea>
                                                 <?php if ($s['value'] !== '' && $s['exists']): ?>
+                                                <?php /* Always on, not optional, whenever there's a photo to
+                                                         reference — all four modes below are edits of the existing
+                                                         photo, not from-scratch generations, so there's no mode
+                                                         where skipping the reference makes sense. Left visible
+                                                         (checked + disabled) rather than removed so it's still
+                                                         obvious what Generate is about to do. */ ?>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:5px;font-size:.7rem;">
-                                                    <input type="checkbox" id="<?= $sid ?>_ai_ref">
-                                                    Use current photo as reference (same subject/style, apply the prompt as a change)
+                                                    <input type="checkbox" checked disabled>
+                                                    Using current photo as reference
+                                                </label>
+                                                <?php /* A real radio group, not checkboxes faking exclusivity —
+                                                         exactly one of the four is always selected, "Technician"
+                                                         pre-selected, so there's no "nothing picked" state to
+                                                         special-case. */ ?>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:6px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="tech" checked onchange="pdSetPromptMode('<?= $sid ?>','tech')">
+                                                    Technician
+                                                </label>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="notech" onchange="pdSetPromptMode('<?= $sid ?>','notech')">
+                                                    No technician
+                                                </label>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="newperson" onchange="pdSetPromptMode('<?= $sid ?>','newperson')">
+                                                    Different person
+                                                </label>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="vary" onchange="pdSetPromptMode('<?= $sid ?>','vary')">
+                                                    Subtle variation
                                                 </label>
                                                 <?php endif; ?>
                                                 <div id="<?= $sid ?>_ai_btnrow" style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
@@ -621,6 +666,20 @@
                         });
                 });
 
+                // Swaps the prompt box to match whichever of the four radio options is
+                // selected — real radio inputs (one <input name> group), so the browser
+                // itself guarantees exactly one is ever selected, "Technician" pre-checked.
+                // Always overwrites the textarea on selection (rather than trying to detect
+                // a hand-edited prompt) since the box is a quick-start draft reviewed
+                // before Generate is ever clicked, not committed text.
+                window.pdSetPromptMode = function (sid, which) {
+                    var box = document.getElementById(sid + '_ai_prompt');
+                    box.value = which === 'notech' ? box.dataset.promptNotech
+                        : which === 'newperson' ? box.dataset.promptNewperson
+                        : which === 'vary' ? box.dataset.promptVary
+                        : box.dataset.promptTech;
+                };
+
                 // Generating never touches the live page — it produces a candidate you
                 // review here first. Nothing is "placed" until you click Use this photo,
                 // so a bad result costs a re-roll, not a page that silently changed.
@@ -632,8 +691,12 @@
                     var prompt    = promptBox.value.trim();
                     if (!prompt) { status.textContent = 'Enter a prompt first.'; status.style.color = '#b91c1c'; return; }
 
-                    var slot = promptBox.closest('.pd-slot');
-                    var ref  = document.getElementById(sid + '_ai_ref');
+                    var slot      = promptBox.closest('.pd-slot');
+                    // The mode radio group only renders at all when this slot has an
+                    // existing photo to reference — its presence IS the signal that a
+                    // reference is available, so there's no separate checkbox to read.
+                    var modeInput = document.querySelector('input[name="' + sid + '_ai_mode"]:checked');
+                    var mode      = modeInput ? modeInput.value : 'tech';
 
                     btn.disabled = true;
                     preview.style.display = 'none';
@@ -646,7 +709,12 @@
                     fd.append('action', 'generate');
                     fd.append('key', key);
                     fd.append('prompt', prompt);
-                    if (ref && ref.checked) fd.append('use_reference', '1');
+                    if (modeInput) fd.append('use_reference', '1');
+                    // Tells the server which of the four reference-edit instructions to
+                    // append behind the scenes — the fixed "keep close to reference" suffix
+                    // needs to say something different depending on which mode is selected,
+                    // not the same thing every time.
+                    fd.append('mode', mode);
 
                     fetch('picdrop_api.php', { method: 'POST', body: fd })
                         .then(function (r) { return r.json(); })
