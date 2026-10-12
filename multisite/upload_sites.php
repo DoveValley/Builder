@@ -175,11 +175,18 @@ foreach ($ready as $t) {
 /* Tell the go-live pipeline what this run just confirmed, same reason create_hosts.php
  * does for assign/host: its "upload" cell only trusts a stored, checked answer, and a
  * domain built entirely through the multisite wizard would otherwise never get one —
- * the Go Live button gates on exactly this cell. One call for the whole batch: the
- * check is priced per BOX (infra_hestia_content_run() caches per server_id), so this
- * costs the same whether the batch is 1 domain or 50. */
+ * the Go Live button gates on exactly this cell. A full batch run (no --only) refreshes
+ * the whole batch in one call — cheap, since the check is priced per BOX
+ * (infra_hestia_content_run() caches per server_id). A --only run (a few named domains,
+ * e.g. the Simple view's "Build & upload selected") scopes to just those domains instead
+ * — re-verifying every other domain in a 100-row batch for a 1-domain upload paid for
+ * boxes that have nothing to do with what was just sent. */
 require_once __DIR__ . '/../admin/infra/lib/pipeline.php';
-infra_pipeline_refresh('upload', $masterId . '/' . $batchId);
+if ($onlyList) {
+    infra_pipeline_refresh('upload', '', implode(',', $onlyList));
+} else {
+    infra_pipeline_refresh('upload', $masterId . '/' . $batchId);
+}
 
 echo "\n" . str_repeat('=', 58) . "\n";
 printf("DONE — %d uploaded, %d failed, %d file(s) sent.\n", $ok, $fail, $sent);

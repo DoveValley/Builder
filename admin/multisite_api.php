@@ -617,7 +617,44 @@ switch ($action) {
         $rtRun = ms_job_resolve_run($batchDir . '/buildupload', (string) ($_GET['run_id'] ?? ''));
         if (!$rtRun) { echo json_encode(['none' => true]); break; }
         $rtOut = ms_job_read_out($rtRun['path'], '__MS_BUILDUP_DONE__');
+
+        // The job's own "== N/3 ..." headings (build_upload.php) are the simplest
+        // possible macro-progress readout — no need to re-parse anything for this part.
+        $rtStageLabels = [1 => 'Build', 2 => 'Upload', 3 => 'Check Built & Uploaded'];
+        $rtStage = 0;
+        if (preg_match_all('/^== (\d)\/3 /m', $rtOut['log'], $rtSm)) $rtStage = (int) end($rtSm[1]);
+
+        // While stage 1 is running, the sub-run it launched (run_campaign.php) writes
+        // its OWN run.json live, per domain, with the exact step build_one.php is on
+        // right now — the same data the Detailed view's progress already reads (see
+        // includes/multisite/steps.php). Surfacing it here too turns stage 1 — which
+        // can run for minutes with nothing else printed — from a silent wait into
+        // "building X — step 6 of 8: Images".
+        $rtDetail = '';
+        if ($rtStage <= 1 && !$rtOut['done'] && preg_match('/^RUN_ID=(\S+)/m', $rtOut['log'], $rtIdM)) {
+            require_once __DIR__ . '/../includes/multisite/steps.php';
+            $rtSub = ms_read_run($runsDir . '/' . $rtIdM[1] . '.json');
+            if ($rtSub) {
+                $rtKeys    = ms_step_keys();
+                // Last key is 'deploy' — never reached here, build_upload.php always
+                // runs this sub-run with --no-deploy and uploads separately in stage 2.
+                $rtStepMax = count($rtKeys) - 1;
+                $rtResults = $rtSub['results'] ?? [];
+                $rtRunning = array_values(array_filter($rtResults, fn($r) => ($r['status'] ?? '') === 'running'));
+                $rtDoneN   = count($rtResults) - count($rtRunning);
+                if (count($rtRunning) === 1) {
+                    $idx = array_search($rtRunning[0]['step'] ?? '', $rtKeys, true);
+                    $rtDetail = 'Building ' . $rtRunning[0]['domain'] . ' — step '
+                              . ($idx !== false ? ($idx + 1) . ' of ' . $rtStepMax . ': ' . ms_step_label($rtRunning[0]['step']) : '…');
+                } elseif ($rtResults) {
+                    $rtDetail = 'Building — ' . $rtDoneN . ' of ' . count($rtResults) . ' done';
+                }
+            }
+        }
+
         echo json_encode(['run_id' => $rtRun['run_id'], 'done' => $rtOut['done'], 'exit' => $rtOut['exit'],
+                          'stage' => $rtStage, 'stage_total' => 3, 'stage_label' => $rtStageLabels[$rtStage] ?? '',
+                          'detail' => $rtDetail,
                           'log' => implode("\n", array_slice(explode("\n", $rtOut['log']), -40))]);
         break;
 

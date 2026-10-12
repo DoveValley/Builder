@@ -65,6 +65,7 @@ table.ro tr:hover td{background:#f8fafc}
         <button type="button" class="btn" id="ro-build">Build &amp; upload selected</button>
         <span class="hint">Generates the ticked domains with this batch's saved settings, uploads them, then checks them &mdash; one domain at a time.</span>
     </div>
+    <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
 
     <div class="ro-bar">
@@ -243,8 +244,20 @@ table.ro tr:hover td{background:#f8fafc}
         if (r.none) return;
         $('ro-job').style.display = ''; $('ro-job').textContent = r.log || 'Starting…';
         $('ro-job').scrollTop = $('ro-job').scrollHeight;
-        if (!r.done) { $('ro-build').disabled = true; jobTimer = setTimeout(() => watchJob(r.run_id), 3000); return; }
+        const stageEl = $('ro-job-stage');
+        stageEl.style.display = '';
+        if (!r.done) {
+            $('ro-build').disabled = true;
+            stageEl.style.color = '#2563eb';
+            let stageTxt = r.stage ? 'Running — step ' + r.stage + ' of ' + r.stage_total + ': ' + r.stage_label : 'Starting';
+            if (r.detail) stageTxt += ' — ' + r.detail;
+            stageEl.textContent = stageTxt + '…';
+            jobTimer = setTimeout(() => watchJob(r.run_id), 3000);
+            return;
+        }
         $('ro-build').disabled = false;
+        stageEl.style.color = r.exit === 0 ? '#166534' : '#991b1b';
+        stageEl.textContent = r.exit === 0 ? 'Done — build & upload finished.' : 'Done, with problems — see the log below.';
         if (runId) { say(r.exit === 0 ? 'Build & upload finished.' : 'Build & upload finished with problems — see the log.', r.exit === 0); load(); }
     }
     $('ro-build').onclick = async () => {

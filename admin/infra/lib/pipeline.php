@@ -334,12 +334,12 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
     if (!in_array($step, infra_pipeline_step_keys(), true)) return $out;
 
     $rows = infra_pipeline_rows($batch);
-    // $only re-checks a single row. It is the SAME code path as the column sweep on
-    // purpose: an action that verified itself by its own rules would be free to
-    // disagree with the column that draws it.
+    // $only re-checks specific rows (one domain, or a comma-separated list). It is
+    // the SAME code path as the column sweep on purpose: an action that verified
+    // itself by its own rules would be free to disagree with the column that draws it.
     if ($only !== '') {
-        $only = strtolower(trim($only));
-        $rows = array_values(array_filter($rows, fn($r) => $r['domain'] === $only));
+        $wanted = array_values(array_filter(array_map(fn($d) => strtolower(trim($d)), explode(',', $only)), fn($d) => $d !== ''));
+        $rows = array_values(array_filter($rows, fn($r) => in_array($r['domain'], $wanted, true)));
         // infra_pipeline_rows() deliberately excludes any domain still in
         // infra_is_acquiring() status when $batch === '' — that filter exists to
         // declutter the GRID's list view (an unclaimed row isn't "in flight" yet),
@@ -351,12 +351,13 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
         // find no row, and report INFRA_STEP_TODO — a false failure that also never
         // stamps the step as done, permanently blocking every later step's
         // prerequisite check for that domain. Build the row directly, bypassing the
-        // list filter, whenever the single domain being checked wasn't found in it.
-        if (!$rows) {
-            $rec = infra_state_get_domain($only);
+        // list filter, for any wanted domain not found in it.
+        $missing = array_diff($wanted, array_column($rows, 'domain'));
+        foreach ($missing as $m) {
+            $rec = infra_state_get_domain($m);
             if ($rec) {
-                $stored = infra_pipeline_stored([$only]);
-                $rows = [infra_pipeline_row($rec, $stored[$only] ?? [])];
+                $stored = infra_pipeline_stored([$m]);
+                $rows[] = infra_pipeline_row($rec, $stored[$m] ?? []);
             }
         }
     }

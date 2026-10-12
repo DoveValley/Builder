@@ -32,7 +32,6 @@ if (!ms_valid_master_id($masterId) || !ms_batch_exists($masterId, $batchId) || !
     echo "Usage: build_upload.php <master> --batch=bN --only=a.com,b.com\n"; exit(2);
 }
 $php = ms_php_cli();
-$tag = $masterId . '/' . $batchId;
 
 // 1. Generate — the batch's saved settings, never deploying.
 $saved = ms_batch_saved_run_settings($masterId, $batchId);
@@ -41,6 +40,10 @@ $cmd = [$php, BASE_DIR . '/multisite/run_campaign.php', $masterId, '--batch=' . 
         '--no-preflight', '--jobs=1', '--retries=1', '--no-deploy', '--only=' . implode(',', $domains)];
 if ($saved['skip']) $cmd[] = '--skip=' . implode(',', $saved['skip']);
 foreach ($saved['rotation'] as $flag => $n) $cmd[] = '--' . $flag . '=' . (int) $n;
+// Printed before the build starts (not after, when run_campaign.php itself logs it) —
+// rollout_build_status reads this line to find the live run.json and show per-domain
+// step progress while step 1 is still in flight.
+echo "RUN_ID={$runId}\n";
 echo "== 1/3 Build " . count($domains) . " domain(s)" . ($saved['skip'] ? ' (skipping: ' . implode(', ', $saved['skip']) . ')' : '') . "\n";
 passthru(implode(' ', array_map('escapeshellarg', $cmd)), $rc);
 
@@ -58,11 +61,14 @@ if ($built) {
     echo "\n== 2/3 Upload skipped — nothing built\n";
 }
 
-// 3. Re-check the fleet cells the go-live gate reads.
+// 3. Re-check the fleet cells the go-live gate reads — scoped to just the selected
+// domain(s), not the whole batch. Re-verifying every other domain in the batch for a
+// 1-or-few-domain build/upload was wasted work (and wall-clock) that had nothing to
+// do with what was just built.
 echo "\n== 3/3 Check Built and Uploaded\n";
 require_once BASE_DIR . '/admin/infra/lib/pipeline.php';
 foreach (['built', 'upload'] as $step) {
-    $r = infra_pipeline_refresh($step, $tag);
+    $r = infra_pipeline_refresh($step, '', implode(',', $domains));
     echo "   {$step}: {$r['ok']} ok, {$r['todo']} not yet, {$r['fail']} failed (of {$r['checked']} checked)\n";
 }
 $st = infra_pipeline_stored($domains);
