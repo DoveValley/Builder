@@ -375,9 +375,9 @@
         "active": "ai"
     },
     "template:tpl_storm_damage_restoration:3:it_photo": {
-        "real": "sites/water-site/uploads/media/ai_4215fe_6cdb04.webp",
+        "real": "sites/water-site/uploads/media/water-damage_7ba06b.webp",
         "ai": "sites/water-site/uploads/media/ai_719e3d_7e844c.webp",
-        "active": "ai"
+        "active": "real"
     },
     "template:tpl_flood_damage_restoration:3:it_photo": {
         "real": "sites/water-site/uploads/media/ai_f9709f_cace99.webp",
@@ -462,6 +462,26 @@
     "template:tpl_water_damage_insurance_claim:3:it_photo": {
         "real": "sites/water-site/uploads/media/ai_c43f5a_a354fe.webp",
         "ai": "sites/water-site/uploads/media/ai_2e590e_ee16f5.webp",
+        "active": "ai"
+    },
+    "template:tpl_water_damage_restoration_cost:3:it_photo": {
+        "real": "sites/water-site/uploads/media/water-damage-restoration_7fc91a.webp",
+        "ai": "sites/water-site/uploads/media/ai_aa007b_c28f5d.webp",
+        "active": "ai"
+    },
+    "template:tpl_water_damage_restoration_cost:0:hs_photo": {
+        "real": "sites/water-site/uploads/media/water-damage-restoration_1b0697.webp",
+        "ai": "sites/water-site/uploads/media/ai_fe54bf_5830da.webp",
+        "active": "ai"
+    },
+    "template:tpl_emergency_water_removal:0:hs_photo": {
+        "real": "sites/water-site/uploads/media/ai_cf91fe_457a92_62b0c3.webp",
+        "ai": "sites/water-site/uploads/media/ai_ca11d2_35625d.webp",
+        "active": "ai"
+    },
+    "template:tpl_emergency_water_removal:3:it_photo": {
+        "real": "sites/water-site/uploads/media/ai_ed6b27_c69882_74b521.webp",
+        "ai": "sites/water-site/uploads/media/ai_187a59_e2aca5.webp",
         "active": "ai"
     }
 }
