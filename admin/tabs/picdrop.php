@@ -547,7 +547,8 @@
                 lbDel.addEventListener('click', function () {
                     if (!lbCtx) return;
                     var c = lbCtx, label = c.which === 'ai' ? 'AI' : 'Real';
-                    if (!confirm('Delete the ' + label + ' photo from this slot?\n\nIf it is the live photo, the slot switches to the other one. '
+                    if (!confirm('Delete the ' + label + ' photo from this slot?\n\nIf it is the live photo, the slot switches to the other one '
+                        + '(or is left empty if this is its only photo). '
                         + 'The file itself is only removed if no other page or template uses it.')) return;
                     lbDel.disabled = true;
                     var fd = new FormData();
@@ -569,6 +570,10 @@
                             pdClose();
                             if (d.removed_only) {
                                 renderPrev(c.sid, c.key, d.pair);
+                                if (d.emptied) {
+                                    var acts = document.getElementById(c.sid + '_acts');
+                                    if (acts) acts.parentNode.removeChild(acts);
+                                }
                                 setMeta(c.sid, d.note, '#15803d');
                                 markDirty();
                             } else {

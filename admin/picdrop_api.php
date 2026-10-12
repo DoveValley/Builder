@@ -391,10 +391,11 @@ if ($action === 'set_active') {
         function () use ($pairsAll) { picdrop_pairs_save($pairsAll); });
 }
 
-// Deleting one side of a slot's Real/AI pair (the lightbox's Delete button). The
-// page must never be left without a picture: deleting the side that is live switches
-// the slot to the other side first (same write as "use Real"/"use AI"), and deleting
-// the only photo a slot has is refused. The FILE goes only when nothing else uses it
+// Deleting one side of a slot's Real/AI pair (the lightbox's Delete button). Deleting
+// the side that is live switches the slot to the other side (same write as "use
+// Real"/"use AI"); deleting a slot's ONLY photo empties the slot, which every block
+// renderer already treats as "no image" (if ($photo) guards) — the undo for a photo
+// added by mistake. The FILE goes only when nothing else uses it
 // (picdrop_delete_if_unused) — the same image is often another template's photo too.
 if ($action === 'remove_side') {
     $which = (string) ($_POST['which'] ?? '');
@@ -407,12 +408,8 @@ if ($action === 'remove_side') {
     if ($target === '') pd_fail('There is no ' . $label . ' photo saved for this slot.');
     $isActive = ($row['active'] ?? 'real') === $which;
     $fallback = (string) ($row[$other] ?? '');
-    if ($isActive && $fallback === '') {
-        pd_fail('This is the only photo in this slot, so deleting it would leave the page with no image. '
-            . 'Drop, pick or generate a replacement first, then delete this one.');
-    }
     unset($pairsAll[$key][$which]);
-    if ($isActive) $pairsAll[$key]['active'] = $other;
+    if ($isActive && $fallback !== '') $pairsAll[$key]['active'] = $other;
 
     $fileNote = function () use ($target): string {
         $r = picdrop_delete_if_unused($target);
@@ -421,6 +418,21 @@ if ($action === 'remove_side') {
         return $r['refs'] ? 'file kept — still used in ' . count($r['refs']) . ' other place' . (count($r['refs']) === 1 ? '' : 's') : 'file already gone';
     };
 
+    if ($isActive && $fallback === '') {
+        // Last photo: empty the slot itself, plus any social image that pointed at it.
+        // No propagation to other pages — this undoes one slot, nothing more.
+        $edits = [['scope' => $parts['scope'], 'id' => $parts['id'], 'block' => $parts['block'],
+                   'field' => $parts['field'], 'value' => '']];
+        foreach (picdrop_og_matches($slot['value']) as $og) $edits[] = $og + ['value' => ''];
+        $res = picdrop_apply_edits($edits);
+        if ($res['ok'] === 0) pd_fail($res['errors'][0] ?? 'Nothing was written.');
+        unset($pairsAll[$key]);
+        picdrop_pairs_save($pairsAll);
+        echo json_encode(['success' => true, 'removed_only' => true, 'emptied' => true,
+                          'pair' => picdrop_pairs_get($key),
+                          'note' => 'deleted ' . $label . ' · slot is now empty · ' . $fileNote()]);
+        exit;
+    }
     if ($isActive) {
         // pd_commit echoes and exits, so the file check runs inside its success hook and
         // its note rides along on the response.
