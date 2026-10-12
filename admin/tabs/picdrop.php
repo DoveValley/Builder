@@ -236,8 +236,12 @@
 
                                         <?php if ($s['alt_field'] !== null): ?>
                                             <input type="text" value="<?= h($s['alt']) ?>" placeholder="Alt text&hellip;"
+                                                   id="<?= $sid ?>_alt" data-sid="<?= $sid ?>"
                                                    data-key="<?= h($s['key']) ?>" onchange="pdSaveAlt(this)"
                                                    style="margin-top:7px;width:100%;max-width:460px;padding:6px 9px;border:1px solid #d1d5db;border-radius:5px;font-size:.82rem;">
+                                            <div id="<?= $sid ?>_altnote" class="hint" style="display:none;margin-top:3px;color:#b45309;">
+                                                Photo changed &mdash; check this alt text still describes what&rsquo;s in it.
+                                            </div>
                                         <?php else: ?>
                                             <div class="hint" style="margin-top:7px;">Decorative background &mdash; no alt text.</div>
                                         <?php endif; ?>
@@ -602,7 +606,23 @@
                     if (d.errors && d.errors.length) msg += ' · ' + d.errors.length + ' write error(s): ' + d.errors[0];
                     setMeta(sid, msg, d.errors && d.errors.length ? '#b45309' : '#15803d');
                     markDirty();
+                    pdFlagAlt(sid);
                     return true;
+                }
+
+                // Changing a photo never touches its alt text (the API writes the image
+                // field only), so an alt written for the old photo silently stays. Every
+                // photo change — upload, AI generate, library pick, Real/AI switch — lands
+                // in applyResult(), so flagging here covers them all. Cleared on a
+                // successful alt save; a page reload also clears it, deliberately — it
+                // is a nudge at the moment of change, not a stored review state.
+                function pdFlagAlt(sid) {
+                    var input = document.getElementById(sid + '_alt');
+                    var note  = document.getElementById(sid + '_altnote');
+                    if (!input || !note) return;    // decorative background: no alt
+                    input.style.borderColor = '#f59e0b';
+                    input.style.background  = '#fffbeb';
+                    note.style.display = '';
                 }
 
                 function upload(zone, file) {
@@ -1071,7 +1091,12 @@
                         .catch(function () { return { error: 'network' }; })
                         .then(function (d) {
                             input.style.borderColor = (d && d.success) ? '#16a34a' : '#b91c1c';
-                            if (d && d.success) markDirty();
+                            if (d && d.success) {
+                                markDirty();
+                                input.style.background = '';
+                                var note = document.getElementById(input.getAttribute('data-sid') + '_altnote');
+                                if (note) note.style.display = 'none';
+                            }
                             setTimeout(function () { input.style.borderColor = '#d1d5db'; }, 1500);
                         });
                 };

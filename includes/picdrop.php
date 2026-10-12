@@ -209,11 +209,26 @@ function picdrop_leaf(string $path): string {
     return (string) end($segs);
 }
 
-/* Sibling alt path for an image path: "ts_tabs.2.photo" + "photo_alt" → "ts_tabs.2.photo_alt". */
+/**
+ * Lists whose items pair a `photo` with a plain `alt`, not the `photo_alt` that the
+ * same leaf means everywhere else (block-level photo, team_members). Keyed by the
+ * list's own field name, which is what tells them apart - the leaf alone can't.
+ * Without this, Pic Drop's alt box on a home tab or gallery image wrote photo_alt,
+ * which blocks.php never reads (ts_tabs renders $tab['alt'] ?? label, gallery
+ * $img['alt']), so a typed alt was silently thrown away.
+ */
+const PICDROP_LIST_ALT_KEYS = ['ts_tabs' => 'alt', 'gallery_images' => 'alt'];
+
+/* Sibling alt path for an image path: "hero.photo" + "photo_alt" → "hero.photo_alt";
+   "ts_tabs.2.photo" → "ts_tabs.2.alt" (see PICDROP_LIST_ALT_KEYS). */
 function picdrop_alt_path(string $path, ?string $altKey): ?string {
     if ($altKey === null) return null;
     $segs = explode('.', $path);
     array_pop($segs);
+    $n = count($segs);
+    if ($n >= 2 && ctype_digit($segs[$n - 1]) && isset(PICDROP_LIST_ALT_KEYS[$segs[$n - 2]])) {
+        $altKey = PICDROP_LIST_ALT_KEYS[$segs[$n - 2]];
+    }
     $segs[] = $altKey;
     return implode('.', $segs);
 }
