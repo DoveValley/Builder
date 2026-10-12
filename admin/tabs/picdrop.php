@@ -296,7 +296,9 @@
                                         // leave alone. Found by testing: restating "keep the equipment exactly"
                                         // alongside the subject's own equipment-naming text was adding MORE
                                         // equipment to the scene, not preserving what was already there.
-                                        $aiPromptVary = 'Same picture — do not change the scene, the equipment, or the person in any way. The only change allowed is a very slight shift in camera angle, just enough that it reads as a distinct photo from the original. No visible text or logos.';
+                                        // The same applied to the generic nouns themselves - see
+                                        // picdrop_vary_prompt() for why the text now names nothing at all.
+                                        $aiPromptVary = picdrop_vary_prompt();
                                         ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"

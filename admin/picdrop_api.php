@@ -474,20 +474,8 @@ if ($action === 'place') {
         // a different face" suffix used to fire on every reference edit regardless of
         // mode, which fought the "no technician" mode's own instruction and did
         // nothing useful for the plain "add/describe the technician" default mode.
-        $mode = (string) ($_POST['mode'] ?? 'tech');
-        $refSuffix = ' Keep this photo close to the reference — same setting, same equipment, '
-            . 'same vehicle if one is visible — and apply only the change described above.';
-        if ($mode === 'notech') {
-            $refSuffix .= ' Remove any technician or other person from the scene entirely — show only '
-                . 'the equipment and surroundings, as if no one is present.';
-        } elseif ($mode === 'newperson') {
-            $refSuffix .= ' Give any person in the photo a different face and hairstyle than the '
-                . 'reference photo, while keeping their role the same.';
-        } elseif ($mode === 'vary') {
-            $refSuffix .= ' Keep any person in the photo exactly as they are, unchanged — only vary '
-                . 'the camera angle slightly, nothing else.';
-        }
-        $refPrompt = $prompt . $refSuffix;
+        // Wording lives in picdrop_reference_prompt() (includes/picdrop.php).
+        $refPrompt = picdrop_reference_prompt($prompt, (string) ($_POST['mode'] ?? 'tech'));
         $r = openai_images_edit($refPrompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
         $r = openai_images_generate($prompt, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);

@@ -750,3 +750,46 @@ function picdrop_parse_key(string $key): ?array {
 
     return ['scope' => $scope, 'id' => $id, 'block' => (int) $bi, 'field' => $path];
 }
+
+/**
+ * Default prompt for Pic Drop's "Subtle variation" mode.
+ *
+ * Names nothing that might be in the photo. Every earlier wording said what to
+ * leave alone - "do not change the equipment or the person" - and on a reference
+ * with no equipment and no person (a plain house exterior) the image model read
+ * those nouns as things to draw: it came back with a technician, drying machines
+ * and a van. Image models act on the nouns they are given and handle "do not"
+ * poorly, so this mode describes only the change (the viewpoint) and nothing else.
+ */
+function picdrop_vary_prompt(): string {
+    return 'Same photo, taken again from a very slightly different camera position. '
+         . 'Everything in it stays exactly as it is and nothing new is added — only the viewpoint '
+         . 'shifts a little, just enough that it reads as a distinct photo from the original. '
+         . 'No visible text or logos.';
+}
+
+/**
+ * The full instruction sent with a reference edit: the prompt from the textarea plus
+ * a mode-specific "stay close to the reference" suffix (mode = Pic Drop's radio
+ * group: tech | notech | newperson | vary).
+ *
+ * The shared suffix names equipment and vehicles on purpose for the three modes that
+ * are ABOUT the scene's contents. "vary" gets a suffix with no nouns at all, for the
+ * reason given on picdrop_vary_prompt() - naming a van to "keep" it is how a van
+ * appeared in front of a house that never had one.
+ */
+function picdrop_reference_prompt(string $prompt, string $mode): string {
+    if ($mode === 'vary') {
+        return $prompt . ' Reproduce only what is already in the reference photo, nothing more.';
+    }
+    $suffix = ' Keep this photo close to the reference — same setting, same equipment, '
+        . 'same vehicle if one is visible — and apply only the change described above.';
+    if ($mode === 'notech') {
+        $suffix .= ' Remove any technician or other person from the scene entirely — show only '
+            . 'the equipment and surroundings, as if no one is present.';
+    } elseif ($mode === 'newperson') {
+        $suffix .= ' Give any person in the photo a different face and hairstyle than the '
+            . 'reference photo, while keeping their role the same.';
+    }
+    return $prompt . $suffix;
+}
