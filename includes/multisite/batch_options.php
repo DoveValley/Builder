@@ -64,3 +64,26 @@ function ms_batch_options_settings(array $raw): array {
     }
     return $out;
 }
+
+/**
+ * A batch's SAVED Generate settings as run_campaign.php flags — what the detailed page's
+ * checkboxes were last left at. Skip rule mirrors msBuildSkipList() in _batch_panels.php:
+ * every unticked step, plus every unticked sub-switch whose parent step is still on.
+ * Rotation pins come from section_rotation.json (ms_rotation_settings()).
+ *
+ * @return array{skip:string[], rotation:array<string,int>}
+ */
+function ms_batch_saved_run_settings(string $masterId, string $batchId): array {
+    $o = ms_batch_options_settings(ms_batch_file_read($masterId, $batchId, 'batch_options.json'));
+    $skip = [];
+    foreach ($o['steps'] as $k => $on) if (!$on) $skip[] = $k;
+    foreach ($o['subs'] as $k => $on) {
+        $parent = explode('.', $k, 2)[0];
+        if (!$on && !in_array($parent, $skip, true)) $skip[] = $k;
+    }
+    $rot = ms_rotation_settings(ms_batch_file_read($masterId, $batchId, 'section_rotation.json'));
+    return ['skip' => $skip, 'rotation' => [
+        'rot-home-top' => $rot['home_top'], 'rot-home-bottom' => $rot['home_bottom'],
+        'rot-landing-top' => $rot['landing_top'], 'rot-landing-bottom' => $rot['landing_bottom'],
+    ]];
+}

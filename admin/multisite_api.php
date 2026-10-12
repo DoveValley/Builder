@@ -599,6 +599,28 @@ switch ($action) {
         echo json_encode(infra_golive_unschedule($rtDoms, $masterId . '/' . $batchId));
         break;
 
+    // Build & upload the ticked domains as one background job (multisite/build_upload.php:
+    // existing Generate with the batch's saved settings → existing upload → fleet check).
+    case 'rollout_build':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $rtDoms = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+        $rtIn = [];
+        foreach (ms_parse_csv($paramsPath)['rows'] ?? [] as $t) $rtIn[strtolower(trim((string) ($t['domain'] ?? '')))] = true;
+        $rtDoms = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), is_array($rtDoms) ? $rtDoms : []), fn($d) => isset($rtIn[$d])));
+        if (!$rtDoms) { echo json_encode(['error' => 'Tick at least one domain from this batch.']); break; }
+        echo json_encode(ms_launch_job($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',
+            'A build & upload is already running for this batch — wait for it to finish.',
+            BASE_DIR . '/multisite/build_upload.php', [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $rtDoms)]));
+        break;
+
+    case 'rollout_build_status':
+        $rtRun = ms_job_resolve_run($batchDir . '/buildupload', (string) ($_GET['run_id'] ?? ''));
+        if (!$rtRun) { echo json_encode(['none' => true]); break; }
+        $rtOut = ms_job_read_out($rtRun['path'], '__MS_BUILDUP_DONE__');
+        echo json_encode(['run_id' => $rtRun['run_id'], 'done' => $rtOut['done'], 'exit' => $rtOut['exit'],
+                          'log' => implode("\n", array_slice(explode("\n", $rtOut['log']), -40))]);
+        break;
+
     case 'rollout_settings':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/infra/lib/fleet_settings.php';

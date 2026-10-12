@@ -62,6 +62,12 @@ table.ro tr:hover td{background:#f8fafc}
     <p class="hint" id="ro-settings" style="margin:0 0 14px;">Loading&hellip;</p>
 
     <div class="ro-bar">
+        <button type="button" class="btn" id="ro-build">Build &amp; upload selected</button>
+        <span class="hint">Generates the ticked domains with this batch's saved settings, uploads them, then checks them &mdash; one domain at a time.</span>
+    </div>
+    <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+
+    <div class="ro-bar">
         <span><strong>Go live</strong> per day:
             <button type="button" class="ro-chip" data-n="3">3</button>
             <button type="button" class="ro-chip" data-n="4">4</button>
@@ -81,6 +87,7 @@ table.ro tr:hover td{background:#f8fafc}
         <div class="hint">Select:
             <a href="#" data-sel="ready">all ready</a> &middot;
             <a href="#" data-sel="scheduled">all scheduled</a> &middot;
+            <a href="#" data-sel="notup">all not uploaded</a> &middot;
             <a href="#" data-sel="none">none</a>
             &nbsp; <strong id="ro-count">0</strong> selected
         </div>
@@ -119,7 +126,7 @@ table.ro tr:hover td{background:#f8fafc}
         if (r.steps.upload !== 'ok') return 'Not uploaded';
         return r.status || 'Not ready';
     }
-    const canTick = r => r.ready || (r.status === 'queued' && r.go_live_at);
+    const canTick = r => true;   // the core decides what each action may touch, and says why
     function niceDate(d) {                       // 'YYYY-MM-DD' → 'Thu 6 Nov', no timezone shifts
         if (!d) return '';
         const [y, m, dd] = d.split('-').map(Number), dt = new Date(Date.UTC(y, m - 1, dd));
@@ -199,7 +206,8 @@ table.ro tr:hover td{background:#f8fafc}
         if (s) {
             e.preventDefault();
             if (s.dataset.sel === 'none') sel.clear();
-            else rows.filter(r => label(r) === (s.dataset.sel === 'ready' ? 'Ready' : 'Scheduled')).forEach(r => sel.add(r.domain));
+            else rows.filter(r => s.dataset.sel === 'notup' ? (r.steps.upload !== 'ok' && r.status !== 'live')
+                                  : label(r) === (s.dataset.sel === 'ready' ? 'Ready' : 'Scheduled')).forEach(r => sel.add(r.domain));
             render();
         }
     });
@@ -228,7 +236,28 @@ table.ro tr:hover td{background:#f8fafc}
         say('Unscheduled ' + r.unscheduled + '.' + why(r.why), r.unscheduled > 0);
         sel.clear(); load();
     };
+    // Build & upload — one background job; the box below follows its log until it ends.
+    let jobTimer = null;
+    async function watchJob(runId) {
+        const r = await (await fetch(API + '?action=rollout_build_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json();
+        if (r.none) return;
+        $('ro-job').style.display = ''; $('ro-job').textContent = r.log || 'Starting…';
+        $('ro-job').scrollTop = $('ro-job').scrollHeight;
+        if (!r.done) { $('ro-build').disabled = true; jobTimer = setTimeout(() => watchJob(r.run_id), 3000); return; }
+        $('ro-build').disabled = false;
+        if (runId) { say(r.exit === 0 ? 'Build & upload finished.' : 'Build & upload finished with problems — see the log.', r.exit === 0); load(); }
+    }
+    $('ro-build').onclick = async () => {
+        if (!sel.size) return say('Tick some domains first.');
+        const live = [...sel].filter(d => (rows.find(x => x.domain === d) || {}).status === 'live').length;
+        if (!confirm('Build & upload ' + sel.size + ' domain(s) now?' + (live ? '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.' : ''))) return;
+        const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]) });
+        if (r.error) return say(r.error);
+        say('Build & upload started for ' + sel.size + ' domain(s).', true);
+        sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);
+    };
     load();
+    watchJob('');   // a job already running (page reloaded mid-run) shows its log
 })();
 </script>
 </body>
