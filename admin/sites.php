@@ -185,6 +185,7 @@ function fmt_date(string $iso): string {
         <div class="sm-topbar-actions">
             <a href="docs.php" target="_blank" class="btn-help" title="Open documentation" aria-label="Open documentation">?</a>
             <button class="btn-open" onclick="showNewSite()">+ New Site</button>
+            <a href="infra/index.php?view=map" class="btn-sm-outline">&#128506; Map</a>
         </div>
     </div>
 
@@ -532,7 +533,9 @@ async function deleteSite(id, name) {
           '. Deleting it ALSO deletes ' + (n === 1 ? 'that batch' : 'those batches') +
           ' and all of their run history.\n(Sites those batches already built stay live.)'
         : '';
-    if (!confirm('Delete "' + name + '"?\n\nThis removes all pages, posts and uploaded images for this site.' + batchNote + '\n\nThis cannot be undone.')) return;
+    const typed = prompt('Delete "' + name + '"?\n\nThis removes all pages, posts and uploaded images for this site.' + batchNote + '\n\nThis cannot be undone. Type the site name to confirm:\n\n' + name);
+    if (typed === null) return;
+    if (typed.trim().toLowerCase() !== name.trim().toLowerCase()) { alert('Name did not match — nothing was deleted.'); return; }
     const res = await post({action:'delete', site_id: id});
     if (res.error) { alert('Error: ' + res.error); return; }
     document.getElementById('card-' + id)?.remove();
@@ -665,7 +668,9 @@ async function copyBatch(master, id, current) {
 }
 
 async function deleteBatch(master, id, name) {
-    if (!confirm('Delete the batch "' + name + '"?\n\nThis removes its target list and all of its run history. The sites it already built stay live — this only deletes the batch.\n\nThis cannot be undone.')) return;
+    const typed = prompt('Delete the batch "' + name + '"?\n\nThis removes its target list and all of its run history. The sites it already built stay live — this only deletes the batch.\n\nThis cannot be undone. Type the batch name to confirm:\n\n' + name);
+    if (typed === null) return;
+    if (typed.trim().toLowerCase() !== name.trim().toLowerCase()) { alert('Name did not match — nothing was deleted.'); return; }
     const res = await batchPost({ action: 'delete', master_id: master, batch_id: id });
     if (res.error) { alert('Error: ' + res.error); return; }
     document.getElementById('batch-' + master + '-' + id)?.remove();
