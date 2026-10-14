@@ -16,6 +16,8 @@
  *                     (clone, identity and build are structural and cannot be skipped;
  *                      nor can the identity scrub inside differentiate)
  *     --force         force AI refresh + full FTP re-upload
+ *     --force-photos  regenerate every AI photo slot from the master's own photo,
+ *                     ignoring both the per-slot cache and whatever is there now
  *     --only=DOMAIN   process just one row
  *     --limit=N       process at most N rows
  *     --no-preflight  skip the FTP reachability pre-check
@@ -49,6 +51,7 @@ foreach ($args as $a) if (str_starts_with($a, '--skip=')) $skip = substr($a, 7);
    run that keeps everything while also uploading just wastes disk. */
 $noDeploy = in_array('--no-deploy', $args, true);
 $force     = in_array('--force', $args, true);
+$forcePhotos = in_array('--force-photos', $args, true);
 $noPre     = in_array('--no-preflight', $args, true);
 $verbose   = in_array('--verbose', $args, true);
 $only = ''; $limit = 0; $retries = 0; $jobs = 1; $runIdArg = ''; $batchArg = '';
@@ -138,7 +141,7 @@ if ($limit > 0) $rows = array_slice($rows, 0, $limit);
 
 $n = count($rows);
 echo "Batch: {$masterId}  |  rows to process: {$n}"
-   . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '')
+   . ($noAi ? '  [--no-ai]' : '') . ($force ? '  [--force]' : '') . ($forcePhotos ? '  [--force-photos]' : '')
    . ($skip !== '' ? '  [skipping: ' . $skip . ']' : '')
    . ($liveSkipped > 0 ? "  [{$liveSkipped} already-live skipped]" : '') . "\n";
 if ($n === 0) {
@@ -167,7 +170,7 @@ if ($n === 0) {
         'pid_started'  => ms_pid_start_time(getmypid()),
         'started_at'   => gmdate('c'),
         'finished_at'  => gmdate('c'),
-        'options'      => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
+        'options'      => ['no_ai' => $noAi, 'force' => $force, 'force_photos' => $forcePhotos, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
         'total'        => 0,
         'live_skipped' => $liveSkipped,
         'done'         => 0,
@@ -198,7 +201,7 @@ $statusFile  = $runsDir . '/' . $runId . '.json';
 $startedAt   = gmdate('c');
 $paramsVersion = ms_current_params_version($batchDir);   // which params table this run used
 
-$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $skip, $only, $limit, $retries, $jobs, $n, $startedAt, $liveSkipped) {
+$writeStatus = function (string $state, array $results) use ($statusFile, $runId, $masterId, $batchId, $paramsVersion, $noAi, $force, $forcePhotos, $skip, $only, $limit, $retries, $jobs, $n, $startedAt, $liveSkipped) {
     // $results here can carry in-flight rows too (status='running') so the UI has
     // something to show mid-build — those must not count toward done/ok/failed.
     $ok   = count(array_filter($results, fn($r) => $r['status'] === 'ok'));
@@ -218,7 +221,7 @@ $writeStatus = function (string $state, array $results) use ($statusFile, $runId
         'pid_started' => ms_pid_start_time(getmypid()),
         'started_at'  => $startedAt,
         'finished_at' => $state === 'running' ? null : gmdate('c'),
-        'options'     => ['no_ai' => $noAi, 'force' => $force, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
+        'options'     => ['no_ai' => $noAi, 'force' => $force, 'force_photos' => $forcePhotos, 'skip' => $skip, 'only' => $only, 'limit' => $limit, 'retries' => $retries, 'jobs' => $jobs],
         'total'       => $n,
         'live_skipped' => $liveSkipped,
         'done'        => $done,
@@ -417,6 +420,7 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
 
 // Build the job list (one temp row file + build_one command per row).
 $flagsCommon = ' --snapshot=' . escapeshellarg($snapshotDir) . ($noAi ? ' --no-ai' : '') . ($force ? ' --force' : '')
+             . ($forcePhotos ? ' --force-photos' : '')
              . ($skip !== '' ? ' --skip=' . escapeshellarg($skip) : '')
              . ($rotHomeTop       !== null ? ' --rot-home-top='       . $rotHomeTop       : '')
              . ($rotHomeBottom    !== null ? ' --rot-home-bottom='    . $rotHomeBottom    : '')

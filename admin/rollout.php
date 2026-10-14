@@ -77,8 +77,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-do-host" checked> Create host</label>
         <label><input type="checkbox" id="ro-do-build" checked> Build</label>
         <label><input type="checkbox" id="ro-do-upload" checked> Upload</label>
+        <label><input type="checkbox" id="ro-force-photos"> Force-regenerate photos <a href="#" class="ro-info" data-static-info="force_photos" title="Details">&#9432;</a></label>
+        <label><input type="checkbox" id="ro-logo-only"> Colors, fonts &amp; logo only <a href="#" class="ro-info" data-static-info="logo_only" title="Details">&#9432;</a></label>
         <button type="button" class="btn" id="ro-build">Run selected</button>
-        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials).</span>
+        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). Force-regenerate photos and Colors, fonts &amp; logo only both only do anything while Build is ticked &mdash; see the &#9432; next to each for what ticking both together does.</span>
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
@@ -195,6 +197,34 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     // every check, pass or fail). Wording it as "checked" rather than bare "— <time>"
     // stops a failed/not-yet step from reading like it finished at that time.
     const STATE_WORDS = { ok: 'done', fail: 'failed', running: 'running', todo: 'not yet', '': 'not checked' };
+    // Shown on BOTH popups (whichever one is opened first) so the combination is never a
+    // surprise — plain-English, not a repeat of the technical description above it.
+    const COMBO_NOTE = '<div class="ro-step" style="margin-top:10px;padding-top:10px;border-top:1px solid #e2e8f0;">'
+        + '<strong>What each combination actually does:</strong><br><br>'
+        + '&bull; <strong>Tick nothing extra:</strong> a normal, full rebuild — new text, new photos if needed, new pages. The usual thing.<br><br>'
+        + '&bull; <strong>Force-regenerate photos, alone:</strong> same full rebuild as above, plus every photo gets replaced with a fresh one, even the ones that were already fine.<br><br>'
+        + '&bull; <strong>Colors, fonts &amp; logo only, alone:</strong> the fast, cheap option — touches only colors/fonts/logo/icon, nothing else.<br><br>'
+        + '&bull; <strong>Both ticked together:</strong> updates the colors/logo AND gets fresh photos, but still skips the written content and pages — real OpenAI cost for the photos, no cost for the colors/logo part.'
+        + '</div>';
+    const STATIC_INFO = {
+        force_photos: ['Force-regenerate photos',
+            '<div class="ro-step">Regenerates every AI photo slot on each ticked domain from the <strong>master\'s own approved photo</strong> — not from whatever is currently in that slot.</div>'
+          + '<div class="ro-step">Normally a photo slot that already has any image is left alone, even if it\'s wrong — this is the one way to force past that and actually fix it.</div>'
+          + '<div class="ro-step"><strong>Real OpenAI cost per photo slot, per domain.</strong> Only does anything while Build is also ticked. Use it when a photo is actually wrong, not as a routine option.</div>'
+          + COMBO_NOTE],
+        logo_only: ['Colors, fonts &amp; logo only',
+            '<div class="ro-step">Rebuilds <strong>only</strong> the visual identity for each ticked domain — color palette, font, palette jitter, logo, icon, and favicon — skips AI text, photos, page pool, and landing pages entirely.</div>'
+          + '<div class="ro-step">Colors and the logo are bundled on purpose, not separable: the logo is painted FROM the current theme colors, so regenerating one without the other would leave the logo showing the old colors against a new theme.</div>'
+          + '<div class="ro-step">Local rendering only (no AI/OpenAI call), so there\'s no real cost — safe to run as often as you like.</div>'
+          + '<div class="ro-step">Does <strong>not</strong> change this batch\'s saved Generate settings — it\'s a one-off override just for this click. Use it after editing a Theme Preset, Logo Config, or icon in Brand Design to push that change out without a full rebuild.</div>'
+          + COMBO_NOTE],
+    };
+    function showStaticInfo(key) {
+        const [title, body] = STATIC_INFO[key] || ['', ''];
+        $('ro-modal-title').textContent = title;
+        $('ro-modal-body').innerHTML = body;
+        $('ro-modal-bg').style.display = 'flex';
+    }
     async function showInfo(domain) {
         const r = rows.find(x => x.domain === domain);
         if (!r || !r.detail) return;
@@ -299,7 +329,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 
     document.addEventListener('click', e => {
         const info = e.target.closest('.ro-info');
-        if (info) { e.preventDefault(); showInfo(info.dataset.info); return; }
+        if (info) { e.preventDefault(); info.dataset.staticInfo ? showStaticInfo(info.dataset.staticInfo) : showInfo(info.dataset.info); return; }
         const confirmLink = e.target.closest('.ro-confirm');
         if (confirmLink) {
             e.preventDefault();
@@ -335,7 +365,22 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             rows.filter(f).filter(canTick).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
             render();
         }
+        if (e.target.id === 'ro-do-build') syncForcePhotos();
     });
+    // Force-regenerate photos and Colors, fonts & logo only are both meaningless without
+    // Build — greyed out and auto-unticked the moment Build is off, not just blocked at
+    // submit time, so it's never possible to leave either checked in a state where it
+    // would silently do nothing. Tickable together on purpose — see rollout_build's
+    // server-side handling of logo_only+force_photos for what that combination means.
+    function syncForcePhotos() {
+        const buildOn = $('ro-do-build').checked;
+        const fp = $('ro-force-photos');
+        const lo = $('ro-logo-only');
+        fp.disabled = !buildOn;
+        lo.disabled = !buildOn;
+        if (!buildOn) { fp.checked = false; lo.checked = false; }
+    }
+    syncForcePhotos();
     $('ro-sched').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
         // A native time input reports an empty .value both when it's genuinely untouched
@@ -401,7 +446,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     // below follows its log until it ends.
     let jobTimer = null;
     function stepsPicked() {
-        return { host: $('ro-do-host').checked, build: $('ro-do-build').checked, upload: $('ro-do-upload').checked };
+        return { host: $('ro-do-host').checked, build: $('ro-do-build').checked, upload: $('ro-do-upload').checked,
+                 forcePhotos: $('ro-force-photos').checked, logoOnly: $('ro-logo-only').checked };
     }
     function stepsLabel(p) {
         const names = [p.host && 'Create host', p.build && 'Build', p.upload && 'Upload'].filter(Boolean);
@@ -441,9 +487,25 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         // so it falls back to a count there instead.
         let msg = sel.size <= 8 ? what + ' now?\n\n' + [...sel].join('\n') : what + ' for ' + sel.size + ' domain(s) now?';
         if (picked.build && live) msg += '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.';
+        if ((picked.forcePhotos || picked.logoOnly) && !picked.build) {
+            return say((picked.forcePhotos ? 'Force-regenerate photos' : 'Colors, fonts & logo only') + ' does nothing unless Build is also ticked.');
+        }
+        if (picked.forcePhotos && picked.logoOnly) {
+            msg += '\n\nFORCE-REGENERATE PHOTOS + COLORS, FONTS & LOGO ONLY are both ticked — this run skips AI text, '
+                 + 'page pool, and landing pages for ' + sel.size + ' domain(s), but rebuilds the color palette, font, '
+                 + 'jitter, logo, icon, favicon, AND regenerates every AI photo slot from the master\'s own photo. '
+                 + 'Real OpenAI cost per photo slot. Continue?';
+        } else if (picked.forcePhotos) {
+            msg += '\n\nFORCE-REGENERATE PHOTOS is ticked — every AI photo slot on ' + sel.size
+                 + ' domain(s) will be regenerated from the master\'s own photo, real OpenAI cost per slot. Continue?';
+        } else if (picked.logoOnly) {
+            msg += '\n\nCOLORS, FONTS & LOGO ONLY is ticked — this run skips AI text, photos, page pool, and landing pages for '
+                 + sel.size + ' domain(s), rebuilding just the color palette, font, jitter, logo, icon, and favicon from current settings. No cost (local only). Continue?';
+        }
         if (!confirm(msg)) return;
         const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]),
-            do_host: picked.host ? '1' : '0', do_build: picked.build ? '1' : '0', do_upload: picked.upload ? '1' : '0' });
+            do_host: picked.host ? '1' : '0', do_build: picked.build ? '1' : '0', do_upload: picked.upload ? '1' : '0',
+            force_photos: picked.forcePhotos ? '1' : '0', logo_only: picked.logoOnly ? '1' : '0' });
         if (r.error) return say(r.error);
         say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);

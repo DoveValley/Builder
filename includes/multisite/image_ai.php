@@ -220,11 +220,34 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
  */
 function ms_generate_ai_images_for_domain(
     string $workingDir, string $domain, string $masterDir, ?callable $onProgress = null,
-    bool $genHeroHome = true, bool $genHeroLanding = true, bool $genOtherHome = true, bool $genOtherLanding = true
+    bool $genHeroHome = true, bool $genHeroLanding = true, bool $genOtherHome = true, bool $genOtherLanding = true,
+    bool $force = false
 ): array {
     $out = ['generated' => 0, 'cached' => 0, 'failed' => 0, 'errors' => []];
     $templates = ms_image_ai_prompts_load($masterDir);
     if (!$templates) return $out;
+
+    // $force means "start over from the master's own approved photo," not "redo
+    // whatever's there now." Without this, a slot that drifted wrong once (the edit
+    // API edits FROM the domain's current photo, not from scratch — see below) would
+    // just drift again on every forced regenerate, since the reference was always the
+    // domain's own prior result. Loaded once, read-only — this is never written to.
+    $masterSite = null;
+    $masterPageCache = [];          // master pageFile path => decoded array
+    $masterTemplateToPageFile = []; // template_id => master pageFile path
+    if ($force) {
+        $masterSite = json_decode((string) @file_get_contents($masterDir . '/data/site.json'), true);
+        if (!is_array($masterSite)) $masterSite = null;
+        $masterPagesDir = $masterDir . '/data/pages';
+        if (is_dir($masterPagesDir)) {
+            foreach (glob($masterPagesDir . '/*.json') ?: [] as $pf) {
+                $pd = json_decode((string) @file_get_contents($pf), true);
+                if (!is_array($pd)) continue;
+                $masterPageCache[$pf] = $pd;
+                if (!empty($pd['template_id'])) $masterTemplateToPageFile[(string) $pd['template_id']] = $pf;
+            }
+        }
+    }
 
     $catFlags = [
         'hero_home' => $genHeroHome, 'hero_landing' => $genHeroLanding,
@@ -487,7 +510,7 @@ function ms_generate_ai_images_for_domain(
             $out['failed']++; $out['errors'][] = "$slotKey: current value is a locked {token}, not ours to touch"; continue;
         }
 
-        if (is_file($persistFile)) {
+        if (!$force && is_file($persistFile)) {
             if (!is_dir($mediaDir)) mkdir($mediaDir, 0775, true);
             if (!copy($persistFile, $mediaDir . $publicFilename)) {
                 $out['failed']++; $out['errors'][] = "$slotKey: cached photo exists but could not be copied into this build"; continue;
@@ -505,10 +528,35 @@ function ms_generate_ai_images_for_domain(
             continue;
         }
 
-        $refPath = $workingDir . '/' . ltrim($currentValue, '/');
+        // Force: reference the MASTER's own approved photo, not this domain's current
+        // one. The edit API edits FROM its reference, so re-editing an already-wrong
+        // photo only ever produces another variation of the same wrong scene — going
+        // back to the master's photo every time is what actually breaks that loop.
+        $refBase = $workingDir;
+        $refValue = $currentValue;
+        if ($force && $masterSite !== null) {
+            $masterTarget = $masterSite;
+            if ($parts['scope'] === 'landing') {
+                $templateId = is_array($entry) ? (string) ($entry['template_id'] ?? '') : '';
+                $masterPageFile = $templateId !== '' ? ($masterTemplateToPageFile[$templateId] ?? null) : null;
+                $masterTarget = $masterPageFile !== null ? $masterPageCache[$masterPageFile] : null;
+            }
+            $masterAmbiguous = false;
+            $masterBlock = $masterTarget !== null ? ms_image_ai_resolve_block($masterTarget, $parts, $blockType, $blockId, $masterAmbiguous) : null;
+            $masterValue = $masterBlock !== null ? (string) picdrop_get($masterBlock, $field) : '';
+            if ($masterValue !== '' && !str_contains($masterValue, '{')) {
+                $refBase = $masterDir;
+                $refValue = $masterValue;
+            }
+            // Falls back to the domain's current photo (the pre-force behavior) when the
+            // master's own slot can't be resolved — e.g. a landing template Page Pool
+            // never built for this domain's clone. Not a failure: still generates, just
+            // without the reset-to-master guarantee for this one slot.
+        }
+        $refPath = $refBase . '/' . ltrim($refValue, '/');
         [$tw, $th] = @getimagesize($refPath) ?: [0, 0];
         if ($tw < 1 || $th < 1) {
-            $out['failed']++; $out['errors'][] = "$slotKey: could not read size of existing photo ($currentValue)"; continue;
+            $out['failed']++; $out['errors'][] = "$slotKey: could not read size of existing photo ($refValue)"; continue;
         }
 
         // Edited FROM the domain's current photo — which is a straight (differentiated)

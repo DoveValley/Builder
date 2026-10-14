@@ -715,10 +715,20 @@ switch ($action) {
         $rtDo = [];
         foreach (['host', 'build', 'upload'] as $k) if (($_POST['do_' . $k] ?? '1') !== '0') $rtDo[] = $k;
         if (!$rtDo) { echo json_encode(['error' => 'Pick at least one step — Create host, Build, or Upload.']); break; }
+        // Opt-in, unchecked by default — every AI photo slot on a ticked domain gets
+        // regenerated from the MASTER's own photo (not from whatever's there now), real
+        // OpenAI cost per slot. See ms_generate_ai_images_for_domain()'s $force param.
+        $rtForcePhotos = !empty($_POST['force_photos']);
+        // Opt-in, one-off — builds with everything but 'visual' skipped (logo/icon/favicon
+        // only), without touching this batch's own saved Generate settings. See
+        // build_upload.php's --logo-only for the exact skip list.
+        $rtLogoOnly = !empty($_POST['logo_only']);
+        $rtArgs = [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $rtDoms), '--do=' . implode(',', $rtDo)];
+        if ($rtForcePhotos) $rtArgs[] = '--force-photos';
+        if ($rtLogoOnly) $rtArgs[] = '--logo-only';
         echo json_encode(ms_launch_job($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',
             'A run is already in progress for this batch — wait for it to finish.',
-            BASE_DIR . '/multisite/build_upload.php', [$masterId, '--batch=' . $batchId,
-                '--only=' . implode(',', $rtDoms), '--do=' . implode(',', $rtDo)]));
+            BASE_DIR . '/multisite/build_upload.php', $rtArgs));
         break;
 
     // Manually confirm one domain right now instead of waiting for the hourly go-live

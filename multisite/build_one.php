@@ -14,7 +14,7 @@
  * (passing a shared --snapshot so the master is frozen once for the whole run).
  *
  * Usage:
- *   php multisite/build_one.php <row.json> [--snapshot=DIR] [--keep] [--force]
+ *   php multisite/build_one.php <row.json> [--snapshot=DIR] [--keep] [--force] [--force-photos]
  *
  * row.json fields: master_id, domain (required); business, phone, tel, email,
  *   address, city, state, SS, zip, lat, lng, analytics_id, logo, web3forms_key,
@@ -47,7 +47,7 @@ progress_set_sink(progress_jsonlines_sink());
 
 // ── Parse args ──────────────────────────────────────────────────────────────
 $rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false; $skip = [];
-$noDeploy = false; $outDirArg = null;
+$noDeploy = false; $outDirArg = null; $forcePhotos = false;
 // Section-order rotation pin counts (see ms_differentiate_working_dir()'s $rotation param) —
 // how many leading/trailing blocks never move. Left null when the caller doesn't pass one, so
 // the default (1/1 — hero pinned first, closing block pinned last) is decided in one place.
@@ -55,6 +55,7 @@ $rotHomeTop = null; $rotHomeBottom = null; $rotLandingTop = null; $rotLandingBot
 foreach (array_slice($argv, 1) as $a) {
     if ($a === '--keep')                       $keep = true;
     elseif ($a === '--force')                  $force = true;
+    elseif ($a === '--force-photos')            $forcePhotos = true;
     elseif ($a === '--no-ai')                  $noAi = true;
     elseif ($a === '--no-deploy')              $noDeploy = true;
     elseif (str_starts_with($a, '--out-dir='))  $outDirArg = substr($a, 10);
@@ -462,10 +463,11 @@ if ($skipped('images')) {
     if (!$genHeroLanding)  progress_log('Images: AI photo (hero, service pages) skipped — turned off for this run.', 'warn');
     if (!$genOtherHome)    progress_log('Images: AI photo (other images, home) skipped — turned off for this run.', 'warn');
     if (!$genOtherLanding) progress_log('Images: AI photo (other images, service pages) skipped — turned off for this run.', 'warn');
+    if ($forcePhotos) progress_log('Images: AI photo — forced, every slot regenerated from the master\'s own photo.', 'warn');
     if ($genHeroHome || $genHeroLanding || $genOtherHome || $genOtherLanding) {
         $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir,
             function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); },
-            $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding);
+            $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding, $forcePhotos);
         if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
             progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
                 . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',

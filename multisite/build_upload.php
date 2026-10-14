@@ -39,12 +39,22 @@ require __DIR__ . '/../includes/multisite/batch_options.php';
 
 $args = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
-$batchId = ''; $only = ''; $doArg = '';
+$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false;
 foreach ($args as $a) {
     if (str_starts_with($a, '--batch=')) $batchId = substr($a, 8);
     if (str_starts_with($a, '--only='))  $only    = strtolower(substr($a, 7));
     if (str_starts_with($a, '--do='))    $doArg   = strtolower(substr($a, 5));
+    if ($a === '--force-photos')         $forcePhotos = true;
+    if ($a === '--logo-only')            $logoOnly = true;
 }
+
+// Palette/font/jitter/logo/icon/favicon all live under the one 'visual' step (colors and
+// the logo move together on purpose — the logo is painted FROM the current theme colors)
+// — skip everything else so a domain's AI text, photos, page-pool selection, and landing
+// pages are never touched just to push a Theme Preset/Logo Pool/icon-library change out.
+// A ONE-OFF override, not a change to the batch's own saved Generate settings — those
+// stay exactly as they were for every other run.
+$logoOnlySkip = ['ai', 'images', 'tags', 'structure', 'pagepool', 'landing'];
 $domains = array_values(array_filter(array_map('trim', explode(',', $only))));
 if (!ms_valid_master_id($masterId) || !ms_batch_exists($masterId, $batchId) || !$domains) {
     echo "Usage: build_upload.php <master> --batch=bN --only=a.com,b.com [--do=host,build,upload]\n"; exit(2);
@@ -83,16 +93,27 @@ $buildOk = true;
 $built = $domains;
 if ($do['build']) {
     $saved = ms_batch_saved_run_settings($masterId, $batchId);
+    // Ticking both narrows to "visual identity + photos, skip the rest" — 'images' stays
+    // OUT of the skip list so --force-photos below has something to actually act on.
+    $skipList = $logoOnly
+        ? ($forcePhotos ? array_values(array_diff($logoOnlySkip, ['images'])) : $logoOnlySkip)
+        : $saved['skip'];
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $cmd = [$php, BASE_DIR . '/multisite/run_campaign.php', $masterId, '--batch=' . $batchId, '--run-id=' . $runId,
             '--no-preflight', '--jobs=1', '--retries=1', '--no-deploy', '--only=' . implode(',', $domains)];
-    if ($saved['skip']) $cmd[] = '--skip=' . implode(',', $saved['skip']);
-    foreach ($saved['rotation'] as $flag => $n) $cmd[] = '--' . $flag . '=' . (int) $n;
+    if ($skipList) $cmd[] = '--skip=' . implode(',', $skipList);
+    // Section-order rotation is itself skipped (part of $logoOnlySkip's 'structure'), so
+    // the saved pin counts would do nothing anyway — left out entirely for a logo-only run.
+    if (!$logoOnly) foreach ($saved['rotation'] as $flag => $n) $cmd[] = '--' . $flag . '=' . (int) $n;
+    if ($forcePhotos) $cmd[] = '--force-photos';
     // Printed before the build starts (not after, when run_campaign.php itself logs it) —
     // rollout_build_status reads this line to find the live run.json and show per-domain
     // step progress while step 2 is still in flight.
     echo "\nRUN_ID={$runId}\n";
-    echo "== 2/4 Build " . count($domains) . " domain(s)" . ($saved['skip'] ? ' (skipping: ' . implode(', ', $saved['skip']) . ')' : '') . "\n";
+    echo "== 2/4 Build " . count($domains) . " domain(s)" . ($skipList ? ' (skipping: ' . implode(', ', $skipList) . ')' : '')
+       . ($logoOnly ? ' [--logo-only: this batch\'s saved Generate settings are not used for this run]' : '')
+       . ($forcePhotos ? ' [--force-photos: every AI photo slot regenerated from the master]' : '')
+       . ($logoOnly && $forcePhotos ? ' [combined: visual identity + photos only, AI text/pages skipped]' : '') . "\n";
     passthru(implode(' ', array_map('escapeshellarg', $cmd)), $rc);
 
     $run = json_decode((string) @file_get_contents(ms_batch_dir($masterId, $batchId) . '/runs/' . $runId . '.json'), true) ?: [];
