@@ -87,7 +87,8 @@ switch ($action) {
         break;
 
     // Open a batch: remember its master (the build needs it) AND the batch itself,
-    // then land on the batch page — you no longer have to "become" the master site.
+    // then land on the Simple view (rollout.php) — you no longer have to "become" the
+    // master site. Detailed (batch.php) is one click away via its own view switcher.
     case 'select':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         if (!ms_batch_exists($masterId, $batchId)) { echo json_encode(['error' => 'Batch not found.']); break; }
@@ -95,7 +96,7 @@ switch ($action) {
         $_SESSION['active_site']  = $masterId;
         $_SESSION['active_batch'] = $batchId;
         session_write_close();
-        echo json_encode(['ok' => true, 'redirect' => 'batch.php']);
+        echo json_encode(['ok' => true, 'redirect' => 'rollout.php']);
         break;
 
     // Close the open batch (used when leaving the batch page for the site admin).
