@@ -34,7 +34,19 @@ function photo_src($photo, $pathPrefix = '') {
     $photo = (string) $photo;
     if ($photo === '') return '';
     if ($photo[0] === '/' || preg_match('#^https?://#i', $photo)) return $photo;
-    return $pathPrefix . $photo;
+    $src = $pathPrefix . $photo;
+    // Content-block photos keep the same public filename forever (see
+    // image_ai.php's $publicFilename — hashed from the slot, not the content), so a
+    // swapped/regenerated photo is served from a browser or CDN cache showing the OLD
+    // image until this busts it. Logos/favicons already do this via
+    // admin_upload_url_v(); this is the same technique for every other photo, from the
+    // one place they all render through.
+    if (function_exists('upload_fs_path')) {
+        $fs = upload_fs_path($photo);
+        $mt = ($fs !== '' && is_file($fs)) ? @filemtime($fs) : 0;
+        if ($mt) $src .= (strpos($src, '?') !== false ? '&' : '?') . 'v=' . $mt;
+    }
+    return $src;
 }
 
 /**

@@ -106,6 +106,27 @@ function ms_image_ai_prompt_capture(string $masterDir, string $slotKey, string $
     }
 
     $all = ms_image_ai_prompts_load($masterDir);
+    // A block that moves to a different position gets a NEW slotKey on its next capture
+    // (the key bakes in the index at capture time) — without this, the OLD key for the
+    // same block+field stays behind forever, since nothing else ever prunes it. Both keys
+    // then resolve, via $blockId, to the SAME live block at build time, and whichever one
+    // ms_generate_ai_images_for_domain() processes first silently overwrites the field
+    // before the second one reads it — feeding it a stale, unrelated reference image.
+    // (That function also guards against this independently, for any duplicate that gets
+    // in some other way — this is the write-time half of that fix.)
+    //
+    // Matched on block_id AND field, never block_id alone: a repeater block (e.g.
+    // tab_services) legitimately has several photo fields — ts_tabs.0.photo,
+    // ts_tabs.1.photo, etc. — all sharing ONE block_id. Dropping every other entry for
+    // that block_id would have deleted 3 of 4 tabs' photos the moment any one of them
+    // got captured.
+    if ($blockId !== '') {
+        foreach ($all as $k => $e) {
+            if ($k === $slotKey || !is_array($e) || (string) ($e['block_id'] ?? '') !== $blockId) continue;
+            $kp = picdrop_parse_key($k);
+            if ($kp !== null && $kp['field'] === $parts['field']) unset($all[$k]);
+        }
+    }
     $all[$slotKey] = $entry;
     $f = ms_image_ai_prompts_file($masterDir);
     if (!is_dir(dirname($f))) mkdir(dirname($f), 0775, true);
@@ -216,6 +237,50 @@ function ms_generate_ai_images_for_domain(
     $mediaDir = $workingDir . '/uploads/media/';
     $dirty    = false;
 
+    // ── Defensive dedup: collapse any slotKey that collides on the same live block ──
+    // A capture event keys by {scope}::{index-at-capture-time}:{field}; if a block later
+    // moves to a different index, ms_image_ai_prompt_capture() now prunes the old key —
+    // but that fix is write-time only. This is the read-time backstop, for a duplicate
+    // that gets into the file some other way (a manual edit, an older unmigrated file, a
+    // bug this didn't anticipate). Without it, two slotKeys sharing a block_id both
+    // resolve to the SAME live block+field below, and whichever is processed first
+    // silently overwrites that field before the second one reads it as its own reference
+    // image — confirmed as the actual cause of a wrong photo on a real domain.
+    // Landing slots aren't at risk here: they match by template_id, not block_id.
+    //
+    // Grouped on block_id AND field, never block_id alone: a repeater block (e.g.
+    // tab_services) legitimately has several photo fields — ts_tabs.0.photo,
+    // ts_tabs.1.photo, etc. — all sharing ONE block_id. Grouping by block_id alone would
+    // treat a block's own distinct, perfectly valid photo slots as duplicates of each
+    // other and silently drop all but one of them.
+    $blockIdAtIndex = [];
+    if (!empty($site['content_blocks']) && is_array($site['content_blocks'])) {
+        foreach ($site['content_blocks'] as $i => $b) {
+            if (is_array($b) && !empty($b['id'])) $blockIdAtIndex[(string) $b['id']] = $i;
+        }
+    }
+    $byBlockField = [];
+    foreach ($templates as $slotKey => $entry) {
+        $blockId = is_array($entry) ? (string) ($entry['block_id'] ?? '') : '';
+        if ($blockId === '') continue;
+        $tp = picdrop_parse_key($slotKey);
+        if ($tp === null || $tp['scope'] !== 'home') continue;
+        $byBlockField[$blockId . '|' . $tp['field']][] = $slotKey;
+    }
+    $skipSlotKeys = [];
+    foreach ($byBlockField as $groupKey => $keys) {
+        if (count($keys) < 2) continue;
+        $blockId = explode('|', $groupKey, 2)[0];
+        $currentIdx = $blockIdAtIndex[$blockId] ?? null;
+        $keep = null;
+        foreach ($keys as $k) {
+            $tp = picdrop_parse_key($k);
+            if ($tp !== null && $currentIdx !== null && $tp['block'] === $currentIdx) { $keep = $k; break; }
+        }
+        if ($keep === null) $keep = $keys[0]; // nothing matched the block's current position — keep one rather than drop all
+        foreach ($keys as $k) if ($k !== $keep) $skipSlotKeys[$k] = true;
+    }
+
     // ── Pass 1: resolve every slot, handle cache hits immediately, queue the rest ──
     // Anything that actually needs a new photo goes into $pending instead of being
     // generated right here — see Pass 2 below, which fires them all through
@@ -223,6 +288,7 @@ function ms_generate_ai_images_for_domain(
     $pending = [];
 
     foreach ($templates as $slotKey => $entry) {
+        if (isset($skipSlotKeys[$slotKey])) continue;
         // Back-compat with the very first (pre-fix) shape, a bare prompt string with no
         // block_type — can't safely resolve those by type, only by the index they were
         // captured with, which is exactly what turned out not to be safe. Treat as a
