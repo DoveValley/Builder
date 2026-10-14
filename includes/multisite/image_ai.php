@@ -105,7 +105,20 @@ function ms_image_ai_prompt_capture(string $masterDir, string $slotKey, string $
         $entry['template_id'] = $templateId;
     }
 
-    $all = ms_image_ai_prompts_load($masterDir);
+    // Locked, read-modify-write, not a bare load+save: two near-simultaneous captures
+    // (two admins, or a double-submit) racing this file could otherwise each read the
+    // same starting state, and whichever writes second silently undoes the first one's
+    // prune below — putting the exact duplicate this function exists to prevent back in,
+    // with nothing to show for it. picdrop_pairs_save()/picdrop_json_write() already use
+    // this same lock-handle-then-read pattern for the same reason.
+    $f = ms_image_ai_prompts_file($masterDir);
+    if (!is_dir(dirname($f))) mkdir(dirname($f), 0775, true);
+    $fh = fopen($f, 'c+');
+    if ($fh === false) return;
+    flock($fh, LOCK_EX);
+    $raw = stream_get_contents($fh);
+    $all = $raw !== false && trim($raw) !== '' ? (json_decode($raw, true) ?: []) : [];
+
     // A block that moves to a different position gets a NEW slotKey on its next capture
     // (the key bakes in the index at capture time) — without this, the OLD key for the
     // same block+field stays behind forever, since nothing else ever prunes it. Both keys
@@ -120,17 +133,38 @@ function ms_image_ai_prompt_capture(string $masterDir, string $slotKey, string $
     // ts_tabs.1.photo, etc. — all sharing ONE block_id. Dropping every other entry for
     // that block_id would have deleted 3 of 4 tabs' photos the moment any one of them
     // got captured.
+    //
+    // Also scoped to the SAME scope+id (home vs. a specific landing template file) —
+    // ensure_block_ids() assigns ids like "hero_1" from a counter local to whichever
+    // array it's run on, so a home hero and an unrelated landing template's hero can
+    // land on the identical id by coincidence. Without this check, confirming one would
+    // silently delete the OTHER's unrelated, perfectly valid prompt.
+    //
+    // And prunes a BLANK-block_id entry for the same scope+id+field too, not just an
+    // exact block_id match: a block captured before it ever had an id resolves today via
+    // ms_image_ai_resolve_block()'s type+field fallback, which only succeeds when there is
+    // exactly one block of that type on the page — so a blank-id entry that still resolves
+    // successfully for this exact field can only be describing the SAME physical block
+    // this capture is for, just from before it had an id. Left alone, that old entry and
+    // this new id-bearing one would collide exactly like two reindexed keys do.
     if ($blockId !== '') {
         foreach ($all as $k => $e) {
-            if ($k === $slotKey || !is_array($e) || (string) ($e['block_id'] ?? '') !== $blockId) continue;
+            if ($k === $slotKey || !is_array($e)) continue;
+            $eBlockId = (string) ($e['block_id'] ?? '');
+            if ($eBlockId !== $blockId && $eBlockId !== '') continue;
             $kp = picdrop_parse_key($k);
-            if ($kp !== null && $kp['field'] === $parts['field']) unset($all[$k]);
+            if ($kp !== null && $kp['scope'] === $parts['scope'] && $kp['id'] === $parts['id'] && $kp['field'] === $parts['field']) {
+                unset($all[$k]);
+            }
         }
     }
     $all[$slotKey] = $entry;
-    $f = ms_image_ai_prompts_file($masterDir);
-    if (!is_dir(dirname($f))) mkdir(dirname($f), 0775, true);
-    file_put_contents($f, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    ftruncate($fh, 0);
+    rewind($fh);
+    fwrite($fh, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    fflush($fh);
+    flock($fh, LOCK_UN);
+    fclose($fh);
 }
 
 /**
@@ -246,32 +280,58 @@ function ms_generate_ai_images_for_domain(
     // resolve to the SAME live block+field below, and whichever is processed first
     // silently overwrites that field before the second one reads it as its own reference
     // image — confirmed as the actual cause of a wrong photo on a real domain.
-    // Landing slots aren't at risk here: they match by template_id, not block_id.
     //
-    // Grouped on block_id AND field, never block_id alone: a repeater block (e.g.
-    // tab_services) legitimately has several photo fields — ts_tabs.0.photo,
-    // ts_tabs.1.photo, etc. — all sharing ONE block_id. Grouping by block_id alone would
-    // treat a block's own distinct, perfectly valid photo slots as duplicates of each
-    // other and silently drop all but one of them.
-    $blockIdAtIndex = [];
+    // Covers landing too, not just home: a landing slot's PAGE is matched by template_id
+    // (real, and not at risk), but the BLOCK inside that page still resolves by block_id
+    // the identical way home does, via the same ms_image_ai_resolve_block() — and
+    // ensure_block_ids() hands out ids like "hero_1" from a counter local to whichever
+    // template it's run on, so landing block order can shift (structure.landing's
+    // per-domain rotation) exactly like home's can. Grouped by scope+id+block_id+field —
+    // "id" is the template file for landing, empty for home — so a home block and an
+    // unrelated landing template's block that happen to share a generic id (or two
+    // different landing templates that do) are never treated as the same slot.
+    //
+    // Grouped on field too, never block_id alone: a repeater block (e.g. tab_services)
+    // legitimately has several photo fields — ts_tabs.0.photo, ts_tabs.1.photo, etc. —
+    // all sharing ONE block_id. Grouping by block_id alone would treat a block's own
+    // distinct, perfectly valid photo slots as duplicates of each other and silently
+    // drop all but one of them.
+    $blockIdAtIndex = ['' => []]; // scope-id ('' = home) => block_id => current index
     if (!empty($site['content_blocks']) && is_array($site['content_blocks'])) {
         foreach ($site['content_blocks'] as $i => $b) {
-            if (is_array($b) && !empty($b['id'])) $blockIdAtIndex[(string) $b['id']] = $i;
+            if (is_array($b) && !empty($b['id'])) $blockIdAtIndex[''][(string) $b['id']] = $i;
         }
     }
+    $blockIdAtIndexFor = function (string $scopeId) use (&$blockIdAtIndex, $templateToPageFile, $pageCache) {
+        if (isset($blockIdAtIndex[$scopeId])) return $blockIdAtIndex[$scopeId];
+        $map = [];
+        $pageFile = $templateToPageFile[$scopeId] ?? null;
+        $pd = $pageFile !== null ? ($pageCache[$pageFile] ?? null) : null;
+        if (is_array($pd) && !empty($pd['content_blocks']) && is_array($pd['content_blocks'])) {
+            foreach ($pd['content_blocks'] as $i => $b) {
+                if (is_array($b) && !empty($b['id'])) $map[(string) $b['id']] = $i;
+            }
+        }
+        return $blockIdAtIndex[$scopeId] = $map;
+    };
     $byBlockField = [];
     foreach ($templates as $slotKey => $entry) {
         $blockId = is_array($entry) ? (string) ($entry['block_id'] ?? '') : '';
         if ($blockId === '') continue;
         $tp = picdrop_parse_key($slotKey);
-        if ($tp === null || $tp['scope'] !== 'home') continue;
-        $byBlockField[$blockId . '|' . $tp['field']][] = $slotKey;
+        if ($tp === null || !in_array($tp['scope'], ['home', 'landing'], true)) continue;
+        // Landing is grouped by template_id (the entry's own, authoritative — not the
+        // key's $tp['id'], which is just the master's page filename at capture time and
+        // can go stale the same way a block index can).
+        $scopeId = $tp['scope'] === 'landing' ? (string) ($entry['template_id'] ?? '') : '';
+        if ($tp['scope'] === 'landing' && $scopeId === '') continue; // no template_id to group by — skip, don't guess
+        $byBlockField[$scopeId . "\0" . $blockId . "\0" . $tp['field']][] = $slotKey;
     }
     $skipSlotKeys = [];
     foreach ($byBlockField as $groupKey => $keys) {
         if (count($keys) < 2) continue;
-        $blockId = explode('|', $groupKey, 2)[0];
-        $currentIdx = $blockIdAtIndex[$blockId] ?? null;
+        [$scopeId, $blockId] = explode("\0", $groupKey, 3);
+        $currentIdx = $blockIdAtIndexFor($scopeId)[$blockId] ?? null;
         $keep = null;
         foreach ($keys as $k) {
             $tp = picdrop_parse_key($k);
