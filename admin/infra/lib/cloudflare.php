@@ -225,6 +225,23 @@ function cf_create_zone(array $account, string $domain): array
 }
 
 /** Delete a zone. @return array{ok:bool,message:string} */
+/**
+ * Ask Cloudflare to re-check this zone's nameservers right now, instead of waiting for
+ * its own periodic check — the same thing the dashboard's "Check nameservers" button
+ * does. Useful when delegation is already confirmed correct at the authoritative
+ * registry (dig +trace) but the zone is still sitting on 'pending' well past Cloudflare's
+ * normal activation window; this prompts it rather than leaving it to find out on its
+ * own schedule. Safe to call on an already-active zone — it just no-ops.
+ * @return array{ok:bool,message:string}
+ */
+function cf_trigger_activation_check(array $account, string $zoneId): array
+{
+    $r  = cf_api($account, 'PUT', "/zones/{$zoneId}/activation_check");
+    $ok = $r['code'] === 200 && !empty($r['json']['success']);
+    return ['ok' => $ok, 'message' => $ok ? 'activation check requested'
+        : ($r['json']['errors'][0]['message'] ?? ($r['error'] ?: ('HTTP ' . $r['code'])))];
+}
+
 function cf_delete_zone(array $account, string $zoneId): array
 {
     $r  = cf_api($account, 'DELETE', "/zones/{$zoneId}");

@@ -189,6 +189,13 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const [y, m, dd] = d.split('-').map(Number), dt = new Date(Date.UTC(y, m - 1, dd));
         return dt.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
     }
+    function niceTime(t) {                        // 'HH:MM' (24h) → 'H:MM AM/PM'
+        if (!t || !/^\d{2}:\d{2}$/.test(t)) return t || '';
+        let [h, m] = t.split(':').map(Number);
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        h = h % 12 || 12;
+        return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+    }
     const dot = s => '<span class="dot ' + esc(s) + '" title="' + esc(s || 'not checked') + '"></span>';
 
     const STEP_LABELS = { host: 'Host', built: 'Built', upload: 'Uploaded', zone: 'Zone', live: 'Live' };
@@ -277,7 +284,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 + '<td>' + dot(r.steps.research) + '</td>'
                 + '<td>' + dot(r.steps.host) + '</td>'
                 + '<td>' + dot(r.steps.built) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
-                + '<td>' + (r.go_live_at && r.status !== 'live' ? esc(niceDate(r.go_live_at)) + (r.go_live_time ? ' ' + esc(r.go_live_time) : '') : '<span class="muted">—</span>') + '</td>'
+                + '<td>' + (r.go_live_at && r.status !== 'live' ? esc(niceDate(r.go_live_at)) + (r.go_live_time ? ' ' + esc(niceTime(r.go_live_time)) : '') : '<span class="muted">—</span>') + '</td>'
                 + '<td>' + (r.status === 'live'
                     ? '<a href="https://' + esc(r.domain) + '" target="_blank" rel="noopener" title="Open the live site">' + dot(r.steps.live) + '</a>'
                     : dot(r.steps.live)) + '</td>'

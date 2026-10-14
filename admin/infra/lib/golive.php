@@ -51,7 +51,23 @@ function infra_golive_refresh_live(array $only = []): int
         if (!in_array($status, ['staged', 'queued', 'releasing', 'awaiting-ns'], true)) continue;
 
         $z = $idx[$dom] ?? null;
-        if (!$z || ($z['status'] ?? '') !== 'active') continue;
+        if (!$z || ($z['status'] ?? '') !== 'active') {
+            // Nudge rather than just wait: Cloudflare's own periodic "has this zone's NS
+            // actually changed" check can sit for hours even once delegation is already
+            // correct at the registry — found live on bennetrestoration.com, 2026-10-14,
+            // confirmed via `dig +trace` that NS had been correct for 6+ hours while the
+            // zone still read 'pending'. Only for a domain already past 'queued' (NS switch
+            // actually sent) — a merely-staged/queued domain's zone being pending is the
+            // normal, expected, nothing-wrong-yet state. Cheap and idempotent (a no-op on
+            // an already-active zone), so safe to call every tick rather than tracking a
+            // cooldown — this only ever runs for the handful of domains genuinely stuck.
+            if ($z && in_array($status, ['releasing', 'awaiting-ns'], true)) {
+                $acct = null;
+                foreach (infra_cf_accounts() as $a) { if (($a['id'] ?? '') === ($z['account_id'] ?? '')) { $acct = $a; break; } }
+                if ($acct) cf_trigger_activation_check($acct, (string) $z['zone_id']);
+            }
+            continue;
+        }
 
         // ...and an active zone is still not evidence. It means Cloudflare answers for
         // the NAME; it says nothing about whether there is a record in it or a site
