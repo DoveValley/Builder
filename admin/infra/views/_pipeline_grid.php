@@ -96,6 +96,7 @@ function pg_cell(array $c): string
               text-transform:uppercase; letter-spacing:.03em; color:#6b7280; font-weight:700; white-space:nowrap }
 .pg td      { padding:6px 8px; border-bottom:1px solid #f3f4f6; white-space:nowrap }
 .pg tr:hover td { background:#f9fafb }
+.pg thead input[type="checkbox"], .pg-sel { width:20px; height:20px; cursor:pointer }
 .pg .num    { text-align:center; width:74px }
 .pg-c       { font-size:15px; font-weight:700 }
 .pg-d       { opacity:.45; border-bottom:1px dotted currentColor }   /* inferred, not checked */

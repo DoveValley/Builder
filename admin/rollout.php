@@ -41,6 +41,7 @@ table.ro th{text-align:left;font-weight:600;color:#475569;border-bottom:2px soli
 table.ro th.ro-vert{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;height:90px;padding:6px 4px;text-align:left}
 table.ro td{border-bottom:1px solid #f1f5f9;padding:6px 7px;vertical-align:middle}
 table.ro tr:hover td{background:#f8fafc}
+table.ro input[type="checkbox"]{width:20px;height:20px;cursor:pointer}
 .dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e2e8f0}
 .dot.ok{background:#16a34a}.dot.running{background:#f59e0b}.dot.fail{background:#dc2626}.dot.todo{background:#cbd5e1}
 .pill{font-size:.75rem;padding:2px 8px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}

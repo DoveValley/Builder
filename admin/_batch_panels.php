@@ -87,7 +87,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
                 <th style="width:34px;">#</th>
-                <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)"></th>
+                <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)" style="width:20px;height:20px;cursor:pointer"></th>
                 <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
             </tr></thead>
             <tbody><tr><td colspan="11" class="hint">Loading…</td></tr></tbody>
@@ -2038,7 +2038,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const isLive = r.status === 'live';
         const editing = msEditingDomain === domain;
         const numCell = '<td class="hint">' + rowNum + '</td>';
-        const checkCell = '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '"' +
+        const checkCell = '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '" style="width:20px;height:20px;cursor:pointer"' +
             (isLive ? ' disabled title="LIVE — use Correct & Regenerate to change its phone number"' : (msCtmSelected[domain] ? ' checked' : '')) +
             ' onclick="msCtmToggleOne(this)"></td>';
         let cells;
