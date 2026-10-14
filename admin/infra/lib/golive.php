@@ -127,14 +127,31 @@ function infra_golive_schedule(int $perDay, string $startDate, array $opts = [])
     $all  = infra_state_all_domains();
     $why  = [];
     $rows = [];
-    foreach ($all as $dom => $r) {
-        if ($only !== null && !isset($only[$dom])) continue;
-        if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) { if ($only !== null) $why[] = [$dom, 'not in this batch']; continue; }
-        if (!in_array($r['status'] ?? '', ['staged', 'queued'], true)) { if ($only !== null) $why[] = [$dom, 'status is ' . (($r['status'] ?? '') ?: 'blank')]; continue; }
-        $rows[$dom] = $r;
+    if ($only !== null) {
+        // Preserve the CALLER's order instead of re-sorting alphabetically. For Rollout's
+        // Simple view, $opts['domains'] arrives in the batch's own params.csv row order
+        // (the same order create_hosts.php already treats as the intended go-live
+        // sequence) — alphabetizing it here silently scrambled "day one, two, three" into
+        // whatever order domain NAMES happened to sort in, with nothing on screen to
+        // explain why row 9 landed on a later day than row 10.
+        foreach (array_keys($only) as $dom) {
+            $r = $all[$dom] ?? null;
+            if ($r === null) { $why[] = [$dom, 'not in the fleet']; continue; }
+            if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) { $why[] = [$dom, 'not in this batch']; continue; }
+            if (!in_array($r['status'] ?? '', ['staged', 'queued'], true)) { $why[] = [$dom, 'status is ' . (($r['status'] ?? '') ?: 'blank')]; continue; }
+            $rows[$dom] = $r;
+        }
+    } else {
+        // No explicit list (a hypothetical "schedule the whole batch" call with no
+        // domains given) — nothing to preserve the order OF, so alphabetical stays the
+        // deterministic fallback it always was.
+        foreach ($all as $dom => $r) {
+            if ($batch !== '' && (string) ($r['batch'] ?? '') !== $batch) continue;
+            if (!in_array($r['status'] ?? '', ['staged', 'queued'], true)) continue;
+            $rows[$dom] = $r;
+        }
+        ksort($rows);
     }
-    if ($only !== null) foreach (array_keys($only) as $dom) if (!isset($all[$dom])) $why[] = [$dom, 'not in the fleet'];
-    ksort($rows);
 
     $start = strtotime($startDate ?: infra_today());
     if ($start === false) $start = time();

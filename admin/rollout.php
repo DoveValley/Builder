@@ -338,6 +338,15 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     });
     $('ro-sched').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
+        // A native time input reports an empty .value both when it's genuinely untouched
+        // AND when it's partially filled (hour/minute set but AM/PM never picked) — the
+        // two look identical to this code, but only validity.badInput catches the second
+        // case. Without this, a half-filled "05:00 --" silently sends nothing and the
+        // schedule falls back to the flat default time with zero indication anything was
+        // wrong — confirmed as the actual cause of a real scheduling mixup.
+        if ($('ro-start-time').validity.badInput) {
+            return say('The "starting at" time isn\'t fully set — pick AM or PM too, or clear the field entirely for the default time.');
+        }
         const start = $('ro-start').value, startTime = $('ro-start-time').value, interval = $('ro-interval').value || 0;
         const when = startTime ? 'starting at ' + startTime + ', ' + interval + ' min apart' : 'at ' + settings.golive_time;
         if (!confirm('Schedule ' + sel.size + ' domain(s): ' + perDay + ' per day from ' + niceDate(start) + ' ' + when + '?')) return;
