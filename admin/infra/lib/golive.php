@@ -17,16 +17,29 @@ require_once __DIR__ . '/golive_freshen.php';
  * zone index (one sweep across accounts) instead of a call per domain, so it
  * scales to thousands of domains. Callers that need truly-live data
  * (cron, the Refresh button) set infra_cache_force() first.
+ *
+ * @param string[] $only Check just these domains instead of the whole fleet — for a
+ *   caller that just released a handful of domains and wants to know if THOSE went
+ *   live, not a full sweep. Omitted/empty means the original "check everything"
+ *   behavior cron relies on; the zone index itself still covers every account either
+ *   way (that part's already one sweep regardless of scope), only the per-domain
+ *   loop — and its per-domain live HTTP check — is bounded by $only.
  * @return int number newly marked live
  */
-function infra_golive_refresh_live(): int
+function infra_golive_refresh_live(array $only = []): int
 {
     require_once __DIR__ . '/uptime.php';
     require_once __DIR__ . '/pipeline.php';
 
     $idx = infra_cf_zone_index();
     $n = 0;
-    foreach (infra_state_all_domains() as $dom => $rec) {
+    $recs = [];
+    if ($only) {
+        foreach ($only as $d) { $r = infra_state_get_domain($d); if ($r) $recs[strtolower(trim($d))] = $r; }
+    } else {
+        $recs = infra_state_all_domains();
+    }
+    foreach ($recs as $dom => $rec) {
         $status = (string) ($rec['status'] ?? '');
         if ($status === 'live') continue;
 
@@ -101,6 +114,14 @@ function infra_golive_schedule(int $perDay, string $startDate, array $opts = [])
     $time = trim((string) ($opts['time'] ?? ''));
     if ($time !== '' && !preg_match('/^([01]\d|2[0-3]):[0-5]\d$/', $time)) $time = '';
 
+    // Spread a day's domains across the clock instead of firing them all at once:
+    // the Nth domain scheduled for a given day goes live $interval minutes after the
+    // (N-1)th. Every day restarts from the same $startTime. Blank start_time leaves
+    // the old flat-$time-for-everyone behavior untouched.
+    $startTime = trim((string) ($opts['start_time'] ?? ''));
+    if ($startTime !== '' && !preg_match('/^([01]\d|2[0-3]):[0-5]\d$/', $startTime)) $startTime = '';
+    $interval = max(0, (int) ($opts['interval'] ?? 0));
+
     // Only domains that are actually ready to go live — not live, and not stuck in
     // 'partial'/'register-failed'. (Re-scheduling 'queued' is fine.)
     $all  = infra_state_all_domains();
@@ -137,7 +158,11 @@ function infra_golive_schedule(int $perDay, string $startDate, array $opts = [])
 
         while (($load[$day] ?? 0) >= $perDay) $day = date('Y-m-d', strtotime($day . ' +1 day'));
         $up = ['domain' => $dom, 'go_live_at' => $day, 'status' => 'queued'];
-        if ($time !== '') $up['go_live_time'] = $time;
+        if ($startTime !== '') {
+            $up['go_live_time'] = date('H:i', strtotime($startTime) + ($load[$day] ?? 0) * $interval * 60);
+        } elseif ($time !== '') {
+            $up['go_live_time'] = $time;
+        }
         infra_state_upsert_domain($up);
         $load[$day] = ($load[$day] ?? 0) + 1;
         if ($first === '') $first = $day;

@@ -568,10 +568,70 @@ switch ($action) {
         require_once __DIR__ . '/infra/lib/fleet_view.php';
         require_once __DIR__ . '/infra/lib/fleet_settings.php';
         $rtTargets = ms_parse_csv($paramsPath)['rows'] ?? [];
-        $rtCity = [];
-        foreach ($rtTargets as $t) $rtCity[strtolower(trim((string) ($t['domain'] ?? '')))] = trim(($t['city'] ?? '') . (($t['SS'] ?? '') !== '' ? ', ' . $t['SS'] : ''));
+        $rtCity = []; $rtHosted = []; $rtPhone = []; $rtOther = []; $rtCityKey = []; $rtLine = []; $rtN = [];
+        $rtCount = 0;
+        foreach ($rtTargets as $t) {
+            $rtDom = strtolower(trim((string) ($t['domain'] ?? '')));
+            if ($rtDom === '') continue;
+            // Two different numbers, both real: $rtN is plain domain count (1 for the
+            // first domain, matching "how many domains do I have") — the main visible
+            // number. $rtLine is the exact params.csv line (header counts as line 1, so
+            // it's always one ahead) — kept as a secondary reference because it's the
+            // same number build/upload/create-host job logs print (e.g. "SKIP (invalid)
+            // line 74 ..."), so a log line can still be traced straight to a row.
+            $rtN[$rtDom]      = ++$rtCount;
+            $rtLine[$rtDom]   = (int) ($t['_line'] ?? 0);
+            $rtCity[$rtDom]   = trim(($t['city'] ?? '') . (($t['SS'] ?? '') !== '' ? ', ' . $t['SS'] : ''));
+            $rtHosted[$rtDom] = trim((string) ($t['ftp_host'] ?? '')) !== '' && trim((string) ($t['ftp_user'] ?? '')) !== '';
+            $rtPhone[$rtDom]  = trim((string) ($t['phone'] ?? ''));
+            // Business is city/state's natural companion field in params.csv — city and
+            // state are already their own column (the City column already appends SS),
+            // so this is whatever else identifies the row without repeating that.
+            $rtOther[$rtDom]  = trim((string) ($t['business'] ?? ''));
+            // Same city|SS match key research.php/geocode.php already use against cities.json.
+            $rtCityKey[$rtDom] = strtolower(trim((string) ($t['city'] ?? ''))) . '|' . strtolower(trim((string) ($t['SS'] ?? '')));
+        }
+        // Research status/date lives per CITY (cities.json), not per domain — several
+        // domains in a batch can share one city. "_researched" is the flag generate.py
+        // sets; the newest of the per-source *_fetched_at dates is the closest thing to
+        // a single "when" (there's no one unified research timestamp field).
+        $rtCities = json_decode((string) @file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/cities.json'), true) ?: [];
+        $rtCityResearch = [];
+        foreach ($rtCities as $c) {
+            if (!is_array($c)) continue;
+            $key = strtolower(trim((string) ($c['city'] ?? ''))) . '|' . strtolower(trim((string) ($c['SS'] ?? '')));
+            $dates = array_filter([$c['noaa_fetched_at'] ?? '', $c['figures_fetched_at'] ?? '',
+                                    $c['flood_fetched_at'] ?? '', $c['acs_fetched_at'] ?? '']);
+            $rtCityResearch[$key] = ['researched' => !empty($c['_researched']), 'at' => $dates ? max($dates) : ''];
+        }
         $rtRows = infra_fleet_view_rows(array_keys($rtCity));
-        foreach ($rtRows as &$rr) $rr['city'] = $rtCity[$rr['domain']] ?? '';
+        foreach ($rtRows as &$rr) {
+            $rr['n']     = $rtN[$rr['domain']] ?? 0;
+            $rr['line']  = $rtLine[$rr['domain']] ?? 0;
+            $rr['city']  = $rtCity[$rr['domain']] ?? '';
+            $rr['phone'] = $rtPhone[$rr['domain']] ?? '';
+            $rr['other'] = $rtOther[$rr['domain']] ?? '';
+            $rtRes = $rtCityResearch[$rtCityKey[$rr['domain']] ?? ''] ?? ['researched' => false, 'at' => ''];
+            $rr['steps']['research'] = $rtRes['researched'] ? INFRA_STEP_OK : '';
+            $rr['research_at'] = $rtRes['at'];
+            // Override the generic fleet-wide host check with THIS BATCH's own target
+            // list. infra_fleet_view_rows()'s 'host' answers "does a vhost exist
+            // anywhere in the fleet" (what the Bulk grid and Detailed go-live card both
+            // need) — but Upload reads credentials from params.csv, a separate copy
+            // that create_hosts.php writes in. A domain can have a real host from an
+            // earlier, unrelated provisioning run and still show blank credentials
+            // here, which is exactly what made Upload fail while this column read
+            // "done". This column means "ready for Upload", so it has to check the
+            // thing Upload itself checks, not the fleet-wide fact.
+            $rr['steps']['host'] = !empty($rtHosted[$rr['domain']]) ? INFRA_STEP_OK : '';
+            // Keep the detail popup telling the same story as the dot — otherwise it'd
+            // show the fleet-wide "ok" right next to a dot that says the opposite.
+            $rr['detail']['host'] = ['state' => $rr['steps']['host'],
+                'note' => $rr['steps']['host'] === INFRA_STEP_OK
+                    ? 'FTP credentials present in this batch\'s target list'
+                    : 'no FTP credentials in this batch\'s target list yet — run Create host',
+                'at' => 0];
+        }
         unset($rr);
         echo json_encode(['rows' => $rtRows, 'settings' => infra_fleet_settings(), 'batch' => $masterId . '/' . $batchId,
                           'today' => infra_today(), 'tomorrow' => date('Y-m-d', strtotime(infra_today() . ' +1 day'))]);
@@ -587,7 +647,9 @@ switch ($action) {
         if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $rtStart) || $rtStart < infra_today()) { echo json_encode(['error' => 'Pick a start date from today on.']); break; }
         echo json_encode(infra_golive_schedule((int) ($_POST['per_day'] ?? 5), $rtStart, [
             'batch' => $masterId . '/' . $batchId, 'gate' => true, 'domains' => $rtDoms, 'continue' => true,
-            'time'  => infra_fleet_settings()['golive_time'],
+            'time'       => infra_fleet_settings()['golive_time'],
+            'start_time' => trim((string) ($_POST['start_time'] ?? '')),
+            'interval'   => (int) ($_POST['interval'] ?? 0),
         ]));
         break;
 
@@ -599,8 +661,48 @@ switch ($action) {
         echo json_encode(infra_golive_unschedule($rtDoms, $masterId . '/' . $batchId));
         break;
 
-    // Build & upload the ticked domains as one background job (multisite/build_upload.php:
-    // existing Generate with the batch's saved settings → existing upload → fleet check).
+    // Release the ticked domains right now — the exact same call the go-live cron and
+    // the Detailed view's Go Live button make (infra_golive_release() under the same
+    // infra_pipeline_lock(), so this can never race either of them touching the same
+    // domain). No new release logic here; this is only a UI for the existing one.
+    case 'rollout_golive_now':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/golive.php';
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+        require_once __DIR__ . '/infra/lib/cache.php';
+        $gnDoms = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+        if (!is_array($gnDoms) || !$gnDoms) { echo json_encode(['error' => 'Tick at least one domain.']); break; }
+        $gnOk = 0; $gnWhy = []; $gnReleased = [];
+        foreach ($gnDoms as $gnD) {
+            $gnD = strtolower(trim((string) $gnD));
+            $rec = infra_state_get_domain($gnD);
+            // Only a domain this batch actually tagged — same ownership check golive_save_date uses.
+            if (!$rec || (string) ($rec['batch'] ?? '') !== ($masterId . '/' . $batchId)) {
+                $gnWhy[] = [$gnD, 'not a domain in this batch']; continue;
+            }
+            if (($rec['status'] ?? '') === 'live') { $gnWhy[] = [$gnD, 'already live']; continue; }
+            $r = infra_pipeline_lock($gnD, 'golive', fn() => infra_golive_release($gnD));
+            if (!empty($r['ok'])) { $gnOk++; $gnReleased[] = $gnD; }
+            else $gnWhy[] = [$gnD, (string) ($r['message'] ?? 'failed')];
+        }
+        // Confirm right away whether any of THESE just went live — scoped to only the
+        // domains this request released, not infra_golive_refresh_live()'s normal
+        // full-fleet sweep (that one's for cron; this is a few domains, not hundreds).
+        // Expect 0 here often: DNS propagation and Cloudflare noticing it both take
+        // real time, so "released but not confirmed yet" is the common, normal case,
+        // not a failure — that's why this is a separate 'confirmed' count, not folded
+        // into 'released'.
+        $gnConfirmed = 0;
+        if ($gnReleased) {
+            infra_cache_force(true);
+            $gnConfirmed = infra_golive_refresh_live($gnReleased);
+        }
+        echo json_encode(['released' => $gnOk, 'confirmed' => $gnConfirmed, 'why' => $gnWhy]);
+        break;
+
+    // Run selected steps (any mix of Create host / Build / Upload) for the ticked
+    // domains as one background job (multisite/build_upload.php — see its own docblock
+    // for why a step not selected doesn't count against the job's success).
     case 'rollout_build':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         $rtDoms = json_decode((string) ($_POST['domains'] ?? '[]'), true);
@@ -608,9 +710,62 @@ switch ($action) {
         foreach (ms_parse_csv($paramsPath)['rows'] ?? [] as $t) $rtIn[strtolower(trim((string) ($t['domain'] ?? '')))] = true;
         $rtDoms = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), is_array($rtDoms) ? $rtDoms : []), fn($d) => isset($rtIn[$d])));
         if (!$rtDoms) { echo json_encode(['error' => 'Tick at least one domain from this batch.']); break; }
+        // Default true for each — an old client that never sends these (or a hand-made
+        // POST) still gets the original "do everything" behavior.
+        $rtDo = [];
+        foreach (['host', 'build', 'upload'] as $k) if (($_POST['do_' . $k] ?? '1') !== '0') $rtDo[] = $k;
+        if (!$rtDo) { echo json_encode(['error' => 'Pick at least one step — Create host, Build, or Upload.']); break; }
         echo json_encode(ms_launch_job($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',
-            'A build & upload is already running for this batch — wait for it to finish.',
-            BASE_DIR . '/multisite/build_upload.php', [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $rtDoms)]));
+            'A run is already in progress for this batch — wait for it to finish.',
+            BASE_DIR . '/multisite/build_upload.php', [$masterId, '--batch=' . $batchId,
+                '--only=' . implode(',', $rtDoms), '--do=' . implode(',', $rtDo)]));
+        break;
+
+    // Manually confirm one domain right now instead of waiting for the hourly go-live
+    // cron — a click on "Switching DNS". Scoped to this one domain (infra_golive_refresh_live()'s
+    // $only param, added for rollout_golive_now) so it costs the same ~10s as the cron's
+    // own per-domain cost, not a full-fleet sweep.
+    case 'rollout_confirm_live':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/golive.php';
+        require_once __DIR__ . '/infra/lib/cache.php';
+        $clDom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $rec = infra_state_get_domain($clDom);
+        if (!$rec || (string) ($rec['batch'] ?? '') !== ($masterId . '/' . $batchId)) {
+            echo json_encode(['error' => 'Not a domain in this batch.']); break;
+        }
+        infra_cache_force(true);
+        // Judge success from the actual resulting status, not the return count — the
+        // count can under-report if something else (the hourly cron, a concurrent
+        // click) wrote 'live' for this same domain in the same window; the record
+        // itself is always the truth regardless of who got credit for the write.
+        infra_golive_refresh_live([$clDom]);
+        $rec = infra_state_get_domain($clDom);
+        echo json_encode(['confirmed' => ($rec['status'] ?? '') === 'live', 'status' => (string) ($rec['status'] ?? '')]);
+        break;
+
+    // One domain's most recent build cost — looked up on demand (info popup only),
+    // not joined into rollout_rows for every row on every load: scanning every run.json
+    // in the batch is cheap for one domain but would multiply by row count otherwise.
+    case 'rollout_last_cost':
+        $lcDom = strtolower(trim((string) ($_GET['domain'] ?? '')));
+        $lcIn = [];
+        foreach (ms_parse_csv($paramsPath)['rows'] ?? [] as $t) $lcIn[strtolower(trim((string) ($t['domain'] ?? '')))] = true;
+        if ($lcDom === '' || !isset($lcIn[$lcDom])) { echo json_encode(['error' => 'Not a domain in this batch.']); break; }
+        $lcFiles = glob($runsDir . '/*.json') ?: [];
+        rsort($lcFiles); // run_id is time-prefixed, so lexicographic desc = newest first
+        $lcCost = null; $lcAt = '';
+        foreach ($lcFiles as $lcFile) {
+            $lcRun = json_decode((string) @file_get_contents($lcFile), true);
+            if (!is_array($lcRun)) continue;
+            foreach (($lcRun['results'] ?? []) as $lcR) {
+                if (strtolower((string) ($lcR['domain'] ?? '')) === $lcDom && isset($lcR['cost'])) {
+                    $lcCost = (float) $lcR['cost']; $lcAt = (string) ($lcRun['finished_at'] ?? '');
+                    break 2;
+                }
+            }
+        }
+        echo json_encode(['cost' => $lcCost, 'at' => $lcAt]);
         break;
 
     case 'rollout_build_status':
@@ -618,20 +773,22 @@ switch ($action) {
         if (!$rtRun) { echo json_encode(['none' => true]); break; }
         $rtOut = ms_job_read_out($rtRun['path'], '__MS_BUILDUP_DONE__');
 
-        // The job's own "== N/3 ..." headings (build_upload.php) are the simplest
+        // The job's own "== N/4 ..." headings (build_upload.php) are the simplest
         // possible macro-progress readout — no need to re-parse anything for this part.
-        $rtStageLabels = [1 => 'Build', 2 => 'Upload', 3 => 'Check Built & Uploaded'];
+        $rtStageLabels = [1 => 'Create host', 2 => 'Build', 3 => 'Upload', 4 => 'Check Built & Uploaded'];
         $rtStage = 0;
-        if (preg_match_all('/^== (\d)\/3 /m', $rtOut['log'], $rtSm)) $rtStage = (int) end($rtSm[1]);
+        if (preg_match_all('/^== (\d)\/4 /m', $rtOut['log'], $rtSm)) $rtStage = (int) end($rtSm[1]);
 
-        // While stage 1 is running, the sub-run it launched (run_campaign.php) writes
-        // its OWN run.json live, per domain, with the exact step build_one.php is on
-        // right now — the same data the Detailed view's progress already reads (see
-        // includes/multisite/steps.php). Surfacing it here too turns stage 1 — which
+        // While stage 2 (Build) is running, the sub-run it launched (run_campaign.php)
+        // writes its OWN run.json live, per domain, with the exact step build_one.php is
+        // on right now — the same data the Detailed view's progress already reads (see
+        // includes/multisite/steps.php). Surfacing it here too turns stage 2 — which
         // can run for minutes with nothing else printed — from a silent wait into
-        // "building X — step 6 of 8: Images".
+        // "building X — step 6 of 8: Images". Stage 1 (Create host) has no such sub-run;
+        // its own per-domain lines are already in the raw log tail below, so this simply
+        // finds no RUN_ID yet and leaves $rtDetail blank while stage 1 is in progress.
         $rtDetail = '';
-        if ($rtStage <= 1 && !$rtOut['done'] && preg_match('/^RUN_ID=(\S+)/m', $rtOut['log'], $rtIdM)) {
+        if ($rtStage <= 2 && !$rtOut['done'] && preg_match('/^RUN_ID=(\S+)/m', $rtOut['log'], $rtIdM)) {
             require_once __DIR__ . '/../includes/multisite/steps.php';
             $rtSub = ms_read_run($runsDir . '/' . $rtIdM[1] . '.json');
             if ($rtSub) {
@@ -653,9 +810,66 @@ switch ($action) {
         }
 
         echo json_encode(['run_id' => $rtRun['run_id'], 'done' => $rtOut['done'], 'exit' => $rtOut['exit'],
-                          'stage' => $rtStage, 'stage_total' => 3, 'stage_label' => $rtStageLabels[$rtStage] ?? '',
+                          'stage' => $rtStage, 'stage_total' => 4, 'stage_label' => $rtStageLabels[$rtStage] ?? '',
                           'detail' => $rtDetail,
                           'log' => implode("\n", array_slice(explode("\n", $rtOut['log']), -40))]);
+        break;
+
+    // Bulk "put the Nth account on this box onto every ticked domain" — a human override
+    // of infra_cf_account_for_server()'s first-open pick, one domain at a time under the
+    // hood (infra_cf_account_at_slot(), infra/lib/cf_alloc.php) because a batch's domains
+    // can sit on different boxes, so "2nd" means a different literal account per box.
+    case 'rollout_set_cf_slot':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/infra/lib/cf_alloc.php';
+        $csDoms = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+        $csSlot = (int) ($_POST['slot'] ?? 0);
+        $csIn = [];
+        foreach (ms_parse_csv($paramsPath)['rows'] ?? [] as $t) $csIn[strtolower(trim((string) ($t['domain'] ?? '')))] = true;
+        $csDoms = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), is_array($csDoms) ? $csDoms : []), fn($d) => isset($csIn[$d])));
+        if (!$csDoms) { echo json_encode(['error' => 'Tick at least one domain from this batch.']); break; }
+        $csSet = 0; $csCleared = 0; $csWhy = [];
+        foreach ($csDoms as $d) {
+            $rec = infra_state_get_domain($d);
+            if (!$rec) { $csWhy[] = [$d, 'not in fleet state']; continue; }
+            if ((string) ($rec['cf_zone_id'] ?? '') !== '') { $csWhy[] = [$d, 'zone already created — locked to its account']; continue; }
+            $sid = (string) ($rec['server_id'] ?? '');
+            if ($sid === '') { $csWhy[] = [$d, 'no box assigned yet']; continue; }
+            if ($csSlot <= 0) {
+                infra_state_upsert_domain(['domain' => $d, 'cf_account_id' => '']);
+                $csCleared++; continue;
+            }
+            $acct = infra_cf_account_at_slot($sid, $csSlot);
+            if (!$acct) {
+                infra_state_upsert_domain(['domain' => $d, 'cf_account_id' => '']);
+                $csCleared++; $csWhy[] = [$d, 'its box has no account in that slot — cleared'];
+                continue;
+            }
+            infra_state_upsert_domain(['domain' => $d, 'cf_account_id' => (string) $acct['id']]);
+            $csSet++;
+        }
+        echo json_encode(['set' => $csSet, 'cleared' => $csCleared, 'why' => $csWhy]);
+        break;
+
+    // Bulk "create the zone now" for the ticked domains — the same per-domain 'zone' step
+    // the Detailed view's Go Live card runs one at a time, looped here so Rollout's
+    // simpler screen does not need that card at all.
+    case 'rollout_create_zones':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/pipeline.php';
+        $czDoms = json_decode((string) ($_POST['domains'] ?? '[]'), true);
+        $czIn = [];
+        foreach (ms_parse_csv($paramsPath)['rows'] ?? [] as $t) $czIn[strtolower(trim((string) ($t['domain'] ?? '')))] = true;
+        $czDoms = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), is_array($czDoms) ? $czDoms : []), fn($d) => isset($czIn[$d])));
+        if (!$czDoms) { echo json_encode(['error' => 'Tick at least one domain from this batch.']); break; }
+        set_time_limit(0);
+        $czOk = 0; $czWhy = [];
+        foreach ($czDoms as $d) {
+            $r = infra_pipeline_do('zone', $d, $masterId . '/' . $batchId);
+            if (!empty($r['ok'])) $czOk++; else $czWhy[] = [$d, (string) ($r['msg'] ?? 'failed')];
+        }
+        echo json_encode(['ok' => $czOk, 'why' => $czWhy]);
         break;
 
     case 'rollout_settings':

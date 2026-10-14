@@ -45,14 +45,25 @@ function infra_fleet_view_rows(array $domains): array
         $status = (string) ($rec['status'] ?? '');
         $sid    = (string) ($rec['server_id'] ?? '');
         $aid    = (string) ($rec['cf_account_id'] ?? '');
+        $liveState = $status === 'live' ? INFRA_STEP_OK : $st('live');
+        // Per-step note + last-checked time, straight from the same stored cells the
+        // dots already summarize into one word — for a per-row "what actually
+        // happened" popup, not a new column (the dots stay as the at-a-glance view).
+        $detail = [];
+        foreach (['host', 'built', 'upload', 'zone', 'live'] as $k) {
+            $c = $cells[$k] ?? [];
+            $detail[$k] = ['state' => $k === 'live' ? $liveState : $st($k),
+                           'note'  => (string) ($c['note'] ?? ''), 'at' => (int) ($c['at'] ?? 0)];
+        }
         $rows[] = [
             'domain'       => $d,
             'status'       => $status,
             'batch'        => (string) ($rec['batch'] ?? ''),
             'box'          => $sid !== '' ? ($boxes[$sid] ?? $sid) : '',
             'cf_account'   => $aid !== '' ? ($accts[$aid] ?? $aid) : '',
-            'steps'        => ['built' => $st('built'), 'upload' => $st('upload'), 'zone' => $st('zone'),
-                               'live' => $status === 'live' ? INFRA_STEP_OK : $st('live')],
+            'steps'        => ['host' => $st('host'), 'built' => $st('built'), 'upload' => $st('upload'), 'zone' => $st('zone'),
+                               'live' => $liveState],
+            'detail'       => $detail,
             'go_live_at'   => (string) ($rec['go_live_at'] ?? ''),
             'go_live_time' => (string) ($rec['go_live_time'] ?? ''),
             // Same rule the release gate and infra_golive_schedule() apply.

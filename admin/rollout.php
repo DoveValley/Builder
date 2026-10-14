@@ -38,14 +38,26 @@ $batch = ms_batch_meta($active['master_id'], $active['batch_id']) ?: ['name' => 
 .ro-cal div.has{background:#dbeafe;color:#1e3a8a;font-weight:600}
 table.ro{width:100%;border-collapse:collapse;font-size:.84rem}
 table.ro th{text-align:left;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0;padding:6px 7px;position:sticky;top:0;background:#fff}
+table.ro th.ro-vert{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;height:90px;padding:6px 4px;text-align:left}
 table.ro td{border-bottom:1px solid #f1f5f9;padding:6px 7px;vertical-align:middle}
 table.ro tr:hover td{background:#f8fafc}
 .dot{display:inline-block;width:11px;height:11px;border-radius:50%;background:#e2e8f0}
 .dot.ok{background:#16a34a}.dot.running{background:#f59e0b}.dot.fail{background:#dc2626}.dot.todo{background:#cbd5e1}
 .pill{font-size:.75rem;padding:2px 8px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}
 .pill.Live{background:#dcfce7;color:#166534}.pill.Scheduled{background:#dbeafe;color:#1e3a8a}.pill.Ready{background:#fef9c3;color:#854d0e}
+a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style:dotted}
 .ro-msg{font-weight:600}
 .muted{color:#94a3b8}
+.ro-info{color:#94a3b8;text-decoration:none;font-size:.9rem}
+.ro-info:hover{color:#1e3a8a}
+.ro-modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:50;align-items:center;justify-content:center}
+.ro-modal{background:#fff;border-radius:8px;padding:16px 18px;max-width:480px;width:90%;max-height:80vh;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.ro-modal h3{margin:0 0 10px;font-size:1rem}
+.ro-modal .ro-step{padding:7px 0;border-bottom:1px solid #f1f5f9;font-size:.85rem}
+.ro-modal .ro-step:last-child{border-bottom:none}
+.ro-modal .ro-step-note{color:#64748b;font-size:.8rem;margin-top:2px}
+.ro-modal .ro-close{float:right;cursor:pointer;color:#94a3b8;font-size:1.1rem;line-height:1}
+.ro-modal .ro-close:hover{color:#1e293b}
 </style>
 </head>
 <body class="admin-body">
@@ -62,11 +74,29 @@ table.ro tr:hover td{background:#f8fafc}
     <p class="hint" id="ro-settings" style="margin:0 0 14px;">Loading&hellip;</p>
 
     <div class="ro-bar">
-        <button type="button" class="btn" id="ro-build">Build &amp; upload selected</button>
-        <span class="hint">Generates the ticked domains with this batch's saved settings, uploads them, then checks them &mdash; one domain at a time.</span>
+        <label><input type="checkbox" id="ro-do-host" checked> Create host</label>
+        <label><input type="checkbox" id="ro-do-build" checked> Build</label>
+        <label><input type="checkbox" id="ro-do-upload" checked> Upload</label>
+        <button type="button" class="btn" id="ro-build">Run selected</button>
+        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials).</span>
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+
+    <div class="ro-bar">
+        <label>Cloudflare account
+            <select id="ro-cf-slot">
+                <option value="0">Auto (first open)</option>
+                <option value="1">1st</option>
+                <option value="2">2nd</option>
+                <option value="3">3rd</option>
+                <option value="4">4th</option>
+            </select>
+        </label>
+        <button type="button" class="btn sec" id="ro-cf-set">Set for selected</button>
+        <button type="button" class="btn" id="ro-cf-zone">Create zone(s) for selected</button>
+        <span class="hint">Each domain uses whichever account is in that position on <em>its own</em> box &mdash; a batch can span several boxes. No account in that slot clears the pick back to Auto. Domains with a zone already created are skipped; Cloudflare can't move a zone to a different account.</span>
+    </div>
 
     <div class="ro-bar">
         <span><strong>Go live</strong> per day:
@@ -76,9 +106,16 @@ table.ro tr:hover td{background:#f8fafc}
             <button type="button" class="ro-chip" data-n="6">6</button>
         </span>
         <label>starting <input type="date" id="ro-start"></label>
+        <label>starting at <input type="time" id="ro-start-time"></label>
+        <label>every <input type="number" id="ro-interval" min="1" step="1" style="width:56px"> min</label>
         <button type="button" class="btn" id="ro-sched">Schedule selected</button>
         <button type="button" class="btn sec" id="ro-unsched">Unschedule selected</button>
         <span class="ro-msg" id="ro-msg"></span>
+    </div>
+
+    <div class="ro-bar">
+        <button type="button" class="btn btn-danger" id="ro-golive-now">Go live now for selected</button>
+        <span class="hint">Switches nameservers at the registrar immediately &mdash; the real public cutover, not a schedule. Same checks as a scheduled release: refuses anything not uploaded, or already live.</span>
     </div>
 
     <div class="ro-cal" id="ro-cal"></div>
@@ -97,14 +134,31 @@ table.ro tr:hover td{background:#f8fafc}
     <table class="ro">
         <thead><tr>
             <th style="width:26px;"><input type="checkbox" id="ro-all" title="Select every row shown that can be scheduled"></th>
-            <th>Domain</th><th>City</th><th>Box</th><th>Cloudflare</th>
-            <th title="Files generated">Built</th><th title="Files on the server">Uploaded</th><th title="Cloudflare zone">Zone</th>
-            <th>Go live</th><th title="Answers on its own address with a valid certificate">Live</th><th>Status</th>
+            <th>Domain</th><th>City</th>
+            <th class="ro-vert" title="Phone number on file — see the info popup for the number">Phone</th>
+            <th class="ro-vert" title="Business name on file — see the info popup for the name">Business</th>
+            <th class="ro-vert">Box</th><th class="ro-vert">Cloudflare</th>
+            <th class="ro-vert" title="City research done — see the info popup for the date">Research</th>
+            <th class="ro-vert" title="Box + FTP account created">Host</th>
+            <th class="ro-vert" title="Files generated">Built</th>
+            <th class="ro-vert" title="Files on the server">Uploaded</th>
+            <th class="ro-vert" title="Cloudflare zone">Zone</th>
+            <th>Go live</th>
+            <th class="ro-vert" title="Answers on its own address with a valid certificate">Live</th>
+            <th>Status</th>
         </tr></thead>
-        <tbody id="ro-body"><tr><td colspan="11" class="muted">Loading&hellip;</td></tr></tbody>
+        <tbody id="ro-body"><tr><td colspan="15" class="muted">Loading&hellip;</td></tr></tbody>
     </table>
     <p class="hint" style="margin-top:12px;">Dots: <span class="dot ok"></span> done &nbsp;<span class="dot running"></span> running &nbsp;<span class="dot fail"></span> failed &nbsp;<span class="dot todo"></span> checked, not yet &nbsp;<span class="dot"></span> not checked.
         Only uploaded domains can be scheduled. Releases happen automatically at the go-live time (US Central) on each date.</p>
+</div>
+
+<div class="ro-modal-bg" id="ro-modal-bg">
+    <div class="ro-modal">
+        <span class="ro-close" id="ro-modal-close">&times;</span>
+        <h3 id="ro-modal-title"></h3>
+        <div id="ro-modal-body"></div>
+    </div>
 </div>
 
 <script>
@@ -135,6 +189,43 @@ table.ro tr:hover td{background:#f8fafc}
     }
     const dot = s => '<span class="dot ' + esc(s) + '" title="' + esc(s || 'not checked') + '"></span>';
 
+    const STEP_LABELS = { host: 'Host', built: 'Built', upload: 'Uploaded', zone: 'Zone', live: 'Live' };
+    // The stored timestamp is "last checked", not "last succeeded" — the DB column is
+    // literally called checked_at (pipeline.php's infra_pipeline_set() stamps it on
+    // every check, pass or fail). Wording it as "checked" rather than bare "— <time>"
+    // stops a failed/not-yet step from reading like it finished at that time.
+    const STATE_WORDS = { ok: 'done', fail: 'failed', running: 'running', todo: 'not yet', '': 'not checked' };
+    async function showInfo(domain) {
+        const r = rows.find(x => x.domain === domain);
+        if (!r || !r.detail) return;
+        $('ro-modal-title').textContent = domain;
+        const fields = '<div class="ro-step"><strong>Row:</strong> #' + esc(r.n) + ' in this batch &mdash; CSV line ' + esc(r.line) + '</div>'
+                     + '<div class="ro-step">' + dot(r.phone ? 'ok' : '') + ' <strong>Phone:</strong> ' + esc(r.phone || 'none on file') + '</div>'
+                     + '<div class="ro-step">' + dot(r.other ? 'ok' : '') + ' <strong>Business:</strong> ' + esc(r.other || 'none on file') + '</div>'
+                     + '<div class="ro-step">' + dot(r.steps.research) + ' <strong>Research:</strong> '
+                     + (r.steps.research === 'ok' ? 'done' : 'not yet') + ' &mdash; ' + esc(r.research_at || 'no date on file') + '</div>';
+        const steps = Object.entries(STEP_LABELS).map(([k, lbl]) => {
+            const d = r.detail[k] || {};
+            const state = d.state || '';
+            const when = d.at ? 'checked ' + new Date(d.at * 1000).toLocaleString() : 'never checked';
+            return '<div class="ro-step">' + dot(state) + ' <strong>' + lbl + ':</strong> '
+                 + esc(STATE_WORDS[state] ?? state) + ' &mdash; ' + esc(when)
+                 + (d.note ? '<div class="ro-step-note">' + esc(d.note) + '</div>' : '') + '</div>';
+        }).join('');
+        // Build cost isn't in `rows` (it would mean scanning every run.json for every
+        // row on every page load) — fetched here, just for the one domain being opened.
+        const costLine = '<div class="ro-step" id="ro-cost-line"><strong>Last build cost:</strong> Loading&hellip;</div>';
+        $('ro-modal-body').innerHTML = fields + steps + costLine;
+        $('ro-modal-bg').style.display = 'flex';
+        const cr = await (await fetch(API + '?action=rollout_last_cost&domain=' + encodeURIComponent(domain))).json();
+        const line = $('ro-cost-line');
+        if (line) {
+            line.innerHTML = cr.cost != null
+                ? '<strong>Last build cost:</strong> $' + cr.cost.toFixed(4) + (cr.at ? ' &mdash; ' + esc(new Date(cr.at).toLocaleString()) : '')
+                : '<strong>Last build cost:</strong> no build on record';
+        }
+    }
+
     const TABS = [['all', 'All', () => true], ['ready', 'Ready', r => label(r) === 'Ready'],
                   ['scheduled', 'Scheduled', r => label(r) === 'Scheduled'], ['live', 'Live', r => r.status === 'live'],
                   ['notready', 'Not ready yet', r => !['Ready', 'Scheduled', 'Live'].includes(label(r))]];
@@ -148,14 +239,22 @@ table.ro tr:hover td{background:#f8fafc}
             const lab = label(r), tick = canTick(r);
             return '<tr>'
                 + '<td>' + (tick ? '<input type="checkbox" data-d="' + esc(r.domain) + '"' + (sel.has(r.domain) ? ' checked' : '') + '>' : '') + '</td>'
-                + '<td><strong>' + esc(r.domain) + '</strong></td><td>' + esc(r.city) + '</td>'
+                + '<td><span style="color:#0f172a" title="CSV line ' + esc(r.line) + ' in this batch\'s target list">' + esc(r.n) + '.</span> <strong>' + esc(r.domain) + '</strong> <a href="#" class="ro-info" data-info="' + esc(r.domain) + '" title="Details">&#9432;</a></td><td>' + esc(r.city) + '</td>'
+                + '<td>' + dot(r.phone ? 'ok' : '') + '</td>'
+                + '<td>' + dot(r.other ? 'ok' : '') + '</td>'
                 + '<td>' + (r.box ? esc(r.box) : '<span class="muted">—</span>') + '</td>'
                 + '<td>' + (r.cf_account ? esc(r.cf_account) : '<span class="muted">—</span>') + '</td>'
+                + '<td>' + dot(r.steps.research) + '</td>'
+                + '<td>' + dot(r.steps.host) + '</td>'
                 + '<td>' + dot(r.steps.built) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
                 + '<td>' + (r.go_live_at && r.status !== 'live' ? esc(niceDate(r.go_live_at)) + (r.go_live_time ? ' ' + esc(r.go_live_time) : '') : '<span class="muted">—</span>') + '</td>'
-                + '<td>' + dot(r.steps.live) + '</td>'
-                + '<td><span class="pill ' + esc(lab) + '">' + esc(lab) + '</span></td></tr>';
-        }).join('') : '<tr><td colspan="11" class="muted">Nothing here.</td></tr>';
+                + '<td>' + (r.status === 'live'
+                    ? '<a href="https://' + esc(r.domain) + '" target="_blank" rel="noopener" title="Open the live site">' + dot(r.steps.live) + '</a>'
+                    : dot(r.steps.live)) + '</td>'
+                + '<td>' + (lab === 'Switching DNS'
+                    ? '<a href="#" class="ro-confirm pill ' + esc(lab) + '" data-confirm="' + esc(r.domain) + '" title="Check now instead of waiting for the hourly cron">' + esc(lab) + '</a>'
+                    : '<span class="pill ' + esc(lab) + '">' + esc(lab) + '</span>') + '</td></tr>';
+        }).join('') : '<tr><td colspan="15" class="muted">Nothing here.</td></tr>';
         $('ro-count').textContent = sel.size;
 
         // Next 14 days, from what is scheduled in this batch.
@@ -184,7 +283,7 @@ table.ro tr:hover td{background:#f8fafc}
 
     async function load() {
         const r = await (await fetch(API + '?action=rollout_rows')).json();
-        if (r.error) { $('ro-body').innerHTML = '<tr><td colspan="11">' + esc(r.error) + '</td></tr>'; return; }
+        if (r.error) { $('ro-body').innerHTML = '<tr><td colspan="15">' + esc(r.error) + '</td></tr>'; return; }
         rows = r.rows; settings = r.settings; window.RO_TODAY = r.today;
         if (!$('ro-start').value) { $('ro-start').value = r.tomorrow; $('ro-start').min = r.today; }
         [...sel].forEach(d => { const x = rows.find(y => y.domain === d); if (!x || !canTick(x)) sel.delete(d); });
@@ -199,6 +298,23 @@ table.ro tr:hover td{background:#f8fafc}
     const why = w => (w && w.length) ? ' Skipped ' + w.length + ': ' + w.slice(0, 3).map(x => x[0] + ' (' + x[1] + ')').join(', ') + (w.length > 3 ? '…' : '') : '';
 
     document.addEventListener('click', e => {
+        const info = e.target.closest('.ro-info');
+        if (info) { e.preventDefault(); showInfo(info.dataset.info); return; }
+        const confirmLink = e.target.closest('.ro-confirm');
+        if (confirmLink) {
+            e.preventDefault();
+            const dom = confirmLink.dataset.confirm;
+            const was = confirmLink.textContent;
+            confirmLink.textContent = 'Checking…';
+            confirmLink.style.pointerEvents = 'none';
+            post({ action: 'rollout_confirm_live', domain: dom }).then(r => {
+                if (r.error) { say(r.error); confirmLink.textContent = was; confirmLink.style.pointerEvents = ''; return; }
+                say(r.confirmed ? dom + ' is now Live.' : dom + ' not confirmed yet — DNS/Cloudflare still catching up, try again shortly.', !!r.confirmed);
+                load();
+            });
+            return;
+        }
+        if (e.target.id === 'ro-modal-close' || e.target.id === 'ro-modal-bg') { $('ro-modal-bg').style.display = 'none'; return; }
         const chip = e.target.closest('.ro-chip');
         if (chip) { perDay = +chip.dataset.n; document.querySelectorAll('.ro-chip').forEach(c => c.classList.toggle('on', c === chip)); return; }
         const tab = e.target.closest('[data-view]');
@@ -222,12 +338,30 @@ table.ro tr:hover td{background:#f8fafc}
     });
     $('ro-sched').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
-        const start = $('ro-start').value;
-        if (!confirm('Schedule ' + sel.size + ' domain(s): ' + perDay + ' per day from ' + niceDate(start) + ' at ' + settings.golive_time + '?')) return;
-        const r = await post({ action: 'rollout_schedule', domains: JSON.stringify([...sel]), per_day: perDay, start });
+        const start = $('ro-start').value, startTime = $('ro-start-time').value, interval = $('ro-interval').value || 0;
+        const when = startTime ? 'starting at ' + startTime + ', ' + interval + ' min apart' : 'at ' + settings.golive_time;
+        if (!confirm('Schedule ' + sel.size + ' domain(s): ' + perDay + ' per day from ' + niceDate(start) + ' ' + when + '?')) return;
+        const r = await post({ action: 'rollout_schedule', domains: JSON.stringify([...sel]), per_day: perDay, start, start_time: startTime, interval });
         if (r.error) return say(r.error);
         say('Scheduled ' + r.scheduled + (r.first ? ' (' + niceDate(r.first) + (r.last !== r.first ? ' – ' + niceDate(r.last) : '') + ')' : '') + '.' + why(r.why), r.scheduled > 0);
         sel.clear(); load();
+    };
+    $('ro-cf-set').onclick = async () => {
+        if (!sel.size) return say('Tick some domains first.');
+        const slot = $('ro-cf-slot').value, label = $('ro-cf-slot').selectedOptions[0].textContent;
+        if (!confirm('Set the Cloudflare account to "' + label + '" for ' + sel.size + ' domain(s)?')) return;
+        const r = await post({ action: 'rollout_set_cf_slot', domains: JSON.stringify([...sel]), slot });
+        if (r.error) return say(r.error);
+        say('Set ' + r.set + (r.cleared ? ', cleared ' + r.cleared : '') + '.' + why(r.why), r.set + r.cleared > 0);
+        load();
+    };
+    $('ro-cf-zone').onclick = async () => {
+        if (!sel.size) return say('Tick some domains first.');
+        if (!confirm('Create the Cloudflare zone for ' + sel.size + ' domain(s) now?')) return;
+        const r = await post({ action: 'rollout_create_zones', domains: JSON.stringify([...sel]) });
+        if (r.error) return say(r.error);
+        say('Zone created for ' + r.ok + '.' + why(r.why), r.ok > 0);
+        load();
     };
     $('ro-unsched').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
@@ -237,8 +371,34 @@ table.ro tr:hover td{background:#f8fafc}
         say('Unscheduled ' + r.unscheduled + '.' + why(r.why), r.unscheduled > 0);
         sel.clear(); load();
     };
-    // Build & upload — one background job; the box below follows its log until it ends.
+    $('ro-golive-now').onclick = async () => {
+        if (!sel.size) return say('Tick some domains first.');
+        // Always the full list, never a bare count — this is the one button on this
+        // page that touches the outside world and can't be undone with another click
+        // the way Unschedule undoes Schedule, so a misclick here costs real propagation
+        // time, not just a re-run.
+        if (!confirm('Go LIVE right now for ' + sel.size + ' domain(s)? This switches nameservers at the registrar immediately — not reversible with a click.\n\n' + [...sel].join('\n'))) return;
+        const r = await post({ action: 'rollout_golive_now', domains: JSON.stringify([...sel]) });
+        if (r.error) return say(r.error);
+        // 'confirmed' is often 0 right after release — DNS propagation and Cloudflare
+        // noticing it both take real time, so that's normal, not a failure. Status will
+        // keep showing "Switching DNS" for those until a later check catches up.
+        let msg = 'Released ' + r.released + '.';
+        if (r.released > 0) msg += r.confirmed > 0 ? ' Confirmed live: ' + r.confirmed + '.' : ' Not confirmed live yet — DNS is still propagating, this is normal.';
+        say(msg + why(r.why), r.released > 0);
+        sel.clear(); load();
+    };
+    // Run selected (Create host / Build / Upload, any mix) — one background job; the box
+    // below follows its log until it ends.
     let jobTimer = null;
+    function stepsPicked() {
+        return { host: $('ro-do-host').checked, build: $('ro-do-build').checked, upload: $('ro-do-upload').checked };
+    }
+    function stepsLabel(p) {
+        const names = [p.host && 'Create host', p.build && 'Build', p.upload && 'Upload'].filter(Boolean);
+        if (names.length === 3) return 'Create host, Build & Upload';
+        return names.join(' & ') || 'nothing';
+    }
     async function watchJob(runId) {
         const r = await (await fetch(API + '?action=rollout_build_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json();
         if (r.none) return;
@@ -257,22 +417,26 @@ table.ro tr:hover td{background:#f8fafc}
         }
         $('ro-build').disabled = false;
         stageEl.style.color = r.exit === 0 ? '#166534' : '#991b1b';
-        stageEl.textContent = r.exit === 0 ? 'Done — build & upload finished.' : 'Done, with problems — see the log below.';
-        if (runId) { say(r.exit === 0 ? 'Build & upload finished.' : 'Build & upload finished with problems — see the log.', r.exit === 0); load(); }
+        stageEl.textContent = r.exit === 0 ? 'Done — finished.' : 'Done, with problems — see the log below (steps you didn\'t tick are marked "skipped (not selected)", not a failure).';
+        if (runId) { say(r.exit === 0 ? 'Finished.' : 'Finished with problems — see the log.', r.exit === 0); load(); }
     }
     $('ro-build').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
+        const picked = stepsPicked();
+        if (!picked.host && !picked.build && !picked.upload) return say('Tick at least one step — Create host, Build, or Upload.');
         const live = [...sel].filter(d => (rows.find(x => x.domain === d) || {}).status === 'live').length;
+        const what = stepsLabel(picked);
         // Named explicitly, not just counted — a bare "1 domain(s)?" gives no chance to
         // catch a one-row-off misclick (e.g. ticking the row right below the intended
         // one) before the job launches. Past 8 the list is its own kind of unreadable,
         // so it falls back to a count there instead.
-        let msg = sel.size <= 8 ? 'Build & upload now?\n\n' + [...sel].join('\n') : 'Build & upload ' + sel.size + ' domain(s) now?';
-        if (live) msg += '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.';
+        let msg = sel.size <= 8 ? what + ' now?\n\n' + [...sel].join('\n') : what + ' for ' + sel.size + ' domain(s) now?';
+        if (picked.build && live) msg += '\n\n' + live + ' of them are LIVE — their sites will be replaced with the new build.';
         if (!confirm(msg)) return;
-        const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]) });
+        const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]),
+            do_host: picked.host ? '1' : '0', do_build: picked.build ? '1' : '0', do_upload: picked.upload ? '1' : '0' });
         if (r.error) return say(r.error);
-        say('Build & upload started for ' + sel.size + ' domain(s).', true);
+        say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);
     };
     load();

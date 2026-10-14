@@ -146,13 +146,13 @@
       "primary": "ceiling water damage {city}, {ST}",
       "slug": "ceiling-water-damage",
       "section": "landing",
-      "tier": "medium-1",
+      "tier": "high-2",
       "secondary": [
         "ceiling water damage repair",
         "water stained ceiling",
         "ceiling leak repair"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "hardwood floor water damage {city}, {ST}",
@@ -266,13 +266,13 @@
       "primary": "water heater leak {city}, {ST}",
       "slug": "water-heater-leak",
       "section": "landing",
-      "tier": "high-3",
+      "tier": "high-1",
       "secondary": [
         "water heater leak cleanup",
         "burst water heater",
         "water heater flood"
       ],
-      "pool": "rotate"
+      "pool": "pinned"
     },
     {
       "primary": "appliance leak & overflow cleanup {city}, {ST}",
@@ -299,7 +299,7 @@
       "pool": "skip"
     },
     {
-      "primary": "water damage inspection & assessment {city}, {ST}",
+      "primary": "water damage inspection {city}, {ST}",
       "slug": "water-damage-inspection",
       "section": "landing",
       "tier": "high-3",
@@ -324,10 +324,10 @@
       "pool": "skip"
     },
     {
-      "primary": "contents restoration & pack-out {city}, {ST}",
+      "primary": "contents restoration {city}, {ST}",
       "slug": "contents-restoration",
       "section": "landing",
-      "tier": "medium-3",
+      "tier": "medium-1",
       "secondary": [
         "pack out services",
         "contents pack out"

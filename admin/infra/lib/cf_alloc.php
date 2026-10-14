@@ -135,6 +135,23 @@ function infra_cf_account_for_server(string $serverId): array
 }
 
 /**
+ * The account in a given position (1st, 2nd, 3rd...) among the accounts bound to one
+ * box — for a human manually overriding the normal first-open pick, one box at a time,
+ * across a batch of domains that may sit on different boxes. Open/closed is ignored
+ * here: a manual pick is a deliberate choice, not the "skip closed accounts" rule that
+ * exists for the automatic path.
+ *
+ * Returns null, not a refusal-shaped array, when the box has no account in that slot —
+ * callers treat that the same as "clear the pick," never as an error.
+ */
+function infra_cf_account_at_slot(string $serverId, int $slot): ?array
+{
+    if ($slot < 1) return null;
+    $bound = infra_cf_accounts_for_server($serverId);
+    return $bound[$slot - 1] ?? null;
+}
+
+/**
  * Accounts bound to no box. They still work; they are simply outside the scheme, and an
  * account nobody bound is the reason some box reports "no account" — so it needs to be
  * visible rather than merely absent.
