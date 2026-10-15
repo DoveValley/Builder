@@ -38,6 +38,17 @@ require_once __DIR__ . '/state.php';
 require_once __DIR__ . '/store.php';
 require_once __DIR__ . '/cloudflare.php';
 require_once __DIR__ . '/fleet.php';   // infra_cf_zone_index()
+// batch.php resolves paths through BASE_DIR, which only config.php defines — and
+// config.php is a WEB bootstrap (it calls session_start()), never loaded by the cron
+// that does this module's actual work. So every freshen attempted from cron died on
+// "Undefined constant BASE_DIR" before it opened a single connection: 34 fatals in
+// infra-golive.log, taking the rest of that tick with them, from the day this module
+// was written until 2026-10-15. The feature had never once run outside a web request
+// or a hand-run script, and nothing said so — found only by reading the cron log while
+// testing something else. Same value as BASE_DIR (config.php sets it to its own dir,
+// which is this file's third parent), defined here so the module stands alone in CLI
+// without dragging a session into a cron.
+if (!defined('BASE_DIR')) define('BASE_DIR', dirname(__DIR__, 3));
 require_once dirname(__DIR__, 3) . '/includes/multisite/batch.php';    // ms_domain_slug(), ms_batch_dir()
 require_once dirname(__DIR__, 3) . '/includes/multisite/params.php';   // ms_parse_csv()
 
@@ -228,6 +239,14 @@ function infra_golive_freshen_domain(string $domain): array
 
     return [
         'ok'      => $touch['ok'] && $purge['ok'],
+        // The files alone, reported separately because they are the part that either
+        // worked or didn't. The Cloudflare purge is a known-degraded extra — several
+        // accounts' API tokens still lack Cache Purge permission, which only delays
+        // the new date on edge-cached assets by a few hours. Folding that into one
+        // flag would leave the panel's warning permanently lit for a condition we
+        // already know about, which is how a warning stops being read. The purge
+        // outcome stays in the message either way.
+        'files_ok' => $touch['ok'],
         'skipped' => false,
         'message' => 'files: ' . $touch['message'] . ' cache: ' . ($purge['ok'] ? 'purged.' : 'purge FAILED — ' . $purge['message']),
     ];
@@ -305,6 +324,14 @@ function infra_golive_freshen_due(): array
  * that fails (no manifest, bad credentials) would otherwise be retried on every single
  * tick forever, and its next upload or go-live will queue it again anyway.
  *
+ * Which is exactly why the outcome is RECORDED as the slot is cleared. A cleared
+ * failure leaves a record identical to a success — nothing pending, nothing wrong —
+ * and the only trace was a line in a cron log nobody reads. The panel reads these
+ * three fields back (infra_fleet_view_rows() → the rollout detail popup), so a
+ * refresh that failed, or that skipped every file, says so on the domain it
+ * happened to. Same lesson as the job-status liveness fix: work that quietly did
+ * not happen has to be visible, not inferred from silence.
+ *
  * @return array<string,string> domain => what happened
  */
 function infra_golive_freshen_run_due(int $cap = 3): array
@@ -316,8 +343,17 @@ function infra_golive_freshen_run_due(int $cap = 3): array
         // Same per-domain lock an interactive go-live click takes, so a freshen can't
         // run twice at once if one tick overruns into the next.
         $r = infra_pipeline_lock($domain, 'golive', fn() => infra_golive_freshen_domain($domain));
-        infra_state_upsert_domain(['domain' => $domain, 'freshen_due_at' => '']);
-        $done[$domain] = (string) ($r['message'] ?? 'no result');
+        $msg = trim((string) ($r['message'] ?? 'no result'));
+        infra_state_upsert_domain([
+            'domain'            => $domain,
+            'freshen_due_at'    => '',
+            'freshen_last_at'   => infra_now(),
+            // files_ok, not ok — see infra_golive_freshen_domain(). A skipped domain
+            // (no manifest, no params row) has neither key and correctly reads 'no'.
+            'freshen_last_ok'   => !empty($r['files_ok']) ? 'yes' : 'no',
+            'freshen_last_note' => $msg,
+        ]);
+        $done[$domain] = $msg;
     }
     return $done;
 }

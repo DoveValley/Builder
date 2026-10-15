@@ -152,6 +152,14 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
     // infra_golive_freshen_queue(): a batch re-uploaded in one run would otherwise have
     // every domain's files stamped within the same few minutes of each other.
     'freshen_due_at',
+    // What the LAST refresh actually did, kept because the work happens in a cron
+    // nobody watches: 'YYYY-MM-DD HH:MM:SS' it finished, 'yes'|'no' for whether it
+    // worked, and the same sentence the cron log gets. Without these a failed
+    // refresh existed only in /var/log — the queue slot is cleared either way, so
+    // the panel showed a domain with nothing pending and no hint anything had gone
+    // wrong. Same lesson as the job-status fix: a thing that quietly didn't happen
+    // has to be visible, not inferred.
+    'freshen_last_at', 'freshen_last_ok', 'freshen_last_note',
     'created_at','updated_at',
     // ── acquisition stage (begin → ready → owned), all TEXT ──
     'ready_to_buy',      // 'yes' | 'no' | ''      col 2 — set by the availability check, manually overridable

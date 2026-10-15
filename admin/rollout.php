@@ -60,6 +60,12 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 /* The two times worth finding in this popup — when it was built, and when it was
    actually released — lifted out of the grey note colour. */
 .ro-modal .ro-when{color:#166534;font-weight:600}
+/* The counterpart: a thing that was supposed to happen and didn't. */
+.ro-modal .ro-bad{color:#b91c1c;font-weight:600}
+/* Only ever rendered when something actually went wrong, so it is never background
+   noise the eye learns to skip — see the freshen alert in render(). */
+#ro-freshen-alert{display:none;margin:0 0 10px;padding:8px 10px;border:1px solid #fcd34d;
+  background:#fffbeb;color:#92400e;border-radius:6px;font-size:.85rem}
 .ro-modal .ro-close{float:right;cursor:pointer;color:#94a3b8;font-size:1.1rem;line-height:1}
 .ro-modal .ro-close:hover{color:#1e293b}
 </style>
@@ -124,6 +130,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <button type="button" class="btn btn-danger" id="ro-golive-now">Go live now for selected</button>
         <span class="hint">Switches nameservers at the registrar immediately &mdash; the real public cutover, not a schedule. Same checks as a scheduled release: refuses anything not uploaded, or already live.</span>
     </div>
+
+    <div id="ro-freshen-alert"></div>
 
     <div class="ro-cal" id="ro-cal"></div>
 
@@ -235,6 +243,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">That is the one thing on these sites that visibly links them to each other. Measured on the live fleet on 15 Oct 2026: four domains released <em>weeks</em> apart all had homepage dates inside the same <strong>98 seconds</strong> of one night, because a later rebuild had overwritten their original staggered dates.</div>'
           + '<div class="ro-step"><strong>What happens now, automatically:</strong> after an upload, any domain that is already live is queued for a file-date refresh at <strong>its own staggered time</strong> — between 20 minutes and about 20 hours later, fixed per domain. The go-live cron does the work: it re-sends each file so the date becomes that moment, then clears Cloudflare\'s cached copy. Nothing to tick, nothing to remember.</div>'
           + '<div class="ro-step">A domain that is <strong>not live yet</strong> is skipped on purpose — nobody can see its dates — and gets the same treatment the moment it is confirmed live instead.</div>'
+          + '<div class="ro-step"><strong>You can see whether it worked.</strong> Open the &#9432; next to any domain and look at <em>File dates</em> — it shows when the last refresh ran, whether it succeeded, and when the next one is due. If one fails, an amber warning appears above the calendar naming the domains, because the refresh runs unattended and nobody would otherwise go looking.</div>'
           + '<div class="ro-step"><strong>It can never undo an upload.</strong> The refresh reads each file and writes the same bytes back, so if one of your uploads lands in that gap the old copy could in theory be written over the new one. It checks first: a file is only re-sent while it still matches exactly what the last upload put there, and anything that has changed is left alone. Your upload always wins.</div>'
           + '<div class="ro-step"><strong>Dates you can see on the page</strong> are separate and already handled: blog posts are spread 14–270 days back (a fixed spread per domain, so rebuilds don\'t reshuffle them), photos have their embedded camera/edit dates stripped out, and the sitemap now reports each page and post\'s own date instead of one shared date for every URL.</div>'
           + '<div class="ro-step" style="color:#92400e;">Known gap: the Cloudflare cache purge needs <strong>Cache Purge</strong> permission on each account\'s API token, which is still outstanding on some accounts. Until then a refreshed date takes up to ~4 hours to show publicly instead of straight away. Pages are unaffected (they are not edge-cached) — it only delays assets like CSS.</div>'],
@@ -268,6 +277,31 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
              + '</div>';
     }
 
+    // The file-date refresh happens in the go-live cron, minutes to hours after the
+    // upload that queued it, with nobody watching — so this line is the only place its
+    // outcome is ever visible. It gets a red dot on failure on purpose: the queue slot
+    // is cleared either way, so without this a refresh that failed looks exactly like
+    // one that was never due.
+    function fileDatesLine(r) {
+        const last = r.freshen_last_at || '', due = r.freshen_due_at || '';
+        const ok = r.freshen_last_ok === 'yes';
+        // Nothing to say about a domain nobody can reach yet — its dates are not public,
+        // and it gets queued the moment it is confirmed live.
+        if (!last && !due && !['live', 'releasing'].includes(r.status)) return '';
+        let head, state;
+        if (last) {
+            state = ok ? 'ok' : 'fail';
+            head = ok ? '<span class="ro-when">refreshed ' + esc(last) + '</span>'
+                      : '<span class="ro-bad">last refresh FAILED</span> &mdash; ' + esc(last);
+        } else {
+            state = '';
+            head = due ? 'queued, not run yet' : 'never refreshed';
+        }
+        const why  = last && r.freshen_last_note ? '<div class="ro-step-note">' + esc(r.freshen_last_note) + '</div>' : '';
+        const next = due ? '<div class="ro-step-note">next refresh due ' + esc(due) + '</div>' : '';
+        return '<div class="ro-step">' + dot(state) + ' <strong>File dates:</strong> ' + head + why + next + '</div>';
+    }
+
     async function showInfo(domain) {
         const r = rows.find(x => x.domain === domain);
         if (!r || !r.detail) return;
@@ -277,7 +311,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                      + '<div class="ro-step">' + dot(r.other ? 'ok' : '') + ' <strong>Business:</strong> ' + esc(r.other || 'none on file') + '</div>'
                      + '<div class="ro-step">' + dot(r.steps.research) + ' <strong>Research:</strong> '
                      + (r.steps.research === 'ok' ? 'done' : 'not yet') + ' &mdash; ' + esc(r.research_at || 'no date on file') + '</div>'
-                     + goLiveLine(r);
+                     + goLiveLine(r)
+                     + fileDatesLine(r);
         const steps = Object.entries(STEP_LABELS).map(([k, lbl]) => {
             const d = r.detail[k] || {};
             const state = d.state || '';
@@ -337,6 +372,26 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                     : '<span class="pill ' + esc(lab) + '">' + esc(lab) + '</span>') + '</td></tr>';
         }).join('') : '<tr><td colspan="15" class="muted">Nothing here.</td></tr>';
         $('ro-count').textContent = sel.size;
+
+        // A failed file-date refresh is the easiest thing in this panel to never find
+        // out about: it happens in a cron, it clears its own queue slot, and the only
+        // other record is a log line. So it is surfaced here, over the WHOLE batch
+        // rather than the current tab — the failure is just as real on a row you are
+        // not looking at. Shown only when there is something wrong, so it stays
+        // worth reading.
+        const fFailed = rows.filter(r => r.freshen_last_ok === 'no');
+        const fBox = $('ro-freshen-alert');
+        if (fFailed.length) {
+            const names = fFailed.slice(0, 6).map(r => esc(r.domain)).join(', ')
+                        + (fFailed.length > 6 ? ' and ' + (fFailed.length - 6) + ' more' : '');
+            fBox.innerHTML = '<strong>File dates: the last refresh failed on ' + fFailed.length + ' domain'
+                + (fFailed.length === 1 ? '' : 's') + '.</strong> ' + names
+                + ' &mdash; the site itself is unaffected, only the dates on its files were not updated. '
+                + 'Open the &#9432; next to a domain for the reason. It will be retried after the next upload.';
+            fBox.style.display = 'block';
+        } else {
+            fBox.style.display = 'none';
+        }
 
         // Next 14 days, from what is scheduled in this batch.
         const per = {};

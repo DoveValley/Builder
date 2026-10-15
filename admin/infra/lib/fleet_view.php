@@ -69,6 +69,15 @@ function infra_fleet_view_rows(array $domains): array
             // When the nameservers were actually switched, as opposed to the day it was
             // scheduled for. Blank for anything released before this was recorded.
             'released_at'  => (string) ($rec['released_at'] ?? ''),
+            // The file-date refresh: what is queued, and what the last one actually did.
+            // It runs unattended inside the go-live cron, so these are the only way the
+            // panel can say anything about it — a failed refresh clears its queue slot
+            // like a successful one and would otherwise look identical to nothing having
+            // been due at all.
+            'freshen_due_at'    => (string) ($rec['freshen_due_at'] ?? ''),
+            'freshen_last_at'   => (string) ($rec['freshen_last_at'] ?? ''),
+            'freshen_last_ok'   => (string) ($rec['freshen_last_ok'] ?? ''),
+            'freshen_last_note' => (string) ($rec['freshen_last_note'] ?? ''),
             // Same rule the release gate and infra_golive_schedule() apply.
             'ready'        => $st('upload') === INFRA_STEP_OK && in_array($status, ['staged', 'queued'], true),
         ];
