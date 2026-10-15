@@ -332,8 +332,25 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         Object.entries(data).forEach(([k, v]) => fd.append(k, v));
         return (await fetch(API, { method: 'POST', body: fd })).json();
     }
-    function say(text, ok) { $('ro-msg').textContent = text; $('ro-msg').style.color = ok ? '#15803d' : '#b91c1c'; }
+    // tone 'warn' is the third state this needed: a result that half-worked. Plain
+    // ok=true went green on "scheduled 4 of 10", which reads as success and is exactly
+    // why six skipped domains went unnoticed.
+    function say(text, ok, tone) {
+        $('ro-msg').textContent = text;
+        $('ro-msg').style.color = tone === 'warn' ? '#b45309' : (ok ? '#15803d' : '#b91c1c');
+    }
     const why = w => (w && w.length) ? ' Skipped ' + w.length + ': ' + w.slice(0, 3).map(x => x[0] + ' (' + x[1] + ')').join(', ') + (w.length > 3 ? '…' : '') : '';
+    // Same data, grouped by REASON rather than listing the first three domains — when
+    // every skip shares one cause ("not uploaded yet", the usual case) that cause is
+    // the thing worth reading, not three domain names and an ellipsis.
+    const whyGrouped = w => {
+        if (!w || !w.length) return '';
+        const by = {};
+        w.forEach(x => { (by[x[1]] = by[x[1]] || []).push(x[0]); });
+        return ' Skipped ' + w.length + ' — ' + Object.entries(by).map(([reason, ds]) =>
+            reason + ' (' + ds.length + '): ' + ds.slice(0, 3).join(', ') + (ds.length > 3 ? ' +' + (ds.length - 3) + ' more' : '')
+        ).join('; ') + '.';
+    };
 
     document.addEventListener('click', e => {
         const info = e.target.closest('.ro-info');
@@ -402,10 +419,45 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         }
         const start = $('ro-start').value, startTime = $('ro-start-time').value, interval = $('ro-interval').value || 0;
         const when = startTime ? 'starting at ' + startTime + ', ' + interval + ' min apart' : 'at ' + settings.golive_time;
-        if (!confirm('Schedule ' + sel.size + ' domain(s): ' + perDay + ' per day from ' + niceDate(start) + ' ' + when + '?')) return;
-        const r = await post({ action: 'rollout_schedule', domains: JSON.stringify([...sel]), per_day: perDay, start, start_time: startTime, interval });
+
+        // Scheduling refuses any domain with nothing uploaded to it (pointing DNS at an
+        // empty folder gets it crawled empty) — so ticking 10 when only 4 are uploaded
+        // schedules 4, which all fit one day, and days two and three never appear. The
+        // old confirm promised "10 domains, 5 per day" before any of that was checked,
+        // so the result looked like a broken spread rather than six refusals. The row
+        // data already carries each domain's upload state; say so BEFORE posting.
+        // Both of the backend's own filters, mirrored here: a site must be uploaded, and
+        // the status must still be schedulable ('staged'/'queued' — anything already
+        // releasing or live is past the point a date can change).
+        const picked = [...sel];
+        const rowOf  = d => rows.find(x => x.domain === d) || {};
+        const notUp  = picked.filter(d => (rowOf(d).steps || {}).upload !== 'ok');
+        const notSch = picked.filter(d => !notUp.includes(d) && !['staged', 'queued'].includes(rowOf(d).status));
+        const ready  = picked.length - notUp.length - notSch.length;
+        if (!ready) {
+            return say(notUp.length === picked.length
+                ? 'None of the ' + picked.length + ' ticked domain(s) have a site uploaded yet, so none can be scheduled — Build & Upload them first.'
+                : 'None of the ' + picked.length + ' ticked domain(s) can be scheduled — they are not uploaded, or are already live.', false);
+        }
+        const names = list => list.length <= 8 ? list.join('\n') : list.slice(0, 8).join('\n') + '\n…and ' + (list.length - 8) + ' more';
+        const days  = Math.ceil(ready / perDay);
+        let msg = 'Schedule ' + ready + ' domain(s): ' + perDay + ' per day from ' + niceDate(start) + ' ' + when
+                + '\n\nThat is ' + days + ' day' + (days === 1 ? '' : 's') + ' of releases.';
+        if (notUp.length) {
+            msg += '\n\n' + notUp.length + ' of the ' + picked.length + ' ticked will be SKIPPED — nothing is uploaded to them yet:\n' + names(notUp);
+        }
+        if (notSch.length) {
+            msg += '\n\n' + notSch.length + ' more will be SKIPPED — already live, or past scheduling:\n' + names(notSch);
+        }
+        if (!confirm(msg + '\n\nGo ahead?')) return;
+        const r = await post({ action: 'rollout_schedule', domains: JSON.stringify(picked), per_day: perDay, start, start_time: startTime, interval });
         if (r.error) return say(r.error);
-        say('Scheduled ' + r.scheduled + (r.first ? ' (' + niceDate(r.first) + (r.last !== r.first ? ' – ' + niceDate(r.last) : '') + ')' : '') + '.' + why(r.why), r.scheduled > 0);
+        // Lead with "N of M", and never paint a part-skipped result green.
+        const skipped = (r.why || []).length;
+        const span = r.first ? ' (' + niceDate(r.first) + (r.last !== r.first ? ' – ' + niceDate(r.last) : '') + ')' : '';
+        say('Scheduled ' + r.scheduled + (skipped ? ' of ' + (r.scheduled + skipped) : '') + span + '.' + whyGrouped(r.why),
+            r.scheduled > 0 && !skipped,
+            (r.scheduled > 0 && skipped) ? 'warn' : '');
         sel.clear(); load();
     };
     $('ro-cf-set').onclick = async () => {
