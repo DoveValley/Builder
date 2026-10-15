@@ -83,16 +83,16 @@ function infra_golive_refresh_live(array $only = []): int
 
         infra_state_upsert_domain(['domain' => $dom, 'status' => 'live']);
 
-        // Right here, not at release: this is the moment the domain is actually
-        // resolving and serving, which is what its files' dates should honestly
-        // reflect. Release and "actually live" can be hours apart (NS propagation),
-        // so freshening at release would sometimes touch files before anyone could
-        // even reach them. Best-effort — a failure here does not undo "live", since
-        // the site genuinely is live; it just means the footprint fix didn't land
-        // and can be retried by hand.
-        $fresh = infra_golive_freshen_domain($dom);
+        // Queued from here, not run from here. This is still the right TRIGGER —
+        // release and "actually live" can be hours apart (NS propagation), so
+        // freshening at release would sometimes touch files before anyone could even
+        // reach them — but running it inline meant every domain confirmed live in one
+        // cron tick got its files stamped within seconds of its siblings, which is the
+        // very clustering the refresh exists to remove. The queue spreads each domain
+        // by its own fixed offset; golive_tick.php does the actual work later.
+        $due  = infra_golive_freshen_queue($dom);
         $note = 'HTTP ' . $chk['code'] . ' · ' . $chk['ms'] . 'ms';
-        if (!$fresh['skipped']) $note .= ' · freshen: ' . $fresh['message'];
+        if ($due !== '') $note .= ' · file dates refresh due ' . $due;
         infra_pipeline_set($dom, 'live', INFRA_STEP_OK, $note);
         $n++;
     }
@@ -341,11 +341,17 @@ function infra_golive_release(string $domain, bool $force = false): array
     }
 
     $sw = infra_registrar_set_ns($domain, $ns, $rec['registrar'] ?? '');
-    infra_state_upsert_domain([
+    $up = [
         'domain'     => $domain,
         'status'     => $sw['ok'] ? 'releasing' : 'awaiting-ns',
         'go_live_at' => $rec['go_live_at'] ?: gmdate('Y-m-d'),
-    ]);
+    ];
+    // Only on a real switch — 'awaiting-ns' means the registrar did NOT take it, so
+    // there is no release moment to record yet. A later successful re-release (a box
+    // move, say) overwrites it on purpose: the current nameservers are the ones that
+    // matter, and that is when they were set.
+    if ($sw['ok']) $up['released_at'] = infra_now();
+    infra_state_upsert_domain($up);
     return ['ok' => $sw['ok'], 'manual' => !empty($sw['manual']), 'message' => $sw['message'], 'ns' => $ns];
 }
 

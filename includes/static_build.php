@@ -288,7 +288,10 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
         $html = ob_get_clean();
 
         gen_write($outputBase . $pageSlug . '/index.html', $html);
-        $siteUrls[] = ['loc' => '/' . $pageSlug . '/', 'priority' => '0.8'];
+        // This page's OWN last-edit date, not the site-wide one — see the sitemap
+        // section below for why a single date across every URL is worth avoiding.
+        $siteUrls[] = ['loc' => '/' . $pageSlug . '/', 'priority' => '0.8',
+                       'lastmod' => (string) ($page['last_modified'] ?? '')];
         $writtenSlugs[$pageSlug] = true;
         $pageCount++;
         progress_tick(++$_preDone, $_preTotal);
@@ -428,7 +431,10 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
 
             if ($pageNum === 1) {
                 gen_write($outputBase . 'blog/index.html', $html);
-                $siteUrls[] = ['loc' => '/blog/', 'priority' => '0.6'];
+                // The blog index is only as new as its newest post. $allPosts is already
+                // sorted newest-first a few lines above, so [0] is that post.
+                $siteUrls[] = ['loc' => '/blog/', 'priority' => '0.6',
+                               'lastmod' => (string) ($allPosts[0]['updated_at'] ?? $allPosts[0]['published_at'] ?? '')];
             } else {
                 gen_write($outputBase . 'blog/page/' . $pageNum . '/index.html', $html);
             }
@@ -474,7 +480,11 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
             $html = ob_get_clean();
 
             gen_write($outputBase . 'blog/' . $postSlug . '/index.html', $html);
-            $siteUrls[] = ['loc' => '/blog/' . $postSlug . '/', 'priority' => '0.6'];
+            // The post's own date — these are deliberately spread across months by
+            // generate.py's _blog_post_backdate_days(), and the sitemap claiming they
+            // all changed on build day directly contradicted the date on the post.
+            $siteUrls[] = ['loc' => '/blog/' . $postSlug . '/', 'priority' => '0.6',
+                           'lastmod' => (string) ($post['updated_at'] ?? $post['published_at'] ?? '')];
             $writtenBlogSlugs[$postSlug] = true;
             $postCount++;
             progress_tick(++$_preDone, $_preTotal);
@@ -573,13 +583,26 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
         // Deterministic lastmod: use the site's own last_modified if set — never the
         // build-day clock — so identical content yields an identical sitemap on every
         // rebuild (reproducible multisite runs). Omitted when unknown (lastmod is optional).
+        //
+        // PER URL where the URL has a date of its own (a page's last_modified, a post's
+        // published/updated date), falling back to the site-wide one otherwise. One
+        // identical date on every URL was both untrue and conspicuous: a 35-URL sitemap
+        // swearing the homepage, every service page and every blog post all changed on
+        // the same day, while the posts themselves display dates spread over months.
         $lastmod = trim((string)($siteData['last_modified'] ?? ''));
+        $urlLastmod = static function (array $u) use ($lastmod): string {
+            $own = trim((string) ($u['lastmod'] ?? ''));
+            // Only a plain Y-m-d is accepted; anything else (blank, a full timestamp, a
+            // hand-typed value) falls back rather than emitting an invalid <lastmod>.
+            return preg_match('/^\d{4}-\d{2}-\d{2}$/', $own) ? $own : $lastmod;
+        };
         $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
         foreach ($siteUrls as $u) {
+            $thisLastmod = $urlLastmod($u);
             $xml .= "  <url>\n";
             $xml .= '    <loc>' . htmlspecialchars($canonicalDomain . $u['loc'], ENT_XML1) . "</loc>\n";
-            if ($lastmod !== '') $xml .= "    <lastmod>" . htmlspecialchars($lastmod, ENT_XML1) . "</lastmod>\n";
+            if ($thisLastmod !== '') $xml .= "    <lastmod>" . htmlspecialchars($thisLastmod, ENT_XML1) . "</lastmod>\n";
             $xml .= '    <priority>' . $u['priority'] . "</priority>\n";
             $xml .= "  </url>\n";
         }

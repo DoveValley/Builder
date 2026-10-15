@@ -57,6 +57,9 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 .ro-modal .ro-step{padding:7px 0;border-bottom:1px solid #f1f5f9;font-size:.85rem}
 .ro-modal .ro-step:last-child{border-bottom:none}
 .ro-modal .ro-step-note{color:#64748b;font-size:.8rem;margin-top:2px}
+/* The two times worth finding in this popup — when it was built, and when it was
+   actually released — lifted out of the grey note colour. */
+.ro-modal .ro-when{color:#166534;font-weight:600}
 .ro-modal .ro-close{float:right;cursor:pointer;color:#94a3b8;font-size:1.1rem;line-height:1}
 .ro-modal .ro-close:hover{color:#1e293b}
 </style>
@@ -81,6 +84,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-force-photos"> Force-regenerate photos <a href="#" class="ro-info" data-static-info="force_photos" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-logo-only"> Colors, fonts &amp; logo only <a href="#" class="ro-info" data-static-info="logo_only" title="Details">&#9432;</a></label>
         <button type="button" class="btn" id="ro-build">Run selected</button>
+        <a href="#" class="ro-info" data-static-info="file_dates" title="What this does to file dates">&#9432;</a>
         <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). Force-regenerate photos and Colors, fonts &amp; logo only both only do anything while Build is ticked &mdash; see the &#9432; next to each for what ticking both together does.</span>
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
@@ -226,6 +230,14 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Local rendering only (no AI/OpenAI call), so there\'s no real cost — safe to run as often as you like.</div>'
           + '<div class="ro-step">Does <strong>not</strong> change this batch\'s saved Generate settings — it\'s a one-off override just for this click. Use it after editing a Theme Preset, Logo Config, or icon in Brand Design to push that change out without a full rebuild.</div>'
           + COMBO_NOTE],
+        file_dates: ['What a run does to file dates',
+            '<div class="ro-step">Every file carries the date it was written, and the server tells the whole internet that date in its <code>Last-Modified</code> header. <strong>Uploading stamps every file it sends with the time of that upload.</strong> So a batch run leaves all its domains carrying timestamps minutes — sometimes seconds — apart.</div>'
+          + '<div class="ro-step">That is the one thing on these sites that visibly links them to each other. Measured on the live fleet on 15 Oct 2026: four domains released <em>weeks</em> apart all had homepage dates inside the same <strong>98 seconds</strong> of one night, because a later rebuild had overwritten their original staggered dates.</div>'
+          + '<div class="ro-step"><strong>What happens now, automatically:</strong> after an upload, any domain that is already live is queued for a file-date refresh at <strong>its own staggered time</strong> — between 20 minutes and about 20 hours later, fixed per domain. The go-live cron does the work: it re-sends each file so the date becomes that moment, then clears Cloudflare\'s cached copy. Nothing to tick, nothing to remember.</div>'
+          + '<div class="ro-step">A domain that is <strong>not live yet</strong> is skipped on purpose — nobody can see its dates — and gets the same treatment the moment it is confirmed live instead.</div>'
+          + '<div class="ro-step"><strong>It can never undo an upload.</strong> The refresh reads each file and writes the same bytes back, so if one of your uploads lands in that gap the old copy could in theory be written over the new one. It checks first: a file is only re-sent while it still matches exactly what the last upload put there, and anything that has changed is left alone. Your upload always wins.</div>'
+          + '<div class="ro-step"><strong>Dates you can see on the page</strong> are separate and already handled: blog posts are spread 14–270 days back (a fixed spread per domain, so rebuilds don\'t reshuffle them), photos have their embedded camera/edit dates stripped out, and the sitemap now reports each page and post\'s own date instead of one shared date for every URL.</div>'
+          + '<div class="ro-step" style="color:#92400e;">Known gap: the Cloudflare cache purge needs <strong>Cache Purge</strong> permission on each account\'s API token, which is still outstanding on some accounts. Until then a refreshed date takes up to ~4 hours to show publicly instead of straight away. Pages are unaffected (they are not edge-cached) — it only delays assets like CSS.</div>'],
     };
     function showStaticInfo(key) {
         const [title, body] = STATIC_INFO[key] || ['', ''];
@@ -233,6 +245,29 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         $('ro-modal-body').innerHTML = body;
         $('ro-modal-bg').style.display = 'flex';
     }
+    // Scheduled-vs-released, in the popup rather than the grid: the table is already
+    // 15 columns wide, and this is reference detail you look up for one domain, not
+    // something to scan down a list — the same reason Phone, Business and the Research
+    // date live here too. go_live_at is only the DAY it was queued for; released_at is
+    // the minute the registrar actually took the nameserver switch. Blank released_at
+    // on a domain that IS live means it went out before that was recorded, which is
+    // worth saying plainly instead of leaving an empty line.
+    function goLiveLine(r) {
+        const scheduled = r.go_live_at ? niceDate(r.go_live_at) + (r.go_live_time ? ' at ' + niceTime(r.go_live_time) : '') : '';
+        let released = '';
+        if (r.released_at) released = r.released_at;
+        else if (['live', 'releasing'].includes(r.status)) released = 'not recorded (released before this was tracked)';
+        if (!scheduled && !released) return '';
+        // Green only when it's a REAL recorded time — "not recorded" is not an
+        // achievement to colour like one.
+        const relHtml = r.released_at ? '<span class="ro-when">released ' + esc(released) + '</span>'
+                                      : 'released ' + esc(released);
+        return '<div class="ro-step">' + dot(r.released_at ? 'ok' : '') + ' <strong>Go live:</strong> '
+             + (scheduled ? 'scheduled ' + esc(scheduled) : 'not scheduled')
+             + (released ? '<div class="ro-step-note">' + relHtml + '</div>' : '')
+             + '</div>';
+    }
+
     async function showInfo(domain) {
         const r = rows.find(x => x.domain === domain);
         if (!r || !r.detail) return;
@@ -241,14 +276,22 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                      + '<div class="ro-step">' + dot(r.phone ? 'ok' : '') + ' <strong>Phone:</strong> ' + esc(r.phone || 'none on file') + '</div>'
                      + '<div class="ro-step">' + dot(r.other ? 'ok' : '') + ' <strong>Business:</strong> ' + esc(r.other || 'none on file') + '</div>'
                      + '<div class="ro-step">' + dot(r.steps.research) + ' <strong>Research:</strong> '
-                     + (r.steps.research === 'ok' ? 'done' : 'not yet') + ' &mdash; ' + esc(r.research_at || 'no date on file') + '</div>';
+                     + (r.steps.research === 'ok' ? 'done' : 'not yet') + ' &mdash; ' + esc(r.research_at || 'no date on file') + '</div>'
+                     + goLiveLine(r);
         const steps = Object.entries(STEP_LABELS).map(([k, lbl]) => {
             const d = r.detail[k] || {};
             const state = d.state || '';
             const when = d.at ? 'checked ' + new Date(d.at * 1000).toLocaleString() : 'never checked';
+            // The Built step's note carries the actual build time ("built 12 Oct 21:11"),
+            // which is the time worth finding in here — the step's own "checked" stamp
+            // only says when somebody last verified it. Green on the former, not the latter.
+            const note = d.note
+                ? '<div class="ro-step-note">'
+                  + (k === 'built' && /^built /i.test(d.note) ? '<span class="ro-when">' + esc(d.note) + '</span>' : esc(d.note))
+                  + '</div>'
+                : '';
             return '<div class="ro-step">' + dot(state) + ' <strong>' + lbl + ':</strong> '
-                 + esc(STATE_WORDS[state] ?? state) + ' &mdash; ' + esc(when)
-                 + (d.note ? '<div class="ro-step-note">' + esc(d.note) + '</div>' : '') + '</div>';
+                 + esc(STATE_WORDS[state] ?? state) + ' &mdash; ' + esc(when) + note + '</div>';
         }).join('');
         // Build cost isn't in `rows` (it would mean scanning every run.json for every
         // row on every page load) — fetched here, just for the one domain being opened.

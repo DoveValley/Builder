@@ -52,9 +52,19 @@ foreach ($due as $domain => $rec) {
 }
 
 $post = infra_golive_refresh_live();
+
+// Drain any file-date refreshes that have come due (queued after an upload, and at
+// confirmed-live — see infra_golive_freshen_queue()). Each one is a full FTP download
+// and re-upload of every file on a domain, so the cap stops a tick running long;
+// anything still due waits for the next tick, 10 minutes later. Because the due times
+// are staggered per domain this is normally 0 or 1 domain a tick, not a backlog.
+$freshened = infra_golive_freshen_run_due(3);
+foreach ($freshened as $fDom => $fMsg) echo "{$ts} freshen {$fDom}: {$fMsg}\n";
+
 $remaining = max(0, count($due) - $released - $gated);
 echo "{$ts} tick done — newly-live: " . ($pre + $post) . ", released: {$released}/{$cap}"
-   . ($gated ? ", held: {$gated} (nothing uploaded)" : '') . ", still-due: {$remaining}\n";
+   . ($gated ? ", held: {$gated} (nothing uploaded)" : '')
+   . ($freshened ? ', freshened: ' . count($freshened) : '') . ", still-due: {$remaining}\n";
 
 // A run that leaves a footprint is a run you can ask about later. The grid reads this
 // to say when the tick last ran — a scheduler that has silently stopped is worse than

@@ -188,6 +188,30 @@ if ($onlyList) {
     infra_pipeline_refresh('upload', $masterId . '/' . $batchId);
 }
 
+/* Queue a file-date refresh for anything that is ALREADY PUBLIC. An upload stamps every
+ * file it sends with this run's clock, so a batch re-uploaded in one go leaves its
+ * domains carrying timestamps minutes apart from each other — measured on the real
+ * fleet 2026-10-15, four domains released weeks apart all showed homepage dates inside
+ * the same 98 seconds, because a later batch rebuild had overwritten the staggered
+ * go-live dates. Before this, nothing ever ran the refresh a second time.
+ *
+ * Only live/releasing domains: a staged domain's file dates are not visible to anyone
+ * yet, and its confirmed-live moment queues one anyway — queueing the other 87 rows of
+ * a typical batch would be a lot of FTP work nobody can see the result of. */
+require_once __DIR__ . '/../admin/infra/lib/golive_freshen.php';
+$freshenQueued = 0;
+foreach ($ready as $t) {
+    $dom = strtolower(trim((string) ($t['domain'] ?? '')));
+    if ($dom === '') continue;
+    $rec = infra_state_get_domain($dom);
+    if (!in_array((string) ($rec['status'] ?? ''), ['live', 'releasing'], true)) continue;
+    if (infra_golive_freshen_queue($dom) !== '') $freshenQueued++;
+}
+if ($freshenQueued > 0) {
+    echo "\nFile-date refresh queued for {$freshenQueued} live domain(s) — each runs at its own\n"
+       . "staggered time (20 min to ~20 h) so the batch does not leave one shared timestamp.\n";
+}
+
 echo "\n" . str_repeat('=', 58) . "\n";
 printf("DONE — %d uploaded, %d failed, %d file(s) sent.\n", $ok, $fail, $sent);
 exit($fail > 0 ? 1 : 0);

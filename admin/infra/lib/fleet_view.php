@@ -66,6 +66,9 @@ function infra_fleet_view_rows(array $domains): array
             'detail'       => $detail,
             'go_live_at'   => (string) ($rec['go_live_at'] ?? ''),
             'go_live_time' => (string) ($rec['go_live_time'] ?? ''),
+            // When the nameservers were actually switched, as opposed to the day it was
+            // scheduled for. Blank for anything released before this was recorded.
+            'released_at'  => (string) ($rec['released_at'] ?? ''),
             // Same rule the release gate and infra_golive_schedule() apply.
             'ready'        => $st('upload') === INFRA_STEP_OK && in_array($status, ['staged', 'queued'], true),
         ];

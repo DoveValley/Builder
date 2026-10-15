@@ -16,10 +16,14 @@
  * FTP accounts have no shell access — see project memory):
  *   1. Read the domain's existing deploy manifest (written once at build time
  *      by includes/multisite/deploy.php — the exact file list already deployed).
- *   2. For each file: FTP-download it, then FTP-upload the same bytes right
- *      back. A STOR always resets mtime to write-time on every FTP server —
- *      ordinary filesystem behavior, not a protocol extension like MFMT, so
- *      it needs nothing box-specific to work identically everywhere.
+ *   2. For each file: FTP-download it, check the bytes still hash to what the
+ *      manifest recorded at upload time, then FTP-upload those same bytes
+ *      right back. A STOR always resets mtime to write-time on every FTP
+ *      server — ordinary filesystem behavior, not a protocol extension like
+ *      MFMT, so it needs nothing box-specific to work identically everywhere.
+ *      The hash gate is what makes the download/upload round trip safe: a
+ *      file that changed under us belongs to a newer upload, and rewriting
+ *      the bytes we just read would silently revert it.
  *   3. Purge the domain's Cloudflare cache. Confirmed necessary: the origin
  *      mtime updates immediately, but Cloudflare serves the OLD cached
  *      Last-Modified/ETag until its cache is purged or naturally expires.
@@ -120,12 +124,23 @@ function infra_golive_freshen_ftp_touch(array $ftp, array $manifest): array
         return ['ok' => false, 'touched' => 0, 'failed' => 0, 'message' => "Could not chdir to {$path}."];
     }
 
-    $touched = 0; $failed = 0; $mismatched = 0;
-    foreach (array_keys($manifest) as $file) {
+    $touched = 0; $failed = 0; $mismatched = 0; $changed = 0;
+    foreach ($manifest as $file => $expectHash) {
         $tmp = tmpfile();
         $localPath = stream_get_meta_data($tmp)['uri'];
         if (!@ftp_get($conn, $localPath, $file, FTP_BINARY)) { $failed++; fclose($tmp); continue; }
         $hashBefore = md5_file($localPath);
+        // Only rewrite bytes we can prove are the ones the last deploy put there.
+        // This is a date refresh, not a deploy: download-then-reupload means an
+        // upload landing in the gap would be silently overwritten with the older
+        // file we had just read. The manifest already stores every file's md5 at
+        // upload time (includes/multisite/deploy.php), so anything that doesn't
+        // match is newer than the manifest — exactly the file we must not touch.
+        // Verified against a real live domain 2026-10-15: text files uploaded in
+        // FTP_ASCII still hash identically when read back in FTP_BINARY, so this
+        // compares cleanly for every file type in the manifest.
+        $expectHash = is_string($expectHash) ? strtolower(trim($expectHash)) : '';
+        if ($expectHash === '' || $hashBefore !== $expectHash) { $changed++; fclose($tmp); continue; }
         if (!@ftp_put($conn, $file, $localPath, FTP_BINARY)) { $failed++; fclose($tmp); continue; }
         fclose($tmp);
         // Trust nothing that isn't checked: re-read what actually landed and
@@ -142,8 +157,20 @@ function infra_golive_freshen_ftp_touch(array $ftp, array $manifest): array
     }
     ftp_close($conn);
 
-    $ok = $failed === 0 && $mismatched === 0;
+    // Nothing refreshed is not success, even when every single file was skipped
+    // for a good reason — that run left the dates exactly as it found them.
+    $ok = $failed === 0 && $mismatched === 0 && $changed === 0 && $touched > 0;
+    if ($changed > 0 && $changed === count($manifest)) {
+        // Not the upload race this check exists for: a race touches a file or two.
+        // Everything differing means the manifest no longer describes what is on
+        // the server at all (stale manifest, or files replaced outside the panel).
+        return ['ok' => false, 'touched' => 0, 'failed' => $failed,
+                'message' => "nothing refreshed — all {$changed} file(s) differ from the deploy manifest, "
+                           . 'so the manifest is stale rather than one upload racing this refresh. '
+                           . 'Re-upload this domain to rebuild the manifest.'];
+    }
     $msg = "{$touched} file(s) refreshed";
+    if ($changed) $msg .= ", {$changed} skipped (changed since the last deploy — left alone so a newer upload is not overwritten)";
     if ($failed) $msg .= ", {$failed} failed to transfer";
     if ($mismatched) $msg .= ", {$mismatched} came back changed (content mismatch — investigate before trusting this domain's files)";
     return ['ok' => $ok, 'touched' => $touched, 'failed' => $failed, 'message' => $msg . '.'];
@@ -204,4 +231,93 @@ function infra_golive_freshen_domain(string $domain): array
         'skipped' => false,
         'message' => 'files: ' . $touch['message'] . ' cache: ' . ($purge['ok'] ? 'purged.' : 'purge FAILED — ' . $purge['message']),
     ];
+}
+
+// ── The queue ─────────────────────────────────────────────────────────────────
+//
+// Freshening used to run inline, once, the moment a domain was confirmed live. Two
+// holes in that, both visible on the real fleet on 2026-10-15:
+//
+//   1. It never ran again. Any later rebuild + upload re-stamped every file with that
+//      batch run's clock, so four domains released weeks apart all carried homepage
+//      dates inside the same 98 seconds of one October night — exactly the batch
+//      footprint the module was written to remove.
+//   2. Running inline means several domains confirmed live in one cron tick get
+//      freshened within seconds of each other, rebuilding the cluster on a new date.
+//
+// So: enqueue with a per-domain delay instead, and let the cron drain it. An FTP STOR
+// can only ever stamp a file "now", so WHEN it runs is the only lever on the date —
+// which makes the delay the whole mechanism, not a nicety.
+
+/**
+ * How long after being queued this domain's freshen comes due, in minutes.
+ *
+ * Deterministic per domain (hash, not rand) so a domain keeps the same slot across
+ * re-uploads rather than drawing a new one every time, and so two domains in one batch
+ * land hours apart instead of seconds. ~20 minutes to ~20 hours.
+ */
+function infra_golive_freshen_offset_minutes(string $domain): int
+{
+    $h = substr(md5('freshen|' . strtolower(trim($domain))), 0, 8);
+    return 20 + (hexdec($h) % 1180);
+}
+
+/**
+ * Queue this domain for a file-date refresh. Cheap — one state write, no FTP.
+ *
+ * $force re-queues even when something is already pending; the default leaves an
+ * existing (earlier) slot alone so repeated uploads can't keep pushing it later.
+ */
+function infra_golive_freshen_queue(string $domain, bool $force = false): string
+{
+    $domain = strtolower(trim($domain));
+    $rec = infra_state_get_domain($domain);
+    if (!$rec) return '';
+    if (!$force && trim((string) ($rec['freshen_due_at'] ?? '')) !== '') {
+        return (string) $rec['freshen_due_at'];
+    }
+    $due = (new DateTime('now', new DateTimeZone(INFRA_TZ)))
+        ->modify('+' . infra_golive_freshen_offset_minutes($domain) . ' minutes')
+        ->format('Y-m-d H:i:s');
+    infra_state_upsert_domain(['domain' => $domain, 'freshen_due_at' => $due]);
+    return $due;
+}
+
+/** Domains whose queued freshen is due now, oldest slot first. */
+function infra_golive_freshen_due(): array
+{
+    $now = infra_now();
+    $out = [];
+    foreach (infra_state_all_domains() as $dom => $rec) {
+        $due = trim((string) ($rec['freshen_due_at'] ?? ''));
+        if ($due !== '' && $due <= $now) $out[$dom] = $due;
+    }
+    asort($out);
+    return $out;
+}
+
+/**
+ * Run the due freshens, newest-due last, up to $cap.
+ *
+ * Capped because each one downloads and re-uploads every file on the domain over FTP —
+ * minutes of work, not milliseconds — and this is called from a cron that fires every
+ * 10 minutes. The queue slot is cleared whether the refresh worked or not: a domain
+ * that fails (no manifest, bad credentials) would otherwise be retried on every single
+ * tick forever, and its next upload or go-live will queue it again anyway.
+ *
+ * @return array<string,string> domain => what happened
+ */
+function infra_golive_freshen_run_due(int $cap = 3): array
+{
+    require_once __DIR__ . '/pipeline.php';
+    $done = [];
+    foreach (infra_golive_freshen_due() as $domain => $due) {
+        if (count($done) >= $cap) break;
+        // Same per-domain lock an interactive go-live click takes, so a freshen can't
+        // run twice at once if one tick overruns into the next.
+        $r = infra_pipeline_lock($domain, 'golive', fn() => infra_golive_freshen_domain($domain));
+        infra_state_upsert_domain(['domain' => $domain, 'freshen_due_at' => '']);
+        $done[$domain] = (string) ($r['message'] ?? 'no result');
+    }
+    return $done;
 }

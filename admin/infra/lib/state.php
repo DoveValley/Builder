@@ -138,7 +138,21 @@ const INFRA_STATE_COLS = ['domain','niche','server_id','cf_account_id','cf_zone_
     // blank means "any time that day", exactly the old behaviour, so every domain
     // scheduled before this column existed keeps working unchanged. See
     // infra_golive_due()'s docblock for how the two combine.
-    'go_live_time', 'created_at','updated_at',
+    'go_live_time',
+    // 'YYYY-MM-DD HH:MM:SS' (INFRA_TZ) stamped the moment the registrar accepts the
+    // nameserver switch — the real release time, as opposed to go_live_at, which is
+    // only the DAY it was scheduled for. Nothing recorded this before: the golive
+    // step's own timestamp moves every time that cell is refreshed, so it says when
+    // somebody last looked, not when the domain was released. Blank on every domain
+    // released before this existed; that moment is simply not recoverable.
+    'released_at',
+    // 'YYYY-MM-DD HH:MM:SS' (INFRA_TZ) — when this domain's file dates are next due to
+    // be refreshed, or blank for "nothing pending". Set after an upload and at
+    // confirmed-live, drained by golive_tick.php. The whole point of the delay is in
+    // infra_golive_freshen_queue(): a batch re-uploaded in one run would otherwise have
+    // every domain's files stamped within the same few minutes of each other.
+    'freshen_due_at',
+    'created_at','updated_at',
     // ── acquisition stage (begin → ready → owned), all TEXT ──
     'ready_to_buy',      // 'yes' | 'no' | ''      col 2 — set by the availability check, manually overridable
     'buy_registrar',     // registrar.json key     col 3 — which registrar will buy it
