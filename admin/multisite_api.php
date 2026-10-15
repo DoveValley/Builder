@@ -513,6 +513,7 @@ switch ($action) {
             'run_id'    => $run['run_id'],
             'done'      => $j['done'],
             'exit'      => $j['exit'],
+            'dead'      => $j['dead'],
             'total'     => $total,
             'processed' => count($marks),
             'ok'        => $ok,
@@ -820,6 +821,7 @@ switch ($action) {
         }
 
         echo json_encode(['run_id' => $rtRun['run_id'], 'done' => $rtOut['done'], 'exit' => $rtOut['exit'],
+                          'dead' => $rtOut['dead'],
                           'stage' => $rtStage, 'stage_total' => 4, 'stage_label' => $rtStageLabels[$rtStage] ?? '',
                           'detail' => $rtDetail,
                           'log' => implode("\n", array_slice(explode("\n", $rtOut['log']), -40))]);
@@ -996,6 +998,7 @@ switch ($action) {
             'run_id'         => $run['run_id'],
             'done'           => $j['done'],
             'exit'           => $j['exit'],
+            'dead'           => $j['dead'],
             'processed'      => count($mm),
             'failed_domains' => $failedDomains,
             'log'            => $j['log'],
@@ -1051,7 +1054,8 @@ switch ($action) {
         $run = ms_job_resolve_run($batchDir . '/hosts', (string) ($_REQUEST['run_id'] ?? ''));
         if (!$run) { echo json_encode(['none' => true]); break; }
         $j = ms_job_read_out($run['path'], '__MS_HOSTS_DONE__');
-        echo json_encode(['run_id' => $run['run_id'], 'done' => $j['done'], 'exit' => $j['exit'], 'log' => $j['log']]);
+        echo json_encode(['run_id' => $run['run_id'], 'done' => $j['done'], 'exit' => $j['exit'],
+                          'dead' => $j['dead'], 'log' => $j['log']]);
         break;
 
     case 'save_servers':
@@ -1460,7 +1464,8 @@ switch ($action) {
         $run = ms_job_resolve_run($batchDir . '/research', (string) ($_GET['run_id'] ?? ''));
         if (!$run) { echo json_encode(['none' => true]); break; }
         $j = ms_job_read_out($run['path'], '__MS_RESEARCH_DONE__');
-        echo json_encode(['output' => $j['log'], 'done' => $j['done'], 'exit' => $j['exit'], 'run_id' => $run['run_id']]);
+        echo json_encode(['output' => $j['log'], 'done' => $j['done'], 'exit' => $j['exit'],
+                          'dead' => $j['dead'], 'run_id' => $run['run_id']]);
         break;
 
     // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).

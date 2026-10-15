@@ -118,8 +118,12 @@
             // A nonzero exit code catches a crash that never reached
             // upload_sites.php's own summary line — the backend already folds an
             // unprocessed-rows gap into s.failed once done, this is belt-and-suspenders.
-            const bad = (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
-            if ((s.total || 0) === 0) { msg.textContent = 'No rows matched — nothing was uploaded.'; msg.style.color = '#92400e'; }
+            // s.dead is the case with no exit code at all: the process was killed (or the
+            // box restarted) mid-upload, so it never wrote one. Named explicitly — it
+            // would otherwise read as a clean "Done." on a run that uploaded nothing.
+            const bad = s.dead || (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
+            if (s.dead) { msg.textContent = 'Stopped unexpectedly before finishing — killed, or the server restarted. Read the log for how far it got.'; msg.style.color = '#b91c1c'; }
+            else if ((s.total || 0) === 0) { msg.textContent = 'No rows matched — nothing was uploaded.'; msg.style.color = '#92400e'; }
             else { msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.'; msg.style.color = bad ? '#b91c1c' : '#166534'; }
             upState();
         } catch (e) {

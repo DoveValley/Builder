@@ -146,9 +146,14 @@
             // A nonzero exit code catches a crash (uncaught error, killed process)
             // that never reached create_hosts.php's own "N failed" summary line —
             // the log-text regex alone used to read that case as a clean "Done."
+            // d.dead covers the harder version of the same case: killed outright (or the
+            // box restarted), so there is no exit code to be nonzero and no summary line
+            // either — which read as a clean "Done." on a run that created nothing.
             const failed = / (\d+) failed/.exec(d.log || '');
-            const bad = (failed && parseInt(failed[1], 10) > 0) || (d.exit != null && d.exit !== 0);
-            msg.textContent = bad ? 'Finished with failures — read the log.' : 'Done.';
+            const bad = d.dead || (failed && parseInt(failed[1], 10) > 0) || (d.exit != null && d.exit !== 0);
+            msg.textContent = d.dead
+                ? 'Stopped unexpectedly before finishing — killed, or the server restarted. Read the log for how far it got.'
+                : (bad ? 'Finished with failures — read the log.' : 'Done.');
             msg.style.color = bad ? '#b91c1c' : '#166534';
             // The target list and the phase strip both changed; reload so neither is
             // showing the state from before this ran.

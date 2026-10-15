@@ -1824,10 +1824,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 if (d.done) {
                     if (msResearchTimer) clearInterval(msResearchTimer);
                     msResearchSetDisabled(false);
-                    out.textContent += (d.exit === 0 ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + d.exit + '.');
+                    // d.dead — the job was killed (or the box restarted) and so never
+                    // wrote an exit code at all. Without its own branch this prints the
+                    // nonsense "Exited with code null".
+                    out.textContent += d.dead
+                        ? '\n\n✗ Stopped unexpectedly before finishing — killed, or the server restarted. The log above is the whole record of how far it got.'
+                        : (d.exit === 0 ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + d.exit + '.');
                     msSetState('ms-research-state',
-                               d.exit === 0 ? 'done' : 'failed (exit ' + d.exit + ')',
-                               d.exit === 0 ? 'ok' : 'bad');
+                               d.dead ? 'stopped unexpectedly' : (d.exit === 0 ? 'done' : 'failed (exit ' + d.exit + ')'),
+                               (!d.dead && d.exit === 0) ? 'ok' : 'bad');
                 }
             })
             .catch(() => {
@@ -2251,10 +2256,14 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             if (!s) return;
             if (!s.done) { if (el) el.textContent = 'Uploading ' + domain + '… (in progress)'; return; }
             clearInterval(timer);
-            const bad = (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
-            if (el) el.innerHTML = bad
-                ? '<span style="color:#991b1b;">Uploaded with failures for ' + esc(domain) + ' — check the log.</span>'
-                : '<span style="color:#166534;">&#10003; Regenerated &amp; redeployed ' + esc(domain) + '.</span>';
+            // s.dead — killed, or the box restarted, before the upload finished: no exit
+            // code was ever written, which on its own used to read as a clean success.
+            const bad = s.dead || (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
+            if (el) el.innerHTML = s.dead
+                ? '<span style="color:#991b1b;">Upload stopped unexpectedly for ' + esc(domain) + ' — killed, or the server restarted. Re-run it.</span>'
+                : (bad
+                    ? '<span style="color:#991b1b;">Uploaded with failures for ' + esc(domain) + ' — check the log.</span>'
+                    : '<span style="color:#166534;">&#10003; Regenerated &amp; redeployed ' + esc(domain) + '.</span>');
         }, 2000);
     }
 

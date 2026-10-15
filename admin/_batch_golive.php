@@ -256,10 +256,14 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
 
                 clearInterval(golRunTimer);
                 const failed = d.failed_domains || [];
-                const bad = failed.length > 0 || (d.exit != null && d.exit !== 0);
+                // d.dead — killed, or the box restarted, mid-run: no exit code was ever
+                // written, so the per-domain lines are the entire record of how far it
+                // got, and the domains it never reached are simply absent from them.
+                const bad = d.dead || failed.length > 0 || (d.exit != null && d.exit !== 0);
                 runMsg.textContent = label + ': ' + d.processed + ' domain(s) touched'
                     + (failed.length ? ', ' + failed.length + ' not ok: ' + failed.join(', ') : ', all ok')
-                    + '.';
+                    + '.'
+                    + (d.dead ? ' Stopped unexpectedly before finishing — any domain not named above was never reached.' : '');
                 runMsg.style.color = bad ? '#b91c1c' : '#166534';
                 await loadGoLive(false);
             } catch (e) {

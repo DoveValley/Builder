@@ -640,8 +640,10 @@ function ms_launch_job(string $dir, string $sentinel, string $alreadyRunningMsg,
     if (!is_dir($dir)) mkdir($dir, 0775, true);
     return ms_with_launch_lock($dir . '/.lock', function () use ($dir, $sentinel, $alreadyRunningMsg, $script, $args) {
         foreach (glob($dir . '/*.out') ?: [] as $f) {
-            if (strpos((string) @file_get_contents($f), $sentinel) === false
-                && (time() - filemtime($f)) < 3600) {
+            // ms_job_running(), not a bare mtime check: a killed job stops touching its
+            // .out file but is in no sense "already running", and used to go on blocking
+            // every relaunch of the same job type for a full hour after it died.
+            if (strpos((string) @file_get_contents($f), $sentinel) === false && ms_job_running($f)) {
                 return ['error' => $alreadyRunningMsg, 'run_id' => basename($f, '.out')];
             }
         }
@@ -653,12 +655,25 @@ function ms_launch_job(string $dir, string $sentinel, string $alreadyRunningMsg,
         // milliseconds ago, letting a near-simultaneous second call slip through.
         touch($out);
         $argStr = implode(' ', array_map('escapeshellarg', $args));
+        // First thing the wrapper does: write its own pid — and that pid's start time
+        // out of /proc — to <run-id>.pid. This is the whole basis of ms_job_running()
+        // below: the sentinel line at the end is only ever written on a normal exit, so
+        // without a pid to check, a kill -9 (or an OOM kill, or a reboot) leaves the job
+        // reading as "Running…" for good. $$ inside the $( ) is still the wrapper's own
+        // pid, not the subshell's, which is what makes this one line work.
+        //
+        // cut -f22 lands on the start time only because this process's comm is "sh" and
+        // so holds no spaces; ms_pid_start_time() parses that field the careful way for
+        // the general case. An empty or garbled second field simply degrades to a plain
+        // "does this pid exist" check, which is what ms_pid_alive() falls back to anyway.
+        $pidCmd = 'echo "$$ $(cut -d\' \' -f22 /proc/$$/stat 2>/dev/null)" > '
+                . escapeshellarg($dir . '/' . $runId . '.pid') . '; ';
         // The sentinel line is deliberately NOT escapeshellarg'd as a whole — it has
         // to stay inside double quotes so $? expands to the exit code of the command
         // just before it, inside the sh -c context. escapeshellarg() would wrap it in
         // single quotes instead, which suppresses that expansion and always prints a
         // literal "$?".
-        $inner = escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg($script) . ' ' . $argStr
+        $inner = $pidCmd . escapeshellarg(ms_php_cli()) . ' ' . escapeshellarg($script) . ' ' . $argStr
                . ' > ' . escapeshellarg($out) . ' 2>&1; echo "' . $sentinel . ' $?" >> ' . escapeshellarg($out);
         exec('setsid sh -c ' . escapeshellarg($inner) . ' > /dev/null 2>&1 &');
         return ['started' => true, 'run_id' => $runId];
@@ -693,12 +708,55 @@ function ms_job_resolve_run(string $dir, string $requestedId): ?array
 }
 
 /**
+ * Is the detached wrapper behind this .out file still alive? Reads the <run-id>.pid
+ * ms_launch_job() writes as its first act.
+ *
+ * @return bool|null null when there is nothing to go on — a .out from before .pid
+ *   files existed, or a job in the few milliseconds between its .out being touch()ed
+ *   and its wrapper getting a chance to run.
+ */
+function ms_job_pid_alive(string $outPath): ?bool
+{
+    $pidFile = preg_replace('/\.out$/', '.pid', $outPath);
+    $raw     = is_file($pidFile) ? trim((string) @file_get_contents($pidFile)) : '';
+    if ($raw === '') return null;
+    $parts = preg_split('/\s+/', $raw);
+    $pid   = (int) ($parts[0] ?? 0);
+    if ($pid <= 0) return null;
+    // The start time is what makes this honest when the OS recycles a pid — same
+    // guard, and the same reasoning, as ms_read_run() applies to a per-domain sub-run.
+    $start = isset($parts[1]) && is_numeric($parts[1]) ? (int) $parts[1] : null;
+    return ms_pid_alive($pid, $start);
+}
+
+/**
+ * Is this job genuinely still working? The pid is the real answer; the one-hour mtime
+ * rule survives only as the fallback for a .out with no pid recorded next to it, which
+ * now means either a job launched before this existed or one that started milliseconds
+ * ago. A long-running job that prints nothing for an hour (build_upload.php on a slow
+ * domain does exactly that) is correctly still "running" under the pid check — the old
+ * mtime rule alone called it finished.
+ */
+function ms_job_running(string $outPath): bool
+{
+    $alive = ms_job_pid_alive($outPath);
+    if ($alive !== null) return $alive;
+    return (time() - (int) @filemtime($outPath)) < 3600;
+}
+
+/**
  * Read one job's .out file and split it into done/exit/log. $sentinel's captured
  * exit code is real signal even when the CLI script crashed before printing its
  * own summary line, which a text-only "does the log say failed" check would
  * otherwise miss and read as a silent, fake "Done."
  *
- * @return array{done:bool, exit:?int, log:string, raw:string}
+ * 'dead' is the other half of that: a job whose process is gone WITHOUT having
+ * written the sentinel never got to record an exit code at all — kill -9, an OOM
+ * kill, a reboot. It is finished, just not successfully, and the absence of the
+ * sentinel on its own can never be read as "still working" (that is exactly how a
+ * job killed in the morning went on showing "Running — step 2 of 4…" that evening).
+ *
+ * @return array{done:bool, exit:?int, dead:bool, log:string, raw:string}
  */
 function ms_job_read_out(string $path, string $sentinel): array
 {
@@ -706,7 +764,8 @@ function ms_job_read_out(string $path, string $sentinel): array
     $exit = null;
     if (preg_match('/' . preg_quote($sentinel, '/') . ' (\d+)/', $txt, $m)) $exit = (int) $m[1];
     $log  = trim(preg_replace('/' . preg_quote($sentinel, '/') . ' \d+\s*$/', '', $txt));
-    return ['done' => $exit !== null, 'exit' => $exit, 'log' => $log, 'raw' => $txt];
+    $dead = $exit === null && !ms_job_running($path);
+    return ['done' => $exit !== null || $dead, 'exit' => $exit, 'dead' => $dead, 'log' => $log, 'raw' => $txt];
 }
 
 /** How many target rows a batch holds (cheap line count — no CSV parse). */

@@ -479,9 +479,17 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             return;
         }
         $('ro-build').disabled = false;
-        stageEl.style.color = r.exit === 0 ? '#166534' : '#991b1b';
-        stageEl.textContent = r.exit === 0 ? 'Done — finished.' : 'Done, with problems — see the log below (steps you didn\'t tick are marked "skipped (not selected)", not a failure).';
-        if (runId) { say(r.exit === 0 ? 'Finished.' : 'Finished with problems — see the log.', r.exit === 0); load(); }
+        // r.dead — the job's process is gone without ever having written an exit code:
+        // killed, OOM-killed, or the box restarted mid-run. That is not a failure the
+        // job itself reported, so it gets its own wording rather than being folded into
+        // "Done, with problems" (and, before the liveness check existed, it showed as
+        // "Running — step N of 4…" indefinitely instead).
+        const ok = !r.dead && r.exit === 0;
+        stageEl.style.color = ok ? '#166534' : '#991b1b';
+        stageEl.textContent = r.dead
+            ? 'Stopped unexpectedly — the job was killed, or the server restarted, before it finished. Nothing past the last line below ran; re-run the same steps to carry on.'
+            : (r.exit === 0 ? 'Done — finished.' : 'Done, with problems — see the log below (steps you didn\'t tick are marked "skipped (not selected)", not a failure).');
+        if (runId) { say(r.dead ? 'Stopped unexpectedly before finishing — see the log.' : (ok ? 'Finished.' : 'Finished with problems — see the log.'), ok); load(); }
     }
     $('ro-build').onclick = async () => {
         if (!sel.size) return say('Tick some domains first.');
