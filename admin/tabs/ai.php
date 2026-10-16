@@ -80,7 +80,7 @@ function fmt_dur(int $ms): string {
 }
 ?>
 <div class="tab-content" style="<?= $tab === 'ai' ? '' : 'display:none;' ?>">
-<?php tab_header('AI Generation', 'Run the AI generator to create city-specific content for landing pages. This tab shows run history, city coverage, and estimated API cost.', 'tab-generate'); ?>
+<?php tab_header('AI Content Generation', 'Run the AI generator to create city-specific content for landing pages. This tab shows run history, city coverage, and estimated API cost.', 'tab-generate'); ?>
 
 <style>
 .ai-stats-row    { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:28px; }

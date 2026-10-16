@@ -291,19 +291,19 @@ foreach ($footer['columns'] as $ci => $column) {
         <a class="tab-link <?= $tab === 'seo' ? 'active' : '' ?>" href="?tab=seo">SEO</a>
         <a class="tab-link <?= $tab === 'plugins' ? 'active' : '' ?>" href="?tab=plugins">Plugins</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
-        <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page</a>
-        <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Core/Temp Pages</a>
+        <a class="tab-link <?= $tab === 'content' ? 'active' : '' ?>" href="?tab=content">Home Page Structure</a>
+        <a class="tab-link <?= $tab === 'pages' ? 'active' : '' ?>" href="?tab=pages">Core/Temp Pages Structure</a>
         <a class="tab-link <?= $tab === 'starters' ? 'active' : '' ?>" href="?tab=starters">Page Starters</a>
         <a class="tab-link <?= $tab === 'keywords' ? 'active' : '' ?>" href="?tab=keywords">&#128273; Keywords</a>
         <a class="tab-link <?= $tab === 'templates' ? 'active' : '' ?>" href="?tab=templates">Landing Templates</a>
         <a class="tab-link <?= $tab === 'cities' ? 'active' : '' ?>" href="?tab=cities">Landing Cities</a>
-        <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Gen</a>
+        <a class="tab-link <?= $tab === 'citypages' ? 'active' : '' ?>" href="?tab=citypages">Landing City Page Structure (GEN)</a>
         <a class="tab-link <?= $tab === 'genimage' ? 'active' : '' ?>" href="?tab=genimage">&#128248; Gen-Image</a>
         <a class="tab-link <?= $tab === 'genmod' ? 'active' : '' ?>" href="?tab=genmod">&#128260; Gen-Mod</a>
         <a class="tab-link <?= $tab === 'genvisual' ? 'active' : '' ?>" href="?tab=genvisual">&#127912; Gen-Visual</a>
         <a class="tab-link <?= $tab === 'picdrop' ? 'active' : '' ?>" href="?tab=picdrop">&#128206; Pic Drop</a>
         <span style="flex-basis:100%;height:0;border-top:1px solid #e5e7eb;margin:0 -4px;"></span>
-        <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Generation</a>
+        <a class="tab-link <?= $tab === 'ai' ? 'active' : '' ?>" href="?tab=ai">&#127916; AI Content Generation</a>
         <a class="tab-link <?= $tab === 'ai_review' ? 'active' : '' ?>" href="?tab=ai_review">&#128269; Content Review</a>
         <a class="tab-link <?= $tab === 'ai_blocks' ? 'active' : '' ?>" href="?tab=ai_blocks">&#129520; Block Registry</a>
         <a class="tab-link <?= $tab === 'niche_brief' ? 'active' : '' ?>" href="?tab=niche_brief">&#129534; Niche Brief &amp; Research</a>

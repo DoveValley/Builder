@@ -1,7 +1,7 @@
     <?php
     ?>
     <div class="tab-content" style="<?= $tab === 'pages' ? '' : 'display:none;' ?>">
-        <?php tab_header('Core / Template Pages', 'Create and manage standalone landing pages — about, contact, services, and other pages outside the homepage and blog.', 'tab-pages'); ?>
+        <?php tab_header('Core/Temp Pages Structure', 'Create and manage standalone landing pages — about, contact, services, and other pages outside the homepage and blog.', 'tab-pages'); ?>
         <?php if ($editingPage === null): ?>
 
             <!-- ── How to build a GREAT-SEO national hub page (process + Claude prompt) ── -->
