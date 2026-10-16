@@ -130,6 +130,14 @@
       "_ai_locked": true
     },
     {
+      "type": "trust_bar",
+      "anchor": "trust_bar",
+      "tb_bg_custom": "#f3f6f7",
+      "tb_show_icons": true,
+      "tb_items": "@safe_trust_badges",
+      "id": "trust_bar_1"
+    },
+    {
       "id": "home_city_intro",
       "type": "ai_block",
       "ai_type_id": "city_intro",
@@ -559,7 +567,6 @@
       "cb_bg_custom": "#fd783b",
       "cb_text_color": "#ffffff",
       "cb_padding": "normal",
-      "skin": "accent",
       "id": "cta_banner_1"
     },
     {

@@ -429,10 +429,10 @@ function heading_level_options() {
  */
 function trust_bar_safe_badges(): array {
     return [
+        ['label' => 'Fast Local Response',     'icon' => ''],
+        ['label' => '24/7 Response Line',      'icon' => ''],
         ['label' => 'Local Provider Network', 'icon' => ''],
         ['label' => 'No-Cost To Connect',      'icon' => ''],
-        ['label' => '24/7 Response Line',      'icon' => ''],
-        ['label' => 'Fast Local Response',     'icon' => ''],
     ];
 }
 
@@ -1077,7 +1077,12 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $textColor = $block['cb_text_color'] ?? '#ffffff';
             $padding   = $block['cb_padding']    ?? 'normal'; // compact | normal | large
 
-            $cbSkin = $block['skin'] ?? '';
+            // Defaults to 'dark', not '' — every cta_banner, on every niche present or future,
+            // renders dark-bg/white-heading/white-button/dark-button-text unless a specific
+            // block instance explicitly overrides 'skin'. A per-site data edit (setting
+            // "skin": "accent" or similar in one master) would have fixed only that one
+            // instance; this is the block's own default, so it never needs repeating.
+            $cbSkin = $block['skin'] ?? 'dark';
             if ($cbSkin !== '') {
                 $bgStyle   = "var(--skin-{$cbSkin}-bg)";
                 $textColor = "var(--skin-{$cbSkin}-text)";
@@ -2056,7 +2061,11 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
 
         /* ---- TRUST BAR (icon + label badges) ---- */
         case 'trust_bar':
-            $tbBg       = $block['tb_bg']        ?? 'subtle';
+            // Defaults to 'dark', not 'subtle' — every trust_bar, on every niche present or
+            // future, renders a dark bar with white text/checks unless a specific block
+            // instance explicitly overrides 'tb_bg'. The block's own default, not a per-site
+            // data edit, so it never needs repeating per master.
+            $tbBg       = $block['tb_bg']        ?? 'dark';
             $tbBgCustom = $block['tb_bg_custom'] ?? '#f3f6f7';
             $tbItems    = $block['tb_items']     ?? [];
             if ($tbItems === '@safe_trust_badges') $tbItems = trust_bar_safe_badges();
@@ -2069,8 +2078,17 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             // each resolving to a different literal color, so the safe text color has to be
             // computed from whichever one THIS bar actually resolved to, not assumed from a
             // theme-wide default or a different color's fix.
+            //
+            // 'dark' is special-cased rather than run through that same computation:
+            // resolve_color('dark', ...) returns the unresolved string "var(--skin-dark-bg)",
+            // not a literal hex, and contrast_text_color() can't parse that — it would silently
+            // fall into its own regex-fail fallback instead of a real contrast check. Use
+            // var(--skin-dark-heading) directly instead: the same unconditionally-white
+            // variable cta_banner's button already relies on for the identical reason
+            // (includes/blocks.php's cta_banner case has the full history on why the
+            // WCAG-conditional alternative broke live on two domains).
             $tbLight       = in_array($tbBg, ['subtle', 'light'], true);
-            $tbOnColorText = contrast_text_color(resolve_color($tbBg, $tbBgCustom));
+            $tbOnColorText = $tbBg === 'dark' ? 'var(--skin-dark-heading)' : contrast_text_color(resolve_color($tbBg, $tbBgCustom));
             $tbTextColor   = $tbLight ? 'var(--color-heading)' : $tbOnColorText;
             $tbCheckStroke = $tbLight ? 'var(--color-accent)'  : $tbOnColorText;
             $tbCheck    = '<svg width="1.35em" height="1.35em" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5" stroke="'.$tbCheckStroke.'" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
