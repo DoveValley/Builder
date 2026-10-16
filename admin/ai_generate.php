@@ -75,11 +75,17 @@ if (model_is_valid($_mo)) {
     $modelOverride = $_mo;
 }
 
-// Sanitize city_id / tag: allow only safe slugs
-if ($cityId && !preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $cityId)) {
+// Sanitize city_id / tag: allow only safe slugs. Must allow underscores, not just
+// hyphens — city IDs are "city_<name>_<ss>" for any city whose row predates the
+// hyphenated city_slug convention (e.g. "city_lufkin_tx"), and the real page
+// filenames this feeds into (includes/generation/engine.php's own `$city['id']`,
+// validated there with the equivalent a-z0-9_- pattern) are built from that same
+// ID. A hyphen-only regex here silently reset a perfectly valid ID to '' — no
+// error shown, request just ran unfiltered across every city instead of one.
+if ($cityId && !preg_match('/^[a-z0-9][a-z0-9_-]{0,59}$/', $cityId)) {
     $cityId = '';
 }
-if ($tag && !preg_match('/^[a-z0-9][a-z0-9-]{0,59}$/', $tag)) {
+if ($tag && !preg_match('/^[a-z0-9][a-z0-9_-]{0,59}$/', $tag)) {
     $tag = '';
 }
 
