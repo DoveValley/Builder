@@ -1,23 +1,32 @@
 <?php
 /**
- * City Map plugin — a service-area diagram drawn from the city's own named areas.
+ * City Map plugin — a real map centred on the city's own verified coordinates.
  *
  * WHY THIS EXISTS. Every site generated from a master shares the same photo library, and a
- * 1-2% crop does not stop Google recognising the same photograph. A diagram drawn from each
- * city's own data is unique BY CONSTRUCTION — different areas, different picture — costs
- * nothing per site, and writes its own alt text, so it fixes the duplicate-alt-text problem
- * in the same stroke.
+ * 1-2% crop does not stop Google recognising the same photograph. A map drawn from each city's
+ * own coordinates and nearby towns is unique BY CONSTRUCTION — different place, different
+ * picture — costs nothing per site, and writes its own alt text, so it fixes the
+ * duplicate-alt-text problem in the same stroke.
  *
- * Deliberately a coverage DIAGRAM, not a map: cities.json holds area names with no
- * coordinates, and placing them on a real map would be a geographic claim the data cannot
- * support. The image says so on its face.
+ * The map is centred on ONE point: coordinates from includes/multisite/geocode.php (OpenStreetMap
+ * Nominatim) — already verified, already used for this site's LocalBusiness schema. No other
+ * town is marked: cities.json's nearby_towns carry no coordinates of their own, and geocoding a
+ * whole list of similarly-named small towns correctly is exactly the kind of guess that already
+ * went wrong once for this plugin (see plugins/image-area-map/draw.php's file header). They
+ * stay in the list below instead, named and with real driving distances.
  *
  * Tokens:
- *   {city_map}      — path to this city's diagram, for any photo field
+ *   {city_map}      — path to this city's map, for any photo field
  *   {city_map_alt}  — alt text, written from the same data the picture was drawn from
  *
+ * When OSM has the city's real administrative boundary on record, it's drawn as a bold outline
+ * and the map zooms to fit IT rather than the farthest nearby town — a real, checkable line, not
+ * a guess. A city with no recorded boundary just gets the centred map, no marker drawn on it.
+ *
  * Drawn once per city and cached; a city that already has one is skipped. Ten sites covering
- * the same city reuse the same drawing.
+ * the same city reuse the same drawing. Underlying map tiles and boundary polygons are cached
+ * independently per-city forever (plugins/image-area-map/tiles.php), so even a city's first
+ * build rarely needs a fresh network fetch for everything it touches.
  */
 
 require_once __DIR__ . '/render.php';
@@ -25,7 +34,7 @@ require_once __DIR__ . '/render.php';
 register_plugin(
     'image_area_map',
     'Image · Area Map',
-    'Draws a service-area diagram from the city\'s own named areas plus the nearby towns it serves, and exposes it as {city_map}. Unique per city by construction, costs nothing per site, and writes its own alt text.',
+    'Draws a real map centred on the city\'s own verified coordinates, with its real OSM boundary outlined where one is on record and the nearby towns it serves listed below, and exposes it as {city_map}. Unique per city by construction, costs nothing per site, and writes its own alt text.',
     '&#128506;',   // 🗺
     __DIR__
 );

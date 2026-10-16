@@ -1,41 +1,60 @@
 <?php
 /**
- * City service-area diagram — the drawing half. Pure functions, no side effects.
+ * City service-area image — the drawing half. Pure functions except for the basemap fetch
+ * (tiles.php), which hits the network the first time any given map tile is needed.
  *
- * ONE THING ONLY: the city at the centre, and the SURROUNDING TOWNS it serves — on the ring as
- * a picture, and in the column beside it with their driving distances.
+ * ONE THING ONLY: a real map centred on the city, pinned once at the city's own (geocoded,
+ * verified) coordinates — and the SURROUNDING TOWNS it serves, in the list below with their
+ * driving distances.
  *
- * It used to draw neighbourhoods on that ring. They were being INVENTED. Four sites covering
- * Lufkin returned lists that barely overlapped, "Fredonia Hill Historic District" belongs to
- * Nacogdoches, and OpenStreetMap records no named areas in Lufkin at all — a city of 34,500
- * simply has none, so there was nothing to recall. Towns are incorporated municipalities: real,
- * checkable, and the research got them right. One accurate tier beats two when one is fiction.
+ * It used to draw neighbourhoods on a schematic ring. They were being INVENTED. Four sites
+ * covering Lufkin returned lists that barely overlapped, "Fredonia Hill Historic District"
+ * belongs to Nacogdoches, and OpenStreetMap records no named areas in Lufkin at all. Towns are
+ * incorporated municipalities: real, checkable, and the research got them right.
  *
- * DELIBERATELY A SCHEMATIC, NOT A MAP. Ring positions carry no geography: they are seeded from
- * the city name so every city's picture differs, and the footer says it is not to scale.
+ * It then switched the ring itself from a geography-free schematic to true compass bearings,
+ * and cut THAT too — research returned a direction wrong for four of eight towns around Lufkin,
+ * Pollok coming back "S" when it is NW, off by 132 degrees. That failure was specific to guessing
+ * a TOWN's bearing from an LLM; it does not apply to the CITY's own position, which already comes
+ * from a verified geocode (includes/multisite/geocode.php, Nominatim) and already powers this
+ * site's LocalBusiness schema elsewhere. So: the city gets a real pin on a real map. The towns
+ * still do NOT get pins — geocoding a whole list of same-named small towns correctly is the same
+ * class of risk that broke the bearings, multiplied by however many towns are listed, for a
+ * payoff (an unlabelled dot) smaller than what it already has in the list below. Do not add town
+ * pins without fixing that risk first.
  *
- * We DID try placing towns on their true compass bearing, and cut it. Two reasons, in order of
- * importance. First it bought nothing: the diagram was already unique per city, and someone in
- * Diboll is looking for the word "Diboll", not for where the dot sits. Second the data would
- * not support it — research returned a direction that was wrong for four of eight towns around
- * Lufkin, Pollok coming back "S" when it is NW, off by 132 degrees. A bearing is glaringly
- * wrong to a local reader in a way this schematic never can be, so the claim cost credibility
- * and returned nothing. Do not re-add it without a reason the picture actually needs.
- *
- * The mileage IS kept, because "Diboll, 10 mi" is the one fact a customer wants. But note it is
+ * The mileage IS kept, because "Diboll, 10 mi" is the one fact a customer wants. Note it is
  * pixels here: the real value of these town names is in the page copy, where Google can read
  * them and "we serve Diboll" is a keyword of its own.
  *
- * No map tiles, no API key, no licence, and every city differs by construction.
+ * Map tiles are OpenStreetMap's free raster server (plugins/image-area-map/tiles.php) — no API
+ * key, no licence fee, cached per-tile on disk forever. No coordinates means no image, same as
+ * every other data-gated plugin in this codebase.
  *
- * Output is SVG. render.php rasterises it to WebP for the <img> so it stays an ordinary
- * indexable image.
+ * When OSM has a recorded administrative boundary for the city, it's drawn as a bold outline —
+ * also real, also from Nominatim, also cached (tiles.php's city_map_fetch_boundary()), never
+ * drawn for any other town. Its mileage-sized extent is usually tiny next to a 10-70 mile
+ * "reach" zoom, so the zoom is chosen to fit the BOUNDARY when one exists (city_map_boundary_
+ * radius()) rather than the farthest listed town — the farthest town simply won't always appear
+ * on the map image itself any more, though it stays correct in the list below either way. No
+ * boundary on record falls back to the old reach-based zoom, unchanged.
+ *
+ * Output is SVG (a real raster basemap embedded as a base64 PNG, plus vector pin/boundary/text
+ * on top). render.php rasterises it to WebP for the <img> so it stays an ordinary indexable image.
  */
 
-/** Deterministic 0..1 from a seed — same city, same layout, every rebuild. */
-function city_map_rand(string $seed, int $i): float
+require_once __DIR__ . '/tiles.php';
+
+/** $city's own coordinates, as floats — or null if missing/invalid. Never guessed. */
+function city_map_latlng(array $city): ?array
 {
-    return (hexdec(substr(md5($seed . '|' . $i), 0, 8)) % 100000) / 100000;
+    $lat = $city['lat'] ?? null;
+    $lng = $city['lng'] ?? null;
+    if (!is_numeric($lat) || !is_numeric($lng)) return null;
+    $lat = (float) $lat; $lng = (float) $lng;
+    if ($lat === 0.0 && $lng === 0.0) return null;
+    if ($lat < -90 || $lat > 90 || $lng < -180 || $lng > 180) return null;
+    return ['lat' => $lat, 'lng' => $lng];
 }
 
 /**
@@ -78,10 +97,11 @@ function city_map_svg(array $city, array $theme = []): string
     $ss   = trim((string) ($city['SS'] ?? ''));
     if ($name === '') return '';
 
-    // Numbered badges (not text chips) can't crowd the ring the way names did, so this cap is
-    // really just an image-height ceiling now, not a legibility limit. 12 rarely binds anyway —
-    // the research prompt itself (plugins/image-area-map/research.json) asks for 4-8 towns per
-    // city, so most cities never approach it; it's headroom for if that ask is ever widened.
+    // No verified coordinates, no map — same rule every other data-gated plugin in this
+    // codebase follows (NO DATA MEANS NO CHART). We will not estimate these.
+    $latlng = city_map_latlng($city);
+    if ($latlng === null) return '';
+
     $allTowns = city_map_towns($city);
     $towns    = array_slice($allTowns, 0, 12);
     $dropped  = count($allTowns) - count($towns);
@@ -91,25 +111,48 @@ function city_map_svg(array $city, array $theme = []): string
     $accent = $theme['accent'] ?? '#1f78d1';
     $muted  = $theme['muted']  ?? '#6b7f95';
 
-    // The town list now sits BELOW the ring, not beside it, so the ring always gets the full
-    // width and stays centred — no more squeezing left to share room with a side column.
+    $maxMi = 0.0;
+    foreach ($towns as $t) if ($t['miles'] !== null) $maxMi = max($maxMi, $t['miles']);
+
+    // The real city-limits boundary, from the SAME OSM family as the coordinates (Nominatim's
+    // polygon_geojson), not a guess. Fetched BEFORE the zoom is chosen: when a boundary exists,
+    // it drives the zoom (city-first, clear outline) rather than the farthest listed town (which
+    // left a typical 5-10 mile boundary as a few illegible pixels — see tiles.php's
+    // city_map_boundary_radius() for why). No boundary available falls back to the old
+    // reach-based framing, unchanged.
+    $boundaryRings = city_map_fetch_boundary($name, $ss);
+    $boundaryRadius = $boundaryRings ? city_map_boundary_radius($boundaryRings) : 0.0;
+    // No mileage data at all (rare: towns present but every distance null) — fall back to a
+    // sensible local-area view rather than refusing the whole image over one missing field.
+    $radiusMiles = $boundaryRadius > 0 ? $boundaryRadius : ($maxMi > 0 ? $maxMi : 15.0);
+
+    // The town list sits BELOW the map, full width, numbered — unchanged from the schematic.
     $W = 900;
     $hasList = (bool) $towns;
     $rowH    = 31;
-    $R  = 250;                                   // outer extent of the ring
+    $mapTop  = 60;
+    $mapH    = 520;
     $cx = $W / 2;
-    $cy = 60 + $R * 0.78 + 20;
-    $diagramBottom = $cy + $R * 0.78 + 20;
+    $cy = $mapTop + $mapH / 2;
+    $diagramBottom = $mapTop + $mapH;
     $listX   = 60;
     $listW   = $W - $listX * 2;
     $listTop = $diagramBottom + 40;
     $listBottom = $hasList ? $listTop + 22 + count($towns) * $rowH + ($dropped > 0 ? 26 : 0) : $diagramBottom;
     $H = (int) round($listBottom + 46);
-    $seed = strtolower($name . '|' . $ss);
+
+    // The one network call in this plugin. Cached per-tile forever (tiles.php), so a city only
+    // ever pays this cost the first time ANY site needs it. No converter, no network, or every
+    // tile failing all mean the same thing: no image this build, same as missing coordinates —
+    // never fall back to the old schematic, which would silently reintroduce guessed geometry.
+    $mapPng = city_map_fetch_basemap($latlng['lat'], $latlng['lng'], $radiusMiles, $W, $mapH);
+    if ($mapPng === null) return '';
+    $mapB64 = base64_encode($mapPng);
 
     $esc = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES | ENT_XML1, 'UTF-8');
     $o = [];
-    $o[] = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' . $W . ' ' . $H . '" width="' . $W . '" height="' . $H . '" role="img">';
+    $o[] = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"'
+         . ' viewBox="0 0 ' . $W . ' ' . $H . '" width="' . $W . '" height="' . $H . '" role="img">';
 
     // Gradients only — no SVG filters. rsvg-convert and ImageMagick handle gradients reliably;
     // filter effects are patchy across rasterisers, and a diagram that renders in a browser but
@@ -117,73 +160,102 @@ function city_map_svg(array $city, array $theme = []): string
     $o[] = '<defs>'
          . '<linearGradient id="bgg" x1="0" y1="0" x2="0" y2="1">'
          . '<stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="' . $esc($bg) . '"/></linearGradient>'
-         . '<radialGradient id="halo" cx="50%" cy="50%" r="50%">'
-         . '<stop offset="0" stop-color="' . $esc($accent) . '" stop-opacity=".20"/>'
-         . '<stop offset="1" stop-color="' . $esc($accent) . '" stop-opacity="0"/></radialGradient>'
          . '<linearGradient id="dotg" x1="0" y1="0" x2="0" y2="1">'
          . '<stop offset="0" stop-color="' . $esc($accent) . '"/>'
          . '<stop offset="1" stop-color="' . $esc($ink) . '"/></linearGradient>'
+         . '<clipPath id="mapclip"><rect x="0" y="' . $mapTop . '" width="' . $W . '" height="' . $mapH . '" rx="12"/></clipPath>'
          . '</defs>';
     $o[] = '<rect width="' . $W . '" height="' . $H . '" fill="url(#bgg)"/>';
-    $o[] = '<circle cx="' . $cx . '" cy="' . $cy . '" r="' . round($R * 0.98) . '" fill="url(#halo)"/>';
 
-    // Rings are scenery, not scale — they give the diagram depth without implying a distance.
-    foreach ([[0.52, .20], [0.76, .13], [1.0, .10]] as [$f, $op]) {
-        $o[] = '<circle cx="' . $cx . '" cy="' . $cy . '" r="' . round($R * $f, 1) . '" fill="none" stroke="' . $esc($muted)
-             . '" stroke-opacity="' . $op . '" stroke-width="1.4" stroke-dasharray="4 8"/>';
+    // The real basemap, embedded as a raster image — not vector geometry, so there is nothing
+    // here that can be "wrong" the way a guessed bearing or a seeded angle could be.
+    $o[] = '<image x="0" y="' . $mapTop . '" width="' . $W . '" height="' . $mapH
+         . '" clip-path="url(#mapclip)" preserveAspectRatio="xMidYMid slice"'
+         . ' href="data:image/png;base64,' . $mapB64 . '" xlink:href="data:image/png;base64,' . $mapB64 . '"/>';
+
+    // The boundary fetched above (it already drove the zoom, if one was found) is drawn here,
+    // on top of the map. Purely decorative on an already-correct map — a city OSM has no
+    // recorded administrative boundary for simply draws without one, never gating the image the
+    // way missing coordinates do.
+    // The boundary's own pixel footprint, tracked across every ring — used below to push the
+    // city label outside it rather than letting the outline run straight through the text.
+    $boundaryPxBBox = null;
+    if ($boundaryRings) {
+        $proj = city_map_projection($latlng['lat'], $latlng['lng'], $radiusMiles, $W, $mapH);
+        foreach ($boundaryRings as $ring) {
+            if (count($ring) < 3) continue;
+            $pts = [];
+            // GeoJSON ring points are [lng, lat], not [lat, lng].
+            foreach ($ring as $pt) {
+                if (!isset($pt[0], $pt[1])) continue;
+                [$px, $py] = city_map_project_point((float) $pt[1], (float) $pt[0], $proj);
+                $py += $mapTop;
+                $pts[] = round($px, 1) . ',' . round($py, 1);
+                if ($boundaryPxBBox === null) {
+                    $boundaryPxBBox = ['minX' => $px, 'maxX' => $px, 'minY' => $py, 'maxY' => $py];
+                } else {
+                    $boundaryPxBBox['minX'] = min($boundaryPxBBox['minX'], $px);
+                    $boundaryPxBBox['maxX'] = max($boundaryPxBBox['maxX'], $px);
+                    $boundaryPxBBox['minY'] = min($boundaryPxBBox['minY'], $py);
+                    $boundaryPxBBox['maxY'] = max($boundaryPxBBox['maxY'], $py);
+                }
+            }
+            if (count($pts) < 3) continue;
+            $pointsAttr = $esc(implode(' ', $pts));
+            // A light halo first so the dark line stays readable over dark roads/water/forest,
+            // then the bold dark line itself on top.
+            $o[] = '<polygon points="' . $pointsAttr . '" fill="none" stroke="#ffffff" stroke-opacity=".9"'
+                 . ' stroke-width="4" stroke-linejoin="round" clip-path="url(#mapclip)"/>';
+            $o[] = '<polygon points="' . $pointsAttr . '" fill="none" stroke="' . $esc($ink) . '" stroke-width="2"'
+                 . ' stroke-linejoin="round" clip-path="url(#mapclip)"/>';
+        }
     }
 
-    // Nodes are COLLECTED before anything is drawn, matching the pass below.
-    $nodes = [];
+    // OSM's tile usage policy requires visible attribution; it travels WITH the image since an
+    // inline SVG or a cropped screenshot can end up anywhere a page byline would not.
+    $o[] = '<rect x="' . ($W - 222) . '" y="' . ($mapTop + $mapH - 26) . '" width="206" height="20" rx="4" fill="#ffffff" fill-opacity=".78"/>';
+    $o[] = '<text x="' . ($W - 16) . '" y="' . ($mapTop + $mapH - 12) . '" text-anchor="end"'
+         . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="11" fill="#333333">'
+         . '&#169; OpenStreetMap contributors</text>';
 
-    // The ring carries the SURROUNDING TOWNS. It used to carry neighbourhoods, and those were
-    // being invented: four sites covering Lufkin returned lists that barely overlapped, and
-    // OpenStreetMap records no named areas there at all. Towns are incorporated municipalities
-    // — real, checkable, and the research got them right. Accuracy beats having a second tier.
-    //
-    // Radius is ordered by distance where we have it, so nearer towns sit nearer the middle.
-    // Angles are seeded, not geographic; the footer says as much.
-    $maxMi = 0.0;
-    foreach ($towns as $t) if ($t['miles'] !== null) $maxMi = max($maxMi, $t['miles']);
-
-    $n = max(count($towns), 1);
-    foreach ($towns as $i => $t) {
-        $ang = (2 * M_PI * $i / $n) - M_PI / 2 + (city_map_rand($seed, $i) - 0.5) * 0.28;
-        $rad = ($maxMi > 0 && $t['miles'] !== null)
-            ? $R * (0.52 + ($t['miles'] / $maxMi) * 0.42)
-            : $R * 0.76;
-        // The dot itself carries a number now instead of a floating name chip — the name and
-        // its distance live in the list below, keyed to this same number. A fixed-size numeral
-        // can't run long the way a business or town name can, so there's nothing left here to
-        // collide, clip, or crowd — no chip geometry, no collision pass needed at all.
-        $nodes[] = ['x' => $cx + cos($ang) * $rad, 'y' => $cy + sin($ang) * $rad * 0.78, 'num' => $i + 1];
-    }
-
-    foreach ($nodes as $nd) {
-        $x = $nd['x']; $y = $nd['y']; $num = $nd['num'];
-        $o[] = '<line x1="' . round($cx, 1) . '" y1="' . round($cy, 1) . '" x2="' . round($x, 1)
-             . '" y2="' . round($y, 1) . '" stroke="' . $esc($accent) . '" stroke-opacity=".30" stroke-width="1.6"/>';
-        $o[] = '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="16" fill="' . $esc($accent) . '" fill-opacity=".18"/>';
-        $o[] = '<circle cx="' . round($x, 1) . '" cy="' . round($y, 1) . '" r="12" fill="url(#dotg)" stroke="#ffffff" stroke-width="2"/>';
-        $o[] = '<text x="' . round($x, 1) . '" y="' . round($y + 4.5, 1) . '" text-anchor="middle"'
-             . ' font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="13" font-weight="700" fill="#ffffff">'
-             . $num . '</text>';
-    }
-
-    // The city itself, last so it sits above the spokes.
+    // No marker dot at the city's own point any more — the map is already centred there, and a
+    // boundary (when one is drawn) already shows it. $cx/$cy stay as the label's anchor below.
     $label = $ss !== '' ? "$name, $ss" : $name;
-    $o[] = '<circle cx="' . $cx . '" cy="' . $cy . '" r="30" fill="#ffffff" fill-opacity=".85"/>';
-    $o[] = '<circle cx="' . $cx . '" cy="' . $cy . '" r="23" fill="none" stroke="' . $esc($accent) . '" stroke-opacity=".45" stroke-width="2"/>';
-    $o[] = '<circle cx="' . $cx . '" cy="' . $cy . '" r="14" fill="url(#dotg)"/>';
-    $o[] = '<circle cx="' . ($cx - 4) . '" cy="' . ($cy - 5) . '" r="4" fill="#ffffff" fill-opacity=".35"/>';
-    $o[] = '<text x="' . $cx . '" y="' . ($cy + 58) . '" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
-         . ' font-size="28" font-weight="700" fill="' . $esc($ink) . '">' . $esc($label) . '</text>';
 
-    // Caption for the ring. "AROUND", not "IN" — these are separate towns, not districts.
+    // Label sits on its own chip, not bare text over the map, so it stays legible over whatever
+    // colours the real tiles happen to have underneath. With a boundary drawn, the chip is
+    // pushed clear of it (right, then left, then below) rather than sitting on top of the
+    // outline it would otherwise straddle; with no boundary it stays centred under the map's
+    // own centre point, unchanged from before.
+    $labelW = 20 + strlen($label) * 10.5;
+    $gap = 14; $chipH = 34; $margin = 20;
+    $labelCx = $cx; $labelTop = $cy + 18;
+    if ($boundaryPxBBox !== null) {
+        $midY = max($mapTop + $margin + $chipH / 2, min($mapTop + $mapH - $margin - $chipH / 2, $cy));
+        if ($boundaryPxBBox['maxX'] + $gap + $labelW <= $W - $margin) {
+            $labelCx = $boundaryPxBBox['maxX'] + $gap + $labelW / 2;
+            $labelTop = $midY - $chipH / 2;
+        } elseif ($boundaryPxBBox['minX'] - $gap - $labelW >= $margin) {
+            $labelCx = $boundaryPxBBox['minX'] - $gap - $labelW / 2;
+            $labelTop = $midY - $chipH / 2;
+        } elseif ($boundaryPxBBox['maxY'] + $gap + $chipH <= $mapTop + $mapH - $margin) {
+            $labelCx = max($margin + $labelW / 2, min($W - $margin - $labelW / 2, $cx));
+            $labelTop = $boundaryPxBBox['maxY'] + $gap;
+        }
+        // None fit (a boundary that fills the whole frame) — falls through to the centred
+        // default set above, same placement a city with no boundary already gets.
+    }
+    $o[] = '<rect x="' . round($labelCx - $labelW / 2, 1) . '" y="' . round($labelTop, 1) . '" width="' . round($labelW, 1)
+         . '" height="' . $chipH . '" rx="8" fill="#ffffff" fill-opacity=".92"/>';
+    $o[] = '<text x="' . round($labelCx, 1) . '" y="' . round($labelTop + 23, 1) . '" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
+         . ' font-size="19" font-weight="700" fill="' . $esc($ink) . '">' . $esc($label) . '</text>';
+
+    // "AROUND", not "IN" — these are separate towns, not districts.
     if ($towns) {
+        $o[] = '<rect x="18" y="14" width="' . (34 + strlen('AROUND ' . strtoupper($name)) * 8.4) . '" height="30" rx="6" fill="#ffffff" fill-opacity=".85"/>';
         $o[] = '<circle cx="33" cy="29" r="5.5" fill="url(#dotg)"/>';
         $o[] = '<text x="47" y="34" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="15"'
-             . ' font-weight="700" letter-spacing="0.6" fill="' . $esc($ink) . '" fill-opacity=".65">AROUND '
+             . ' font-weight="700" letter-spacing="0.6" fill="' . $esc($ink) . '" fill-opacity=".8">AROUND '
              . $esc(strtoupper($name)) . '</text>';
     }
 
@@ -232,14 +304,18 @@ function city_map_svg(array $city, array $theme = []): string
         }
     }
 
-    // Says what it is. A coverage diagram that looked like a map without saying so would be
-    // making a geographic claim it cannot back.
+    // It IS a real map now, so this no longer disclaims scale. It says what IS drawn: a real
+    // outline when OSM has one on record for this city, otherwise just that the map is centred
+    // there. No marker dot any more — see the label-placement comment above.
     // NUMERIC entity, not &mdash;. SVG is XML and knows only the five XML entities; an HTML one
     // makes the file invalid. Browsers forgive it — which is the trap, because it renders
     // perfectly on screen while every real SVG parser refuses the file, so rasterising to WebP
     // silently fails and the page ships raw SVG.
+    $footer = $boundaryRings
+        ? 'Outline marks ' . $esc($name) . '&#8217;s official city limits'
+        : 'Map centred on ' . $esc($name) . ' &#8212; approximate coverage area, not an exact boundary';
     $o[] = '<text x="' . $cx . '" y="' . ($H - 22) . '" text-anchor="middle" font-family="system-ui,-apple-system,Segoe UI,sans-serif"'
-         . ' font-size="16" fill="' . $esc($muted) . '">Areas served &#8212; coverage diagram, not to scale</text>';
+         . ' font-size="16" fill="' . $esc($muted) . '">' . $footer . '</text>';
     // A framing line around the whole picture. Drawn INSIDE the SVG rather than as CSS on the
     // <img>, so it travels with the image everywhere it is used and never restyles the site's
     // other photos. Inset by half the stroke, because a stroke straddles its path and would
@@ -277,8 +353,8 @@ function city_map_alt(array $city): string
         }
         $parts[] = 'covering ' . city_map_join($desc);
     }
-    if (!$parts) return "Service area diagram for {$where}.";
-    return "Service area diagram for {$where}, " . implode(' ', $parts) . '.';
+    if (!$parts) return "Map of the {$where} area.";
+    return "Map of the {$where} area, " . implode(' ', $parts) . '.';
 }
 
 /**
@@ -309,8 +385,8 @@ function city_map_caption(array $city, string $domain = ''): string
 
     $opts = [
         "Coverage centres on {$where} and reaches {$n} surrounding communities. Response time is what matters most in the hours after a problem is found, so knowing the ground is part of the job.",
-        "Based in {$where}, with {$n} nearby communities inside the service area — near enough to reach quickly rather than a list of places on a map.",
-        "{$where} is the centre of the service area, which extends to {$n} surrounding towns. The diagram shows how far that reaches.",
+        "Based in {$where}, with {$n} nearby communities inside the service area — near enough to reach quickly, not just listed on a map.",
+        "{$where} is the centre of the service area, which extends to {$n} surrounding towns. The map shows how far that reaches.",
         "Serving {$where} and {$n} communities around it. Local knowledge of how each area is built shapes how the work is handled there.",
     ];
     // ms_variant() is the project's existing per-domain primitive, and it measures evenly here.

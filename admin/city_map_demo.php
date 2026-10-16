@@ -2,11 +2,12 @@
 /**
  * City Map — demo page.
  *
- * Draws the diagram for every city the masters actually hold, plus a few sample cities, so the
- * claim that matters can be checked rather than taken on trust: DIFFERENT CITY, DIFFERENT
- * PICTURE, with no per-site cost.
+ * Draws the map for every city the masters actually hold real coordinates + towns for, plus a
+ * few sample cities, so the claim that matters can be checked rather than taken on trust:
+ * DIFFERENT CITY, DIFFERENT PICTURE, with no per-site cost.
  *
- * Read-only. Draws SVG in memory and prints it inline — writes nothing, touches no site.
+ * Read-only. Draws SVG in memory and prints it inline — writes nothing, touches no site. The
+ * basemap fetch still hits the network on a cache miss (tiles.php) the same as a real build.
  */
 
 require_once __DIR__ . '/../config.php';
@@ -16,24 +17,35 @@ if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; 
 
 $h = fn($s) => htmlspecialchars((string) $s, ENT_QUOTES);
 
-// Real cities first — whatever the masters have researched.
+// Real cities first — whatever the masters have researched and geocoded.
 $cities = [];
 foreach (glob(BASE_DIR . '/sites/*/data/cities.json') ?: [] as $f) {
     $master = basename(dirname(dirname($f)));
     $rows = json_decode((string) @file_get_contents($f), true);
     foreach ((is_array($rows) ? $rows : []) as $row) {
         if (!is_array($row) || trim((string) ($row['city'] ?? '')) === '') continue;
-        if (!array_filter((array) ($row['neighborhoods'] ?? []))) continue;
+        if (!array_filter((array) ($row['nearby_towns'] ?? []))) continue;
         $row['_source'] = $master . ' (real)';
         $cities[] = $row;
     }
 }
 
-// Samples, so the spread is visible even before more cities are researched.
+// Samples, so the spread is visible even before more cities are researched. Coordinates and
+// mileages are real, known public facts about these cities — not researched/AI content, so
+// the describability rule that governs published site copy doesn't apply here.
 foreach ([
-    ['city' => 'Overland Park', 'SS' => 'KS', 'neighborhoods' => ['Downtown OP', 'Deer Creek', 'Nottingham', 'Blue Valley', 'Corporate Woods']],
-    ['city' => 'Surprise',      'SS' => 'AZ', 'neighborhoods' => ['Marley Park', 'Sarah Ann Ranch', 'Litchfield Manor', 'Rancho Gabriela', 'Greer Ranch', 'Asante', 'Sierra Montana']],
-    ['city' => 'Lancaster',     'SS' => 'CA', 'neighborhoods' => ['Quartz Hill', 'West Lancaster', 'Antelope Acres', 'Lancaster Park']],
+    ['city' => 'Overland Park', 'SS' => 'KS', 'lat' => '38.9822', 'lng' => '-94.6708', 'nearby_towns' => [
+        ['name' => 'Olathe', 'miles' => 10], ['name' => 'Leawood', 'miles' => 5],
+        ['name' => 'Lenexa', 'miles' => 8], ['name' => 'Shawnee', 'miles' => 12], ['name' => 'Kansas City', 'miles' => 15],
+    ]],
+    ['city' => 'Surprise', 'SS' => 'AZ', 'lat' => '33.6292', 'lng' => '-112.3679', 'nearby_towns' => [
+        ['name' => 'Sun City', 'miles' => 5], ['name' => 'Peoria', 'miles' => 8],
+        ['name' => 'El Mirage', 'miles' => 4], ['name' => 'Waddell', 'miles' => 10], ['name' => 'Glendale', 'miles' => 15],
+    ]],
+    ['city' => 'Lancaster', 'SS' => 'CA', 'lat' => '34.6868', 'lng' => '-118.1542', 'nearby_towns' => [
+        ['name' => 'Palmdale', 'miles' => 10], ['name' => 'Quartz Hill', 'miles' => 6],
+        ['name' => 'Rosamond', 'miles' => 15], ['name' => 'Mojave', 'miles' => 25],
+    ]],
 ] as $s) { $s['_source'] = 'sample'; $cities[] = $s; }
 ?>
 <!DOCTYPE html>
@@ -59,23 +71,34 @@ a.back{color:#1e3a5f;font-size:.85rem}
 </head>
 <body>
 <a class="back" href="playground.php">&larr; Test Lab</a>
-<h1>City Map &mdash; service-area diagrams</h1>
-<p class="sub">One diagram per city, drawn from that city's own named areas in <code>cities.json</code>. The point to check is that <strong>no two are alike</strong> &mdash; and that this costs nothing per site, because it is drawn once per city and reused by every site covering it.</p>
+<h1>City Map &mdash; real-map service-area images</h1>
+<p class="sub">One map per city, centred on that city's own verified coordinates in <code>cities.json</code>, with the nearby towns it serves listed below. The point to check is that <strong>no two are alike</strong> &mdash; and that this costs nothing per site, because it is drawn once per city and reused by every site covering it.</p>
 
 <div class="note">
-    <strong>It is a diagram, not a map.</strong> The area names have no coordinates, so placing
-    them on real geography would be a claim the data cannot support. The image says so on its
-    face. Each one also writes its own alt text from the same data it drew &mdash; which is the
-    other half of the value, since every site currently ships near-identical alt text.
+    <strong>A real OpenStreetMap basemap, centred on the city, with a real boundary where OSM has one.</strong>
+    The map is centred on the city's own geocoded coordinates &mdash; the same verified lat/lng
+    already used for this site's LocalBusiness schema; no marker dot is drawn there. When OSM has
+    the city's administrative boundary on record, it's drawn as a bold outline and the map zooms
+    to fit it; otherwise the map just stays centred with no outline.
+    No other town gets an outline of its own: cities.json has no coordinates for them, and guessing
+    would reintroduce the exact problem that got compass bearings cut from this plugin before.
+    They stay named, with real driving distances, in the list below the map. Each image also
+    writes its own alt text from the same data it drew.
 </div>
 
 <div class="grid">
 <?php foreach ($cities as $c): ?>
     <div class="card">
         <h3><?= $h(trim(($c['city'] ?? '') . ', ' . ($c['SS'] ?? ''), ', ')) ?></h3>
-        <div class="meta"><?= $h($c['_source']) ?> &middot; <?= count(array_filter((array) ($c['neighborhoods'] ?? []))) ?> named areas</div>
-        <?= city_map_svg($c) ?>
-        <div class="alt"><b>alt:</b> <?= $h(city_map_alt($c)) ?></div>
+        <div class="meta"><?= $h($c['_source']) ?> &middot; <?= count(array_filter((array) ($c['nearby_towns'] ?? []))) ?> nearby towns
+            <?= empty($c['lat']) || empty($c['lng']) ? ' &middot; <span style="color:#dc2626">no coordinates yet</span>' : '' ?></div>
+        <?php $svg = city_map_svg($c); ?>
+        <?php if ($svg !== ''): ?>
+            <?= $svg ?>
+            <div class="alt"><b>alt:</b> <?= $h(city_map_alt($c)) ?></div>
+        <?php else: ?>
+            <div class="alt" style="color:#dc2626">No image &mdash; missing coordinates, no towns, or the basemap fetch failed.</div>
+        <?php endif; ?>
     </div>
 <?php endforeach; ?>
 </div>

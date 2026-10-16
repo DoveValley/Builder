@@ -1,11 +1,13 @@
 <?php
 /**
- * Writes the diagram into the site's uploads and returns its path.
+ * Writes the map image into the site's uploads and returns its path.
  *
  * SVG is the source of truth; a WebP is rasterised beside it and that is what the page uses.
  * Reason: an <img> pointing at a WebP is an ordinary indexable image that can earn traffic
- * from Google Images, while an inline SVG mostly is not. The SVG is kept because it is tiny,
- * scales, and can be re-rasterised at any size later without redrawing.
+ * from Google Images, while an inline SVG mostly is not. Unlike the old pure-vector schematic,
+ * this SVG embeds a real basemap as a base64 PNG (city_map_fetch_basemap(), draw.php), so it is
+ * no longer tiny — a few hundred KB is normal. It is still kept, to re-rasterise at any size
+ * later without re-fetching tiles or hitting the network again.
  *
  * Idempotent: a city whose diagram already exists is skipped unless $force. Ten sites covering
  * the same city therefore draw it once.
@@ -91,8 +93,14 @@ function city_map_png_to_webp(string $png, string $webpPath): bool
 {
     $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
     if ($bin) {
+        // webp:method=6 is the one knob that actually does anything on this box's ImageMagick —
+        // -quality (any value, any syntax) is silently ignored for WebP output here, confirmed
+        // against unrelated test images too, so it isn't specific to this plugin's input. method
+        // is a compression-EFFORT setting, not a quality one: strictly smaller output for the
+        // same visual result, at the cost of slower encoding — irrelevant since this runs once
+        // per city, ever, not per page view.
         @exec(escapeshellarg($bin) . ' ' . escapeshellarg($png) . ' -background white -flatten'
-            . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null', $o, $c);
+            . ' -quality 88 -define webp:method=6 ' . escapeshellarg($webpPath) . ' 2>/dev/null', $o, $c);
         if ($c === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
     }
     if (function_exists('imagewebp')) {
@@ -141,7 +149,7 @@ function city_map_rasterise(string $svgPath, string $webpPath): bool
     $bin = function_exists('ms_convert_bin') ? ms_convert_bin() : null;
     if ($bin) {
         $cmd = escapeshellarg($bin) . ' -background white -flatten ' . escapeshellarg($svgPath)
-             . ' -quality 88 ' . escapeshellarg($webpPath) . ' 2>/dev/null';
+             . ' -quality 88 -define webp:method=6 ' . escapeshellarg($webpPath) . ' 2>/dev/null';
         @exec($cmd, $out, $code);
         if ($code === 0 && is_file($webpPath) && filesize($webpPath) > 0) return true;
     }
