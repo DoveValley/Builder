@@ -1,5 +1,5 @@
     <div class="tab-content" style="<?= $tab === 'picdrop' ? '' : 'display:none;' ?>">
-        <?php tab_header('Pic Drop', 'Every picture on the site, page by page. Drop a new image onto any slot and it is optimised, resized to fit that slot, filed in the media library and written straight into the page.', 'tab-picdrop'); ?>
+        <?php tab_header('Pic Drop', 'Every picture on the site, page by page. Each slot shows its Real photo on the left and its AI photo on the right — whichever one has the blue border and checkmark is the one actually live on the page. To add or replace the Real photo, use the "Drop an image here" box next to the thumbnails: drag a file onto it, or click it to choose one from your computer. It is optimised, resized to fit that slot, filed in the media library, and written straight into the page.', 'tab-picdrop'); ?>
 
         <div class="callout tip" style="margin-bottom:16px;">
             <p style="margin:0 0 6px;"><strong>Writing a good AI-generate prompt.</strong> The default text pre-filled below already asks for these — worth keeping if you rewrite it:</p>

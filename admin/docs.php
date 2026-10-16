@@ -205,9 +205,9 @@ tr.ms-rec td { background: #fff3cd !important; }
         <a href="#tab-starters">Page Starters</a>
         <a href="#tab-templates">Templates</a>
         <a href="#tab-cities">Landing Cities</a>
-        <a href="#tab-citypages">Landing City Page Gen</a>
+        <a href="#tab-citypages">Landing City Page Structure (GEN)</a>
         <a href="#tab-genimage">Gen-Image</a>
-        <a href="#tab-generate">AI Generation</a>
+        <a href="#tab-generate">AI Content Generation</a>
         <a href="#tab-ai-review">Content Review</a>
         <a href="#tab-ai-blocks">Block Registry</a>
         <a href="#tab-plugins">Plugins</a>
@@ -840,7 +840,7 @@ tr.ms-rec td { background: #fff3cd !important; }
     </ul>
 
     <h3 id="core-great-seo">Building a GREAT-SEO national hub page</h3>
-    <p>Core pages are the authoritative <strong>national hubs</strong> that link <em>down</em> to the city landing pages. This is the national counterpart to the <a href="#template-great-seo">landing-template process</a> — the same GREAT-SEO discipline, but different mechanics. A ready-to-paste Claude prompt is at the top of the <strong>Core / Template Pages</strong> tab and as <code>uploads/core-page-build-prompt.txt</code>.</p>
+    <p>Core pages are the authoritative <strong>national hubs</strong> that link <em>down</em> to the city landing pages. This is the national counterpart to the <a href="#template-great-seo">landing-template process</a> — the same GREAT-SEO discipline, but different mechanics. A ready-to-paste Claude prompt is at the top of the <strong>Core/Temp Pages Structure</strong> tab and as <code>uploads/core-page-build-prompt.txt</code>.</p>
 
     <p><strong>How core pages differ from city landing pages:</strong></p>
     <ul>
@@ -1217,7 +1217,7 @@ tr.ms-rec td { background: #fff3cd !important; }
 </section>
 
 <section id="tab-citypages">
-    <h2>Tab: Landing City Page Gen</h2>
+    <h2>Tab: Landing City Page Structure (GEN)</h2>
 
     <h3>What it is</h3>
     <p>Takes this site's <strong>landing templates</strong> and a list of <strong>cities</strong> and produces many <strong>city landing pages inside this one site</strong> — same business and topic, one page per city. Each page is a distinct URL with city-localized content: <code>{city}</code>/<code>{state}</code>/<code>{business}</code> shortcodes resolved, AI-written city-specific copy, and (opt-in) per-city images and section order.</p>
@@ -1274,7 +1274,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
 
 <section id="tab-genimage">
     <h2>Tab: Gen-Image</h2>
-    <p>The two things the build does to a domain's <strong>photos</strong>, in one place: it bakes text onto each hero, and it makes every other photo byte-unique per domain. Both are <strong>master-level settings</strong> — what you set here is what every domain generated from this site inherits. It sits between <strong>Landing City Page Gen</strong> and <a href="#tab-genvisual">Gen-Visual</a> in the nav; the two Gen-* tabs are the pair that decide how generated sites <em>look</em> (this one images, the other colour/type/brand).</p>
+    <p>The two things the build does to a domain's <strong>photos</strong>, in one place: it bakes text onto each hero, and it makes every other photo byte-unique per domain. Both are <strong>master-level settings</strong> — what you set here is what every domain generated from this site inherits. It sits between <strong>Landing City Page Structure (GEN)</strong> and <a href="#tab-genvisual">Gen-Visual</a> in the nav; the two Gen-* tabs are the pair that decide how generated sites <em>look</em> (this one images, the other colour/type/brand).</p>
     <div class="callout tip"><p><strong>Moved here from the Test Lab (2026-08-23).</strong> The hero-overlay preview used to live on the <a href="playground.php">Test Lab</a> page, which is a scratchpad for unfinished experiments. A permanent setting the build reads on every run belongs in the panel that owns the site, so it moved — along with the photo-variation ranges, which had no admin surface at all before and were plain hardcoded numbers in <code>includes/multisite/image_overlay.php</code>. Old links to <code>playground.php#hero-overlay</code> are gone; the panel is here now.</p></div>
 
     <h3>Hero text overlay</h3>
@@ -1334,7 +1334,7 @@ Many city landing pages, all in one site   (/{slug})</code></pre>
 </section>
 
 <section id="tab-generate">
-    <h2>Tab: AI Generation</h2>
+    <h2>Tab: AI Content Generation</h2>
     <p>Runs the two-phase generation process for city landing pages. This is the primary control panel for generating AI content at scale.</p>
 
     <h3>Run Generator</h3>
@@ -2609,8 +2609,8 @@ Output valid JSON only — no explanation.</code></pre>
 
     <h3 id="ai-single">How it works — single site</h3>
     <ul>
-        <li><strong>Home &amp; core pages:</strong> the AI blocks live directly in <code>site.json</code> (edited on the Content tab — there is no "template"). Run AI generation on the <a href="#tab-generate">AI Generation</a> tab (scope Homepage / Core) to fill them. Don't lean on per-city tokens here — <code>{city}</code>/<code>{neighborhoods}</code> resolve to the site's home city, not a per-page one.</li>
-        <li><strong>Landing (per-city) pages:</strong> author AI blocks once in a <strong>template</strong> (Templates tab); the <a href="#tab-cities">Landing City Page Gen</a> tab materializes one page file per city (structure, <code>engine.php</code>); then AI generation fills them per city.</li>
+        <li><strong>Home &amp; core pages:</strong> the AI blocks live directly in <code>site.json</code> (edited on the Content tab — there is no "template"). Run AI generation on the <a href="#tab-generate">AI Content Generation</a> tab (scope Homepage / Core) to fill them. Don't lean on per-city tokens here — <code>{city}</code>/<code>{neighborhoods}</code> resolve to the site's home city, not a per-page one.</li>
+        <li><strong>Landing (per-city) pages:</strong> author AI blocks once in a <strong>template</strong> (Templates tab); the <a href="#tab-cities">Landing City Page Structure (GEN)</a> tab materializes one page file per city (structure, <code>engine.php</code>); then AI generation fills them per city.</li>
         <li><strong>Research:</strong> the <em>Research with AI</em> button on the Cities tab fills that city's row in <code>cities.json</code>. Grounds the copy. See <a href="#ai-research">Local market research</a>.</li>
         <li><strong>Registry:</strong> for a pure single site you author block types by hand in the <a href="#tab-ai-blocks">Block Type Registry</a> tab. (A site with no registry silently skips all AI blocks.)</li>
         <li><strong>Deploy:</strong> Generate Static Site → the static build renders every page (through <code>site-template.php</code>) and FTP-deploys it.</li>
@@ -2825,7 +2825,7 @@ Output valid JSON only — no explanation.</code></pre>
     </ul>
     <div class="callout"><strong>Why this is safe.</strong> Pages never write to the same file, so there is no output contention. The three shared resources are explicitly locked: token/cost accounting (<code>_usage_lock</code>), the progress counter (<code>_progress_lock</code>, so the live bar stays monotonic), and the Anthropic client (<code>_client_lock</code>, created once and reused across threads). Transient/429 errors are retried with backoff inside each worker, so one flaky call doesn't fail the batch.</div>
 
-    <h3>Live progress in the AI Generation tab</h3>
+    <h3>Live progress in the AI Content Generation tab</h3>
     <p>When a run starts, the panel shows two things at once:</p>
     <ul>
         <li>A <strong>global bar</strong> — <em>Block X of Y</em> across the whole run, with a remaining count.</li>
@@ -2838,7 +2838,7 @@ Output valid JSON only — no explanation.</code></pre>
         <tr><td><code>__PROGRESS__ done/total</code></td><td><code>progress</code></td><td>The global bar</td></tr>
         <tr><td><code>__WBAR__ slot done total page</code></td><td><code>worker</code></td><td>One worker's current page + block progress</td></tr>
     </table>
-    <p>Each worker's slot number (0…N-1) is derived from its thread name, and a thread-local per-block callback fires once per completed block — advancing both that worker's own bar and the global bar. Nothing extra to configure: open the AI Generation tab, run a multi-page scope, and the worker grid appears automatically.</p>
+    <p>Each worker's slot number (0…N-1) is derived from its thread name, and a thread-local per-block callback fires once per completed block — advancing both that worker's own bar and the global bar. Nothing extra to configure: open the AI Content Generation tab, run a multi-page scope, and the worker grid appears automatically.</p>
 </section>
 
 <section id="ai-workflow">
@@ -2848,7 +2848,7 @@ Output valid JSON only — no explanation.</code></pre>
         <li>Ensure city list is complete in the City Pages tab</li>
         <li>Run <strong>Structure Generation</strong> — writes city page JSON files from the template</li>
         <li>Preview a few pages to confirm structure looks right</li>
-        <li>Run <strong>AI Generation</strong> — confirm the cost warning, then let it run</li>
+        <li>Run <strong>AI Content Generation</strong> — confirm the cost warning, then let it run</li>
         <li>Preview a few AI-generated pages to review quality</li>
         <li>If any pages need adjustment, edit the city page JSON directly or re-run AI with Force on specific pages</li>
         <li>Run <strong>Deploy</strong> to push the final static site via FTP</li>
@@ -2880,7 +2880,7 @@ Output valid JSON only — no explanation.</code></pre>
         <tr><td><strong>Templates</strong></td><td>Templates</td><td>Master block structure + SEO/slug patterns for one service type</td></tr>
         <tr><td><strong>Cities</strong></td><td>Landing Cities</td><td>The list of cities, each providing city name, state, SS, ZIP, and city_slug variables</td></tr>
         <tr><td><strong>AI Block Registry</strong></td><td>Block Registry</td><td>Defines what AI generates and how — prompt, field target, model, mode</td></tr>
-        <tr><td><strong>Generation</strong></td><td>AI Generation</td><td>The engine that runs structure + AI over every template × city combination</td></tr>
+        <tr><td><strong>Generation</strong></td><td>AI Content Generation</td><td>The engine that runs structure + AI over every template × city combination</td></tr>
     </table>
 
     <h3>City shortcodes — how cities inject into pages</h3>
@@ -2912,7 +2912,7 @@ Output valid JSON only — no explanation.</code></pre>
             <br>For any block marked with <code>ai_type_id</code>, verify the matching registry entry exists with the correct prompt template, target field, and model. Use the Prompt Preview to confirm the output before a full run.
         </li>
         <li>
-            <strong>Run structure generation</strong> (AI Generation tab)
+            <strong>Run structure generation</strong> (AI Content Generation tab)
             <br>Choose your template and optional city filter, select "Structure only" mode, and click Run. This is free and fast — it creates one JSON file per city under <code>sites/{id}/data/pages/</code>, with city shortcodes resolved and template blocks copied in.
         </li>
         <li>
@@ -2920,7 +2920,7 @@ Output valid JSON only — no explanation.</code></pre>
             <br>Open the City Pages tab, click a few generated pages, and check that the structure, slug, and shortcode substitution look correct. Fix the template and re-generate if anything is wrong — structure generation always overwrites (except locked blocks).
         </li>
         <li>
-            <strong>Run AI generation</strong> (AI Generation tab)
+            <strong>Run AI generation</strong> (AI Content Generation tab)
             <br>Select "Structure + AI" mode and enter your Anthropic API key. Confirm the estimated page count and cost, then click Run. The Python generator calls the Claude API for each block that needs AI content and locks those blocks when done.
         </li>
         <li>
@@ -3064,7 +3064,7 @@ Output valid JSON only — no explanation.</code></pre>
         <li>Fill in: city name, state, 2-letter abbreviation (SS), ZIP, and city_slug (e.g. <code>dallas-tx</code>)</li>
         <li>Optionally add tags to group the city for filtered generation runs</li>
         <li>Run Structure Generation (optionally filtered to just this new city)</li>
-        <li>Run AI Generation for the new city's pages</li>
+        <li>Run AI Content Generation for the new city's pages</li>
     </ol>
 </section>
 
@@ -4852,7 +4852,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
 
 <section id="ms-aiblocks">
     <h2>AI blocks &amp; the engine</h2>
-    <p>The master's pages carry <code>ai_block</code> placeholders wired to the prompt registry (<code>ai_block_types.json</code>). During a build, the Python engine <code>generate.py</code> (the same one the admin's AI Generation uses) fills them with city-specific copy. Two patterns:</p>
+    <p>The master's pages carry <code>ai_block</code> placeholders wired to the prompt registry (<code>ai_block_types.json</code>). During a build, the Python engine <code>generate.py</code> (the same one the admin's AI Content Generation uses) fills them with city-specific copy. Two patterns:</p>
     <ul>
         <li><strong>Standalone</strong> (e.g. <code>city_market_intro</code>) — a whole <code>ai_block</code> becomes a section of copy.</li>
         <li><strong>Enrich</strong> (e.g. <code>hero_subtext</code>, <code>faq_additions</code>) — <code>ai_type_id</code> on a real block fills one field in place (the hero subtext, or appends FAQ items).</li>
@@ -5517,7 +5517,7 @@ Params table  (CSV — one row per site: domain, business, phone, city, geo, FTP
         <li><strong>Run campaign</strong> — set concurrency, limit and retries, optionally toggle <em>No AI</em> / <em>Force</em>, then Run. The run detaches into the background and the page polls a live progress bar (rows done, files uploaded, running cost).</li>
         <li><strong>Recent runs</strong> — a history of past runs with result + cost, each with a <strong>retry failed</strong> button that re-runs only that run's failed rows.</li>
     </ol>
-    <div class="callout"><strong>Two levels of concurrency.</strong> The tab's <em>concurrency</em> setting (the CLI <code>--jobs=N</code>) controls how many <strong>sites</strong> build at the same time — each is a separate <a href="#ms-process-model">process</a>. <em>Inside</em> each site, <code>build_one.php</code> invokes <code>generate.py</code> with its default <strong>8 landing-page workers</strong> (see <a href="#ai-concurrency">Concurrent generation</a>), so that site's pages generate in parallel too. The multisite progress bar tracks the <em>site</em> level — the per-worker bars from the AI Generation tab are not surfaced here, because each site is a detached background process whose page-level output is folded into its row's log. Effective peak API concurrency is roughly <code>jobs × 8</code>, so raise <em>jobs</em> gradually and watch for rate-limit backoff in the logs.</div>
+    <div class="callout"><strong>Two levels of concurrency.</strong> The tab's <em>concurrency</em> setting (the CLI <code>--jobs=N</code>) controls how many <strong>sites</strong> build at the same time — each is a separate <a href="#ms-process-model">process</a>. <em>Inside</em> each site, <code>build_one.php</code> invokes <code>generate.py</code> with its default <strong>8 landing-page workers</strong> (see <a href="#ai-concurrency">Concurrent generation</a>), so that site's pages generate in parallel too. The multisite progress bar tracks the <em>site</em> level — the per-worker bars from the AI Content Generation tab are not surfaced here, because each site is a detached background process whose page-level output is folded into its row's log. Effective peak API concurrency is roughly <code>jobs × 8</code>, so raise <em>jobs</em> gradually and watch for rate-limit backoff in the logs.</div>
     <p>Backed by <code>admin/multisite_api.php</code> (upload / status / run / run_status / list_runs / retry_failed / sample_csv / download_csv / list_versions / download_version / restore_version), <code>admin/multisite_preflight.php</code> (SSE pre-flight), the <a href="#ms-visual-identity">Visual Identity</a> panel (<code>admin/tabs/multisite_visual.php</code> + <code>admin/visual_preview.php</code> + <code>admin/visual_presets_save.php</code>), and CSRF-protected save handlers. The <strong>Niche Brief</strong> tab (see AI Content) authors the master's AI vocabulary.</p>
     <div class="callout tip">Start with a small <em>limit</em> (e.g. 2) and review the first sites before scaling to the full table.</div>
 </section>
