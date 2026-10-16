@@ -535,3 +535,54 @@ function generate_city_pages(array $options = []): array {
         'log_entry'       => $logEntry,
     ];
 }
+
+/**
+ * generate_city_pages(), guarded against a concurrent run for the same site.
+ *
+ * generate_city_pages() runs in-process (no subprocess, unlike generate.py), so unlike
+ * research/content-fill it can't be spotted via a `ps` scan from another request — a
+ * flock() on a dedicated lock file is the only thing that's atomic across two separate
+ * PHP requests racing to call it (a double-click, two tabs, or an admin edit racing a
+ * CLI/batch build of the same site). flock is released by the OS the moment the file
+ * handle closes, including on a crash or PHP's own timeout kill, so there is no stale-
+ * lock state to clean up or get wrong, unlike a pid/timestamp lock file would need.
+ *
+ * Call this everywhere generate_city_pages() is called from a request/process that
+ * could overlap another (admin/generate.php, multisite/generate_landing.php) — never
+ * call generate_city_pages() directly from a new call site.
+ */
+function generate_city_pages_locked(array $options = []): array {
+    $lockFh = @fopen(GENERATION_LOCK_FILE, 'c+');
+    // $lockFh === false (couldn't open the lock file, e.g. missing data dir) fails
+    // OPEN on purpose, same philosophy as generate_py_in_flight(): a missed detection
+    // costs the old racy behavior, a false "can't acquire" costs a generator that
+    // never runs again.
+    if ($lockFh && !flock($lockFh, LOCK_EX | LOCK_NB)) {
+        // Reading doesn't need the lock (flock is advisory, write-vs-write only) — best-
+        // effort only, so a torn read mid-write from the holder just drops the detail.
+        $info = json_decode((string) stream_get_contents($lockFh), true);
+        fclose($lockFh);
+        $msg = 'Another generation run is already in progress for this site.';
+        if (is_array($info) && !empty($info['started_at'])) {
+            $secs = max(0, time() - strtotime($info['started_at']));
+            $ago  = $secs >= 60 ? intdiv($secs, 60) . ' min' : $secs . ' sec';
+            $msg .= ' Started ' . $ago . ' ago' . (!empty($info['pid']) ? ' (pid ' . (int) $info['pid'] . ')' : '') . '.';
+        }
+        $msg .= ' Wait for it to finish before starting another — two at once would race on the same page files.';
+        return ['success' => false, 'message' => $msg];
+    }
+    if ($lockFh) {
+        ftruncate($lockFh, 0);
+        rewind($lockFh);
+        fwrite($lockFh, json_encode(['pid' => getmypid(), 'started_at' => date('c')]));
+        fflush($lockFh);
+    }
+    try {
+        return generate_city_pages($options);
+    } finally {
+        if ($lockFh) {
+            flock($lockFh, LOCK_UN);
+            fclose($lockFh);
+        }
+    }
+}

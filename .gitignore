@@ -64,6 +64,10 @@ multisite/hero_style.json
 multisite/batch_seq.json
 multisite/.batch_seq.lock
 
+# Structure-generation concurrency lock (flock'd, live runtime state, not config)
+data/.generation.lock
+sites/*/data/.generation.lock
+
 # Generation backups (created by generate.py on each landing regen)
 sites/*/data/pages/*.bak
 

@@ -37,7 +37,7 @@ if (!$cities) {
 }
 $cityIds = array_values(array_filter(array_map(fn($c) => $c['id'] ?? '', $cities), 'strlen'));
 
-$res = generate_city_pages([
+$res = generate_city_pages_locked([
     'city_ids'       => $cityIds,
     'confirmed_cost' => true,   // structure-only steps are free; templates with paid steps still proceed under the batch
     'force_locked'   => false,

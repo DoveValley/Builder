@@ -25,6 +25,11 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
     exit;
 }
 
+// Release the PHP session lock before the long-running work below -- see
+// admin/ai_generate.php for the full explanation (same bug, same fix, third
+// recurrence in this codebase: project_console_session_lock).
+session_write_close();
+
 if (!ACTIVE_SITE_ID) {
     echo json_encode(['success' => false, 'message' => 'No active site selected.']);
     exit;
@@ -42,7 +47,7 @@ $options = [
     'vary_layout'    => !empty($_POST['vary_layout']),
 ];
 
-$result = generate_city_pages($options);
+$result = generate_city_pages_locked($options);
 
 echo json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 exit;

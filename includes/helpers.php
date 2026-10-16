@@ -249,21 +249,23 @@ function save_uploaded_file($tmpPath, $prefix) {
 }
 
 /**
- * Is a research pass for this site ALREADY running -- started by EITHER launcher?
+ * Is a generate.py pass for this site ALREADY running -- started by ANY launcher,
+ * for ANY action ($requireArg narrows to a specific one, e.g. '--research-only')?
  *
- * Two entry points run the same work: this file (Cities tab, --site <id>) and
- * multisite/research_cities.php (Batch tab, --site-dir <path>/sites/<id>). Only the latter
- * had a concurrency guard, so the Cities-tab button would happily start a second
- * generate.py writing the same cities.json while the first was mid-pass. The process table
- * is the only place both launchers are visible -- a lock file taken here would not see a
- * run started over there, which is precisely the case that bit.
+ * Multiple entry points can run generate.py for the same site: admin/ai_generate.php
+ * (Cities/AI tabs, --site <id>) and the Batch tab's own launchers (--site-dir
+ * <path>/sites/<id>). The process table is the only place all of them are visible --
+ * a lock file taken in one would not see a run started by another, which is precisely
+ * the case that bit (see research_in_flight() below, and the v254 incident where
+ * ai_generate.php's content-fill action had no guard at all and let a double-click
+ * start a second generate.py writing the same data/pages/*.json files).
  *
  * Returns ['pid'=>int,'secs'=>int] for the live run, or null.
  *
  * Fails OPEN on purpose: if ps cannot be read we return null and let the run proceed. A
  * missed detection costs the old behaviour; a false positive costs a button that never works.
  */
-function research_in_flight(string $siteId): ?array
+function generate_py_in_flight(string $siteId, ?string $requireArg = null): ?array
 {
     if ($siteId === '' || !preg_match('/^[A-Za-z0-9._-]{1,64}$/', $siteId)) return null;
     $ps = @shell_exec('ps -eo pid=,etimes=,args= 2>/dev/null');
@@ -277,7 +279,7 @@ function research_in_flight(string $siteId): ?array
         $args = $m[3];
         if ($pid === $me) continue;
         if (strpos($args, 'generate.py') === false) continue;
-        if (strpos($args, '--research-only') === false) continue;
+        if ($requireArg !== null && strpos($args, $requireArg) === false) continue;
         // sh -c wrappers carry the same args, so the child and its shell both match;
         // either one is proof a pass is live, and we only report the first.
         if (!preg_match('#--site\s+\x27?' . $q . '\x27?(\s|$)#', $args)
@@ -287,6 +289,13 @@ function research_in_flight(string $siteId): ?array
         return ['pid' => $pid, 'secs' => $secs];
     }
     return null;
+}
+
+/** research_in_flight() narrows generate_py_in_flight() to research passes specifically --
+ * this is what admin/tabs/cities.php's "research already running" banner checks for. */
+function research_in_flight(string $siteId): ?array
+{
+    return generate_py_in_flight($siteId, '--research-only');
 }
 
 

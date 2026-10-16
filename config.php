@@ -56,6 +56,7 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
     define('PAGES_DIR',         $_b . '/data/pages/');
     define('GEN_LOG_FILE',       $_b . '/data/generation_log.json');
     define('STRUCTURE_LOG_FILE', $_b . '/data/structure_log.json');
+    define('GENERATION_LOCK_FILE', $_b . '/data/.generation.lock');
     define('AI_REGISTRY_FILE',   $_b . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     $_b . '/data/redirects.json');
     define('STARTERS_FILE',      $_b . '/data/page_starters.json');
@@ -75,6 +76,7 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
     define('PAGES_DIR',         BASE_DIR . '/sites/' . $_activeSiteId . '/data/pages/');
     define('GEN_LOG_FILE',       BASE_DIR . '/sites/' . $_activeSiteId . '/data/generation_log.json');
     define('STRUCTURE_LOG_FILE', BASE_DIR . '/sites/' . $_activeSiteId . '/data/structure_log.json');
+    define('GENERATION_LOCK_FILE', BASE_DIR . '/sites/' . $_activeSiteId . '/data/.generation.lock');
     define('AI_REGISTRY_FILE',   BASE_DIR . '/sites/' . $_activeSiteId . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     BASE_DIR . '/sites/' . $_activeSiteId . '/data/redirects.json');
     define('STARTERS_FILE',      BASE_DIR . '/sites/' . $_activeSiteId . '/data/page_starters.json');
@@ -91,6 +93,7 @@ if ($_msBase !== '' && is_dir($_msBase) && is_dir(rtrim($_msBase, '/') . '/data'
     define('PAGES_DIR',         BASE_DIR . '/data/pages/');
     define('GEN_LOG_FILE',       BASE_DIR . '/data/generation_log.json');
     define('STRUCTURE_LOG_FILE', BASE_DIR . '/data/structure_log.json');
+    define('GENERATION_LOCK_FILE', BASE_DIR . '/data/.generation.lock');
     define('AI_REGISTRY_FILE',   BASE_DIR . '/data/ai_block_types.json');
     define('REDIRECTS_FILE',     BASE_DIR . '/data/redirects.json');
     define('STARTERS_FILE',      BASE_DIR . '/data/page_starters.json');

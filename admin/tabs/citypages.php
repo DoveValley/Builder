@@ -355,7 +355,11 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
 
 <script>
 (function() {
-    var _activeTag   = '';
+    var _activeTag    = '';
+    var _cpInFlight   = false; // client-side defense-in-depth only — the real guard is the
+                                // server-side flock() in generate_city_pages_locked(); this
+                                // just stops the common case (an impatient double-click)
+                                // before it even reaches the network.
     var _tplNames    = <?= json_encode($_tplNames) ?>;
     var _cityNames   = <?= json_encode($_cityNames) ?>;
     var _totalTpls   = <?= count($templates) ?>;
@@ -456,6 +460,8 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
 
     // ── Main generate function ────────────────────────────────────────────────
     window.cpGenerate = function(opts) {
+        if (_cpInFlight) return;
+
         // Apply active tag filter unless caller overrides
         if (_activeTag && !opts.tag_filter) opts = Object.assign({ tag_filter: _activeTag }, opts);
         // Apply the per-city image mode (Off/Hero/Full) unless the caller set one
@@ -467,6 +473,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
         // Confirmation
         if (!confirm(cpConfirmText(opts))) return;
 
+        _cpInFlight = true;
         var spinner = document.getElementById('gen-spinner');
         var result  = document.getElementById('gen-result');
         var summary = document.getElementById('gen-summary');
@@ -487,6 +494,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
         .then(function(r) { return r.json(); })
         .then(function(data) {
             spinner.style.display = 'none';
+            _cpInFlight = false;
 
             // Cost warning — confirm then re-run
             if (data.cost_warning) {
@@ -512,6 +520,7 @@ foreach ($cities as $_c) $_cityNames[$_c['id']] = ($_c['city'] ?? '') . ', ' . (
         })
         .catch(function(e) {
             spinner.style.display = 'none';
+            _cpInFlight = false;
             result.className      = 'alert alert-error';
             result.textContent    = 'Request failed: ' + e.message;
             result.style.display  = 'block';

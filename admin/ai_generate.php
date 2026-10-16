@@ -48,6 +48,14 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
     exit;
 }
 
+// Release the PHP session lock before the long-running work below. session_start()
+// (config.php) holds an exclusive lock on the session file for the whole request --
+// a multi-minute-to-multi-hour generate.py run would otherwise queue every other
+// request from the same browser (nav clicks, other tabs) behind it with no error or
+// feedback. Nothing below this line reads or writes $_SESSION. Third recurrence of
+// this bug class in this codebase -- see project_console_session_lock.
+session_write_close();
+
 if (!ACTIVE_SITE_ID) {
     ndjson_done(false, null, null, 'No active site selected.');
     exit;
@@ -111,16 +119,22 @@ if (!file_exists($script)) {
 
 $parts = [escapeshellarg($python), '-u', escapeshellarg($script), '--site', escapeshellarg(ACTIVE_SITE_ID)];
 
-// BOTH research actions write cities.json, so both must refuse to run while a pass is in
-// flight — see research_in_flight() for why this is a ps scan and not a lock file.
-if ($action === 'research' || $action === 'research_gaps') {
-    $rif = research_in_flight((string) ACTIVE_SITE_ID);
+// Every non-sync action spawns a real generate.py process writing this site's own
+// data files (cities.json for research, data/pages/*.json for content-fill) — a
+// second one in flight races the first on those same files. 'generate' had NO guard
+// at all until this fix: a double-click, a second tab, or the page just feeling
+// unresponsive (it holds the PHP session lock the whole time without this fix's
+// session_write_close() above) would start a genuinely second process — the actual
+// mechanism behind the v254 stuck-session/duplicate-job pileup. See
+// generate_py_in_flight() for why this is a ps scan and not a lock file.
+if ($action === 'generate' || $action === 'research' || $action === 'research_gaps') {
+    $rif = generate_py_in_flight((string) ACTIVE_SITE_ID);
     if ($rif !== null) {
         $ago = $rif['secs'] >= 60 ? intdiv($rif['secs'], 60) . ' min' : $rif['secs'] . ' sec';
         ndjson_done(false, null, null,
-            'Research is already running for ' . ACTIVE_SITE_ID . ' — started ' . $ago
-            . ' ago (pid ' . $rif['pid'] . '). Let it finish: a second pass would have '
-            . 'two processes writing cities.json. Watch progress on the Batch tab.');
+            'A generation pass is already running for ' . ACTIVE_SITE_ID . ' — started ' . $ago
+            . ' ago (pid ' . $rif['pid'] . '). Let it finish: a second pass would have two '
+            . 'processes writing the same files. Watch progress on this tab or the Batch tab.');
         exit;
     }
 }
