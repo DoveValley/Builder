@@ -1,10 +1,10 @@
 <?php
 /**
  * Gen-Mod tab — settings for "Vary block order per city", the structural
- * differentiation step on the Landing City Page Gen tab. That tab's checkbox
+ * differentiation step on the Landing City Page Structure (GEN) tab. That tab's checkbox
  * is the per-run ON/OFF switch; this tab is where the underlying behavior is
  * configured, same split as Gen-Image (style locked here, generation
- * triggered from Landing City Page Gen with the toggle it already has).
+ * triggered from Landing City Page Structure (GEN) with the toggle it already has).
  * $tab, $csrfToken, ACTIVE_SITE_ID, ACTIVE_SITE_DIR available from index.php.
  * ms_layout_variation_defaults()/ms_layout_variation_settings() come from
  * includes/layout_variations.php, already loaded by functions.php.
@@ -36,12 +36,12 @@ $gmScopeNote = function (array $loc) {
 $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
 ?>
 <div class="tab-content" style="<?= $tab === 'genmod' ? '' : 'display:none;' ?>">
-<?php tab_header('Gen-Mod', 'Settings for the structural differentiation Landing City Page Gen applies when "Vary block order per city" is checked.', 'tab-genmod'); ?>
+<?php tab_header('Gen-Mod', 'Settings for the structural differentiation Landing City Page Structure (GEN) applies when "Vary block order per city" is checked.', 'tab-genmod'); ?>
 
 <div class="card">
     <h2>&#128260; Vary block order per city</h2>
     <p class="hint">This is the same feature as the <strong>"Vary block order per city"</strong> checkbox on the
-        <a href="index.php?tab=citypages">Landing City Page Gen</a> tab &mdash; that checkbox is the per-run
+        <a href="index.php?tab=citypages">Landing City Page Structure (GEN)</a> tab &mdash; that checkbox is the per-run
         on/off switch (checked at generate time, not saved), and this tab is where its behavior is configured.</p>
 
     <h3 style="margin:16px 0 8px;font-size:.95rem;color:#334155;">What it does</h3>
@@ -89,7 +89,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
         msg.textContent = 'Saving…';
         fetch('layout_variation_save.php', { method: 'POST', body: fd }).then(function (r) { return r.json(); })
             .then(function (d) {
-                msg.textContent = d.error ? ('✗ ' + d.error) : '✓ Saved — Landing City Page Gen now uses this.';
+                msg.textContent = d.error ? ('✗ ' + d.error) : '✓ Saved — Landing City Page Structure (GEN) now uses this.';
                 msg.style.color = d.error ? '#991b1b' : '#065f46';
             })
             .catch(function () { msg.textContent = '✗ save failed'; msg.style.color = '#991b1b'; });

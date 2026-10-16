@@ -103,7 +103,7 @@ function _review_ts(string $iso): string {
 
 <?php if (empty($reviewData)): ?>
 <div class="card">
-    <p class="hint">No AI-generated content found. Go to <a href="?tab=ai">&#127916; AI Generation</a> to run the generator.</p>
+    <p class="hint">No AI-generated content found. Go to <a href="?tab=ai">&#127916; AI Content Generation</a> to run the generator.</p>
 </div>
 <?php else: ?>
 
@@ -240,7 +240,7 @@ $isResearched = !empty($city['industries']) || !empty($city['top_employers']);
     };
 
     window.reviewRegen = function (cityId) {
-        // This calls the real AI generator (real API cost) same as the AI Generation
+        // This calls the real AI generator (real API cost) same as the AI Content Generation
         // tab's Run button, which already confirms before firing — this one didn't.
         if (!confirm('Regenerate this city\'s content? This calls the AI generator and may incur real API cost.')) return;
         var btn       = document.getElementById('review-regen-btn');
