@@ -44,6 +44,21 @@ function _appliance_services_menu_specialty_types(): array {
 }
 
 /**
+ * Display label for a brand slug. Plain ucwords() turns "ge" into "Ge" and "lg" into
+ * "Lg" — wrong, both are initialisms, not words. Named here rather than inline so a
+ * brand added later with the same problem (an actual initialism, not just a short
+ * name) is a one-line addition, not a new ucwords() special case scattered elsewhere.
+ */
+function _appliance_services_menu_brand_label(string $brandSlug): string {
+    $allCaps = ['ge' => 'GE', 'lg' => 'LG'];
+    $parts = array_map(
+        fn($part) => $allCaps[$part] ?? ucwords($part),
+        explode('-', $brandSlug)
+    );
+    return implode(' ', $parts);
+}
+
+/**
  * Group this site's resolved service links into the mega-menu shape.
  * @param array $data The site data array (same $data global standard.php already has).
  * @return array{groups:array,brands:array,specialty:array} Empty arrays if the
@@ -96,7 +111,7 @@ function appliance_services_menu_groups(array $data): array {
             }
         } elseif ($d['role'] === 'leaf') {
             $t = $d['appliance_type'];
-            $brandLabel = ucwords(str_replace('-', ' ', $d['brand']));
+            $brandLabel = _appliance_services_menu_brand_label($d['brand']);
             if (in_array($t, $specialtyTypes, true)) {
                 $specialty[] = [$name, $url];   // a brand + minor-type combo, rare
             } else {

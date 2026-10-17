@@ -183,15 +183,37 @@
                             </a>
                             <?php if ($navGroups !== null): ?>
                             <ul class="dropdown-menu dropdown-menu-mega dropdown-menu-grouped">
+                                <?php
+                                // Cap how many items show per group — a 12-18 item column next to a
+                                // 4-5 item one left the grid ragged and, on a catalog this size,
+                                // pushed the whole panel past 80vh into an internal scrollbar nobody
+                                // could see without scrolling first. Only groups with a REAL hub_url
+                                // get capped+"View all": 'Shop by Brand'/'Specialty' are synthesized
+                                // above with hub_url '#' (no hub page exists for either), so capping
+                                // them would need a dead link to send the overflow to — left in full.
+                                $groupItemCap = 5;
+                                ?>
                                 <?php foreach ($navGroups as $group): ?>
                                     <?php if (empty($group['items'])) continue; ?>
+                                    <?php
+                                    $groupHubUrl = $group['hub_url'] ?: '#';
+                                    $groupItems  = $group['items'];
+                                    $groupExtra  = 0;
+                                    if ($groupHubUrl !== '#' && count($groupItems) > $groupItemCap) {
+                                        $groupExtra = count($groupItems) - $groupItemCap;
+                                        $groupItems = array_slice($groupItems, 0, $groupItemCap);
+                                    }
+                                    ?>
                                     <li class="dropdown-group">
-                                        <a class="dropdown-group-title" href="<?= h($group['hub_url'] ?: '#') ?>"><?= h($group['title']) ?></a>
+                                        <a class="dropdown-group-title" href="<?= h($groupHubUrl) ?>"><?= h($group['title']) ?></a>
                                         <ul class="dropdown-group-items">
-                                            <?php foreach ($group['items'] as $child): ?>
+                                            <?php foreach ($groupItems as $child): ?>
                                                 <?php if (empty($child[0])) continue; ?>
                                                 <li><a href="<?= h($child[1] ?: '#') ?>"><?= h($child[0]) ?></a></li>
                                             <?php endforeach; ?>
+                                            <?php if ($groupExtra > 0): ?>
+                                                <li class="dropdown-group-more"><a href="<?= h($groupHubUrl) ?>">View all <?= (int) count($group['items']) ?> &rarr;</a></li>
+                                            <?php endif; ?>
                                         </ul>
                                     </li>
                                 <?php endforeach; ?>

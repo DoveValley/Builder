@@ -1128,18 +1128,42 @@ a:hover {
 }
 /* More specific than the flat ".dropdown-menu-mega li a" rule above, so a group's own
    heading link (e.g. "Refrigerator Repair") reads as a section label, not just another
-   item the same weight as its own children. */
+   item the same weight as its own children. Solid-tab treatment (accent background,
+   dark text) rather than a plain underline — Scott's call after comparing both live:
+   a block of color per category reads faster at a glance across 8+ columns than a thin
+   line does. text-decoration explicitly off, including on hover, since the base
+   "a:hover{text-decoration:underline}" rule would otherwise draw a line straight through
+   the tab's own background. */
 .header-nav-row .site-nav ul.dropdown-menu-grouped a.dropdown-group-title {
+    display: inline-block;
     font-weight: 700;
-    font-size: 0.86rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    padding: 8px 10px 4px;
-    opacity: 0.75;
+    padding: 5px 12px;
+    margin: 0 0 8px 10px;
+    background: var(--color-accent, #fd783b);
+    color: #1a1a1a;
+    border-radius: 6px 6px 0 0;
+    opacity: 1;
+    text-decoration: none;
+}
+.header-nav-row .site-nav ul.dropdown-menu-grouped a.dropdown-group-title:hover {
+    text-decoration: none;
+    opacity: 0.88;
 }
 .dropdown-group-items {
     display: flex;
     flex-direction: column;
+}
+/* The "View all N →" link a capped group gets when it has more items than shown —
+   deliberately a plain neutral color, not the accent: the tab above is now the only
+   orange element in each column, so it reads as "this is the category label" without
+   competing with another orange element for attention right below it. */
+.dropdown-group-more a {
+    color: var(--color-muted, #475569);
+    font-weight: 600;
+    font-size: 0.82rem;
 }
 
 /* ---- Mobile: dropdown becomes accordion ---- */
