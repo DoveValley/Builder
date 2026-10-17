@@ -23,7 +23,8 @@
  *     --no-preflight  skip the FTP reachability pre-check
  *     --verbose       stream each row's raw progress
  *     --rot-home-top=N / --rot-home-bottom=N       section-order rotation pin counts for the
- *                     homepage (default 1/1 if omitted — see build_one.php)
+ *                     homepage (default 20/20 if omitted as of 2026-10-17, i.e. rotation off
+ *                     — see ms_rotation_defaults() in includes/layout_variations.php)
  *     --rot-landing-top=N / --rot-landing-bottom=N same, for landing pages
  *
  * Reads sites/{master}/multisite/params.csv (store it first with params_check.php).

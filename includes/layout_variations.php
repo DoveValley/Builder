@@ -174,10 +174,20 @@ function ms_layout_variation_settings(array $raw): array {
 }
 
 /**
- * Defaults for the section-order rotation pin counts (see layout_rotate_blocks()) — 1/1 for
- * both scopes, the original hardcoded pin behaviour (hero stays first, closing block stays
- * last). A missing/invalid value always falls back to these, so a master that's never
- * touched this setting builds exactly as it always has.
+ * Defaults for the section-order rotation pin counts (see layout_rotate_blocks()) —
+ * 20/20 for both scopes as of 2026-10-17, i.e. rotation OFF by default (pin counts this
+ * high always exceed any real page's block count, so layout_rotate_blocks()'s own
+ * "nothing left that could move" guard applies every time and every page keeps its
+ * natural, as-authored block order). Changed from the original 1/1 (hero pinned first,
+ * closing block pinned last, everything between shuffled per domain) after a deliberate
+ * call: block-order rotation is the thinnest layer in the fleet's differentiation stack
+ * — it changes presentation order, not content, images, or which pages exist — so its
+ * fleet-footprint benefit is marginal, while a random shuffle has a real, if small, cost
+ * (chance can bury a trust signal or sequence two similar sections back to back on any
+ * given domain). A missing/invalid value always falls back to here, so a NEW master
+ * that's never touched this setting builds with rotation off from the start; an
+ * EXISTING master only changes if its own section_rotation.json is deleted or never
+ * existed — a saved file's values always win over this default.
  *
  * NOT the same scope or helpers as Gen-Mod's layout_variation.json, despite looking like a
  * sibling setting: section_rotation.json is saved PER-BATCH
@@ -188,7 +198,7 @@ function ms_layout_variation_settings(array $raw): array {
  * assume one's behavior (e.g. its CLI fallback) applies to the other.
  */
 function ms_rotation_defaults(): array {
-    return ['home_top' => 1, 'home_bottom' => 1, 'landing_top' => 1, 'landing_bottom' => 1];
+    return ['home_top' => 20, 'home_bottom' => 20, 'landing_top' => 20, 'landing_bottom' => 20];
 }
 
 /** Clamp to a sane range and fill in anything missing — same shape as ms_layout_variation_settings(). */

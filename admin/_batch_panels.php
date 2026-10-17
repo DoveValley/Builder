@@ -483,7 +483,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                     ['Favicon from the preset\'s icon — no preset has one yet', 'off'],
                  ]],
                 ['key' => 'structure', 'label' => 'Site structure variance', 'status' => 'live',
-                 'note' => 'Section order: each site gets a different arrangement of the same sections, computed fresh from the page\'s own current blocks and picked by a hash of its domain, so it never changes on a rebuild. "Don\'t rotate top/bottom" pins that many leading/trailing blocks in place (1/1 by default — the hero stays first, the closing block stays last) and only shuffles what\'s between them. Privacy, Terms, disclaimer and Contact Us are never reordered here regardless of these toggles — their wording already varies per domain (see "AI content" &rarr; Privacy/Terms/Contact Us reword, above), and their opening-paragraph + merged-body structure has too few movable sections for a second ordering to add anything.',
+                 'note' => 'Section order: each site CAN get a different arrangement of the same sections, computed fresh from the page\'s own current blocks and picked by a hash of its domain, so it never changes on a rebuild. "Don\'t rotate top/bottom" pins that many leading/trailing blocks in place and only shuffles what\'s between them. <strong>Default as of 2026-10-17 is OFF (20/20)</strong> — every page keeps its natural, as-authored block order. This was a deliberate call, not an oversight: block order is the thinnest layer in the fleet-differentiation stack (it changes presentation, not content/images/which-pages-exist, so its footprint benefit is marginal) while a random shuffle has a real small cost — chance can bury a trust signal or sequence two similar sections back to back on any given domain. Lower the pin counts here if you want rotation back for a specific batch; a saved value here always overrides the default. Privacy, Terms, disclaimer and Contact Us are never reordered here regardless of these toggles — their wording already varies per domain (see "AI content" &rarr; Privacy/Terms/Contact Us reword, above), and their opening-paragraph + merged-body structure has too few movable sections for a second ordering to add anything.',
                  'subs' => [
                     ['Section order — Home', 'control', 'structure.home',
                         ['top_field' => 'rot_home_top', 'bottom_field' => 'rot_home_bottom',
@@ -618,7 +618,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                                 <?php if ($msRot): ?>
                                 <!-- Rotation pin counts for this scope — read by msRun() alongside the skip list.
                                      Saved per BATCH on change (rotation_settings_save.php), so a value you set
-                                     survives a reload instead of resetting to 1/1. -->
+                                     survives a reload instead of resetting to the 20/20 default. -->
                                 <div class="hint" style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;padding:2px 0 6px 22px;">
                                     <label style="display:flex;align-items:center;gap:5px;">Don't rotate top
                                         <input type="number" min="0" max="20" step="1" class="ms-rot-opt"
@@ -1540,7 +1540,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     }
 
     // Persist a rotation pin-count the moment it changes (per batch — rotation_settings_save.php),
-    // so it survives a reload instead of resetting to 1/1. Independent of Generate sites/msRun();
+    // so it survives a reload instead of resetting to the 20/20 default. Independent of Generate sites/msRun();
     // that still sends whatever's in the box at click time regardless of whether this save landed.
     window.msSaveRotation = function (input) {
         const msg = input.closest('div').querySelector('.ms-rot-msg');
