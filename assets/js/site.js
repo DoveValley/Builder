@@ -58,9 +58,9 @@ var btn = answer.previousElementSibling;
 if (btn) btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
 };
 window.toggleMegaGroup = function(btn) {
-var ul = btn.closest('ul.dropdown-group-items');
+var ul = btn.closest('ul');
 if (!ul) return;
-var hiddenItems = ul.querySelectorAll('.dropdown-group-item-extra');
+var hiddenItems = ul.querySelectorAll('li[hidden]');
 var isExpanded = btn.getAttribute('aria-expanded') === 'true';
 hiddenItems.forEach(function(li) { li.hidden = isExpanded; });
 btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');

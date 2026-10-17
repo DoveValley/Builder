@@ -85,11 +85,16 @@
     // ---- Mega-menu group "View all" — expands the rest of that one group's items in
     // place (no navigation). A type's own hub page turned out to have no brand list of
     // its own to link out to, so expanding in place is the only version of this that
-    // actually shows "the rest" instead of taking you somewhere that doesn't have it. ----
+    // actually shows "the rest" instead of taking you somewhere that doesn't have it.
+    // Must not reference class names here: class_vocab renames any class that's styled
+    // in CSS (dropdown-group-items, dropdown-group-toggle) to a hash on build, so a
+    // literal '.dropdown-group-items' selector matches nothing live. Walk the DOM
+    // structure instead and key off the native `hidden` attribute, which build never
+    // touches. ----
     window.toggleMegaGroup = function(btn) {
-        var ul = btn.closest('ul.dropdown-group-items');
+        var ul = btn.closest('ul');
         if (!ul) return;
-        var hiddenItems = ul.querySelectorAll('.dropdown-group-item-extra');
+        var hiddenItems = ul.querySelectorAll('li[hidden]');
         var isExpanded = btn.getAttribute('aria-expanded') === 'true';
         hiddenItems.forEach(function(li) { li.hidden = isExpanded; });
         btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
