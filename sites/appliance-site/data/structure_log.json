@@ -631,5 +631,39 @@
         "pages_skipped": 0,
         "pages_backed_up": 156,
         "errors": []
+    },
+    {
+        "run_id": "4d79a696991ec4c0",
+        "started_at": "2026-10-17T17:57:20+00:00",
+        "finished_at": "2026-10-17T17:57:34+00:00",
+        "duration_ms": 13909,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "first-city-site-view",
+            "force_locked": false
+        },
+        "pages_written": 123,
+        "pages_skipped": 0,
+        "pages_backed_up": 107,
+        "errors": []
+    },
+    {
+        "run_id": "bec0066a32994351",
+        "started_at": "2026-10-17T18:06:24+00:00",
+        "finished_at": "2026-10-17T18:06:24+00:00",
+        "duration_ms": 127,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "first-city-site-view",
+            "force_locked": false
+        },
+        "pages_written": 123,
+        "pages_skipped": 0,
+        "pages_backed_up": 123,
+        "errors": []
     }
 ]

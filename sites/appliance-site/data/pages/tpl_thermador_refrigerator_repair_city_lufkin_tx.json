@@ -1,0 +1,358 @@
+{
+    "template_id": "tpl_thermador_refrigerator_repair",
+    "city_id": "city_lufkin_tx",
+    "slug": "thermador-refrigerator-repair-lufkin-tx",
+    "title": "Thermador Refrigerator Repair in {city_state} | {business_short}",
+    "city_vars": {
+        "id": "city_lufkin_tx",
+        "city": "Lufkin",
+        "SS": "TX",
+        "state": "Texas",
+        "city_slug": "lufkin-tx",
+        "zip": "75901",
+        "phone": "936-867-4787",
+        "tel": "+19368674787",
+        "tags": [
+            "first-city-site-view"
+        ],
+        "market_blurb": "Lufkin, Texas serves as a key economic hub for East Texas, historically anchored by the timber and forestry industry due to its location in the Pineywoods region. The city's economy has diversified over time to include manufacturing—particularly oilfield equipment through companies like Lufkin Industries—along with healthcare and retail trade serving surrounding rural counties. As the largest city in Angelina County, Lufkin functions as a regional commercial and medical center.",
+        "local_note": "Lufkin's water supply, drawn largely from groundwater sources, tends to be moderately hard, which can contribute to mineral buildup in water heaters, dishwashers, and washing machines over time. The region experiences frequent severe thunderstorms and occasional tropical storm remnants from the Gulf, leading to periodic power surges and outages that can stress appliance electronics and compressors.",
+        "neighborhoods": [
+            "Downtown Lufkin",
+            "Kurth",
+            "Crown Colony",
+            "Brookhollow",
+            "Colonial Hills",
+            "Loma Linda"
+        ],
+        "population": 33935,
+        "city_spotlight": "Lufkin sits at the heart of the Piney Woods, serving as the commercial anchor for Deep East Texas and the seat of Angelina County. The surrounding forests built the city's original economy, and timber and wood products manufacturing still run deep in its identity, though the modern base has broadened considerably. Lufkin Industries' oil field equipment work, alongside healthcare, education, retail, and government offices, now gives the local economy a sturdier, more diverse footing than its lumber-town roots alone.\n\nWith roughly 34,000 residents, Lufkin feels sized just right — big enough for full-service hospitals, a community college, and steady employers, yet small enough that neighborhoods like Crown Colony and Kurth still carry a distinct, close-knit character. It's a working city, proud of its piney landscape and its role as the region's steady hub.",
+        "city_image": "sites/appliance-site/uploads/media/city-scenic-lufkin-tx.webp",
+        "city_image_alt": "Downtown Lufkin, TX",
+        "city_image_credit": "Photo: Billy Hathorn, CC BY-SA 3.0",
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:Downtown_Lufkin,_TX_IMG_3942.JPG",
+        "industries": [
+            "Timber and forestry products",
+            "Healthcare",
+            "Manufacturing (oilfield equipment)",
+            "Retail and regional trade",
+            "Education",
+            "Government/public administration"
+        ],
+        "top_employers": [
+            "Lufkin Industries",
+            "CHI St. Luke's Health Memorial",
+            "Woodland Heights Medical Center",
+            "Angelina College",
+            "Lufkin Independent School District",
+            "City of Lufkin",
+            "Angelina County",
+            "Walmart",
+            "Georgia-Pacific",
+            "Brookshire Brothers"
+        ],
+        "_researched": 1,
+        "homes_by_decade": {
+            "Before 1960": 19.1,
+            "1960-1979": 30.2,
+            "1980-1999": 32.1,
+            "2000-2009": 10.8,
+            "2010 or later": 7.8
+        },
+        "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Lufkin city (14,397 housing units)",
+        "hot_days_monthly": [
+            0,
+            0,
+            0.1,
+            0.7,
+            8,
+            20.4,
+            27.3,
+            27.1,
+            17,
+            3,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+        "nearby_towns": [
+            {
+                "name": "Diboll",
+                "miles": 10
+            },
+            {
+                "name": "Hudson",
+                "miles": 7
+            },
+            {
+                "name": "Huntington",
+                "miles": 12
+            },
+            {
+                "name": "Nacogdoches",
+                "miles": 20
+            },
+            {
+                "name": "Zavalla",
+                "miles": 20
+            },
+            {
+                "name": "Pollok",
+                "miles": 15
+            }
+        ],
+        "_research_declined": {
+            "water_hardness_gpg": 1
+        },
+        "water_hardness_gpg": 4.5,
+        "water_hardness_source": "City of Lufkin Consumer Confidence (Water Quality) Report",
+        "neighborhoods_source": "verified",
+        "lat": "31.338624",
+        "lng": "-94.728856",
+        "wet_days_monthly": [
+            6.1,
+            5.6,
+            5.8,
+            5,
+            6.1,
+            6.2,
+            5.1,
+            5.1,
+            4.8,
+            4.7,
+            5.3,
+            6.4
+        ],
+        "wet_days_source": "NOAA 1991-2020 Climate Normals, LUFKIN ANGELINA CO AP, TX US station (7.2 mi from Lufkin)",
+        "noaa_station": "USW00093987",
+        "noaa_station_miles": 7.2,
+        "noaa_fetched_at": "2026-10-04",
+        "county_fips": "48005",
+        "county_name": "Angelina County",
+        "figures_fetched_at": "2026-10-04",
+        "acs_fetched_at": "2026-10-04"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Factory-trained technicians, upfront pricing, and most repairs done same-day.</p>",
+            "hs_btn_text": "Call {phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo": "",
+            "hs_photo_alt": "Thermador Refrigerator Repair in {city_state}",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "hero_split_1"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_show_icons": false,
+            "tb_items": [
+                {
+                    "label": "Factory-Trained Technicians",
+                    "icon": ""
+                },
+                {
+                    "label": "Same-Day Service",
+                    "icon": ""
+                },
+                {
+                    "label": "Upfront Pricing",
+                    "icon": ""
+                },
+                {
+                    "label": "Warranty on Repairs",
+                    "icon": ""
+                }
+            ],
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
+        },
+        {
+            "type": "error_codes",
+            "ec_heading": "",
+            "ec_brand": "thermador",
+            "ec_type": "refrigerator",
+            "ec_max": 12,
+            "ec_intro": "",
+            "ec_cta_text": "",
+            "ec_cta_url": "",
+            "id": "error_codes_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "",
+            "it_alt": "Appliance repair technician in {city_state}",
+            "id": "ai_block_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "common_problems",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "fc_num_cols": 3,
+            "id": "ai_block_2"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "id": "ai_block_3"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Repair Service Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call or Book Online",
+                    "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Diagnose & Quote",
+                    "text": "Our factory-trained technician diagnoses the fault and gives you an upfront, no-surprise quote."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Repair & Warranty",
+                    "text": "We complete the repair with quality parts and back the work with a warranty."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "id": "steps_1"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_cooling}",
+            "it_alt": "{chart_group_cooling_alt}",
+            "_it_photo_prechart": "",
+            "it_caption": "{chart_group_cooling_caption}",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "testimonials",
+            "anchor": "reviews",
+            "tm_label": "Reviews",
+            "tm_main_heading": "What {city} Homeowners Say About {business}",
+            "tm_subtext": "",
+            "tm_cols": 3,
+            "tm_items": [],
+            "id": "testimonials_1"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "services",
+            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]",
+            "id": "custom_html_1"
+        },
+        {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Appliance Repair Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Book your {city} appliance repair today.",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "custom_html",
+            "anchor": "pest_services",
+            "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]",
+            "id": "custom_html_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#65a30d",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
+        }
+    ],
+    "seo": {
+        "seo_title": "Thermador Refrigerator Repair in {city_state} | {business_short}",
+        "canonical_url": "https://a.q111.xyz/thermador-refrigerator-repair-lufkin-tx/",
+        "meta_description": "Thermador Refrigerator Repair in {city_state} from {business} — same-day service, upfront pricing, warranty. Call {phone}.",
+        "meta_keywords": "thermador refrigerator repair Lufkin TX",
+        "og_title": "Thermador Refrigerator Repair in {city_state} | {business}",
+        "og_description": "Professional thermador refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+        "og_image": "",
+        "service_name": "Thermador Refrigerator Repair",
+        "service_type": "Thermador Refrigerator Repair",
+        "service_area": "{city}, {SS}",
+        "service_description": "Professional thermador refrigerator repair in {city_state} from {business}. Factory-trained technicians, same-day service, upfront pricing, warranty. Call {phone}.",
+        "bc_label": "",
+        "bc_mid_label": "Refrigerator Repair",
+        "bc_mid_url": "/refrigerator-repair-{city_slug}/",
+        "primary_keyword": "Thermador Refrigerator Repair",
+        "secondary_keywords": "thermador refrigerator repair near me, thermador refrigerator not cooling, thermador refrigerator leaking water, thermador refrigerator service, same day thermador refrigerator repair",
+        "brand": "Thermador",
+        "appliance_type": "Refrigerator",
+        "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Thermador Refrigerator Repair in Lufkin, TX\",\"serviceType\":\"Thermador Refrigerator Repair\",\"description\":\"Professional thermador refrigerator repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-10-17T18:06:24+00:00",
+    "template_version": "1fcd4e2982dba6dcd28b73006d048323"
+}
