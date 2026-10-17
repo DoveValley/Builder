@@ -1240,6 +1240,27 @@ a:hover {
         max-height: none;
         overflow-y: visible;
     }
+    /* The desktop tab treatment (accent background, dark text) assumes a light dropdown
+       panel behind it. On mobile the nav itself IS the accent color (confirmed live on
+       wrenappliancerepair.com: both resolve to the same #f2b705), so an accent-background
+       tab sitting on an accent-background nav has no contrast at all — it visually
+       disappears into the bar around it instead of reading as a label. Dark semi-
+       transparent background + white text instead, matching the white the rest of this
+       mobile menu's links already use, so the tab actually stands out here.
+       Selector matches the desktop rule's own specificity (.header-nav-row .site-nav
+       ul.dropdown-menu-grouped a.dropdown-group-title) — a plain .dropdown-group-title
+       override here is weaker and loses regardless of being inside this media query;
+       same trap this file's own comments already flag twice above for this exact menu. */
+    .header-nav-row .site-nav ul.dropdown-menu-grouped a.dropdown-group-title {
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
+    }
+    /* Same reasoning for "View all"/"Show fewer" — every other link in this mobile menu
+       is white (confirmed live); the desktop's neutral-gray toggle color is unreadable
+       against this bar and reads as disabled rather than tappable. */
+    .header-nav-row .site-nav ul.dropdown-menu-grouped .dropdown-group-toggle {
+        color: #fff;
+    }
 }
 /* ============================================================
    COMPREHENSIVE RESPONSIVE FIXES (v16 mobile/tablet audit)
