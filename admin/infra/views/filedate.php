@@ -1,6 +1,6 @@
 <?php
 /**
- * infra/views/filedate.php — "File Date Refresh" tab.
+ * infra/views/filedate.php — "File Dates/Names" tab.
  *
  * Fully standalone feature: own lib file, own queue/log table (file_date_refresh in
  * fleet.db), own cron (cron/filedate_tick.php). Not part of, and shares no state
@@ -12,7 +12,7 @@ infra_header('filedate');
 ?>
 
 <div class="ic-card">
-    <h2>How file dates work on this fleet</h2>
+    <h2>How file dates are handled</h2>
     <div class="body">
         <p>Three separate things decide what date a visitor (or Google) sees for a page on one
         of our domains:</p>
@@ -116,6 +116,43 @@ infra_header('filedate');
                 </tbody>
             </table>
         <?php endif; ?>
+    </div>
+</div>
+
+<hr style="margin:36px 0;border:none;border-top:2px solid #e5e7eb">
+
+<div class="ic-card">
+    <h2>How file names are handled</h2>
+    <div class="body">
+        <ul style="margin:0;padding-left:18px;line-height:1.8">
+            <li><strong>Anything a person uploads or picks</strong> — a direct admin upload, a Pic
+                Drop photo (Real or AI-generated), a media library upload, a logo/favicon upload —
+                always gets a brand-new, random file name. Replacing one of these never overwrites
+                the old file; it creates a new file and the old one is cleaned up once nothing
+                references it anymore.</li>
+            <li><strong>Anything the system generates automatically</strong> — a chart image, a
+                service-area map, a city photo, a batch-generated AI photo, or a logo/favicon
+                created from a brand/color preset — always reuses the exact same file name every
+                time that specific image is regenerated. The old file is simply overwritten in
+                place; it never gets a new name.</li>
+            <li>Because those auto-generated files keep the same name forever, the system tacks a
+                small "version marker" onto the end of the web address every time the file actually
+                changes (for example, <code>...photo.webp?v=12345</code>). That forces browsers,
+                Google, and social platforms to fetch the new version instead of continuing to show
+                an old cached copy.</li>
+            <li>That version marker is applied everywhere one of these images is shown — on the
+                page itself, the site logo/favicon, charts and maps, and (fixed 2026-10-17) the
+                social-media preview image and the business logo used in Google's structured data.
+                Before that fix, those last two could keep showing a stale photo or logo
+                indefinitely in Facebook/Twitter/Google previews after a real update.</li>
+            <li>File names themselves have very little direct effect on Google ranking — the
+                descriptive text attached to an image (alt text) and the surrounding page content
+                matter far more. Where practical, the auto-generated file names already include
+                useful descriptive text (like the city name) rather than a meaningless code.</li>
+            <li>One leftover from before this system existed was found and cleaned up: an old,
+                no-longer-live test file had a hard-coded logo web address from a previous client.
+                It was never reachable by any real visitor and has been reset to a blank default.</li>
+        </ul>
     </div>
 </div>
 

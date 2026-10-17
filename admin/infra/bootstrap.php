@@ -177,7 +177,7 @@ function infra_header(string $active = 'dashboard'): void
         'health'     => ['label' => 'DNS/Health',  'href' => 'index.php?view=health'],
         // Standalone, maintenance-only tool for domains already live a while — see
         // lib/file_date_refresh.php. Deliberately independent of golive_freshen.php.
-        'filedate'   => ['label' => 'File Date Refresh', 'href' => 'index.php?view=filedate'],
+        'filedate'   => ['label' => 'File Dates/Names', 'href' => 'index.php?view=filedate'],
     ];
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
