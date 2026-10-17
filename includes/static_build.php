@@ -575,7 +575,7 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     progress_log('Copying uploads…');
     gen_clear_dir($outputBase . 'uploads/');
     [$uploadCount, $uploadFailed] = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
-    progress_log("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''));
+    progress_log("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''), $uploadFailed ? 'warn' : 'log');
     progress_tick(++$_preDone, $_preTotal);
 
     // ── 8. sitemap.xml ────────────────────────────────────────────────────────────

@@ -492,8 +492,23 @@ ms_step_begin('build');
 $proc = proc_open($cmd, [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes, null, $env);
 if (!is_resource($proc)) { progress_log('Failed to spawn render worker.', 'fatal'); $cleanup(); exit(1); }
 
-// Relay the child's JSON-lines progress straight through.
-while (($line = fgets($pipes[1])) !== false) { echo $line; @flush(); }
+// Relay the child's JSON-lines progress straight through. Also watch for the
+// asset/upload copy-failure warning build_static_site() emits (includes/static_build.php) —
+// on its own it's a 'warn'-level line in the LIVE progress stream only, which nobody is
+// necessarily watching; a normal successful build still ends in "Row complete" right after,
+// which overwrites run_campaign.php's $m['last'] (it keeps only the most recent message —
+// see its "$m['last'] = $msg" line) and the warning is gone from every place anyone looks
+// after the fact (run.json, the batch panel's row status). Folding it into "Row complete"
+// below is what actually makes a silently-failed copy visible instead of just logged.
+$copyWarnings = [];
+while (($line = fgets($pipes[1])) !== false) {
+    echo $line; @flush();
+    $ev = json_decode($line, true);
+    if (is_array($ev) && ($ev['type'] ?? '') === 'warn'
+        && preg_match('/^(Assets|Uploads): .* \(\d+ failed\)$/', (string) ($ev['msg'] ?? ''))) {
+        $copyWarnings[] = $ev['msg'];
+    }
+}
 fclose($pipes[1]);
 $childErr  = stream_get_contents($pipes[2]); fclose($pipes[2]);
 $buildCode = proc_close($proc);
@@ -603,5 +618,15 @@ if ($noDeploy) {
 
 // ── Cleanup ──────────────────────────────────────────────────────────────────
 $cleanup();
-progress_log("Row complete: {$domain}", 'done');
+if ($copyWarnings) {
+    // Still exits 0 — a copy failure here is usually a file-permission problem on this
+    // ONE output dir (e.g. a prior root-owned file blocking www-data's overwrite; see
+    // feedback_no_root_builds_in_webroot in project memory), not a reason to fail the
+    // whole row when the page content itself built and deployed fine. But it must not
+    // read as a clean success either, so it survives as the row's last-known status
+    // instead of being silently overwritten by "Row complete".
+    progress_log("Row complete: {$domain} — WARNING: " . implode('; ', $copyWarnings), 'warn');
+} else {
+    progress_log("Row complete: {$domain}", 'done');
+}
 exit(0);
