@@ -9,6 +9,7 @@ require_once __DIR__ . '/../includes/multisite/params.php';
 require_once __DIR__ . '/../includes/multisite/batch.php';
 require_once __DIR__ . '/../includes/multisite/master_lint.php';
 require_once __DIR__ . '/../includes/multisite/deploy.php';
+require_once __DIR__ . '/../includes/multisite/page_pool.php'; // ms_page_pool_status()/_reset() — row_list/pool_reset
 
 header('Content-Type: application/json');
 
@@ -1481,13 +1482,38 @@ switch ($action) {
     // fleet.db folded in — the one thing the CSV itself can never know.
     case 'row_list':
         require_once __DIR__ . '/infra/lib/state.php';
+        // Page-pool staleness check — see project_page_pool_manifest_lock in memory for
+        // why this exists: a domain's page selection locks in on first build and silently
+        // ignores every later pool-config change otherwise, with nothing in the panel ever
+        // saying so. Read-only (ms_page_pool_status() never writes a manifest), cheap (two
+        // small local JSON reads per row, no network/AI calls), so safe to compute on
+        // every row_list poll.
+        $kwFile = ACTIVE_SITE_DIR . '/data/keyword_map.json';
         $out = [];
         foreach (ms_rows_by_domain($paramsPath) as $dom => $r) {
             $rec = infra_state_get_domain($dom);
             unset($r['ftp_pass'], $r['_line']);
-            $out[] = ['domain' => $dom, 'fields' => $r, 'status' => $rec['status'] ?? ''];
+            $out[] = [
+                'domain'     => $dom,
+                'fields'     => $r,
+                'status'     => $rec['status'] ?? '',
+                'pool'       => ms_page_pool_status($masterId, $kwFile, $dom),
+            ];
         }
         echo json_encode(['rows' => $out]);
+        break;
+
+    // Delete one domain's locked page-pool manifest so the next build recomputes its
+    // page selection from current config. Pure cache removal, not a rebuild — the panel
+    // chains msLoadRows() to refresh the status, then a human decides when to actually
+    // regenerate. See project_page_pool_manifest_lock in memory.
+    case 'pool_reset':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $dom = strtolower(trim((string) ($_POST['domain'] ?? '')));
+        $byDomain = ms_rows_by_domain($paramsPath);
+        if (!isset($byDomain[$dom])) { echo json_encode(['error' => "Not in this batch's target list: {$dom}"]); break; }
+        $removed = ms_page_pool_reset($masterId, $dom);
+        echo json_encode(['ok' => true, 'removed' => $removed]);
         break;
 
     // Edit one NON-LIVE row. Refuses a live domain on purpose — row_correct is the

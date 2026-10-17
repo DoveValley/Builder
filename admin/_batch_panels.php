@@ -2037,6 +2037,33 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         tbody.innerHTML = domains.map((domain, i) => msRenderRowPair(domain, i + 1)).join('');
     }
 
+    // Page-pool staleness notice — only rendered when there's actually something to act
+    // on (locked AND stale), so an in-sync or never-built row stays clean. See
+    // project_page_pool_manifest_lock in memory for why this exists: a domain's page
+    // selection locks in on first build and silently ignores later pool-config changes,
+    // with nothing anywhere saying so, until now.
+    function msPoolNotice(pool, domain) {
+        if (!pool || !pool.locked || !pool.stale) return '';
+        const d = domain.replace(/'/g, "\\'");
+        return '<div style="margin-top:4px;">' +
+            '<span class="hint" style="color:#92400e;background:#fef3c7;border-radius:4px;padding:1px 6px;" ' +
+            'title="This domain\'s page selection locked in on an earlier build and has not picked up later page-pool changes (new pages, counts, pinned/rotate tiers).">' +
+            'Pages: ' + pool.locked_count + ' locked &rarr; ' + pool.current_count + ' current</span> ' +
+            '<button type="button" class="btn" style="padding:1px 8px;font-size:.78rem;" onclick="msPoolReset(\'' + d + '\')">Reset pages</button>' +
+            '</div>';
+    }
+
+    window.msPoolReset = function (domain) {
+        if (!confirm('Reset ' + domain + '\'s locked page selection?\n\nThe next Generate run for this domain will recompute its page list from current pool config. This does not rebuild or upload anything by itself.')) return;
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('domain', domain);
+        fetch('multisite_api.php?action=pool_reset', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => { if (d.error) { alert(d.error); return; } msLoadRows(); })
+            .catch(() => alert('Reset failed — lost contact with the server.'));
+    };
+
     function msRenderRowPair(domain, rowNum) {
         const r = msRows[domain] || {};
         const f = r.fields || {};
@@ -2057,7 +2084,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td><input class="ms-row-input" data-f="state" value="' + esc(f.state || '') + '" style="width:100px;" placeholder="Florida"></td>' +
                 '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
                 '<td><button type="button" class="btn btn-primary" onclick="' + (isLive ? 'msRowSaveCorrect' : 'msRowSave') + "('" + domain.replace(/'/g, "\\'") + "')" + '">' + (isLive ? 'Save &amp; Regenerate' : 'Save') + '</button> ' +
-                '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button></td>';
+                '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button>' + msPoolNotice(r.pool, domain) + '</td>';
         } else {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
                 '<td>' + esc(domain) + '</td>' +
@@ -2071,6 +2098,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                     ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button>'
                     : '<button type="button" class="btn" onclick="msRowEditStart(\'' + domain.replace(/'/g, "\\'") + '\')">Edit</button> ' +
                       '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + domain.replace(/'/g, "\\'") + '\')">Delete</button>') +
+                msPoolNotice(r.pool, domain) +
                 '</td>';
         }
         return '<tr data-domain="' + esc(domain) + '">' + cells + '</tr>' +
@@ -2082,7 +2110,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             const d = await (await fetch('multisite_api.php?action=row_list')).json();
             msRows = {};
             msRowOrder = [];
-            (d.rows || []).forEach(r => { msRows[r.domain] = { fields: r.fields, status: r.status }; msRowOrder.push(r.domain); });
+            (d.rows || []).forEach(r => { msRows[r.domain] = { fields: r.fields, status: r.status, pool: r.pool }; msRowOrder.push(r.domain); });
         } catch (e) { /* leave whatever was already shown */ }
         // Drop selections for domains that no longer exist (deleted, or never matched).
         Object.keys(msCtmSelected).forEach(d => { if (!msRows[d]) delete msCtmSelected[d]; });

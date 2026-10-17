@@ -125,6 +125,55 @@ function ms_page_pool_selected_for_domain(string $masterId, string $domainSlug, 
 }
 
 /**
+ * Read-only status for the batch panel — never writes a manifest (unlike
+ * ms_page_pool_selected_for_domain(), which creates one on first read). A domain that's
+ * never been built yet correctly reports as "not locked" here rather than getting a
+ * premature lock just because someone looked at the row.
+ *
+ * Returns null when pool isn't adopted for this master (nothing to report). Otherwise
+ * ['locked' => bool, 'locked_count' => ?int, 'current_count' => int, 'stale' => bool] —
+ * 'stale' means a fresh pick would differ from what's locked (count OR mix changed),
+ * the thing the panel needs to flag so [[project_page_pool_manifest_lock]] can't repeat
+ * silently. See that file's manual, panel-only fix for why this exists.
+ */
+function ms_page_pool_status(string $masterId, string $keywordMapFile, string $domain): ?array {
+    $config = ms_page_pool_config($keywordMapFile);
+    if ($config === null) return null;
+
+    $current = ms_page_pool_select($config, $domain);
+    $currentSorted = $current;
+    sort($currentSorted);
+
+    $file = ms_page_pool_manifest_file($masterId, ms_domain_slug($domain));
+    if (!is_file($file)) {
+        return ['locked' => false, 'locked_count' => null, 'current_count' => count($current), 'stale' => false];
+    }
+
+    $saved = json_decode((string) file_get_contents($file), true);
+    $lockedSlugs = is_array($saved['slugs'] ?? null) ? $saved['slugs'] : [];
+    $lockedSorted = $lockedSlugs;
+    sort($lockedSorted);
+
+    return [
+        'locked'        => true,
+        'locked_count'  => count($lockedSlugs),
+        'current_count' => count($current),
+        'stale'         => $lockedSorted !== $currentSorted,
+    ];
+}
+
+/** Delete a domain's locked page-pool manifest so the next build recomputes it fresh
+ *  from current config. Pure file removal — does not trigger a rebuild itself; the
+ *  panel's own "reset, then Generate" two-step keeps a human in control of when the
+ *  actual regenerate happens. Returns true if a file was removed, false if there was
+ *  nothing to remove (not an error — an unbuilt domain has no manifest to reset). */
+function ms_page_pool_reset(string $masterId, string $domain): bool {
+    $file = ms_page_pool_manifest_file($masterId, ms_domain_slug($domain));
+    if (!is_file($file)) return false;
+    return @unlink($file);
+}
+
+/**
  * Prune every generated landing page in $workingDir whose template_id isn't in
  * $keepTemplateIds. Same shape as ms_prune_stale_landing_pages() (includes/multisite/landing.php,
  * which prunes by city instead of by page) — including the page-index.json cleanup, so the
