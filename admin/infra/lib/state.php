@@ -135,6 +135,20 @@ function infra_state_db(): PDO
         ok        TEXT DEFAULT "",         -- yes | no, set once done
         note      TEXT DEFAULT ""
     )');
+    // Domain Check tab's saved lists — see lib/domain_lists.php. Just storage for a
+    // name + its member domains; the actual up/down answer is never duplicated here,
+    // it stays in the `cache` table via lib/uptime.php's infra_site_check_run(), the
+    // same store every other tab that shows a site's live status already reads from.
+    $db->exec('CREATE TABLE IF NOT EXISTS domain_lists (
+        id         INTEGER PRIMARY KEY AUTOINCREMENT,
+        name       TEXT NOT NULL,
+        created_at TEXT DEFAULT ""
+    )');
+    $db->exec('CREATE TABLE IF NOT EXISTS domain_list_items (
+        list_id INTEGER NOT NULL,
+        domain  TEXT NOT NULL,
+        PRIMARY KEY (list_id, domain)
+    )');
     return $db;
 }
 

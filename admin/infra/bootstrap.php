@@ -32,6 +32,7 @@ require_once __DIR__ . '/lib/uptime.php';
 require_once __DIR__ . '/lib/fleet.php';
 require_once __DIR__ . '/lib/registrar.php';
 require_once __DIR__ . '/lib/golive.php';
+require_once __DIR__ . '/lib/domain_lists.php';
 
 function ih($s): string { return htmlspecialchars((string) $s, ENT_QUOTES, 'UTF-8'); }
 function infra_csrf(): string { return $_SESSION['infra_csrf']; }
@@ -178,6 +179,9 @@ function infra_header(string $active = 'dashboard'): void
         // Standalone, maintenance-only tool for domains already live a while — see
         // lib/file_date_refresh.php. Deliberately independent of golive_freshen.php.
         'filedate'   => ['label' => 'File Dates/Names', 'href' => 'index.php?view=filedate'],
+        // Standalone, fleet-agnostic liveness checker — see lib/domain_lists.php.
+        // Works on any domain, not just ones already tracked in our own records.
+        'domaincheck'=> ['label' => 'Domain Check', 'href' => 'index.php?view=domaincheck'],
     ];
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
