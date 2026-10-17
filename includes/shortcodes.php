@@ -82,12 +82,22 @@ function resolve_shortcodes(string $text): string {
     $business_short = trim($v['business_short'] ?? '') ?: $business;
     $rating       = $lb['lb_rating']       ?? '';
     $review_count = $lb['lb_review_count'] ?? '';
-    // lb_logo is stored as "{website}/uploads/...", already resolved-website-relative
-    // at generation time (see admin/save/apply_logo.php etc.) — pre-resolve the
-    // nested {website} here since resolve_shortcodes() does one flat str_replace
-    // pass and would otherwise leave it as literal, unresolved text.
+    // lb_logo is normally stored as "{website}/uploads/...", already resolved-
+    // website-relative at generation time (see admin/save/apply_logo.php etc.) — but
+    // some older/manually-entered sites store a plain external logo URL instead (no
+    // {website} token at all), which must be left untouched. For our own generated
+    // logos, pre-resolve the nested {website} here since resolve_shortcodes() does
+    // one flat str_replace pass and would otherwise leave it as literal, unresolved
+    // text. That logo file is also regenerated in place under the same filename (see
+    // admin_upload_url_v's own doc comment), so it additionally needs the ?v=<mtime>
+    // cache-buster or a rebrand's new logo keeps showing the old one in LocalBusiness
+    // schema/Knowledge Panel.
     $lb_logo      = trim($lb['lb_logo'] ?? '');
-    if ($lb_logo !== '') $lb_logo = str_replace('{website}', $website, $lb_logo);
+    if (strncmp($lb_logo, '{website}/', 10) === 0) {
+        $lb_logo = rtrim($website, '/') . admin_upload_url_v(substr($lb_logo, 10));
+    } elseif ($lb_logo !== '') {
+        $lb_logo = str_replace('{website}', $website, $lb_logo);
+    }
     $city_state   = $city && $SS ? $city . ', ' . $SS : $city . $SS;
     $primary_keyword = $GLOBALS['_page_primary_keyword'] ?? '';   // per-page, set by site-template.php
     // City Spotlight — AI-written city profile, generated ONCE per site and stored in

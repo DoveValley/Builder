@@ -242,7 +242,11 @@ if (empty($seo['og_image'])) {
     $ogImageAlt  = !empty($seo['og_image_alt'])   ? $seo['og_image_alt']   : ($data['seo']['og_image_alt']   ?? '');
     $twCard      = !empty($seo['twitter_card'])    ? $seo['twitter_card']    : ($data['seo']['twitter_card']    ?? 'summary_large_image');
     $twHandle    = !empty($seo['twitter_handle'])  ? $seo['twitter_handle']  : ($data['seo']['twitter_handle']  ?? '');
-    $ogImageAbsUrl = !empty($seo['og_image']) ? rtrim(resolve_shortcodes('{website}'), '/') . '/' . ltrim($seo['og_image'], '/') : '';
+    // Cache-busted via admin_upload_url_v() the same way the header/footer logo is —
+    // og_image can be a regenerated-in-place AI photo (see photo_src()'s doc comment),
+    // and social platforms cache the preview image by this exact URL, so a stale,
+    // un-busted URL here can keep showing an old photo indefinitely after a regen.
+    $ogImageAbsUrl = !empty($seo['og_image']) ? rtrim(resolve_shortcodes('{website}'), '/') . admin_upload_url_v($seo['og_image']) : '';
     $ogImageDims   = [];
     if (!empty($seo['og_image'])) {
         $ogImgFile = BASE_DIR . '/' . ltrim($seo['og_image'], '/');
