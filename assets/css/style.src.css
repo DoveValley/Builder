@@ -1156,14 +1156,29 @@ a:hover {
     display: flex;
     flex-direction: column;
 }
-/* The "View all N →" link a capped group gets when it has more items than shown —
-   deliberately a plain neutral color, not the accent: the tab above is now the only
-   orange element in each column, so it reads as "this is the category label" without
-   competing with another orange element for attention right below it. */
-.dropdown-group-more a {
+/* The "View all N →" control a capped group gets when it has more items than shown.
+   A <button> (toggleMegaGroup(), assets/js/site.src.js), not a link — it expands the
+   rest of THIS group's own items in place, never navigates. Reset to plain text styling
+   since it's sitting in a list of <a> items and needs to look like one of them, not a
+   form control. Deliberately a plain neutral color, not the accent: the tab above is
+   now the only orange element in each column, so it reads as "this is the category
+   label" without competing with another orange element right below it. */
+.dropdown-group-toggle {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    margin: 0;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    display: block;
+    width: 100%;
     color: var(--color-muted, #475569);
     font-weight: 600;
     font-size: 0.82rem;
+}
+.dropdown-group-toggle:hover {
+    color: var(--color-accent, #fd783b);
 }
 
 /* ---- Mobile: dropdown becomes accordion ---- */

@@ -187,32 +187,34 @@
                                 // Cap how many items show per group — a 12-18 item column next to a
                                 // 4-5 item one left the grid ragged and, on a catalog this size,
                                 // pushed the whole panel past 80vh into an internal scrollbar nobody
-                                // could see without scrolling first. Only groups with a REAL hub_url
-                                // get capped+"View all": 'Shop by Brand'/'Specialty' are synthesized
-                                // above with hub_url '#' (no hub page exists for either), so capping
-                                // them would need a dead link to send the overflow to — left in full.
+                                // could see without scrolling first. "View all" expands the rest IN
+                                // PLACE (toggleMegaGroup(), assets/js/site.src.js) rather than linking
+                                // out — a type's hub page turned out to have no brand list of its own
+                                // to link to (confirmed live on Dishwasher Repair: 0 brand links
+                                // outside the nav itself), so a link there would have been a dead end.
+                                // Expanding in place also needs no hub_url at all, so every group gets
+                                // the same cap now, including 'Shop by Brand'/'Specialty' (hub_url '#'
+                                // — previously left uncapped because there was nowhere to send a link).
                                 $groupItemCap = 5;
                                 ?>
                                 <?php foreach ($navGroups as $group): ?>
                                     <?php if (empty($group['items'])) continue; ?>
                                     <?php
                                     $groupHubUrl = $group['hub_url'] ?: '#';
-                                    $groupItems  = $group['items'];
-                                    $groupExtra  = 0;
-                                    if ($groupHubUrl !== '#' && count($groupItems) > $groupItemCap) {
-                                        $groupExtra = count($groupItems) - $groupItemCap;
-                                        $groupItems = array_slice($groupItems, 0, $groupItemCap);
-                                    }
+                                    $groupExtra  = max(0, count($group['items']) - $groupItemCap);
                                     ?>
                                     <li class="dropdown-group">
                                         <a class="dropdown-group-title" href="<?= h($groupHubUrl) ?>"><?= h($group['title']) ?></a>
                                         <ul class="dropdown-group-items">
-                                            <?php foreach ($groupItems as $child): ?>
+                                            <?php foreach ($group['items'] as $gi => $child): ?>
                                                 <?php if (empty($child[0])) continue; ?>
-                                                <li><a href="<?= h($child[1] ?: '#') ?>"><?= h($child[0]) ?></a></li>
+                                                <li<?= $gi >= $groupItemCap ? ' class="dropdown-group-item-extra" hidden' : '' ?>><a href="<?= h($child[1] ?: '#') ?>"><?= h($child[0]) ?></a></li>
                                             <?php endforeach; ?>
                                             <?php if ($groupExtra > 0): ?>
-                                                <li class="dropdown-group-more"><a href="<?= h($groupHubUrl) ?>">View all <?= (int) count($group['items']) ?> &rarr;</a></li>
+                                                <li class="dropdown-group-more">
+                                                    <button type="button" class="dropdown-group-toggle" onclick="toggleMegaGroup(this)" aria-expanded="false"
+                                                            data-more="View all <?= (int) count($group['items']) ?> &rarr;" data-less="Show fewer &uarr;">View all <?= (int) count($group['items']) ?> &rarr;</button>
+                                                </li>
                                             <?php endif; ?>
                                         </ul>
                                     </li>

@@ -57,6 +57,15 @@ answer.toggleAttribute('hidden', !isHidden);
 var btn = answer.previousElementSibling;
 if (btn) btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
 };
+window.toggleMegaGroup = function(btn) {
+var ul = btn.closest('ul.dropdown-group-items');
+if (!ul) return;
+var hiddenItems = ul.querySelectorAll('.dropdown-group-item-extra');
+var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+hiddenItems.forEach(function(li) { li.hidden = isExpanded; });
+btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+btn.textContent = isExpanded ? btn.dataset.more : btn.dataset.less;
+};
 document.addEventListener('click', function(e) {
 var card = e.target.closest('.flip-card');
 if (card && card.tagName !== 'A') card.classList.toggle('is-flipped');

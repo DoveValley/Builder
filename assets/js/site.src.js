@@ -82,6 +82,20 @@
         if (btn) btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
     };
 
+    // ---- Mega-menu group "View all" — expands the rest of that one group's items in
+    // place (no navigation). A type's own hub page turned out to have no brand list of
+    // its own to link out to, so expanding in place is the only version of this that
+    // actually shows "the rest" instead of taking you somewhere that doesn't have it. ----
+    window.toggleMegaGroup = function(btn) {
+        var ul = btn.closest('ul.dropdown-group-items');
+        if (!ul) return;
+        var hiddenItems = ul.querySelectorAll('.dropdown-group-item-extra');
+        var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        hiddenItems.forEach(function(li) { li.hidden = isExpanded; });
+        btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        btn.textContent = isExpanded ? btn.dataset.more : btn.dataset.less;
+    };
+
     // ---- Flip cards: tap to flip on touch (hover handles desktop) ----
     document.addEventListener('click', function(e) {
         var card = e.target.closest('.flip-card');
