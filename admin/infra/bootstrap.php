@@ -161,13 +161,13 @@ function infra_header(string $active = 'dashboard'): void
      */
     $nav = [
         'dashboard'  => ['label' => 'Dashboard',   'href' => 'index.php'],
-        'registrars' => ['label' => 'Registers',   'href' => 'index.php?view=registrars'],
-        'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
-        'domains'    => ['label' => 'D.Buy',       'href' => 'index.php?view=domains'],
         'cities'     => ['label' => 'Cities/Niche','href' => 'index.php?view=cities'],
         // Standalone: which cities are worth building in, for any niche.
         // Doesn't read or write city_niche/Batch — own state, own tool.
         'research'   => ['label' => 'City Research','href' => 'index.php?view=research'],
+        'registrars' => ['label' => 'Registers',   'href' => 'index.php?view=registrars'],
+        'dfinder'    => ['label' => 'D.Finder',    'href' => 'index.php?view=dfinder'],
+        'domains'    => ['label' => 'D.Buy',       'href' => 'index.php?view=domains'],
         'bulk'       => ['label' => 'Bulk',        'href' => 'index.php?view=bulk'],
         'servers'    => ['label' => 'Servers',     'href' => 'index.php?view=servers'],
         'cloudflare' => ['label' => 'Cloudflare',  'href' => 'index.php?view=cloudflare'],
@@ -175,6 +175,9 @@ function infra_header(string $active = 'dashboard'): void
         // conformance over everything already owned. Last because it is the tab you
         // visit when nothing is being built.
         'health'     => ['label' => 'DNS/Health',  'href' => 'index.php?view=health'],
+        // Standalone, maintenance-only tool for domains already live a while — see
+        // lib/file_date_refresh.php. Deliberately independent of golive_freshen.php.
+        'filedate'   => ['label' => 'File Date Refresh', 'href' => 'index.php?view=filedate'],
     ];
     echo '<!doctype html><html lang="en"><head><meta charset="utf-8">';
     echo '<meta name="viewport" content="width=device-width, initial-scale=1">';

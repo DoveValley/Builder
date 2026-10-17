@@ -119,6 +119,22 @@ function infra_state_db(): PDO
         checked_at INTEGER DEFAULT 0,
         PRIMARY KEY (domain, step)
     )');
+    // File Date Refresh tab's own queue + log, one row per (domain, run) — see
+    // lib/file_date_refresh.php. Deliberately its own table, not columns bolted onto
+    // `domains` the way golive_freshen's freshen_* columns are: that module is a
+    // different, separate feature and this one must stay fully independent of it
+    // (own queue, own cron, own log) rather than share its state.
+    $db->exec('CREATE TABLE IF NOT EXISTS file_date_refresh (
+        id        INTEGER PRIMARY KEY AUTOINCREMENT,
+        domain    TEXT NOT NULL,
+        niche     TEXT DEFAULT "",
+        queued_at TEXT DEFAULT "",
+        due_at    TEXT DEFAULT "",
+        status    TEXT DEFAULT "pending",  -- pending | done
+        done_at   TEXT DEFAULT "",
+        ok        TEXT DEFAULT "",         -- yes | no, set once done
+        note      TEXT DEFAULT ""
+    )');
     return $db;
 }
 
