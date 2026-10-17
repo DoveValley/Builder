@@ -1,0 +1,397 @@
+{
+    "template_id": "tpl_mouse_exterminator",
+    "city_id": "newberry-sc",
+    "slug": "mouse-exterminator-newberry-sc",
+    "title": "Mouse Exterminator in {city_state} | {business_short}",
+    "city_vars": {
+        "id": "newberry-sc",
+        "city": "Newberry",
+        "state": "South Carolina",
+        "SS": "SC",
+        "city_slug": "newberry-sc",
+        "lat": "34.326688",
+        "lng": "-81.583009",
+        "homes_by_decade": {
+            "Before 1960": 25.4,
+            "1960-1979": 23.9,
+            "1980-1999": 28.6,
+            "2000-2009": 14.8,
+            "2010 or later": 7.4
+        },
+        "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Newberry County (18,398 housing units; county figure, as this location is not a separate Census place)",
+        "acs_fetched_at": "2026-10-05",
+        "figures_fetched_at": "2026-10-05",
+        "freeze_days_monthly": [
+            12.8,
+            8.9,
+            4.6,
+            0.5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.3,
+            4.3,
+            11.1
+        ],
+        "freeze_source": "NOAA 1991-2020 Climate Normals, LITTLE MTN, SC US station (13 mi from Newberry)",
+        "heavy_rain_days_monthly": [
+            1.1,
+            1,
+            1.3,
+            0.8,
+            1,
+            1.4,
+            1.3,
+            1.4,
+            1.4,
+            1,
+            1.1,
+            1.2
+        ],
+        "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, LITTLE MTN, SC US station (13 mi from Newberry)",
+        "hot_days_monthly": [
+            0,
+            0,
+            0,
+            0.1,
+            2.4,
+            9.3,
+            17.4,
+            12.9,
+            5.9,
+            0.3,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA 1991-2020 Climate Normals, LITTLE MTN, SC US station (13 mi from Newberry)",
+        "rainfall_monthly": [
+            4.01,
+            3.64,
+            4.14,
+            3.26,
+            3.18,
+            4.41,
+            4.03,
+            4.54,
+            3.74,
+            3.44,
+            3.39,
+            4.19
+        ],
+        "rainfall_source": "NOAA 1991-2020 Climate Normals, LITTLE MTN, SC US station (13 mi from Newberry)",
+        "wet_days_monthly": [
+            6.6,
+            6.5,
+            6.7,
+            5.4,
+            5.3,
+            6.9,
+            6.4,
+            6.6,
+            4.9,
+            4.5,
+            5.1,
+            6.9
+        ],
+        "wet_days_source": "NOAA 1991-2020 Climate Normals, LITTLE MTN, SC US station (13 mi from Newberry)",
+        "noaa_station": "USC00386209",
+        "noaa_station_miles": 3.2,
+        "noaa_fetched_at": "2026-10-05",
+        "frost_free_days": 223,
+        "freeze_last_spring": "03/31",
+        "freeze_first_fall": "11/07",
+        "growing_degree_days": 5148.9,
+        "nights_below_50": 178.9,
+        "frost_free_source": "NOAA 1991-2020 Climate Normals, NEWBERRY, SC US station (3.2 mi from Newberry)",
+        "industries": [
+            "Manufacturing",
+            "Healthcare",
+            "Education",
+            "Agriculture",
+            "Retail/Service",
+            "Logistics/Distribution"
+        ],
+        "top_employers": [
+            "Komatsu America Corp",
+            "International Paper",
+            "Prysmian Group",
+            "Newberry County Memorial Hospital",
+            "Newberry County School District",
+            "Newberry College",
+            "County of Newberry",
+            "City of Newberry",
+            "Newberry Electric Cooperative",
+            "Flexible Technologies"
+        ],
+        "market_blurb": "Newberry, South Carolina's economy is anchored by manufacturing operations such as Komatsu America and Prysmian Group, alongside healthcare and education employers like Newberry County Memorial Hospital and Newberry College. The city also serves as the county seat and a regional hub for agriculture and local government services. Its small-town economy benefits from proximity to the Columbia metro area while maintaining a strong manufacturing and industrial base.",
+        "local_note": "Fire ants, subterranean termites, and carpenter ants are among the most common and damaging pests in the Newberry area, with cockroaches and mosquitoes also prevalent in warmer months. Pest pressure is strongly seasonal, peaking from spring through early fall, though termite and ant activity can persist year-round in structures.",
+        "neighborhoods": [
+            "Forest Ridge",
+            "Downtown Newberry Historic District",
+            "Wells Japanese Garden area"
+        ],
+        "population": 10580,
+        "nearby_towns": [
+            {
+                "name": "Prosperity",
+                "miles": 10
+            },
+            {
+                "name": "Whitmire",
+                "miles": 17
+            },
+            {
+                "name": "Pomaria",
+                "miles": 10
+            },
+            {
+                "name": "Little Mountain",
+                "miles": 15
+            },
+            {
+                "name": "Chapin",
+                "miles": 20
+            },
+            {
+                "name": "Clinton",
+                "miles": 20
+            },
+            {
+                "name": "Saluda",
+                "miles": 25
+            },
+            {
+                "name": "Columbia",
+                "miles": 40
+            }
+        ],
+        "_researched": 1,
+        "neighborhoods_source": "OpenStreetMap + verified"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Fast, targeted mouse control for {city_state} homes and businesses. The local providers we connect you with find where mice hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Mouse exterminator treating a {city_state} home",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/mouse-exterminator-newberry-sc__tpl_mouse_exterminator_newberry-sc_dd31f177.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-newberry-sc.webp",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/mouse-exterminator_8b7cdd.webp",
+            "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": "@safe_trust_badges",
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/pest-template/uploads/media/about-mouse-exterminator_4e8bea-newberry-sc.webp",
+            "it_alt": "{business} technician applying mouse treatment along a baseboard in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/pest-template/uploads/media/about-mouse-exterminator_4e8bea.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Mouse Treatment Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Inspection & Assessment",
+                    "text": "A local technician inspects the home, identifies the species and where mice are harboring, and builds a targeted treatment plan."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Treatment & Follow-Up",
+                    "text": "We treat the areas where mice live and get inside, then follow up to confirm the infestation is fully cleared."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "id": "steps_1"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Ready to get rid of mice in {city}? A local provider can get started fast.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#120575",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_cold}",
+            "it_alt": "{chart_group_cold_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_it_photo_prechart": "sites/pest-template/uploads/media/best-mouse-exterminator_701267.webp",
+            "it_caption": "{chart_group_cold_caption}",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "id": "ai_block_3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "related_links",
+            "rl_heading": "Related Services",
+            "rl_max": 3,
+            "rl_items": [
+                {
+                    "url": "/rat-exterminator-{city_slug}",
+                    "text": "rat exterminator"
+                },
+                {
+                    "url": "/emergency-pest-control-{city_slug}",
+                    "text": "emergency pest control"
+                },
+                {
+                    "url": "/residential-pest-control-{city_slug}",
+                    "text": "residential pest control"
+                },
+                {
+                    "url": "/commercial-pest-control-{city_slug}",
+                    "text": "commercial pest control"
+                },
+                {
+                    "url": "/pest-control-plans-{city_slug}",
+                    "text": "pest control plans"
+                },
+                {
+                    "url": "/cockroach-exterminator-{city_slug}",
+                    "text": "cockroach extermination"
+                },
+                {
+                    "url": "/bed-bug-control-{city_slug}",
+                    "text": "bed bug control"
+                }
+            ],
+            "id": "related_links_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "Mouse Exterminator FAQ — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Dealing with mice in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
+        }
+    ],
+    "seo": {
+        "seo_title": "Mouse Exterminator in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/mouse-exterminator-newberry-sc/",
+        "meta_description": "Mice enter homes seeking warmth and food, leaving droppings and urine trails behind. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "mouse exterminator Newberry SC, mouse control, mice control, mice exterminator",
+        "og_title": "Mouse Exterminator in {city_state} | Fast, Guaranteed Mouse Control",
+        "og_description": "Get rid of mice fast with a professional mouse exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+        "og_image": "",
+        "service_name": "Mouse Exterminator",
+        "service_type": "Mouse Exterminator",
+        "service_area": "{city}, {SS}",
+        "service_description": "Professional mouse exterminator services in {city_state}. Targeted mouse control for homes and businesses with fast response and a re-treat guarantee.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Mouse Exterminator in Newberry, SC\",\n            \"serviceType\": \"Mouse Extermination\",\n            \"description\": \"Professional mouse exterminator services in Newberry, SC. Targeted mouse control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Newberry\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Mouse Exterminator",
+        "secondary_keywords": "mouse control, mice control, mice exterminator, mouse removal, get rid of mice"
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-10-16T00:14:39+00:00",
+    "template_version": "a0750cead62685c2bd18ef7f5d39d541"
+}

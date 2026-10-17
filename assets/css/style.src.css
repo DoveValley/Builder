@@ -945,6 +945,10 @@ a:hover {
 .card-item-centered .card-icon { margin-left: auto; margin-right: auto; }
 .card-item-centered .card-icon-plain { text-align: center; }
 .card-item-centered .card-badges { justify-content: center; }
+/* .card-link's align-self: flex-start (below) wins over text-align on a flex
+   child — text-align never affects a flex item's own cross-axis position, only
+   align-self does — so centered mode needs its own explicit override here. */
+.card-item-centered .card-link { align-self: center; }
 .card-link {
     display: inline-block;
     padding: 8px 18px;

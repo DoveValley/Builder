@@ -1,0 +1,389 @@
+{
+    "template_id": "tpl_cockroach_exterminator",
+    "city_id": "cayce-sc",
+    "slug": "cockroach-exterminator-cayce-sc",
+    "title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
+    "city_vars": {
+        "id": "cayce-sc",
+        "city": "Cayce",
+        "state": "South Carolina",
+        "SS": "SC",
+        "city_slug": "cayce-sc",
+        "lat": "33.965709",
+        "lng": "-81.073983",
+        "homes_by_decade": {
+            "Before 1960": 26.6,
+            "1960-1979": 34.2,
+            "1980-1999": 15.7,
+            "2000-2009": 7.4,
+            "2010 or later": 16.1
+        },
+        "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Cayce city (7,106 housing units)",
+        "acs_fetched_at": "2026-10-05",
+        "figures_fetched_at": "2026-10-05",
+        "freeze_days_monthly": [
+            13.9,
+            9.3,
+            4.4,
+            0.5,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.5,
+            6,
+            11.9
+        ],
+        "freeze_source": "NOAA 1991-2020 Climate Normals, COLUMBIA, SC US station (2.8 mi from Cayce)",
+        "heavy_rain_days_monthly": [
+            0.9,
+            0.9,
+            1.1,
+            0.7,
+            0.9,
+            1.4,
+            1.7,
+            1.4,
+            1.2,
+            1,
+            0.8,
+            1
+        ],
+        "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, COLUMBIA, SC US station (2.8 mi from Cayce)",
+        "hot_days_monthly": [
+            0,
+            0,
+            0,
+            1.1,
+            7.2,
+            17.5,
+            24.3,
+            20.5,
+            9.7,
+            0.6,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA 1991-2020 Climate Normals, COLUMBIA, SC US station (2.8 mi from Cayce)",
+        "rainfall_monthly": [
+            3.49,
+            3.39,
+            3.57,
+            2.83,
+            3.49,
+            4.97,
+            5.35,
+            4.65,
+            3.91,
+            3.13,
+            2.76,
+            3.7
+        ],
+        "rainfall_source": "NOAA 1991-2020 Climate Normals, COLUMBIA, SC US station (2.8 mi from Cayce)",
+        "wet_days_monthly": [
+            6.2,
+            6.2,
+            6,
+            5,
+            5.4,
+            7.4,
+            7.4,
+            6.6,
+            5.3,
+            4.3,
+            4.9,
+            6
+        ],
+        "wet_days_source": "NOAA 1991-2020 Climate Normals, COLUMBIA, SC US station (2.8 mi from Cayce)",
+        "noaa_station": "USW00013883",
+        "noaa_station_miles": 2.8,
+        "noaa_fetched_at": "2026-10-05",
+        "frost_free_days": 229,
+        "freeze_last_spring": "03/25",
+        "freeze_first_fall": "11/07",
+        "growing_degree_days": 5814.9,
+        "nights_below_50": 157.4,
+        "frost_free_source": "NOAA 1991-2020 Climate Normals, COLUMBIA, SC US station (2.8 mi from Cayce)",
+        "industries": [
+            "Energy & utilities",
+            "Rail & freight logistics",
+            "Manufacturing",
+            "Retail & services",
+            "Government & public administration",
+            "Education"
+        ],
+        "top_employers": [
+            "Dominion Energy South Carolina",
+            "Lexington County School District Two",
+            "City of Cayce",
+            "CSX Transportation",
+            "Milliken & Company",
+            "Walmart",
+            "Lowe's Home Improvement",
+            "Southeastern Freight Lines",
+            "EnviroAg Engineering"
+        ],
+        "market_blurb": "Cayce, South Carolina sits along the Congaree River directly across from Columbia and has long been a transportation and energy hub, anchored by Dominion Energy's South Carolina headquarters and active CSX rail lines. The local economy blends industrial and logistics operations with retail corridors and public-sector employment tied to Lexington County schools and city government. Its proximity to Columbia also supports a strong base of commuter households and small service businesses.",
+        "local_note": "Fire ants, subterranean and occasional Formosan termites, cockroaches, and mosquitoes are the most persistent problems given Cayce's humid Midlands climate, with carpenter ants and wasps also common around older riverside homes. Pest pressure is strongest from spring through fall but termites and ants remain active nearly year-round due to mild winters.",
+        "neighborhoods": [
+            "Hunter's Mill",
+            "Riverland Park",
+            "Capital View Park Historic District",
+            "Cayce Historic District"
+        ],
+        "population": 14500,
+        "nearby_towns": [
+            {
+                "name": "West Columbia",
+                "miles": 3
+            },
+            {
+                "name": "Columbia",
+                "miles": 5
+            },
+            {
+                "name": "Springdale",
+                "miles": 7
+            },
+            {
+                "name": "Lexington",
+                "miles": 13
+            },
+            {
+                "name": "Pine Ridge",
+                "miles": 9
+            },
+            {
+                "name": "Gaston",
+                "miles": 12
+            },
+            {
+                "name": "Swansea",
+                "miles": 18
+            }
+        ],
+        "_researched": 1,
+        "neighborhoods_source": "OpenStreetMap + verified"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Fast, targeted cockroach control for {city_state} homes and businesses. The local providers we connect you with find where roaches hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Cockroach exterminator treating a {city_state} home",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/cockroach-exterminator-cayce-sc__tpl_cockroach_exterminator_cayce-sc_8e1ec16e.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-cayce-sc.webp",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/cockroach-treatment_21bbaa.webp",
+            "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": "@safe_trust_badges",
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/pest-template/uploads/media/cockroach-exterminator-technician-cayce-sc.webp",
+            "it_alt": "{business} technician applying cockroach treatment along a baseboard in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/pest-template/uploads/media/cockroach-exterminator-technician.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Cockroach Treatment Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Inspection & Assessment",
+                    "text": "A local technician inspects the home, identifies the species and where roaches are harboring, and builds a targeted treatment plan."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Treatment & Follow-Up",
+                    "text": "We treat the areas where cockroaches live and get inside, then follow up to confirm the infestation is fully cleared."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "id": "steps_1"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Ready to get rid of roaches in {city}? A local provider can get started fast.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#120575",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_moisture}",
+            "it_alt": "{chart_group_moisture_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_it_photo_prechart": "sites/pest-template/uploads/media/cockroach-control-family-home.webp",
+            "it_caption": "{chart_group_moisture_caption}",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "id": "ai_block_3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "related_links",
+            "rl_heading": "Related Services",
+            "rl_max": 3,
+            "rl_items": [
+                {
+                    "url": "/restaurant-pest-control-{city_slug}",
+                    "text": "restaurant pest control"
+                },
+                {
+                    "url": "/residential-pest-control-{city_slug}",
+                    "text": "residential pest control"
+                },
+                {
+                    "url": "/emergency-pest-control-{city_slug}",
+                    "text": "emergency pest control"
+                },
+                {
+                    "url": "/bed-bug-control-{city_slug}",
+                    "text": "bed bug control"
+                },
+                {
+                    "url": "/pest-control-plans-{city_slug}",
+                    "text": "pest control plans"
+                },
+                {
+                    "url": "/termite-treatment-{city_slug}",
+                    "text": "termite treatment"
+                }
+            ],
+            "id": "related_links_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "Cockroach Exterminator FAQ — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Dealing with cockroaches in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
+        }
+    ],
+    "seo": {
+        "seo_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
+        "canonical_url": "https://p.q111.xyz/cockroach-exterminator-cayce-sc/",
+        "meta_description": "Cockroaches thrive indoors and spread bacteria, posing health risks to occupants. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "cockroach exterminator Cayce SC, roach exterminator, cockroach control, roach control",
+        "og_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
+        "og_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+        "og_image": "",
+        "service_name": "Cockroach Extermination",
+        "service_type": "Cockroach Extermination",
+        "service_area": "{city}, {SS}",
+        "service_description": "Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cockroach Exterminator in Cayce, SC\",\n            \"serviceType\": \"Cockroach Extermination\",\n            \"description\": \"Professional cockroach exterminator services in Cayce, SC. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Cayce\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Cockroach Exterminator",
+        "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-10-16T00:13:16+00:00",
+    "template_version": "f85a342dc61a23214a30272c7476b30d"
+}

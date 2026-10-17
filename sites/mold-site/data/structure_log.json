@@ -418,5 +418,43 @@
         "pages_skipped": 0,
         "pages_backed_up": 13,
         "errors": []
+    },
+    {
+        "run_id": "51beeddb1a71c567",
+        "started_at": "2026-10-16T00:46:02+00:00",
+        "finished_at": "2026-10-16T00:46:03+00:00",
+        "duration_ms": 351,
+        "dry_run": false,
+        "options": {
+            "template_ids": [
+                "tpl_mold_removal"
+            ],
+            "city_ids": [
+                "city_lufkin_tx"
+            ],
+            "tag_filter": "",
+            "force_locked": false
+        },
+        "pages_written": 1,
+        "pages_skipped": 0,
+        "pages_backed_up": 1,
+        "errors": []
+    },
+    {
+        "run_id": "fe2488ea635696f1",
+        "started_at": "2026-10-16T00:53:29+00:00",
+        "finished_at": "2026-10-16T00:53:34+00:00",
+        "duration_ms": 5597,
+        "dry_run": false,
+        "options": {
+            "template_ids": null,
+            "city_ids": null,
+            "tag_filter": "lufkin-demo",
+            "force_locked": false
+        },
+        "pages_written": 21,
+        "pages_skipped": 0,
+        "pages_backed_up": 13,
+        "errors": []
     }
 ]

@@ -1,0 +1,392 @@
+{
+    "template_id": "tpl_cockroach_exterminator",
+    "city_id": "reynoldsburg-oh",
+    "slug": "cockroach-exterminator-reynoldsburg-oh",
+    "title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
+    "city_vars": {
+        "id": "reynoldsburg-oh",
+        "city": "Reynoldsburg",
+        "state": "Ohio",
+        "SS": "OH",
+        "city_slug": "reynoldsburg-oh",
+        "lat": "39.954786",
+        "lng": "-82.812119",
+        "homes_by_decade": {
+            "Before 1960": 13.9,
+            "1960-1979": 29.1,
+            "1980-1999": 36.6,
+            "2000-2009": 15.8,
+            "2010 or later": 4.6
+        },
+        "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — Reynoldsburg city (17,657 housing units)",
+        "acs_fetched_at": "2026-10-05",
+        "figures_fetched_at": "2026-10-05",
+        "freeze_days_monthly": [
+            25,
+            22.1,
+            17.5,
+            5.3,
+            0.3,
+            0,
+            0,
+            0,
+            0,
+            2.9,
+            13.5,
+            22.8
+        ],
+        "freeze_source": "NOAA 1991-2020 Climate Normals, WESTERVILLE, OH US station (0.8 mi from Reynoldsburg)",
+        "heavy_rain_days_monthly": [
+            0.5,
+            0.2,
+            0.5,
+            0.6,
+            0.8,
+            1.3,
+            1.1,
+            0.8,
+            0.9,
+            0.5,
+            0.5,
+            0.5
+        ],
+        "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, WESTERVILLE, OH US station (0.8 mi from Reynoldsburg)",
+        "hot_days_monthly": [
+            0,
+            0,
+            0,
+            0,
+            0.6,
+            4.9,
+            6.8,
+            5.3,
+            2.5,
+            0.1,
+            0,
+            0
+        ],
+        "hot_days_source": "NOAA 1991-2020 Climate Normals, WESTERVILLE, OH US station (0.8 mi from Reynoldsburg)",
+        "rainfall_monthly": [
+            2.93,
+            2.36,
+            3.42,
+            3.91,
+            4.22,
+            5.02,
+            4.56,
+            3.64,
+            3.29,
+            2.95,
+            2.88,
+            3.05
+        ],
+        "rainfall_source": "NOAA 1991-2020 Climate Normals, WESTERVILLE, OH US station (0.8 mi from Reynoldsburg)",
+        "wet_days_monthly": [
+            6.9,
+            6,
+            7.4,
+            8.4,
+            9.1,
+            8,
+            7.9,
+            6.5,
+            5.7,
+            6.6,
+            6.5,
+            6.7
+        ],
+        "wet_days_source": "NOAA 1991-2020 Climate Normals, WESTERVILLE, OH US station (0.8 mi from Reynoldsburg)",
+        "noaa_station": "USW00014821",
+        "noaa_station_miles": 4.4,
+        "noaa_fetched_at": "2026-10-05",
+        "frost_free_days": 191,
+        "freeze_last_spring": "04/18",
+        "freeze_first_fall": "10/27",
+        "growing_degree_days": 3606.6,
+        "nights_below_50": 213.5,
+        "frost_free_source": "NOAA 1991-2020 Climate Normals, COLUMBUS PORT COLUMBUS INTL AP, OH US station (4.4 mi from Reynoldsburg)",
+        "industries": [
+            "Retail trade",
+            "Healthcare",
+            "Education/public administration",
+            "Logistics and warehousing",
+            "Food service",
+            "Insurance/professional services"
+        ],
+        "top_employers": [
+            "Reynoldsburg City School District",
+            "City of Reynoldsburg",
+            "Southeast, Inc.",
+            "Mount Carmel Health System",
+            "Kroger",
+            "Walmart",
+            "Lowe's",
+            "Meijer",
+            "Aldi",
+            "Encova Insurance"
+        ],
+        "market_blurb": "Reynoldsburg, Ohio, a suburb on the eastern edge of Columbus, has an economy built around retail corridors along East Main Street and Brice Road, along with healthcare, education, and local government employment. Its proximity to major Columbus-area logistics and distribution hubs also supports warehousing and transportation-related jobs. The city is well known regionally as the self-proclaimed 'Birthplace of the Tomato,' home to the annual Tomato Festival.",
+        "local_note": "In the Reynoldsburg/central Ohio area, the most common problem pests include carpenter ants, odorous house ants, subterranean termites, and brown marmorated stink bugs, along with boxelder bugs and cluster flies that invade homes in fall. Activity is strongly seasonal, with ants, mosquitoes, and termites peaking in spring through summer and rodents and overwintering insect pests becoming the main concern as temperatures drop in autumn.",
+        "neighborhoods": [
+            "Rose Hill Heights",
+            "Taylor Square",
+            "Old Reynoldsburg",
+            "Brice",
+            "Summit Chase",
+            "Blacklick Estates"
+        ],
+        "population": 38000,
+        "nearby_towns": [
+            {
+                "name": "Columbus",
+                "miles": 15
+            },
+            {
+                "name": "Pickerington",
+                "miles": 7
+            },
+            {
+                "name": "Gahanna",
+                "miles": 8
+            },
+            {
+                "name": "Whitehall",
+                "miles": 7
+            },
+            {
+                "name": "Canal Winchester",
+                "miles": 10
+            },
+            {
+                "name": "New Albany",
+                "miles": 12
+            },
+            {
+                "name": "Pataskala",
+                "miles": 15
+            }
+        ],
+        "_researched": 1,
+        "neighborhoods_source": "OpenStreetMap + verified"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Fast, targeted cockroach control for {city_state} homes and businesses. The local providers we connect you with find where roaches hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Cockroach exterminator treating a {city_state} home",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/cockroach-exterminator-reynoldsburg-oh__tpl_cockroach_exterminator_reynoldsburg-oh_a011fb15.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-reynoldsburg-oh.webp",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/cockroach-treatment_21bbaa.webp",
+            "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": "@safe_trust_badges",
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/pest-template/uploads/media/cockroach-exterminator-technician-reynoldsburg-oh.webp",
+            "it_alt": "{business} technician applying cockroach treatment along a baseboard in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/pest-template/uploads/media/cockroach-exterminator-technician.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Cockroach Treatment Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Inspection & Assessment",
+                    "text": "A local technician inspects the home, identifies the species and where roaches are harboring, and builds a targeted treatment plan."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Treatment & Follow-Up",
+                    "text": "We treat the areas where cockroaches live and get inside, then follow up to confirm the infestation is fully cleared."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "id": "steps_1"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Ready to get rid of roaches in {city}? A local provider can get started fast.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#120575",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_moisture}",
+            "it_alt": "{chart_group_moisture_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_it_photo_prechart": "sites/pest-template/uploads/media/cockroach-control-family-home.webp",
+            "it_caption": "{chart_group_moisture_caption}",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "id": "ai_block_3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "related_links",
+            "rl_heading": "Related Services",
+            "rl_max": 3,
+            "rl_items": [
+                {
+                    "url": "/restaurant-pest-control-{city_slug}",
+                    "text": "restaurant pest control"
+                },
+                {
+                    "url": "/residential-pest-control-{city_slug}",
+                    "text": "residential pest control"
+                },
+                {
+                    "url": "/emergency-pest-control-{city_slug}",
+                    "text": "emergency pest control"
+                },
+                {
+                    "url": "/bed-bug-control-{city_slug}",
+                    "text": "bed bug control"
+                },
+                {
+                    "url": "/pest-control-plans-{city_slug}",
+                    "text": "pest control plans"
+                },
+                {
+                    "url": "/termite-treatment-{city_slug}",
+                    "text": "termite treatment"
+                }
+            ],
+            "id": "related_links_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "Cockroach Exterminator FAQ — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Dealing with cockroaches in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
+        }
+    ],
+    "seo": {
+        "seo_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
+        "canonical_url": "https://p.q111.xyz/cockroach-exterminator-reynoldsburg-oh/",
+        "meta_description": "Cockroaches thrive indoors and spread bacteria, posing health risks to occupants. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "cockroach exterminator Reynoldsburg OH, roach exterminator, cockroach control, roach control",
+        "og_title": "Cockroach Exterminator in {city_state} | Fast, Guaranteed Roach Control",
+        "og_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+        "og_image": "",
+        "service_name": "Cockroach Extermination",
+        "service_type": "Cockroach Extermination",
+        "service_area": "{city}, {SS}",
+        "service_description": "Professional cockroach exterminator services in {city_state}. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Cockroach Exterminator in Reynoldsburg, OH\",\n            \"serviceType\": \"Cockroach Extermination\",\n            \"description\": \"Professional cockroach exterminator services in Reynoldsburg, OH. Targeted roach control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Reynoldsburg\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Cockroach Exterminator",
+        "secondary_keywords": "roach exterminator, cockroach control, roach control, cockroach pest control, german cockroach treatment, get rid of roaches"
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-10-16T00:13:14+00:00",
+    "template_version": "f85a342dc61a23214a30272c7476b30d"
+}

@@ -1677,6 +1677,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             $cardSubtext  = $block['cards_subtext']               ?? '';
             $cols         = max(2, min(4, (int)($block['cards_cols'] ?? 3)));
             $items        = $block['cards_items']                 ?? [];
+            // A niche-specific plugin (e.g. plugins/safety_toolkit) may supply cards_items as
+            // the sentinel '@safety_toolkit_default' instead of a real array — same pattern as
+            // trust_bar's '@safe_trust_badges'. Resolves to [] (not a crash) when the plugin or
+            // this domain's niche data isn't available, same as any other empty cards_items.
+            if ($items === '@safety_toolkit_default') {
+                $items = function_exists('safety_toolkit_default_items') ? safety_toolkit_default_items() : [];
+            }
             $bgColor      = $block['cards_bg']                    ?? '';
             $headColor    = $block['cards_head_color']            ?? '';
             $headColorC   = $block['cards_head_color_custom']     ?? '#1a1a2e';

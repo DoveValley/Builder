@@ -1713,8 +1713,18 @@ function render_content_blocks_editor($blocks) {
                             <label><input type="checkbox" name="cards_centered[]" value="1" <?= !empty($block['cards_centered']) ? 'checked' : '' ?>> Center all text</label>
                         </div>
                     </div>
+                    <?php $cardsUsesSafetyToolkit = ($block['cards_items'] ?? null) === '@safety_toolkit_default'; ?>
+                    <?php if ($cardsUsesSafetyToolkit): ?>
+                        <p class="hint">Using the Safety Toolkit plugin's niche data (<code>plugins/safety_toolkit/niches/{niche}/items.json</code>)
+                        — showing all 5 defined organizations below; each domain actually renders a different
+                        random 3 of these 5, picked automatically per domain. Editing and saving the cards below
+                        will switch this block to its own fixed custom set instead.</p>
+                    <?php endif; ?>
                     <div class="cards-items-editor" id="cards_items_<?= $i ?>">
-                        <?php foreach (($block['cards_items'] ?? []) as $ci => $card): ?>
+                        <?php $cardsItems = $cardsUsesSafetyToolkit && function_exists('safety_toolkit_niche_items')
+                            ? safety_toolkit_niche_items(function_exists('safety_toolkit_niche_slug') ? safety_toolkit_niche_slug(ACTIVE_SITE_DIR) : '')
+                            : ($block['cards_items'] ?? []); ?>
+                        <?php foreach ($cardsItems as $ci => $card): ?>
                         <div class="card-item-row">
                             <div style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;border:1px solid #e5e7eb;border-radius:6px;padding:12px;margin-bottom:8px;background:#f9fafb;">
                                 <div style="flex:0 0 100px;">

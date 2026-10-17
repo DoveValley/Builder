@@ -23,7 +23,12 @@ $activePluginData  = $activePlugin !== '' ? get_plugin($activePlugin) : null;
                      onmouseout="this.style.boxShadow='';this.style.borderColor='#e5e7eb';">
                     <div style="font-size:1.6rem;margin-bottom:8px;"><?= h(html_entity_decode($plugin['icon'], ENT_QUOTES)) ?></div>
                     <div style="font-weight:600;font-size:1rem;color:#111827;margin-bottom:4px;"><?= h($plugin['name']) ?></div>
-                    <div style="font-size:.82rem;color:#6b7280;line-height:1.45;"><?= h($plugin['description']) ?></div>
+                    <?php /* Descriptions are developer-authored constants from each plugin's own
+                           register_plugin() call, not user input — several intentionally embed <code>
+                           tags (e.g. mold-materials, water-drying) to show the exact shortcode/comment to
+                           place. Escaping here double-encodes those into literal "&lt;code&gt;" text, so
+                           this field is trusted and printed as-is rather than run through h(). */ ?>
+                    <div style="font-size:.82rem;color:#6b7280;line-height:1.45;"><?= $plugin['description'] ?></div>
                 </div>
             </a>
             <?php endforeach; ?>

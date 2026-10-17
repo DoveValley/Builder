@@ -1,0 +1,398 @@
+{
+    "template_id": "tpl_carpenter_ant_control",
+    "city_id": "north-richland-hills-tx",
+    "slug": "carpenter-ant-control-north-richland-hills-tx",
+    "title": "Carpenter Ant Control in {city_state} | {business_short}",
+    "city_vars": {
+        "id": "north-richland-hills-tx",
+        "city": "North Richland Hills",
+        "state": "Texas",
+        "SS": "TX",
+        "city_slug": "north-richland-hills-tx",
+        "lat": "32.834295",
+        "lng": "-97.228903",
+        "homes_by_decade": {
+            "Before 1960": 6,
+            "1960-1979": 29.2,
+            "1980-1999": 39,
+            "2000-2009": 14.9,
+            "2010 or later": 10.9
+        },
+        "homes_by_decade_source": "US Census Bureau, American Community Survey 2023 5-year estimates, table B25034 — North Richland Hills city (28,594 housing units)",
+        "acs_fetched_at": "2026-10-05",
+        "figures_fetched_at": "2026-10-05",
+        "freeze_days_monthly": [
+            8.8,
+            4.6,
+            1.4,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0.1,
+            1.7,
+            6.5
+        ],
+        "freeze_source": "NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (7.4 mi from North Richland Hills)",
+        "heavy_rain_days_monthly": [
+            0.7,
+            0.9,
+            0.9,
+            1.1,
+            1.6,
+            1.3,
+            0.4,
+            0.6,
+            1,
+            1.7,
+            1,
+            0.8
+        ],
+        "heavy_rain_days_source": "NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (7.4 mi from North Richland Hills)",
+        "hot_days_monthly": [
+            0,
+            0.1,
+            0.2,
+            0.8,
+            7.6,
+            22.4,
+            28.5,
+            27.7,
+            16.5,
+            3.7,
+            0.1,
+            0
+        ],
+        "hot_days_source": "NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (7.4 mi from North Richland Hills)",
+        "rainfall_monthly": [
+            2.59,
+            2.78,
+            3.45,
+            3.15,
+            4.57,
+            3.83,
+            1.71,
+            2.19,
+            3.1,
+            4.79,
+            2.93,
+            3.23
+        ],
+        "rainfall_source": "NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (7.4 mi from North Richland Hills)",
+        "wet_days_monthly": [
+            4,
+            4.2,
+            4.7,
+            4.5,
+            6.3,
+            5.2,
+            3,
+            3.5,
+            3.8,
+            4.9,
+            4.1,
+            4.1
+        ],
+        "wet_days_source": "NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (7.4 mi from North Richland Hills)",
+        "noaa_station": "USW00013960",
+        "noaa_station_miles": 7.4,
+        "noaa_fetched_at": "2026-10-05",
+        "frost_free_days": 272,
+        "freeze_last_spring": "03/02",
+        "freeze_first_fall": "11/29",
+        "growing_degree_days": 7038.5,
+        "nights_below_50": 127.4,
+        "frost_free_source": "NOAA 1991-2020 Climate Normals, DALLAS LOVE FLD, TX US station (7.4 mi from North Richland Hills)",
+        "industries": [
+            "Healthcare",
+            "Retail trade",
+            "Education",
+            "Logistics and distribution",
+            "Manufacturing",
+            "Professional services"
+        ],
+        "top_employers": [
+            "City of North Richland Hills",
+            "Birdville Independent School District",
+            "North Hills Hospital (HCA Healthcare)",
+            "NRH2O Family Water Park",
+            "Walmart Supercenter",
+            "Target",
+            "Home Depot",
+            "Lowe's Home Improvement",
+            "Kroger",
+            "Tecnoglass",
+            "Sam's Club"
+        ],
+        "market_blurb": "North Richland Hills, Texas functions as a mature residential and retail suburb within the Dallas-Fort Worth metroplex, anchored by healthcare services, public education through Birdville ISD, and a strong corridor of big-box and chain retail along Boulevard 26. The local economy benefits heavily from its proximity to Fort Worth and the broader DFW job market, with many residents commuting to nearby employment centers while the city itself supports retail, healthcare, and municipal services. Family-oriented attractions like NRH2O Family Water Park also contribute to the city's service-sector economy.",
+        "local_note": "Pest pressure in North Richland Hills is dominated by fire ants, subterranean termites, mosquitoes, and German cockroaches, with occasional rodent intrusion in cooler months; activity is heaviest in spring and summer but termite and rodent concerns persist year-round given the North Texas climate.",
+        "neighborhoods": [
+            "Smithfield",
+            "Diamond Loch",
+            "Iron Horse"
+        ],
+        "population": 71000,
+        "nearby_towns": [
+            {
+                "name": "Hurst",
+                "miles": 4
+            },
+            {
+                "name": "Watauga",
+                "miles": 4
+            },
+            {
+                "name": "Richland Hills",
+                "miles": 5
+            },
+            {
+                "name": "Haltom City",
+                "miles": 6
+            },
+            {
+                "name": "Keller",
+                "miles": 9
+            },
+            {
+                "name": "Colleyville",
+                "miles": 9
+            },
+            {
+                "name": "Bedford",
+                "miles": 7
+            },
+            {
+                "name": "Fort Worth",
+                "miles": 11
+            }
+        ],
+        "_researched": 1,
+        "neighborhoods_source": "verified"
+    },
+    "content_blocks": [
+        {
+            "type": "hero_split",
+            "hs_heading": "{primary_keyword} in {city_state}",
+            "hs_subtext": "<p>Fast, targeted carpenter ant control for {city_state} homes and businesses. The local providers we connect you with find where carpenter ants hide and get inside, treat the source, and back the work with a re-treat guarantee.</p>",
+            "hs_btn_text": "{phone}",
+            "hs_btn_url": "tel:{tel}",
+            "hs_caption1": "",
+            "hs_caption2": "",
+            "hs_photo_alt": "Carpenter ant exterminator treating a {city_state} home",
+            "hs_image_side": "right",
+            "hs_bg_color": "#f3f6f7",
+            "hs_photo": "sites/pest-template/uploads/media/carpenter-ant-control-north-richland-hills-tx__tpl_carpenter_ant_control_north-richland-hills-tx_c8ad9578.webp",
+            "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector-north-richland-hills-tx.webp",
+            "hs_mobile_order": "img_first",
+            "ai_type_id": "hero_subtext",
+            "ai_inject_field": "hs_subtext",
+            "ai_inject_mode": "replace",
+            "id": "hero_split_1",
+            "_hs_photo_orig": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+            "_hs_bg_photo_orig": "sites/pest-template/uploads/media/pest-services-vector.webp"
+        },
+        {
+            "type": "trust_bar",
+            "tb_bg_custom": "#f3f6f7",
+            "tb_items": "@safe_trust_badges",
+            "anchor": "trust_bar",
+            "id": "trust_bar_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b-north-richland-hills-tx.webp",
+            "it_alt": "{business} technician applying carpenter ant treatment along a baseboard in a {city_state} home",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_1",
+            "_it_photo_orig": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "feature_columns_local",
+            "ai_mode": "standalone",
+            "ai_render_as": "feature_columns",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_2"
+        },
+        {
+            "type": "steps",
+            "steps_heading": "How Our Carpenter ant Treatment Works",
+            "steps_items": [
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Call Our {city} Team",
+                    "text": "Tell us what you are seeing. We work to get you scheduled quickly, often the same day for active infestations."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Inspection & Assessment",
+                    "text": "A local technician inspects the home, identifies the species and where carpenter ants are harboring, and builds a targeted treatment plan."
+                },
+                {
+                    "image": "",
+                    "alt": "",
+                    "heading": "Treatment & Follow-Up",
+                    "text": "We treat the areas where carpenter ants live and get inside, then follow up to confirm the infestation is fully cleared."
+                }
+            ],
+            "ai_type_id": "steps_local",
+            "id": "steps_1"
+        },
+        {
+            "type": "cta_banner",
+            "anchor": "mid_cta",
+            "cb_text": "Ready to get rid of carpenter ants in {city}? A local provider can get started fast.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "header",
+            "cb_bg_custom": "#120575",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_1"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "local_relevance",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "right",
+            "it_photo": "{chart_group_moisture}",
+            "it_alt": "{chart_group_moisture_alt}",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "_it_photo_prechart": "sites/pest-template/uploads/media/carpenter-ants_2fe626.webp",
+            "it_caption": "{chart_group_moisture_caption}",
+            "it_ratio": "auto",
+            "it_layout": "stacked",
+            "id": "ai_block_3"
+        },
+        {
+            "type": "ai_block",
+            "ai_type_id": "seasonal_calendar",
+            "ai_mode": "standalone",
+            "ai_render_as": "steps",
+            "ai_inject_target": null,
+            "ai_inject_field": null,
+            "ai_inject_mode": null,
+            "ai_prompt_override": "",
+            "id": "ai_block_4"
+        },
+        {
+            "type": "related_links",
+            "rl_heading": "Related Services",
+            "rl_max": 3,
+            "rl_items": [
+                {
+                    "url": "/termite-inspection-{city_slug}",
+                    "text": "termite inspection"
+                },
+                {
+                    "url": "/termite-treatment-{city_slug}",
+                    "text": "termite treatment"
+                },
+                {
+                    "url": "/ant-pest-control-{city_slug}",
+                    "text": "ant pest control"
+                },
+                {
+                    "url": "/wdi-inspection-{city_slug}",
+                    "text": "wdi inspection"
+                },
+                {
+                    "url": "/residential-pest-control-{city_slug}",
+                    "text": "residential pest control"
+                },
+                {
+                    "url": "/cockroach-exterminator-{city_slug}",
+                    "text": "cockroach extermination"
+                },
+                {
+                    "url": "/bed-bug-control-{city_slug}",
+                    "text": "bed bug control"
+                }
+            ],
+            "id": "related_links_1"
+        },
+        {
+            "type": "faq_two_col",
+            "fq_heading": "Carpenter ant Exterminator FAQ — {city_state}",
+            "fq_bg_color": "#ffffff",
+            "fq_item_bg": "#d9d9d9",
+            "fq_head_color": "header",
+            "fq_icon_bg": "accent",
+            "fq_head_color_custom": "#120575",
+            "fq_icon_bg_custom": "#fd783b",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
+            "type": "cta_banner",
+            "cb_text": "Dealing with carpenter ants in {city}? Get fast, targeted treatment backed by our re-treat guarantee.",
+            "cb_subtext": "",
+            "cb_btn_text": "Call {phone}",
+            "cb_btn_url": "tel:{tel}",
+            "cb_bg": "accent",
+            "cb_bg_custom": "#fd783b",
+            "cb_text_color": "#ffffff",
+            "cb_padding": "compact",
+            "id": "cta_banner_2"
+        },
+        {
+            "type": "map_info",
+            "mi_map_heading": "Areas We Serve in {city}, {state}",
+            "mi_info_heading": "{city_state} Information",
+            "mi_info_text": "{city_spotlight}",
+            "mi_info_alt": "{city_image_alt}",
+            "mi_info_credit": "{city_image_credit}",
+            "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+            "mi_head_color": "header",
+            "mi_head_color_custom": "#120575",
+            "mi_info_photo": "{city_image}",
+            "mi_map_side": "top",
+            "mi_map_caption": "{city_map_caption}",
+            "id": "map_info_1"
+        }
+    ],
+    "seo": {
+        "seo_title": "Carpenter Ant Control in {city_state} | {business_short}",
+        "canonical_url": "https://p.q111.xyz/carpenter-ant-control-north-richland-hills-tx/",
+        "meta_description": "Carpenter ants hollow out wood structures, weakening frames and support systems over time. Serving {city_state}. Call {phone}.",
+        "meta_keywords": "carpenter ant control North Richland Hills TX, carpenter ant exterminator, carpenter ant treatment, carpenter ant removal",
+        "og_title": "Carpenter ant Exterminator in {city_state} | Fast, Guaranteed Carpenter ant Control",
+        "og_description": "Get rid of carpenter ants fast with a professional carpenter ant exterminator in {city_state}. Targeted treatment for homes and businesses, backed by a re-treat guarantee.",
+        "og_image": "",
+        "service_name": "Carpenter Ant Control",
+        "service_type": "Carpenter Ant Control",
+        "service_area": "{city}, {SS}",
+        "service_description": "Professional carpenter ant exterminator services in {city_state}. Targeted carpenter ant control for homes and businesses with fast response and a re-treat guarantee.",
+        "bc_label": "",
+        "bc_mid_label": "",
+        "bc_mid_url": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Carpenter ant Exterminator in North Richland Hills, TX\",\n            \"serviceType\": \"Carpenter ant Extermination\",\n            \"description\": \"Professional carpenter ant exterminator services in North Richland Hills, TX. Targeted carpenter ant control for homes and businesses with fast response and a re-treat guarantee.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"North Richland Hills\"\n            },\n            \"provider\": {\n                \"@type\": \"Organization\",\n                \"@id\": \"https://p.q111.xyz/#localbusiness\",\n                \"name\": \"Littleton Pest Pros\",\n                \"telephone\": \"+17202015555\",\n                \"url\": \"https://p.q111.xyz\"\n            }\n        }\n    ]\n}",
+        "primary_keyword": "Carpenter Ant Control",
+        "secondary_keywords": "carpenter ant exterminator, carpenter ant treatment, carpenter ant removal, carpenter ant damage"
+    },
+    "locked_blocks": [],
+    "generated_at": "2026-10-16T00:13:39+00:00",
+    "template_version": "a35efff8709ec64527cdd4da7f51f231"
+}
