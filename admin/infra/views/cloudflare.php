@@ -128,13 +128,17 @@
                 <li>Go to <strong>Manage Account &rarr; Account API Tokens</strong> &mdash; not
                     <em>My Profile &rarr; API Tokens</em>, which makes a token that reaches every account your
                     login can see, not just this one.</li>
-                <li><strong>Create Token &rarr; Custom Token</strong>, and add these 4 permissions exactly:
+                <li><strong>Create Token &rarr; Custom Token</strong>, and add these 5 permissions exactly:
                     <ul style="margin:6px 0 6px 18px;line-height:1.8">
                         <li><code>Account &rarr; Account Settings &rarr; Read</code></li>
                         <li><code>Zone &rarr; Zone &rarr; Edit</code></li>
                         <li><code>Zone &rarr; DNS &rarr; Edit</code> &mdash; not "DNS Settings", which looks
                             similar but fails A-record writes with an authentication error.</li>
                         <li><code>Zone &rarr; Zone Settings &rarr; Edit</code></li>
+                        <li><code>Zone &rarr; Cache Purge &rarr; Purge</code> &mdash; needed by
+                            <code>golive_freshen.php</code>'s post-live cache purge. All 20 existing fleet
+                            accounts already carry this (confirmed 2026-10-17); include it explicitly here
+                            so a newly-created account doesn't quietly skip it.</li>
                     </ul>
                     Zone Resources: <strong>Include &rarr; All zones</strong> &mdash; this is what lets the
                     token create a brand-new zone (Cloudflare removed the separate
@@ -443,7 +447,7 @@
         <h2>Add a Cloudflare account</h2>
         <div class="body">
             <div class="ic-note">Cloudflare limits how many domains one account can hold, so a large fleet is normally spread over several. Each one you add here is listed separately above.
-                Need the Cloudflare-side steps (creating the account's token, which 4 permissions it needs)? See
+                Need the Cloudflare-side steps (creating the account's token, which 5 permissions it needs)? See
                 <strong>"How to add a Cloudflare account"</strong> at the top of this page.</div>
             <?php infra_cf_form(null); ?>
         </div>

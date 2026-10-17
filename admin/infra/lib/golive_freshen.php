@@ -240,11 +240,13 @@ function infra_golive_freshen_domain(string $domain): array
     return [
         'ok'      => $touch['ok'] && $purge['ok'],
         // The files alone, reported separately because they are the part that either
-        // worked or didn't. The Cloudflare purge is a known-degraded extra — several
-        // accounts' API tokens still lack Cache Purge permission, which only delays
-        // the new date on edge-cached assets by a few hours. Folding that into one
-        // flag would leave the panel's warning permanently lit for a condition we
-        // already know about, which is how a warning stops being read. The purge
+        // worked or didn't. The Cloudflare purge is reported separately too, even
+        // though all 20 fleet accounts were confirmed (2026-10-17, probed via a
+        // deliberately invalid purge_cache body — 400 means permission is fine, 403
+        // would mean it's missing) to carry Cache Purge permission. A purge can still
+        // fail for reasons unrelated to permission (API hiccup, zone paused, rate
+        // limit), and folding that into the files' own flag would make an unrelated
+        // Cloudflare blip look like the FTP re-stamp itself failed. The purge
         // outcome stays in the message either way.
         'files_ok' => $touch['ok'],
         'skipped' => false,
