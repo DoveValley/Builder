@@ -76,6 +76,32 @@ function infra_domain_list_rename(int $id, string $name): bool
 }
 
 /**
+ * Replace a list's whole domain membership with $domains (already parsed/validated
+ * via infra_domain_list_parse()) — the edit form resubmits the full textarea rather
+ * than diffing adds/removes, so this is a clean swap, not a merge. Cached check
+ * results for any domain stay in the shared `cache` table either way (keyed by
+ * domain, not by list) — removing a domain from a list doesn't need to touch them,
+ * and re-adding it later shows its last known status again for free.
+ *
+ * False if the list doesn't exist; true (even with an empty $domains array, which
+ * just empties the list) otherwise.
+ */
+function infra_domain_list_set_domains(int $id, array $domains): bool
+{
+    $db = infra_state_db();
+    $stmt = $db->prepare('SELECT 1 FROM domain_lists WHERE id = ?');
+    $stmt->execute([$id]);
+    if (!$stmt->fetchColumn()) return false;
+
+    $db->beginTransaction();
+    $db->prepare('DELETE FROM domain_list_items WHERE list_id = ?')->execute([$id]);
+    $ins = $db->prepare('INSERT OR IGNORE INTO domain_list_items (list_id, domain) VALUES (?, ?)');
+    foreach ($domains as $d) $ins->execute([$id, $d]);
+    $db->commit();
+    return true;
+}
+
+/**
  * Check every domain in a list right now (forces a fresh probe, bypassing cache)
  * and return a simple tally. The per-domain detail isn't returned here — the view
  * reads it back from cache afterward via infra_site_check_cached(), the same

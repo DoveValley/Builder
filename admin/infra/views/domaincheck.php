@@ -43,6 +43,9 @@ infra_header('domaincheck');
                 yourself.</li>
             <li><strong>Rename a list any time</strong> using the field next to "Rename" — it only
                 changes the name, the saved domains and their check history are untouched.</li>
+            <li><strong>Edit a list's domains any time</strong> — the "Edit domains" box is prefilled
+                with everything currently in the list; add or remove lines and save to replace the
+                whole list in one go. Same dropped-line rules as creating a new list.</li>
             <li><strong>Deleting a list requires typing its exact name first</strong> — it's a
                 genuine "are you sure", not just a click-through popup. It only ever deletes the
                 saved list itself; it never touches the actual domain, any site content, or anything
@@ -112,6 +115,17 @@ infra_header('domaincheck');
             <input type="hidden" name="id" value="<?= (int) $l['id'] ?>">
             <input name="confirm" placeholder="type &quot;<?= ih($l['name']) ?>&quot; to delete" style="width:220px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
             <button class="btn" style="background:#991b1b" type="submit">Delete list</button>
+        </form>
+
+        <form method="post" action="actions/domainlist_edit.php" style="margin-top:14px">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="id" value="<?= (int) $l['id'] ?>">
+            <div style="font-weight:600;margin-bottom:4px">Edit domains</div>
+            <div style="color:#6b7280;font-size:12px;margin-bottom:6px">One per line (or
+                comma/space-separated). This replaces the whole list — add or remove lines as
+                needed, then save.</div>
+            <textarea name="domains" rows="6" style="width:100%;max-width:480px"><?= ih(implode("\n", $full['domains'])) ?></textarea>
+            <div style="margin-top:8px"><button class="btn sec" type="submit">Save changes</button></div>
         </form>
 
         <?php if (!$full['domains']): ?>
