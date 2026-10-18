@@ -302,7 +302,20 @@ function pd_commit(
 
     $propagated = 0;
     $templates  = 0;
-    if (!empty($_POST['propagate'])) {
+    // Propagate never runs for a template-scope edit, full stop — one Pic Drop action
+    // (upload/generate/adjust) on a template touches exactly the field it was run on,
+    // nothing else. This used to also reach the template's own already-built pages via
+    // picdrop_pages_for_template() — a narrower, deliberately-scoped mechanism, not the
+    // dangerous one — but a real incident happened from the OTHER half of this same
+    // block (picdrop_matching_slots()/picdrop_template_matches(), which match ANY
+    // slot/template currently holding the same byte-identical file): templates commonly
+    // share a generic starting photo before each is customized, so checking the
+    // default-ON "also replace elsewhere" box on ONE template silently overwrote seven
+    // unrelated ones that still happened to share that starting photo. Rather than keep
+    // trusting a second, still-automatic mechanism right next to the one that just
+    // caused real damage, a template-scope edit is now single-slot across the board —
+    // see "Also replace elsewhere" in docs/pic-drop-image-management.md.
+    if (!empty($_POST['propagate']) && $parts['scope'] !== 'template') {
         foreach (picdrop_matching_slots($key, $slot['value'], picdrop_leaf($parts['field'])) as $m) {
             $edits[] = [
                 'scope' => $m['scope'], 'id' => $m['page_id'],
@@ -310,26 +323,9 @@ function pd_commit(
             ];
             $propagated++;
         }
-        // Also fix the landing templates these pages are generated from. Without this the
-        // next regen puts the old picture straight back, which reads as "Pic Drop did not
-        // save" long after the drop. Excludes the source itself — when the edit already
-        // came FROM a template row, this would otherwise "match" that same row (its old
-        // value still equals its old value) and double-count it as an unrelated template.
         foreach (picdrop_template_matches($slot['value'], picdrop_leaf($parts['field'])) as $t) {
-            if ($parts['scope'] === 'template' && $t['id'] === $parts['id'] && $t['block'] === $parts['block'] && $t['field'] === $parts['field']) continue;
             $edits[] = $t + ['value' => $newValue];
             $templates++;
-        }
-        // Editing a TEMPLATE row itself: the match above only finds pages whose CURRENT
-        // photo still equals this template's OLD value, which is almost never true — every
-        // page already carries its own byte-differentiated copy. Reach them by "built from
-        // this template" instead, or checking this box on a template row would silently
-        // touch nothing.
-        if ($parts['scope'] === 'template') {
-            foreach (picdrop_pages_for_template($parts['id'], $parts['block'], $parts['field']) as $p) {
-                $edits[] = $p + ['value' => $newValue];
-                $propagated++;
-            }
         }
     }
 
@@ -366,7 +362,9 @@ function pd_commit(
         'errors'     => $res['errors'],
         // So the tab can redraw the Real/AI thumbnail pair without a reload — this is
         // the same record picdrop_slots_for_blocks() would hand back on next page load.
-        'pair'       => picdrop_pairs_get($key),
+        // Resolved against $newValue (not a plain lookup) so the response can never show
+        // a thumbnail that disagrees with the field this very call just wrote.
+        'pair'       => picdrop_pairs_resolve($key, $newValue),
     ]);
     exit;
 }
@@ -424,7 +422,7 @@ if ($action === 'remove_side') {
         unset($pairsAll[$key]);
         picdrop_pairs_save($pairsAll);
         echo json_encode(['success' => true, 'removed_only' => true, 'emptied' => true,
-                          'pair' => picdrop_pairs_get($key),
+                          'pair' => picdrop_pairs_resolve($key, ''),
                           'note' => 'deleted ' . $label . ' · slot is now empty · ' . $fileNote()]);
         exit;
     }
@@ -439,7 +437,7 @@ if ($action === 'remove_side') {
             });
     }
     picdrop_pairs_save($pairsAll);
-    echo json_encode(['success' => true, 'removed_only' => true, 'pair' => picdrop_pairs_get($key),
+    echo json_encode(['success' => true, 'removed_only' => true, 'pair' => picdrop_pairs_resolve($key, $slot['value']),
                       'note' => 'deleted ' . $label . ' · ' . $fileNote()]);
     exit;
 }

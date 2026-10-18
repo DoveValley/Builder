@@ -63,6 +63,47 @@ function picdrop_pairs_get(string $key): array {
 }
 
 /**
+ * Like picdrop_pairs_get(), but self-healing against the slot's actual live value.
+ *
+ * The pairs sidecar is only ever kept in sync by Pic Drop's OWN write actions
+ * (place/generate/adjust/set_active). Anything else that writes the page field
+ * directly — a manual templates.json edit, a batch regenerate, hand-editing site.json
+ * — has no idea the sidecar exists, so the two can drift apart: the sidecar keeps
+ * claiming "the active side is photo X" while the live field has long since moved on
+ * to photo Y. Found live on mold-site: a template's hs_photo field held a generic
+ * stock handshake photo while picdrop_pairs.json still said "real" was an actual
+ * mold-wall photo from an earlier drop — so the tab's own "Real ✓" thumbnail showed
+ * Scott the mold photo while every actual action (Generate's reference, the page
+ * itself) was silently working from the stock photo instead. He had no way to know
+ * the thumbnail he was looking at wasn't what was actually live.
+ *
+ * The live field is always ground truth — it's what the page renders and what every
+ * action resolves its reference from. When the pair's ACTIVE side doesn't match it,
+ * the active side is corrected to the live value and saved, so this is caught and
+ * fixed the moment it's next read, from any entry point (the tab's own render, or any
+ * single-slot write action, both of which resolve a slot through here). The INACTIVE
+ * side is never touched — it has nothing to do with what's currently live and isn't
+ * what drifted.
+ */
+function picdrop_pairs_resolve(string $key, string $value): array {
+    $all = picdrop_pairs_load();
+    $row = $all[$key] ?? null;
+    if ($row === null) return ['real' => null, 'ai' => null, 'active' => 'real'];
+
+    $active = ($row['active'] ?? 'real') === 'ai' ? 'ai' : 'real';
+    if ($value !== '' && (string) ($row[$active] ?? '') !== $value) {
+        $row[$active] = $value;
+        $all[$key]    = $row;
+        picdrop_pairs_save($all);
+    }
+    return [
+        'real'   => $row['real']   ?? null,
+        'ai'     => $row['ai']     ?? null,
+        'active' => $active,
+    ];
+}
+
+/**
  * The image fields Pic Drop manages, and the alt field each one pairs with.
  *
  * This is a WHITELIST, deliberately. A blacklist would silently pick up every new
@@ -312,7 +353,7 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
                 'bytes'      => $bytes,
                 'alt_field'  => $altPath,
                 'alt'        => $altVal,
-                'pair'       => $isToken ? null : picdrop_pairs_get($slotKey),
+                'pair'       => $isToken ? null : picdrop_pairs_resolve($slotKey, $value),
             ];
         }
     }
@@ -645,65 +686,6 @@ function picdrop_template_matches(string $value, string $leaf): array {
                 if ((string) picdrop_get($block, $path) !== $value) continue;
                 $out[] = ['scope' => 'template', 'id' => (string) $t['id'], 'block' => $bi, 'field' => $path];
             }
-        }
-    }
-    return $out;
-}
-
-/**
- * Landing PAGES generated from a template — matched by "this page was built from
- * this template", not by whether it currently holds the same file. Every page's
- * photo is already its own byte-unique copy of the template's picture on purpose
- * (see picdrop_matching_slots()'s docblock — that's what keeps search engines from
- * seeing the same image on multiple pages), so a value-equality search finds
- * nothing once that's happened. This is what lets editing a TEMPLATE row's
- * "also replace elsewhere" checkbox actually reach the real, already-built pages.
- *
- * Matched by block TYPE + its ordinal position among same-typed blocks on the
- * template, not by bare index — landing pages can have their section order
- * rotated per domain (structure.landing), so "block 3" on the template does not
- * reliably mean "block 3" on a generated page. Same reasoning already used by the
- * batch AI-photo pipeline for the same problem (includes/multisite/image_ai.php).
- */
-function picdrop_pages_for_template(string $templateId, int $templateBlockIndex, string $field): array {
-    if (!defined('TEMPLATES_FILE') || !is_file(TEMPLATES_FILE) || !defined('PAGES_DIR')) return [];
-    $tpls = json_decode((string) @file_get_contents(TEMPLATES_FILE), true);
-    if (!is_array($tpls)) return [];
-
-    $tplBlocks = null;
-    foreach ($tpls as $t) {
-        if (is_array($t) && ($t['id'] ?? '') === $templateId) { $tplBlocks = $t['content_blocks'] ?? []; break; }
-    }
-    if ($tplBlocks === null || !isset($tplBlocks[$templateBlockIndex])) return [];
-
-    $blockType = (string) ($tplBlocks[$templateBlockIndex]['type'] ?? '');
-    if ($blockType === '') return [];
-
-    // Which occurrence of this block type is this, among the template's own blocks?
-    $ordinal = 0;
-    foreach ($tplBlocks as $i => $b) {
-        if (is_array($b) && ($b['type'] ?? '') === $blockType) {
-            $ordinal++;
-            if ($i === $templateBlockIndex) break;
-        }
-    }
-
-    $out = [];
-    foreach ((glob(PAGES_DIR . '*.json') ?: []) as $f) {
-        $page = json_decode((string) @file_get_contents($f), true);
-        if (!is_array($page) || ($page['template_id'] ?? '') !== $templateId) continue;
-        $blocks = $page['content_blocks'] ?? [];
-
-        $seen = 0;
-        foreach ($blocks as $bi => $b) {
-            if (!is_array($b) || ($b['type'] ?? '') !== $blockType) continue;
-            $seen++;
-            if ($seen !== $ordinal) continue;
-            if (array_key_exists($field, $b)) {
-                $out[] = ['scope' => 'landing', 'id' => basename($f), 'block' => $bi, 'field' => $field,
-                          'page_title' => (string) ($page['title'] ?? basename($f))];
-            }
-            break;   // found the matching occurrence (or its shape drifted) — stop scanning this page
         }
     }
     return $out;

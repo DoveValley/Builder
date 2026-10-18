@@ -11,7 +11,7 @@
         "city_slug": "lufkin-tx",
         "zip": "75901",
         "tags": [
-            "lufkin-demo"
+            "first-city-site-view"
         ],
         "market_blurb": "Lufkin, Texas serves as the commercial and healthcare hub of Deep East Texas, historically anchored by the timber and forestry industry that still shapes the regional economy. Manufacturing, led by legacy firms like Lufkin Industries, and healthcare services through CHI St. Luke's Health Memorial Lufkin provide major employment. The city also functions as a retail and education center for surrounding Angelina County and neighboring rural communities.",
         "local_note": "Lufkin sits in a humid subtropical climate zone with consistently high humidity year-round, not just during storms, due to its dense East Texas pine forest surroundings. Many older and rural homes in the area use crawl space foundations rather than basements, and combined with the persistent moisture, this creates conditions conducive to mold growth beneath and within structures.",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/drywall-mold-removal-lufkin-tx__tpl_drywall_mold_removal_city_lufkin_tx_4725f693.webp",
+            "hs_photo": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -203,8 +203,7 @@
             "ai_inject_mode": "replace",
             "_ai_locked": false,
             "_ai_generated": false,
-            "id": "hero_split_1",
-            "_hs_photo_orig": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp"
+            "id": "hero_split_1"
         },
         {
             "type": "trust_bar",
@@ -224,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall-lufkin-tx.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -250,7 +249,7 @@
         },
         {
             "type": "steps",
-            "steps_heading": "How {service} Connections Work",
+            "steps_heading": "How Our {service} Process Works",
             "steps_items": [
                 {
                     "image": "",
@@ -376,6 +375,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -406,7 +417,7 @@
     "seo": {
         "seo_title": "Drywall Mold Removal in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/drywall-mold-removal-lufkin-tx/",
-        "meta_description": "Moisture trapped behind walls and inside wallboard can quietly encourage mold growth. Serving {city_state}. Call {phone}.",
+        "meta_description": "Drywall mold removal addresses growth trapped behind walls and inside wallboard by hidden moisture. Serving {city_state}. Call {phone}.",
         "meta_keywords": "drywall mold remediation Lufkin, drywall mold treatment Lufkin, mold in drywall Lufkin, drywall mold removal near me Lufkin",
         "og_title": "Drywall Mold Removal in {city_state} | {business}",
         "og_description": "Drywall Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
@@ -418,11 +429,11 @@
         "bc_label": "Drywall Mold Removal",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Drywall Mold Removal\",\n    \"name\": \"Drywall Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Drywall Mold Removal in Lufkin, TX — drywall mold removal and moisture control behind walls.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Drywall Mold Removal\",\n    \"name\": \"Drywall Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Drywall Mold Removal in Lufkin, TX \\u2014 drywall mold removal and moisture control behind walls.\"\n}",
         "primary_keyword": "Drywall Mold Removal",
         "secondary_keywords": "mold behind drywall, mold in walls, wall mold removal, mold on drywall, drywall mold remediation, mold inside a wall cavity"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T00:53:33+00:00",
-    "template_version": "9a09aa43aa08c983b21b2b8f260fd9b6"
+    "generated_at": "2026-10-18T18:13:48+00:00",
+    "template_version": "07d51d4a3866b6f08cbe4a46f257a957"
 }

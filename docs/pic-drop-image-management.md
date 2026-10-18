@@ -24,22 +24,33 @@ redesign to add template-level rows reused every bit of the existing drop/librar
 widget rather than inventing a second storage or generation path. `picdrop_apply_edits()` is the
 one function both a template edit and a page edit ultimately funnel through.
 
-## "Also replace elsewhere" — matches differently for a template row
+## "Also replace elsewhere" — page/home/core rows only; a template row never propagates
 
-For a `landing`/`home` row, propagating an edit to other pages that share the same photo works by
-**exact file match** (`picdrop_matching_slots()`) — those pages currently hold the literal same
-filename, so finding them is a value comparison.
+For a `landing`/`home`/`core` row, propagating an edit to other pages that share the same photo works
+by **exact file match**: `picdrop_matching_slots()` (any slot, any scope) and
+`picdrop_template_matches()` (other templates) both find anything currently holding the literal same
+filename, and `pd_commit()` (`admin/picdrop_api.php`) writes the new value into all of them too when
+`propagate=1`.
 
-That doesn't work for a `template` row, because by the time a template's cities have been built,
-per-city differentiation has already made every page's photo its own distinct file (deliberate —
-keeps every domain's images unique for search engines). Matching a template edit to its built pages
-by file-value would find zero matches even though the pages are genuinely "built from this
-template." `picdrop_pages_for_template($templateId, $templateBlockIndex, $field)`
-(`includes/picdrop.php`) solves this differently: it matches by **block TYPE + ordinal position**
-within the template (the Nth block of type X), then finds the same Nth occurrence of that type on
-each real page built from that template — structural identity, not byte identity.
-`picdrop_template_matches()`/`picdrop_matching_slots()` route to this function specifically when the
-edit's scope is `template`.
+**A `template`-scope edit never propagates, full stop** — `pd_commit()` skips this entire block when
+`$parts['scope'] === 'template']`, regardless of whether `propagate` was sent. One Pic Drop action
+(upload/generate/adjust) on a template touches exactly the one field it was run on. The "Also replace
+elsewhere" checkbox is never even rendered for a template row (`$propShow` is hardcoded `false` there
+in `admin/tabs/picdrop.php`).
+
+This used to be more clever and much more dangerous. A template row once got the EXACT SAME
+byte-identical matchers page rows use — meaning editing one template could silently reach into ANY
+OTHER template that happened to share the same current photo. A real incident, not a theoretical one:
+templates commonly share a generic starting photo before each is individually customized, so checking
+the then-default-ON "also replace elsewhere" box on ONE template — normal, expected use — silently
+overwrote seven *unrelated* mold-removal templates (crawl space, basement, bathroom, kitchen, carpet,
+garage, drywall) that still happened to share that starting photo, with the checkbox's own label
+("Also replace on this template's N existing pages") giving no hint that anything beyond that one
+template was about to change. An intermediate fix scoped the byte-identical matchers to non-template
+edits while keeping a narrower, structurally-matched mechanism (`picdrop_pages_for_template()` — "find
+this template's own already-built pages by block type + ordinal position, not by file value") for
+pushing a template edit down to its built pages. That mechanism was itself removed on request —
+template edits are now single-slot across the board, with no propagation of any kind, by design.
 
 ## What Pic Drop does NOT touch
 

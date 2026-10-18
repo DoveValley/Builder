@@ -64,18 +64,6 @@
                 }
             }
 
-            // How many already-built pages exist for each template — what a template row's
-            // own "also replace" checkbox counts, since matching by current file value
-            // would find nothing once a page's photo has its own differentiated copy.
-            $pdPagesByTemplate = [];
-            if (defined('PAGES_DIR')) {
-                foreach ((glob(PAGES_DIR . '*.json') ?: []) as $f) {
-                    $p = json_decode((string) @file_get_contents($f), true);
-                    $tid = is_array($p) ? (string) ($p['template_id'] ?? '') : '';
-                    if ($tid !== '') $pdPagesByTemplate[$tid] = ($pdPagesByTemplate[$tid] ?? 0) + 1;
-                }
-            }
-
             $pdTotal = 0;
             foreach ($pdRenderGroups as $g) { $pdTotal += count($g['slots']); }
 
@@ -170,16 +158,17 @@
                             <?php foreach ($g['slots'] as $s): ?>
                                 <?php
                                 $sid = 'pds' . md5($s['key']);
-                                // A template row's "also replace" means something different from a page
-                                // row's: not "who else currently holds this exact file" (nobody does, once
-                                // a page has its own differentiated copy) but "how many pages were built
-                                // from this template" — see picdrop_pages_for_template()'s docblock.
+                                // A template row never offers "also replace elsewhere" at all — one Pic
+                                // Drop action on a template touches exactly that one field, nothing else
+                                // (see docs/pic-drop-image-management.md's "Also replace elsewhere"
+                                // section for why: the byte-identical matchers this checkbox used to
+                                // drive for a page row would, for a template row, just as easily match
+                                // and overwrite an unrelated template that happens to share the same
+                                // starting photo — which is exactly what happened).
                                 if ($g['scope'] === 'template') {
-                                    $tplPageCount = $pdPagesByTemplate[$s['page_id']] ?? 0;
                                     $shared = $tplHits = 0;
-                                    $propShow = $tplPageCount > 0;
+                                    $propShow = false;
                                 } else {
-                                    $tplPageCount = 0;
                                     $shareKey = $s['value'] . '|' . picdrop_leaf($s['field']);
                                     $shared   = $pdShared[$shareKey] ?? 1;
                                     $tplHits  = $pdTpl[$shareKey] ?? 0;
@@ -272,19 +261,16 @@
                                             <div class="hint" style="margin-top:7px;">Decorative background &mdash; no alt text.</div>
                                         <?php endif; ?>
 
-                                        <?php if ($propShow): ?>
+                                        <?php // $propShow is always false for a template row — see above.
+                                        if ($propShow): ?>
                                             <label class="hint" style="display:flex;align-items:center;gap:6px;margin-top:6px;">
                                                 <input type="checkbox" class="pd-prop" checked>
-                                                <?php if ($g['scope'] === 'template'): ?>
-                                                    Also replace on this template's <strong><?= $tplPageCount ?></strong> existing page<?= $tplPageCount === 1 ? '' : 's' ?>
-                                                <?php else: ?>
-                                                    Also replace
-                                                    <?php if ($shared > 1): ?>
-                                                        on the other <?= $shared - 1 ?> page<?= $shared - 1 === 1 ? '' : 's' ?> using this same picture here<?= $tplHits ? ',' : '' ?>
-                                                    <?php endif; ?>
-                                                    <?php if ($tplHits): ?>
-                                                        <?= $shared > 1 ? 'and in' : 'in' ?> <?= $tplHits ?> landing template<?= $tplHits === 1 ? '' : 's' ?> (or a regen puts the old one back)
-                                                    <?php endif; ?>
+                                                Also replace
+                                                <?php if ($shared > 1): ?>
+                                                    on the other <?= $shared - 1 ?> page<?= $shared - 1 === 1 ? '' : 's' ?> using this same picture here<?= $tplHits ? ',' : '' ?>
+                                                <?php endif; ?>
+                                                <?php if ($tplHits): ?>
+                                                    <?= $shared > 1 ? 'and in' : 'in' ?> <?= $tplHits ?> landing template<?= $tplHits === 1 ? '' : 's' ?> (or a regen puts the old one back)
                                                 <?php endif; ?>
                                             </label>
                                         <?php endif; ?>
@@ -304,23 +290,31 @@
                                         // and says nothing about the subject, which is exactly why a generic
                                         // default led the model to invent unrelated equipment instead of the
                                         // vehicle that belonged in frame.
-                                        $subjectDesc = trim($s['alt']) !== '' ? $s['alt'] : ($s['block_label'] . ' — ' . $s['label']);
+                                        $subjectFallback = $s['block_label'] . ' — ' . $s['label'];
+                                        $subjectDesc = trim($s['alt']) !== '' ? $s['alt'] : $subjectFallback;
                                         // Alt text carries {city}/{SS}-style shortcodes meant for the page
-                                        // render, not an image prompt — strip them so the model isn't handed
-                                        // literal curly-brace text to puzzle over.
-                                        $subjectDesc = trim((string) preg_replace('/\s*\{[a-z_]+\}/i', '', $subjectDesc));
-                                        $subjectDesc = trim((string) preg_replace('/,\s*$/', '', $subjectDesc));
-                                        $subjectDesc = trim((string) preg_replace('/\bin\s*$/i', '', $subjectDesc));
-                                        // An alt text that is NOTHING but shortcodes and connector words (e.g.
-                                        // the bare "{service} in {city}, {SS}" placeholder a page sometimes has
-                                        // when it was never given a real written description) strips all the
-                                        // way down to empty, which left the prompt reading "Same picture, for:
-                                        // — keep the exact same scene..." — a broken sentence naming no subject
-                                        // at all right before telling the model to replace/remove/vary it. Same
-                                        // fallback as when alt was empty to begin with, just applied after
-                                        // cleanup can ALSO produce empty, not only before it.
-                                        if ($subjectDesc === '') {
-                                            $subjectDesc = $s['block_label'] . ' — ' . $s['label'];
+                                        // render, not an image prompt. Only a TRAILING run of them is safe to
+                                        // strip — e.g. "...beside a marked service van in {city}, {SS}" — since
+                                        // that's genuinely just a location suffix bolted onto a real
+                                        // description. Peeled one clause at a time (so "in {city}, {SS}" — two
+                                        // clauses — fully clears) rather than matching the whole tail in one
+                                        // shot.
+                                        do {
+                                            $before = $subjectDesc;
+                                            $subjectDesc = trim((string) preg_replace('/\s*,?\s*(\bin\s+)?\{[a-z_]+\}\s*$/i', '', $subjectDesc));
+                                        } while ($subjectDesc !== $before && $subjectDesc !== '');
+                                        // A token that's NOT at the end isn't decoration — it's the sentence's
+                                        // actual subject (e.g. "performing {service} in a {city_state} home"),
+                                        // and deleting it mid-sentence used to leave a mangled fragment like
+                                        // "technician performing in a home": grammatical, but with the one real
+                                        // piece of information (what service) silently gone, which read to the
+                                        // model as vaguer and less anchored than the real alt text. A string
+                                        // that's nothing but tokens ("{service} in {city}, {SS}") strips all the
+                                        // way to empty via the loop above. Either way, falling back to the
+                                        // generic label beats handing the model literal curly-brace text or a
+                                        // sentence missing its own subject.
+                                        if ($subjectDesc === '' || preg_match('/\{[a-z_]+\}/i', $subjectDesc)) {
+                                            $subjectDesc = $subjectFallback;
                                         }
                                         // Six full prompts, one per mode — not one default with clauses bolted
                                         // on for the others, since each mode's subject/intent is different
@@ -389,34 +383,33 @@
                                                          exactly one of the seven is always selected, "Add/ensure
                                                          technician" pre-selected, so there's no "nothing picked"
                                                          state to special-case. */ ?>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:6px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="tech" checked onchange="pdSetPromptMode('<?= $sid ?>','tech')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">1.</span> Add/ensure technician
+                                                <?php
+                                                // One fixed-width number column (monospace digits are already
+                                                // equal-width, but "1." through "7." still need a shared min-width
+                                                // so every row's text starts at the same x position) followed by
+                                                // the label text in its OWN span glued directly next to it — two
+                                                // siblings inside one flex row used to let the number vertically
+                                                // CENTER against the whole label whenever the text wrapped to a
+                                                // second line (the three longer labels, at this column's width),
+                                                // which read as the number floating apart from "the first line"
+                                                // instead of sitting directly beside it. align-items:flex-start
+                                                // plus the number/text pair sharing one line-box fixes both.
+                                                $pdModes = [
+                                                    ['tech', '1.', 'Add/ensure technician', true],
+                                                    ['notech', '2.', 'No technician', false],
+                                                    ['bare', '3.', 'No technician, no equipment', false],
+                                                    ['newperson', '4.', 'Different person', false],
+                                                    ['vary', '5.', 'Subtle variation', false],
+                                                    ['varybg', '6.', 'Subtle variation, change background color', false],
+                                                    ['custom', '7.', 'Custom instruction', false],
+                                                ];
+                                                foreach ($pdModes as [$modeVal, $modeNum, $modeLabel, $modeChecked]):
+                                                ?>
+                                                <label class="hint" style="display:flex;align-items:flex-start;gap:5px;margin-top:<?= $modeChecked ? '6' : '3' ?>px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="<?= $modeVal ?>" <?= $modeChecked ? 'checked ' : '' ?>onchange="pdSetPromptMode('<?= $sid ?>','<?= $modeVal ?>')" style="margin-top:1px;">
+                                                    <span><span style="font-family:monospace;color:#94a3b8;display:inline-block;min-width:13px;"><?= $modeNum ?></span><?= h($modeLabel) ?></span>
                                                 </label>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="notech" onchange="pdSetPromptMode('<?= $sid ?>','notech')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">2.</span> No technician
-                                                </label>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="bare" onchange="pdSetPromptMode('<?= $sid ?>','bare')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">3.</span> No technician, no equipment
-                                                </label>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="newperson" onchange="pdSetPromptMode('<?= $sid ?>','newperson')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">4.</span> Different person
-                                                </label>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="vary" onchange="pdSetPromptMode('<?= $sid ?>','vary')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">5.</span> Subtle variation
-                                                </label>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="varybg" onchange="pdSetPromptMode('<?= $sid ?>','varybg')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">6.</span> Subtle variation, change background color
-                                                </label>
-                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
-                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="custom" onchange="pdSetPromptMode('<?= $sid ?>','custom')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">7.</span> Custom instruction
-                                                </label>
+                                                <?php endforeach; ?>
                                                 <?php endif; ?>
                                                 <div id="<?= $sid ?>_ai_btnrow" style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
                                                     <span class="hint" style="font-size:.7rem;">est. ~$0.04/try</span>

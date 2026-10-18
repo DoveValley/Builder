@@ -11,7 +11,7 @@
         "city_slug": "lufkin-tx",
         "zip": "75901",
         "tags": [
-            "lufkin-demo"
+            "first-city-site-view"
         ],
         "market_blurb": "Lufkin, Texas serves as the commercial and healthcare hub of Deep East Texas, historically anchored by the timber and forestry industry that still shapes the regional economy. Manufacturing, led by legacy firms like Lufkin Industries, and healthcare services through CHI St. Luke's Health Memorial Lufkin provide major employment. The city also functions as a retail and education center for surrounding Angelina County and neighboring rural communities.",
         "local_note": "Lufkin sits in a humid subtropical climate zone with consistently high humidity year-round, not just during storms, due to its dense East Texas pine forest surroundings. Many older and rural homes in the area use crawl space foundations rather than basements, and combined with the persistent moisture, this creates conditions conducive to mold growth beneath and within structures.",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/mold-remediation-provider-treating-ceiling-mold.webp",
+            "hs_photo": "sites/mold-site/uploads/media/mold-on-ceiling_ca3e9d.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-treating-ceiling.webp",
+            "it_photo": "sites/mold-site/uploads/media/mold-ceiling_806efd.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -374,6 +374,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -404,7 +416,7 @@
     "seo": {
         "seo_title": "Ceiling Mold Removal in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/ceiling-mold-removal-lufkin-tx/",
-        "meta_description": "Ceilings can develop hidden moisture from roof leaks, condensation, or poor attic ventilation, creating conditions where mold can take hold. Serving {city_state}. Call {phone}.",
+        "meta_description": "Ceiling mold removal clears growth caused by roof leaks, condensation, or poor attic ventilation. Serving {city_state}. Call {phone}.",
         "meta_keywords": "ceiling mold remediation Lufkin, ceiling mold treatment Lufkin, mold on ceiling Lufkin, ceiling mold removal near me Lufkin",
         "og_title": "Ceiling Mold Removal in {city_state} | {business}",
         "og_description": "Ceiling Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
@@ -416,11 +428,11 @@
         "bc_label": "Ceiling Mold Removal",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Mold Removal\",\n    \"name\": \"Ceiling Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Ceiling Mold Removal in Lufkin, TX — ceiling mold removal and moisture control for ceilings.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Ceiling Mold Removal\",\n    \"name\": \"Ceiling Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Ceiling Mold Removal in Lufkin, TX \\u2014 ceiling mold removal and moisture control for ceilings.\"\n}",
         "primary_keyword": "Ceiling Mold Removal",
         "secondary_keywords": "mold on ceiling, ceiling mold remediation, mold on ceiling from a leak, ceiling mold treatment, bathroom ceiling mold"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T00:53:33+00:00",
-    "template_version": "c58977d7a25fd469d3d56b2111eb92c3"
+    "generated_at": "2026-10-18T18:13:48+00:00",
+    "template_version": "df7e21ca8b6af625f570e4112f292d94"
 }

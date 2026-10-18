@@ -11,7 +11,7 @@
         "city_slug": "lufkin-tx",
         "zip": "75901",
         "tags": [
-            "lufkin-demo"
+            "first-city-site-view"
         ],
         "market_blurb": "Lufkin, Texas serves as the commercial and healthcare hub of Deep East Texas, historically anchored by the timber and forestry industry that still shapes the regional economy. Manufacturing, led by legacy firms like Lufkin Industries, and healthcare services through CHI St. Luke's Health Memorial Lufkin provide major employment. The city also functions as a retail and education center for surrounding Angelina County and neighboring rural communities.",
         "local_note": "Lufkin sits in a humid subtropical climate zone with consistently high humidity year-round, not just during storms, due to its dense East Texas pine forest surroundings. Many older and rural homes in the area use crawl space foundations rather than basements, and combined with the persistent moisture, this creates conditions conducive to mold growth beneath and within structures.",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/black-mold-removal-lufkin-tx__tpl_black_mold_removal_city_lufkin_tx_93f84e7c.webp",
+            "hs_photo": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall-lufkin-tx.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -483,6 +483,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -513,11 +525,11 @@
     "seo": {
         "seo_title": "Black Mold Removal in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/black-mold-removal-lufkin-tx/",
-        "meta_description": "Dark mold species thrive in damp conditions and require specialized assessment before remediation begins. Serving {city_state}. Call {phone}.",
+        "meta_description": "Black mold removal requires specialized assessment, since dark mold species thrive fast in damp conditions. Serving {city_state}. Call {phone}.",
         "meta_keywords": "black mold clean up Lufkin, black mold mitigation Lufkin, black mold remediation Lufkin, toxic mold removal Lufkin",
         "og_title": "Black Mold Removal in {city_state} | {business}",
         "og_description": "Black Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall.webp",
+        "og_image": "sites/mold-site/uploads/media/ai_bd09e3_8c5ef2.webp",
         "service_name": "Black Mold Removal",
         "service_type": "Black Mold Removal",
         "service_area": "{city_state} and surrounding areas",
@@ -525,11 +537,11 @@
         "bc_label": "Black Mold Removal",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Black Mold Removal\",\n    \"name\": \"Black Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Black Mold Removal in Lufkin, TX — safe containment and removal of toxic black mold.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Black Mold Removal\",\n    \"name\": \"Black Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Black Mold Removal in Lufkin, TX \\u2014 safe containment and removal of toxic black mold.\"\n}",
         "primary_keyword": "Black Mold Removal",
         "secondary_keywords": "black mold clean up, black mold mitigation, black mold remediation, toxic mold removal, black mold in shower, black mold removal near me"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T00:53:30+00:00",
-    "template_version": "d28e59d8d0977768a2f57156c2377129"
+    "generated_at": "2026-10-18T18:13:47+00:00",
+    "template_version": "ddb0d135c6b45dad50ad3ecf82bd4d74"
 }

@@ -11,7 +11,7 @@
         "city_slug": "lufkin-tx",
         "zip": "75901",
         "tags": [
-            "lufkin-demo"
+            "first-city-site-view"
         ],
         "market_blurb": "Lufkin, Texas serves as the commercial and healthcare hub of Deep East Texas, historically anchored by the timber and forestry industry that still shapes the regional economy. Manufacturing, led by legacy firms like Lufkin Industries, and healthcare services through CHI St. Luke's Health Memorial Lufkin provide major employment. The city also functions as a retail and education center for surrounding Angelina County and neighboring rural communities.",
         "local_note": "Lufkin sits in a humid subtropical climate zone with consistently high humidity year-round, not just during storms, due to its dense East Texas pine forest surroundings. Many older and rural homes in the area use crawl space foundations rather than basements, and combined with the persistent moisture, this creates conditions conducive to mold growth beneath and within structures.",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/air-duct-mold-removal-provider-inspecting-ductwork.webp",
+            "hs_photo": "sites/mold-site/uploads/media/air-duct-cleaning_608aa8.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/air-duct-mold-removal-specialist-cleaning-ductwork.webp",
+            "it_photo": "sites/mold-site/uploads/media/how-to-clean-mold-from-ac_6f0eae.webp",
             "it_alt": "A local provider performing {service} in a {city_state} home's air duct system, arranged through {business}",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -374,6 +374,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -404,7 +416,7 @@
     "seo": {
         "seo_title": "Air Duct Mold Removal in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/air-duct-mold-removal-lufkin-tx/",
-        "meta_description": "HVAC systems trap dust, moisture, and condensation that can allow mold to develop inside air ducts, sometimes going unnoticed until it affects indoor air. Serving {city_state}. Call {phone}.",
+        "meta_description": "Air duct mold removal clears growth that develops from trapped dust, moisture, and HVAC condensation. Serving {city_state}. Call {phone}.",
         "meta_keywords": "air duct mold removal Lufkin, air duct mold remediation Lufkin, mold in air ducts Lufkin, air duct mold cleaning near me Lufkin",
         "og_title": "Air Duct Mold Removal in {city_state} | {business}",
         "og_description": "Air Duct Mold Removal in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
@@ -416,11 +428,11 @@
         "bc_label": "Air Duct Mold Removal",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Air Duct Mold Removal\",\n    \"name\": \"Air Duct Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Air Duct Mold Removal in Lufkin, TX — air duct mold removal and indoor air quality support.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Air Duct Mold Removal\",\n    \"name\": \"Air Duct Mold Removal in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Air Duct Mold Removal in Lufkin, TX \\u2014 air duct mold removal and indoor air quality support.\"\n}",
         "primary_keyword": "Air Duct Mold Removal",
         "secondary_keywords": "mold in air ducts, hvac mold removal, mold in air vents, air duct mold remediation, ac duct mold cleaning"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T00:53:33+00:00",
-    "template_version": "a77194b09786c0ab034ec480a4e105e1"
+    "generated_at": "2026-10-18T18:13:49+00:00",
+    "template_version": "94e8ecb6db4cb2083d3631bea2d74d0c"
 }

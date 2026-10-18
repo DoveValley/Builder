@@ -11,7 +11,7 @@
         "city_slug": "lufkin-tx",
         "zip": "75901",
         "tags": [
-            "lufkin-demo"
+            "first-city-site-view"
         ],
         "market_blurb": "Lufkin, Texas serves as the commercial and healthcare hub of Deep East Texas, historically anchored by the timber and forestry industry that still shapes the regional economy. Manufacturing, led by legacy firms like Lufkin Industries, and healthcare services through CHI St. Luke's Health Memorial Lufkin provide major employment. The city also functions as a retail and education center for surrounding Angelina County and neighboring rural communities.",
         "local_note": "Lufkin sits in a humid subtropical climate zone with consistently high humidity year-round, not just during storms, due to its dense East Texas pine forest surroundings. Many older and rural homes in the area use crawl space foundations rather than basements, and combined with the persistent moisture, this creates conditions conducive to mold growth beneath and within structures.",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/mold-mitigation-lufkin-tx__tpl_mold_mitigation_city_lufkin_tx_1cfd95c0.webp",
+            "hs_photo": "sites/mold-site/uploads/media/ai_3cd24e_475186.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-remediation-technician-cleaning-moldy-wall-lufkin-tx.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_4c2421_50dd66.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -458,6 +458,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -488,7 +500,7 @@
     "seo": {
         "seo_title": "Mold Mitigation in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/mold-mitigation-lufkin-tx/",
-        "meta_description": "Controlling moisture reduces the conditions that allow mold colonies to establish and persist indoors. Serving {city_state}. Call {phone}.",
+        "meta_description": "Mold mitigation controls moisture so conditions that let mold colonies establish and spread are removed. Serving {city_state}. Call {phone}.",
         "meta_keywords": "mold mitigation services Lufkin, mold mitigation company Lufkin, emergency mold mitigation Lufkin, mold containment Lufkin",
         "og_title": "Mold Mitigation in {city_state} | {business}",
         "og_description": "Mold Mitigation in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
@@ -500,11 +512,11 @@
         "bc_label": "Mold Mitigation",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Mitigation\",\n    \"name\": \"Mold Mitigation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Mitigation in Lufkin, TX — emergency containment and moisture control to stop mold from spreading.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Mold Mitigation\",\n    \"name\": \"Mold Mitigation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Mold Mitigation in Lufkin, TX \\u2014 emergency containment and moisture control to stop mold from spreading.\"\n}",
         "primary_keyword": "Mold Mitigation",
         "secondary_keywords": "mold mitigation services, mold mitigation company, emergency mold mitigation, mold containment, mold remediation vs mitigation"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T00:53:31+00:00",
-    "template_version": "4f68412dc7437ad0d0fe21f902cd147e"
+    "generated_at": "2026-10-18T18:13:47+00:00",
+    "template_version": "eaf165934f35ec1f35e692133eaa1304"
 }

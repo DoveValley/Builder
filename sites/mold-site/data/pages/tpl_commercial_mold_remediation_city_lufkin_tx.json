@@ -11,7 +11,7 @@
         "city_slug": "lufkin-tx",
         "zip": "75901",
         "tags": [
-            "lufkin-demo"
+            "first-city-site-view"
         ],
         "market_blurb": "Lufkin, Texas serves as the commercial and healthcare hub of Deep East Texas, historically anchored by the timber and forestry industry that still shapes the regional economy. Manufacturing, led by legacy firms like Lufkin Industries, and healthcare services through CHI St. Luke's Health Memorial Lufkin provide major employment. The city also functions as a retail and education center for surrounding Angelina County and neighboring rural communities.",
         "local_note": "Lufkin sits in a humid subtropical climate zone with consistently high humidity year-round, not just during storms, due to its dense East Texas pine forest surroundings. Many older and rural homes in the area use crawl space foundations rather than basements, and combined with the persistent moisture, this creates conditions conducive to mold growth beneath and within structures.",
@@ -195,7 +195,7 @@
             "hs_photo_alt": "{service} in {city}, {SS}",
             "hs_image_side": "right",
             "hs_bg_color": "#eef4fb",
-            "hs_photo": "sites/mold-site/uploads/media/commercial-mold-remediation-lufkin-tx__tpl_commercial_mold_remediation_city_lufkin_tx_eb4fb7ea.webp",
+            "hs_photo": "sites/mold-site/uploads/media/ai_8d5880_8a167e.webp",
             "hs_bg_photo": "",
             "hs_mobile_order": "img_first",
             "ai_type_id": "hero_subtext",
@@ -223,7 +223,7 @@
             "ai_mode": "standalone",
             "ai_render_as": "image_text",
             "it_image_side": "left",
-            "it_photo": "sites/mold-site/uploads/media/mold-removal-protective-suit-scrubbing-wall-lufkin-tx.webp",
+            "it_photo": "sites/mold-site/uploads/media/ai_abeace_926bdc.webp",
             "it_alt": "{business} technician performing {service} in a {city_state} home",
             "ai_inject_target": null,
             "ai_inject_field": null,
@@ -483,6 +483,18 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "cards",
+            "cards_label": "Homeowner Safety Toolkit",
+            "cards_heading": "Verify Your {city_state} Mold Remediation Company",
+            "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+            "cards_cols": 3,
+            "cards_centered": true,
+            "cards_accent": "accent",
+            "cards_items": "@safety_toolkit_default",
+            "anchor": "safety-toolkit",
+            "id": "cards_safety_toolkit"
+        },
+        {
             "type": "cta_banner",
             "cb_text": "Dealing with {service} in {city_state}? Call {phone} for 24/7 help.",
             "cb_subtext": "",
@@ -513,11 +525,11 @@
     "seo": {
         "seo_title": "Commercial Mold Remediation in {city_state} | {business_short}",
         "canonical_url": "https://m.q111.xyz/commercial-mold-remediation-lufkin-tx/",
-        "meta_description": "Businesses face operational disruptions and liability concerns when mold contaminates facilities. Serving {city_state}. Call {phone}.",
+        "meta_description": "Commercial mold remediation limits operational disruption and liability when mold contaminates a facility. Serving {city_state}. Call {phone}.",
         "meta_keywords": "commercial mold removal Lufkin, business mold remediation Lufkin, office mold removal Lufkin, commercial mold removal near me Lufkin",
         "og_title": "Commercial Mold Remediation in {city_state} | {business}",
         "og_description": "Commercial Mold Remediation in {city_state} — fast, local response. Call {phone} to connect with a local provider.",
-        "og_image": "sites/mold-site/uploads/media/residential-mold-remediation-home-exterior.webp",
+        "og_image": "sites/mold-site/uploads/media/ai_8d5880_8a167e.webp",
         "service_name": "Commercial Mold Remediation",
         "service_type": "Commercial Mold Remediation",
         "service_area": "{city_state} and surrounding areas",
@@ -525,11 +537,11 @@
         "bc_label": "Commercial Mold Remediation",
         "bc_mid_label": "",
         "bc_mid_url": "",
-        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Commercial Mold Remediation\",\n    \"name\": \"Commercial Mold Remediation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"Organization\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Commercial Mold Remediation in Lufkin, TX — mold remediation for offices, retail, and multi-unit commercial properties.\"\n}",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Commercial Mold Remediation\",\n    \"name\": \"Commercial Mold Remediation in Lufkin, TX\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"Lufkin\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"https://m.q111.xyz/#localbusiness\",\n        \"name\": \"Elk Mold Pros\",\n        \"telephone\": \"+19365550100\",\n        \"url\": \"https://m.q111.xyz\"\n    },\n    \"description\": \"Commercial Mold Remediation in Lufkin, TX \\u2014 mold remediation for offices, retail, and multi-unit commercial properties.\"\n}",
         "primary_keyword": "Commercial Mold Remediation",
         "secondary_keywords": "commercial mold removal, business mold remediation, office mold removal, commercial mold removal near me, apartment building mold remediation, restaurant mold removal, warehouse mold remediation, retail store mold remediation, school mold remediation, property manager mold remediation, landlord mold remediation"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-16T00:53:30+00:00",
-    "template_version": "1840f0f4b52ae4a8b8503f5a888a444e"
+    "generated_at": "2026-10-18T18:13:47+00:00",
+    "template_version": "263e3dd4ba0fa1093cee4c0376d99c3a"
 }
