@@ -154,13 +154,16 @@
                 <div class="card pd-group" data-search="<?= h(strtolower($g['title'] . ' ' . $g['sub'])) ?>" style="padding:0;overflow:hidden;">
                     <button type="button" class="pd-head" onclick="pdToggle('<?= $gid ?>')"
                             style="width:100%;display:flex;align-items:center;gap:10px;padding:12px 16px;background:none;border:0;cursor:pointer;text-align:left;">
-                        <span id="<?= $gid ?>_caret" style="color:#6b7280;font-size:.8rem;width:12px;">&#9654;</span>
+                        <span id="<?= $gid ?>_caret" style="color:#6b7280;font-size:.8rem;width:12px;">&#9660;</span>
                         <span style="font-weight:600;color:#1e3a5f;"><?= h($g['title']) ?></span>
                         <span class="hint" style="flex:1;"><?= h($g['sub']) ?></span>
                         <span class="hint" style="white-space:nowrap;"><?= count($g['slots']) ?> picture<?= count($g['slots']) === 1 ? '' : 's' ?></span>
                     </button>
 
-                    <div id="<?= $gid ?>" class="pd-body" style="display:none;border-top:1px solid #e5e7eb;padding:8px 16px 16px;">
+                    <?php // Open by default on page load — Scott comes in to work through
+                          // every slot, not to browse titles, so "collapsed" was just an
+                          // extra click on every single group, every single visit. ?>
+                    <div id="<?= $gid ?>" class="pd-body" style="border-top:1px solid #e5e7eb;padding:8px 16px 16px;">
                         <?php if (!$g['slots']): ?>
                             <p class="hint" style="margin:10px 0 0;">No pictures on this page.</p>
                         <?php else: ?>
@@ -308,16 +311,24 @@
                                         $subjectDesc = trim((string) preg_replace('/\s*\{[a-z_]+\}/i', '', $subjectDesc));
                                         $subjectDesc = trim((string) preg_replace('/,\s*$/', '', $subjectDesc));
                                         $subjectDesc = trim((string) preg_replace('/\bin\s*$/i', '', $subjectDesc));
-                                        // Four full prompts, one per mode — not one default with clauses bolted
-                                        // on for the other three, since each mode's subject/intent is different
+                                        // Six full prompts, one per mode — not one default with clauses bolted
+                                        // on for the others, since each mode's subject/intent is different
                                         // enough that a shared sentence fought itself (a "no technician" clause
-                                        // appended to a sentence whose subject IS a technician, etc). All four
+                                        // appended to a sentence whose subject IS a technician, etc). All six
                                         // are written as edits of the current photo (see the reference checkbox
-                                        // below, always on), so each opens by anchoring to "the same scene."
+                                        // below, always on), so each opens by anchoring to "the same scene." A
+                                        // seventh mode, "Custom", has no canned text of its own at all — it
+                                        // clears the box for a hand-typed instruction instead (see
+                                        // pdSetPromptMode()'s 'custom' case below).
                                         $aiPromptTech = 'Photorealistic photo for: ' . $subjectDesc . '. Keep the same scene and equipment. Make sure a technician is in the shot, genuinely working — not posed, not looking at the camera, focused on the tool or equipment. Their head, hands, and the equipment must all be visible in frame. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
                                         $aiPromptNoTech = 'Similar picture, for: ' . $subjectDesc . ' — keep the same scene and equipment, with only a very subtle change in camera angle. Remove the technician entirely — just the equipment and surroundings. The equipment must be fully visible in frame, not cropped off. Wide or medium-wide shot, with margin around the equipment since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
+                                        // No subject description here either, same reasoning as "vary" below —
+                                        // this mode REMOVES the equipment, so naming it (the way $aiPromptNoTech
+                                        // safely can, since that mode KEEPS it) would ask the model to remove and
+                                        // keep the same thing in one prompt. See picdrop_bare_scene_prompt().
+                                        $aiPromptBare = picdrop_bare_scene_prompt();
                                         $aiPromptNewPerson = 'Same picture, for: ' . $subjectDesc . ' — keep the exact same scene, composition, and equipment. Replace whoever\'s in the shot with a different-looking person in the same role. The person and the equipment must both be fully visible in frame, not cropped off. Wide or medium-wide shot, with margin around the subject since this will be cropped to fit its slot. Bright, natural daylight. No visible text or logos.';
-                                        // No subject description here, deliberately — unlike the other three,
+                                        // No subject description here, deliberately — unlike the others,
                                         // this mode isn't adding, removing, or changing anything, so naming the
                                         // equipment/subject just gives the model something to act on instead of
                                         // leave alone. Found by testing: restating "keep the equipment exactly"
@@ -326,6 +337,12 @@
                                         // The same applied to the generic nouns themselves - see
                                         // picdrop_vary_prompt() for why the text now names nothing at all.
                                         $aiPromptVary = picdrop_vary_prompt();
+                                        // "Vary" plus one explicit change — its own prompt, not vary's text
+                                        // with a clause appended, since vary's own wording ("everything stays
+                                        // exactly as it is, nothing new is added") would directly contradict
+                                        // an instruction to recolor the background tacked on after it. See
+                                        // picdrop_vary_bg_prompt().
+                                        $aiPromptVaryBg = picdrop_vary_bg_prompt();
                                         ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
@@ -340,12 +357,15 @@
                                                 <textarea id="<?= $sid ?>_ai_prompt" rows="4"
                                                           data-prompt-tech="<?= h($aiPromptTech) ?>"
                                                           data-prompt-notech="<?= h($aiPromptNoTech) ?>"
+                                                          data-prompt-bare="<?= h($aiPromptBare) ?>"
                                                           data-prompt-newperson="<?= h($aiPromptNewPerson) ?>"
                                                           data-prompt-vary="<?= h($aiPromptVary) ?>"
+                                                          data-prompt-varybg="<?= h($aiPromptVaryBg) ?>"
+                                                          placeholder="Describe the one change you want, e.g. &quot;make the wall purple instead of white&quot;"
                                                           style="width:100%;font-size:.74rem;padding:6px 7px;border:1px solid #d1d5db;border-radius:5px;box-sizing:border-box;resize:vertical;"><?= h($aiPromptTech) ?></textarea>
                                                 <?php if ($s['value'] !== '' && $s['exists']): ?>
                                                 <?php /* Always on, not optional, whenever there's a photo to
-                                                         reference — all four modes below are edits of the existing
+                                                         reference — all seven modes below are edits of the existing
                                                          photo, not from-scratch generations, so there's no mode
                                                          where skipping the reference makes sense. Left visible
                                                          (checked + disabled) rather than removed so it's still
@@ -355,24 +375,36 @@
                                                     Using current photo as reference
                                                 </label>
                                                 <?php /* A real radio group, not checkboxes faking exclusivity —
-                                                         exactly one of the four is always selected, "Technician"
-                                                         pre-selected, so there's no "nothing picked" state to
-                                                         special-case. */ ?>
+                                                         exactly one of the seven is always selected, "Add/ensure
+                                                         technician" pre-selected, so there's no "nothing picked"
+                                                         state to special-case. */ ?>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:6px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="tech" checked onchange="pdSetPromptMode('<?= $sid ?>','tech')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">1.</span> Technician
+                                                    <span style="font-family:monospace;color:#94a3b8;">1.</span> Add/ensure technician
                                                 </label>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="notech" onchange="pdSetPromptMode('<?= $sid ?>','notech')">
                                                     <span style="font-family:monospace;color:#94a3b8;">2.</span> No technician
                                                 </label>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="bare" onchange="pdSetPromptMode('<?= $sid ?>','bare')">
+                                                    <span style="font-family:monospace;color:#94a3b8;">3.</span> No technician, no equipment
+                                                </label>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="newperson" onchange="pdSetPromptMode('<?= $sid ?>','newperson')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">3.</span> Different person
+                                                    <span style="font-family:monospace;color:#94a3b8;">4.</span> Different person
                                                 </label>
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="vary" onchange="pdSetPromptMode('<?= $sid ?>','vary')">
-                                                    <span style="font-family:monospace;color:#94a3b8;">4.</span> Subtle variation
+                                                    <span style="font-family:monospace;color:#94a3b8;">5.</span> Subtle variation
+                                                </label>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="varybg" onchange="pdSetPromptMode('<?= $sid ?>','varybg')">
+                                                    <span style="font-family:monospace;color:#94a3b8;">6.</span> Subtle variation, change background color
+                                                </label>
+                                                <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:3px;font-size:.7rem;">
+                                                    <input type="radio" name="<?= $sid ?>_ai_mode" value="custom" onchange="pdSetPromptMode('<?= $sid ?>','custom')">
+                                                    <span style="font-family:monospace;color:#94a3b8;">7.</span> Custom instruction
                                                 </label>
                                                 <?php endif; ?>
                                                 <div id="<?= $sid ?>_ai_btnrow" style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
@@ -760,17 +792,24 @@
                         });
                 });
 
-                // Swaps the prompt box to match whichever of the four radio options is
+                // Swaps the prompt box to match whichever of the seven radio options is
                 // selected — real radio inputs (one <input name> group), so the browser
-                // itself guarantees exactly one is ever selected, "Technician" pre-checked.
-                // Always overwrites the textarea on selection (rather than trying to detect
-                // a hand-edited prompt) since the box is a quick-start draft reviewed
-                // before Generate is ever clicked, not committed text.
+                // itself guarantees exactly one is ever selected, "Add/ensure technician"
+                // pre-checked. Always overwrites the textarea on selection (rather than
+                // trying to detect a hand-edited prompt) since the box is a quick-start
+                // draft reviewed before Generate is ever clicked, not committed text.
+                // "Custom" is the one exception to "overwrite with canned text" — it has
+                // none, so it clears the box instead (the placeholder attribute explains
+                // what to type) rather than leaving another mode's irrelevant boilerplate
+                // ("keep the same scene and equipment...") sitting there to be edited.
                 window.pdSetPromptMode = function (sid, which) {
                     var box = document.getElementById(sid + '_ai_prompt');
+                    if (which === 'custom') { box.value = ''; box.focus(); return; }
                     box.value = which === 'notech' ? box.dataset.promptNotech
+                        : which === 'bare' ? box.dataset.promptBare
                         : which === 'newperson' ? box.dataset.promptNewperson
                         : which === 'vary' ? box.dataset.promptVary
+                        : which === 'varybg' ? box.dataset.promptVarybg
                         : box.dataset.promptTech;
                 };
 
@@ -804,7 +843,7 @@
                     fd.append('key', key);
                     fd.append('prompt', prompt);
                     if (modeInput) fd.append('use_reference', '1');
-                    // Tells the server which of the four reference-edit instructions to
+                    // Tells the server which of the seven reference-edit instructions to
                     // append behind the scenes — the fixed "keep close to reference" suffix
                     // needs to say something different depending on which mode is selected,
                     // not the same thing every time.
@@ -826,7 +865,16 @@
 
                             var img = document.createElement('img');
                             img.src = '/' + d.url + '?t=' + Date.now();
-                            img.style.cssText = 'width:100%;max-height:220px;object-fit:cover;border-radius:6px;border:1px solid #d1d5db;display:block;';
+                            // Same data-full/data-name attributes every other thumbnail uses —
+                            // the page's one delegated click listener (document.addEventListener
+                            // on img[data-full]) opens the lightbox for any image carrying them,
+                            // no separate handler needed here. No data-which, so the lightbox's
+                            // Delete button stays hidden — this candidate isn't placed anywhere
+                            // yet, "Discard" below is its undo.
+                            img.setAttribute('data-full', '/' + d.url);
+                            img.setAttribute('data-name', d.filename);
+                            img.title = 'Click to view full size';
+                            img.style.cssText = 'width:100%;max-height:220px;object-fit:cover;border-radius:6px;border:1px solid #d1d5db;display:block;cursor:zoom-in;';
                             var row = document.createElement('div');
                             row.style.cssText = 'display:flex;gap:8px;margin-top:6px;';
                             var useBtn = document.createElement('button');

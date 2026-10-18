@@ -785,18 +785,78 @@ function picdrop_vary_prompt(): string {
 }
 
 /**
+ * "No technician, no equipment" mode's base prompt — names nothing specific in the
+ * scene, same reasoning as picdrop_vary_prompt(). Unlike "notech" (which keeps the
+ * equipment and can safely name it via $subjectDesc, since naming something you want
+ * KEPT reinforces that), this mode's whole point is REMOVING the equipment — naming it
+ * here would be asking the model to both remove it and keep it in the same prompt.
+ */
+function picdrop_bare_scene_prompt(): string {
+    return 'Similar picture of the same location, with only a very subtle change in camera '
+         . 'angle. Remove any technician or other person, AND all equipment, tools, and '
+         . 'vehicles, from the scene entirely — show only the plain, empty surroundings, as if '
+         . 'no job were in progress and no one were present. Wide or medium-wide shot. '
+         . 'Bright, natural daylight. No visible text or logos.';
+}
+
+/**
+ * "Subtle variation + background color" mode's base prompt — picdrop_vary_prompt()
+ * with one change, but NOT a clause bolted onto that text: the plain "vary" prompt's
+ * whole point is "everything stays exactly as it is and nothing new is added", which
+ * would directly contradict an instruction to recolor the background appended after
+ * it. This is its own prompt that says so up front instead.
+ */
+function picdrop_vary_bg_prompt(): string {
+    return 'Same photo, taken again from a very slightly different camera position, with the '
+         . 'background changed to a different color or setting. Everything else — the subject, '
+         . 'equipment, and composition — stays exactly as it is; only the viewpoint shifts a '
+         . 'little and the background changes. Nothing already in frame should end up cropped '
+         . 'off at the edges. No visible text or logos.';
+}
+
+/**
  * The full instruction sent with a reference edit: the prompt from the textarea plus
  * a mode-specific "stay close to the reference" suffix (mode = Pic Drop's radio
- * group: tech | notech | newperson | vary).
+ * group: tech | notech | bare | newperson | vary | varybg | custom).
  *
- * The shared suffix names equipment and vehicles on purpose for the three modes that
- * are ABOUT the scene's contents. "vary" gets a suffix with no nouns at all, for the
- * reason given on picdrop_vary_prompt() - naming a van to "keep" it is how a van
- * appeared in front of a house that never had one.
+ * The shared suffix names equipment and vehicles on purpose for the modes that are
+ * ABOUT the scene's contents while still wanting that equipment to stay put (tech,
+ * notech, newperson). "vary", "bare", "varybg", and "custom" each need their own
+ * suffix with no such nouns, for reasons that don't all point the same way: "vary"
+ * isn't changing anything at all, so naming a van to "keep" it is how a van appeared
+ * in front of a house that never had one (see picdrop_vary_prompt()); "bare" is
+ * actively REMOVING the equipment, so the shared "same equipment" clause would flatly
+ * contradict it; "varybg" is "vary" PLUS one explicit change (the background), so it
+ * can't reuse either vary's own suffix ("reproduce only what is already in the
+ * reference, nothing more" — directly forbids the very change this mode asks for) or
+ * the shared one ("same setting" — the background IS the setting that's supposed to
+ * change); "custom" is free text typed by hand — it could ask for absolutely anything
+ * (wall color, a sign, swapping the vehicle), so a suffix that names or presupposes
+ * ANY specific thing to keep ("same equipment", "same setting") risks directly
+ * contradicting whatever that typed instruction turns out to be about.
  */
 function picdrop_reference_prompt(string $prompt, string $mode): string {
     if ($mode === 'vary') {
         return $prompt . ' Reproduce only what is already in the reference photo, nothing more.';
+    }
+    if ($mode === 'varybg') {
+        return $prompt . ' Keep the subject, equipment, and composition exactly as they are in '
+            . 'the reference photo — change only the background\'s color or setting, nothing '
+            . 'else.';
+    }
+    if ($mode === 'custom') {
+        // Deliberately names nothing — the typed instruction is the only place anything
+        // specific is named, so this can never contradict it regardless of what it asks
+        // for (a wall color, a prop, a vehicle swap, anything).
+        return $prompt . ' Keep everything else in the photo exactly as it is in the reference — '
+            . 'apply only the change described above, and nothing else.';
+    }
+    if ($mode === 'bare') {
+        return $prompt . ' Keep this photo close to the reference — same setting and location, '
+            . 'same camera angle — and apply only the change described above. Remove any '
+            . 'technician or other person, AND all equipment, tools, and vehicles, from the '
+            . 'scene entirely, leaving only the plain, empty surroundings as if no job were in '
+            . 'progress.';
     }
     $suffix = ' Keep this photo close to the reference — same setting, same equipment, '
         . 'same vehicle if one is visible — and apply only the change described above.';

@@ -522,12 +522,13 @@ if ($action === 'place') {
         // generation, just starting from this image instead of a blank one.
         //
         // The part of this instruction beyond "keep it close" depends on which of
-        // Pic Drop's four prompt modes was selected (picdrop.php's $sid.'_ai_mode'
-        // radio group: tech / notech / newperson / vary) — a single fixed "give them
-        // a different face" suffix used to fire on every reference edit regardless of
-        // mode, which fought the "no technician" mode's own instruction and did
-        // nothing useful for the plain "add/describe the technician" default mode.
-        // Wording lives in picdrop_reference_prompt() (includes/picdrop.php).
+        // Pic Drop's seven prompt modes was selected (picdrop.php's $sid.'_ai_mode'
+        // radio group: tech / notech / bare / newperson / vary / varybg / custom) — a
+        // single fixed "give them a different face" suffix used to fire on every
+        // reference edit regardless of mode, which fought the "no technician" mode's
+        // own instruction and did nothing useful for the plain "add/describe the
+        // technician" default mode. Wording lives in picdrop_reference_prompt()
+        // (includes/picdrop.php).
         $refPrompt = picdrop_reference_prompt($prompt, (string) ($_POST['mode'] ?? 'tech'));
         $r = openai_images_edit($refPrompt, $refPath, ['size' => $size, 'quality' => 'medium', 'output_format' => 'webp']);
     } else {
