@@ -65,6 +65,16 @@ function infra_domain_list_delete(int $id): void
     $db->prepare('DELETE FROM domain_lists WHERE id = ?')->execute([$id]);
 }
 
+/** Rename a list. No-op (returns false) if it doesn't exist or the name is blank. */
+function infra_domain_list_rename(int $id, string $name): bool
+{
+    $name = trim($name);
+    if ($name === '') return false;
+    $stmt = infra_state_db()->prepare('UPDATE domain_lists SET name = ? WHERE id = ?');
+    $stmt->execute([$name, $id]);
+    return $stmt->rowCount() > 0;
+}
+
 /**
  * Check every domain in a list right now (forces a fresh probe, bypassing cache)
  * and return a simple tally. The per-domain detail isn't returned here — the view

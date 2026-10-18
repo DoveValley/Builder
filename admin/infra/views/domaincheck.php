@@ -39,8 +39,14 @@ infra_header('domaincheck');
                 page view</strong> — so if you haven't clicked "Check this batch now" in the last 15
                 minutes, a domain shows as "not checked recently" rather than a guess. Click the
                 button again any time to get a fresh answer.</li>
-            <li><strong>Deleting a list only deletes the saved list itself</strong> — it never
-                touches the actual domain, any site content, or anything else in the panel.</li>
+            <li><strong>Click a domain's name</strong> to open it in a new tab and see it for
+                yourself.</li>
+            <li><strong>Rename a list any time</strong> using the field next to "Rename" — it only
+                changes the name, the saved domains and their check history are untouched.</li>
+            <li><strong>Deleting a list requires typing its exact name first</strong> — it's a
+                genuine "are you sure", not just a click-through popup. It only ever deletes the
+                saved list itself; it never touches the actual domain, any site content, or anything
+                else in the panel.</li>
         </ul>
     </div>
 </div>
@@ -93,12 +99,21 @@ infra_header('domaincheck');
             <input type="hidden" name="id" value="<?= (int) $l['id'] ?>">
             <button class="btn" type="submit">Check this batch now</button>
         </form>
-        <form method="post" action="actions/domainlist_delete.php" style="display:inline-block;margin-left:8px"
-              onsubmit="return confirm('Delete this list? This only removes the saved list — it does not touch the domains themselves.');">
+
+        <form method="post" action="actions/domainlist_rename.php" style="display:inline-block;margin-left:8px">
             <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
             <input type="hidden" name="id" value="<?= (int) $l['id'] ?>">
-            <button class="btn sec" type="submit">Delete list</button>
+            <input type="text" name="name" value="<?= ih($l['name']) ?>" style="width:220px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
+            <button class="btn sec" type="submit">Rename</button>
         </form>
+
+        <form method="post" action="actions/domainlist_delete.php" style="display:inline-block;margin-left:8px">
+            <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+            <input type="hidden" name="id" value="<?= (int) $l['id'] ?>">
+            <input name="confirm" placeholder="type &quot;<?= ih($l['name']) ?>&quot; to delete" style="width:220px;padding:6px 8px;border:1px solid #d1d5db;border-radius:8px">
+            <button class="btn" style="background:#991b1b" type="submit">Delete list</button>
+        </form>
+
         <?php if (!$full['domains']): ?>
             <div class="ic-empty" style="margin-top:14px">This list has no domains.</div>
         <?php else: ?>
@@ -107,7 +122,7 @@ infra_header('domaincheck');
             <tbody>
             <?php foreach ($full['domains'] as $d): $c = infra_site_check_cached($d); ?>
                 <tr>
-                    <td><code><?= ih($d) ?></code></td>
+                    <td><a href="https://<?= ih($d) ?>" target="_blank" rel="noopener noreferrer"><code><?= ih($d) ?></code></a></td>
                     <td>
                         <?php if (!$c): ?>
                             <span class="badge b-mut">not checked recently</span>
