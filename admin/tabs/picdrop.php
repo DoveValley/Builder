@@ -311,6 +311,17 @@
                                         $subjectDesc = trim((string) preg_replace('/\s*\{[a-z_]+\}/i', '', $subjectDesc));
                                         $subjectDesc = trim((string) preg_replace('/,\s*$/', '', $subjectDesc));
                                         $subjectDesc = trim((string) preg_replace('/\bin\s*$/i', '', $subjectDesc));
+                                        // An alt text that is NOTHING but shortcodes and connector words (e.g.
+                                        // the bare "{service} in {city}, {SS}" placeholder a page sometimes has
+                                        // when it was never given a real written description) strips all the
+                                        // way down to empty, which left the prompt reading "Same picture, for:
+                                        // — keep the exact same scene..." — a broken sentence naming no subject
+                                        // at all right before telling the model to replace/remove/vary it. Same
+                                        // fallback as when alt was empty to begin with, just applied after
+                                        // cleanup can ALSO produce empty, not only before it.
+                                        if ($subjectDesc === '') {
+                                            $subjectDesc = $s['block_label'] . ' — ' . $s['label'];
+                                        }
                                         // Six full prompts, one per mode — not one default with clauses bolted
                                         // on for the others, since each mode's subject/intent is different
                                         // enough that a shared sentence fought itself (a "no technician" clause
@@ -824,7 +835,6 @@
                     var prompt    = promptBox.value.trim();
                     if (!prompt) { status.textContent = 'Enter a prompt first.'; status.style.color = '#b91c1c'; return; }
 
-                    var slot      = promptBox.closest('.pd-slot');
                     // The mode radio group only renders at all when this slot has an
                     // existing photo to reference — its presence IS the signal that a
                     // reference is available, so there's no separate checkbox to read.
