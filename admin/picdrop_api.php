@@ -177,7 +177,7 @@ if ($action === 'adjust') {
     if (!empty($slot['token']))    pd_fail('This slot is filled per city and cannot be cropped here.');
     if ($slot['value'] === '')     pd_fail('There is no picture in this slot yet.');
 
-    [$srcPath, $hasOriginal, $mediaItem] = pd_crop_source($slot);
+    [$srcPath, , $mediaItem] = pd_crop_source($slot);
     if ($srcPath === null || !is_file($srcPath)) pd_fail('The source image is missing from disk.');
 
     $zoom = (float) ($_POST['zoom'] ?? 1);
@@ -223,43 +223,38 @@ if ($action === 'adjust') {
         'adjust'     => ['zoom' => $zoom, 'fx' => $fx, 'fy' => $fy, 'fill' => $fill],
     ]);
 
-    $res = picdrop_apply_edits([[
-        'scope' => $parts['scope'], 'id' => $parts['id'],
-        'block' => $parts['block'], 'field' => $parts['field'], 'value' => $newValue,
-    ]]);
-    if ($res['ok'] === 0) {
-        @unlink($dest);
-        pd_fail($res['errors'][0] ?? 'The crop was made but nothing could be written.');
-    }
-
-    /* Tidy up the file this one replaced, but only when it was produced here and
-       nothing else still points at it. Never touch an image that arrived some other
-       way, and never one another slot is using. */
-    $pruned = false;
-    $oldItem = pd_media_for($oldValue);
-    if ($oldItem && ($oldItem['origin'] ?? '') !== '') {
-        $stillUsed = false;
-        foreach (picdrop_groups() as $g) {
-            foreach ($g['slots'] as $s) { if ($s['value'] === $oldValue) { $stillUsed = true; break 2; } }
-        }
-        if (!$stillUsed) {
-            $p = picdrop_resolve($oldValue);
-            if ($p !== null) { @unlink($p); $pruned = true; }
-            media_save(array_filter(media_load(), fn($m) => ($m['filename'] ?? '') !== basename($oldValue)));
-        }
-    }
-
-    echo json_encode([
-        'success'      => true,
-        'url'          => $newValue,
-        'filename'     => $filename,
-        'width'        => $tw,
-        'height'       => $th,
-        'note'         => $note,
-        'has_original' => $hasOriginal,
-        'pruned'       => $pruned,
-    ]);
-    exit;
+    // Routed through the same pd_commit() every other write uses, rather than a
+    // one-off apply-and-respond of its own — this is what gives a crop "also replace
+    // elsewhere" propagate support (previously a shared photo only got cropped on the
+    // one page you opened it from, leaving every other page silently stale) and
+    // seo.og_image follow-along, neither of which this action had before, for free.
+    pd_commit($parts, $slot, $key, $newValue, $tw, $th, $note, null, '', null, $dest,
+        function () use ($key, $oldValue, $newValue) {
+            // The page field (and any propagate targets) now point at the cropped
+            // file, but picdrop_pairs.json still has whichever side (real/AI) was
+            // active pointing at $oldValue — left alone, that sidecar is what both
+            // "switch to the other side and back" (set_active) and every page reload
+            // (picdrop_slots_for_blocks() reads the pair, not the live field) use to
+            // redraw the thumbnail, so the crop would silently vanish back to the
+            // pre-crop picture the moment either happens. Whichever side(s) currently
+            // hold $oldValue for this slot move to $newValue; a slot pairs.json has
+            // never seen has no row to update, which is fine.
+            $pairsAll = picdrop_pairs_load();
+            if (isset($pairsAll[$key])) {
+                foreach (['real', 'ai'] as $side) {
+                    if (($pairsAll[$key][$side] ?? null) === $oldValue) $pairsAll[$key][$side] = $newValue;
+                }
+                picdrop_pairs_save($pairsAll);
+            }
+            // Tidy up the file this replaced with the SAME check remove_side uses — a
+            // fleet-wide content scan across every site's data (which also covers the
+            // pairs sidecar we just rewrote above, other sites, and other slots) —
+            // rather than a narrower one-off reimplementation that only walked this
+            // site's live page fields and missed the pairs sidecar entirely, which is
+            // exactly how this action's own crops used to get deleted out from under
+            // their own pair entry.
+            picdrop_delete_if_unused($oldValue);
+        });
 }
 
 // ── PLACE AN IMAGE (from an upload, an AI generation, or the existing library) ────
@@ -653,12 +648,26 @@ $pairsRow = $pairsAll[$key] ?? ['real' => null, 'ai' => null, 'active' => 'real'
 if ($as === 'ai' && $pairsRow['real'] === null && $slot['value'] !== '' && $slot['value'] !== $newValue) {
     $pairsRow['real'] = $slot['value'];
 }
+// Whatever this side held before is about to be bumped out of the pair entirely —
+// captured so it can be cleaned up below, the same way adjust/remove_side already do,
+// instead of leaving an orphaned file in uploads/media + media.json forever every time
+// a photo is simply replaced by a new upload/generate/library-pick.
+$replacedValue      = (string) ($pairsRow[$as] ?? '');
+// A slot this feature has never touched has no pairs row yet, so its one existing
+// photo is sitting directly in the live field, not in $pairsRow — only possible for
+// the REAL side, since a first-touch AI candidate always preserves (not replaces) the
+// existing photo via the capture above. Without this, replacing an untouched slot's
+// Real photo — the single most common first interaction with a slot — orphaned it
+// with no cleanup at all, the exact failure this whole capture exists to prevent.
+if ($replacedValue === '' && $as === 'real' && $slot['value'] !== '' && $slot['value'] !== $newValue) {
+    $replacedValue = $slot['value'];
+}
 $pairsRow[$as]      = $newValue;
 $pairsRow['active'] = $as;
 $pairsAll[$key]     = $pairsRow;
 
 pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened, $prompt, $cost, $dest,
-    function () use ($pairsAll, $as, $key, $slot, $prompt, $sourcePrompt) {
+    function () use ($pairsAll, $as, $key, $slot, $prompt, $sourcePrompt, $replacedValue, $newValue) {
         picdrop_pairs_save($pairsAll);
 
         // The moment an AI photo is confirmed, its prompt becomes this slot's standing
@@ -671,5 +680,13 @@ pd_commit($parts, $slot, $key, $newValue, (int) $nw, (int) $nh, $note, $screened
             if ($usedPrompt !== '' && ACTIVE_SITE_DIR !== '') {
                 ms_image_ai_prompt_capture(ACTIVE_SITE_DIR, $key, (string) ($slot['block_type'] ?? ''), $usedPrompt, (string) ($slot['block_id'] ?? ''));
             }
+        }
+        // Clean up whichever file this side held before, the same way adjust/remove_side
+        // do — picdrop_delete_if_unused() scans every site's data (including the pairs
+        // sidecar just rewritten above) before deleting, so a file genuinely still in
+        // use anywhere — the OTHER side of this pair, another slot, an earlier "also
+        // replace elsewhere" — is always left alone.
+        if ($replacedValue !== '' && $replacedValue !== $newValue) {
+            picdrop_delete_if_unused($replacedValue);
         }
     });

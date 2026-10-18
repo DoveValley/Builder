@@ -821,8 +821,23 @@ function picdrop_reference_prompt(string $prompt, string $mode): string {
 function picdrop_file_references(string $value): array {
     $stem = pathinfo(basename($value), PATHINFO_FILENAME);
     if ($stem === '') return ['(no filename)'];
+
+    // Every site this file could conceivably belong to: the one actually active right
+    // now (a legacy single-site root, or a CLI worker's ephemeral clone — see
+    // config.php's 3-tier routing — neither of which lives under sites/), PLUS every
+    // registered multisite site, kept as a cross-site safety net since filenames carry
+    // a random suffix and a collision would only ever be accidental. Without the
+    // active-site entry, a legacy single-site install (or a worker run) would see zero
+    // references for anything it owns — nothing in it lives under sites/ — so this
+    // function would call every one of its own files unused, no matter how many pages
+    // still point at it.
+    $siteDirs = array_unique(array_filter(array_merge(
+        [ACTIVE_SITE_DIR !== '' ? ACTIVE_SITE_DIR : BASE_DIR],
+        glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: []
+    )));
+
     $hits = [];
-    foreach (glob(BASE_DIR . '/sites/*', GLOB_ONLYDIR) ?: [] as $site) {
+    foreach ($siteDirs as $site) {
         foreach (['data', 'multisite'] as $sub) {
             if (!is_dir("$site/$sub")) continue;
             $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator("$site/$sub", FilesystemIterator::SKIP_DOTS));
@@ -830,7 +845,11 @@ function picdrop_file_references(string $value): array {
                 if ($f->getExtension() !== 'json' || $f->getFilename() === 'media.json') continue;
                 $raw = @file_get_contents($f->getPathname());
                 if ($raw !== false && strpos($raw, $stem) !== false) {
-                    $hits[] = substr($f->getPathname(), strlen(BASE_DIR) + 1);
+                    // A CLI worker's site can sit outside BASE_DIR entirely (an
+                    // ephemeral temp path) — fall back to the full path rather than a
+                    // garbled/empty substr when that's the case.
+                    $path = $f->getPathname();
+                    $hits[] = str_starts_with($path, BASE_DIR . '/') ? substr($path, strlen(BASE_DIR) + 1) : $path;
                 }
             }
         }

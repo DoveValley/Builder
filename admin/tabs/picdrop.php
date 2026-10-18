@@ -79,8 +79,20 @@
             $pdTotal = 0;
             foreach ($pdRenderGroups as $g) { $pdTotal += count($g['slots']); }
 
-            $pdMissing = 0;
+            // Scanned from $pdGroups, NOT $pdRenderGroups — the render list swaps every
+            // already-built landing page for its one template row (so the page doesn't
+            // grow a row per city), but a broken file reference is a data-integrity
+            // problem on that specific built page, not something a template row would
+            // ever surface. $pdGroups already walked every one of those page files for
+            // the $pdShared count above; this just reads the same scan. Split into
+            // "shown below" vs. "total" so the banner can say which is which, rather
+            // than pointing at red text that may not exist among the rendered rows.
+            $pdMissingShown = 0;
             foreach ($pdRenderGroups as $g) {
+                foreach ($g['slots'] as $s) { if (!$s['exists'] && !$s['token'] && $s['value'] !== '') $pdMissingShown++; }
+            }
+            $pdMissing = 0;
+            foreach ($pdGroups as $g) {
                 // A token slot has no file by design, and an empty slot is not broken —
                 // only a real path that does not resolve counts as missing.
                 foreach ($g['slots'] as $s) { if (!$s['exists'] && !$s['token'] && $s['value'] !== '') $pdMissing++; }
@@ -115,7 +127,18 @@
 
                 <?php if ($pdMissing > 0): ?>
                     <p class="hint" style="margin-top:10px;color:#b91c1c;">
-                        <?= $pdMissing ?> slot<?= $pdMissing === 1 ? '' : 's' ?> point at a file that is not on disk &mdash; shown in red below.
+                        <?= $pdMissing ?> slot<?= $pdMissing === 1 ? '' : 's' ?> point at a file that is not on disk
+                        <?php if ($pdMissingShown === $pdMissing): ?>
+                            &mdash; shown in red below.
+                        <?php elseif ($pdMissingShown > 0): ?>
+                            &mdash; <?= $pdMissingShown ?> shown in red below, the rest on already-built
+                            landing pages (not listed individually here &mdash; expand the page in question
+                            directly, or check <code>data/pages/</code>).
+                        <?php else: ?>
+                            &mdash; all on already-built landing pages, not listed individually here
+                            (this page only lists one row per template). Check <code>data/pages/</code> for
+                            the specific city page.
+                        <?php endif; ?>
                     </p>
                 <?php endif; ?>
             </div>
@@ -1059,6 +1082,11 @@
                     adjPaint();
                 }, { passive: false });
                 adjZoom.addEventListener('input', function () {
+                    // Same guard as the pointerdown/wheel handlers — without it, a drag
+                    // on the still-default slider before the "info" fetch resolves divides
+                    // by adj.ow/oh while they're still 0 (adjGeom()'s scale math), painting
+                    // NaN/Infinity sizes until the image load repaints over it.
+                    if (!adj.ow) return;
                     adj.zoom = Math.max(adj.zoomMin, Math.min(4, this.value / 100));
                     adjPaint();
                 });
@@ -1094,36 +1122,29 @@
                     fd.append('fill', adj.fill);
 
                     var sid = adj.sid;
+                    // Same "also replace elsewhere" checkbox every other write action
+                    // reads off the slot's own row — a crop used to never propagate,
+                    // so a photo shared across pages only ever got cropped on the one
+                    // page you happened to open Adjust view from.
+                    var metaEl  = document.getElementById(sid + '_meta');
+                    var slotRoot = metaEl ? metaEl.closest('.pd-slot') : null;
+                    var prop = slotRoot ? slotRoot.querySelector('.pd-prop') : null;
+                    if (prop && prop.checked) fd.append('propagate', '1');
+
                     fetch('picdrop_api.php', { method: 'POST', body: fd })
                         .then(function (r) { return r.json(); })
                         .catch(function () { return { error: 'The server did not return a valid response.' }; })
                         .then(function (d) {
                             btn.disabled = false;
-                            if (!d || !d.success) {
+                            // Shared by every other action (upload/generate/set_active) —
+                            // redraws the Real/AI pair from what the server actually
+                            // saved, and now also reports propagate/og-follow counts, none
+                            // of which a one-off single-image redraw here used to show.
+                            if (!applyResult(sid, adj.key, d)) {
                                 adjNote.textContent = (d && d.error) || 'Could not apply.';
                                 adjNote.style.color = '#b91c1c';
                                 return;
                             }
-                            var prev = document.getElementById(sid + '_prev');
-                            if (prev) {
-                                prev.innerHTML = '';
-                                var img = document.createElement('img');
-                                img.src = '/' + d.url + '?t=' + Date.now();
-                                img.setAttribute('data-full', '/' + d.url);
-                                img.setAttribute('data-name', d.filename);
-                                img.alt = ''; img.title = 'Click to view full size';
-                                img.style.cssText = 'width:132px;height:88px;object-fit:cover;border-radius:5px;background:#f1f5f9;display:block;cursor:zoom-in;';
-                                prev.appendChild(img);
-                            }
-                            var acts = document.getElementById(sid + '_acts');
-                            if (acts) {
-                                acts.innerHTML =
-                                    '<a href="#" data-view="/' + d.url + '" data-name="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#128269; View full size</a>' +
-                                    '<a href="/' + d.url + '" download="' + d.filename + '" style="color:#2563eb;text-decoration:none;">&#11015; Download</a>' +
-                                    '<a href="#" data-adjust="' + adj.key + '" data-sid="' + sid + '" style="color:#2563eb;text-decoration:none;">&#9635; Adjust view</a>';
-                            }
-                            setMeta(sid, d.width + '×' + d.height + ' · ' + d.note, '#15803d');
-                            markDirty();
                             adjClose();
                         });
                 });

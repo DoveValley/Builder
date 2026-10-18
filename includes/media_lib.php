@@ -336,7 +336,10 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
  * @return array{0:bool,1:string} ok, and a note for the UI
  */
 function img_place_geometry(int $ow, int $oh, int $tw, int $th, float $zoom, float $fx, float $fy): array {
-    $zoom = max(img_zoom_min($ow, $oh, $tw, $th), min(8.0, $zoom));
+    // 4.0 matches the Adjust view slider's own max (admin/tabs/picdrop.php's
+    // #pd-adj-zoom, range 100-400) — kept in step so this clamp is never looser than
+    // what the UI can actually ask for.
+    $zoom = max(img_zoom_min($ow, $oh, $tw, $th), min(4.0, $zoom));
     $fx   = max(0.0, min(1.0, $fx));
     $fy   = max(0.0, min(1.0, $fy));
 

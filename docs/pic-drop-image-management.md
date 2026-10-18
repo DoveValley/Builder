@@ -65,3 +65,24 @@ edit's scope is `template`.
   past bug in `admin/picdrop_api.php`'s AI-generate action cleaned up the downloaded reference
   image before `img_optimize()`'s own backup-copy step tried to read it — silently breaking "Adjust
   view" zoom-out for every AI-generated photo, not just failing loudly.
+- **"Adjust view" must write back into `picdrop_pairs.json`, not just the page field.** The `adjust`
+  action re-crops into a brand-new file, but it used to apply the edit on its own instead of routing
+  through `pd_commit()` like every other write — so it never updated the Real/AI pair sidecar,
+  never offered "also replace elsewhere" propagate, and never followed `seo.og_image`. `set_active`
+  and every page reload redraw purely from the sidecar (`picdrop_pairs_get()`), so a crop looked fine
+  until the next Real/AI switch, or just a reload, silently put the uncropped picture straight back —
+  worse, on a shared photo, every OTHER page that shared it kept the old framing with no way to tell.
+  `adjust` now goes through `pd_commit()` like everything else, syncs whichever pair side held the
+  old value in its success callback, and cleans up the file it replaced via `picdrop_delete_if_unused()`
+  (see below) instead of a narrower one-off "is this still used" check that only looked at this
+  site's live page fields and missed the pairs sidecar entirely — which is exactly how a crop's own
+  replaced file used to get deleted while its own pair entry still pointed at it.
+- **`picdrop_delete_if_unused()`'s safety scan must include the ACTIVE site, not just `sites/*`.**
+  `picdrop_file_references()` globs `BASE_DIR/sites/*` for the fleet-wide safety net, but a legacy
+  single-site install (or a CLI multisite worker's ephemeral clone) lives outside `sites/` entirely —
+  see config.php's 3-tier routing. Without explicitly including `ACTIVE_SITE_DIR` (or `BASE_DIR` for
+  legacy), the scan found zero references for anything a non-multisite-session site owned, so
+  *every* file looked unused no matter how many pages still pointed at it. Only had one caller
+  (`remove_side`'s Delete button) before `adjust` and the plain upload/generate/library-pick path
+  started calling it too (previously those two never cleaned up the file they replaced at all,
+  leaving it orphaned in `uploads/media/` + `media.json` forever) — which is what surfaced it.
