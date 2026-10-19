@@ -188,10 +188,26 @@ if ($action === 'adjust') {
     if ($ow < 1) pd_fail('Could not read the source image.');
 
     [$tw, $th] = picdrop_slot_target($slot);
+
+    // A manual Shape choice from the Adjust modal — overrides the slot's own
+    // self-configuring target (which only ever reflects whatever shape is already on
+    // file) with one the user picked instead. This is the only way to give a slot's
+    // first-ever photo a real crop box: with nothing on file yet to derive a shape
+    // from, picdrop_slot_target() has no sane target of its own to offer, and even
+    // once a photo IS on file, self-configuring can only ever repeat that same shape
+    // forever — never a genuinely different one. Only trusted when sane; anything
+    // absent or too small falls through to the slot's own normal target, unchanged.
+    $targetW = (int) ($_POST['target_w'] ?? 0);
+    $targetH = (int) ($_POST['target_h'] ?? 0);
+    if ($targetW >= PICDROP_MIN_SANE_DIM && $targetH >= PICDROP_MIN_SANE_DIM) {
+        $tw = $targetW;
+        $th = $targetH;
+    }
+
     if ($tw < 1 || $th < 1) {
         pd_fail('This slot\'s current size (' . (int) $slot['w'] . '×' . (int) $slot['h']
             . ') looks like a stray thumbnail, not a real photo size — replace the photo first '
-            . '(upload or AI-generate) so the slot has a real size to crop against.');
+            . '(upload or AI-generate), or pick a Shape above, so there\'s a real size to crop against.');
     }
 
     $fill = (string) ($_POST['fill'] ?? 'white');

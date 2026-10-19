@@ -457,7 +457,34 @@
                        style="position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;pointer-events:none;">
                 </div>
 
-                <div style="display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;">
+                <?php /* Reshape: picks a DIFFERENT target box than whatever the slot's
+                         current photo happens to be. The normal "self-configuring" target
+                         (picdrop_slot_target()) only ever reflects the shape already on
+                         file — for a slot's first-ever photo there is nothing else to
+                         derive a shape from, so a too-wide photo just gets saved untouched,
+                         with no crop to "reveal" and nowhere in the UI to ask for one. This
+                         is that missing manual escape hatch: pick a shape, the preview
+                         switches to it immediately (zoomed out to show the whole picture,
+                         centered), fine-tune with the zoom/drag controls below same as
+                         always, Apply sends the chosen shape instead of the slot's own. */ ?>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap;">
+                  <span class="hint" style="white-space:nowrap;">Shape</span>
+                  <select id="pd-adj-ratio" style="padding:5px 8px;border:1px solid #d1d5db;border-radius:5px;font-size:.82rem;">
+                    <option value="">Current shape</option>
+                    <option value="4:3">4:3</option>
+                    <option value="3:2">3:2</option>
+                    <option value="16:9">16:9</option>
+                    <option value="1:1">Square</option>
+                    <option value="custom">Custom…</option>
+                  </select>
+                  <span id="pd-adj-ratio-custom" style="display:none;align-items:center;gap:4px;">
+                    <input id="pd-adj-ratio-w" type="number" min="1" value="4" style="width:52px;padding:5px 6px;border:1px solid #d1d5db;border-radius:5px;font-size:.82rem;">
+                    <span class="hint">:</span>
+                    <input id="pd-adj-ratio-h" type="number" min="1" value="3" style="width:52px;padding:5px 6px;border:1px solid #d1d5db;border-radius:5px;font-size:.82rem;">
+                  </span>
+                </div>
+
+                <div style="display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap;">
                   <span class="hint" style="white-space:nowrap;">Zoom</span>
                   <input id="pd-adj-zoom" type="range" min="100" max="400" value="100" style="flex:1;min-width:160px;">
                   <span id="pd-adj-zval" class="hint" style="width:52px;">1.00×</span>
@@ -1026,7 +1053,7 @@
                 // preview stops predicting the result.
                 var adj = {
                     key: null, sid: null, zoom: 1, zoomMin: 1, fill: 'white', fx: 0.5, fy: 0.5,
-                    ow: 0, oh: 0, tw: 0, th: 0, frameW: 0, frameH: 0, drag: null
+                    ow: 0, oh: 0, tw: 0, th: 0, origTw: 0, origTh: 0, frameW: 0, frameH: 0, drag: null
                 };
                 var adjBox   = document.getElementById('pd-adj');
                 var adjFrame = document.getElementById('pd-adj-frame');
@@ -1034,6 +1061,10 @@
                 var adjZoom  = document.getElementById('pd-adj-zoom');
                 var adjZval  = document.getElementById('pd-adj-zval');
                 var adjNote  = document.getElementById('pd-adj-note');
+                var adjRatioSel    = document.getElementById('pd-adj-ratio');
+                var adjRatioCustom = document.getElementById('pd-adj-ratio-custom');
+                var adjRatioW      = document.getElementById('pd-adj-ratio-w');
+                var adjRatioH      = document.getElementById('pd-adj-ratio-h');
                 var adjSub   = document.getElementById('pd-adj-sub');
 
                 // Mirrors img_place_geometry() exactly. One formula covers both cases:
@@ -1077,11 +1108,77 @@
                         (g.nw < adj.tw || g.nh < adj.th) ? '' : 'none';
                 }
 
+                // Mirrors img_zoom_min() (includes/media_lib.php) exactly — needed here so
+                // picking a Shape can recompute how far the zoom slider is allowed to go
+                // without a server round-trip.
+                function adjZoomMinJs(ow, oh, tw, th) {
+                    if (ow < 1 || oh < 1 || tw < 1 || th < 1) return 1;
+                    var cover = Math.max(tw / ow, th / oh);
+                    var contain = Math.min(tw / ow, th / oh);
+                    return cover > 0 ? contain / cover : 1;
+                }
+
+                // Switches the preview to a NEW target box — used both to apply a chosen
+                // Shape and to restore "Current shape" (the slot's own normal target).
+                // Always re-centers and zooms out to show the whole picture in the new
+                // shape, same as clicking "Fit whole picture" — picking a shape IS asking
+                // to see the whole thing in it, not a half-cropped guess.
+                function adjSetTarget(tw, th) {
+                    adj.tw = tw; adj.th = th;
+                    adj.zoomMin = adjZoomMinJs(adj.ow, adj.oh, tw, th);
+                    adjZoom.min = Math.round(adj.zoomMin * 100);
+                    adj.zoom = adj.zoomMin; adj.fx = 0.5; adj.fy = 0.5;
+                    document.getElementById('pd-adj-fit').style.display = adj.zoomMin < 0.999 ? '' : 'none';
+
+                    var maxW = Math.min(660, window.innerWidth - 90);
+                    var maxH = window.innerHeight - 320;
+                    adj.frameW = maxW;
+                    adj.frameH = Math.round(maxW * th / tw);
+                    if (adj.frameH > maxH) { adj.frameH = maxH; adj.frameW = Math.round(maxH * tw / th); }
+                    adjFrame.style.width  = adj.frameW + 'px';
+                    adjFrame.style.height = adj.frameH + 'px';
+
+                    adjSub.textContent = 'Shape ' + tw + '×' + th + ' · source ' + adj.ow + '×' + adj.oh;
+                    adjPaint();
+                }
+
+                function adjRatioParts() {
+                    var v = adjRatioSel.value;
+                    if (v === '') return null;                          // current shape — no override
+                    if (v === 'custom') {
+                        var rw = Math.max(1, parseInt(adjRatioW.value, 10) || 4);
+                        var rh = Math.max(1, parseInt(adjRatioH.value, 10) || 3);
+                        return [rw, rh];
+                    }
+                    var parts = v.split(':');
+                    return [parseInt(parts[0], 10), parseInt(parts[1], 10)];
+                }
+
+                function adjApplyRatioChoice() {
+                    var parts = adjRatioParts();
+                    adjRatioCustom.style.display = adjRatioSel.value === 'custom' ? 'inline-flex' : 'none';
+                    if (!adj.ow) return;    // picked before the photo finished loading
+                    if (!parts) { adjSetTarget(adj.origTw, adj.origTh); return; }
+                    // Width capped the same way the media library caps any saved image
+                    // (MAX_WIDTH, includes/media_lib.php) — picking a shape should never
+                    // produce a needlessly huge file.
+                    var tw = Math.min(adj.ow, 1800);
+                    var th = Math.max(1, Math.round(tw * parts[1] / parts[0]));
+                    adjSetTarget(tw, th);
+                }
+                adjRatioSel.addEventListener('change', adjApplyRatioChoice);
+                adjRatioW.addEventListener('input', function () { if (adjRatioSel.value === 'custom') adjApplyRatioChoice(); });
+                adjRatioH.addEventListener('input', function () { if (adjRatioSel.value === 'custom') adjApplyRatioChoice(); });
+
                 function adjOpen(key, sid) {
                     adj.key = key; adj.sid = sid;
                     adjNote.textContent = 'Loading…';
                     adjNote.style.color = '';
                     adjBox.style.display = 'flex';
+                    // A Shape choice from the last photo opened must never carry over —
+                    // each slot's own target is the only sane default to start from.
+                    adjRatioSel.value = '';
+                    adjRatioCustom.style.display = 'none';
 
                     fetch('picdrop_api.php?action=info&key=' + encodeURIComponent(key))
                         .then(function (r) { return r.json(); })
@@ -1094,6 +1191,7 @@
                             }
                             adj.ow = d.src_w; adj.oh = d.src_h;
                             adj.tw = d.slot_w; adj.th = d.slot_h;
+                            adj.origTw = d.slot_w; adj.origTh = d.slot_h;
                             adj.zoom = d.zoom || 1; adj.fx = d.fx; adj.fy = d.fy;
                             adj.zoomMin = d.zoom_min || 1;
                             adj.fill = d.fill || 'white';
@@ -1192,6 +1290,13 @@
                     fd.append('fx', adj.fx);
                     fd.append('fy', adj.fy);
                     fd.append('fill', adj.fill);
+                    // Only sent when a Shape other than "Current shape" is active — the
+                    // server falls back to its own normal target when these are absent,
+                    // so picking nothing behaves exactly as it always has.
+                    if (adj.tw !== adj.origTw || adj.th !== adj.origTh) {
+                        fd.append('target_w', adj.tw);
+                        fd.append('target_h', adj.th);
+                    }
 
                     var sid = adj.sid;
                     // Same "also replace elsewhere" checkbox every other write action
