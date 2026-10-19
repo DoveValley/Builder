@@ -452,6 +452,13 @@ $cost         = null;
 $cleanupTmp   = false;
 $baseName     = 'image';
 
+// Set only by place_media, below, when the library source already has a real
+// kept original recorded against IT — carried forward as-is rather than
+// re-derived from the candidate file itself. See the origin-capture block below
+// for why this matters (an AI candidate's own saved file is already cropped to
+// whatever slot it was generated for, not the true full-resolution output).
+$inheritedOrigin = '';
+
 if ($action === 'place') {
     if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
         // A body over post_max_size arrives with $_POST and $_FILES both empty, so the
@@ -560,7 +567,21 @@ if ($action === 'place') {
     // The prompt lives on THIS file's media entry — place_media always re-crops into a
     // new filename below, and that fresh copy has no prompt of its own to inherit it
     // from, so it has to be read here, before the source is superseded.
-    $sourcePrompt = (string) (pd_media_for($mediaBase)['prompt'] ?? '');
+    $srcMedia     = pd_media_for($mediaBase);
+    $sourcePrompt = (string) ($srcMedia['prompt'] ?? '');
+    // $candidate (the library file about to be re-cropped into a new slot-sized
+    // file below) is itself already a derived image — cropped to whatever slot it
+    // was FIRST placed/generated for, not the true full-resolution source. If that
+    // source already has its OWN kept original on file (recorded the first time it
+    // was generated/placed), that's the real thing worth preserving for future
+    // re-crops; re-deriving a fresh "original" from $candidate here would instead
+    // permanently bury the true original behind a lower-resolution stand-in, with
+    // nothing left pointing at it. _originals/ is never pruned, so reusing the
+    // same filename across both media entries costs nothing and loses nothing.
+    $candOrigin = (string) ($srcMedia['origin'] ?? '');
+    if ($candOrigin !== '' && media_originals_dir() !== null && is_file(ORIGINALS_DIR . basename($candOrigin))) {
+        $inheritedOrigin = $candOrigin;
+    }
 }
 
 if (!is_dir(MEDIA_DIR)) mkdir(MEDIA_DIR, 0775, true);
@@ -577,8 +598,8 @@ if (!$ok) { if ($cleanupTmp) @unlink($tmpFile); pd_fail('Could not process that 
    is already trimmed to the slot, so without this a later "zoom out" would have no
    pixels to reveal. Stored OUTSIDE uploads/ — see ORIGINALS_DIR — so it is never
    deployed and never pruned. */
-$origName = '';
-if (media_originals_dir() !== null) {
+$origName = $inheritedOrigin;
+if ($origName === '' && media_originals_dir() !== null) {
     $origName = preg_replace('/\.webp$/', '', $filename) . '.orig.webp';
     // Held as webp at up to MAX_WIDTH rather than the raw upload: a 12 MB phone JPEG
     // is no more useful as a crop source than a 1800px webp, and this is disk we keep
