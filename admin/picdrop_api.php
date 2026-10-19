@@ -187,9 +187,12 @@ if ($action === 'adjust') {
     [$ow, $oh] = @getimagesize($srcPath) ?: [0, 0];
     if ($ow < 1) pd_fail('Could not read the source image.');
 
-    $tw = (int) $slot['w'];
-    $th = (int) $slot['h'];
-    if ($tw < 1 || $th < 1) pd_fail('This slot has no size to crop to.');
+    [$tw, $th] = picdrop_slot_target($slot);
+    if ($tw < 1 || $th < 1) {
+        pd_fail('This slot\'s current size (' . (int) $slot['w'] . '×' . (int) $slot['h']
+            . ') looks like a stray thumbnail, not a real photo size — replace the photo first '
+            . '(upload or AI-generate) so the slot has a real size to crop against.');
+    }
 
     $fill = (string) ($_POST['fill'] ?? 'white');
 
@@ -566,7 +569,8 @@ $base     = strtolower(preg_replace('/[^a-z0-9_-]/i', '-', $baseName)) ?: 'image
 $filename = $base . '_' . substr(md5(uniqid('', true)), 0, 6) . '.webp';
 $dest     = MEDIA_DIR . $filename;
 
-[$ok, $note] = img_fit_to($tmpFile, $dest, $mime, (int) $slot['w'], (int) $slot['h']);
+[$fitW, $fitH] = picdrop_slot_target($slot);
+[$ok, $note] = img_fit_to($tmpFile, $dest, $mime, $fitW, $fitH);
 if (!$ok) { if ($cleanupTmp) @unlink($tmpFile); pd_fail('Could not process that image.'); }
 
 /* Keep the full-size original so the picture can be re-cropped later. The slot file

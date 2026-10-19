@@ -97,3 +97,18 @@ template edits are now single-slot across the board, with no propagation of any 
   (`remove_side`'s Delete button) before `adjust` and the plain upload/generate/library-pick path
   started calling it too (previously those two never cleaned up the file they replaced at all,
   leaving it orphaned in `uploads/media/` + `media.json` forever) — which is what surfaced it.
+- **"The slot decides the output size" breaks once the slot's current size is itself wrong.** Every
+  place/generate/adjust action fits its result to whatever width/height is already sitting in that
+  slot (`picdrop_slot_target()` in `includes/picdrop.php`) — deliberately, so there is no per-field
+  size table to write or keep in sync. But that trust is one-directional: if a slot was ever seeded
+  with a wrong-sized file from OUTSIDE Pic Drop (found live: several `hero_split.hs_photo` fields on
+  the pest-template site pinned to 90×90 placeholders since original template generation), every
+  later replacement or re-crop on that slot — real upload, AI generation, "Adjust view" — kept
+  re-squashing the new photo down to that same 90×90 box forever, with no way to self-correct. Fixed
+  by refusing to trust a slot's current size when it's below `PICDROP_MIN_SANE_DIM` (150px) in BOTH
+  directions: `place`/`generate`/`place_media` fall through to `img_fit_to()`'s existing "no target
+  size — optimise only" branch (so the new photo keeps its own natural size/shape instead of being
+  crushed), and `adjust` fails outright with a message pointing at replacing the photo first, since a
+  re-crop with no idea what the real target shape is would just guess wrong. A slot self-heals the
+  first time it's replaced this way — `media_register()` already records the new file's real
+  dimensions, so the next read of `picdrop_slots_for_blocks()` picks up the correct size.

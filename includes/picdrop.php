@@ -198,6 +198,32 @@ function picdrop_crop_hint(string $blockType, string $field): string {
 }
 
 /**
+ * No Pic Drop-managed slot is ever meant to be this small in both directions (the
+ * most forgiving documented slot, map_info.mi_info_photo, only caps height at 320 —
+ * width is never constrained this tight). Below it, the slot's current size is not a
+ * real target, it's a stray thumbnail that got into the field some other way.
+ */
+const PICDROP_MIN_SANE_DIM = 150;
+
+/**
+ * The target box to fit/crop a new or adjusted image into, derived from the slot's
+ * own current size — EXCEPT when that size is too small in both directions to be a
+ * real photo slot. Trusting it anyway is how one bad seed file (a 90×90 placeholder
+ * from outside Pic Drop) kept re-squashing every later replacement down to 90×90
+ * forever: "self-configuring" only works when what's already there is correct.
+ *
+ * [0, 0] tells the caller "no sane target", which img_fit_to() already treats as
+ * "optimise only, don't force a box" — the same escape hatch it uses for a slot with
+ * no size at all, reused here rather than inventing a second one.
+ */
+function picdrop_slot_target(array $slot): array {
+    $w = (int) $slot['w'];
+    $h = (int) $slot['h'];
+    if ($w < PICDROP_MIN_SANE_DIM && $h < PICDROP_MIN_SANE_DIM) return [0, 0];
+    return [$w, $h];
+}
+
+/**
  * Turn a stored image value into an absolute filesystem path, or null.
  *
  * Stored values are webroot-relative ("sites/water-site/uploads/media/x.webp" is the
