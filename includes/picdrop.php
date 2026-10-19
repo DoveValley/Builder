@@ -52,6 +52,30 @@ function picdrop_pairs_save(array $data): void {
     }
 }
 
+/**
+ * Strip every pairs-sidecar entry belonging to a template (and the pages built
+ * from it) that was just deleted outright — called from the Templates tab's
+ * delete action, so the sidecar doesn't keep accumulating entries for slots that
+ * can never be read again (picdrop_groups()/picdrop_template_groups() only ever
+ * enumerate what currently exists, so a stale entry is inert, not harmful — this
+ * is cleanup, not a correctness fix). Matches the template's own key exactly
+ * (scope=template, id=$tplId) and every built page's key by prefix (scope=landing,
+ * id starting with "{$tplId}_city_"), since one template can produce many pages.
+ */
+function picdrop_pairs_remove_for_template(string $tplId): int {
+    $pairs   = picdrop_pairs_load();
+    $removed = 0;
+    foreach (array_keys($pairs) as $key) {
+        $parts = picdrop_parse_key($key);
+        if (!$parts) continue;
+        $match = ($parts['scope'] === 'template' && $parts['id'] === $tplId)
+              || ($parts['scope'] === 'landing' && strpos($parts['id'], $tplId . '_city_') === 0);
+        if ($match) { unset($pairs[$key]); $removed++; }
+    }
+    if ($removed) picdrop_pairs_save($pairs);
+    return $removed;
+}
+
 /** @return array{real:?string,ai:?string,active:string} */
 function picdrop_pairs_get(string $key): array {
     $row = picdrop_pairs_load()[$key] ?? [];

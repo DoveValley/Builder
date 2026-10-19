@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/blocks_from_post.php';
+require_once __DIR__ . '/../includes/picdrop.php';
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: index.php?tab=templates'); exit; }
@@ -31,10 +32,26 @@ function _tpl_save(array $templates): bool {
     return rename($tmp, TEMPLATES_FILE);
 }
 
-function _tpl_cleanup_pages(string $tplId): void {
-    if (!defined('PAGES_DIR') || !defined('PAGE_INDEX_FILE')) return;
+/**
+ * @return string[] every real photo value (not empty, not a {token}) that was
+ *                   sitting in a deleted page, for the caller to hand to
+ *                   picdrop_delete_if_unused() once the pages are actually gone.
+ */
+function _tpl_cleanup_pages(string $tplId): array {
+    if (!defined('PAGES_DIR') || !defined('PAGE_INDEX_FILE')) return [];
     $deleted = [];
+    $photos  = [];
     foreach (glob(PAGES_DIR . $tplId . '_*.json') ?: [] as $f) {
+        $page = json_decode((string) @file_get_contents($f), true);
+        if (is_array($page)) {
+            foreach (($page['content_blocks'] ?? []) as $block) {
+                if (!is_array($block)) continue;
+                foreach (picdrop_block_paths($block) as $path) {
+                    $v = (string) picdrop_get($block, $path);
+                    if ($v !== '' && strpos($v, '{') !== 0) $photos[] = $v;
+                }
+            }
+        }
         @unlink($f);
         if (file_exists($f . '.bak')) @unlink($f . '.bak');
         $deleted[basename($f)] = true;
@@ -48,6 +65,7 @@ function _tpl_cleanup_pages(string $tplId): void {
             rename($tmp, PAGE_INDEX_FILE);
         }
     }
+    return $photos;
 }
 
 function _tpl_make_id(string $title, array $templates): string {
@@ -279,13 +297,46 @@ if ($action === 'set_master_role') {
 if ($action === 'delete') {
     $id = trim($_POST['template_id'] ?? '');
     $templates = _tpl_load();
+
+    $deletedTpl = null;
+    foreach ($templates as $t) { if (($t['id'] ?? '') === $id) { $deletedTpl = $t; break; } }
+
     $templates = array_values(array_filter($templates, fn($t) => $t['id'] !== $id));
 
     if (!_tpl_save($templates)) {
         header('Location: index.php?tab=templates&msg=error:Could+not+delete+template');
         exit;
     }
-    _tpl_cleanup_pages($id);
+
+    // Every photo this template itself held, captured before it's gone — the pages
+    // built from it are captured the same way inside _tpl_cleanup_pages(), right
+    // before each one is unlinked. picdrop_delete_if_unused() re-scans live disk
+    // state, so by the time it runs below the template is already out of
+    // templates.json and every one of its pages is already gone — only a genuine
+    // OTHER reference (a different template/page sharing the same file) saves it.
+    //
+    // The pairs sidecar MUST be cleared BEFORE picdrop_delete_if_unused() runs, not
+    // after — picdrop_file_references() scans every JSON file under data/ (it only
+    // skips media.json by name), so picdrop_pairs.json counts as a "reference" just
+    // like any template or page. Deleting files first would find this template's own
+    // now-orphaned pairs entries still pointing at them and keep every file forever.
+    // Caught by a real test against a synthetic site before this shipped, not assumed.
+    picdrop_pairs_remove_for_template($id);
+
+    $photos = [];
+    if ($deletedTpl) {
+        foreach (($deletedTpl['content_blocks'] ?? []) as $block) {
+            if (!is_array($block)) continue;
+            foreach (picdrop_block_paths($block) as $path) {
+                $v = (string) picdrop_get($block, $path);
+                if ($v !== '' && strpos($v, '{') !== 0) $photos[] = $v;
+            }
+        }
+    }
+    $photos = array_merge($photos, _tpl_cleanup_pages($id));
+
+    foreach (array_unique($photos) as $v) picdrop_delete_if_unused($v);
+
     header('Location: index.php?tab=templates&msg=success:Template+deleted');
     exit;
 }
