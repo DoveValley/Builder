@@ -114,7 +114,10 @@ function _media_focal_index(): array {
 
 function get_focal_point(string $url): string {
     $item = _media_focal_index()[$url] ?? null;
-    if (!$item || !isset($item['focal_x'])) return '50% 50%';
+    // Default anchors the top edge, not the center — an unset focal point is most often
+    // a photo of a person, and a centered crop clips heads far more often than it clips
+    // anything from the top.
+    if (!$item || !isset($item['focal_x'])) return '50% 0%';
     return round($item['focal_x'], 1) . '% ' . round($item['focal_y'], 1) . '%';
 }
 

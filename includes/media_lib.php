@@ -246,10 +246,12 @@ function img_optimize(string $tmp, string $dest, string $mime): bool {
 /**
  * Fit an image to exact target dimensions and write it as webp.
  *
- * Scales so the source COVERS the target, then centre-crops the overflow — the
- * result always fills the slot with no letterboxing and no distortion. When the
- * two aspect ratios are within $tolerance the crop is skipped and it is a plain
- * resize, so a same-shape replacement never loses edge pixels to rounding.
+ * Scales so the source COVERS the target, then crops the overflow — vertically
+ * off the bottom (top-anchored, so a photo of a person keeps its head), horizontally
+ * off both sides evenly — so the result always fills the slot with no letterboxing
+ * and no distortion. When the two aspect ratios are within $tolerance the crop is
+ * skipped and it is a plain resize, so a same-shape replacement never loses edge
+ * pixels to rounding.
  *
  * Returns an [ok, note] pair; the note describes what happened, for the UI.
  */
@@ -265,15 +267,16 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
     $cropped   = abs($srcAspect - $tgtAspect) / $tgtAspect > $tolerance;
 
     $note = $cropped
-        ? sprintf('%d×%d → %d×%d, centre-cropped to match the slot', $ow, $oh, $tw, $th)
+        ? sprintf('%d×%d → %d×%d, cropped to match the slot (top kept, sides centred)', $ow, $oh, $tw, $th)
         : sprintf('%d×%d → %d×%d, resized (same shape)', $ow, $oh, $tw, $th);
 
     if (!extension_loaded('gd')) {
-        // "WxH^" scales so the image COVERS the box; -extent with centre gravity then
-        // trims the overflow. Same result as the GD branch below.
+        // "WxH^" scales so the image COVERS the box; -extent with north gravity then
+        // trims the overflow off the bottom, keeping the top edge (usually a face) intact.
+        // Same result as the GD branch below.
         $ok = media_magick($tmp, $dest, [
             '-resize', escapeshellarg($tw . 'x' . $th . '^'),
-            '-gravity', 'center',
+            '-gravity', 'north',
             '-extent', escapeshellarg($tw . 'x' . $th),
         ]);
         if ($ok) { img_write_mobile_variant($dest); return [true, $note]; }
@@ -289,15 +292,16 @@ function img_fit_to(string $tmp, string $dest, string $mime, int $tw, int $th, f
         return [$ok, 'could not decode — copied as-is'];
     }
 
-    // Source rectangle to sample from: the whole image, or the centred cover-crop.
+    // Source rectangle to sample from: the whole image, or the cover-crop (top-anchored
+    // vertically so a cropped photo of a person keeps its head; centred horizontally).
     $sx = 0; $sy = 0; $sw = $ow; $sh = $oh;
     if ($cropped) {
         if ($srcAspect > $tgtAspect) {          // too wide — trim left/right
             $sw = (int) round($oh * $tgtAspect);
             $sx = (int) round(($ow - $sw) / 2);
-        } else {                                 // too tall — trim top/bottom
+        } else {                                 // too tall — trim off the bottom, keep the top
             $sh = (int) round($ow / $tgtAspect);
-            $sy = (int) round(($oh - $sh) / 2);
+            $sy = 0;
         }
     }
 

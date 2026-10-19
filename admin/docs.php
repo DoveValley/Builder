@@ -973,7 +973,7 @@ tr.ms-rec td { background: #fff3cd !important; }
     <h3>What a drop does</h3>
     <ol>
         <li>Validates the file by its real content (not its extension) and rejects anything that is not a JPG, PNG, GIF or WebP.</li>
-        <li><strong>Resizes it to the exact dimensions of the image already in that slot.</strong> If the shapes differ by more than 2% it centre-crops to cover, so the slot is filled with no letterboxing and no distortion. There is no per-field size table to maintain — the slot's current image <em>is</em> the spec. An empty slot keeps the dropped image's own size (capped at 1800px wide).</li>
+        <li><strong>Resizes it to the exact dimensions of the image already in that slot.</strong> If the shapes differ by more than 2% it crops to cover — top-anchored vertically (so a person's head survives), centred horizontally — so the slot is filled with no letterboxing and no distortion. There is no per-field size table to maintain — the slot's current image <em>is</em> the spec. An empty slot keeps the dropped image's own size (capped at 1800px wide).</li>
         <li>Encodes it to WebP at quality 82 and files it in the media library under a unique name, tagged <code>picdrop</code>.</li>
         <li>Writes the path into the page JSON.</li>
     </ol>

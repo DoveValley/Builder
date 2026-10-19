@@ -366,7 +366,7 @@ $gh = fn($s) => htmlspecialchars((string)$s, ENT_QUOTES);
         document.getElementById('gi-yo').textContent = el['gi-y'].value + '% from top';
         document.getElementById('gi-bgheighto').textContent = el['gi-bgheight'].value + '%';
         document.getElementById('gi-bgopacityo').textContent = el['gi-bgopacity'].value + '%';
-        out.style.objectPosition = giFocalPoints[el['gi-src'].value] || '50% 50%';
+        out.style.objectPosition = giFocalPoints[el['gi-src'].value] || '50% 0%';
         syncBgVisibility();
     }
     function params() {
