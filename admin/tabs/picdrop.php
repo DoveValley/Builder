@@ -368,7 +368,20 @@
                                                           data-prompt-varybg="<?= h($aiPromptVaryBg) ?>"
                                                           placeholder="Describe the one change you want, e.g. &quot;make the wall purple instead of white&quot;"
                                                           style="width:100%;font-size:.74rem;padding:6px 7px;border:1px solid #d1d5db;border-radius:5px;box-sizing:border-box;resize:vertical;"><?= h($aiPromptTech) ?></textarea>
-                                                <?php if ($s['value'] !== '' && $s['exists']): ?>
+                                                <?php
+                                                // Rendered unconditionally (hidden via style, not skipped via
+                                                // if/endif) so dropping/generating a photo into a slot that was
+                                                // EMPTY at page load can reveal this block live — applyResult()
+                                                // in the JS below un-hides it on any successful photo change.
+                                                // Before this, a same-session first-ever photo on a slot left the
+                                                // Real thumbnail updated but this whole block permanently absent
+                                                // (PHP had already decided not to emit it at the initial render),
+                                                // which silently made every later "Generate" on that slot skip
+                                                // the reference photo entirely — not a disabled control, nothing
+                                                // in the DOM for the user to even notice was missing.
+                                                $pdHasRef = ($s['value'] !== '' && $s['exists']);
+                                                ?>
+                                                <div id="<?= $sid ?>_ai_ref" style="<?= $pdHasRef ? '' : 'display:none;' ?>">
                                                 <?php /* Always on, not optional, whenever there's a photo to
                                                          reference — all seven modes below are edits of the existing
                                                          photo, not from-scratch generations, so there's no mode
@@ -410,7 +423,7 @@
                                                     <span><span style="font-family:monospace;color:#94a3b8;display:inline-block;min-width:13px;"><?= $modeNum ?></span><?= h($modeLabel) ?></span>
                                                 </label>
                                                 <?php endforeach; ?>
-                                                <?php endif; ?>
+                                                </div>
                                                 <div id="<?= $sid ?>_ai_btnrow" style="display:flex;justify-content:space-between;align-items:center;margin-top:5px;gap:6px;">
                                                     <span class="hint" style="font-size:.7rem;">est. ~$0.04/try</span>
                                                     <button type="button" class="btn btn-secondary" style="font-size:.72rem;padding:4px 12px;"
@@ -715,6 +728,14 @@
                     setMeta(sid, msg, d.errors && d.errors.length ? '#b45309' : '#15803d');
                     markDirty();
                     pdFlagAlt(sid);
+
+                    // A slot that had no photo at page load renders its AI-generate panel
+                    // with the reference checkbox + 7 mode radios hidden (see the PHP above) —
+                    // reveal it now that a photo genuinely exists, so the very next Generate on
+                    // this slot uses it as a reference instead of silently generating blind.
+                    var refBlock = document.getElementById(sid + '_ai_ref');
+                    if (refBlock) refBlock.style.display = '';
+
                     return true;
                 }
 
