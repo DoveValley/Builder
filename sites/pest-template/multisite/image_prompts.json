@@ -1,0 +1,47 @@
+{
+    "home::5:ts_tabs.0.photo": {
+        "prompt": "Move the two pink pill in the picture down so that we only see their waist and they're complete body and head",
+        "block_type": "tab_services",
+        "block_id": "tab_services_1"
+    },
+    "home::5:ts_tabs.2.photo": {
+        "prompt": "Take off the logo in the lower left corner",
+        "block_type": "tab_services",
+        "block_id": "tab_services_1"
+    },
+    "home::5:ts_tabs.3.photo": {
+        "prompt": "Move the person in the picture down so that we can see their waist and they're complete body and head",
+        "block_type": "tab_services",
+        "block_id": "tab_services_1"
+    },
+    "home::3:fs_photo": {
+        "prompt": "Change the technician shirt to White",
+        "block_type": "feature_split",
+        "block_id": "feature_split_1"
+    },
+    "home::0:hs_photo": {
+        "prompt": "Move the two people in the picture down so that we only see their waist and they're complete body and head",
+        "block_type": "hero_split",
+        "block_id": "home_hero"
+    },
+    "home::5:ts_tabs.1.photo": {
+        "prompt": "Change the type of leaf The Ticket on",
+        "block_type": "tab_services",
+        "block_id": "tab_services_1"
+    },
+    "home::6:hg_photo": {
+        "prompt": "Change the shirt to white",
+        "block_type": "hero_grid",
+        "block_id": "hero_grid_1"
+    },
+    "home::8:wb_photo": {
+        "prompt": "Same photo, taken again from a very slightly different camera position. Everything in it stays exactly as it is and nothing new is added \u2014 only the viewpoint shifts a little, just enough that it reads as a distinct photo from the original. Nothing already in frame should end up cropped off at the edges. No visible text or logos.",
+        "block_type": "wide_banner",
+        "block_id": "wide_banner_1"
+    },
+    "home::9:if_photo": {
+        "prompt": "Move the person in the picture down so that we only see their waist and they're complete body and head",
+        "block_type": "image_features",
+        "block_id": "image_features_1"
+    }
+}
