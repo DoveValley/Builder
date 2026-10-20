@@ -109,6 +109,123 @@ function block_ops_move_ids_to_end_in_variants(array $variants, array $ids): arr
 }
 
 /**
+ * Lift a block up past any unbroken run of "filler" blocks sitting directly in front
+ * of it, so it lands immediately after the last substantive block.
+ *
+ * Written for the FAQ, which is by a wide margin the largest block of page-unique text
+ * (measured at ~2,526 chars/page against ~1,400 for the next) but sat behind a CTA
+ * banner and a links box. Expressed as "lift above the filler immediately preceding it"
+ * rather than a fixed index because the stacks differ by role — hubs have two filler
+ * blocks in front of the FAQ, leaves and standalone pages have one — and a fixed
+ * position would be wrong for at least one of them.
+ *
+ * No-op when the block is already at the front of its run, so it is idempotent.
+ *
+ * @param string[] $filler block types treated as liftable-over
+ */
+function block_ops_lift_above_filler(array $blocks, string $type, array $filler, array &$movedIds = []): array {
+    $idx = null;
+    foreach ($blocks as $i => $b) {
+        if (is_array($b) && ($b['type'] ?? '') === $type) { $idx = $i; break; }
+    }
+    if ($idx === null || $idx === 0) return $blocks;
+
+    $target = $idx;
+    while ($target > 0 && in_array(($blocks[$target - 1]['type'] ?? ''), $filler, true)) $target--;
+    if ($target === $idx) return $blocks;
+
+    if (!empty($blocks[$idx]['id'])) $movedIds[] = $blocks[$idx]['id'];
+    $moved = $blocks[$idx];
+    array_splice($blocks, $idx, 1);
+    array_splice($blocks, $target, 0, [$moved]);
+    return $blocks;
+}
+
+/** The same lift applied inside each layout variant, which orders blocks by ID string. */
+function block_ops_lift_ids_in_variants(array $variants, array $ids, array $fillerIdPrefixes): array {
+    if (!$ids) return $variants;
+    $out = [];
+    foreach ($variants as $variant) {
+        if (!is_array($variant)) { $out[] = $variant; continue; }
+        foreach ($ids as $id) {
+            $pos = array_search($id, $variant, true);
+            if ($pos === false || $pos === 0) continue;
+            $t = $pos;
+            while ($t > 0) {
+                $prev = (string) $variant[$t - 1];
+                $isFiller = false;
+                foreach ($fillerIdPrefixes as $p) if (str_starts_with($prev, $p)) { $isFiller = true; break; }
+                if (!$isFiller) break;
+                $t--;
+            }
+            if ($t === $pos) continue;
+            array_splice($variant, $pos, 1);
+            array_splice($variant, $t, 0, [$id]);
+        }
+        $out[] = $variant;
+    }
+    return $out;
+}
+
+/**
+ * Lift a block type above its preceding filler across all three layers of the ACTIVE site.
+ *
+ * @return array{site:int,templates:int,pages:int,variants:int,errors:string[]}
+ */
+function block_ops_lift_above_filler_everywhere(string $type, array $filler, bool $dryRun = false): array {
+    $report = ['site' => 0, 'templates' => 0, 'pages' => 0, 'variants' => 0, 'errors' => []];
+    $prefixes = array_map(fn($f) => $f . '_', $filler);
+
+    $apply = function (array $node) use ($type, $filler, $prefixes, &$report) {
+        $ids = [];
+        $fresh = block_ops_lift_above_filler($node['content_blocks'], $type, $filler, $ids);
+        $changed = ($fresh !== $node['content_blocks']);
+        $node['content_blocks'] = $fresh;
+        if (!empty($node['layout_variants'])) {
+            $before = $node['layout_variants'];
+            $node['layout_variants'] = block_ops_lift_ids_in_variants($before, $ids, $prefixes);
+            if ($node['layout_variants'] !== $before) { $changed = true; $report['variants']++; }
+        }
+        return [$node, $changed];
+    };
+
+    $data = load_data();
+    if (is_array($data) && !empty($data['content_blocks'])) {
+        [$data, $changed] = $apply($data);
+        if ($changed) {
+            $report['site'] = 1;
+            if (!$dryRun && !save_data($data)) $report['errors'][] = 'site.json write failed';
+        }
+    }
+
+    $templates = tpl_load(); $dirty = false;
+    foreach ($templates as $i => $tpl) {
+        if (empty($tpl['content_blocks'])) continue;
+        [$templates[$i], $changed] = $apply($tpl);
+        if ($changed) { $report['templates']++; $dirty = true; }
+    }
+    if ($dirty && !$dryRun && !tpl_save($templates)) $report['errors'][] = 'templates.json write failed';
+
+    if (defined('PAGES_DIR') && is_dir(PAGES_DIR)) {
+        foreach (glob(rtrim(PAGES_DIR, '/') . '/*.json') ?: [] as $file) {
+            $page = json_decode((string) @file_get_contents($file), true);
+            if (!is_array($page) || empty($page['content_blocks'])) continue;
+            [$page, $changed] = $apply($page);
+            if (!$changed) continue;
+            $report['pages']++;
+            if ($dryRun) continue;
+            $json = json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            $tmp  = $file . '.tmp.' . getmypid();
+            if (file_put_contents($tmp, $json) === false || !rename($tmp, $file)) {
+                $report['errors'][] = 'page write failed: ' . basename($file);
+                @unlink($tmp);
+            }
+        }
+    }
+    return $report;
+}
+
+/**
  * Move a block type to the end across all three layers of the ACTIVE site.
  *
  * @return array{site:int,templates:int,pages:int,variants:int,errors:string[]}

@@ -161,17 +161,6 @@
             "id": "trust_bar_1"
         },
         {
-            "type": "error_codes",
-            "ec_heading": "",
-            "ec_brand": "auto",
-            "ec_type": "auto",
-            "ec_max": 12,
-            "ec_intro": "",
-            "ec_cta_text": "",
-            "ec_cta_url": "",
-            "id": "error_codes_1"
-        },
-        {
             "type": "ai_block",
             "ai_type_id": "city_intro",
             "ai_mode": "standalone",
@@ -248,6 +237,15 @@
             "id": "ai_block_4"
         },
         {
+            "type": "faq_two_col",
+            "fq_heading": "{primary_keyword} FAQ — {city_state}",
+            "ai_type_id": "faq_local",
+            "ai_inject_field": "fq_items",
+            "ai_inject_mode": "replace",
+            "fq_items": [],
+            "id": "faq_two_col_1"
+        },
+        {
             "type": "related_links",
             "rl_heading": "Related Services",
             "rl_max": 3,
@@ -274,15 +272,6 @@
                 }
             ],
             "id": "related_links_1"
-        },
-        {
-            "type": "faq_two_col",
-            "fq_heading": "{primary_keyword} FAQ — {city_state}",
-            "ai_type_id": "faq_local",
-            "ai_inject_field": "fq_items",
-            "ai_inject_mode": "replace",
-            "fq_items": [],
-            "id": "faq_two_col_1"
         },
         {
             "type": "cards",
