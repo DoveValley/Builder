@@ -2183,7 +2183,7 @@
                 "appliance repair quote",
                 "average appliance repair cost"
             ],
-            "pool": "rotate"
+            "pool": "pinned"
         },
         {
             "primary": "commercial appliance repair {city}, {ST}",
@@ -2196,7 +2196,7 @@
                 "business appliance repair",
                 "commercial refrigeration repair"
             ],
-            "pool": "rotate"
+            "pool": "pinned"
         },
         {
             "primary": "emergency appliance repair {city}, {ST}",
@@ -2209,7 +2209,7 @@
                 "24 hour appliance repair",
                 "appliance breakdown repair"
             ],
-            "pool": "rotate"
+            "pool": "pinned"
         }
     ],
     "page_pool": {

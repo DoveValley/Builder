@@ -150,3 +150,106 @@ function schema_apply_sameas(string $schemaJson, array $socials): string {
     if ($hasGraph) { $decoded['@graph'] = $nodes; } else { $decoded = $nodes[0]; }
     return json_encode($decoded, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
+
+/**
+ * Build a BlogPosting node from a page's post_meta block.
+ *
+ * Same projection rule as FAQPage: blog posts carry no stored schema at all (blog.php
+ * and static_build.php both synthesise $seo from $post['seo'], which has no 'schema'
+ * key), and the byline the visitor reads — date, author, tag — is already sitting in
+ * the post_meta pseudo-block that those two prepend as element 0. Deriving the node
+ * from that block means the markup can never disagree with the visible byline, and
+ * no post has to be re-authored to gain structured data.
+ *
+ * Returns null when the page is not a blog post, or when the post has no usable
+ * headline — a BlogPosting without one is invalid, and an invalid node is worse than
+ * no node. Shortcodes ({business} in the author name, {website} in the publisher @id)
+ * are left intact for the caller to resolve, matching schema_apply_faqpage.
+ */
+function blogposting_from_blocks(array $blocks, array $seo = [], string $imageUrl = ''): ?array {
+    $meta = null;
+    foreach ($blocks as $block) {
+        if (is_array($block) && ($block['type'] ?? '') === 'post_meta') { $meta = $block; break; }
+    }
+    if ($meta === null) return null;
+
+    $headline = trim(html_entity_decode(strip_tags($meta['title'] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+    if ($headline === '') return null;
+
+    $node = [
+        '@type'    => 'BlogPosting',
+        'headline' => $headline,
+        'inLanguage' => 'en',
+    ];
+
+    // mainEntityOfPage is what ties the node to this URL. canonical_url is the only
+    // absolute, per-post URL available this early in the render.
+    $canonical = trim((string) ($seo['canonical_url'] ?? ''));
+    if ($canonical !== '') {
+        $node['@id']              = $canonical . '#blogposting';
+        $node['mainEntityOfPage'] = ['@type' => 'WebPage', '@id' => $canonical];
+    }
+
+    $description = trim(html_entity_decode(strip_tags(
+        ($meta['excerpt'] ?? '') !== '' ? $meta['excerpt'] : ($seo['meta_description'] ?? '')
+    ), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+    if ($description !== '') $node['description'] = $description;
+
+    // Dates are stored as plain Y-m-d. Emit only what validates as a date, so a blank
+    // or half-filled field never produces a malformed datePublished.
+    $published = trim((string) ($meta['published_at'] ?? ''));
+    $updated   = trim((string) ($meta['updated_at']   ?? ''));
+    if (preg_match('/^\d{4}-\d{2}-\d{2}/', $published)) $node['datePublished'] = $published;
+    if (preg_match('/^\d{4}-\d{2}-\d{2}/', $updated))   $node['dateModified']  = $updated;
+    elseif (isset($node['datePublished']))              $node['dateModified']  = $node['datePublished'];
+
+    // The byline is "{business} Team" — an organisation, not a named person. Emitting
+    // Person here would invent an individual who does not exist.
+    $author = trim((string) ($meta['author'] ?? ''));
+    if ($author !== '') $node['author'] = ['@type' => 'Organization', 'name' => $author];
+
+    $tag = trim((string) ($meta['tag'] ?? ''));
+    if ($tag !== '') $node['articleSection'] = $tag;
+
+    if ($imageUrl !== '') $node['image'] = $imageUrl;
+
+    // Point at the business node the homepage defines rather than restating it; every
+    // schema in this codebase uses the "{website}/#localbusiness" @id convention.
+    $node['publisher'] = ['@id' => '{website}/#localbusiness'];
+
+    return $node;
+}
+
+/**
+ * Return $schemaJson with its BlogPosting node replaced by one derived from the page's
+ * post_meta block. Non-blog pages are returned untouched, including the '' that a page
+ * with no schema at all passes in.
+ */
+function schema_apply_blogposting(string $schemaJson, array $blocks, array $seo = [], string $imageUrl = ''): string {
+    $node       = blogposting_from_blocks($blocks, $seo, $imageUrl);
+    $schemaJson = trim($schemaJson);
+    if ($node === null) return $schemaJson;
+
+    $decoded = $schemaJson !== '' ? json_decode($schemaJson, true) : null;
+
+    if (is_array($decoded) && isset($decoded['@graph']) && is_array($decoded['@graph'])) {
+        $wrapper = $decoded;
+        $graph   = array_values(array_filter(
+            $decoded['@graph'],
+            fn($e) => !is_array($e) || ($e['@type'] ?? '') !== 'BlogPosting'
+        ));
+    } elseif (is_array($decoded)) {
+        unset($decoded['@context']);
+        $wrapper = ['@context' => 'https://schema.org', '@graph' => []];
+        $graph   = ($decoded['@type'] ?? '') === 'BlogPosting' ? [] : [$decoded];
+    } else {
+        $wrapper = ['@context' => 'https://schema.org', '@graph' => []];
+        $graph   = [];
+    }
+
+    $graph[]           = $node;
+    $wrapper['@context'] = $wrapper['@context'] ?? 'https://schema.org';
+    $wrapper['@graph'] = $graph;
+
+    return json_encode($wrapper, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}

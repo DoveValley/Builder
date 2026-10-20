@@ -378,6 +378,10 @@ if (empty($seo['og_image'])) {
     // merge so Q&A tokens fill too.
     $schemaJson = schema_apply_faqpage($seo['schema'] ?? '', $contentBlocks ?? []);
     $schemaJson = schema_apply_sameas($schemaJson, $data['footer']['socials'] ?? []);
+    // Blog posts carry no stored schema at all, so this is the only node they get —
+    // derived from the post_meta block's visible byline (see blogposting_from_blocks).
+    // No-ops on every non-blog page. $ogImageAbsUrl is already absolute (line ~249).
+    $schemaJson = schema_apply_blogposting($schemaJson, $contentBlocks ?? [], $seo, $ogImageAbsUrl ?? '');
     if ($schemaJson !== '') {
         $schemaData = json_decode(resolve_shortcodes($schemaJson));
         if ($schemaData !== null) {

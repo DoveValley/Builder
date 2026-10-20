@@ -55,6 +55,10 @@ if ($slug !== '') {
         'title'              => $post['title'] ?? '',
         'author'             => $post['author'] ?? '',
         'published_at'       => $post['published_at'] ?? '',
+        // Not rendered — read by the BlogPosting projection (blogposting_from_blocks).
+        // Kept in sync with the identical block in includes/static_build.php.
+        'updated_at'         => $post['updated_at'] ?? '',
+        'excerpt'            => $post['excerpt'] ?? '',
         'tag'                => $post['tag'] ?? '',
         'featured_image'     => $post['featured_image'] ?? '',
         'featured_image_alt' => $post['featured_image_alt'] ?? '',

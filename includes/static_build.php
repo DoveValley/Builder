@@ -455,6 +455,11 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
                 'title'              => $post['title'] ?? '',
                 'author'             => $post['author'] ?? '',
                 'published_at'       => $post['published_at'] ?? '',
+                // Not rendered by the post_meta block — carried so the BlogPosting
+                // projection can read dateModified/description off the same block the
+                // visible byline comes from (see blogposting_from_blocks).
+                'updated_at'         => $post['updated_at'] ?? '',
+                'excerpt'            => $post['excerpt'] ?? '',
                 'tag'                => $post['tag'] ?? '',
                 'featured_image'     => $post['featured_image'] ?? '',
                 'featured_image_alt' => $post['featured_image_alt'] ?? '',
