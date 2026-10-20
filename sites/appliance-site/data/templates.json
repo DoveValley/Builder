@@ -40,6 +40,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "auto",
@@ -49,16 +59,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -316,17 +316,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -339,6 +328,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -771,17 +771,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -794,6 +783,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -1039,17 +1039,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "refrigerator",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -1062,6 +1051,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "refrigerator",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -1297,17 +1297,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "washer",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -1320,6 +1309,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "washer",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -1555,17 +1555,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "dryer",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -1578,6 +1567,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "dryer",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -1813,17 +1813,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "dishwasher",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -1836,6 +1825,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "dishwasher",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -2071,17 +2071,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "oven",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -2094,6 +2083,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "oven",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -2333,17 +2333,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "range",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -2356,6 +2345,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "range",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -2595,17 +2595,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "cooktop",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -2618,6 +2607,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "cooktop",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -2857,17 +2857,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "freezer",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -2880,6 +2869,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "freezer",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -3119,17 +3119,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -3142,6 +3131,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -3387,17 +3387,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -3410,6 +3399,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -3655,17 +3655,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -3678,6 +3667,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -3919,17 +3919,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -3942,6 +3931,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -4187,17 +4187,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -4210,6 +4199,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -4455,17 +4455,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -4478,6 +4467,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -4719,17 +4719,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -4742,6 +4731,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -4987,17 +4987,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -5010,6 +4999,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -5255,17 +5255,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -5278,6 +5267,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -5523,17 +5523,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -5546,6 +5535,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -5791,17 +5791,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -5814,6 +5803,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -6059,17 +6059,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -6082,6 +6071,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -6327,17 +6327,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -6350,6 +6339,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -6595,17 +6595,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -6618,6 +6607,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -6863,17 +6863,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -6886,6 +6875,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -7131,17 +7131,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -7154,6 +7143,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -7399,17 +7399,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "auto",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -7422,6 +7411,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "auto",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "ai_block",
@@ -7666,6 +7666,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "dacor",
@@ -7675,16 +7685,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -7968,6 +7968,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge",
@@ -7977,16 +7987,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -8262,6 +8262,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "lg",
@@ -8271,16 +8281,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -8560,6 +8560,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "amana",
@@ -8569,16 +8579,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -8862,6 +8862,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "sub-zero",
@@ -8871,16 +8881,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -9160,6 +9160,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge",
@@ -9169,16 +9179,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -9462,6 +9462,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "frigidaire",
@@ -9471,16 +9481,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -9764,6 +9764,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge",
@@ -9773,16 +9783,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -10066,6 +10066,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "dacor",
@@ -10075,16 +10085,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -10368,6 +10368,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "maytag",
@@ -10377,16 +10387,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -10670,6 +10670,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "maytag",
@@ -10679,16 +10689,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -10972,6 +10972,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "viking",
@@ -10981,16 +10991,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -11274,6 +11274,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kenmore",
@@ -11283,16 +11293,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -11576,6 +11576,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -11585,16 +11595,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -11878,6 +11878,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "maytag",
@@ -11887,16 +11897,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -12180,6 +12180,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kenmore",
@@ -12189,16 +12199,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -12482,6 +12482,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "lg",
@@ -12491,16 +12501,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -12780,6 +12780,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "miele",
@@ -12789,16 +12799,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -13082,17 +13082,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "garbage-disposal",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -13105,6 +13094,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "garbage-disposal",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "custom_html",
@@ -13336,6 +13336,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "jennair",
@@ -13345,16 +13355,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -13638,6 +13638,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kenmore",
@@ -13647,16 +13657,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -13940,6 +13940,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -13949,16 +13959,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -14242,6 +14242,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "frigidaire",
@@ -14251,16 +14261,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -14544,6 +14544,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "bosch",
@@ -14553,16 +14563,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -14846,6 +14846,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "dacor",
@@ -14855,16 +14865,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -15148,6 +15148,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "thermador",
@@ -15157,16 +15167,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -15450,6 +15450,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge-monogram",
@@ -15459,16 +15469,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -15744,6 +15744,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kitchenaid",
@@ -15753,16 +15763,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -16046,6 +16046,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "viking",
@@ -16055,16 +16065,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -16348,6 +16348,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "bosch",
@@ -16357,16 +16367,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -16650,6 +16650,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "viking",
@@ -16659,16 +16669,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -16952,6 +16952,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "dacor",
@@ -16961,16 +16971,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -17254,6 +17254,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "sub-zero",
@@ -17263,16 +17273,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -17552,6 +17552,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kitchenaid",
@@ -17561,16 +17571,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -17854,6 +17854,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "amana",
@@ -17863,16 +17873,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -18156,6 +18156,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "frigidaire",
@@ -18165,16 +18175,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -18458,6 +18458,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "bosch",
@@ -18467,16 +18477,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -18760,6 +18760,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -18769,16 +18779,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -19062,6 +19062,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kenmore",
@@ -19071,16 +19081,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -19364,6 +19364,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -19373,16 +19383,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -19666,6 +19666,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -19675,16 +19685,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -19968,6 +19968,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -19977,16 +19987,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -20270,6 +20270,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "miele",
@@ -20279,16 +20289,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -20572,6 +20572,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge",
@@ -20581,16 +20591,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -20874,6 +20874,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "dacor",
@@ -20883,16 +20893,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -21176,6 +21176,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "jennair",
@@ -21185,16 +21195,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -21478,6 +21478,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "thermador",
@@ -21487,16 +21497,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -21780,6 +21780,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "miele",
@@ -21789,16 +21799,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -22082,6 +22082,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "wolf",
@@ -22091,16 +22101,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -22380,6 +22380,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "bosch",
@@ -22389,16 +22399,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -22682,6 +22682,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "miele",
@@ -22691,16 +22701,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -22984,6 +22984,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kitchenaid",
@@ -22993,16 +23003,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -23286,6 +23286,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kitchenaid",
@@ -23295,16 +23305,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -23588,6 +23588,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -23597,16 +23607,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -23890,6 +23890,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "viking",
@@ -23899,16 +23909,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -24192,6 +24192,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "maytag",
@@ -24201,16 +24211,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -24494,6 +24494,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge",
@@ -24503,16 +24513,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -24796,6 +24796,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "viking",
@@ -24805,16 +24815,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -25098,6 +25098,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kenmore",
@@ -25107,16 +25117,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -25400,17 +25400,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "ice-machine",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -25423,6 +25412,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "ice-machine",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "custom_html",
@@ -25654,6 +25654,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "maytag",
@@ -25663,16 +25673,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -25956,6 +25956,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "miele",
@@ -25965,16 +25975,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -26258,6 +26258,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "bosch",
@@ -26267,16 +26277,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -26560,6 +26560,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "amana",
@@ -26569,16 +26579,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -26862,6 +26862,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "samsung",
@@ -26871,16 +26881,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -27156,6 +27156,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "amana",
@@ -27165,16 +27175,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -27458,6 +27458,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kitchenaid",
@@ -27467,16 +27477,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -27760,6 +27760,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "amana",
@@ -27769,16 +27779,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -28062,17 +28062,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "stove",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -28085,6 +28074,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "stove",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "custom_html",
@@ -28320,6 +28320,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "thermador",
@@ -28329,16 +28339,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -28622,6 +28622,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "whirlpool",
@@ -28631,16 +28641,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -28924,6 +28924,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "wolf",
@@ -28933,16 +28943,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -29222,6 +29222,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "viking",
@@ -29231,16 +29241,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -29524,6 +29524,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "frigidaire",
@@ -29533,16 +29543,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -29826,6 +29826,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "jennair",
@@ -29835,16 +29845,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -30128,6 +30128,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "ge",
@@ -30137,16 +30147,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -30430,6 +30430,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "frigidaire",
@@ -30439,16 +30449,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -30732,6 +30732,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "thermador",
@@ -30741,16 +30751,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -31034,17 +31034,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "trash-compactor",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -31057,6 +31046,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "trash-compactor",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "custom_html",
@@ -31288,17 +31288,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "ice-maker",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -31311,6 +31300,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "ice-maker",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "custom_html",
@@ -31542,17 +31542,6 @@
                 "id": "trust_bar_1"
             },
             {
-                "type": "error_codes",
-                "ec_heading": "",
-                "ec_brand": "auto",
-                "ec_type": "wine-cooler",
-                "ec_max": 12,
-                "ec_intro": "",
-                "ec_cta_text": "",
-                "ec_cta_url": "",
-                "id": "error_codes_1"
-            },
-            {
                 "type": "ai_block",
                 "ai_type_id": "city_intro",
                 "ai_mode": "standalone",
@@ -31565,6 +31554,17 @@
                 "it_ratio": "auto",
                 "it_layout": "stacked",
                 "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "auto",
+                "ec_type": "wine-cooler",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
             },
             {
                 "type": "custom_html",
@@ -31813,6 +31813,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "samsung",
@@ -31822,16 +31832,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -32108,6 +32108,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kitchenaid",
@@ -32117,16 +32127,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -32403,6 +32403,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "lg",
@@ -32412,16 +32422,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -32698,6 +32698,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "thermador",
@@ -32707,16 +32717,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -32993,6 +32993,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "bosch",
@@ -33002,16 +33012,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -33288,6 +33288,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "maytag",
@@ -33297,16 +33307,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -33583,6 +33583,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "frigidaire",
@@ -33592,16 +33602,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -33878,6 +33878,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "samsung",
@@ -33887,16 +33897,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -34173,6 +34173,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "miele",
@@ -34182,16 +34192,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",
@@ -34468,6 +34468,16 @@
                 "id": "trust_bar_1"
             },
             {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
                 "type": "error_codes",
                 "ec_heading": "",
                 "ec_brand": "kenmore",
@@ -34477,16 +34487,6 @@
                 "ec_cta_text": "",
                 "ec_cta_url": "",
                 "id": "error_codes_1"
-            },
-            {
-                "type": "ai_block",
-                "ai_type_id": "city_intro",
-                "ai_mode": "standalone",
-                "ai_render_as": "image_text",
-                "it_image_side": "left",
-                "it_photo": "",
-                "it_alt": "Appliance repair technician in {city_state}",
-                "id": "ai_block_1"
             },
             {
                 "type": "ai_block",

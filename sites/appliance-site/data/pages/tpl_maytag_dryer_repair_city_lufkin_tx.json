@@ -177,6 +177,16 @@
             "id": "trust_bar_1"
         },
         {
+            "type": "ai_block",
+            "ai_type_id": "city_intro",
+            "ai_mode": "standalone",
+            "ai_render_as": "image_text",
+            "it_image_side": "left",
+            "it_photo": "",
+            "it_alt": "Appliance repair technician in {city_state}",
+            "id": "ai_block_1"
+        },
+        {
             "type": "error_codes",
             "ec_heading": "",
             "ec_brand": "maytag",
@@ -186,16 +196,6 @@
             "ec_cta_text": "",
             "ec_cta_url": "",
             "id": "error_codes_1"
-        },
-        {
-            "type": "ai_block",
-            "ai_type_id": "city_intro",
-            "ai_mode": "standalone",
-            "ai_render_as": "image_text",
-            "it_image_side": "left",
-            "it_photo": "",
-            "it_alt": "Appliance repair technician in {city_state}",
-            "id": "ai_block_1"
         },
         {
             "type": "ai_block",

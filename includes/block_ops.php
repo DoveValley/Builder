@@ -108,6 +108,90 @@ function block_ops_move_ids_to_end_in_variants(array $variants, array $ids): arr
     return $out;
 }
 
+/** Does this block answer to $key — matching either its `type` or its `ai_type_id`? */
+function block_ops_matches(array $b, string $key): bool {
+    return ($b['type'] ?? '') === $key || ($b['ai_type_id'] ?? '') === $key;
+}
+
+/**
+ * Move the first block matching $moveKey to sit immediately after the first block
+ * matching $anchorKey. Either key may name a block `type` or an `ai_type_id`, because
+ * the interesting anchors are AI blocks that all share type `ai_block`.
+ *
+ * Leaves the list alone when either block is absent, or when it is already in place,
+ * so it is idempotent and safe to run across templates that don't have both.
+ */
+function block_ops_move_after(array $blocks, string $moveKey, string $anchorKey, array &$movedIds = []): array {
+    $from = $to = null;
+    foreach ($blocks as $i => $b) {
+        if (!is_array($b)) continue;
+        if ($from === null && block_ops_matches($b, $moveKey))   $from = $i;
+        if ($to   === null && block_ops_matches($b, $anchorKey)) $to   = $i;
+    }
+    if ($from === null || $to === null || $from === $to) return $blocks;
+    if ($from === $to + 1) return $blocks;   // already directly after the anchor
+
+    $moved = $blocks[$from];
+    array_splice($blocks, $from, 1);
+    // Re-find the anchor: removing an earlier element shifts it left by one.
+    $anchor = $from < $to ? $to - 1 : $to;
+    array_splice($blocks, $anchor + 1, 0, [$moved]);
+    if (!empty($moved['id'])) $movedIds[] = $moved['id'];
+    return $blocks;
+}
+
+/**
+ * Move a block type to sit after another, across all three layers of the ACTIVE site.
+ *
+ * @return array{site:int,templates:int,pages:int,errors:string[]}
+ */
+function block_ops_move_after_everywhere(string $moveKey, string $anchorKey, bool $dryRun = false): array {
+    $report = ['site' => 0, 'templates' => 0, 'pages' => 0, 'errors' => []];
+
+    $apply = function (array $node) use ($moveKey, $anchorKey) {
+        $ids = [];
+        $fresh = block_ops_move_after($node['content_blocks'], $moveKey, $anchorKey, $ids);
+        $changed = ($fresh !== $node['content_blocks']);
+        $node['content_blocks'] = $fresh;
+        return [$node, $changed];
+    };
+
+    $data = load_data();
+    if (is_array($data) && !empty($data['content_blocks'])) {
+        [$data, $changed] = $apply($data);
+        if ($changed) {
+            $report['site'] = 1;
+            if (!$dryRun && !save_data($data)) $report['errors'][] = 'site.json write failed';
+        }
+    }
+
+    $templates = tpl_load(); $dirty = false;
+    foreach ($templates as $i => $tpl) {
+        if (empty($tpl['content_blocks'])) continue;
+        [$templates[$i], $changed] = $apply($tpl);
+        if ($changed) { $report['templates']++; $dirty = true; }
+    }
+    if ($dirty && !$dryRun && !tpl_save($templates)) $report['errors'][] = 'templates.json write failed';
+
+    if (defined('PAGES_DIR') && is_dir(PAGES_DIR)) {
+        foreach (glob(rtrim(PAGES_DIR, '/') . '/*.json') ?: [] as $file) {
+            $page = json_decode((string) @file_get_contents($file), true);
+            if (!is_array($page) || empty($page['content_blocks'])) continue;
+            [$page, $changed] = $apply($page);
+            if (!$changed) continue;
+            $report['pages']++;
+            if ($dryRun) continue;
+            $json = json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            $tmp  = $file . '.tmp.' . getmypid();
+            if (file_put_contents($tmp, $json) === false || !rename($tmp, $file)) {
+                $report['errors'][] = 'page write failed: ' . basename($file);
+                @unlink($tmp);
+            }
+        }
+    }
+    return $report;
+}
+
 /**
  * Lift a block up past any unbroken run of "filler" blocks sitting directly in front
  * of it, so it lands immediately after the last substantive block.
