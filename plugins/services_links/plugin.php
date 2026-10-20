@@ -179,17 +179,39 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
         $pi = json_decode((string)file_get_contents(PAGE_INDEX_FILE), true);
         $existSlugs = is_array($pi) ? $pi : [];
     }
+    // The page currently being rendered. Read straight out of $GLOBALS rather than via
+    // `global $slug` so it is unambiguous whether the self-resolution branch above ran
+    // or not, and captured BEFORE the loop so the loop cannot disturb it.
+    $currentSlug = trim((string)($GLOBALS['slug'] ?? ''), '/');
+
     $links = [];
     $candidates = 0;   // passed the filter + resolved a name, before the page-exists guard
     foreach ($services as $svc) {
         if (!_services_links_passes($filter, $svc)) continue;
         [$name, $url] = _services_links_row($svc, $pattern);
         if ($name === '') continue;
+
+        // ⚠ This MUST NOT be called $slug. The "self" branch at the top of this
+        // function runs `global $slug`, and that binds the name to the global for the
+        // whole function body, not just that if-block — so the old `$slug = trim(...)`
+        // here wrote the last candidate's slug into the global that error-codes,
+        // mold-materials, pest-season, mold-testing and water-drying all read via
+        // `global $slug`. Nothing currently renders one of those after a grid, so it
+        // never fired, but it was one block reorder away from doing so.
+        $candidateSlug = (isset($url[0]) && $url[0] === '/')
+            ? trim((string) parse_url($url, PHP_URL_PATH), '/')
+            : '';
+
+        // A page never links to itself. Both self-grids on a leaf ("More Repairs for
+        // This Brand" and "Other Brands We Repair") listed the leaf's own page, because
+        // the filter matches it like any sibling. Deliberately placed BEFORE
+        // $candidates++ so the diagnostic below keeps measuring only what the
+        // page-exists guard dropped — an intentional exclusion is not a dropped link.
+        if ($candidateSlug !== '' && $candidateSlug === $currentSlug) continue;
+
         $candidates++;
-        if ($existSlugs !== null && isset($url[0]) && $url[0] === '/') {
-            $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
-            if ($slug !== '' && strpos($slug, '/') === false && !isset($existSlugs[$slug])) continue;
-        }
+        if ($existSlugs !== null && $candidateSlug !== ''
+            && strpos($candidateSlug, '/') === false && !isset($existSlugs[$candidateSlug])) continue;
         $logo = is_array($svc) ? trim((string)($svc['logo'] ?? '')) : '';
         $links[] = [$name, $url, $logo];
     }
