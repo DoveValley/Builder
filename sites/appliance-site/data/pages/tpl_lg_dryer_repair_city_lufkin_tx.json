@@ -155,24 +155,7 @@
             "type": "trust_bar",
             "tb_bg_custom": "#f3f6f7",
             "tb_show_icons": false,
-            "tb_items": [
-                {
-                    "label": "Factory-Trained Technicians",
-                    "icon": ""
-                },
-                {
-                    "label": "Same-Day Service",
-                    "icon": ""
-                },
-                {
-                    "label": "Upfront Pricing",
-                    "icon": ""
-                },
-                {
-                    "label": "Warranty on Repairs",
-                    "icon": ""
-                }
-            ],
+            "tb_items": "@safe_trust_badges",
             "anchor": "trust_bar",
             "id": "trust_bar_1"
         },
