@@ -599,7 +599,22 @@ function ms_prune_unreferenced_uploads(string $workingDir): int {
     foreach ($it as $f) {
         if (!$f->isFile()) continue;
         $path = $f->getPathname();
-        if (!preg_match('/\.(jpe?g|png|webp|gif)$/i', $path)) continue;   // only prune raster; keep svg/ico/css/etc.
+        // Raster is pruned; svg/ico/css are kept, because a text scan cannot prove an
+        // SVG is unused — a dry run of a blanket .svg prune across the five masters
+        // came back wanting to delete favicon-recovery-dawn.svg, which is exactly what
+        // this guard has always been protecting.
+        //
+        // The one safe exception is the GENERATED chart and service-area-map SVGs.
+        // city_chart_render() and the area-map plugin hand the page the .webp and keep
+        // the .svg only as the redraw-cache comparison source, so no page can reference
+        // one. A clone inherits the master's whole uploads/ directory, which is why
+        // every built domain was shipping the master's own city — chart-*-lufkin-tx.svg
+        // and service-area-map-lufkin-tx.svg turned up on Greenville SC and Ann Arbor MI
+        // alike, byte-identical, referenced by nothing. Matched by their generated
+        // "<name>-<city-slug>.svg" shape rather than by extension.
+        $isRaster       = (bool) preg_match('/\.(jpe?g|png|webp|gif)$/i', $path);
+        $isGeneratedSvg = (bool) preg_match('#/(?:chart-[A-Za-z0-9_]+|service-area-map)-[A-Za-z0-9-]+\.svg$#i', $path);
+        if (!$isRaster && !$isGeneratedSvg) continue;
         $rel = 'uploads/' . ltrim(substr($path, strlen($base)), '/\\');
         if (isset($referenced[$rel])) continue;
         if (@unlink($path)) $removed++;
