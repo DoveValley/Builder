@@ -256,7 +256,7 @@ function block_ops_lift_ids_in_variants(array $variants, array $ids, array $fill
  *
  * @return array{site:int,templates:int,pages:int,variants:int,errors:string[]}
  */
-function block_ops_lift_above_filler_everywhere(string $type, array $filler, bool $dryRun = false): array {
+function block_ops_lift_above_filler_everywhere(string $type, array $filler, bool $dryRun = false, bool $skipPages = false): array {
     $report = ['site' => 0, 'templates' => 0, 'pages' => 0, 'variants' => 0, 'errors' => []];
     $prefixes = array_map(fn($f) => $f . '_', $filler);
 
@@ -290,7 +290,12 @@ function block_ops_lift_above_filler_everywhere(string $type, array $filler, boo
     }
     if ($dirty && !$dryRun && !tpl_save($templates)) $report['errors'][] = 'templates.json write failed';
 
-    if (defined('PAGES_DIR') && is_dir(PAGES_DIR)) {
+    // $skipPages exists for masters whose data/pages hold a large preview or multi-city
+    // inventory that does not reach production — deployed domains generate their pages
+    // from the templates at build time. pest-template carries ~1,155 such files, mostly
+    // uncommitted, and rewriting them would bury a deliberate change inside an existing
+    // backlog with no way to tell the two apart afterwards.
+    if (!$skipPages && defined('PAGES_DIR') && is_dir(PAGES_DIR)) {
         foreach (glob(rtrim(PAGES_DIR, '/') . '/*.json') ?: [] as $file) {
             $page = json_decode((string) @file_get_contents($file), true);
             if (!is_array($page) || empty($page['content_blocks'])) continue;

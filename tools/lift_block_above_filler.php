@@ -21,11 +21,12 @@
  * Defaults to a DRY RUN. Nothing is written without --apply.
  */
 
-$opts   = getopt('', ['site:', 'type:', 'filler:', 'apply']);
+$opts   = getopt('', ['site:', 'type:', 'filler:', 'apply', 'skip-pages']);
 $site   = $opts['site'] ?? '';
 $type   = $opts['type'] ?? '';
 $filler = array_values(array_filter(array_map('trim', explode(',', $opts['filler'] ?? ''))));
 $apply  = isset($opts['apply']);
+$skipPages = isset($opts['skip-pages']);
 
 if ($site === '' || $type === '' || !$filler) {
     fwrite(STDERR, "usage: php tools/lift_block_above_filler.php --site=<id> --type=<block> --filler=<a,b,c> [--apply]\n");
@@ -39,7 +40,7 @@ require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/block_ops.php';
 
-$r = block_ops_lift_above_filler_everywhere($type, $filler, !$apply);
+$r = block_ops_lift_above_filler_everywhere($type, $filler, !$apply, $skipPages);
 
 printf("%s  site=%s  type=%s  filler=%s\n", $apply ? 'APPLIED' : 'DRY RUN', $site, $type, implode(',', $filler));
 printf("  site.json changed      : %d\n", $r['site']);

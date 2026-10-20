@@ -23,7 +23,7 @@
                 "hs_photo_alt": "Cockroach exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/cockroach-treatment_21bbaa.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_c2dd98_ebc5eb.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -44,7 +44,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/cockroach-exterminator-technician.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_e5c650_3ad682.webp",
                 "it_alt": "{business} technician applying cockroach treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -132,6 +132,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -162,21 +177,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -280,8 +280,8 @@
                 "ai_block_3",
                 "ai_block_4",
                 "service_cards_1",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "trust_bar_1",
                 "map_info_1"
             ]
@@ -310,7 +310,7 @@
                 "hs_photo_alt": "Ant Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_b01f9d_b6ed30.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -331,7 +331,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_9953a8_ea2b8c.webp",
                 "it_alt": "Ant Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -419,6 +419,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -453,21 +468,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -555,8 +555,8 @@
                 "ai_block_3",
                 "service_cards_1",
                 "ai_block_4",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "custom_html_1",
                 "map_info_1"
             ],
@@ -600,7 +600,7 @@
                 "hs_photo_alt": "Fire ant exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_d5db9e_48a834.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -626,7 +626,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_415fd0_fd5349.webp",
                 "it_alt": "{business} technician applying fire ant treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -714,6 +714,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -744,21 +759,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -861,8 +861,8 @@
                 "ai_block_3",
                 "service_cards_1",
                 "ai_block_4",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "custom_html_1",
                 "map_info_1"
             ]
@@ -891,7 +891,7 @@
                 "hs_photo_alt": "Carpenter ant exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/ant-exterminator_db35c5.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_208985_587549.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -912,7 +912,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-ant-exterminator_1c114b.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_a81c78_0d9509.webp",
                 "it_alt": "{business} technician applying carpenter ant treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -1000,6 +1000,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -1034,21 +1049,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -1121,8 +1121,8 @@
                 "ai_block_3",
                 "service_cards_1",
                 "ai_block_4",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "custom_html_1",
                 "map_info_1"
             ],
@@ -1151,8 +1151,8 @@
                 "ai_block_3",
                 "ai_block_4",
                 "service_cards_1",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "trust_bar_1",
                 "map_info_1"
             ]
@@ -1181,7 +1181,7 @@
                 "hs_photo_alt": "Bed Bug Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/bed-bug-exterminator_10746b.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_469108_3983e2.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -1202,7 +1202,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-bed-bug-exterminator_67236d.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_ce76cf_f6df3a.webp",
                 "it_alt": "Bed Bug Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -1290,6 +1290,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -1316,21 +1331,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -1403,8 +1403,8 @@
                 "ai_block_3",
                 "ai_block_4",
                 "service_cards_1",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "trust_bar_1",
                 "map_info_1"
             ],
@@ -1463,7 +1463,7 @@
                 "hs_photo_alt": "Termite exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/termite-treatment_26bf77.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_22d161_96a9bc.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -1489,7 +1489,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-termite-treatment_351fc7.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_880452_e8a043.webp",
                 "it_alt": "{business} technician applying termite treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -1577,6 +1577,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -1611,21 +1626,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -1758,7 +1758,7 @@
                 "hs_photo_alt": "Mosquito exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/mosquito-control_dd9bd8.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_2a52aa_c9c023.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -1784,7 +1784,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-mosquito-control_68697d.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_6db312_5c6ec2.webp",
                 "it_alt": "{business} technician applying mosquito treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -1872,6 +1872,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -1902,21 +1917,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -2049,7 +2049,7 @@
                 "hs_photo_alt": "Flea Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/flea-exterminator_b65819.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_67571c_acd121.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -2070,7 +2070,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-flea-exterminator_f798d2.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_3947b0_0226b6.webp",
                 "it_alt": "Flea Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -2158,6 +2158,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -2188,21 +2203,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -2335,7 +2335,7 @@
                 "hs_photo_alt": "Tick Treatment in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/tick-control_31b8de.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_2619c8_d4855f.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -2361,7 +2361,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-tick-control_f9a090.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_008923_1b85ce.webp",
                 "it_alt": "Tick Treatment in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -2449,6 +2449,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -2479,21 +2494,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -2626,7 +2626,7 @@
                 "hs_photo_alt": "Rat exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/rat-exterminator_c00c92.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_10a5e1_a0a30e.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -2647,7 +2647,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-rat-exterminator_5cb739.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_fd0140_ce8681.webp",
                 "it_alt": "{business} technician applying rat treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -2735,6 +2735,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -2769,21 +2784,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -2916,7 +2916,7 @@
                 "hs_photo_alt": "Mouse exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/mouse-exterminator_8b7cdd.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_1eaa9d_211cfb.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -2937,7 +2937,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-mouse-exterminator_4e8bea.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_fb4806_9343c9.webp",
                 "it_alt": "{business} technician applying mouse treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -3025,6 +3025,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -3059,21 +3074,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -3176,8 +3176,8 @@
                 "ai_block_3",
                 "service_cards_1",
                 "ai_block_4",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "custom_html_1",
                 "map_info_1"
             ]
@@ -3206,7 +3206,7 @@
                 "hs_photo_alt": "Spider Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/spider-exterminator_2aeaab.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_586faf_c3cf56.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -3227,7 +3227,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-spider-exterminator_19881c.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_9d1667_4bbf42.webp",
                 "it_alt": "Spider Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -3315,6 +3315,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -3345,21 +3360,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -3492,7 +3492,7 @@
                 "hs_photo_alt": "Scorpion Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/pest-exterminator_968a64.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_28fc8f_8121b8.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -3513,7 +3513,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_52af6e_42ce96.webp",
                 "it_alt": "Scorpion Pest Control in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -3601,6 +3601,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -3631,21 +3646,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -3733,8 +3733,8 @@
                 "ai_block_3",
                 "ai_block_4",
                 "service_cards_1",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "trust_bar_1",
                 "map_info_1"
             ],
@@ -3778,7 +3778,7 @@
                 "hs_photo_alt": "Wasp exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/wasp-exterminator_f51d29.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_779f19_bea105.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -3799,7 +3799,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_e8cc22_3e5f82.webp",
                 "it_alt": "{business} technician applying wasp treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -3887,6 +3887,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -3921,21 +3936,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -4008,8 +4008,8 @@
                 "ai_block_3",
                 "service_cards_1",
                 "ai_block_4",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "custom_html_1",
                 "map_info_1"
             ],
@@ -4068,7 +4068,7 @@
                 "hs_photo_alt": "Yellow jacket exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/yellow-jacket-exterminator_eef512.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_20c4ba_6c7962.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -4089,7 +4089,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-yellow-jacket-exterminator_b37b9d.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_cb0ee2_05e975.webp",
                 "it_alt": "{business} technician applying yellow jacket treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -4177,6 +4177,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -4207,21 +4222,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -4354,7 +4354,7 @@
                 "hs_photo_alt": "Silverfish exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/silverfish-control_d7b4c5.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_8967f5_0bd1d9.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -4375,7 +4375,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-silverfish-control_494d56.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_46760e_bb26db.webp",
                 "it_alt": "{business} technician applying silverfish treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -4463,6 +4463,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -4493,21 +4508,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -4610,8 +4610,8 @@
                 "ai_block_3",
                 "ai_block_4",
                 "service_cards_1",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "trust_bar_1",
                 "map_info_1"
             ]
@@ -4640,7 +4640,7 @@
                 "hs_photo_alt": "Centipede exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/pest-exterminator_968a64.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_f0cc6c_c71421.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -4661,7 +4661,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_0b1e6e_1e8808.webp",
                 "it_alt": "{business} technician applying centipede treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -4749,6 +4749,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -4779,21 +4794,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -4926,7 +4926,7 @@
                 "hs_photo_alt": "Cricket exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/pest-exterminator_968a64.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_df5ad5_c81ca0.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -4947,7 +4947,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_dd66d8_92810d.webp",
                 "it_alt": "{business} technician applying cricket treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -5035,6 +5035,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -5065,21 +5080,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -5212,7 +5212,7 @@
                 "hs_photo_alt": "Stink bug exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/pest-exterminator_968a64.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_e8594e_ece874.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -5238,7 +5238,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_b7b3a7_e99a8a.webp",
                 "it_alt": "{business} technician applying stink bug treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -5326,6 +5326,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -5352,21 +5367,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -5499,7 +5499,7 @@
                 "hs_photo_alt": "Wasp exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/wasp-exterminator_f51d29.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_dab634_96cf1a.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -5520,7 +5520,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_d90894_3e6b10.webp",
                 "it_alt": "{business} technician applying wasp treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -5608,6 +5608,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -5642,21 +5657,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -5789,7 +5789,7 @@
                 "hs_photo_alt": "Hornet exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/wasp-exterminator_f51d29.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_d26b99_356109.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -5810,7 +5810,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-wasp-exterminator_b79b6f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_6a9472_b1b956.webp",
                 "it_alt": "{business} technician applying hornet treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -5898,6 +5898,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -5928,21 +5943,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -6075,7 +6075,7 @@
                 "hs_photo_alt": "Bee exterminator treating a {city_state} home",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/wildlife-removal-and-exclusion_7aa299.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_66a9fe_e11732.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -6096,7 +6096,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-pest-exterminator_44058f.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_23cd38_3bc843.webp",
                 "it_alt": "{business} technician applying bee treatment along a baseboard in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -6184,6 +6184,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -6214,21 +6229,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -6362,7 +6362,7 @@
                 "hs_photo_alt": "Termite Inspection in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/termite-inspection_022dd6.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_9ac785_4f1324.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -6388,7 +6388,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-termite-inspection_cfec68.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_74cb48_ee5474.webp",
                 "it_alt": "Termite Inspection in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -6503,6 +6503,21 @@
                 "id": "feature_columns_1"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -6533,21 +6548,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -6621,8 +6621,8 @@
                 "ai_block_3",
                 "feature_columns_1",
                 "service_cards_1",
-                "cta_banner_2",
                 "faq_two_col_1",
+                "cta_banner_2",
                 "trust_bar_1",
                 "map_info_1"
             ],
@@ -6681,7 +6681,7 @@
                 "hs_photo_alt": "Pest Inspection in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/pest-inspection_1d79f2.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_6ae415_71be5e.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -6702,7 +6702,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-pest-inspection_349571.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_d29eb5_035ee0.webp",
                 "it_alt": "Pest Inspection in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -6817,6 +6817,21 @@
                 "id": "feature_columns_1"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -6847,21 +6862,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -6994,7 +6994,7 @@
                 "hs_photo_alt": "WDI Inspection in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/wdi-inspection_5fe6a4.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_e57e24_ea9cd4.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -7020,7 +7020,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-wdi-inspection_bb9184.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_b38dd9_5369f1.webp",
                 "it_alt": "WDI Inspection in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -7135,6 +7135,21 @@
                 "id": "feature_columns_1"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -7165,21 +7180,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -7313,7 +7313,7 @@
                 "hs_photo_alt": "Residential Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/residential-pest_b49acf.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_8ea178_e9c607.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -7334,7 +7334,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-residential-pest_665a8b.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_af3d16_ec2d89.webp",
                 "it_alt": "Residential Pest Control in a {city_state} property",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -7422,6 +7422,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -7456,21 +7471,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -7604,7 +7604,7 @@
                 "hs_photo_alt": "Commercial Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control_bfd495.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_768193_bf9a7c.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -7625,7 +7625,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control_2dcbb3.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_cf07d4_c30d46.webp",
                 "it_alt": "Commercial Pest Control in a {city_state} property",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -7713,6 +7713,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -7747,21 +7762,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -7894,7 +7894,7 @@
                 "hs_photo_alt": "Emergency Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/emergency-exterminator_e5992a.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_6e54f7_c851ba.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -7915,7 +7915,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-emergency-exterminator_283ecd.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_a7fb87_3b6437.webp",
                 "it_alt": "Emergency Pest Control in a {city_state} property",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -8003,6 +8003,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -8037,21 +8052,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -8184,8 +8184,8 @@
                 "hs_photo_alt": "Restaurant Pest Control in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/commercial-pest-control_bfd495.webp",
-                "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_0794ba_dabf59.webp",
+                "hs_bg_photo": "",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
                 "ai_inject_field": "hs_subtext",
@@ -8205,7 +8205,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-commercial-pest-control_2dcbb3.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_ebcffa_d002f7.webp",
                 "it_alt": "Restaurant Pest Control in a {city_state} property",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -8293,6 +8293,21 @@
                 "id": "ai_block_4"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -8323,21 +8338,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -8470,7 +8470,7 @@
                 "hs_photo_alt": "Pest Control Plans in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/custom-pest-control-plans_fcab25.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_3d42cc_805560.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -8491,7 +8491,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/integrated-pest-management_7889fc.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_9d93d9_400e0a.webp",
                 "it_alt": "Pest Control Plans in a {city_state} property",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -8607,6 +8607,21 @@
                 "id": "ai_block_3"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -8637,21 +8652,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -8722,8 +8722,8 @@
                 "pricing_cards_1",
                 "steps_1",
                 "ai_block_3",
-                "cta_banner_1",
                 "faq_two_col_1",
+                "cta_banner_1",
                 "service_cards_1",
                 "cta_banner_2",
                 "custom_html_1",
@@ -8784,7 +8784,7 @@
                 "hs_photo_alt": "Bed Bug Inspection in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/bed-bug-inspection-and-treatment_9a1199.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_3202cd_e8b904.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -8805,7 +8805,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/about-bed-bug-treatment_c0ce45.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_07e79c_491fa1.webp",
                 "it_alt": "Bed Bug Inspection in a {city_state} home",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -8920,6 +8920,21 @@
                 "id": "feature_columns_1"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -8946,21 +8961,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -9091,7 +9091,7 @@
                 "hs_photo_alt": "Pest Control Cost in {city_state}",
                 "hs_image_side": "right",
                 "hs_bg_color": "#f3f6f7",
-                "hs_photo": "sites/pest-template/uploads/media/pest-control_ca4801.webp",
+                "hs_photo": "sites/pest-template/uploads/media/ai_d76387_fd272f.webp",
                 "hs_bg_photo": "sites/pest-template/uploads/media/pest-services-vector.webp",
                 "hs_mobile_order": "img_first",
                 "ai_type_id": "hero_subtext",
@@ -9112,7 +9112,7 @@
                 "ai_mode": "standalone",
                 "ai_render_as": "image_text",
                 "it_image_side": "left",
-                "it_photo": "sites/pest-template/uploads/media/custom-pest-control-plans_fcab25.webp",
+                "it_photo": "sites/pest-template/uploads/media/ai_676a94_4e11d2.webp",
                 "it_alt": "Pest Control Cost factors for a {city_state} property",
                 "ai_inject_target": null,
                 "ai_inject_field": null,
@@ -9228,6 +9228,21 @@
                 "id": "ai_block_3"
             },
             {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQs — {city_state}",
+                "fq_bg_color": "#ffffff",
+                "fq_item_bg": "#d9d9d9",
+                "fq_head_color": "header",
+                "fq_icon_bg": "accent",
+                "fq_head_color_custom": "#120575",
+                "fq_icon_bg_custom": "#fd783b",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
                 "type": "related_links",
                 "rl_heading": "Related Services",
                 "rl_max": 3,
@@ -9254,21 +9269,6 @@
                     }
                 ],
                 "id": "related_links_1"
-            },
-            {
-                "type": "faq_two_col",
-                "fq_heading": "{primary_keyword} FAQs — {city_state}",
-                "fq_bg_color": "#ffffff",
-                "fq_item_bg": "#d9d9d9",
-                "fq_head_color": "header",
-                "fq_icon_bg": "accent",
-                "fq_head_color_custom": "#120575",
-                "fq_icon_bg_custom": "#fd783b",
-                "ai_type_id": "faq_local",
-                "ai_inject_field": "fq_items",
-                "ai_inject_mode": "replace",
-                "fq_items": [],
-                "id": "faq_two_col_1"
             },
             {
                 "type": "cards",
@@ -9339,8 +9339,8 @@
                 "pricing_cards_1",
                 "steps_1",
                 "ai_block_3",
-                "cta_banner_1",
                 "faq_two_col_1",
+                "cta_banner_1",
                 "service_cards_1",
                 "cta_banner_2",
                 "map_info_1"
