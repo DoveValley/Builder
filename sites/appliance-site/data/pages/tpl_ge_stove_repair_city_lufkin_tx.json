@@ -156,7 +156,8 @@
             "_ai_input_hash": "758d219d915e67a4",
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-stove.webp"
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-stove.webp",
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -393,7 +394,7 @@
         {
             "type": "related_links",
             "rl_heading": "Related Services",
-            "rl_max": 3,
+            "rl_max": 4,
             "rl_items": [
                 {
                     "url": "/stove-repair-{city_slug}",
@@ -402,6 +403,14 @@
                 {
                     "url": "/ge-appliance-repair-{city_slug}",
                     "text": "ge appliance repair"
+                },
+                {
+                    "url": "/appliance-repair-cost-{city_slug}",
+                    "text": "appliance repair cost"
+                },
+                {
+                    "url": "/emergency-appliance-repair-{city_slug}",
+                    "text": "emergency appliance repair"
                 },
                 {
                     "url": "/ge-refrigerator-repair-{city_slug}",
@@ -513,6 +522,6 @@
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Stove Repair in Lufkin, TX\",\n            \"serviceType\": \"GE Stove Repair\",\n            \"description\": \"Professional ge stove repair in Lufkin, TX from Wells Appliance Repair. Same-day service, upfront pricing, and warranty options available. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-17T18:06:24+00:00",
-    "template_version": "c948ebf4554d0116a11656e7e7bd12da"
+    "generated_at": "2026-10-19T06:19:36+00:00",
+    "template_version": "b56c02052bc1b16665a712ad4f1d9d15"
 }

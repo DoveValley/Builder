@@ -191,6 +191,13 @@
       "_ai_input_hash": "934b83ae31905e79"
     },
     {
+      "type": "custom_html",
+      "skin": "",
+      "anchor": "brands",
+      "html": "[services_links role=\"brand_hub\" heading=\"We Service All Major Brands\" cols=\"6\"]",
+      "id": "custom_html_2"
+    },
+    {
       "type": "ai_block",
       "ai_type_id": "common_problems",
       "ai_render_as": "feature_columns",
@@ -261,13 +268,6 @@
       "_ai_locked": true,
       "steps_subtext": "We have streamlined the repair process to be straightforward, professional, and convenient from start to finish.",
       "steps_style": "card"
-    },
-    {
-      "type": "custom_html",
-      "skin": "",
-      "anchor": "brands",
-      "html": "[services_links role=\"brand_hub\" heading=\"We Service All Major Brands\" cols=\"6\"]",
-      "id": "custom_html_2"
     },
     {
       "type": "related_links",
@@ -361,21 +361,6 @@
       "_ai_input_hash": "847f2f99737aa78c"
     },
     {
-      "type": "map_info",
-      "skin": "light",
-      "mi_map_heading": "Areas We Serve in {city}, {state}",
-      "mi_info_heading": "{city_state} Information",
-      "mi_info_text": "{city_spotlight}",
-      "mi_info_alt": "{city_image_alt}",
-      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-      "mi_map_side": "top",
-      "mi_head_color": "header",
-      "mi_head_color_custom": "#65a30d",
-      "mi_info_photo": "{city_image}",
-      "id": "map_info_1",
-      "mi_map_caption": "{city_map_caption}"
-    },
-    {
       "ai_mode": "standalone",
       "ai_render_as": "feature_columns",
       "ai_model": "claude-haiku-4-5-20251001",
@@ -415,6 +400,21 @@
       "cb_text_color": "#ffffff",
       "cb_padding": "compact",
       "id": "cta_banner_1"
+    },
+    {
+      "type": "map_info",
+      "skin": "light",
+      "mi_map_heading": "Areas We Serve in {city}, {state}",
+      "mi_info_heading": "{city_state} Information",
+      "mi_info_text": "{city_spotlight}",
+      "mi_info_alt": "{city_image_alt}",
+      "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+      "mi_map_side": "top",
+      "mi_head_color": "header",
+      "mi_head_color_custom": "#65a30d",
+      "mi_info_photo": "{city_image}",
+      "id": "map_info_1",
+      "mi_map_caption": "{city_map_caption}"
     }
   ],
   "seo": {
@@ -470,6 +470,18 @@
           {
             "label": "Blog",
             "url": "/blog"
+          },
+          {
+            "label": "Appliance Repair Cost",
+            "url": "/appliance-repair-cost-{city_slug}"
+          },
+          {
+            "label": "Commercial Appliance Repair",
+            "url": "/commercial-appliance-repair-{city_slug}"
+          },
+          {
+            "label": "Emergency Appliance Repair",
+            "url": "/emergency-appliance-repair-{city_slug}"
           }
         ]
       },
@@ -496,6 +508,18 @@
           {
             "label": "Oven Repair",
             "url": "/oven-repair-{city_slug}"
+          },
+          {
+            "label": "Range Repair",
+            "url": "/range-repair-{city_slug}"
+          },
+          {
+            "label": "Cooktop Repair",
+            "url": "/cooktop-repair-{city_slug}"
+          },
+          {
+            "label": "Freezer Repair",
+            "url": "/freezer-repair-{city_slug}"
           }
         ]
       },
@@ -789,7 +813,8 @@
     "services": [
       {
         "name": "Whirlpool Appliance Repair",
-        "url": "/whirlpool-appliance-repair-{city_slug}"
+        "url": "/whirlpool-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/whirlpool.png"
       },
       {
         "name": "Refrigerator Repair",
@@ -825,71 +850,88 @@
       },
       {
         "name": "Maytag Appliance Repair",
-        "url": "/maytag-appliance-repair-{city_slug}"
+        "url": "/maytag-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/maytag.png"
       },
       {
         "name": "GE Appliance Repair",
-        "url": "/ge-appliance-repair-{city_slug}"
+        "url": "/ge-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/ge.png"
       },
       {
         "name": "GE Monogram Appliance Repair",
-        "url": "/ge-monogram-appliance-repair-{city_slug}"
+        "url": "/ge-monogram-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/ge-monogram.png"
       },
       {
         "name": "KitchenAid Appliance Repair",
-        "url": "/kitchenaid-appliance-repair-{city_slug}"
+        "url": "/kitchenaid-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/kitchenaid.png"
       },
       {
         "name": "LG Appliance Repair",
-        "url": "/lg-appliance-repair-{city_slug}"
+        "url": "/lg-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/lg.png"
       },
       {
         "name": "Samsung Appliance Repair",
-        "url": "/samsung-appliance-repair-{city_slug}"
+        "url": "/samsung-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/samsung.png"
       },
       {
         "name": "Frigidaire Appliance Repair",
-        "url": "/frigidaire-appliance-repair-{city_slug}"
+        "url": "/frigidaire-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/frigidaire.png"
       },
       {
         "name": "Bosch Appliance Repair",
-        "url": "/bosch-appliance-repair-{city_slug}"
+        "url": "/bosch-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/bosch.png"
       },
       {
         "name": "Kenmore Appliance Repair",
-        "url": "/kenmore-appliance-repair-{city_slug}"
+        "url": "/kenmore-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/kenmore.png"
       },
       {
         "name": "Amana Appliance Repair",
-        "url": "/amana-appliance-repair-{city_slug}"
+        "url": "/amana-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/amana.png"
       },
       {
         "name": "JennAir Appliance Repair",
-        "url": "/jennair-appliance-repair-{city_slug}"
+        "url": "/jennair-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/jennair.png"
       },
       {
         "name": "Dacor Appliance Repair",
-        "url": "/dacor-appliance-repair-{city_slug}"
+        "url": "/dacor-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/dacor.png"
       },
       {
         "name": "Sub-Zero Appliance Repair",
-        "url": "/sub-zero-appliance-repair-{city_slug}"
+        "url": "/sub-zero-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/sub-zero.png"
       },
       {
         "name": "Wolf Appliance Repair",
-        "url": "/wolf-appliance-repair-{city_slug}"
+        "url": "/wolf-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/wolf.png"
       },
       {
         "name": "Viking Appliance Repair",
-        "url": "/viking-appliance-repair-{city_slug}"
+        "url": "/viking-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/viking.png"
       },
       {
         "name": "Thermador Appliance Repair",
-        "url": "/thermador-appliance-repair-{city_slug}"
+        "url": "/thermador-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/thermador.png"
       },
       {
         "name": "Miele Appliance Repair",
-        "url": "/miele-appliance-repair-{city_slug}"
+        "url": "/miele-appliance-repair-{city_slug}",
+        "logo": "sites/appliance-site/uploads/media/brand-logos/miele.png"
       },
       {
         "name": "Dacor Refrigerator Repair",
@@ -1214,6 +1256,46 @@
       {
         "name": "Wine Cooler Repair",
         "url": "/wine-cooler-repair-{city_slug}"
+      },
+      {
+        "name": "Bosch Washer Repair",
+        "url": "/bosch-washer-repair-{city_slug}"
+      },
+      {
+        "name": "Frigidaire Oven Repair",
+        "url": "/frigidaire-oven-repair-{city_slug}"
+      },
+      {
+        "name": "Kenmore Freezer Repair",
+        "url": "/kenmore-freezer-repair-{city_slug}"
+      },
+      {
+        "name": "KitchenAid Refrigerator Repair",
+        "url": "/kitchenaid-refrigerator-repair-{city_slug}"
+      },
+      {
+        "name": "LG Dryer Repair",
+        "url": "/lg-dryer-repair-{city_slug}"
+      },
+      {
+        "name": "Maytag Dryer Repair",
+        "url": "/maytag-dryer-repair-{city_slug}"
+      },
+      {
+        "name": "Miele Dryer Repair",
+        "url": "/miele-dryer-repair-{city_slug}"
+      },
+      {
+        "name": "Samsung Cooktop Repair",
+        "url": "/samsung-cooktop-repair-{city_slug}"
+      },
+      {
+        "name": "Samsung Refrigerator Repair",
+        "url": "/samsung-refrigerator-repair-{city_slug}"
+      },
+      {
+        "name": "Thermador Refrigerator Repair",
+        "url": "/thermador-refrigerator-repair-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",

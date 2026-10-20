@@ -157,7 +157,8 @@
             "_ai_injected_count": 1,
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp"
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -334,11 +335,23 @@
         {
             "type": "related_links",
             "rl_heading": "Related Services",
-            "rl_max": 3,
+            "rl_max": 4,
             "rl_items": [
                 {
                     "url": "/ge-appliance-repair-{city_slug}",
                     "text": "ge appliance repair"
+                },
+                {
+                    "url": "/appliance-repair-cost-{city_slug}",
+                    "text": "appliance repair cost"
+                },
+                {
+                    "url": "/emergency-appliance-repair-{city_slug}",
+                    "text": "emergency appliance repair"
+                },
+                {
+                    "url": "/commercial-appliance-repair-{city_slug}",
+                    "text": "commercial appliance repair"
                 },
                 {
                     "url": "/whirlpool-appliance-repair-{city_slug}",
@@ -385,6 +398,12 @@
             "tm_cols": 3,
             "tm_items": [],
             "id": "testimonials_1"
+        },
+        {
+            "type": "custom_html",
+            "skin": "",
+            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]",
+            "id": "custom_html_brand_self"
         },
         {
             "type": "map_info",
@@ -447,6 +466,6 @@
         "appliance_types": "Refrigerator, Washer, Dryer, Dishwasher, Oven, Cooktop, Freezer"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-17T18:06:24+00:00",
-    "template_version": "c9fc78d0d58af16d62ed1bb27f3eb691"
+    "generated_at": "2026-10-19T06:19:36+00:00",
+    "template_version": "2d9d2f5a40bc7e9453d1b1be11359efe"
 }

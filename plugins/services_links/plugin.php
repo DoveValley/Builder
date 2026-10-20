@@ -41,6 +41,20 @@ function _services_links_parse_attrs(string $raw): array {
     return $attrs;
 }
 
+/** Scoped CSS for the optional per-link logo (lg-has-logo). Plugins here ship no
+ *  stylesheet of their own, so it rides along — same pattern as mold-materials'
+ *  mm_* styles. Emitted once per page, only when a logo actually renders. */
+function _services_links_logo_css(): string {
+    static $done = false;
+    if ($done) return '';
+    $done = true;
+    return '<style>'
+        . '.lg-link.lg-has-logo{flex-direction:column;gap:8px}'
+        . '.lg-light-link.lg-has-logo{display:flex;flex-direction:column;align-items:center;gap:8px}'
+        . '.lg-link-logo{max-height:36px;max-width:100%;width:auto;object-fit:contain}'
+        . '</style>';
+}
+
 // slugify an attribute value for taxonomy comparison ("Sub Zero" -> "sub-zero").
 function _services_links_norm(string $v): string {
     return trim(preg_replace('/[^a-z0-9]+/', '-', strtolower(trim($v))), '-');
@@ -176,7 +190,8 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
             $slug = trim((string)parse_url($url, PHP_URL_PATH), '/');
             if ($slug !== '' && strpos($slug, '/') === false && !isset($existSlugs[$slug])) continue;
         }
-        $links[] = [$name, $url];
+        $logo = is_array($svc) ? trim((string)($svc['logo'] ?? '')) : '';
+        $links[] = [$name, $url, $logo];
     }
     // Diagnostic: the page-exists guard drops links silently. If it dropped ALL (or
     // a majority) of them, that's almost always a city_slug mismatch between the
@@ -205,8 +220,18 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
             echo '</div>';
         }
         echo '<div class="lg-grid lg-light-grid lg-cols-' . $cols . '">';
-        foreach ($links as [$name, $url]) {
-            echo '<a href="' . h($url) . '" class="lg-light-link">' . h($name) . '</a>';
+        foreach ($links as [$name, $url, $logo]) {
+            $logoTag = '';
+            $cls = 'lg-light-link';
+            if ($logo !== '') {
+                $logoSrc = (str_starts_with($logo, 'http') || str_starts_with($logo, '//')) ? $logo : $pathPrefix . $logo;
+                // alt="" — decorative: the brand name right below it is the same text a
+                // screen reader would otherwise announce twice, and it's the visible anchor
+                // text (not this attribute) that carries the link's SEO weight.
+                $logoTag = '<img src="' . h($logoSrc) . '" alt="" class="lg-link-logo" loading="lazy">';
+                $cls .= ' lg-has-logo';
+            }
+            echo '<a href="' . h($url) . '" class="' . $cls . '">' . $logoTag . h($name) . '</a>';
         }
         echo '</div></div></div>';
     } else {
@@ -223,12 +248,27 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
         }
         echo '<div class="lg-grid-wrap container">';
         echo '<div class="lg-grid lg-cols-' . $cols . '">';
-        foreach ($links as [$name, $url]) {
-            echo '<a href="' . h($url) . '" class="lg-link">' . h($name) . '</a>';
+        foreach ($links as [$name, $url, $logo]) {
+            $logoTag = '';
+            $cls = 'lg-link';
+            if ($logo !== '') {
+                $logoSrc = (str_starts_with($logo, 'http') || str_starts_with($logo, '//')) ? $logo : $pathPrefix . $logo;
+                // alt="" — decorative: the brand name right below it is the same text a
+                // screen reader would otherwise announce twice, and it's the visible anchor
+                // text (not this attribute) that carries the link's SEO weight.
+                $logoTag = '<img src="' . h($logoSrc) . '" alt="" class="lg-link-logo" loading="lazy">';
+                $cls .= ' lg-has-logo';
+            }
+            echo '<a href="' . h($url) . '" class="' . $cls . '">' . $logoTag . h($name) . '</a>';
         }
         echo '</div></div>';
         echo '</div></div>';
     }
+
+    // Appended, never prepended — includes/blocks.php's custom_html unwrap only skips
+    // the wrapper div when the HTML STARTS with a content-block div; a leading <style>
+    // breaks that match (see mold-materials' mm_css() for the same lesson).
+    if (array_filter($links, fn($l) => $l[2] !== '')) echo _services_links_logo_css();
 
     return ob_get_clean();
 }

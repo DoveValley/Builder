@@ -117,6 +117,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             <button type="button" class="ro-chip" data-n="4">4</button>
             <button type="button" class="ro-chip on" data-n="5">5</button>
             <button type="button" class="ro-chip" data-n="6">6</button>
+            <button type="button" class="ro-chip" data-n="7">7</button>
+            <button type="button" class="ro-chip" data-n="8">8</button>
+            <button type="button" class="ro-chip" data-n="9">9</button>
+            <button type="button" class="ro-chip" data-n="10">10</button>
         </span>
         <label>starting <input type="date" id="ro-start"></label>
         <label>starting at <input type="time" id="ro-start-time"></label>

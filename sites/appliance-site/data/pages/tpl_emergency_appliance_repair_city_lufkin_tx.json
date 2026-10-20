@@ -149,7 +149,8 @@
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
             "id": "hero_split_1",
-            "hs_mobile_order": "img_first"
+            "hs_mobile_order": "img_first",
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -353,6 +354,6 @@
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Emergency Appliance Repair in Lufkin, TX\",\n            \"serviceType\": \"Emergency Appliance Repair\",\n            \"description\": \"Emergency appliance repair in Lufkin, TX from Wells Appliance Repair. Fast response when an appliance fails, with upfront pricing and a warranty on the work. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-17T18:06:24+00:00",
+    "generated_at": "2026-10-19T06:19:36+00:00",
     "template_version": "985aafecfb53718e0a6417f7674c3acc"
 }

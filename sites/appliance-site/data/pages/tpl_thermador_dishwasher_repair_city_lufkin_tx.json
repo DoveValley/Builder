@@ -156,7 +156,8 @@
             "_ai_input_hash": "0538071d3648b36d",
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-dishwasher.webp"
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-dishwasher.webp",
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -393,7 +394,7 @@
         {
             "type": "related_links",
             "rl_heading": "Related Services",
-            "rl_max": 3,
+            "rl_max": 4,
             "rl_items": [
                 {
                     "url": "/dishwasher-repair-{city_slug}",
@@ -402,6 +403,14 @@
                 {
                     "url": "/thermador-appliance-repair-{city_slug}",
                     "text": "thermador appliance repair"
+                },
+                {
+                    "url": "/appliance-repair-cost-{city_slug}",
+                    "text": "appliance repair cost"
+                },
+                {
+                    "url": "/emergency-appliance-repair-{city_slug}",
+                    "text": "emergency appliance repair"
                 },
                 {
                     "url": "/thermador-oven-repair-{city_slug}",
@@ -521,6 +530,6 @@
         "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"Thermador Dishwasher Repair in Lufkin, TX\",\n            \"serviceType\": \"Thermador Dishwasher Repair\",\n            \"description\": \"Professional thermador dishwasher repair in Lufkin, TX from Wells Appliance Repair. Same-day service, upfront pricing, and warranty options available. Call 936-867-4787.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"Lufkin\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"https://a.q111.xyz/#localbusiness\",\n                \"name\": \"Wells Appliance Repair\",\n                \"telephone\": \"+19368674787\",\n                \"url\": \"https://a.q111.xyz\"\n            }\n        }\n    ]\n}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-17T18:06:24+00:00",
-    "template_version": "eded6015addece6985d1adc190287255"
+    "generated_at": "2026-10-19T06:19:36+00:00",
+    "template_version": "0b7211809e5600f10173def1d8b36a8b"
 }

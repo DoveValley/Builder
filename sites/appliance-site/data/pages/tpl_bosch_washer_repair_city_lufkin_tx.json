@@ -148,7 +148,8 @@
             "ai_type_id": "hero_subtext",
             "ai_inject_field": "hs_subtext",
             "ai_inject_mode": "replace",
-            "id": "hero_split_1"
+            "id": "hero_split_1",
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -272,6 +273,30 @@
             "id": "faq_two_col_1"
         },
         {
+            "type": "related_links",
+            "rl_heading": "Related Services",
+            "rl_max": 4,
+            "rl_items": [
+                {
+                    "url": "/washer-repair-{city_slug}",
+                    "text": "washer repair"
+                },
+                {
+                    "url": "/bosch-appliance-repair-{city_slug}",
+                    "text": "bosch appliance repair"
+                },
+                {
+                    "url": "/appliance-repair-cost-{city_slug}",
+                    "text": "appliance repair cost"
+                },
+                {
+                    "url": "/emergency-appliance-repair-{city_slug}",
+                    "text": "emergency appliance repair"
+                }
+            ],
+            "id": "related_links_1"
+        },
+        {
             "type": "testimonials",
             "anchor": "reviews",
             "tm_label": "Reviews",
@@ -353,6 +378,6 @@
         "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"Bosch Washer Repair in Lufkin, TX\",\"serviceType\":\"Bosch Washer Repair\",\"description\":\"Professional bosch washer repair in Lufkin, TX from Wells Appliance Repair. Factory-trained technicians, same-day service, upfront pricing, warranty. Call 936-867-4787.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"Lufkin\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"https://a.q111.xyz/#localbusiness\",\"name\":\"Wells Appliance Repair\",\"telephone\":\"+19368674787\",\"url\":\"https://a.q111.xyz\"}}]}"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-17T18:06:24+00:00",
+    "generated_at": "2026-10-19T06:19:36+00:00",
     "template_version": "89e339739b9bc1b7b2f6c6cdbb03c4be"
 }

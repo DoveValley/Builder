@@ -156,7 +156,8 @@
             "_ai_locked": true,
             "hs_mobile_order": "img_first",
             "id": "hero_split_1",
-            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp"
+            "_hs_photo_orig": "sites/appliance-site/uploads/media/appliance-appliance.webp",
+            "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
         },
         {
             "type": "trust_bar",
@@ -340,11 +341,23 @@
         {
             "type": "related_links",
             "rl_heading": "Related Services",
-            "rl_max": 3,
+            "rl_max": 4,
             "rl_items": [
                 {
                     "url": "/ge-appliance-repair-{city_slug}",
                     "text": "ge appliance repair"
+                },
+                {
+                    "url": "/appliance-repair-cost-{city_slug}",
+                    "text": "appliance repair cost"
+                },
+                {
+                    "url": "/emergency-appliance-repair-{city_slug}",
+                    "text": "emergency appliance repair"
+                },
+                {
+                    "url": "/commercial-appliance-repair-{city_slug}",
+                    "text": "commercial appliance repair"
                 },
                 {
                     "url": "/whirlpool-appliance-repair-{city_slug}",
@@ -391,6 +404,12 @@
             "tm_cols": 3,
             "tm_items": [],
             "id": "testimonials_1"
+        },
+        {
+            "type": "custom_html",
+            "skin": "",
+            "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]",
+            "id": "custom_html_brand_self"
         },
         {
             "type": "map_info",
@@ -453,6 +472,6 @@
         "appliance_types": "Oven, Range, Cooktop"
     },
     "locked_blocks": [],
-    "generated_at": "2026-10-17T18:06:24+00:00",
-    "template_version": "4e0b3faeccc6a509e01ce1e3f71fd251"
+    "generated_at": "2026-10-19T06:19:36+00:00",
+    "template_version": "b0b4f4e8ced40cacbb72eed4db01e929"
 }
