@@ -138,5 +138,43 @@ function appliance_services_menu_groups(array $data): array {
     usort($brandHubs, fn($a, $b) => strcmp($a[0], $b[0]));
     usort($specialty, fn($a, $b) => strcmp($a[0], $b[0]));
 
+    /*
+     * ── Hubs-only mode ───────────────────────────────────────────────────────────
+     * 'full' (default) lists every leaf under its type column: ~117 service links in
+     * the nav, on every page. Measured consequence — every page then links to EVERY
+     * page on the site (111 of 111 on wrenappliancerepair.com, checked across five
+     * page types). Internal links transmit no hierarchy at all, and the body-level
+     * silo work (breadcrumbs, hub self-grids, related_links) is ~12% of link volume.
+     *
+     * 'hubs' emits the 29 hub pages only — one "Shop by Appliance" column of type
+     * hubs plus the existing brand and specialty lists. Leaves stay fully reachable:
+     * every type hub and brand hub carries an uncapped [services_links …="self"]
+     * grid listing all its children (added in f5238be1; verified live — the
+     * Refrigerator hub links all 13 of its brand pages). Nothing is orphaned, the
+     * site just gains a homepage → hub → leaf shape instead of a flat sheet.
+     *
+     * ⚠ The cap comment in includes/headers/standard.php predates f5238be1 and says a
+     * type's hub page has "no brand list of its own to link to". That is no longer
+     * true — it is exactly what makes this mode safe.
+     *
+     * Reversible by one value, which is why it is config and not a code branch.
+     */
+    $depth = strtolower(trim((string) ($cfg['mega_menu_depth'] ?? 'full')));
+    if ($depth === 'hubs') {
+        $typeHubs = [];
+        foreach ($groups as $g) {
+            // hub_url '#' means this type has leaf pages but no hub page of its own on
+            // this domain — a link there is a dead end, so drop it rather than emit it.
+            if (($g['hub_url'] ?? '#') === '#') continue;
+            $typeHubs[] = [$g['title'], $g['hub_url']];
+        }
+        $groups = $typeHubs
+            ? [['title' => 'Shop by Appliance', 'hub_url' => '#', 'items' => $typeHubs]]
+            : [];
+        // Hub lists are short and are the whole point of this mode — showing 5 of 18
+        // behind a "View all" would hide most of the nav. 0 = no cap.
+        return ['groups' => $groups, 'brands' => $brandHubs, 'specialty' => $specialty, 'item_cap' => 0];
+    }
+
     return ['groups' => $groups, 'brands' => $brandHubs, 'specialty' => $specialty];
 }

@@ -198,6 +198,29 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     // theme falls back to defaults.
     global $data;
 
+    /*
+     * $slug needs the exact same treatment, and never got it.
+     *
+     * Several plugins resolve "which page am I on" by reading `global $slug` —
+     * services_links' brand="self"/appliance_type="self", and (per the warning in
+     * plugins/services_links/plugin.php) error-codes, mold-materials, pest-season,
+     * mold-testing and water-drying. In the original top-level endpoint $slug WAS a
+     * global and they worked. Here every `$slug = …` below was function-local, so
+     * $GLOBALS['slug'] stayed unset and every one of those reads saw ''.
+     *
+     * For services_links that failed OPEN, not closed: an unresolved "self" became an
+     * empty filter, so a grid meant to list one brand's pages listed the ENTIRE
+     * catalogue. Measured live before this fix — "More Repairs for This Brand" on
+     * wrenappliancerepair.com's Whirlpool fridge leaf emitted 99 links instead of 9,
+     * and the same on brand hubs and type hubs. That, not the nav, is the real reason
+     * every page linked to every page.
+     *
+     * site-template.php is require'd from inside this function, so breadcrumbs and
+     * canonicals always saw the local and were unaffected — which is why this stayed
+     * invisible.
+     */
+    global $slug;
+
     if (!defined('STATIC_BUILD')) define('STATIC_BUILD', true);
     $GLOBALS['_static_web3forms_key'] = $web3formsKey;
 

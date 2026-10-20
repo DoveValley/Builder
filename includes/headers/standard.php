@@ -143,6 +143,7 @@
                         // this city and never drifts from that shortcode's own list.
                         $navChildren = $item['children'] ?? [];
                         $navGroups   = null;
+                        $navGroupCap = null;   // reset per nav item alongside $navGroups
                         // '@appliance_services_menu' — same soft-guard shape as '@services_links'
                         // below, appliance-repair niche only. Checked FIRST (not elseif-chained
                         // with services_links) so a site using this sentinel never falls through
@@ -152,10 +153,14 @@
                         if ($navChildren === '@appliance_services_menu' && function_exists('appliance_services_menu_groups')) {
                             $grouped   = appliance_services_menu_groups($data);
                             $navGroups = $grouped['groups'];
+                            // Per-group item cap the plugin may override. Hubs-only mode returns
+                            // 0 (no cap) — hiding 13 of 18 hubs behind "View all" would defeat
+                            // the point of trimming the nav to hubs in the first place.
+                            $navGroupCap = $grouped['item_cap'] ?? null;
                             // Brand-only pages and the specialty row ride along as two more
                             // "groups" so the render loop below doesn't need a third shape.
-                            if ($grouped['brands'])    $navGroups[] = ['title' => 'Shop by Brand', 'hub_url' => '#', 'items' => $grouped['brands']];
-                            if ($grouped['specialty']) $navGroups[] = ['title' => 'Specialty',      'hub_url' => '#', 'items' => $grouped['specialty']];
+                            if ($grouped['brands'])    $navGroups[] = ['title' => 'Shop by Brand', 'hub_url' => '#', 'items' => $grouped['brands'],    'cap' => $navGroupCap];
+                            if ($grouped['specialty']) $navGroups[] = ['title' => 'Specialty',      'hub_url' => '#', 'items' => $grouped['specialty'], 'cap' => $navGroupCap];
                             $navChildren = [];
                         } elseif ($navChildren === '@services_links' && function_exists('services_links_resolve')) {
                             $navChildren = array_map(
@@ -195,13 +200,19 @@
                                 // Expanding in place also needs no hub_url at all, so every group gets
                                 // the same cap now, including 'Shop by Brand'/'Specialty' (hub_url '#'
                                 // — previously left uncapped because there was nowhere to send a link).
-                                $groupItemCap = 5;
+                                // ⚠ The "no brand list of its own" note above predates f5238be1,
+                                // which gave every type and brand hub an uncapped self-grid of its
+                                // children. It is stale — hub pages DO list their children now.
+                                $groupItemCapDefault = 5;
                                 ?>
                                 <?php foreach ($navGroups as $group): ?>
                                     <?php if (empty($group['items'])) continue; ?>
                                     <?php
-                                    $groupHubUrl = $group['hub_url'] ?: '#';
-                                    $groupExtra  = max(0, count($group['items']) - $groupItemCap);
+                                    // A group may carry its own cap; 0 means show everything.
+                                    $groupItemCap = $group['cap'] ?? $navGroupCap ?? $groupItemCapDefault;
+                                    $groupItemCap = ($groupItemCap === 0) ? count($group['items']) : (int) $groupItemCap;
+                                    $groupHubUrl  = $group['hub_url'] ?: '#';
+                                    $groupExtra   = max(0, count($group['items']) - $groupItemCap);
                                     ?>
                                     <li class="dropdown-group">
                                         <a class="dropdown-group-title" href="<?= h($groupHubUrl) ?>"><?= h($group['title']) ?></a>
