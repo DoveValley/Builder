@@ -3,6 +3,7 @@ require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/blocks_from_post.php';
 require_once __DIR__ . '/../includes/picdrop.php';
+require_once __DIR__ . '/../includes/templates_store.php';
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { header('Location: index.php?tab=templates'); exit; }
@@ -17,20 +18,12 @@ if (!ACTIVE_SITE_ID) { header('Location: sites.php'); exit; }
 
 $action = $_POST['action'] ?? '';
 
-function _tpl_load(): array {
-    if (!file_exists(TEMPLATES_FILE)) return [];
-    $raw = json_decode(file_get_contents(TEMPLATES_FILE), true);
-    return is_array($raw) ? $raw : [];
-}
-
-function _tpl_save(array $templates): bool {
-    $dir = dirname(TEMPLATES_FILE);
-    if (!is_dir($dir)) mkdir($dir, 0755, true);
-    $content = json_encode(array_values($templates), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
-    $tmp = TEMPLATES_FILE . '.tmp.' . getmypid();
-    if (file_put_contents($tmp, $content) === false) return false;
-    return rename($tmp, TEMPLATES_FILE);
-}
+// The real implementations now live in includes/templates_store.php so a CLI one-off or
+// another endpoint can reuse them — this file exits at the top on the login/POST/CSRF
+// guards, so nothing can require it to reach them. These stay as thin wrappers purely so
+// the existing call sites below are untouched.
+function _tpl_load(): array { return tpl_load(); }
+function _tpl_save(array $templates): bool { return tpl_save($templates); }
 
 /**
  * @return string[] every real photo value (not empty, not a {token}) that was
