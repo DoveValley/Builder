@@ -60,16 +60,21 @@ if (!is_dir($dataDir)) {
 }
 
 /*
- * Clause rewrites, longest-first so a specific variant is consumed before the generic
- * one can match a prefix of it. Each pair is [search, replace]; both sides are plain
- * text exactly as stored.
+ * Clause rewrites, PER MASTER. Each niche's copy was authored separately, so the
+ * phrasings do not overlap — keeping them in one table keyed by site keeps a single
+ * place to look while making it impossible for one niche's rule to fire on another's
+ * text. Longest-first within a set, so a specific variant is consumed before a generic
+ * one can match a prefix of it. Each pair is [search, replace], plain text exactly as
+ * stored.
  *
  * The replacement vocabulary is deliberately lifted from the '@safe_trust_badges'
- * sentinel already in use on 123/123 trust bars ("Fast Local Response", "Local
- * Provider Network") rather than invented here — inventing badge copy is precisely how
- * the hardcoded four arrived in the first place.
+ * sentinel already in use on every trust bar in the fleet ("Fast Local Response",
+ * "Local Provider Network") rather than invented here — inventing badge copy is
+ * precisely how the hardcoded claims arrived in the first place.
  */
-$CLAUSES = [
+$CLAUSE_SETS = [];
+
+$CLAUSE_SETS['appliance-site'] = [
     // --- factory-trained variants ---
     ['Factory-trained technicians, same-day service, upfront pricing, warranty.',
      'Fast local response, often same-day.'],
@@ -113,12 +118,51 @@ $CLAUSES = [
 ];
 
 /*
+ * ── pest-template ────────────────────────────────────────────────────────────────
+ * Pest pages promise a re-treat guarantee in the <title>, og:description, the Service
+ * schema and twice in the body, then disclaim it in the footer on the same page:
+ * "offers no warranty or guarantee regarding any work they carry out". Live on 30
+ * domains, 22 of 32 templates, 1,150 of 1,158 built pages.
+ *
+ * ⚠ SCOPE: this removes only the SITE's first-person promise — "our re-treat
+ * guarantee" and "Fast, Guaranteed X Control". Whether a PROVIDER-attributed version
+ * goes back in ("providers who offer a re-treat guarantee") is a separate, open
+ * question that depends on whether the operators actually re-treat for free; that is
+ * Scott's fact to supply, and nothing here pre-empts it. Removing the site's promise
+ * is correct under either answer, because the site does not perform the work.
+ *
+ * Deliberately NOT touched: "Never guarantee outcomes." and "Never guarantee total or
+ * permanent eradication." are PROMPT BANS in ai_prompt_override. None of the rules
+ * below can match them — checked.
+ */
+$CLAUSE_SETS['pest-template'] = [
+    // service_description → the Service node's description in the emitted JSON-LD
+    ['for homes and businesses with fast response and a re-treat guarantee.',
+     'for homes and businesses, with fast local response.'],
+    // cb_text → the body CTA. "our" is the site promising; this is the clearest case.
+    ['Get fast, targeted treatment backed by our re-treat guarantee.',
+     'Get fast, targeted treatment from a local provider.'],
+    // hs_subtext → hero paragraph. The provider framing before the comma is accurate
+    // and stays; only the trailing promise goes.
+    ['inside, treat the source, and back the work with a re-treat guarantee.',
+     'inside, and treat the source.'],
+    ['the problem at the source and back the work with a re-treat guarantee.',
+     'the problem at the source.'],
+    // og_description variants
+    ['treatment for homes and businesses, backed by a re-treat guarantee.',
+     'treatment for homes and businesses, from a local provider.'],
+    ['targeted treatment, and a re-treat guarantee.',
+     'and targeted treatment.'],
+];
+
+/*
  * Brand casing. Only brands that actually appear lowercased in a description are
  * listed; the match is anchored to "Professional <brand> " so it cannot touch prose
  * elsewhere in the file, and the replacement restores the canonical casing used by
- * seo.brand / the mega-menu taxonomy.
+ * seo.brand / the mega-menu taxonomy. Appliance-only — no other niche has a brand axis.
  */
-$BRANDS = [
+$BRAND_SETS = [];
+$BRAND_SETS['appliance-site'] = [
     'ge monogram' => 'GE Monogram', 'sub-zero' => 'Sub-Zero', 'kitchenaid' => 'KitchenAid',
     'jennair' => 'JennAir', 'whirlpool' => 'Whirlpool', 'maytag' => 'Maytag',
     'frigidaire' => 'Frigidaire', 'kenmore' => 'Kenmore', 'samsung' => 'Samsung',
@@ -126,6 +170,33 @@ $BRANDS = [
     'dacor' => 'Dacor', 'viking' => 'Viking', 'miele' => 'Miele',
     'wolf' => 'Wolf', 'ge' => 'GE', 'lg' => 'LG',
 ];
+
+/*
+ * Pattern rewrites, for claims that vary by a noun and so cannot be listed as literals.
+ * Pest titles read "<Pest> Exterminator in {city_state} | Fast, Guaranteed <Pest>
+ * Control" across 15 pests — the promise is in the <title>, i.e. the blue headline in
+ * Google, which is the single highest-value string on the page.
+ *
+ * "Targeted" replaces "Guaranteed": it is the word the surrounding copy already uses
+ * ("targeted treatment", "Targeted roach control"), it keeps the headline the same
+ * length and rhythm, and it describes the method rather than promising an outcome.
+ */
+$PATTERN_SETS = [];
+$PATTERN_SETS['pest-template'] = [
+    ['/\| Fast, Guaranteed (.+?) Control/', '| Fast, Targeted $1 Control',
+     'title: "| Fast, Guaranteed X Control" → "| Fast, Targeted X Control"'],
+];
+
+/** Apply pattern rewrites to a raw file body, counting hits per rule. */
+function sweep_patterns(string $raw, array $patterns, array &$tally): string {
+    foreach ($patterns as [$re, $to, $label]) {
+        $n = preg_match_all($re, $raw);
+        if (!$n) continue;
+        $tally[$label] = ($tally[$label] ?? 0) + $n;
+        $raw = preg_replace($re, $to, $raw);
+    }
+    return $raw;
+}
 
 /** Apply every clause rewrite to a raw file body, counting hits per rule. */
 function sweep_clauses(string $raw, array $clauses, array &$tally): string {
@@ -154,13 +225,28 @@ function sweep_brands(string $raw, array $brands, int &$count): string {
     return $raw;
 }
 
+$CLAUSES  = $CLAUSE_SETS[$siteId]  ?? [];
+$PATTERNS = $PATTERN_SETS[$siteId] ?? [];
+$BRANDS   = $BRAND_SETS[$siteId]   ?? [];
+
+if (!$CLAUSES && !$PATTERNS && !$BRANDS) {
+    fwrite(STDERR, "no rule set defined for '{$siteId}'.\n");
+    fwrite(STDERR, "Known: " . implode(', ', array_unique(array_merge(
+        array_keys($CLAUSE_SETS), array_keys($PATTERN_SETS), array_keys($BRAND_SETS)))) . "\n");
+    fwrite(STDERR, "Each niche's copy was authored separately — add its own rules rather than\n");
+    fwrite(STDERR, "reusing another's, or a rule will fire on text it was never written for.\n");
+    exit(1);
+}
+
 $targets = array_merge(
     [$dataDir . '/templates.json'],
     array_values(array_filter(glob($dataDir . '/pages/*.json') ?: [],
         fn($f) => !str_ends_with($f, '.bak')))
 );
 
-printf("%s  site=%s  files=%d\n\n", $apply ? 'APPLYING' : 'DRY RUN', $siteId, count($targets));
+printf("%s  site=%s  files=%d  rules=%d clause/%d pattern/%d brand\n\n",
+    $apply ? 'APPLYING' : 'DRY RUN', $siteId, count($targets),
+    count($CLAUSES), count($PATTERNS), count($BRANDS));
 
 $tally = [];
 $brandCount = 0;
@@ -173,6 +259,7 @@ foreach ($targets as $path) {
 
     $before = $raw;
     $raw = sweep_clauses($raw, $CLAUSES, $tally);
+    $raw = sweep_patterns($raw, $PATTERNS, $tally);
     $raw = sweep_brands($raw, $BRANDS, $brandCount);
     if ($raw === $before) continue;
 
@@ -208,15 +295,28 @@ function json_shape($o): string {
 }
 
 print("\n── clause rewrites ──────────────────────────────────────────\n");
-if (!$tally) {
-    print("  (none found — already clean)\n");
-} else {
-    foreach ($CLAUSES as [$from, $to]) {
-        if (empty($tally[$from])) continue;
-        printf("  x%-5d %s\n           → %s\n", $tally[$from], $from, $to);
-    }
+$anyClause = false;
+foreach ($CLAUSES as [$from, $to]) {
+    if (empty($tally[$from])) continue;
+    $anyClause = true;
+    printf("  x%-5d %s\n           → %s\n", $tally[$from], $from, $to);
 }
-printf("\n── brand casing ─────────────────────────────────────────────\n  x%d restored after \"Professional \"\n", $brandCount);
+if (!$anyClause) print("  (none found — already clean)\n");
+
+if ($PATTERNS) {
+    print("\n── pattern rewrites ─────────────────────────────────────────\n");
+    $anyPat = false;
+    foreach ($PATTERNS as [$re, $to, $label]) {
+        if (empty($tally[$label])) continue;
+        $anyPat = true;
+        printf("  x%-5d %s\n", $tally[$label], $label);
+    }
+    if (!$anyPat) print("  (none found — already clean)\n");
+}
+
+if ($BRANDS) {
+    printf("\n── brand casing ─────────────────────────────────────────────\n  x%d restored after \"Professional \"\n", $brandCount);
+}
 printf("\nfiles changed: %d of %d\n", $changedFiles, count($targets));
 
 if ($failed) {

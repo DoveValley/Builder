@@ -902,7 +902,7 @@
         "og_title": "Contact Us | {business}",
         "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
         "og_image": "",
-        "schema": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"ContactPage\",\n            \"@id\": \"{website}/contact-us/#contactpage\",\n            \"url\": \"{website}/contact-us/\",\n            \"name\": \"Contact {business}\",\n            \"description\": \"Call or email {business} to be connected with a local mold remediation provider in {city_state}.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        },\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"email\": \"{email}\",\n            \"contactPoint\": {\n                \"@type\": \"ContactPoint\",\n                \"telephone\": \"{tel}\",\n                \"email\": \"{email}\",\n                \"contactType\": \"customer service\",\n                \"areaServed\": \"US\",\n                \"availableLanguage\": \"English\"\n            }\n        }\n    ]\n}",
         "canonical_url": "{website}/contact-us/",
         "service_name": "",
         "service_type": "",
@@ -912,7 +912,8 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "primary_keyword": "",
-        "secondary_keywords": ""
+        "secondary_keywords": "",
+        "seo_title": "Contact {business} | {city_state} Mold Remediation"
       }
     },
     "page_1e07fd9e48528": {
@@ -988,7 +989,7 @@
         "og_title": "About Us | {business}",
         "og_description": "Learn about {business} and our mission to connect {city_state} property owners with trusted, quality local service providers.",
         "og_image": "",
-        "schema": "",
+        "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"AboutPage\",\n            \"@id\": \"{website}/about-us/#aboutpage\",\n            \"url\": \"{website}/about-us/\",\n            \"name\": \"About {business}\",\n            \"description\": \"How {business} connects {city_state} property owners with independent local mold remediation providers.\",\n            \"isPartOf\": {\n                \"@id\": \"{website}/#website\"\n            },\n            \"about\": {\n                \"@id\": \"{website}/#localbusiness\"\n            }\n        },\n        {\n            \"@type\": \"LocalBusiness\",\n            \"@id\": \"{website}/#localbusiness\",\n            \"name\": \"{business}\",\n            \"url\": \"{website}\",\n            \"telephone\": \"{tel}\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            }\n        }\n    ]\n}",
         "canonical_url": "{website}/about-us/",
         "service_name": "",
         "service_type": "",
@@ -998,7 +999,8 @@
         "bc_mid_label": "",
         "bc_mid_url": "",
         "primary_keyword": "",
-        "secondary_keywords": ""
+        "secondary_keywords": "",
+        "seo_title": "About {business} | {city_state} Mold Remediation"
       }
     }
   },
