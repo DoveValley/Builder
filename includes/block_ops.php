@@ -68,6 +68,107 @@ function block_ops_clean_variants(array $variants, array $removedIds): array {
 }
 
 /**
+ * Move every block of $type to the END of a content_blocks list, preserving the
+ * relative order of everything else. Already-last is a no-op, so this is idempotent.
+ */
+function block_ops_move_type_to_end(array $blocks, string $type, array &$movedIds = []): array {
+    $rest = []; $moved = [];
+    foreach ($blocks as $b) {
+        if (is_array($b) && ($b['type'] ?? '') === $type) {
+            $moved[] = $b;
+            if (!empty($b['id'])) $movedIds[] = $b['id'];
+        } else {
+            $rest[] = $b;
+        }
+    }
+    return array_merge($rest, $moved);
+}
+
+/**
+ * Move the given ids to the end of each layout variant, keeping other ids in order.
+ *
+ * Block-order rotation is currently OFF fleet-wide (`"layout":{"enabled":false}` in the
+ * build output), so variants are inert today — but they are stored per template and
+ * layout_apply() would honour them the moment rotation is switched back on. Leaving a
+ * stale variant behind would silently undo this reorder at that point, so the variants
+ * are kept in step rather than ignored.
+ */
+function block_ops_move_ids_to_end_in_variants(array $variants, array $ids): array {
+    if (!$ids) return $variants;
+    $move = array_flip($ids);
+    $out  = [];
+    foreach ($variants as $variant) {
+        if (!is_array($variant)) { $out[] = $variant; continue; }
+        $keep = []; $tail = [];
+        foreach ($variant as $bid) {
+            if (isset($move[(string) $bid])) $tail[] = $bid; else $keep[] = $bid;
+        }
+        $out[] = array_merge($keep, $tail);
+    }
+    return $out;
+}
+
+/**
+ * Move a block type to the end across all three layers of the ACTIVE site.
+ *
+ * @return array{site:int,templates:int,pages:int,variants:int,errors:string[]}
+ */
+function block_ops_move_type_to_end_everywhere(string $type, bool $dryRun = false): array {
+    $report = ['site' => 0, 'templates' => 0, 'pages' => 0, 'variants' => 0, 'errors' => []];
+
+    $apply = function (array $node, string $type, int &$variantCount) {
+        $ids = [];
+        $fresh = block_ops_move_type_to_end($node['content_blocks'], $type, $ids);
+        $changed = ($fresh !== $node['content_blocks']);
+        $node['content_blocks'] = $fresh;
+        if (!empty($node['layout_variants'])) {
+            $before = $node['layout_variants'];
+            $node['layout_variants'] = block_ops_move_ids_to_end_in_variants($before, $ids);
+            if ($node['layout_variants'] !== $before) { $changed = true; $variantCount++; }
+        }
+        return [$node, $changed];
+    };
+
+    // Layer 1 — site.json (the homepage)
+    $data = load_data();
+    if (is_array($data) && !empty($data['content_blocks'])) {
+        [$data, $changed] = $apply($data, $type, $report['variants']);
+        if ($changed) {
+            $report['site'] = 1;
+            if (!$dryRun && !save_data($data)) $report['errors'][] = 'site.json write failed';
+        }
+    }
+
+    // Layer 2 — templates.json
+    $templates = tpl_load(); $dirty = false;
+    foreach ($templates as $i => $tpl) {
+        if (empty($tpl['content_blocks'])) continue;
+        [$templates[$i], $changed] = $apply($tpl, $type, $report['variants']);
+        if ($changed) { $report['templates']++; $dirty = true; }
+    }
+    if ($dirty && !$dryRun && !tpl_save($templates)) $report['errors'][] = 'templates.json write failed';
+
+    // Layer 3 — already-generated pages
+    if (defined('PAGES_DIR') && is_dir(PAGES_DIR)) {
+        foreach (glob(rtrim(PAGES_DIR, '/') . '/*.json') ?: [] as $file) {
+            $page = json_decode((string) @file_get_contents($file), true);
+            if (!is_array($page) || empty($page['content_blocks'])) continue;
+            [$page, $changed] = $apply($page, $type, $report['variants']);
+            if (!$changed) continue;
+            $report['pages']++;
+            if ($dryRun) continue;
+            $json = json_encode($page, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            $tmp  = $file . '.tmp.' . getmypid();
+            if (file_put_contents($tmp, $json) === false || !rename($tmp, $file)) {
+                $report['errors'][] = 'page write failed: ' . basename($file);
+                @unlink($tmp);
+            }
+        }
+    }
+    return $report;
+}
+
+/**
  * Remove a block type from all three layers of the ACTIVE site.
  *
  * @param string $type   block type to remove (e.g. 'testimonials')

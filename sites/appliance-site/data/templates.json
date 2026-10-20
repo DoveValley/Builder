@@ -408,21 +408,6 @@
                 "id": "faq_two_col_1"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -443,6 +428,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -478,8 +478,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -491,12 +491,11 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -505,7 +504,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -631,21 +631,6 @@
                 "id": "faq_two_col_1"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -666,6 +651,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -700,9 +700,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -714,12 +714,11 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -728,7 +727,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -897,21 +897,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -932,6 +917,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -969,8 +969,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -981,9 +981,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -995,8 +995,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -1155,21 +1155,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -1190,6 +1175,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -1227,12 +1227,11 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -1241,7 +1240,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -1253,8 +1253,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -1413,21 +1413,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -1448,6 +1433,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -1485,8 +1485,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -1498,8 +1498,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -1511,8 +1511,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -1671,21 +1671,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -1706,6 +1691,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -1743,8 +1743,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -1756,8 +1756,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -1768,9 +1768,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -1929,21 +1929,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -1964,6 +1949,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -2001,8 +2001,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2014,8 +2014,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2026,9 +2026,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -2191,21 +2191,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -2226,6 +2211,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -2263,8 +2263,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2276,8 +2276,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2289,8 +2289,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -2453,21 +2453,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -2488,6 +2473,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -2525,8 +2525,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2538,8 +2538,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2550,9 +2550,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -2715,21 +2715,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -2750,6 +2735,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -2786,13 +2786,12 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -2801,7 +2800,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -2813,8 +2813,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -2977,21 +2977,6 @@
                 "id": "custom_html_type_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -3012,6 +2997,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -3049,8 +3049,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3062,8 +3062,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3074,9 +3074,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -3245,21 +3245,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -3280,6 +3265,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -3316,9 +3316,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3330,8 +3330,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3343,8 +3343,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -3513,21 +3513,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -3548,6 +3533,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -3585,8 +3585,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3598,8 +3598,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3611,8 +3611,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -3777,21 +3777,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -3812,6 +3797,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -3849,8 +3849,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3862,8 +3862,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -3875,8 +3875,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -4045,21 +4045,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -4080,6 +4065,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -4117,8 +4117,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4130,8 +4130,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4143,8 +4143,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -4313,21 +4313,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -4348,6 +4333,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -4377,7 +4377,6 @@
         "layout_variants": [
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -4386,7 +4385,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4398,8 +4398,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4411,8 +4411,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -4577,21 +4577,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -4612,6 +4597,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -4649,8 +4649,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4662,8 +4662,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4675,8 +4675,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -4845,21 +4845,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -4880,6 +4865,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -4916,9 +4916,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4930,8 +4930,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -4943,8 +4943,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -5113,21 +5113,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -5148,6 +5133,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -5177,7 +5177,6 @@
         "layout_variants": [
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -5186,7 +5185,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -5198,8 +5198,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -5211,8 +5211,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -5381,21 +5381,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -5416,6 +5401,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -5453,8 +5453,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -5466,8 +5466,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -5479,8 +5479,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -5649,21 +5649,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -5684,6 +5669,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -5721,8 +5721,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -5734,8 +5734,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -5747,8 +5747,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -5917,21 +5917,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -5952,6 +5937,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -5989,8 +5989,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -6001,13 +6001,12 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -6016,7 +6015,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -6185,21 +6185,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -6220,6 +6205,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -6256,9 +6256,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -6269,9 +6269,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -6283,8 +6283,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -6453,21 +6453,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -6488,6 +6473,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -6525,8 +6525,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -6538,8 +6538,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -6550,9 +6550,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -6721,21 +6721,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -6756,6 +6741,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -6792,9 +6792,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -6806,12 +6806,11 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -6820,7 +6819,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -6989,21 +6989,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -7024,6 +7009,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -7061,8 +7061,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -7074,8 +7074,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -7087,8 +7087,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -7257,21 +7257,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -7292,6 +7277,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -7329,8 +7329,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -7342,8 +7342,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -7355,8 +7355,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -7525,21 +7525,6 @@
                 "id": "custom_html_brand_self"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -7560,6 +7545,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -7589,7 +7589,6 @@
         "layout_variants": [
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -7598,7 +7597,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -7609,9 +7609,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -7623,8 +7623,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -13196,21 +13196,6 @@
                 "id": "custom_html_2"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -13231,6 +13216,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -13266,9 +13266,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -13280,8 +13280,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -13293,8 +13293,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -25514,21 +25514,6 @@
                 "id": "custom_html_2"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -25549,6 +25534,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -25577,7 +25577,6 @@
         "layout_variants": [
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -25586,7 +25585,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -25598,8 +25598,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -25611,8 +25611,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -28180,21 +28180,6 @@
                 "id": "custom_html_2"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -28215,6 +28200,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -28251,8 +28251,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -28264,8 +28264,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -28277,8 +28277,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -31148,21 +31148,6 @@
                 "id": "custom_html_2"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -31183,6 +31168,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -31219,8 +31219,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -31232,12 +31232,11 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
-                "map_info_1",
                 "ai_block_1",
                 "custom_html_1",
                 "ai_block_2",
@@ -31246,7 +31245,8 @@
                 "faq_two_col_1",
                 "custom_html_2",
                 "trust_bar_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -31402,21 +31402,6 @@
                 "id": "custom_html_2"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -31437,6 +31422,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -31473,8 +31473,8 @@
                 "ai_block_3",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -31486,8 +31486,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -31499,8 +31499,8 @@
                 "cta_banner_1",
                 "faq_two_col_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
@@ -31656,21 +31656,6 @@
                 "id": "custom_html_2"
             },
             {
-                "type": "map_info",
-                "mi_map_heading": "Areas We Serve in {city}, {state}",
-                "mi_info_heading": "{city_state} Information",
-                "mi_info_text": "{city_spotlight}",
-                "mi_info_alt": "{city_image_alt}",
-                "mi_info_credit": "{city_image_credit}",
-                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
-                "mi_head_color": "header",
-                "mi_head_color_custom": "#65a30d",
-                "mi_info_photo": "{city_image}",
-                "mi_map_side": "top",
-                "mi_map_caption": "{city_map_caption}",
-                "id": "map_info_1"
-            },
-            {
                 "type": "cards",
                 "cards_label": "Homeowner Safety Toolkit",
                 "cards_heading": "Verify Your {city_state} Appliance Repair Company",
@@ -31691,6 +31676,21 @@
                 "cb_text_color": "#ffffff",
                 "cb_padding": "compact",
                 "id": "cta_banner_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
             }
         ],
         "seo": {
@@ -31726,9 +31726,9 @@
                 "ai_block_3",
                 "cta_banner_1",
                 "faq_two_col_1",
-                "map_info_1",
                 "custom_html_2",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -31740,8 +31740,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ],
             [
                 "hero_split_1",
@@ -31753,8 +31753,8 @@
                 "faq_two_col_1",
                 "cta_banner_1",
                 "custom_html_2",
-                "map_info_1",
-                "cta_banner_2"
+                "cta_banner_2",
+                "map_info_1"
             ]
         ]
     },
