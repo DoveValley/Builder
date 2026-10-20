@@ -44,7 +44,9 @@
         },
         "btn_text": "#ffffff",
         "border_color": "#e5e7eb",
-        "head_extra": ""
+        "head_extra": "",
+        "heading_weight": "700",
+        "gsc_meta": ""
     },
     "header": {
         "logo": "sites/granitepmacademy/uploads/logo_granite.png",
@@ -161,7 +163,9 @@
         "cta_url": "",
         "header_layout": "single_row",
         "sr_bar_height": 92,
-        "favicon": "sites/granitepmacademy/uploads/favicon.ico"
+        "favicon": "sites/granitepmacademy/uploads/favicon.ico",
+        "sponsored_text": "Sponsored",
+        "sticky_nav_on_scroll": false
     },
     "content_blocks": [
         {
@@ -838,7 +842,20 @@
         "lb_name": "Granite PM Academy",
         "lb_url": "https://granitepmacademy.com",
         "lb_rating": "4.8",
-        "lb_review_count": "534"
+        "lb_review_count": "534",
+        "lb_type": "EducationalOrganization",
+        "lb_phone": "{phone}",
+        "lb_street": "",
+        "lb_city": "San Antonio",
+        "lb_state": "TX",
+        "lb_zip": "78201",
+        "lb_country": "US",
+        "lb_lat": "29.4241",
+        "lb_lng": "-98.4936",
+        "lb_price_range": "$$",
+        "lb_hours": "Mo-Fr 08:00-17:00",
+        "lb_description": "Granite PM Academy is a PMI Premier Authorized Training Partner offering PMP, CAPM, and CPMAI certification training via live-virtual and on-demand courses nationwide.",
+        "lb_logo": "https://granitepmacademy.com/uploads/logo_granite.png"
     },
     "site_vars": {
         "city": "San Antonio",
@@ -855,7 +872,8 @@
         "city_image": "sites/granitepmacademy/uploads/media/city-scenic-san-antonio-tx.webp",
         "city_image_alt": "San Antonio Botanical Garden Overlook View, TX",
         "city_image_credit": "Photo: Jouaienttoi, CC BY-SA 4.0",
-        "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Antonio_Botanical_Garden_Overlook_View.jpg"
+        "city_image_source": "https://commons.wikimedia.org/wiki/File:San_Antonio_Botanical_Garden_Overlook_View.jpg",
+        "business_short": ""
     },
     "footer": {
         "logo": "sites/granitepmacademy/uploads/logo_granite.png",
@@ -962,7 +980,8 @@
             "twitter": ""
         },
         "logo_in_contact_column": false,
-        "tagline": ""
+        "tagline": "",
+        "show_sticky_info_icon": true
     },
     "popups": {
         "info": {
