@@ -33,7 +33,7 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
                 <span style="color:#64748b">of <?= (int) $fixLast['built'] ?> pages indexed (<?= $fixPct ?>%)
                     across <?= (int) $fixLast['measured'] ?> live sites</span>
                 <?php if ($fixLast['prev_at'] === ''): ?>
-                    <span style="color:#94a3b8">&middot; baseline, nothing to compare yet</span>
+                    <span class="fa-dim">&middot; baseline, nothing to compare yet</span>
                 <?php else: ?>
                     <span style="color:<?= $fixLast['net'] >= 0 ? '#16a34a' : '#dc2626' ?>;font-weight:600">
                         <?= $fixLast['net'] >= 0 ? '+' : '' ?><?= (int) $fixLast['net'] ?></span>
@@ -41,7 +41,7 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
                         &middot; <?= (int) $fixLast['up'] ?> up, <?= (int) $fixLast['down'] ?> down</span>
                 <?php endif; ?>
                 <?php if ($fixLast['unmeasured'] > 0): ?>
-                    <span style="color:#b45309">&middot; <?= (int) $fixLast['unmeasured'] ?> could not be measured</span>
+                    <span class="fa-warn">&middot; <?= (int) $fixLast['unmeasured'] ?> could not be measured</span>
                 <?php endif; ?>
             <?php endif; ?>
         </span>
@@ -68,18 +68,18 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
 
     <?php if ($fixHas): ?>
     <details style="margin-top:8px">
-        <summary style="cursor:pointer;font-size:.8rem;color:#64748b">Per domain (<?= count($fixLast['rows']) ?>)</summary>
-        <table style="width:100%;border-collapse:collapse;font-size:.78rem;margin-top:6px">
-            <thead><tr style="text-align:left;color:#94a3b8">
-                <th style="padding:3px 8px 3px 0">Domain</th>
-                <th style="padding:3px 8px 3px 0">Indexed</th>
-                <th style="padding:3px 8px 3px 0">Built</th>
-                <th style="padding:3px 8px 3px 0">%</th>
-                <th style="padding:3px 8px 3px 0">Change</th>
-                <th style="padding:3px 8px 3px 0">Went live</th>
-                <th style="padding:3px 8px 3px 0">First indexed</th>
-                <th style="padding:3px 8px 3px 0" title="Days from go-live to the first sweep that saw it indexed">Days to index</th>
-                <th style="padding:3px 0">Age</th>
+        <summary class="fa-sum">Per domain (<?= count($fixLast['rows']) ?>)</summary>
+        <table class="fa-t">
+            <thead><tr>
+                <th>Domain</th>
+                <th>Indexed</th>
+                <th>Built</th>
+                <th>%</th>
+                <th>Change</th>
+                <th>Went live</th>
+                <th>First indexed</th>
+                <th title="Days from go-live to the first sweep that saw it indexed">Days to index</th>
+                <th>Age</th>
             </tr></thead>
             <tbody>
             <?php
@@ -88,42 +88,42 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
             foreach ($rows as $r):
                 $pct = ($r['indexed'] >= 0 && $r['built'] > 0) ? round($r['indexed'] / $r['built'] * 100) . '%' : '—';
             ?>
-                <tr style="border-top:1px solid #f1f5f9">
-                    <td style="padding:3px 8px 3px 0"><?= h($r['domain']) ?></td>
-                    <td style="padding:3px 8px 3px 0">
+                <tr>
+                    <td><?= h($r['domain']) ?></td>
+                    <td>
                         <?php if ($r['indexed'] < 0): ?>
-                            <span style="color:#b45309" title="<?= h($r['note']) ?>">not measured</span>
+                            <span class="fa-warn" title="<?= h($r['note']) ?>">not measured</span>
                         <?php else: ?><?= (int) $r['indexed'] ?><?php endif; ?>
                     </td>
-                    <td style="padding:3px 8px 3px 0"><?= (int) $r['built'] ?></td>
-                    <td style="padding:3px 8px 3px 0"><?= $pct ?></td>
-                    <td style="padding:3px 8px 3px 0">
+                    <td><?= (int) $r['built'] ?></td>
+                    <td><?= $pct ?></td>
+                    <td>
                         <?php if ($r['delta'] === null): ?><span style="color:#cbd5e1">—</span>
                         <?php elseif ($r['delta'] > 0): ?><span style="color:#16a34a">+<?= (int) $r['delta'] ?></span>
                         <?php elseif ($r['delta'] < 0): ?><span style="color:#dc2626"><?= (int) $r['delta'] ?></span>
                         <?php else: ?><span style="color:#cbd5e1">0</span><?php endif; ?>
                     </td>
-                    <td style="padding:3px 8px 3px 0;color:#64748b">
+                    <td class="fa-mute">
                         <?= $r['went_live'] !== '' ? h(gmdate('j M', strtotime($r['went_live']))) : '—' ?>
                     </td>
-                    <td style="padding:3px 8px 3px 0;color:#64748b">
+                    <td class="fa-mute">
                         <?= $r['first_indexed'] !== '' ? h(gmdate('j M', strtotime($r['first_indexed']))) : '—' ?>
                     </td>
-                    <td style="padding:3px 8px 3px 0">
+                    <td>
                         <?php if ($r['tti_days'] === null): ?>
                             <?php /* Never seen indexed. The useful number is how long it has been waiting. */ ?>
-                            <span style="color:#94a3b8" title="Not seen in the index yet">
+                            <span class="fa-dim" title="Not seen in the index yet">
                                 <?= $r['age_days'] >= 0 ? 'waiting ' . (int) $r['age_days'] . 'd' : '—' ?></span>
                         <?php elseif ($r['tti_is_bound']): ?>
                             <?php /* Already indexed at our earliest sweep — a ceiling, not the answer. */ ?>
-                            <span style="color:#94a3b8"
+                            <span class="fa-dim"
                                   title="Already indexed when we first looked, so this is an upper bound — it may have been indexed sooner">
                                 &le; <?= (int) $r['tti_days'] ?>d</span>
                         <?php else: ?>
                             <strong><?= (int) $r['tti_days'] ?>d</strong>
                         <?php endif; ?>
                     </td>
-                    <td style="padding:3px 0;color:<?= $r['too_new'] ? '#94a3b8' : '#475569' ?>">
+                    <td class="<?= $r['too_new'] ? 'fa-dim' : '' ?>">
                         <?= $r['age_days'] >= 0 ? (int) $r['age_days'] . 'd' : '?' ?><?= $r['too_new'] ? ' · too new' : '' ?>
                     </td>
                 </tr>

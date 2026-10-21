@@ -693,3 +693,22 @@ summary.block-card-header::-webkit-details-marker { display: none; }
 }
 @keyframes toast-in { from { opacity:0; transform: translateX(-50%) translateY(10px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
 
+
+/* ── Fleet audit cards (Site Manager) ─────────────────────────────────────────
+ * The per-domain tables in these cards repeat the same handful of cell styles
+ * once per cell. At 108 live domains that was 42 KB of identical style="" in a
+ * single card — 28% of its markup — and it grows linearly with the fleet. These
+ * classes carry the same rules once, in a file the browser caches. */
+.fa-t          { width:100%; border-collapse:collapse; font-size:.78rem; margin-top:6px; }
+.fa-t thead tr { text-align:left; color:#94a3b8; }
+.fa-t th       { padding:3px 8px 3px 0; font-weight:600; }
+.fa-t td       { padding:3px 8px 3px 0; }
+.fa-t th:last-child, .fa-t td:last-child { padding-right:0; }
+.fa-t tbody tr { border-top:1px solid #f1f5f9; }
+.fa-dim        { color:#94a3b8; }
+.fa-mute       { color:#64748b; }
+.fa-bad        { color:#dc2626; font-weight:600; }
+.fa-good       { color:#16a34a; font-weight:600; }
+.fa-warn       { color:#b45309; }
+.fa-row-dim    { color:#cbd5e1; }
+.fa-sum        { cursor:pointer; font-size:.8rem; color:#64748b; }

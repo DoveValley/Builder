@@ -50,7 +50,7 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
                     <span style="color:#dc2626;font-weight:600">&middot; <?= (int) $fcr['errors'] ?> serving errors</span>
                 <?php endif; ?>
                 <?php if ($fcr['uncollected']): ?>
-                    <span style="color:#b45309">&middot; <?= (int) $fcr['uncollected'] ?> not collected yet</span>
+                    <span class="fa-warn">&middot; <?= (int) $fcr['uncollected'] ?> not collected yet</span>
                 <?php endif; ?>
             <?php endif; ?>
         </span>
@@ -75,7 +75,7 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
                         <?= $r['s404'] ? (int) $r['s404'] . '&times;404' : '' ?>
                         <?= $r['s5xx'] ? (int) $r['s5xx'] . '&times;5xx' : '' ?> to Googlebot</span>
                 <?php endif; ?>
-                <?php if ($r['note'] !== ''): ?><span style="color:#b45309"> &middot; <?= h($r['note']) ?></span><?php endif; ?>
+                <?php if ($r['note'] !== ''): ?><span class="fa-warn"> &middot; <?= h($r['note']) ?></span><?php endif; ?>
             </li>
         <?php endforeach; ?>
         <?php if (count($fcrProblems) > 12): ?>
@@ -86,32 +86,32 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
 
     <?php if ($fcrHas): ?>
     <details style="margin-top:8px">
-        <summary style="cursor:pointer;font-size:.8rem;color:#64748b">Per domain (<?= count($fcr['rows']) ?>)</summary>
-        <table style="width:100%;border-collapse:collapse;font-size:.78rem;margin-top:6px">
-            <thead><tr style="text-align:left;color:#94a3b8">
-                <th style="padding:3px 8px 3px 0">Domain</th>
-                <th style="padding:3px 8px 3px 0" title="IP-verified Googlebot hits in the window">Hits <?= (int) $fcrDays ?>d</th>
-                <th style="padding:3px 8px 3px 0" title="Distinct URLs Googlebot has ever fetched">Pages seen</th>
-                <th style="padding:3px 8px 3px 0">200</th>
-                <th style="padding:3px 8px 3px 0">304</th>
-                <th style="padding:3px 8px 3px 0">404</th>
-                <th style="padding:3px 8px 3px 0">5xx</th>
-                <th style="padding:3px 8px 3px 0" title="Requests claiming to be Googlebot from non-Google IPs">Fakes</th>
-                <th style="padding:3px 0">Last seen</th>
+        <summary class="fa-sum">Per domain (<?= count($fcr['rows']) ?>)</summary>
+        <table class="fa-t">
+            <thead><tr>
+                <th>Domain</th>
+                <th title="IP-verified Googlebot hits in the window">Hits <?= (int) $fcrDays ?>d</th>
+                <th title="Distinct URLs Googlebot has ever fetched">Pages seen</th>
+                <th>200</th>
+                <th>304</th>
+                <th>404</th>
+                <th>5xx</th>
+                <th title="Requests claiming to be Googlebot from non-Google IPs">Fakes</th>
+                <th>Last seen</th>
             </tr></thead>
             <tbody>
             <?php foreach ($fcr['rows'] as $r): ?>
-                <tr style="border-top:1px solid #f1f5f9<?= !$r['collected'] ? ';color:#cbd5e1' : '' ?>">
-                    <td style="padding:3px 8px 3px 0"><?= h($r['domain']) ?></td>
-                    <td style="padding:3px 8px 3px 0"><?= (int) $r['hits'] ?></td>
-                    <td style="padding:3px 8px 3px 0"><?= (int) $r['urls'] ?></td>
-                    <td style="padding:3px 8px 3px 0"><?= (int) $r['s200'] ?></td>
-                    <td style="padding:3px 8px 3px 0"><?= (int) $r['s304'] ?></td>
-                    <td style="padding:3px 8px 3px 0<?= $r['s404'] ? ';color:#dc2626;font-weight:600' : '' ?>"><?= (int) $r['s404'] ?></td>
-                    <td style="padding:3px 8px 3px 0<?= $r['s5xx'] ? ';color:#dc2626;font-weight:600' : '' ?>"><?= (int) $r['s5xx'] ?></td>
-                    <td style="padding:3px 8px 3px 0;color:#94a3b8"><?= (int) $r['impostors'] ?></td>
-                    <td style="padding:3px 0">
-                        <?php if (!$r['collected']): ?><span style="color:#b45309">not collected</span>
+                <tr class="<?= !$r['collected'] ? 'fa-row-dim' : '' ?>">
+                    <td><?= h($r['domain']) ?></td>
+                    <td><?= (int) $r['hits'] ?></td>
+                    <td><?= (int) $r['urls'] ?></td>
+                    <td><?= (int) $r['s200'] ?></td>
+                    <td><?= (int) $r['s304'] ?></td>
+                    <td class="<?= $r['s404'] ? 'fa-bad' : '' ?>"><?= (int) $r['s404'] ?></td>
+                    <td class="<?= $r['s5xx'] ? 'fa-bad' : '' ?>"><?= (int) $r['s5xx'] ?></td>
+                    <td class="fa-dim"><?= (int) $r['impostors'] ?></td>
+                    <td>
+                        <?php if (!$r['collected']): ?><span class="fa-warn">not collected</span>
                         <?php elseif ($r['last_seen'] === ''): ?><span style="color:#dc2626">never</span>
                         <?php else: ?><?= h(gmdate('j M H:i', strtotime($r['last_seen']))) ?><?php endif; ?>
                     </td>

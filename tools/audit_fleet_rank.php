@@ -36,8 +36,13 @@ if (!$targets) { say($only ? "{$only}: not live, or has no city." : 'Nothing to 
 $doms = count(array_unique(array_column($targets, 'domain')));
 say(count($targets) . ' keyword(s) across ' . $doms . ' live site(s) · depth ' . RANK_DEPTH
     . ' · up to ' . RANK_PROBE_ATTEMPTS . ' attempts · concurrency ' . $conc);
-say('Estimated cost: $' . number_format(count($targets) * rank_cost_per_probe(), 2)
-    . ' at the measured $' . rank_cost_per_probe() . ' per probe.');
+// ⚠ QUOTE THE RANGE, NOT THE BEST CASE. The first full sweep was quoted at $6.53 for
+// 599 probes and actually cost $12.28, because 136 keywords needed a second pass and
+// 70 a third — retries are probes and they are billed. Quoting only the floor is the
+// same wrong-in-the-reassuring-direction habit this estate keeps paying for.
+$rkLow  = count($targets) * rank_cost_per_probe();
+say('Estimated cost: $' . number_format($rkLow, 2) . ' if nothing retries, up to about $'
+    . number_format($rkLow * 2.0, 2) . ' with retries — the last full sweep came in at 1.9x.');
 if (isset($opt['dry-run'])) {
     say('');
     foreach (array_slice($targets, 0, 10) as $t)

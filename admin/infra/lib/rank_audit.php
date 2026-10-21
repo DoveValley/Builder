@@ -174,6 +174,33 @@ function rank_audit_run(string $only = '', int $concurrency = 4, ?callable $log 
     $found = [];                                  // index into $targets => row to store
     $pending = array_keys($targets);
 
+    // ⚠ THE SWEEP ID IS MINTED NOW, AND RESULTS ARE WRITTEN AFTER EVERY ATTEMPT.
+    //
+    // The first version stored nothing until all three passes finished. A run killed
+    // partway through on 2026-10-21 had already spent $12.28 across two passes and
+    // left NOTHING — every probe paid for and discarded. Money spent is a fact the
+    // moment the API answers; holding it in memory until the end means an interrupted
+    // run is pure loss. Now an interruption leaves a smaller but perfectly valid
+    // sweep containing exactly what was paid for.
+    $sweepAt = gmdate('c');
+    $db  = rank_audit_db();
+    $ins = $db->prepare('INSERT INTO rank_sweep
+        (sweep_at, domain, keyword, position, url, local_pack, pack_shown, depth, location)
+        VALUES (:s,:d,:k,:p,:u,:lp,:ps,:dp,:loc)
+        ON CONFLICT(sweep_at, domain, keyword) DO UPDATE SET
+            position = excluded.position, url = excluded.url, local_pack = excluded.local_pack,
+            pack_shown = excluded.pack_shown, depth = excluded.depth, location = excluded.location');
+    $store = function (array $idxs) use ($ins, $targets, &$found, $sweepAt) {
+        foreach ($idxs as $i) {
+            $t = $targets[$i];
+            $f = $found[$i] ?? ['position' => -1, 'url' => '', 'local_pack' => -1,
+                                'pack_shown' => 0, 'depth' => 0, 'location' => ''];
+            $ins->execute([':s' => $sweepAt, ':d' => $t['domain'], ':k' => $t['keyword'],
+                           ':p' => $f['position'], ':u' => $f['url'], ':lp' => $f['local_pack'],
+                           ':ps' => $f['pack_shown'], ':dp' => $f['depth'], ':loc' => $f['location']]);
+        }
+    };
+
     for ($attempt = 1; $attempt <= RANK_PROBE_ATTEMPTS && $pending; $attempt++) {
         // BACK OFF BEFORE RETRYING. Measured: 2 of 6 keywords failed all three attempts
         // in a sweep, then both succeeded first time when run on their own a minute
@@ -223,23 +250,17 @@ function rank_audit_run(string $only = '', int $concurrency = 4, ?callable $log 
                           'pack_shown' => $packShown, 'depth' => RANK_DEPTH,
                           'location' => $useNational ? 'United States (national fallback)' : $locOf($t)];
         }
+        // Write what this pass bought BEFORE starting the next one.
+        $measuredNow = array_values(array_diff($pending, $retry));
+        if ($measuredNow) $store($measuredNow);
         $say('attempt ' . $attempt . ($useNational ? ' (national fallback)' : '') . ': '
-            . (count($pending) - count($retry)) . ' measured, ' . count($retry) . ' to retry');
+            . count($measuredNow) . ' measured and stored, ' . count($retry) . ' to retry');
         $pending = $retry;
     }
+    // Anything still unknown is written as -1 — a recorded absence of a measurement,
+    // never confused with "not in the top 100".
+    if ($pending) $store($pending);
 
-    $sweepAt = gmdate('c');
-    $db = rank_audit_db();
-    $ins = $db->prepare('INSERT OR REPLACE INTO rank_sweep
-        (sweep_at, domain, keyword, position, url, local_pack, pack_shown, depth, location)
-        VALUES (:s,:d,:k,:p,:u,:lp,:ps,:dp,:loc)');
-    foreach ($targets as $i => $t) {
-        $f = $found[$i] ?? ['position' => -1, 'url' => '', 'local_pack' => -1, 'pack_shown' => 0,
-                            'depth' => 0, 'location' => ''];
-        $ins->execute([':s' => $sweepAt, ':d' => $t['domain'], ':k' => $t['keyword'],
-                       ':p' => $f['position'], ':u' => $f['url'], ':lp' => $f['local_pack'],
-                       ':ps' => $f['pack_shown'], ':dp' => $f['depth'], ':loc' => $f['location']]);
-    }
     return ['sweep_at' => $sweepAt, 'probed' => count($targets), 'measured' => count($found)];
 }
 
