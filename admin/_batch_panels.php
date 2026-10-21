@@ -83,14 +83,28 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </div>
         <div id="ms-ctm-results" style="margin-top:8px;font-size:.8rem;"></div>
     </div>
+    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+        <strong style="font-size:.82rem;color:#1e3a5f;">Set Call Routing</strong>
+        <span class="hint" style="margin-left:6px;">Where each checked row's EXISTING tracking number forwards to — a destination phone, not a new tracking number. Never touches the generated site, so this works on already-live domains with no rebuild. Replaces whatever that row routed to before (never two destinations ringing at once).</span>
+        <div style="margin-top:8px;">
+            <input type="text" id="ms-route-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
+            <input type="text" id="ms-route-dest" placeholder="Destination phone, e.g. (555) 123-4567" style="width:200px;">
+            <button type="button" class="btn btn-primary" id="ms-route-btn" onclick="msCtmSetRouting()">Set Call Routing (<span id="ms-route-count">0</span> selected)</button>
+            <span id="ms-route-msg" class="hint" style="margin-left:8px;"></span>
+            <div class="hint" style="margin-top:4px;width:100%;">
+                Uses the same checkboxes as Get CTM Phone Numbers above. A row with no tracking number yet is skipped with an error — get one first.
+            </div>
+        </div>
+        <div id="ms-route-results" style="margin-top:8px;font-size:.8rem;"></div>
+    </div>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
                 <th style="width:34px;">#</th>
                 <th style="width:26px;"><input type="checkbox" id="ms-ctm-select-all" onclick="msCtmToggleAll(this)" style="width:20px;height:20px;cursor:pointer"></th>
-                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
+                <th style="width:90px;">Status</th><th>Domain</th><th>Business</th><th style="width:80px;">Area Code</th><th>Phone</th><th style="width:120px;">Routes to</th><th>City</th><th style="width:110px;">State</th><th style="width:50px;">SS</th><th style="width:190px;">Actions</th>
             </tr></thead>
-            <tbody><tr><td colspan="11" class="hint">Loading…</td></tr></tbody>
+            <tbody><tr><td colspan="12" class="hint">Loading…</td></tr></tbody>
         </table>
     </div>
     <div style="margin-top:14px;border-top:1px solid #e2e8f0;padding-top:12px;">
@@ -2033,7 +2047,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     function msRenderRowsTable() {
         const tbody = document.querySelector('#ms-rows-table tbody');
         const domains = msRowOrder;
-        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="11" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
+        if (!domains.length) { tbody.innerHTML = '<tr><td colspan="12" class="hint">No rows yet — upload a CSV above or add one below.</td></tr>'; return; }
         tbody.innerHTML = domains.map((domain, i) => msRenderRowPair(domain, i + 1)).join('');
     }
 
@@ -2080,6 +2094,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
                 '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
+                '<td>' + (f.forward_to ? esc(f.forward_to) : '<span class="hint">not set</span>') + '</td>' +
                 '<td><input class="ms-row-input" data-f="city" value="' + esc(f.city || '') + '" style="width:110px;"></td>' +
                 '<td><input class="ms-row-input" data-f="state" value="' + esc(f.state || '') + '" style="width:100px;" placeholder="Florida"></td>' +
                 '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
@@ -2091,6 +2106,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + esc(f.business || '') + '</td>' +
                 '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
+                '<td>' + (f.forward_to ? esc(f.forward_to) : '<span class="hint">not set</span>') + '</td>' +
                 '<td>' + esc(f.city || '') + '</td>' +
                 '<td>' + esc(f.state || '') + '</td>' +
                 '<td>' + esc(f.SS || '') + '</td>' +
@@ -2102,7 +2118,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '</td>';
         }
         return '<tr data-domain="' + esc(domain) + '">' + cells + '</tr>' +
-            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="11"><div class="ms-row-progress hint"></div></td></tr>';
+            '<tr data-domain-progress="' + esc(domain) + '" style="display:none;"><td colspan="12"><div class="ms-row-progress hint"></div></td></tr>';
     }
 
     async function msLoadRows() {
@@ -2134,8 +2150,12 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     };
 
     function msCtmUpdateCount() {
+        const n = Object.keys(msCtmSelected).length;
         const el = document.getElementById('ms-ctm-count');
-        if (el) el.textContent = Object.keys(msCtmSelected).length;
+        if (el) el.textContent = n;
+        // Same checkbox selection drives both bulk actions — see Set Call Routing.
+        const el2 = document.getElementById('ms-route-count');
+        if (el2) el2.textContent = n;
     }
 
     window.msCtmGetNumbers = async function () {
@@ -2172,6 +2192,47 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
         }).join('');
         msCtmSelected = {};
+        await msLoadRows();
+    };
+
+    // ── "Set Call Routing" — same isolated capability, see
+    // ctm_set_routing_for_domain() in includes/calltrackingmetrics.php. Reuses
+    // msCtmSelected rather than its own selection state: one set of checkboxes drives
+    // both "buy a number" and "point it somewhere", since they're usually done in that
+    // order for the same rows.
+    window.msCtmSetRouting = async function () {
+        const domains = Object.keys(msCtmSelected);
+        const accountId = document.getElementById('ms-route-account').value.trim();
+        const destination = document.getElementById('ms-route-dest').value.trim();
+        const msgEl = document.getElementById('ms-route-msg');
+        const resEl = document.getElementById('ms-route-results');
+        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!destination) { msgEl.textContent = 'Enter a destination phone number first.'; return; }
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+        if (!confirm('Point ' + domains.length + ' domain(s)\' existing tracking number at ' + destination + '?\n\nThis replaces whatever each one currently routes to, for real, in CTM.')) return;
+
+        const btn = document.getElementById('ms-route-btn');
+        btn.disabled = true;
+        msgEl.textContent = 'Working…';
+        resEl.innerHTML = '';
+
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('account_id', accountId);
+        fd.append('destination', destination);
+        domains.forEach(d => fd.append('domains[]', d));
+
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=ctm_set_routing', { method: 'POST', body: fd })).json(); }
+        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
+        btn.disabled = false;
+
+        if (d.error) { msgEl.textContent = d.error; return; }
+        msgEl.textContent = '';
+        resEl.innerHTML = (d.results || []).map(r => r.ok
+            ? '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.destination) + '</div>'
+            : '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>'
+        ).join('');
         await msLoadRows();
     };
 

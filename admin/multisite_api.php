@@ -128,6 +128,18 @@ function ms_write_rows_by_domain(string $batchDir, string $paramsPath, array $by
         $p = ms_parse_csv($paramsPath);
         if (!$p['error'] && $p['header']) $header = $p['header'];
     }
+    // Union in any column a caller has started writing but the file has never had
+    // before (e.g. forward_to/forward_rpn_id, added for CTM call routing) —
+    // ms_write_csv() only writes columns listed in $header, so without this a brand
+    // new field would round-trip silently DROPPED on its very first save, the same
+    // failure class the "unknown columns still round-trip" behavior above exists to
+    // prevent for fields the header already knows about.
+    $known = array_fill_keys($header, true);
+    foreach ($byDomain as $row) {
+        foreach (array_keys($row) as $k) {
+            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
+        }
+    }
     $tmp = tempnam(sys_get_temp_dir(), 'msrow');
     ms_write_csv($tmp, $header, array_values($byDomain));
     ms_store_params_csv($batchDir, $tmp);
@@ -1735,6 +1747,43 @@ switch ($action) {
             $byDomain[$dom]['phone']      = $r['phone'];
             $byDomain[$dom]['area_code']  = $r['area_code'];
             $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $r['warning']];
+        }
+        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
+        echo json_encode(['results' => $results]);
+        break;
+
+    // Call routing — where a domain's EXISTING tracking number forwards to. Isolated
+    // capability, same reasoning as ctm_get_numbers above. Deliberately NOT gated on
+    // LIVE: unlike the tracking number itself, this never touches the generated site
+    // (CTM forwards the same printed number to a different destination), so it is
+    // safe to change on an already-live domain with no rebuild.
+    case 'ctm_set_routing':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
+        $accountId   = trim((string) ($_POST['account_id'] ?? ''));
+        $destination = trim((string) ($_POST['destination'] ?? ''));
+        $domainsIn   = (array) ($_POST['domains'] ?? []);
+        if ($accountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
+        if ($destination === '') { echo json_encode(['error' => 'A destination phone number is required.']); break; }
+        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
+        if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+
+        $byDomain = ms_rows_by_domain($paramsPath);
+        $results  = [];
+        foreach ($domainsIn as $dom) {
+            $dom = strtolower(trim((string) $dom));
+            if (!isset($byDomain[$dom])) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
+            $phone = trim((string) ($byDomain[$dom]['phone'] ?? ''));
+            if ($phone === '') {
+                $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'No CTM tracking number on this row yet — get one first.'];
+                continue;
+            }
+            $oldId = trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? ''));
+            $r = ctm_set_routing_for_domain($accountId, $phone, $destination, $oldId);
+            if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
+            $byDomain[$dom]['forward_to']     = $r['destination'];
+            $byDomain[$dom]['forward_rpn_id'] = $r['receiving_id'];
+            $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $r['destination']];
         }
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
         echo json_encode(['results' => $results]);

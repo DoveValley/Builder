@@ -443,3 +443,82 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
         'pattern_score'  => $bestScore,
     ];
 }
+
+/**
+ * Where a tracking number forwards to — call routing, not the number itself.
+ *
+ * ── CONFIRMED LIVE 2026-10-21, not guessed from CTM's docs (their public API
+ * reference is a JS-rendered Postman collection, not fetchable) — matched against a
+ * real third-party client library (calltracking/ctm-php) and verified end to end with
+ * a real attach + real detach against this estate's own account, then reverted. ──
+ *
+ * `route_to` is NOT a field you can PUT on the number itself — that returns HTTP 200
+ * and silently changes nothing. Routing is its own sub-resource:
+ *   - attach: POST /accounts/{a}/numbers/{number_id}/receiving_numbers.json
+ *             body {"number": "+1XXXXXXXXXX"} — creates a NEW receiving-number object
+ *             every time, even if that phone already exists as a receiving number
+ *             elsewhere on the account (tested; it does not find-and-reuse).
+ *   - detach: DELETE /accounts/{a}/receiving_numbers/{receiving_number_id}.json —
+ *             account-level, NOT nested under /numbers/{id}/ (that 404s).
+ */
+function ctm_number_by_phone(string $accountId, string $phone): array
+{
+    $digits = preg_replace('/\D/', '', $phone);
+    $r = ctm_request('GET', "/accounts/{$accountId}/numbers.json", ['number' => $digits, 'per_page' => 1]);
+    if (!$r['ok']) return ['ok' => false, 'error' => $r['error']];
+    $num = $r['data']['numbers'][0] ?? null;
+    if (!$num) return ['ok' => false, 'error' => "CTM has no tracking number matching {$phone} under account {$accountId}."];
+    return ['ok' => true, 'number' => $num];
+}
+
+function ctm_add_receiving_number(string $accountId, string $numberId, string $destinationE164): array
+{
+    $r = ctm_request('POST', "/accounts/{$accountId}/numbers/{$numberId}/receiving_numbers.json", [], ['number' => $destinationE164]);
+    if (!$r['ok']) return ['ok' => false, 'error' => $r['error']];
+    $rpn = $r['data']['receiving_number'] ?? null;
+    if (!$rpn || empty($rpn['id'])) return ['ok' => false, 'error' => 'CTM accepted the request but returned no receiving-number id.'];
+    return ['ok' => true, 'receiving_number' => $rpn];
+}
+
+/** Account-level, not nested under the number — see this section's docblock. */
+function ctm_remove_receiving_number(string $accountId, string $receivingNumberId): array
+{
+    return ctm_request('DELETE', "/accounts/{$accountId}/receiving_numbers/{$receivingNumberId}.json");
+}
+
+/**
+ * The whole flow for one domain: find its tracking number by phone, drop whatever it
+ * used to route to (if anything — Scott's explicit call, 2026-10-21: never ring two
+ * destinations at once, always replace), then attach the new one.
+ *
+ * $oldReceivingId is THIS ESTATE's own record of the last receiving-number id it
+ * created for this domain (stored on the row, written back by the caller) — CTM has
+ * no "what does this number currently point at, by id" lookup worth trusting more
+ * than what we already wrote down ourselves. A failed removal is not fatal: proceeding
+ * anyway (rather than refusing) means a destination already cleared by hand in CTM
+ * can't permanently block this domain from ever being re-routed again.
+ */
+function ctm_set_routing_for_domain(string $accountId, string $trackingPhone, string $destination, string $oldReceivingId = ''): array
+{
+    $found = ctm_number_by_phone($accountId, $trackingPhone);
+    if (!$found['ok']) return ['ok' => false, 'error' => $found['error']];
+    $numberId = $found['number']['id'];
+
+    if ($oldReceivingId !== '') {
+        ctm_remove_receiving_number($accountId, $oldReceivingId);
+    }
+
+    $destDigits = preg_replace('/\D/', '', $destination);
+    if (strlen($destDigits) === 10) $destDigits = '1' . $destDigits;
+    if (strlen($destDigits) !== 11) {
+        return ['ok' => false, 'error' => "'{$destination}' doesn't look like a real US phone number."];
+    }
+    $added = ctm_add_receiving_number($accountId, $numberId, '+' . $destDigits);
+    if (!$added['ok']) return ['ok' => false, 'error' => "Could not set the new destination: {$added['error']}"];
+
+    return [
+        'ok'          => true,
+        'destination' => $added['receiving_number']['formatted'] ?? $destination,
+        'receiving_id' => $added['receiving_number']['id'],
+    ];
+}
