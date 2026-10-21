@@ -324,3 +324,31 @@ function crawl_audit_latest(int $days = 7): array
     });
     return $out;
 }
+
+/**
+ * The per-domain table body, pulled out so it can be rendered on demand (the admin
+ * panel fetches this only once the <details> is opened) instead of shipping every
+ * row's markup on every page load. Same markup the panel used to render inline.
+ */
+function crawl_audit_render_rows(array $rows): string
+{
+    ob_start(); ?>
+        <?php foreach ($rows as $r): ?>
+            <tr class="<?= !$r['collected'] ? 'fa-row-dim' : '' ?>">
+                <td><?= h($r['domain']) ?></td>
+                <td><?= (int) $r['hits'] ?></td>
+                <td><?= (int) $r['urls'] ?></td>
+                <td><?= (int) $r['s200'] ?></td>
+                <td><?= (int) $r['s304'] ?></td>
+                <td class="<?= $r['s404'] ? 'fa-bad' : '' ?>"><?= (int) $r['s404'] ?></td>
+                <td class="<?= $r['s5xx'] ? 'fa-bad' : '' ?>"><?= (int) $r['s5xx'] ?></td>
+                <td class="fa-dim"><?= (int) $r['impostors'] ?></td>
+                <td>
+                    <?php if (!$r['collected']): ?><span class="fa-warn">not collected</span>
+                    <?php elseif ($r['last_seen'] === ''): ?><span style="color:#dc2626">never</span>
+                    <?php else: ?><?= h(gmdate('j M H:i', strtotime($r['last_seen']))) ?><?php endif; ?>
+                </td>
+            </tr>
+        <?php endforeach;
+    return ob_get_clean();
+}

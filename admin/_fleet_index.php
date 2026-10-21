@@ -67,7 +67,7 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
     <?php endif; ?>
 
     <?php if ($fixHas): ?>
-    <details style="margin-top:8px">
+    <details style="margin-top:8px" ontoggle="faLoadRows(this,'index','fix-rows')">
         <summary class="fa-sum">Per domain (<?= count($fixLast['rows']) ?>)</summary>
         <table class="fa-t">
             <thead><tr>
@@ -81,54 +81,7 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
                 <th title="Days from go-live to the first sweep that saw it indexed">Days to index</th>
                 <th>Age</th>
             </tr></thead>
-            <tbody>
-            <?php
-            $rows = $fixLast['rows'];
-            usort($rows, fn($a, $b) => $b['indexed'] <=> $a['indexed']);
-            foreach ($rows as $r):
-                $pct = ($r['indexed'] >= 0 && $r['built'] > 0) ? round($r['indexed'] / $r['built'] * 100) . '%' : '—';
-            ?>
-                <tr>
-                    <td><?= h($r['domain']) ?></td>
-                    <td>
-                        <?php if ($r['indexed'] < 0): ?>
-                            <span class="fa-warn" title="<?= h($r['note']) ?>">not measured</span>
-                        <?php else: ?><?= (int) $r['indexed'] ?><?php endif; ?>
-                    </td>
-                    <td><?= (int) $r['built'] ?></td>
-                    <td><?= $pct ?></td>
-                    <td>
-                        <?php if ($r['delta'] === null): ?><span style="color:#cbd5e1">—</span>
-                        <?php elseif ($r['delta'] > 0): ?><span style="color:#16a34a">+<?= (int) $r['delta'] ?></span>
-                        <?php elseif ($r['delta'] < 0): ?><span style="color:#dc2626"><?= (int) $r['delta'] ?></span>
-                        <?php else: ?><span style="color:#cbd5e1">0</span><?php endif; ?>
-                    </td>
-                    <td class="fa-mute">
-                        <?= $r['went_live'] !== '' ? h(gmdate('j M', strtotime($r['went_live']))) : '—' ?>
-                    </td>
-                    <td class="fa-mute">
-                        <?= $r['first_indexed'] !== '' ? h(gmdate('j M', strtotime($r['first_indexed']))) : '—' ?>
-                    </td>
-                    <td>
-                        <?php if ($r['tti_days'] === null): ?>
-                            <?php /* Never seen indexed. The useful number is how long it has been waiting. */ ?>
-                            <span class="fa-dim" title="Not seen in the index yet">
-                                <?= $r['age_days'] >= 0 ? 'waiting ' . (int) $r['age_days'] . 'd' : '—' ?></span>
-                        <?php elseif ($r['tti_is_bound']): ?>
-                            <?php /* Already indexed at our earliest sweep — a ceiling, not the answer. */ ?>
-                            <span class="fa-dim"
-                                  title="Already indexed when we first looked, so this is an upper bound — it may have been indexed sooner">
-                                &le; <?= (int) $r['tti_days'] ?>d</span>
-                        <?php else: ?>
-                            <strong><?= (int) $r['tti_days'] ?>d</strong>
-                        <?php endif; ?>
-                    </td>
-                    <td class="<?= $r['too_new'] ? 'fa-dim' : '' ?>">
-                        <?= $r['age_days'] >= 0 ? (int) $r['age_days'] . 'd' : '?' ?><?= $r['too_new'] ? ' · too new' : '' ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
+            <tbody id="fix-rows"><tr><td colspan="9" style="color:#94a3b8;padding:8px">Loading&hellip;</td></tr></tbody>
         </table>
     </details>
     <?php endif; ?>
@@ -225,6 +178,24 @@ $fixPct = $fixLast['built'] > 0 ? round($fixLast['indexed'] / $fixLast['built'] 
 </div>
 
 <script>
+if (typeof faLoadRows !== 'function') {
+    window.faLoadRows = function (details, audit, tbodyId) {
+        if (!details.open) return;
+        var tbody = document.getElementById(tbodyId);
+        if (!tbody || tbody.dataset.loaded === '1') return;
+        tbody.dataset.loaded = '1';
+        fetch('fleet_audit_api.php?action=rows&audit=' + audit)
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (d.error) { tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">' + d.error + '</td></tr>'; return; }
+                tbody.innerHTML = d.html;
+            })
+            .catch(function () {
+                tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">Could not load — reload the page to retry.</td></tr>';
+                tbody.dataset.loaded = '0';
+            });
+    };
+}
 var FIX_CSRF = <?= json_encode($csrf ?? ($csrfToken ?? ($_SESSION['csrf_token'] ?? ''))) ?>;
 
 function fixInfo() { document.getElementById('fix-modal-bg').style.display = 'flex'; }

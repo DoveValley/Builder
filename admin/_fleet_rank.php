@@ -83,7 +83,7 @@ $frkColour = !$frkHas ? '#94a3b8'
     <?php endif; ?>
 
     <?php if ($frkHas): ?>
-    <details style="margin-top:8px">
+    <details style="margin-top:8px" ontoggle="faLoadRows(this,'rank','frk-rows')">
         <summary class="fa-sum">Per site (<?= count($frk['domains']) ?>)</summary>
         <table class="fa-t">
             <thead><tr>
@@ -97,22 +97,7 @@ $frkColour = !$frkHas ? '#94a3b8'
                 <th>Down</th>
                 <th>Age</th>
             </tr></thead>
-            <tbody>
-            <?php foreach ($frk['domains'] as $d):
-                $tooNew = $d['age'] >= 0 && $d['age'] < $frkTooNew; ?>
-                <tr class="<?= $tooNew ? 'fa-dim' : '' ?>">
-                    <td><?= h($d['domain']) ?></td>
-                    <td><strong><?= $d['best'] ?: '—' ?></strong></td>
-                    <td class="<?= $d['top10'] ? 'fa-good' : '' ?>"><?= (int) $d['top10'] ?></td>
-                    <td><?= (int) $d['top100'] ?></td>
-                    <td><?= (int) $d['keywords'] ?></td>
-                    <td class="<?= $d['in_pack'] ? 'fa-good' : '' ?>"><?= (int) $d['in_pack'] ?></td>
-                    <td style="color:#16a34a"><?= $d['up'] ?: '' ?></td>
-                    <td style="color:#dc2626"><?= $d['down'] ?: '' ?></td>
-                    <td><?= $d['age'] >= 0 ? (int) $d['age'] . 'd' : '?' ?><?= $tooNew ? ' · too new' : '' ?></td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
+            <tbody id="frk-rows"><tr><td colspan="9" style="color:#94a3b8;padding:8px">Loading&hellip;</td></tr></tbody>
         </table>
     </details>
     <?php endif; ?>
@@ -188,6 +173,24 @@ $frkColour = !$frkHas ? '#94a3b8'
 </div>
 
 <script>
+if (typeof faLoadRows !== 'function') {
+    window.faLoadRows = function (details, audit, tbodyId) {
+        if (!details.open) return;
+        var tbody = document.getElementById(tbodyId);
+        if (!tbody || tbody.dataset.loaded === '1') return;
+        tbody.dataset.loaded = '1';
+        fetch('fleet_audit_api.php?action=rows&audit=' + audit)
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (d.error) { tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">' + d.error + '</td></tr>'; return; }
+                tbody.innerHTML = d.html;
+            })
+            .catch(function () {
+                tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">Could not load — reload the page to retry.</td></tr>';
+                tbody.dataset.loaded = '0';
+            });
+    };
+}
 var FRK_CSRF = <?= json_encode($csrf ?? ($csrfToken ?? ($_SESSION['csrf_token'] ?? ''))) ?>;
 function frkInfo() { document.getElementById('frk-modal-bg').style.display = 'flex'; }
 function frkInfoClose(e) {

@@ -88,6 +88,29 @@ switch ($action) {
         echo json_encode(ms_launch_job($cfg['dir'], $cfg['sentinel'], $cfg['busy'], $cfg['script'], []));
         break;
 
+    case 'rows':
+        // Rendered on demand — the per-domain tables are the bulk of the page weight,
+        // and most visits never open the <details> that reveals them.
+        switch ($which) {
+            case 'crawl':
+                require_once __DIR__ . '/infra/lib/crawl_audit.php';
+                $html = crawl_audit_render_rows(crawl_audit_latest((int) ($_GET['days'] ?? 7))['rows']);
+                break;
+            case 'index':
+                require_once __DIR__ . '/infra/lib/index_audit.php';
+                $html = index_audit_render_rows(index_audit_latest()['rows']);
+                break;
+            case 'rank':
+                require_once __DIR__ . '/infra/lib/rank_audit.php';
+                require_once __DIR__ . '/infra/lib/audit_settings.php';
+                $html = rank_audit_render_rows(rank_audit_latest()['domains'], (int) infra_audit_setting('too_new_days'));
+                break;
+            default:
+                http_response_code(400); echo json_encode(['error' => 'No per-domain table for this audit.']); exit;
+        }
+        echo json_encode(['html' => $html]);
+        break;
+
     case 'status':
         $run = $runningId();
         $out = ['running' => $run !== null, 'run_id' => $run];

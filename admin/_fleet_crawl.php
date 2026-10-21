@@ -85,7 +85,7 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
     <?php endif; ?>
 
     <?php if ($fcrHas): ?>
-    <details style="margin-top:8px">
+    <details style="margin-top:8px" ontoggle="faLoadRows(this,'crawl','fcr-rows')">
         <summary class="fa-sum">Per domain (<?= count($fcr['rows']) ?>)</summary>
         <table class="fa-t">
             <thead><tr>
@@ -99,25 +99,7 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
                 <th title="Requests claiming to be Googlebot from non-Google IPs">Fakes</th>
                 <th>Last seen</th>
             </tr></thead>
-            <tbody>
-            <?php foreach ($fcr['rows'] as $r): ?>
-                <tr class="<?= !$r['collected'] ? 'fa-row-dim' : '' ?>">
-                    <td><?= h($r['domain']) ?></td>
-                    <td><?= (int) $r['hits'] ?></td>
-                    <td><?= (int) $r['urls'] ?></td>
-                    <td><?= (int) $r['s200'] ?></td>
-                    <td><?= (int) $r['s304'] ?></td>
-                    <td class="<?= $r['s404'] ? 'fa-bad' : '' ?>"><?= (int) $r['s404'] ?></td>
-                    <td class="<?= $r['s5xx'] ? 'fa-bad' : '' ?>"><?= (int) $r['s5xx'] ?></td>
-                    <td class="fa-dim"><?= (int) $r['impostors'] ?></td>
-                    <td>
-                        <?php if (!$r['collected']): ?><span class="fa-warn">not collected</span>
-                        <?php elseif ($r['last_seen'] === ''): ?><span style="color:#dc2626">never</span>
-                        <?php else: ?><?= h(gmdate('j M H:i', strtotime($r['last_seen']))) ?><?php endif; ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-            </tbody>
+            <tbody id="fcr-rows"><tr><td colspan="9" style="color:#94a3b8;padding:8px">Loading&hellip;</td></tr></tbody>
         </table>
     </details>
     <?php endif; ?>
@@ -189,6 +171,26 @@ $fcrColour = !$fcrHas ? '#94a3b8' : ($fcrBad > 0 ? '#dc2626' : '#16a34a');
 </div>
 
 <script>
+// Shared by all four fleet-audit panels: fetch a <details>'s per-domain table body
+// only the first time it is opened, instead of shipping every row on every page load.
+if (typeof faLoadRows !== 'function') {
+    window.faLoadRows = function (details, audit, tbodyId) {
+        if (!details.open) return;
+        var tbody = document.getElementById(tbodyId);
+        if (!tbody || tbody.dataset.loaded === '1') return;
+        tbody.dataset.loaded = '1';
+        fetch('fleet_audit_api.php?action=rows&audit=' + audit)
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                if (d.error) { tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">' + d.error + '</td></tr>'; return; }
+                tbody.innerHTML = d.html;
+            })
+            .catch(function () {
+                tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">Could not load — reload the page to retry.</td></tr>';
+                tbody.dataset.loaded = '0';
+            });
+    };
+}
 var FCR_CSRF = <?= json_encode($csrf ?? ($csrfToken ?? ($_SESSION['csrf_token'] ?? ''))) ?>;
 function fcrInfo() { document.getElementById('fcr-modal-bg').style.display = 'flex'; }
 function fcrInfoClose(e) {

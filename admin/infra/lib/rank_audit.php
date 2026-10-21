@@ -353,3 +353,27 @@ function rank_audit_latest(): array
     $out['domains'] = array_values($byDomain);
     return $out;
 }
+
+/**
+ * The per-site table body, fetched on demand when the <details> is opened rather
+ * than shipped on every page load. Same markup the panel used to render inline.
+ */
+function rank_audit_render_rows(array $domains, int $tooNewDays): string
+{
+    ob_start(); ?>
+        <?php foreach ($domains as $d):
+            $tooNew = $d['age'] >= 0 && $d['age'] < $tooNewDays; ?>
+            <tr class="<?= $tooNew ? 'fa-dim' : '' ?>">
+                <td><?= h($d['domain']) ?></td>
+                <td><strong><?= $d['best'] ?: '—' ?></strong></td>
+                <td class="<?= $d['top10'] ? 'fa-good' : '' ?>"><?= (int) $d['top10'] ?></td>
+                <td><?= (int) $d['top100'] ?></td>
+                <td><?= (int) $d['keywords'] ?></td>
+                <td class="<?= $d['in_pack'] ? 'fa-good' : '' ?>"><?= (int) $d['in_pack'] ?></td>
+                <td style="color:#16a34a"><?= $d['up'] ?: '' ?></td>
+                <td style="color:#dc2626"><?= $d['down'] ?: '' ?></td>
+                <td><?= $d['age'] >= 0 ? (int) $d['age'] . 'd' : '?' ?><?= $tooNew ? ' · too new' : '' ?></td>
+            </tr>
+        <?php endforeach;
+    return ob_get_clean();
+}

@@ -318,3 +318,55 @@ function index_audit_latest(): array
     usort($out['rows'], fn($a, $b) => [$a['delta'] ?? 0, -$a['indexed']] <=> [$b['delta'] ?? 0, -$b['indexed']]);
     return $out;
 }
+
+/**
+ * The per-domain table body, fetched on demand when the <details> is opened rather
+ * than shipped on every page load. Same markup and sort the panel used to render inline.
+ */
+function index_audit_render_rows(array $rows): string
+{
+    usort($rows, fn($a, $b) => $b['indexed'] <=> $a['indexed']);
+    ob_start(); ?>
+        <?php foreach ($rows as $r):
+            $pct = ($r['indexed'] >= 0 && $r['built'] > 0) ? round($r['indexed'] / $r['built'] * 100) . '%' : '—';
+        ?>
+            <tr>
+                <td><?= h($r['domain']) ?></td>
+                <td>
+                    <?php if ($r['indexed'] < 0): ?>
+                        <span class="fa-warn" title="<?= h($r['note']) ?>">not measured</span>
+                    <?php else: ?><?= (int) $r['indexed'] ?><?php endif; ?>
+                </td>
+                <td><?= (int) $r['built'] ?></td>
+                <td><?= $pct ?></td>
+                <td>
+                    <?php if ($r['delta'] === null): ?><span style="color:#cbd5e1">—</span>
+                    <?php elseif ($r['delta'] > 0): ?><span style="color:#16a34a">+<?= (int) $r['delta'] ?></span>
+                    <?php elseif ($r['delta'] < 0): ?><span style="color:#dc2626"><?= (int) $r['delta'] ?></span>
+                    <?php else: ?><span style="color:#cbd5e1">0</span><?php endif; ?>
+                </td>
+                <td class="fa-mute">
+                    <?= $r['went_live'] !== '' ? h(gmdate('j M', strtotime($r['went_live']))) : '—' ?>
+                </td>
+                <td class="fa-mute">
+                    <?= $r['first_indexed'] !== '' ? h(gmdate('j M', strtotime($r['first_indexed']))) : '—' ?>
+                </td>
+                <td>
+                    <?php if ($r['tti_days'] === null): ?>
+                        <span class="fa-dim" title="Not seen in the index yet">
+                            <?= $r['age_days'] >= 0 ? 'waiting ' . (int) $r['age_days'] . 'd' : '—' ?></span>
+                    <?php elseif ($r['tti_is_bound']): ?>
+                        <span class="fa-dim"
+                              title="Already indexed when we first looked, so this is an upper bound — it may have been indexed sooner">
+                            &le; <?= (int) $r['tti_days'] ?>d</span>
+                    <?php else: ?>
+                        <strong><?= (int) $r['tti_days'] ?>d</strong>
+                    <?php endif; ?>
+                </td>
+                <td class="<?= $r['too_new'] ? 'fa-dim' : '' ?>">
+                    <?= $r['age_days'] >= 0 ? (int) $r['age_days'] . 'd' : '?' ?><?= $r['too_new'] ? ' · too new' : '' ?>
+                </td>
+            </tr>
+        <?php endforeach;
+    return ob_get_clean();
+}
