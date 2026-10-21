@@ -1713,6 +1713,12 @@ switch ($action) {
         if ($accountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
         if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
         if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+        // Apache's real cap here is 30s (confirmed live) and this is one synchronous
+        // request start to finish, not a background job — each domain costs several
+        // seconds (CTM's own pool-and-retry search, see ctm_pool_numbers()), so a
+        // double-digit selection would otherwise get silently cut off partway through
+        // by PHP itself, independent of whether the browser stays open.
+        set_time_limit(0);
 
         $byDomain = ms_rows_by_domain($paramsPath);
         $nicheCode = strtoupper(substr($masterId, 0, 3));
@@ -1785,6 +1791,10 @@ switch ($action) {
         if ($destination === '') { echo json_encode(['error' => 'A destination phone number is required.']); break; }
         if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
         if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+        // Same reasoning as ctm_get_numbers above — one synchronous request, Apache's
+        // real cap is 30s, and each domain costs a real CTM API round trip (plus a
+        // DELETE when replacing an existing destination).
+        set_time_limit(0);
 
         $byDomain = ms_rows_by_domain($paramsPath);
         $results  = [];
