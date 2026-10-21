@@ -169,7 +169,22 @@ function infra_provision_one(string $domain, ?array $server, ?array $account, ar
     $doCf      = !empty($opts['cf']);
     $lines     = [];
     $ok        = true;
-    $prov      = ['domain' => $domain, 'server_id' => $server['id'] ?? '', 'cf_account_id' => $account['id'] ?? ''];
+    // ⚠ ONLY RECORD AN ASSIGNMENT THIS RUN WAS ACTUALLY GIVEN.
+    //
+    // These used to be written unconditionally as `$x['id'] ?? ''`, which turns "the
+    // caller did not pass one" into "set it to nothing" — and upsert treats a present
+    // key as an explicit value, not as leave-alone (see the registrar note further
+    // down, which already learned this). Every host-only caller legitimately passes
+    // $account = null (multisite_api.php's Create host areas, pipeline.php's 'host'
+    // step), so a run that never touched Cloudflare silently erased cf_account_id.
+    //
+    // That is how 11 water-batch domains lost theirs on 2026-10-21. The field is not
+    // decorative: the 'assign' step reads it to keep a domain on the box its zone's
+    // account is bound to, so wiping it disarmed that guard, and the next assign
+    // round-robined them onto unrelated boxes while their DNS stayed behind.
+    $prov = ['domain' => $domain];
+    if ($server)  $prov['server_id']    = (string) ($server['id'] ?? '');
+    if ($account) $prov['cf_account_id'] = (string) ($account['id'] ?? '');
     if ($regName !== '') $prov['registrar'] = $regName;   // record chosen registrar even without auto-buy
 
     /* 0) Register (buy) the domain — real money. If it fails, do NOT provision further.

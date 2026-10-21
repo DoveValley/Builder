@@ -717,6 +717,32 @@ switch ($action) {
         $rtDo = [];
         foreach (['host', 'build', 'upload'] as $k) if (($_POST['do_' . $k] ?? '1') !== '0') $rtDo[] = $k;
         if (!$rtDo) { echo json_encode(['error' => 'Pick at least one step — Create host, Build, or Upload.']); break; }
+
+        // RESEARCH BEFORE BUILD, and this is the only place it can be caught.
+        //
+        // A build with no research does not fail. generate.py gets bare city rows, every
+        // research-grounded block falls back to generic copy, and the run reports success
+        // — see ms_merge_research_into_landing(). So the cost of skipping this check is
+        // not an error message, it is a batch of plausible-looking pages that quietly say
+        // nothing local. Refuse by default; `allow_unresearched` is there for the case
+        // where somebody genuinely wants placeholder copy and has said so.
+        if (in_array('build', $rtDo, true) && empty($_POST['allow_unresearched'])) {
+            require_once __DIR__ . '/infra/lib/pipeline.php';
+            $rtUnres = [];
+            foreach ($rtDoms as $d) {
+                $c = infra_pipeline_research_cell($d);
+                if (($c['state'] ?? '') === INFRA_STEP_TODO) $rtUnres[$d] = $c['note'];
+            }
+            if ($rtUnres) {
+                echo json_encode([
+                    'error' => 'No city research for ' . count($rtUnres) . ' of the ' . count($rtDoms)
+                             . ' ticked domain(s). Building now would succeed and write generic copy for them.'
+                             . ' Run Research first, or re-submit with "build anyway".',
+                    'needs_research' => $rtUnres,
+                ]);
+                break;
+            }
+        }
         // Opt-in, unchecked by default — every AI photo slot on a ticked domain gets
         // regenerated from the MASTER's own photo (not from whatever's there now), real
         // OpenAI cost per slot. See ms_generate_ai_images_for_domain()'s $force param.

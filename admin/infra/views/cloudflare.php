@@ -114,7 +114,61 @@
     } catch (Throwable $e) { /* fleet state unreadable — the zone list still stands alone */ }
 
     infra_header('cloudflare');
+
+    /* ── Does the zone / account / box triangle agree with itself? ─────────────────
+     *
+     * Each of the three facts can be individually fine while the relationship between
+     * them is broken, and that is not visible anywhere else: on 2026-10-21 eleven
+     * domains sat in exactly that state for nine hours with a fully green pipeline
+     * grid. It reads stored state only (~0.02s for the whole fleet), so it runs on
+     * every page load rather than being something a person has to remember to check. */
+    require_once __DIR__ . '/../lib/cf_alloc.php';   // not in bootstrap.php's list
+    $cfCheck = infra_cf_consistency();
     ?>
+    <?php if ($cfCheck['findings']): ?>
+    <div class="ic-card" style="margin-bottom:18px;border-left:4px solid #dc2626">
+        <div class="body">
+            <h2 style="font-size:15px;margin:0 0 4px">
+                &#9888; <?= count($cfCheck['findings']) ?> zone/account/box disagreement<?= count($cfCheck['findings']) === 1 ? '' : 's' ?>
+            </h2>
+            <p style="color:#6b7280;font-size:12px;margin:0 0 10px">
+                Checked <?= (int) $cfCheck['checked'] ?> domain<?= $cfCheck['checked'] === 1 ? '' : 's' ?> that claim a zone or an account, against the last sweep.
+                <?php if ($cfCheck['unswept']): ?>
+                    <strong><?= (int) $cfCheck['unswept'] ?> account<?= $cfCheck['unswept'] === 1 ? ' has' : 's have' ?> never been swept</strong> &mdash; press Refresh on <?= $cfCheck['unswept'] === 1 ? 'it' : 'them' ?> before trusting a &ldquo;not found&rdquo; below.
+                <?php endif; ?>
+                A zone can never be moved between accounts, so where these disagree it is the <em>box</em> that has to move.
+            </p>
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+                <thead><tr style="text-align:left;color:#6b7280">
+                    <th style="padding:4px 10px 4px 0">Domain</th>
+                    <th style="padding:4px 10px 4px 0">What</th>
+                    <th style="padding:4px 0">Detail</th>
+                </tr></thead>
+                <tbody>
+                <?php foreach ($cfCheck['findings'] as $f): ?>
+                    <tr style="border-top:1px solid #f3f4f6">
+                        <td style="padding:5px 10px 5px 0;white-space:nowrap">
+                            <a href="index.php?view=domain&amp;d=<?= ih(rawurlencode($f['domain'])) ?>"><?= ih($f['domain']) ?></a></td>
+                        <td style="padding:5px 10px 5px 0;white-space:nowrap"><strong><?= ih($f['what']) ?></strong></td>
+                        <td style="padding:5px 0;color:#4b5563"><?= ih($f['detail']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <p style="color:#6b7280;font-size:12px;margin:10px 0 0">
+                &ldquo;On the wrong box&rdquo; and &ldquo;zone with no account on record&rdquo; are repaired together by
+                <code>php tools/repair_zone_box_mismatch.php</code> &mdash; it dry-runs by default.
+            </p>
+        </div>
+    </div>
+    <?php else: ?>
+    <div class="ic-card" style="margin-bottom:18px;border-left:4px solid #16a34a">
+        <div class="body" style="padding-top:10px;padding-bottom:10px">
+            <strong style="font-size:13px">&#10003; Zone, account and box agree</strong>
+            <span style="color:#6b7280;font-size:12px">&mdash; across all <?= (int) $cfCheck['checked'] ?> domains that claim either.</span>
+        </div>
+    </div>
+    <?php endif; ?>
     <details class="ic-card ic-fold" open style="margin-bottom:18px">
         <summary style="cursor:pointer">
             <h2 style="display:inline;font-size:15px"><span style="color:#9ca3af;font-weight:400">&#9656;</span>

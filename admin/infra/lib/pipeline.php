@@ -51,6 +51,17 @@ const INFRA_STEP_RUNNING = 'running';   // in flight — stage 4 uses this to st
  * automatic: the next runnable step for any row is derived from what is green right
  * now, so nothing has to remember where a broken run stopped.
  *
+ * `consumed_by` is the OTHER direction, and it exists because `requires` alone could
+ * not express the failure of 2026-10-21. A prerequisite says "not yet"; it has no way
+ * to say "not any more". Once a later step has built something on top of this one's
+ * answer, re-running this one silently invalidates that work: re-deciding the box
+ * after a zone exists leaves the DNS pointing at the old machine, after a host exists
+ * leaves an orphan vhost, and re-creating the host after an upload wipes the files.
+ * Each of those was a separate in-band `if` waiting to be written. This is the rule
+ * stated once, in the same table as the forward one, so the next step added inherits
+ * it instead of re-learning it. infra_pipeline_do() enforces it and ['force' => true]
+ * overrides it — a repair has to be able to go backwards deliberately.
+ *
  * Two things about the order, both learned from how the code really behaves:
  *
  *  - The Cloudflare zone is created EARLY, alongside the host — bulk provisioning
@@ -61,42 +72,58 @@ const INFRA_STEP_RUNNING = 'running';   // in flight — stage 4 uses this to st
  *    matches). Those fail independently, and a site serving fine behind a bad
  *    certificate is a browser warning for every visitor — it must never read green.
  *
- * @return array<int,array{key:string,label:string,does:string,requires:string[]}>
+ * @return array<int,array{key:string,label:string,does:string,requires:string[],consumed_by:string[]}>
  */
 function infra_pipeline_steps(): array
 {
     return [
         ['key' => 'assign', 'label' => 'Box',
          'does' => 'A server is chosen for this domain.',
-         'requires' => []],
+         'requires' => [], 'consumed_by' => ['host', 'zone']],
+
+        // The account used to be an invisible column on the fleet record rather than a
+        // stage, which is exactly why 11 domains could lose theirs with every cell on
+        // the grid still green. It is a real step: the box decides it (cf_alloc.php),
+        // the zone is created inside it, and Cloudflare can never move a zone out of
+        // it afterwards. A thing that permanent deserves a square of its own.
+        ['key' => 'account', 'label' => 'CF account',
+         'does' => 'The Cloudflare account this domain\'s zone belongs in — fixed by its box.',
+         'requires' => ['assign'], 'consumed_by' => ['zone']],
 
         ['key' => 'host', 'label' => 'Host area',
          'does' => 'The vhost, its folder and an FTP login exist on that box.',
-         'requires' => ['assign']],
+         'requires' => ['assign'], 'consumed_by' => ['upload']],
+
+        // Research is not decoration. Without it generate.py sees bare city rows and
+        // every research-grounded block degrades to generic copy — silently, with the
+        // build still reporting success (see ms_merge_research_into_landing()).
+        ['key' => 'research', 'label' => 'Research',
+         'does' => 'Every city this domain builds has real local facts gathered for it.',
+         'requires' => [], 'consumed_by' => ['built']],
 
         ['key' => 'built', 'label' => 'Built',
          'does' => 'This domain\'s static HTML has been generated on the factory.',
-         'requires' => []],
+         'requires' => ['research'], 'consumed_by' => []],
 
         ['key' => 'upload', 'label' => 'Upload',
          'does' => 'The folder holds a real site, not the two placeholder files.',
-         'requires' => ['host', 'built']],
+         'requires' => ['host', 'built'], 'consumed_by' => []],
 
         ['key' => 'zone', 'label' => 'CF zone',
          'does' => 'A Cloudflare zone exists and its record points at the box, proxied.',
-         'requires' => ['assign']],
+         'requires' => ['account'], 'consumed_by' => []],
 
         ['key' => 'golive', 'label' => 'Go live',
          'does' => 'A release date is set, or the switch is pressed now.',
-         'requires' => ['upload', 'zone']],
+         'requires' => ['upload', 'zone'], 'consumed_by' => []],
 
         ['key' => 'dns', 'label' => 'DNS',
          'does' => 'The nameservers are switched at the registrar and the zone is active.',
-         'requires' => ['golive']],
+         'requires' => ['golive'], 'consumed_by' => []],
 
         ['key' => 'live', 'label' => 'Live',
          'does' => 'The site answers on its own hostname with a certificate that matches.',
-         'requires' => ['dns']],
+         'requires' => ['dns'], 'consumed_by' => []],
     ];
 }
 
@@ -184,6 +211,12 @@ function infra_pipeline_set(string $domain, string $step, string $state, string 
  */
 function infra_pipeline_derived(array $rec): array
 {
+    // The account cell names its account, which is cf_alloc.php's job. Required here
+    // rather than at the top of the file because this is the only render path that
+    // needs it, and the CLI tools that include pipeline.php do not all want the
+    // Cloudflare client dragged in behind it.
+    require_once __DIR__ . '/cf_alloc.php';
+
     $has    = fn(string $c) => trim((string) ($rec[$c] ?? '')) !== '';
     $status = strtolower(trim((string) ($rec['status'] ?? '')));
     $live   = $status === 'live';
@@ -193,9 +226,17 @@ function infra_pipeline_derived(array $rec): array
     return [
         // A server_id is written when the domain is assigned to a box.
         'assign' => $g($has('server_id')),
+        // Named, not just ticked. "Which account" is the whole question this cell was
+        // added to answer, and a bare green tick would have hidden 2026-10-21 just as
+        // well as having no cell at all did.
+        'account' => $has('cf_account_id')
+                        ? ['state' => INFRA_STEP_OK, 'note' => infra_cf_account_label((string) $rec['cf_account_id'])]
+                        : ['state' => INFRA_STEP_TODO, 'note' => ''],
         // An FTP login only exists because a host area was created to hold it — it is
         // the closest thing the fleet table has to a receipt for that step.
         'host'   => $g($has('ftp_user')),
+        // Read from the master's own cities.json, which is where research lands.
+        'research' => infra_pipeline_research_cell((string) ($rec['domain'] ?? '')),
         // Nothing in the fleet table records a local build, and guessing from "the box
         // has files" would conflate building with uploading. Left unknown on purpose.
         'built'  => ['state' => '', 'note' => ''],
@@ -267,6 +308,97 @@ function infra_pipeline_row(array $rec, array $stored = []): array
 
     return ['domain' => $domain, 'rec' => $rec, 'cells' => $cells,
             'next' => $next, 'worst' => $worst];
+}
+
+/**
+ * Domain → which of the cities it builds have been researched, and which have not.
+ *
+ * Research is the master's, not the batch's: it lands in sites/{master}/data/cities.json
+ * with a `_researched` marker and is reused free by every domain that asks for that
+ * city. So "has this domain got research" is a join between the cities its params.csv
+ * row names and the cities its master has gathered.
+ *
+ * Built once per request, not per row: 532 domains × a CSV parse each is the same
+ * mistake infra_pipeline_built_index() exists to avoid.
+ *
+ * @return array<string,array{need:int,missing:string[]}>
+ */
+function infra_pipeline_research_index(): array
+{
+    static $memo = null;
+    if ($memo !== null) return $memo;
+
+    $base = dirname(__DIR__, 3);
+    $key  = fn(string $city, string $ss) => strtolower(trim($city)) . '|' . strtoupper(trim($ss));
+
+    $researched = [];
+    foreach (glob($base . '/sites/*/data/cities.json') ?: [] as $f) {
+        $master = basename(dirname(dirname($f)));
+        $data   = json_decode((string) @file_get_contents($f), true);
+        foreach ((is_array($data) ? ($data['cities'] ?? $data) : []) as $c) {
+            if (!is_array($c) || empty($c['_researched'])) continue;
+            $researched[$master][$key((string) ($c['city'] ?? ''), (string) ($c['SS'] ?? ''))] = true;
+        }
+    }
+
+    $memo = [];
+    foreach (glob($base . '/sites/*/batches/*/params.csv') ?: [] as $csv) {
+        $master = basename(dirname(dirname(dirname($csv))));
+        $have   = $researched[$master] ?? [];
+        $fh = @fopen($csv, 'r');
+        if (!$fh) continue;
+        $head = fgetcsv($fh);
+        if (!is_array($head)) { fclose($fh); continue; }
+        $col = array_flip($head);
+        while (($row = fgetcsv($fh)) !== false) {
+            $get = fn(string $c) => isset($col[$c]) ? trim((string) ($row[$col[$c]] ?? '')) : '';
+            $domain = strtolower($get('domain'));
+            if ($domain === '') continue;
+
+            $need = [];
+            if ($get('city') !== '') $need[$key($get('city'), $get('SS'))] = $get('city') . ', ' . $get('SS');
+            // `landing_cities` is "City, ST" entries separated by ';' or newlines. The
+            // rule is ms_parse_landing_cities()'s, restated here rather than required
+            // because admin/infra/lib/* is deliberately self-contained — the same
+            // trade-off, and the same caveat, as infra_pipeline_built_index()'s slug.
+            foreach (preg_split('/[;\r\n]+/', $get('landing_cities')) ?: [] as $entry) {
+                $parts = array_map('trim', explode(',', trim($entry)));
+                if (count($parts) < 2) continue;
+                $ss   = strtoupper(array_pop($parts));
+                $city = implode(', ', $parts);
+                if ($city === '' || !preg_match('/^[A-Z]{2}$/', $ss)) continue;
+                $need[$key($city, $ss)] = $city . ', ' . $ss;
+            }
+
+            $missing = [];
+            foreach ($need as $k => $label) if (empty($have[$k])) $missing[] = $label;
+            $memo[$domain] = ['need' => count($need), 'missing' => $missing];   // newest batch wins
+        }
+        fclose($fh);
+    }
+    return $memo;
+}
+
+/**
+ * The Research cell for one domain.
+ *
+ * Unknown (blank) when the domain is in no batch target list — 132 of 532 today. That
+ * is an absence of a measurement, not a pass, and it is rendered faded for the same
+ * reason infra_cf_zone_counts() keeps -1 apart from 0.
+ */
+function infra_pipeline_research_cell(string $domain): array
+{
+    $r = infra_pipeline_research_index()[strtolower(trim($domain))] ?? null;
+    if ($r === null || $r['need'] === 0) return ['state' => '', 'note' => ''];
+    if (!$r['missing']) {
+        return ['state' => INFRA_STEP_OK,
+                'note'  => $r['need'] . ($r['need'] === 1 ? ' city researched' : ' cities researched')];
+    }
+    $shown = array_slice($r['missing'], 0, 3);
+    return ['state' => INFRA_STEP_TODO,
+            'note'  => 'no research for ' . implode('; ', $shown)
+                     . (count($r['missing']) > 3 ? ' +' . (count($r['missing']) - 3) . ' more' : '')
+                     . ' — a build would still succeed and quietly write generic copy'];
 }
 
 /* ─────────────────────────── going and looking ─────────────────────────── */
@@ -594,9 +726,10 @@ function infra_pipeline_refresh(string $step, string $batch = '', string $only =
 function infra_pipeline_actions(): array
 {
     return [
-        'assign' => 'Assign a box',
-        'host'   => 'Create the host area',
-        'zone'   => 'Stage the Cloudflare zone',
+        'assign'  => 'Assign a box',
+        'account' => 'Pick the Cloudflare account',
+        'host'    => 'Create the host area',
+        'zone'    => 'Stage the Cloudflare zone',
         'upload' => 'Upload the built site',
         'golive' => 'Switch the nameservers',
     ];
@@ -706,18 +839,55 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
                     'state' => INFRA_STEP_RUNNING];
         }
 
+        // Already consumed? Then this step's answer is not ours to change any more.
+        //
+        // The forward check below catches "too early". This one catches "too late",
+        // which is the direction that actually hurt: every step here succeeds, and the
+        // damage shows up somewhere else entirely — a box reassigned under a live zone
+        // leaves the DNS on the old machine, a host recreated under an upload leaves an
+        // empty docroot. Both report ✓.
+        //
+        // ['force' => true] goes through. Going backwards is legitimate when it is
+        // deliberate and the consumer is being redone too — tools/repair_zone_box_mismatch.php
+        // is exactly that — so this refuses the accident without blocking the repair.
+        if (empty($opts['force'])) {
+            foreach (infra_pipeline_steps() as $s) {
+                if ($s['key'] !== $step) continue;
+                foreach ($s['consumed_by'] ?? [] as $con) {
+                    $c = infra_pipeline_stored([$domain])[$domain][$con] ?? null;
+                    if (($c['state'] ?? '') !== INFRA_STEP_OK) continue;
+                    $lbl = '';
+                    foreach (infra_pipeline_steps() as $t) if ($t['key'] === $con) $lbl = $t['label'];
+                    return ['ok' => false, 'state' => '',
+                            'msg' => 'refused: ' . $lbl . ' is already done and was built on this step\'s answer — '
+                                   . 'redo ' . $lbl . ' as well, or re-run with force if you mean to'];
+                }
+            }
+        }
+
         // Prerequisites. Running a step whose inputs are missing produces a confusing
         // failure at a lower layer; refusing here names the actual blocker.
+        //
+        // STORED FIRST, THEN DERIVED — the same precedence infra_pipeline_row() uses to
+        // draw the grid, so what blocks a step is always what the grid shows. Reading
+        // stored cells alone was invisible until 'account' became a prerequisite: the
+        // repair tool writes cf_account_id straight onto the record, which is a green
+        // Account cell by derivation but no stored one, and the Zone step refused all
+        // 11 domains with "CF account is not done yet (and has never been checked)" —
+        // about a field sitting right there on the row. A console that demands someone
+        // pressed a button for a fact it can already see is disagreeing with itself.
+        $stored  = infra_pipeline_stored([$domain])[$domain] ?? [];
+        $derived = infra_pipeline_derived($rec);
         foreach (infra_pipeline_steps() as $s) {
             if ($s['key'] !== $step) continue;
             foreach ($s['requires'] as $req) {
-                $rq = infra_pipeline_stored([$domain])[$domain][$req] ?? null;
-                if (($rq['state'] ?? '') !== INFRA_STEP_OK) {
-                    $lbl = '';
-                    foreach (infra_pipeline_steps() as $t) if ($t['key'] === $req) $lbl = $t['label'];
-                    return ['ok' => false, 'state' => '',
-                            'msg' => 'blocked: ' . $lbl . ' is not done yet' . (($rq === null) ? ' (and has never been checked)' : '')];
-                }
+                $state = $stored[$req]['state'] ?? ($derived[$req]['state'] ?? '');
+                if ($state === INFRA_STEP_OK) continue;
+                $lbl = '';
+                foreach (infra_pipeline_steps() as $t) if ($t['key'] === $req) $lbl = $t['label'];
+                return ['ok' => false, 'state' => '',
+                        'msg' => 'blocked: ' . $lbl . ' is not done yet'
+                               . ($state === '' ? ' (and nothing on the record evidences it)' : '')];
             }
         }
 
@@ -745,17 +915,50 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
                 // one pair linking 31 domains, each also linked to whatever else sits on
                 // its box. Cloudflare cannot move a zone, so the box is the only end of
                 // this that can still be chosen.
+                //
+                // EITHER field means the placement is already decided — and they have to be
+                // read together, because each one catches a case the other misses.
+                //
+                // cf_account_id alone was the old test, and it is bookkeeping ABOUT the
+                // zone rather than the zone itself, so it can go missing: a host-only
+                // provision run used to blank it (see $prov in provision.php), after which
+                // a domain that plainly had a zone read here as having none. On 2026-10-21
+                // that moved 11 water-batch domains off the box their zone's account is
+                // bound to. The A records stayed pointing at the old box while the site was
+                // built and uploaded to the new one — which on go-live is a 200 OK serving
+                // Hestia's default page, on all eleven, with every step reporting success.
+                //
+                // cf_zone_id alone is not enough either, and testing only it would have
+                // broken 219 domains the other way: an account picked ahead of the zone
+                // (the Rollout screen's CF-slot override) sets the account and no zone, and
+                // those must still follow their account to its box. Round-robining them
+                // would hand the zone step a box and an account chosen independently —
+                // the very pairing this rule exists to prevent, arrived at from the
+                // opposite direction.
+                $zoneId   = trim((string) ($rec['cf_zone_id'] ?? ''));
                 $zoneAcct = trim((string) ($rec['cf_account_id'] ?? ''));
-                if ($zoneAcct !== '') {
-                    $acct = null;
-                    foreach (infra_cf_accounts() as $a) {
-                        if ((string) ($a['id'] ?? '') === $zoneAcct) { $acct = $a; break; }
-                    }
+                if ($zoneId !== '' || $zoneAcct !== '') {
                     // Every branch below REFUSES rather than falling through to the
                     // round-robin. A domain that already has a zone has already had its
                     // box decided for it; picking a different one would place the site
                     // and its nameservers in two different groups, which is the failure
                     // this rule exists to prevent — and it would do it silently.
+                    //
+                    // That includes the case this guard used to MISS entirely. A zone with
+                    // no account recorded is not "a domain free to be placed" — it is a
+                    // domain whose placement is already fixed and whose record has lost
+                    // track of where. Refusing says so; the round-robin would quietly
+                    // decide the one thing that is no longer ours to decide.
+                    if ($zoneAcct === '') {
+                        $msg = 'it already has a Cloudflare zone (' . substr($zoneId, 0, 12) . '…) but no account '
+                             . 'recorded against it — repair the account reference first, or assigning a box here '
+                             . 'would move the domain away from the one its zone belongs to';
+                        break;
+                    }
+                    $acct = null;
+                    foreach (infra_cf_accounts() as $a) {
+                        if ((string) ($a['id'] ?? '') === $zoneAcct) { $acct = $a; break; }
+                    }
                     if (!$acct) {
                         $msg = 'its zone is in account ' . $zoneAcct . ', which the console no longer has — '
                              . 'add it back before assigning a box';
@@ -786,6 +989,43 @@ function infra_pipeline_do(string $step, string $domain, string $batch = '', arr
                 $box = $boxes[infra_state_counter_next('pipeline_server') % count($boxes)];
                 infra_state_upsert_domain(['domain' => $domain, 'server_id' => (string) $box['id']]);
                 $msg = 'assigned to ' . ($box['label'] ?? $box['id']);
+                break;
+
+            case 'account':
+                require_once __DIR__ . '/cf_alloc.php';
+                $sid = (string) ($rec['server_id'] ?? '');
+                if ($sid === '') { $msg = 'no box assigned — the box is what decides the account'; break; }
+
+                // Never re-pick. Cloudflare cannot move a zone between accounts, so once
+                // a zone has been created the account is settled for good; and even
+                // before that, a human may have chosen it deliberately on the Rollout
+                // screen's slot override. Either way this step CONFIRMS, it does not
+                // re-decide. Correcting a wrong one is Delete zone, which clears both
+                // fields together on purpose (see actions/domain_manage.php).
+                $existing = trim((string) ($rec['cf_account_id'] ?? ''));
+                if ($existing !== '') {
+                    $msg = 'already in ' . infra_cf_account_label($existing);
+                    break;
+                }
+
+                // A zone with no account recorded is NOT a domain waiting to be assigned
+                // one — it is a record that has lost track of an answer Cloudflare still
+                // holds. Picking from the box here would be actively wrong whenever the
+                // box has since changed, which is precisely the 2026-10-21 shape: the
+                // zone sits in the old box's account and this would write the new box's.
+                // The consumed_by freeze already refuses this, but that refusal can be
+                // forced and this one must not be — go and read the zone instead.
+                if (trim((string) ($rec['cf_zone_id'] ?? '')) !== '') {
+                    $msg = 'it already has a zone but no account on record — the answer is at Cloudflare, '
+                         . 'not derivable from the box. Run tools/repair_zone_box_mismatch.php, which looks it up.';
+                    break;
+                }
+
+                $pick = infra_cf_account_for_server($sid);
+                if (!$pick['ok']) { $msg = $pick['why']; break; }   // refuse, never spill to another box's account
+                infra_state_upsert_domain(['domain' => $domain, 'cf_account_id' => (string) $pick['account']['id']]);
+                $msg = 'assigned to ' . ($pick['account']['label'] ?? $pick['account']['id'])
+                     . ' — the account bound to this box';
                 break;
 
             case 'host':
