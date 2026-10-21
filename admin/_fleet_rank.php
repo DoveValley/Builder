@@ -66,6 +66,16 @@ $frkColour = !$frkHas ? '#94a3b8'
         </span>
         <button type="button" class="btn-sm-outline" id="frk-auto-toggle"
                 onclick="frkToggleAuto()"><?= $frkDue['enabled'] ? 'Pause auto sweeps' : 'Resume auto sweeps' ?></button>
+        <label style="font-size:.78rem;color:#64748b;display:flex;align-items:center;gap:4px">
+            every
+            <select id="frk-cadence-weeks" onchange="frkSetCadence(this.value)" style="padding:3px 4px">
+                <?php for ($w = 1; $w <= 12; $w++): ?>
+                    <option value="<?= $w ?>" <?= $w === (int) $frkDue['cadence_weeks'] ? 'selected' : '' ?>>
+                        <?= $w ?> week<?= $w === 1 ? '' : 's' ?>
+                    </option>
+                <?php endfor; ?>
+            </select>
+        </label>
         <button type="button" class="btn-sm-outline" id="frk-run" onclick="frkRun()">Run sweep</button>
     </div>
 
@@ -227,6 +237,24 @@ function frkToggleAuto() {
             location.reload();
         })
         .catch(function (e) { btn.disabled = false; alert('Could not save: ' + e); });
+}
+function frkSetCadence(weeks) {
+    var sel = document.getElementById('frk-cadence-weeks');
+    sel.disabled = true;
+    var fd = new FormData();
+    fd.append('csrf_token', FRK_CSRF);
+    fd.append('rank_cadence_weeks', weeks);
+    fetch('fleet_audit_api.php?action=settings_save', {method: 'POST', body: fd})
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            sel.disabled = false;
+            if (d.error) { alert(d.error); return; }
+            // Same reasoning as frkToggleAuto: the "next due" date depends on cadence
+            // and the last sweep together, so recompute it server-side via reload
+            // rather than guess the arithmetic here.
+            location.reload();
+        })
+        .catch(function (e) { sel.disabled = false; alert('Could not save: ' + e); });
 }
 function frkRun() {
     if (!confirm('Probe every tracked keyword at DataForSEO?\n\nThis spends roughly $6.50, up to about $13 if keywords need retrying, and takes 15-25 minutes.')) return;
