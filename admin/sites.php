@@ -272,6 +272,11 @@ function fmt_date(string $iso): string {
             <?php endif; ?>
         </div>
 
+        <?php include __DIR__ . '/_fleet_fingerprint.php'; ?>
+        <?php include __DIR__ . '/_fleet_crawl.php'; ?>
+        <?php include __DIR__ . '/_fleet_index.php'; ?>
+        <?php include __DIR__ . '/_fleet_audit_settings.php'; ?>
+
         <div id="batch-steps-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
             <h3 style="margin-top:0;color:#1e3a5f;">New Batch — all the steps</h3>
             <ol style="margin:0;padding-left:20px;line-height:1.85;font-size:.88rem;">

@@ -122,8 +122,8 @@
      * domains sat in exactly that state for nine hours with a fully green pipeline
      * grid. It reads stored state only (~0.02s for the whole fleet), so it runs on
      * every page load rather than being something a person has to remember to check. */
-    require_once __DIR__ . '/../lib/cf_alloc.php';   // not in bootstrap.php's list
-    $cfCheck = infra_cf_consistency();
+    require_once __DIR__ . '/../lib/fingerprint_audit.php';   // self-contained; not in bootstrap.php's list
+    $cfCheck = fingerprint_offline_check();
     ?>
     <?php if ($cfCheck['findings']): ?>
     <div class="ic-card" style="margin-bottom:18px;border-left:4px solid #dc2626">
