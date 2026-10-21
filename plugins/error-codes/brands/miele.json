@@ -87,6 +87,14 @@
         "self_clearable": true,
         "demand": {
           "F11": 140
+        },
+        "detail": {
+          "F11": {
+            "what_it_means": "Water is not leaving the tub quickly enough for the cycle to continue.",
+            "why_it_happens": "Normally debris in the filter or the drain path rather than a failed component.",
+            "what_to_try": "Clean the filter in the base of the tub, then check the drain hose behind the machine is not kinked or pushed too far into the standpipe.",
+            "when_to_call": "If the filter and hose are both clear, the drain pump needs testing."
+          }
         }
       },
       {
@@ -231,6 +239,14 @@
         "self_clearable": true,
         "demand": {
           "F66": 110
+        },
+        "detail": {
+          "F66": {
+            "what_it_means": "Airflow through the dryer is restricted, so it cannot move heat and moisture out of the drum.",
+            "why_it_happens": "Most often a lint filter or condenser filter that has not been cleaned recently — both clog gradually and the machine notices before you do.",
+            "what_to_try": "Clean the lint filter and the condenser filter, and check the condenser unit itself is seated and clear.",
+            "when_to_call": "If both filters are clean and the code returns, the airflow sensor or the fan needs checking."
+          }
         }
       },
       {

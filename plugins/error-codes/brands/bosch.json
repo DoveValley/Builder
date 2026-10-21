@@ -177,6 +177,14 @@
         "self_clearable": false,
         "demand": {
           "E01": 110
+        },
+        "detail": {
+          "E01": {
+            "what_it_means": "The motor circuit for the heat pump on the main control board has failed.",
+            "why_it_happens": "An electronic failure on the board itself, not a blockage or a maintenance issue.",
+            "what_to_try": "Nothing — this names a board fault, and there is no owner-side check for it.",
+            "when_to_call": "When you see it. The machine will not wash properly until the board is dealt with."
+          }
         }
       },
       {
@@ -282,6 +290,14 @@
         "self_clearable": false,
         "demand": {
           "E21": 110
+        },
+        "detail": {
+          "E21": {
+            "what_it_means": "The heat pump is blocked and cannot move water through the wash system, so the cycle cannot proceed.",
+            "why_it_happens": "An obstruction in the pump assembly rather than in the filter you can reach.",
+            "what_to_try": "Clear the tub filter in case debris is feeding through, but the blockage named by this code sits deeper than an owner check reaches.",
+            "when_to_call": "If a clean filter does not clear it, the pump needs opening."
+          }
         }
       },
       {

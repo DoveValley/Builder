@@ -35,6 +35,25 @@ function faq_pairs_from_blocks(array $blocks): array {
 }
 
 /**
+ * "a" or "an" for a brand name — judged by how the name is SPOKEN, not spelled.
+ *
+ * "a LG dryer" was appearing in every LG question: L is a consonant letter but the
+ * letter's name begins with a vowel sound ("el"), so it takes "an". GE goes the other
+ * way — "jee" is a consonant sound, so "a GE oven" is correct. An initialism is
+ * detected by being all-caps, which is exactly the set where spelling misleads.
+ */
+function schema_indefinite_article(string $name): string {
+    $name = trim($name);
+    if ($name === '') return 'a';
+    $first = strtoupper($name[0]);
+    // Letter names that start with a vowel sound: F(ef) H(aitch) L(el) M(em) N(en)
+    // R(ar) S(ess) X(ex), plus A E I O U themselves.
+    $initialism = (bool) preg_match('/^[A-Z][A-Z0-9-]*$/', preg_replace('/\s.*$/', '', $name));
+    $vowelSound = $initialism ? 'AEFHILMNORSX' : 'AEIOU';
+    return strpos($vowelSound, $first) !== false ? 'an' : 'a';
+}
+
+/**
  * Build FAQPage Question entities from a page's error_codes blocks — same
  * "projection of content" rule as faq_pairs_from_blocks(): derived at render
  * time from whatever error_codes_resolve() (plugins/error-codes/plugin.php)
@@ -46,6 +65,7 @@ function faq_pairs_from_blocks(array $blocks): array {
 function error_code_pairs_from_blocks(array $blocks): array {
     if (!function_exists('error_codes_resolve')) return [];
     $pairs = [];
+    $seen  = [];
     foreach ($blocks as $block) {
         if (!is_array($block) || ($block['type'] ?? '') !== 'error_codes') continue;
         $max = (int) ($block['ec_max'] ?? 12) ?: 12;
@@ -61,11 +81,43 @@ function error_code_pairs_from_blocks(array $blocks): array {
             // to name that row's own appliance, not the block's (which is empty here).
             $rowType = strtolower(trim((string) ($row['type_label'] ?? '')));
             if ($rowType !== '') $typeLabel = $rowType;
-            $pairs[] = [
-                '@type'          => 'Question',
-                'name'           => "What does error code {$code} mean on a {$brandLabel} {$typeLabel}?",
-                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $meaning],
-            ];
+
+            /*
+             * ONE QUESTION PER DISPLAY CODE, NOT PER STORED ENTRY.
+             *
+             * A manufacturer shows one fault under several codes depending on model and
+             * panel generation, so an entry's code is often a slash-joined set —
+             * "4C / 4E / nF", "E16 / E17", "d75 / d80 / d90 / d95". Asking "What does
+             * error code 4C / 4E / nF mean on a Samsung washer?" matches nothing anyone
+             * types, while the three codes behind it are searched 5,400, 1,300 and 320
+             * times a month respectively. 71 of 538 stored entries are compound, so this
+             * turns ~92 unsearchable questions into exact-match ones.
+             *
+             * This does NOT break the projection rule. The visible table prints the whole
+             * "4C / 4E / nF" string, so every code named here is one the block shows.
+             */
+            $display = preg_split('#\s*/\s*#', $code) ?: [$code];
+            $detail  = is_array($row['detail'] ?? null) ? $row['detail'] : [];
+            foreach ($display as $one) {
+                $one = trim($one);
+                if ($one === '') continue;
+                $name = 'What does error code ' . $one . ' mean on '
+                      . schema_indefinite_article($brandLabel) . ' ' . $brandLabel . ' ' . $typeLabel . '?';
+                // Same code can appear under two entries (a brand reuses a code across
+                // appliances); a repeated Question is invalid, so first one wins.
+                $key = strtolower($name);
+                if (isset($seen[$key])) continue;
+                $seen[$key] = true;
+                // Prefer the written answer for THIS code when one exists — it is
+                // specific to the code rather than shared across the compound set, and
+                // it is what the visible page says a few hundred pixels above.
+                $answer = trim((string) ($detail[$one]['what_it_means'] ?? '')) ?: $meaning;
+                $pairs[] = [
+                    '@type'          => 'Question',
+                    'name'           => $name,
+                    'acceptedAnswer' => ['@type' => 'Answer', 'text' => $answer],
+                ];
+            }
         }
     }
     return $pairs;

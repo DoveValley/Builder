@@ -92,6 +92,14 @@
         "self_clearable": false,
         "demand": {
           "E15": 210
+        },
+        "detail": {
+          "E15": {
+            "what_it_means": "A safety float has sensed water pooling in the bottom of the tub and shut the cycle down to stop a leak spreading.",
+            "why_it_happens": "Water reaches the base when something above it leaks — a seal, a hose connection, or the tub. The code is the safety system working, not the fault itself.",
+            "what_to_try": "Stop using the machine and turn its water supply off at the valve. The pump may keep running while the float is raised, which is expected.",
+            "when_to_call": "This needs a technician — the code says water is where it should not be, not where it came from."
+          }
         }
       },
       {
@@ -139,6 +147,14 @@
         "demand": {
           "E24": 110,
           "E25": 30
+        },
+        "detail": {
+          "E24": {
+            "what_it_means": "The dishwasher cannot drain, with the blockage somewhere between the filter and the air gap.",
+            "why_it_happens": "A packed tub filter, a kinked drain hose, a loose pump, or a silted-up air gap on the worktop.",
+            "what_to_try": "Clear the tub filter first, then check the air gap if your sink has one, then the drain hose for kinks. Those are the three reachable points.",
+            "when_to_call": "If all three are clear, the pump itself needs looking at."
+          }
         }
       },
       {

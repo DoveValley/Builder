@@ -152,6 +152,14 @@
         "self_clearable": false,
         "demand": {
           "F9": 170
+        },
+        "detail": {
+          "F9": {
+            "what_it_means": "The upper oven is running but not reaching or holding the temperature it was set to.",
+            "why_it_happens": "Usually the sensor reporting incorrectly or the heating element not delivering, rather than a setting or a door issue.",
+            "what_to_try": "Confirm the oven is not in a mode that limits temperature, and that the door is closing fully. Beyond that there is no owner-side check.",
+            "when_to_call": "If the door seals and the mode is right, the sensor or element needs testing."
+          }
         }
       },
       {
@@ -311,6 +319,14 @@
         "meaning": "Not a fault — a reminder that the tub clean cycle is due.",
         "demand": {
           "tCL": 480
+        },
+        "detail": {
+          "tCL": {
+            "what_it_means": "Not a fault. The washer is reminding you that its tub clean cycle is due — a maintenance prompt, not a breakdown.",
+            "why_it_happens": "The machine counts wash cycles and raises the reminder after a set number. Front loaders are prone to residue and odour in the door seal and drum if the cycle is never run.",
+            "what_to_try": "Run the tub clean cycle with the drum empty, following the detergent guidance in your manual. The reminder clears once the cycle completes.",
+            "when_to_call": "No call needed. If the reminder returns immediately after a completed clean cycle, the control is not registering the cycle properly."
+          }
         }
       },
       {
@@ -319,6 +335,14 @@
         "meaning": "The lid or door is not registering as properly closed, so the washer will not spin.",
         "demand": {
           "dE": 480
+        },
+        "detail": {
+          "dE": {
+            "what_it_means": "The washer cannot confirm the lid or door is properly closed, so it will not spin.",
+            "why_it_happens": "Usually laundry caught in the seal or across the latch, or a door pushed to rather than closed until it seats.",
+            "what_to_try": "Open fully, clear anything caught around the seal or latch, and close firmly. Check the strike the latch engages for anything bent or obstructing it.",
+            "when_to_call": "If the doorway is clear and it still reads as open, the door switch or latch assembly needs checking."
+          }
         }
       },
       {
@@ -327,6 +351,14 @@
         "meaning": "The motor has been overloaded and stalled, typically from too large or too heavy a load.",
         "demand": {
           "LE": 390
+        },
+        "detail": {
+          "LE": {
+            "what_it_means": "The motor has been overloaded and stalled, so the washer has stopped rather than keep driving against the load.",
+            "why_it_happens": "Most often a drum packed too full, or a load that is very heavy when wet — towels, bedding, work clothes.",
+            "what_to_try": "Take some of the load out, redistribute what is left and restart. Let the machine sit a few minutes first if it has been straining.",
+            "when_to_call": "If it stalls on normal-sized loads, the motor or its control needs testing."
+          }
         }
       },
       {
@@ -335,6 +367,14 @@
         "meaning": "Excess suds have been detected, which stops the drum reaching spin speed until they clear.",
         "demand": {
           "SUD": 260
+        },
+        "detail": {
+          "SUD": {
+            "what_it_means": "Too much foam has built up for the drum to reach spin speed, so the washer pauses to clear it.",
+            "why_it_happens": "Usually an overdose of detergent, or a standard detergent in a high-efficiency machine — HE formulas are designed to foam far less.",
+            "what_to_try": "Let the suds-clearing routine finish rather than cancelling it. Next load, cut the dose and check the detergent is HE-rated if your machine requires one.",
+            "when_to_call": "If it appears with a correct HE dose, something may be holding water in the drum and is worth checking."
+          }
         }
       },
       {
@@ -343,6 +383,14 @@
         "meaning": "The tub is overfilling, which points at the inlet valve letting water through when it should be closed.",
         "demand": {
           "FE": 170
+        },
+        "detail": {
+          "FE": {
+            "what_it_means": "The tub is filling beyond the level it should, so the washer has stopped to avoid overflowing.",
+            "why_it_happens": "This points at the inlet valve passing water when it has been told to shut, rather than at anything you have done.",
+            "what_to_try": "Turn the supply taps off at the wall to stop more water arriving. There is no owner-side check that resolves this one.",
+            "when_to_call": "Straight away. A valve that will not close is a flood risk, not just an error code."
+          }
         }
       },
       {
@@ -351,6 +399,14 @@
         "meaning": "The cycle was interrupted by a power failure rather than by any fault in the machine.",
         "demand": {
           "PF": 170
+        },
+        "detail": {
+          "PF": {
+            "what_it_means": "Not a machine fault. The cycle was interrupted by a power failure and the washer is telling you it stopped partway.",
+            "why_it_happens": "A cut, a brownout, a tripped breaker, or the plug being pulled mid-cycle.",
+            "what_to_try": "Restart the cycle. If it recurs without an obvious outage, check the washer is on its own circuit and not sharing with something that draws heavily.",
+            "when_to_call": "If PF appears repeatedly with no power interruption you can account for, have the supply and the machine's power board looked at."
+          }
         }
       },
       {
@@ -359,6 +415,14 @@
         "meaning": "The clutch has caught on a foreign object — commonly a coin or clothing fastener that has worked loose.",
         "demand": {
           "E6": 110
+        },
+        "detail": {
+          "E6": {
+            "what_it_means": "The clutch has caught on something that should not be in the drum assembly.",
+            "why_it_happens": "Normally a coin, a button or a clothing fastener that has worked past the drum and lodged where it fouls the mechanism.",
+            "what_to_try": "Check pockets before washing, and look for anything loose in the drum. If you can see and remove the object, the code may clear.",
+            "when_to_call": "If nothing is visible, the object has gone somewhere you cannot reach and the machine needs opening."
+          }
         }
       },
       {

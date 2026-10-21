@@ -200,6 +200,14 @@
         "self_clearable": false,
         "demand": {
           "F10": 260
+        },
+        "detail": {
+          "F10": {
+            "what_it_means": "The oven's safety logic has decided the cavity is running hotter than it should and has shut the heat down as a runaway-heat condition.",
+            "why_it_happens": "Usually the temperature sensor misreporting, or the control calling for heat when it should not — both are component faults, not settings.",
+            "what_to_try": "Switch the oven off at the breaker for a minute to clear a one-off. If it returns, stop using the oven.",
+            "when_to_call": "Promptly, and do not keep using the oven in the meantime — the code names a heat condition the control could not govern."
+          }
         }
       },
       {
@@ -216,6 +224,14 @@
         "self_clearable": false,
         "demand": {
           "F31": 140
+        },
+        "detail": {
+          "F31": {
+            "what_it_means": "The oven temperature probe circuit is shorted, so the control is working from a false reading.",
+            "why_it_happens": "A shorted sensor or its wiring, rather than anything to do with how the oven is being used.",
+            "what_to_try": "Nothing here is an owner check — the probe circuit is internal.",
+            "when_to_call": "When you see it. An oven working from a false temperature reading will not cook predictably."
+          }
         }
       },
       {

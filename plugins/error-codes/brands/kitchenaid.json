@@ -89,6 +89,14 @@
         "self_clearable": false,
         "demand": {
           "F2E1": 170
+        },
+        "detail": {
+          "F2E1": {
+            "what_it_means": "An electronics fault in the range's control system.",
+            "why_it_happens": "A control-board or keypad failure, not a cooking setting or a door condition.",
+            "what_to_try": "Cutting power at the breaker for a minute clears a one-off glitch. A code that returns is naming a real fault.",
+            "when_to_call": "If it returns after a power cycle, the control needs replacing or repairing."
+          }
         }
       }
     ]

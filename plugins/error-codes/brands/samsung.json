@@ -57,6 +57,14 @@
         "self_clearable": true,
         "demand": {
           "OF OF": 320
+        },
+        "detail": {
+          "OF OF": {
+            "what_it_means": "Not a fault. Cooling has been switched off on purpose — this is the demo or shop mode retailers use so a fridge can be lit and running without cooling.",
+            "why_it_happens": "It is usually switched on accidentally by a button combination, or left on after delivery from a showroom unit.",
+            "what_to_try": "Turn cooling back on using the button combination in your manual — it varies by model, and the display returns to normal once it takes.",
+            "when_to_call": "Only if cooling will not re-enable, which points at the control rather than the mode."
+          }
         }
       },
       {
@@ -71,6 +79,14 @@
         "demand": {
           "PC ER": 110,
           "PC CH": 10
+        },
+        "detail": {
+          "PC ER": {
+            "what_it_means": "Components inside the fridge have lost communication with one another, so the control cannot coordinate them.",
+            "why_it_happens": "A wiring or connector fault between boards, rather than a cooling problem in its own right.",
+            "what_to_try": "Cutting power for a minute clears a one-off communication glitch. A code that comes straight back is naming a real fault.",
+            "when_to_call": "If it returns after a power cycle, it needs a technician."
+          }
         }
       },
       {
@@ -79,6 +95,14 @@
         "self_clearable": false,
         "demand": {
           "33E": 140
+        },
+        "detail": {
+          "33E": {
+            "what_it_means": "The heater that keeps the ice pipe clear is reporting a fault, so ice may stop being delivered.",
+            "why_it_happens": "A failure in that heater or its circuit, rather than anything to do with how the ice maker is used.",
+            "what_to_try": "Nothing here is an owner check — the pipe heater sits inside the dispenser assembly.",
+            "when_to_call": "When you see it, particularly if ice has stopped reaching the dispenser."
+          }
         }
       },
       {
@@ -229,6 +253,12 @@
             "why_it_happens": "A closed or partly closed tap, a kinked fill hose, or blocked inlet screens where the hoses connect.",
             "what_to_try": "Work from the wall in: taps fully open, hoses unkinked, then the inlet screens at the machine end.",
             "when_to_call": "If water reaches the machine freely and it still will not fill, the inlet valve needs testing."
+          },
+          "nF": {
+            "what_it_means": "The washer is not filling — the same fault Samsung shows as 4C and 4E on other panels.",
+            "why_it_happens": "A tap that is not fully open, a kinked fill hose, or the inlet screens where the hoses meet the machine blocked with scale and grit.",
+            "what_to_try": "Check both taps, straighten the hoses, then turn the taps off and inspect the inlet screens at the machine end.",
+            "when_to_call": "If water reaches the machine freely and it still will not fill, the inlet valve is next."
           }
         },
         "demand": {
@@ -270,6 +300,12 @@
             "why_it_happens": "The debris filter at the bottom front catches coins, hair grips and lint and eventually packs solid. A kinked drain hose or a standpipe that cannot take the flow does the same thing from further down the line.",
             "what_to_try": "Open the small flap at the bottom front, drain the residual water into a tray and clean the filter. Then check the drain hose behind the machine for kinks and that it is not pushed too far into the standpipe.",
             "when_to_call": "If the filter is clean and the hose run is clear, the drain pump itself needs testing."
+          },
+          "5C": {
+            "what_it_means": "The same not-draining fault as 5E and SE, shown as 5C on some Samsung panels.",
+            "why_it_happens": "A packed debris filter at the bottom front, a kinked drain hose, or a standpipe that cannot take the flow.",
+            "what_to_try": "Clean the filter behind the flap at the bottom front, draining the residual water into a tray first, then check the hose run behind the machine.",
+            "when_to_call": "If the filter is clean and the hose is clear, the drain pump needs testing."
           }
         },
         "demand": {
@@ -317,6 +353,20 @@
         "demand": {
           "OE": 210,
           "0E": 210
+        },
+        "detail": {
+          "OE": {
+            "what_it_means": "There is more water in the tub than there should be, so the washer has stopped filling and is trying to pump out.",
+            "why_it_happens": "Normally the inlet valve passing water when it has been told to close, rather than anything to do with the load or detergent.",
+            "what_to_try": "Turn the supply taps off at the wall so no more water can arrive. There is no owner-side fix for a valve that will not shut.",
+            "when_to_call": "Promptly — a valve stuck open is a flood risk as well as an error code."
+          },
+          "0E": {
+            "what_it_means": "The same overfill condition as OE, shown with a zero on some panels.",
+            "why_it_happens": "An inlet valve letting water through when it should be closed.",
+            "what_to_try": "Shut the taps at the wall to stop the fill. Nothing else here is an owner check.",
+            "when_to_call": "Promptly, for the same reason as OE."
+          }
         }
       },
       {
@@ -325,6 +375,14 @@
         "meaning": "The AddWash door is not registering as closed and latched.",
         "demand": {
           "ddC": 170
+        },
+        "detail": {
+          "ddC": {
+            "what_it_means": "The AddWash door — the small hatch in the main door — is not registering as closed and latched.",
+            "why_it_happens": "It is easy to push shut without seating the catch, and a trapped sock or glove will stop it closing flush.",
+            "what_to_try": "Open the AddWash door fully, clear anything caught in it, and press it closed until the catch engages.",
+            "when_to_call": "If it is properly shut and still reads open, the hatch switch needs checking."
+          }
         }
       },
       {
@@ -341,6 +399,14 @@
         "meaning": "A fault in the heater circuit, so the machine cannot bring the water up to temperature.",
         "demand": {
           "HE": 110
+        },
+        "detail": {
+          "HE": {
+            "what_it_means": "A fault in the heater circuit, so the machine cannot bring the wash water up to the temperature the cycle asked for.",
+            "why_it_happens": "A component failure rather than anything that builds up, so it usually appears without warning.",
+            "what_to_try": "Nothing here is an owner check — the heater and its circuit are inside the machine.",
+            "when_to_call": "When you see it. Cold-water cycles may still run, but the machine is not doing what the programme selected."
+          }
         }
       },
       {

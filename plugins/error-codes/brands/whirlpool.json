@@ -81,6 +81,12 @@
             "why_it_happens": "Usually too much detergent, or a non-HE detergent in a high-efficiency machine, which produces far more foam than the drum is designed to handle.",
             "what_to_try": "Let the cycle run its suds-clearing routine rather than interrupting it, then use less detergent next time and check it is HE-rated if your machine requires one.",
             "when_to_call": "If it appears with correct detergent and correct dosing, something is holding water in the drum and it is worth having checked."
+          },
+          "Sd": {
+            "what_it_means": "The same excess-suds condition as Sud, shown as Sd on some displays.",
+            "why_it_happens": "Too much detergent, or a non-HE detergent in a high-efficiency drum.",
+            "what_to_try": "Let the suds-clearing routine run to the end, then reduce the dose on the next load and check the detergent is HE-rated.",
+            "when_to_call": "If it appears with correct dosing, have the drain path checked."
           }
         }
       },
@@ -314,6 +320,14 @@
         "self_clearable": true,
         "demand": {
           "PF": 110
+        },
+        "detail": {
+          "PF": {
+            "what_it_means": "Not a fault. A power interruption stopped the cycle partway and the dryer is reporting it.",
+            "why_it_happens": "An outage, a tripped breaker, or the plug being pulled mid-cycle.",
+            "what_to_try": "Restart the cycle. If it keeps happening with no outage you can account for, check the breaker and that the dryer is not sharing an overloaded circuit.",
+            "when_to_call": "If PF recurs with a stable supply, the power board is worth checking."
+          }
         }
       },
       {
