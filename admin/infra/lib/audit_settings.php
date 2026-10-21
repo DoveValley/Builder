@@ -60,6 +60,21 @@ function infra_audit_settings_defaults(): array
         // Lines of access log pulled per domain. Bailey's whole file was 3,320 lines
         // spanning 3.5 days; a busier site holds less, so bigger is safer.
         'crawl_tail_lines'      => 5000,
+        // CallTrackingMetrics sub-account IDs to sweep, comma-separated. Scott confirmed
+        // 2026-10-21 this is "151459 for now" with more expected later — plural from day
+        // one so adding a second account is a settings edit, not a code change.
+        'ctm_account_ids'       => '151459',
+        // A call under this many seconds of ACTUAL TALK TIME doesn't count as a real
+        // contact. Measured 2026-10-21: 14 of the last 15 calls on the one configured
+        // account were 0-3s talk time (rang briefly, never connected) — a bare call
+        // count would have reported noise as leads. 30s is a starting guess, not yet
+        // validated against real outcomes; revisit once there is enough volume to judge.
+        'calls_engaged_seconds' => 30,
+        // How far back the FIRST sync for a newly-added account reaches. After that,
+        // sync is incremental from its own cursor. The one account checked has call
+        // history back to 2021 for OTHER businesses sharing it — see the warning in
+        // ctm_list_calls() — so this is deliberately not "all of it."
+        'calls_backfill_days'   => 180,
     ];
 }
 
@@ -89,6 +104,18 @@ function infra_audit_settings_clean(array $raw): array
                                 ? max(0.0, min(1.0, round((float) $raw['cost_per_probe'], 4)))
                                 : $d['cost_per_probe'],
         'crawl_tail_lines'  => $int($raw['crawl_tail_lines']  ?? null, 500, 50000, $d['crawl_tail_lines']),
+        // Free-text, parsed by calls_audit_accounts() — comma/whitespace separated,
+        // non-numeric entries dropped rather than rejecting the whole field (so a typo
+        // in a second ID can't silently zero out the first, already-working one).
+        'ctm_account_ids'   => (static function ($v) use ($d) {
+            $ids = array_values(array_unique(array_filter(
+                preg_split('/[\s,]+/', (string) $v) ?: [],
+                fn($id) => $id !== '' && ctype_digit($id)
+            )));
+            return $ids ? implode(',', $ids) : $d['ctm_account_ids'];
+        })($raw['ctm_account_ids'] ?? null),
+        'calls_engaged_seconds' => $int($raw['calls_engaged_seconds'] ?? null, 5,  300, $d['calls_engaged_seconds']),
+        'calls_backfill_days'   => $int($raw['calls_backfill_days']   ?? null, 7,  730, $d['calls_backfill_days']),
     ];
 }
 
@@ -132,4 +159,10 @@ function infra_audit_rank_tier_list(): array
         if ($t === $want) break;
     }
     return $tiers;
+}
+
+/** The configured CTM sub-account IDs as a plain array, already clamped/deduped. */
+function infra_audit_ctm_account_ids(): array
+{
+    return array_values(array_filter(explode(',', (string) infra_audit_setting('ctm_account_ids'))));
 }

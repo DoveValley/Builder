@@ -238,7 +238,39 @@ function ctm_get_number(string $accountId, string $numberId): array
     return ctm_request('GET', "/accounts/{$accountId}/numbers/{$numberId}.json");
 }
 
-/** One page of every number owned under a sub-account — used to find a number's id when only its phone value is known (purchase doesn't get re-fetched by phone anywhere else). */
+/**
+ * One page of call records under a sub-account, date-filtered.
+ *
+ * Confirmed live against the real API (not guessed from docs — CTM's public docs
+ * page for this endpoint is a JS-rendered Postman collection, not fetchable): GET
+ * /accounts/{id}/calls.json, `start_date`/`end_date` as YYYY-MM-DD, `per_page` capped
+ * server-side at 150 ("per_page limit is 150" on a 400). The field this module's join
+ * depends on is `tracking_label` — the exact string ctm_build_label() writes when a
+ * number is purchased, e.g. "WAT-B26-002-CA-Glendale-ellisonrestoration.com".
+ *
+ * ⚠ THIS ACCOUNT IS NOT FLEET-EXCLUSIVE. A real pull against 151459 turned up calls
+ * back to 2021 for unrelated businesses ("Gorilla Power", "slableakservice.com") that
+ * pre-date this site factory entirely — this sub-account was already in use before any
+ * fleet number was bought into it. Every caller of this function MUST resolve
+ * `tracking_label` against the real `domains` table before counting a call as fleet
+ * traffic; this client has no way to filter that out itself, since CTM has no notion
+ * of "which labels are ours."
+ */
+function ctm_list_calls(string $accountId, string $startDate, string $endDate, int $page = 1, int $perPage = 150): array
+{
+    $r = ctm_request('GET', "/accounts/{$accountId}/calls.json", [
+        'start_date' => $startDate, 'end_date' => $endDate, 'page' => $page, 'per_page' => $perPage,
+    ]);
+    if (!$r['ok']) return $r;
+    return [
+        'ok'            => true,
+        'calls'         => $r['data']['calls'] ?? [],
+        'total_pages'   => (int) ($r['data']['total_pages'] ?? 1),
+        'total_entries' => (int) ($r['data']['total_entries'] ?? 0),
+    ];
+}
+
+/** One page of every number owned under a sub-account — used to find a number's id when only its phone value is known (purchase doesn't get re-fetched by phone alone anywhere else). */
 function ctm_list_numbers(string $accountId, int $page = 1): array
 {
     $r = ctm_request('GET', "/accounts/{$accountId}/numbers.json", ['page' => $page]);

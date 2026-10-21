@@ -53,6 +53,12 @@ $fasCsrf = $csrf ?? ($csrfToken ?? ($_SESSION['csrf_token'] ?? ''));
              'Used for the estimate and the confirmation prompt before a paid sweep. Measured 2026-10-21: the balance moved $70.3400 &rarr; $70.2206 over 11 probes. <strong>If this is wrong you are being misinformed about the spend</strong>, so re-measure rather than guess.'],
             ['Crawl log tail', 'crawl_tail_lines', 'number', 'lines', 'crawl',
              'Lines of access log pulled per domain. Bailey&rsquo;s entire log was 3,320 lines covering 3.5 days; a busier site holds far less, so a bigger tail is the safer error.'],
+            ['CTM sub-account IDs', 'ctm_account_ids', 'text', '', 'calls',
+             'Which CallTrackingMetrics sub-account(s) to sweep for calls, comma-separated. Confirmed 2026-10-21: <strong>this account is not fleet-exclusive</strong> &mdash; it carries call history for other businesses back to 2021. Every call is resolved against the real domains table regardless, so adding an ID here only widens WHERE calls are searched for, never what counts as ours.'],
+            ['Engaged call threshold', 'calls_engaged_seconds', 'number', 'seconds', 'calls',
+             'Talk time (not ring time) at or above this counts as a real, connected call. Measured 2026-10-21: 14 of the last 15 calls on the one configured account were 0-3s talk time &mdash; rang, never connected. A starting guess, not yet validated against real outcomes.'],
+            ['Calls backfill window', 'calls_backfill_days', 'number', 'days', 'calls',
+             'How far back the FIRST sync reaches for a newly-added account. After that, sync is incremental from its own cursor regardless of this value.'],
         ];
         foreach ($fields as [$label, $key, $type, $suffix, $affects, $help]): ?>
             <tr style="border-top:1px solid #f1f5f9">
@@ -71,6 +77,9 @@ $fasCsrf = $csrf ?? ($csrfToken ?? ($_SESSION['csrf_token'] ?? ''));
                         <input name="<?= $key ?>" class="fas-f" type="number" step="0.0001" min="0" max="1"
                                value="<?= h((string) $fas[$key]) ?>" style="width:90px;padding:4px 6px">
                         <span style="color:#94a3b8"><?= $suffix ?></span>
+                    <?php elseif ($type === 'text'): ?>
+                        <input name="<?= $key ?>" class="fas-f" type="text"
+                               value="<?= h((string) $fas[$key]) ?>" style="width:140px;padding:4px 6px">
                     <?php else: ?>
                         <input name="<?= $key ?>" class="fas-f" type="number"
                                value="<?= (int) $fas[$key] ?>" style="width:80px;padding:4px 6px">

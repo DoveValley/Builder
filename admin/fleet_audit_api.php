@@ -51,6 +51,12 @@ $AUDITS = [
         'script'   => BASE_DIR . '/tools/collect_fleet_crawl.php',
         'busy'     => 'The crawl collection is already running — wait for it to finish.',
     ],
+    'calls' => [
+        'dir'      => BASE_DIR . '/admin/infra/state/callscheck',
+        'sentinel' => '__CALLSCHECK_DONE__',
+        'script'   => BASE_DIR . '/tools/audit_fleet_calls.php',
+        'busy'     => 'The calls sync is already running — wait for it to finish.',
+    ],
 ];
 
 $action = (string) ($_GET['action'] ?? '');
@@ -104,6 +110,10 @@ switch ($action) {
                 require_once __DIR__ . '/infra/lib/rank_audit.php';
                 require_once __DIR__ . '/infra/lib/audit_settings.php';
                 $html = rank_audit_render_rows(rank_audit_latest()['domains'], (int) infra_audit_setting('too_new_days'));
+                break;
+            case 'calls':
+                require_once __DIR__ . '/infra/lib/calls_audit.php';
+                $html = calls_audit_render_rows(calls_audit_latest(30)['domains']);
                 break;
             default:
                 http_response_code(400); echo json_encode(['error' => 'No per-domain table for this audit.']); exit;
