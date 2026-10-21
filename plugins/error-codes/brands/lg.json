@@ -201,5 +201,195 @@
         "self_clearable": false
       }
     ]
+  },
+  "washer": {
+    "found": true,
+    "source_url": "https://www.lg.com/us/support/help-library/lg-washer-error-code-list--20150140270078",
+    "confidence": "direct_fetch",
+    "note": "LG publishes separate code lists for front load, top load and pedestal washers. Codes shared across those lists are recorded once here, with a meaning written to hold for all of them.",
+    "codes": [
+      {
+        "code": "UE / uB",
+        "self_clearable": true,
+        "meaning": "The load has settled unevenly in the drum, so the washer cannot reach spin speed safely.",
+        "detail": {
+          "UE": {
+            "what_it_means": "The load has settled unevenly in the drum, so the washer will not take it up to spin speed.",
+            "why_it_happens": "Normally one heavy item washed alone, or a load that has wrapped into a rope on one side. LG also notes that a load which is too small can trip it, because there is not enough mass to balance.",
+            "what_to_try": "Redistribute the load by hand. If you are washing a single heavy item, add one or two similar pieces to help it balance, then restart the spin.",
+            "when_to_call": "If it happens on loads that are clearly well balanced, the suspension or the sensor is worth checking."
+          }
+        },
+        "demand": {
+          "UE": 2900,
+          "uB": 10
+        }
+      },
+      {
+        "code": "OE",
+        "self_clearable": true,
+        "meaning": "The water cannot drain out, most often because the drain hose is kinked or the pump filter is blocked.",
+        "detail": {
+          "OE": {
+            "what_it_means": "The water cannot drain out of the machine within the time the cycle allows.",
+            "why_it_happens": "A kinked or clogged drain hose is the cause LG names first. A blocked pump filter does the same thing from inside the machine.",
+            "what_to_try": "Straighten the drain hose behind the machine and check it is not pushed too far down into the standpipe, then clean the pump filter at the bottom front.",
+            "when_to_call": "If the hose is clear and the filter is clean, the drain pump needs testing."
+          }
+        },
+        "demand": {
+          "OE": 1600
+        }
+      },
+      {
+        "code": "dE2",
+        "self_clearable": false,
+        "meaning": "The door is closing but the lock will not engage, which usually points at the latch mechanism rather than the door.",
+        "detail": {
+          "dE2": {
+            "what_it_means": "The door is closing, but the lock will not engage, so the machine will not begin the cycle.",
+            "why_it_happens": "Unlike dE1, this usually points at the latch mechanism itself rather than at something caught in the doorway.",
+            "what_to_try": "Close the door firmly once more and check nothing is obstructing the latch or the strike. That rules out the simple case.",
+            "when_to_call": "If the lock still will not engage with a clear doorway, the latch assembly is the likely fault and needs a technician."
+          }
+        },
+        "demand": {
+          "dE2": 1600
+        }
+      },
+      {
+        "code": "dE1",
+        "self_clearable": true,
+        "meaning": "The door or drawer is not fully closed, so the cycle will not start.",
+        "detail": {
+          "dE1": {
+            "what_it_means": "The door or drawer is not fully closed, so the cycle will not start.",
+            "why_it_happens": "Usually laundry caught in the seal, or a door pushed to rather than closed properly.",
+            "what_to_try": "Open it fully, clear anything caught around the seal, and close it firmly until it seats.",
+            "when_to_call": "If it reads as open with nothing in the way, the door switch is the next thing to check."
+          }
+        },
+        "demand": {
+          "dE1": 1300
+        }
+      },
+      {
+        "code": "IE",
+        "self_clearable": true,
+        "meaning": "Not enough water is arriving — usually a supply tap that is not fully open, a kinked fill hose, or a blocked inlet screen.",
+        "detail": {
+          "IE": {
+            "what_it_means": "Not enough water is reaching the machine for the cycle it has been asked to run.",
+            "why_it_happens": "A supply tap that is not fully open, a kinked fill hose, or the inlet screens behind the hoses blocked with scale and grit.",
+            "what_to_try": "Open both taps fully, straighten the fill hoses, then turn the taps off and check the inlet screens at the machine end for debris.",
+            "when_to_call": "If supply and screens are both fine, the inlet valve on the machine is the next suspect."
+          }
+        },
+        "demand": {
+          "IE": 1000
+        }
+      },
+      {
+        "code": "CL",
+        "self_clearable": true,
+        "meaning": "Not a fault — Child Lock is switched on, so the controls are deliberately ignoring input.",
+        "detail": {
+          "CL": {
+            "what_it_means": "Not a fault. Child Lock is switched on, so the control panel is deliberately ignoring button presses.",
+            "why_it_happens": "It is normally turned on to stop a running cycle being changed, and then forgotten about.",
+            "what_to_try": "Hold the Child Lock button — often marked with a padlock, and sometimes a secondary function of another button — for a few seconds to release it.",
+            "when_to_call": "Only if the lock will not release, which points at the control panel rather than the setting."
+          }
+        },
+        "demand": {
+          "CL": 1000
+        }
+      },
+      {
+        "code": "tCL",
+        "self_clearable": true,
+        "meaning": "Not a fault — a reminder that the tub clean cycle is due.",
+        "demand": {
+          "tCL": 480
+        }
+      },
+      {
+        "code": "dE",
+        "self_clearable": true,
+        "meaning": "The lid or door is not registering as properly closed, so the washer will not spin.",
+        "demand": {
+          "dE": 480
+        }
+      },
+      {
+        "code": "LE",
+        "self_clearable": true,
+        "meaning": "The motor has been overloaded and stalled, typically from too large or too heavy a load.",
+        "demand": {
+          "LE": 390
+        }
+      },
+      {
+        "code": "SUD",
+        "self_clearable": true,
+        "meaning": "Excess suds have been detected, which stops the drum reaching spin speed until they clear.",
+        "demand": {
+          "SUD": 260
+        }
+      },
+      {
+        "code": "FE",
+        "self_clearable": false,
+        "meaning": "The tub is overfilling, which points at the inlet valve letting water through when it should be closed.",
+        "demand": {
+          "FE": 170
+        }
+      },
+      {
+        "code": "PF",
+        "self_clearable": true,
+        "meaning": "The cycle was interrupted by a power failure rather than by any fault in the machine.",
+        "demand": {
+          "PF": 170
+        }
+      },
+      {
+        "code": "E6",
+        "self_clearable": true,
+        "meaning": "The clutch has caught on a foreign object — commonly a coin or clothing fastener that has worked loose.",
+        "demand": {
+          "E6": 110
+        }
+      },
+      {
+        "code": "PE",
+        "self_clearable": false,
+        "meaning": "The water level sensor is not reporting correctly, so the washer cannot tell how full the tub is.",
+        "demand": {
+          "PE": 90
+        }
+      },
+      {
+        "code": "TE",
+        "self_clearable": false,
+        "meaning": "A heating fault, normally traced to the thermistor that reads water temperature.",
+        "demand": {
+          "TE": 40
+        }
+      },
+      {
+        "code": "dL",
+        "self_clearable": false,
+        "meaning": "The door latch itself is malfunctioning rather than simply being obstructed.",
+        "demand": {
+          "dL": 30
+        }
+      },
+      {
+        "code": "CE",
+        "self_clearable": false,
+        "meaning": "An over-current condition in the electrical circuit has shut the cycle down."
+      }
+    ]
   }
 }

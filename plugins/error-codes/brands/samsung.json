@@ -206,5 +206,185 @@
         "self_clearable": true
       }
     ]
+  },
+  "washer": {
+    "found": true,
+    "source_url": "https://www.samsung.com/us/support/troubleshoot/TSG10000997/",
+    "confidence": "direct_fetch",
+    "note": "Samsung shows the same condition under several codes depending on model and display generation (4C, 4E and nF are one fault). Those variants are recorded together.",
+    "codes": [
+      {
+        "code": "4C / 4E / nF",
+        "self_clearable": true,
+        "meaning": "Water is not entering the washer correctly — the machine asked to fill and did not get what it expected.",
+        "detail": {
+          "4C": {
+            "what_it_means": "The washer asked for water and did not get what it expected, so it has stopped rather than run a cycle dry. Samsung shows this as 4C on newer panels, 4E on older ones and nF on some models — one fault, three displays.",
+            "why_it_happens": "Almost always something before the machine rather than inside it: a supply tap not fully open, a kinked fill hose behind the unit, or the small mesh screens where the hoses meet the washer silted up with scale and grit.",
+            "what_to_try": "Check both taps are fully open, then pull the machine out far enough to see the fill hoses are not kinked. If that looks fine, turn the taps off, unscrew the hoses at the machine end and look at the inlet screens for debris.",
+            "when_to_call": "If the supply is good and the screens are clear, the inlet valve on the machine is next, and that is where it stops being an owner check."
+          },
+          "4E": {
+            "what_it_means": "The same not-filling fault as 4C, shown as 4E on older Samsung panels.",
+            "why_it_happens": "A closed or partly closed tap, a kinked fill hose, or blocked inlet screens where the hoses connect.",
+            "what_to_try": "Work from the wall in: taps fully open, hoses unkinked, then the inlet screens at the machine end.",
+            "when_to_call": "If water reaches the machine freely and it still will not fill, the inlet valve needs testing."
+          }
+        },
+        "demand": {
+          "4C": 5400,
+          "4E": 1300,
+          "nF": 320
+        }
+      },
+      {
+        "code": "Ub / UE / U6",
+        "self_clearable": true,
+        "meaning": "The load is unbalanced inside the tub, so the washer cannot spin it safely.",
+        "detail": {
+          "Ub": {
+            "what_it_means": "The load has gone off balance in the tub and the washer will not spin it at speed, because an unbalanced drum at spin speed can damage the machine.",
+            "why_it_happens": "Usually one heavy item on its own — a towel, a bath mat, a single pair of jeans — or a load that has twisted into a rope on one side of the drum.",
+            "what_to_try": "Open the door, redistribute the load by hand and restart the spin. Adding a couple of similar-weight items often settles it; washing one heavy item alone rarely spins well.",
+            "when_to_call": "If it trips on every load including well-balanced ones, the suspension or the sensor reading the drum may need looking at."
+          },
+          "UE": {
+            "what_it_means": "The same unbalanced-load condition as Ub, shown as UE on some Samsung models.",
+            "why_it_happens": "A single heavy item, or a load that has bunched to one side of the drum.",
+            "what_to_try": "Redistribute the load by hand and restart the spin.",
+            "when_to_call": "If balanced loads also trip it, the drum suspension is worth checking."
+          }
+        },
+        "demand": {
+          "Ub": 1600,
+          "UE": 590
+        }
+      },
+      {
+        "code": "5E / SE / 5C / nd",
+        "self_clearable": true,
+        "meaning": "Water is not draining at the rate it should, or is not draining at all.",
+        "detail": {
+          "SE": {
+            "what_it_means": "Water is not leaving the machine at the rate the cycle expects, or is not leaving at all. Shown as 5E, SE, 5C or nd depending on the panel.",
+            "why_it_happens": "The debris filter at the bottom front catches coins, hair grips and lint and eventually packs solid. A kinked drain hose or a standpipe that cannot take the flow does the same thing from further down the line.",
+            "what_to_try": "Open the small flap at the bottom front, drain the residual water into a tray and clean the filter. Then check the drain hose behind the machine for kinks and that it is not pushed too far into the standpipe.",
+            "when_to_call": "If the filter is clean and the hose run is clear, the drain pump itself needs testing."
+          }
+        },
+        "demand": {
+          "5E": 90,
+          "SE": 880,
+          "5C": 390
+        }
+      },
+      {
+        "code": "dC / dC1 / dL",
+        "self_clearable": true,
+        "meaning": "The door is not being detected as closed and locked, so the cycle will not run.",
+        "detail": {
+          "dC": {
+            "what_it_means": "The washer cannot confirm the door is shut and locked, so it will not start or will stop mid-cycle.",
+            "why_it_happens": "Most often laundry caught in the door seal stopping it closing flush, or a door that has been slammed rather than pushed shut.",
+            "what_to_try": "Open the door fully, clear anything caught around the seal, and close it firmly without forcing it. Check the latch and the strike plate for anything obstructing them.",
+            "when_to_call": "If nothing is obstructing it and the lock still will not engage, the door lock assembly is the usual cause."
+          }
+        },
+        "demand": {
+          "dC": 590
+        }
+      },
+      {
+        "code": "SUd / Sd",
+        "self_clearable": true,
+        "meaning": "An over-sudsing condition has been detected and the machine is pausing to let the foam clear.",
+        "detail": {
+          "SUd": {
+            "what_it_means": "The washer has detected far more foam than the drum is designed to handle, and is pausing to clear it before continuing.",
+            "why_it_happens": "Usually too much detergent, or a standard detergent used in a high-efficiency machine, which foams several times more than an HE formula.",
+            "what_to_try": "Let the machine run its own suds-clearing routine rather than cutting the cycle short. Next load, reduce the dose and check the detergent is HE-rated if your machine needs one.",
+            "when_to_call": "If it appears with a correct HE dose, something may be holding water in the drum and it is worth having checked."
+          }
+        },
+        "demand": {
+          "SUd": 590
+        }
+      },
+      {
+        "code": "OE / 0E / OC",
+        "self_clearable": false,
+        "meaning": "There is too much water in the washer, which normally means the inlet valve is passing water when it should be shut.",
+        "demand": {
+          "OE": 210,
+          "0E": 210
+        }
+      },
+      {
+        "code": "ddC",
+        "self_clearable": true,
+        "meaning": "The AddWash door is not registering as closed and latched.",
+        "demand": {
+          "ddC": 170
+        }
+      },
+      {
+        "code": "LE / 1C",
+        "self_clearable": false,
+        "meaning": "Moisture has been detected somewhere inside the machine that it should not be, which is a leak rather than a setting.",
+        "demand": {
+          "LE": 70
+        }
+      },
+      {
+        "code": "HE / HC",
+        "self_clearable": false,
+        "meaning": "A fault in the heater circuit, so the machine cannot bring the water up to temperature.",
+        "demand": {
+          "HE": 110
+        }
+      },
+      {
+        "code": "3E / 3C",
+        "self_clearable": false,
+        "meaning": "A motor fault — the drive is not behaving as the control expects.",
+        "demand": {
+          "3E": 70
+        }
+      },
+      {
+        "code": "tE / tC",
+        "self_clearable": false,
+        "meaning": "The temperature sensor is reporting a reading outside the range the cycle allows.",
+        "demand": {
+          "tE": 10
+        }
+      },
+      {
+        "code": "bE2 / 6E2",
+        "self_clearable": true,
+        "meaning": "A button on the control panel is reading as stuck or continuously pressed."
+      },
+      {
+        "code": "SDC / 5DC",
+        "self_clearable": true,
+        "meaning": "The detergent drawer has not been pushed fully closed.",
+        "demand": {
+          "SDC": 20
+        }
+      },
+      {
+        "code": "CL",
+        "self_clearable": true,
+        "meaning": "Not a fault — Child Lock is active, so the panel is ignoring input until it is released.",
+        "demand": {
+          "CL": 50
+        }
+      },
+      {
+        "code": "9C1 / 9C2 / PF",
+        "self_clearable": false,
+        "meaning": "An irregularity in the electrical supply reaching the machine has interrupted the cycle."
+      }
+    ]
   }
 }
