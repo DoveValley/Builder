@@ -16,7 +16,9 @@
 
 require_once __DIR__ . '/infra/lib/rank_audit.php';
 
-$frk = rank_audit_latest();
+// Set by _fleet_audit_filter.php, included just before this card on sites.php; null
+// (every live domain, unchanged) if this card is ever rendered without it.
+$frk = rank_audit_latest($faScope ?? null);
 $frkHas = $frk['at'] !== '';
 $frkTooNew = (int) infra_audit_setting('too_new_days');
 $frkDue = rank_audit_due();
@@ -199,7 +201,9 @@ if (typeof faLoadRows !== 'function') {
         var tbody = document.getElementById(tbodyId);
         if (!tbody || tbody.dataset.loaded === '1') return;
         tbody.dataset.loaded = '1';
-        fetch('fleet_audit_api.php?action=rows&audit=' + audit)
+        // Carries the shared scope filter (faniche/fabatch) along so the detail
+        // table opened here always matches the headline numbers above it.
+        fetch('fleet_audit_api.php?action=rows&audit=' + audit + window.location.search.replace('?', '&'))
             .then(function (r) { return r.json(); })
             .then(function (d) {
                 if (d.error) { tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">' + d.error + '</td></tr>'; return; }

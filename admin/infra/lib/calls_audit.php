@@ -210,8 +210,11 @@ function calls_audit_run(?callable $log = null): array
  *
  * ⚠ "Engaged" is a judgement call (calls_engaged_seconds), not a CTM-reported fact —
  * same honesty as rank/index's own thresholds: the card shows the bar in force.
+ *
+ * @param ?array $scope domain(lower) => true, from infra_audit_scope() — null means
+ *        every synced domain, unchanged from before this parameter existed.
  */
-function calls_audit_latest(int $days = 30): array
+function calls_audit_latest(int $days = 30, ?array $scope = null): array
 {
     $empty = ['days' => $days, 'calls' => 0, 'engaged' => 0, 'rang' => 0,
               'engaged_seconds' => (int) infra_audit_setting('calls_engaged_seconds'), 'domains' => []];
@@ -228,6 +231,7 @@ function calls_audit_latest(int $days = 30): array
     foreach ($st->fetchAll(PDO::FETCH_ASSOC) as $r) {
         if ((int) $r['unix_time'] < $sinceTs) continue;
         $d = $r['domain'];
+        if ($scope !== null && !isset($scope[$d])) continue;
         $out['calls']++;
         $engaged = (int) $r['talk_time'] >= $engagedAt;
         if ($engaged) $out['engaged']++; else $out['rang']++;

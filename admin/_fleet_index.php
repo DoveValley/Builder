@@ -12,7 +12,9 @@
 
 require_once __DIR__ . '/infra/lib/index_audit.php';
 
-$fixLast = index_audit_latest();
+// Set by _fleet_audit_filter.php, included just before this card on sites.php; null
+// (every measured domain, unchanged) if this card is ever rendered without it.
+$fixLast = index_audit_latest($faScope ?? null);
 $fixHas  = $fixLast['at'] !== '';
 // Green only once there is something to be green ABOUT. A baseline sweep with nothing
 // to compare against is information, not success, and is drawn neutral.
@@ -184,7 +186,9 @@ if (typeof faLoadRows !== 'function') {
         var tbody = document.getElementById(tbodyId);
         if (!tbody || tbody.dataset.loaded === '1') return;
         tbody.dataset.loaded = '1';
-        fetch('fleet_audit_api.php?action=rows&audit=' + audit)
+        // Carries the shared scope filter (faniche/fabatch) along so the detail
+        // table opened here always matches the headline numbers above it.
+        fetch('fleet_audit_api.php?action=rows&audit=' + audit + window.location.search.replace('?', '&'))
             .then(function (r) { return r.json(); })
             .then(function (d) {
                 if (d.error) { tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">' + d.error + '</td></tr>'; return; }

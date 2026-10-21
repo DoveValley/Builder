@@ -250,7 +250,11 @@ function index_audit_recent_sweeps(int $n = 2): array
  * @return array{at:string, prev_at:string, measured:int, unmeasured:int, indexed:int,
  *               built:int, net:int, up:int, down:int, rows:array}
  */
-function index_audit_latest(): array
+/**
+ * @param ?array $scope domain(lower) => true, from infra_audit_scope() — null means
+ *        every measured domain, unchanged from before this parameter existed.
+ */
+function index_audit_latest(?array $scope = null): array
 {
     $empty = ['at' => '', 'prev_at' => '', 'measured' => 0, 'unmeasured' => 0, 'indexed' => 0,
               'built' => 0, 'net' => 0, 'up' => 0, 'down' => 0, 'rows' => []];
@@ -280,6 +284,7 @@ function index_audit_latest(): array
     $out = $empty;
     $out['at'] = $at; $out['prev_at'] = $prevAt;
     foreach ($cur as $r) {
+        if ($scope !== null && !isset($scope[$r['domain']])) continue;
         $n = (int) $r['indexed'];
         $b = (int) $r['built'];
         $out['built'] += $b;

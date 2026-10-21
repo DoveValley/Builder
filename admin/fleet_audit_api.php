@@ -97,23 +97,31 @@ switch ($action) {
     case 'rows':
         // Rendered on demand — the per-domain tables are the bulk of the page weight,
         // and most visits never open the <details> that reveals them.
+        //
+        // niche/batch come from the shared fleet-audit filter bar (_fleet_audit_filter.php)
+        // — read here too, not just by the headline numbers, so the detail table a
+        // person opens always matches the summary they just read above it. fingerprint
+        // has no case here on purpose: it is never scoped, see infra_audit_scope()'s
+        // own docblock for why.
+        require_once __DIR__ . '/infra/lib/state.php';
+        $scope = infra_audit_scope((string) ($_GET['faniche'] ?? ''), (string) ($_GET['fabatch'] ?? ''));
         switch ($which) {
             case 'crawl':
                 require_once __DIR__ . '/infra/lib/crawl_audit.php';
-                $html = crawl_audit_render_rows(crawl_audit_latest((int) ($_GET['days'] ?? 7))['rows']);
+                $html = crawl_audit_render_rows(crawl_audit_latest((int) ($_GET['days'] ?? 7), $scope)['rows']);
                 break;
             case 'index':
                 require_once __DIR__ . '/infra/lib/index_audit.php';
-                $html = index_audit_render_rows(index_audit_latest()['rows']);
+                $html = index_audit_render_rows(index_audit_latest($scope)['rows']);
                 break;
             case 'rank':
                 require_once __DIR__ . '/infra/lib/rank_audit.php';
                 require_once __DIR__ . '/infra/lib/audit_settings.php';
-                $html = rank_audit_render_rows(rank_audit_latest()['domains'], (int) infra_audit_setting('too_new_days'));
+                $html = rank_audit_render_rows(rank_audit_latest($scope)['domains'], (int) infra_audit_setting('too_new_days'));
                 break;
             case 'calls':
                 require_once __DIR__ . '/infra/lib/calls_audit.php';
-                $html = calls_audit_render_rows(calls_audit_latest(30)['domains']);
+                $html = calls_audit_render_rows(calls_audit_latest(30, $scope)['domains']);
                 break;
             default:
                 http_response_code(400); echo json_encode(['error' => 'No per-domain table for this audit.']); exit;

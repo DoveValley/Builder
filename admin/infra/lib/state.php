@@ -241,6 +241,55 @@ function infra_niche(string $v): string
     return in_array($v, INFRA_NICHES, true) ? $v : ($v === '' ? '' : 'other');
 }
 
+/**
+ * Every batch id that actually has a domain in it, grouped by niche — for the shared
+ * fleet-audit filter bar's batch dropdown. A torn-down batch has no domains left
+ * pointing at it, so it drops out of this list on its own; nothing needs to remember
+ * to clean it up by hand.
+ *
+ * @return array<string,array<int,string>> niche => [batch id, ...]
+ */
+function infra_audit_batches(): array
+{
+    $out = [];
+    foreach (infra_state_db()->query(
+        "SELECT DISTINCT niche, batch FROM domains WHERE batch != '' ORDER BY niche, batch"
+    )->fetchAll(PDO::FETCH_ASSOC) as $r) {
+        $out[$r['niche']][] = $r['batch'];
+    }
+    return $out;
+}
+
+/**
+ * Resolve the shared fleet-audit filter bar's niche/batch picks to the exact set of
+ * domains they mean. Every scoped audit module (crawl/index/rank/calls — NOT
+ * fingerprint, whose entire job is seeing cross-niche/cross-box leaks at once, so
+ * scoping it to "just mold" would hide the thing it exists to catch) filters its own
+ * per-domain rollup against this, instead of each re-deriving its own SQL for the
+ * same filter and risking two modules disagreeing about what "just mold" means.
+ *
+ * null = no filter (every caller's own usual domain set, completely unchanged — the
+ * common case, so a filter that was never touched costs nothing). An array, even an
+ * empty one, means "restrict to exactly these" — an empty result for a real pick
+ * (e.g. a batch id that no longer exists) is an honest zero, not "show everything".
+ *
+ * @return array<string,bool>|null domain(lower) => true, or null for unfiltered
+ */
+function infra_audit_scope(string $niche, string $batch): ?array
+{
+    $niche = infra_niche($niche);
+    $batch = trim($batch);
+    if ($niche === '' && $batch === '') return null;
+
+    $sql = 'SELECT domain FROM domains WHERE 1=1';
+    $params = [];
+    if ($niche !== '') { $sql .= ' AND niche = ?'; $params[] = $niche; }
+    if ($batch !== '') { $sql .= ' AND batch = ?';  $params[] = $batch; }
+    $st = infra_state_db()->prepare($sql);
+    $st->execute($params);
+    return array_fill_keys(array_column($st->fetchAll(PDO::FETCH_ASSOC), 'domain'), true);
+}
+
 /** Lifecycle values, in order. The first four are the acquisition stage. */
 const INFRA_STATUSES = ['begin','ready','owned','buy-failed',
     'staged','queued','releasing','awaiting-ns','live','partial','register-failed'];

@@ -247,7 +247,11 @@ function crawl_audit_run(string $only = '', ?callable $log = null): array
  * @return array{days:int, total_hits:int, crawled:int, stale:int, never:int,
  *               errors:int, collected_at:string, rows:array}
  */
-function crawl_audit_latest(int $days = 7): array
+/**
+ * @param ?array $scope domain(lower) => true, from infra_audit_scope() — null means
+ *        every live domain, unchanged from before this parameter existed.
+ */
+function crawl_audit_latest(int $days = 7, ?array $scope = null): array
 {
     $db = crawl_audit_db();
     $since = gmdate('Y-m-d', time() - $days * 86400);
@@ -273,6 +277,7 @@ function crawl_audit_latest(int $days = 7): array
             'uncollected' => 0, 'errors' => 0, 'collected_at' => '', 'rows' => []];
     foreach (crawl_audit_targets() as $t) {
         $d = $t['domain'];
+        if ($scope !== null && !isset($scope[$d])) continue;
         $a = $agg[$d] ?? null;
         $c = $cursor[$d] ?? null;
         // ⚠ "WE HAVE NEVER LOOKED" IS NOT "GOOGLE HAS NEVER COME". A domain with no

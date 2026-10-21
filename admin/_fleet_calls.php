@@ -16,7 +16,9 @@
 require_once __DIR__ . '/infra/lib/calls_audit.php';
 
 $fclDays = 30;
-$fcl = calls_audit_latest($fclDays);
+// Set by _fleet_audit_filter.php, included just before this card on sites.php; null
+// (every synced domain, unchanged) if this card is ever rendered without it.
+$fcl = calls_audit_latest($fclDays, $faScope ?? null);
 $fclTick = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/calls_tick.json'), true);
 $fclHas = is_array($fclTick) && !empty($fclTick['at']);
 $fclAccounts = infra_audit_ctm_account_ids();
@@ -128,7 +130,9 @@ if (typeof faLoadRows !== 'function') {
         var tbody = document.getElementById(tbodyId);
         if (!tbody || tbody.dataset.loaded === '1') return;
         tbody.dataset.loaded = '1';
-        fetch('fleet_audit_api.php?action=rows&audit=' + audit)
+        // Carries the shared scope filter (faniche/fabatch) along so the detail
+        // table opened here always matches the headline numbers above it.
+        fetch('fleet_audit_api.php?action=rows&audit=' + audit + window.location.search.replace('?', '&'))
             .then(function (r) { return r.json(); })
             .then(function (d) {
                 if (d.error) { tbody.innerHTML = '<tr><td colspan="99" style="color:#dc2626">' + d.error + '</td></tr>'; return; }

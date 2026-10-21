@@ -303,8 +303,11 @@ function rank_audit_due(): array
  * a reading, not a change, and showing it as movement would invent a fact.
  * "Improved" means a SMALLER position number, so the delta is reported as
  * previous − current: positive = moved up the page.
+ *
+ * @param ?array $scope domain(lower) => true, from infra_audit_scope() — null means
+ *        every live domain, unchanged from before this parameter existed.
  */
-function rank_audit_latest(): array
+function rank_audit_latest(?array $scope = null): array
 {
     $empty = ['at' => '', 'prev_at' => '', 'keywords' => 0, 'measured' => 0, 'unmeasured' => 0,
               'top10' => 0, 'top20' => 0, 'top100' => 0, 'nowhere' => 0, 'in_pack' => 0,
@@ -354,7 +357,9 @@ function rank_audit_latest(): array
     $out['at'] = $at; $out['prev_at'] = $prevAt;
     $byDomain = [];
     foreach ($cur as $r) {
-        $d = $r['domain']; $pos = (int) $r['position'];
+        $d = $r['domain'];
+        if ($scope !== null && !isset($scope[$d])) continue;
+        $pos = (int) $r['position'];
         $out['keywords']++;
         $byDomain[$d] ??= ['domain' => $d, 'age' => $age[$d] ?? -1, 'keywords' => 0, 'measured' => 0,
                            'best' => 0, 'top10' => 0, 'top100' => 0, 'in_pack' => 0,

@@ -260,7 +260,7 @@ function fmt_date(string $iso): string {
     <?php endif; ?>
 
     <!-- ===================== MULTISITE BATCHES ===================== -->
-    <div class="sm-section">
+    <div class="sm-section" id="fleet-audit">
         <div class="sm-section-head">
             <div>
                 <h2>Your Multisite Batches</h2>
@@ -273,6 +273,7 @@ function fmt_date(string $iso): string {
         </div>
 
         <?php include __DIR__ . '/_fleet_fingerprint.php'; ?>
+        <?php include __DIR__ . '/_fleet_audit_filter.php'; ?>
         <?php include __DIR__ . '/_fleet_crawl.php'; ?>
         <?php include __DIR__ . '/_fleet_index.php'; ?>
         <?php include __DIR__ . '/_fleet_rank.php'; ?>
