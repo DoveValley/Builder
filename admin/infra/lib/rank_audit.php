@@ -273,16 +273,25 @@ function rank_audit_run(string $only = '', int $concurrency = 4, ?callable $log 
  * daily and only actually spend money on the day it's due, and so a cadence change
  * takes effect against whatever was last really run rather than a separate clock.
  *
- * @return array{due:bool,last_at:string,next_due_at:string,cadence_weeks:int}
+ * `enabled` is the ON/OFF switch (rank_cadence_enabled): when off, `due` is forced
+ * false regardless of the clock, but `next_due_at` is still reported — "paused, would
+ * next run on {date}" is a more honest UI than hiding the date entirely. The cron
+ * itself is never installed/removed by this toggle, only what it finds when it asks.
+ *
+ * @return array{due:bool,enabled:bool,last_at:string,next_due_at:string,cadence_weeks:int}
  */
 function rank_audit_due(): array
 {
     $weeks = (int) infra_audit_setting('rank_cadence_weeks');
+    $enabled = (bool) infra_audit_setting('rank_cadence_enabled');
     $db = rank_audit_db();
     $last = (string) ($db->query('SELECT MAX(sweep_at) FROM rank_sweep')->fetchColumn() ?: '');
-    if ($last === '') return ['due' => true, 'last_at' => '', 'next_due_at' => '', 'cadence_weeks' => $weeks];
+    if ($last === '') {
+        return ['due' => $enabled, 'enabled' => $enabled, 'last_at' => '',
+                 'next_due_at' => '', 'cadence_weeks' => $weeks];
+    }
     $nextTs = strtotime($last) + $weeks * 7 * 86400;
-    return ['due' => time() >= $nextTs, 'last_at' => $last,
+    return ['due' => $enabled && time() >= $nextTs, 'enabled' => $enabled, 'last_at' => $last,
              'next_due_at' => gmdate('c', $nextTs), 'cadence_weeks' => $weeks];
 }
 

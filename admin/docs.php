@@ -4522,10 +4522,13 @@ curl -sI http://localhost/admin/login.php | head -1</code></pre>
             <td><code>state/filedate_tick.json</code> · <code>/var/log/infra-filedate.log</code></td></tr>
         <tr><td><code>infra-rank</code> <em>(recommended, not yet installed)</em></td>
             <td>daily, <code>--if-due</code></td>
-            <td>Checks the operator-set cadence on the Fleet audit settings card
-            (<code>rank_cadence_weeks</code>, default weekly) and only actually runs — and spends —
-            a full paid DataForSEO rank sweep on the day it's due. A daily check costs nothing; see
-            <code>tools/audit_fleet_rank.php --if-due</code> and <code>rank_audit_due()</code>.</td>
+            <td>Checks the operator-set cadence (<code>rank_cadence_weeks</code>, 1-12, default
+            weekly) and only actually runs — and spends — a full paid DataForSEO rank sweep on the
+            day it's due. A daily check costs nothing. The Fleet rank check card carries its own
+            <strong>Pause/Resume auto sweeps</strong> button (<code>rank_cadence_enabled</code>) —
+            pausing does NOT remove this crontab entry, the cron keeps ticking daily and finds
+            nothing due. See <code>tools/audit_fleet_rank.php --if-due</code> and
+            <code>rank_audit_due()</code>.</td>
             <td><code>state/rank_tick.json</code></td></tr>
     </table>
     <pre><code>cat /etc/cron.d/infra-golive                     # a job's crontab entry

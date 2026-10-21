@@ -50,6 +50,10 @@ function infra_audit_settings_defaults(): array
         // How often the UNATTENDED rank sweep fires (rank_tick.php, cron-driven).
         // Weekly by default; the button on the panel still runs one on demand any time.
         'rank_cadence_weeks'    => 1,
+        // The ON/OFF switch for the unattended sweep. Pausing this does NOT touch
+        // /etc/cron.d/infra-rank — the cron keeps ticking daily, it just finds
+        // nothing due and spends nothing. See rank_audit_due().
+        'rank_cadence_enabled'  => true,
         // Measured 2026-10-21 ($70.3400 → $70.2206 over 11 probes). Shown in the
         // confirm dialog, so it being wrong means being lied to about the spend.
         'cost_per_probe'        => 0.0109,
@@ -78,6 +82,9 @@ function infra_audit_settings_clean(array $raw): array
         // 1-12 weeks: below weekly is paying DataForSEO for noise (see
         // RANK_MIN_SWEEP_GAP_HOURS); past a quarter the panel is effectively unattended.
         'rank_cadence_weeks' => $int($raw['rank_cadence_weeks'] ?? null, 1,    12,   $d['rank_cadence_weeks']),
+        'rank_cadence_enabled' => array_key_exists('rank_cadence_enabled', $raw)
+                                ? filter_var($raw['rank_cadence_enabled'], FILTER_VALIDATE_BOOLEAN)
+                                : $d['rank_cadence_enabled'],
         'cost_per_probe'    => is_numeric($raw['cost_per_probe'] ?? null)
                                 ? max(0.0, min(1.0, round((float) $raw['cost_per_probe'], 4)))
                                 : $d['cost_per_probe'],

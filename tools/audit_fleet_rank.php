@@ -38,9 +38,15 @@ function say(string $s = ''): void { echo $s, "\n"; }
 if (isset($opt['if-due'])) {
     $due = rank_audit_due();
     @file_put_contents(dirname(__DIR__) . '/admin/infra/state/rank_tick.json', json_encode([
-        'checked_at' => gmdate('c'), 'due' => $due['due'], 'last_at' => $due['last_at'],
-        'next_due_at' => $due['next_due_at'], 'cadence_weeks' => $due['cadence_weeks'],
+        'checked_at' => gmdate('c'), 'due' => $due['due'], 'enabled' => $due['enabled'],
+        'last_at' => $due['last_at'], 'next_due_at' => $due['next_due_at'],
+        'cadence_weeks' => $due['cadence_weeks'],
     ], JSON_PRETTY_PRINT));
+    if (!$due['enabled']) {
+        say('Paused from the admin panel — nothing probed, nothing spent. The cron keeps ticking;'
+            . ' flip it back on from the Fleet rank check card to resume.');
+        exit(0);
+    }
     if (!$due['due']) {
         say('Not due — cadence is every ' . $due['cadence_weeks'] . ' week(s), last swept '
             . $due['last_at'] . ', next due ' . $due['next_due_at'] . '. Nothing probed, nothing spent.');

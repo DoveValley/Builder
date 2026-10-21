@@ -54,11 +54,18 @@ $frkColour = !$frkHas ? '#94a3b8'
                 <?php endif; ?>
             <?php endif; ?>
         </span>
-        <span style="font-size:.78rem;color:#94a3b8;margin-left:auto">
+        <span id="frk-auto-status" style="font-size:.78rem;color:#94a3b8;margin-left:auto">
             <?= $frkHas ? 'last sweep ' . h(gmdate('D j M H:i', strtotime($frk['at']))) . ' UTC &middot; ' : '' ?>
-            next automatic sweep <?= $frkDue['next_due_at'] === '' ? 'due now' : h(gmdate('D j M', strtotime($frkDue['next_due_at']))) ?>
-            (every <?= (int) $frkDue['cadence_weeks'] ?> week<?= $frkDue['cadence_weeks'] === 1 ? '' : 's' ?>)
+            <?php if (!$frkDue['enabled']): ?>
+                <span style="color:#dc2626;font-weight:600">automatic sweeps paused</span>
+                <?= $frkDue['next_due_at'] !== '' ? '&middot; would next run ' . h(gmdate('D j M', strtotime($frkDue['next_due_at']))) : '' ?>
+            <?php else: ?>
+                next automatic sweep <?= $frkDue['next_due_at'] === '' ? 'due now' : h(gmdate('D j M', strtotime($frkDue['next_due_at']))) ?>
+                (every <?= (int) $frkDue['cadence_weeks'] ?> week<?= $frkDue['cadence_weeks'] === 1 ? '' : 's' ?>)
+            <?php endif; ?>
         </span>
+        <button type="button" class="btn-sm-outline" id="frk-auto-toggle"
+                onclick="frkToggleAuto()"><?= $frkDue['enabled'] ? 'Pause auto sweeps' : 'Resume auto sweeps' ?></button>
         <button type="button" class="btn-sm-outline" id="frk-run" onclick="frkRun()">Run sweep</button>
     </div>
 
@@ -202,6 +209,25 @@ function frkInfoClose(e) {
 }
 document.addEventListener('keydown', function (e) { if (e.key === 'Escape') frkInfoClose(); });
 
+var FRK_AUTO_ENABLED = <?= json_encode($frkDue['enabled']) ?>;
+function frkToggleAuto() {
+    var btn = document.getElementById('frk-auto-toggle');
+    var next = !FRK_AUTO_ENABLED;
+    btn.disabled = true;
+    var fd = new FormData();
+    fd.append('csrf_token', FRK_CSRF);
+    fd.append('rank_cadence_enabled', next ? '1' : '0');
+    fetch('fleet_audit_api.php?action=settings_save', {method: 'POST', body: fd})
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            btn.disabled = false;
+            if (d.error) { alert(d.error); return; }
+            // The cron keeps ticking either way — only what rank_audit_due() reports
+            // changes, so the date text needs a real reload to recompute, not a guess.
+            location.reload();
+        })
+        .catch(function (e) { btn.disabled = false; alert('Could not save: ' + e); });
+}
 function frkRun() {
     if (!confirm('Probe every tracked keyword at DataForSEO?\n\nThis spends roughly $6.50, up to about $13 if keywords need retrying, and takes 15-25 minutes.')) return;
     var btn = document.getElementById('frk-run'), log = document.getElementById('frk-log');
