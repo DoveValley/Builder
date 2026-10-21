@@ -1154,6 +1154,21 @@
                     return [parseInt(parts[0], 10), parseInt(parts[1], 10)];
                 }
 
+                function adjMatchRatioOption(tw, th) {
+                    if (!tw || !th) return '';
+                    var ratio = tw / th;
+                    var best = '', bestDiff = 0.01; // 1% tolerance for rounding
+                    for (var i = 0; i < adjRatioSel.options.length; i++) {
+                        var v = adjRatioSel.options[i].value;
+                        if (v === '' || v === 'custom') continue;
+                        var parts = v.split(':');
+                        var optRatio = parseInt(parts[0], 10) / parseInt(parts[1], 10);
+                        var diff = Math.abs(ratio - optRatio) / optRatio;
+                        if (diff < bestDiff) { bestDiff = diff; best = v; }
+                    }
+                    return best;
+                }
+
                 function adjApplyRatioChoice() {
                     var parts = adjRatioParts();
                     adjRatioCustom.style.display = adjRatioSel.value === 'custom' ? 'inline-flex' : 'none';
@@ -1176,7 +1191,8 @@
                     adjNote.style.color = '';
                     adjBox.style.display = 'flex';
                     // A Shape choice from the last photo opened must never carry over —
-                    // each slot's own target is the only sane default to start from.
+                    // reset here, then re-select below once this slot's real shape is
+                    // known, so a slot that already matches a listed ratio shows it.
                     adjRatioSel.value = '';
                     adjRatioCustom.style.display = 'none';
 
@@ -1192,6 +1208,7 @@
                             adj.ow = d.src_w; adj.oh = d.src_h;
                             adj.tw = d.slot_w; adj.th = d.slot_h;
                             adj.origTw = d.slot_w; adj.origTh = d.slot_h;
+                            adjRatioSel.value = adjMatchRatioOption(d.slot_w, d.slot_h);
                             adj.zoom = d.zoom || 1; adj.fx = d.fx; adj.fy = d.fy;
                             adj.zoomMin = d.zoom_min || 1;
                             adj.fill = d.fill || 'white';

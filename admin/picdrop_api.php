@@ -33,6 +33,10 @@ if (empty($_SESSION['admin_logged_in']))              pd_fail('Not authenticated
    path would be world-readable to anyone who guessed it — full-size sources for the
    whole fleet. Here it is gated by the same admin session as everything else. */
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    // Nothing below this point touches $_SESSION — release the lock immediately so a
+    // slow readfile() (or an abandoned connection, PHP's file-session handler being
+    // exclusive-per-session) can't queue up every other admin tab behind it.
+    session_write_close();
     if (!ACTIVE_SITE_ID) pd_fail('No active site.');
     $gAction = (string) ($_GET['action'] ?? '');
     $gKey    = (string) ($_GET['key'] ?? '');
@@ -85,6 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] !== 'POST')            pd_fail('POST required.', 405);
 if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? ''))
                                                       pd_fail('Invalid request token.', 403);
+// Nothing below this point touches $_SESSION — release the lock immediately. The
+// 'generate' action can block for a long time on the OpenAI API; PHP's file-session
+// handler holds an exclusive lock per session for the whole request otherwise, so a
+// single slow/abandoned generate call was queuing up every other admin tab behind it.
+session_write_close();
 if (!ACTIVE_SITE_ID)                                  pd_fail('No active site.');
 
 $action = (string) ($_POST['action'] ?? '');
