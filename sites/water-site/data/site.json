@@ -1108,6 +1108,18 @@
       {
         "name": "Winter Storm Damage",
         "url": "/winter-storm-damage-{city_slug}"
+      },
+      {
+        "name": "Emergency Water Removal",
+        "url": "/emergency-water-removal-{city_slug}"
+      },
+      {
+        "name": "Water Damage Insurance Claims",
+        "url": "/water-damage-insurance-claim-{city_slug}"
+      },
+      {
+        "name": "Water Damage Restoration Cost",
+        "url": "/water-damage-restoration-cost-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",

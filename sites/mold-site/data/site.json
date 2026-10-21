@@ -1379,6 +1379,18 @@
       {
         "name": "Indoor Air Quality Testing",
         "url": "/air-quality-testing-{city_slug}"
+      },
+      {
+        "name": "Bathroom Mold Removal",
+        "url": "/bathroom-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Carpet Mold Removal",
+        "url": "/carpet-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Drywall Mold Removal",
+        "url": "/drywall-mold-removal-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",

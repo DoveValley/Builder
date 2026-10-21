@@ -2330,11 +2330,28 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             // Collect first so a combo whose rows are all malformed disappears entirely
             // rather than printing a header row over an empty table -- same "render
             // nothing before you render something broken" rule as the resolve() guard.
+            //
+            // A FEATURED CODE IS NOT REPEATED IN THE TABLE. The table is the reference
+            // list for codes that have no write-up; a row for a code already answered in
+            // full a few hundred pixels above is the same content twice, more briefly the
+            // second time. Measured on the Samsung washer page before this: 18 featured
+            // answers over a 12-row table in which every row was an already-answered code.
+            //
+            // Dropped only when EVERY display code in the row has a write-up — an entry
+            // like "4C / 4E / nF" with detail for 4C alone must stay, or nF loses its only
+            // listing. As detail coverage grows the table shrinks to nothing on its own,
+            // which is the correct end state rather than something to special-case.
             $ecRows = [];
             foreach ($ec['codes'] as $row) {
                 $code = trim((string) ($row['code'] ?? ''));
                 $meaning = trim((string) ($row['meaning'] ?? ''));
                 if ($code === '' || $meaning === '') continue;
+                $rowDetail = is_array($row['detail'] ?? null) ? $row['detail'] : [];
+                if ($rowDetail) {
+                    $display = array_filter(array_map('trim', preg_split('#\s*/\s*#', $code) ?: []));
+                    $unanswered = array_filter($display, fn($one) => !isset($rowDetail[$one]));
+                    if (!$unanswered) continue;   // every code in this row is featured above
+                }
                 $ecRows[] = [
                     'code'       => $code,
                     'meaning'    => $meaning,
