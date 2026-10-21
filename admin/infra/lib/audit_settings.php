@@ -47,6 +47,9 @@ function infra_audit_settings_defaults(): array
         // DataForSEO throttles; more is not faster past a point. See the backoff note
         // in rank_audit.php — 2 was not better than 4 in testing.
         'probe_concurrency'     => 4,
+        // How often the UNATTENDED rank sweep fires (rank_tick.php, cron-driven).
+        // Weekly by default; the button on the panel still runs one on demand any time.
+        'rank_cadence_weeks'    => 1,
         // Measured 2026-10-21 ($70.3400 → $70.2206 over 11 probes). Shown in the
         // confirm dialog, so it being wrong means being lied to about the spend.
         'cost_per_probe'        => 0.0109,
@@ -72,6 +75,9 @@ function infra_audit_settings_clean(array $raw): array
         // Hard ceiling of 8: the shared HTTP helper will not usefully go beyond it and
         // DataForSEO starts failing probes, which this estate then has to retry.
         'probe_concurrency' => $int($raw['probe_concurrency'] ?? null, 1,     8,   $d['probe_concurrency']),
+        // 1-12 weeks: below weekly is paying DataForSEO for noise (see
+        // RANK_MIN_SWEEP_GAP_HOURS); past a quarter the panel is effectively unattended.
+        'rank_cadence_weeks' => $int($raw['rank_cadence_weeks'] ?? null, 1,    12,   $d['rank_cadence_weeks']),
         'cost_per_probe'    => is_numeric($raw['cost_per_probe'] ?? null)
                                 ? max(0.0, min(1.0, round((float) $raw['cost_per_probe'], 4)))
                                 : $d['cost_per_probe'],

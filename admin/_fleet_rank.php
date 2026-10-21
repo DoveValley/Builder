@@ -19,6 +19,7 @@ require_once __DIR__ . '/infra/lib/rank_audit.php';
 $frk = rank_audit_latest();
 $frkHas = $frk['at'] !== '';
 $frkTooNew = (int) infra_audit_setting('too_new_days');
+$frkDue = rank_audit_due();
 // Red on a drop. Green only once there is a comparison to be green about — a baseline
 // sweep is information, not success.
 $frkColour = !$frkHas ? '#94a3b8'
@@ -54,7 +55,9 @@ $frkColour = !$frkHas ? '#94a3b8'
             <?php endif; ?>
         </span>
         <span style="font-size:.78rem;color:#94a3b8;margin-left:auto">
-            <?= $frkHas ? 'last sweep ' . h(gmdate('D j M H:i', strtotime($frk['at']))) . ' UTC' : '' ?>
+            <?= $frkHas ? 'last sweep ' . h(gmdate('D j M H:i', strtotime($frk['at']))) . ' UTC &middot; ' : '' ?>
+            next automatic sweep <?= $frkDue['next_due_at'] === '' ? 'due now' : h(gmdate('D j M', strtotime($frkDue['next_due_at']))) ?>
+            (every <?= (int) $frkDue['cadence_weeks'] ?> week<?= $frkDue['cadence_weeks'] === 1 ? '' : 's' ?>)
         </span>
         <button type="button" class="btn-sm-outline" id="frk-run" onclick="frkRun()">Run sweep</button>
     </div>

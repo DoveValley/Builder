@@ -268,6 +268,25 @@ function rank_audit_run(string $only = '', int $concurrency = 4, ?callable $log 
 }
 
 /**
+ * Has enough time passed since the last STORED sweep (manual or automatic — either
+ * counts) to justify another paid one? Used by rank_tick.php so a weekly cron can run
+ * daily and only actually spend money on the day it's due, and so a cadence change
+ * takes effect against whatever was last really run rather than a separate clock.
+ *
+ * @return array{due:bool,last_at:string,next_due_at:string,cadence_weeks:int}
+ */
+function rank_audit_due(): array
+{
+    $weeks = (int) infra_audit_setting('rank_cadence_weeks');
+    $db = rank_audit_db();
+    $last = (string) ($db->query('SELECT MAX(sweep_at) FROM rank_sweep')->fetchColumn() ?: '');
+    if ($last === '') return ['due' => true, 'last_at' => '', 'next_due_at' => '', 'cadence_weeks' => $weeks];
+    $nextTs = strtotime($last) + $weeks * 7 * 86400;
+    return ['due' => time() >= $nextTs, 'last_at' => $last,
+             'next_due_at' => gmdate('c', $nextTs), 'cadence_weeks' => $weeks];
+}
+
+/**
  * The latest sweep, per keyword and rolled up per domain, with movement since the
  * sweep before it.
  *

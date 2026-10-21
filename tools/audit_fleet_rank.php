@@ -17,15 +17,38 @@
  *   php tools/audit_fleet_rank.php --dry-run
  *   php tools/audit_fleet_rank.php
  *   php tools/audit_fleet_rank.php --domain=baileyrestoration.com
+ *   php tools/audit_fleet_rank.php --if-due     # cron: only spends if the
+ *                                                 configured cadence has elapsed
  */
 
 require_once dirname(__DIR__) . '/admin/infra/lib/rank_audit.php';
+require_once dirname(__DIR__) . '/admin/infra/lib/audit_settings.php';
 
-$opt  = getopt('', ['domain::', 'dry-run', 'concurrency::']);
+$opt  = getopt('', ['domain::', 'dry-run', 'concurrency::', 'if-due']);
 $only = strtolower(trim((string) ($opt['domain'] ?? '')));
 $conc = (int) ($opt['concurrency'] ?? 4);
 
 function say(string $s = ''): void { echo $s, "\n"; }
+
+// ⚠ THIS IS THE ONLY GATE BETWEEN A DAILY CRON AND A DAILY BILL. --if-due lets the
+// crontab line run every day (cheap to check, nothing stored by a no-op check) while
+// still only actually probing on the day the operator-set cadence says to. Always
+// writes a heartbeat so a cron that's silently stopped firing is visible, the same
+// reason golive_tick/filedate_tick do.
+if (isset($opt['if-due'])) {
+    $due = rank_audit_due();
+    @file_put_contents(dirname(__DIR__) . '/admin/infra/state/rank_tick.json', json_encode([
+        'checked_at' => gmdate('c'), 'due' => $due['due'], 'last_at' => $due['last_at'],
+        'next_due_at' => $due['next_due_at'], 'cadence_weeks' => $due['cadence_weeks'],
+    ], JSON_PRETTY_PRINT));
+    if (!$due['due']) {
+        say('Not due — cadence is every ' . $due['cadence_weeks'] . ' week(s), last swept '
+            . $due['last_at'] . ', next due ' . $due['next_due_at'] . '. Nothing probed, nothing spent.');
+        exit(0);
+    }
+    say('Due (cadence ' . $due['cadence_weeks'] . ' week(s), last swept '
+        . ($due['last_at'] ?: 'never') . ') — running the full sweep.');
+}
 
 $p = rank_audit_provider();
 if (!$p['ok']) { say($p['msg']); exit(1); }

@@ -4498,21 +4498,44 @@ curl -sI http://localhost/admin/login.php | head -1</code></pre>
 
 <section id="dev-cron">
     <h2>Cron jobs</h2>
-    <p>One application cron job is configured: <code>/etc/cron.d/infra-golive</code> runs
-    <code>admin/infra/cron/golive_tick.php</code> daily at 09:00 as <code>www-data</code>. It releases
-    domains whose scheduled <code>go_live_at</code> date has arrived by switching their nameservers at
-    the registrar, up to a daily cap — everything else (content generation, deploys, one-off Go Live
-    clicks) is still triggered manually from the admin. It refuses any domain whose Upload cell isn't
-    green (<code>infra_golive_gate()</code>), so a scheduled date can never point DNS at an empty
-    folder. Its last-run result is <code>admin/infra/state/golive_tick.json</code>
-    (<code>at</code>/<code>due</code>/<code>released</code>/<code>held</code>/<code>cap</code>) and its
-    output is appended to <code>/var/log/infra-golive.log</code>. The other entries under
+    <p>Application cron jobs run as <code>www-data</code>, not root — each one writes into
+    <code>admin/infra/state/fleet.db</code> or a heartbeat JSON beside it, and a root-owned file there
+    blinds the console for the web user that has to read it. The other entries under
     <code>/etc/cron.d/</code> (<code>e2scrub_all</code>, <code>php</code>, <code>sysstat</code>) are
     stock OS maintenance, not Site Factory.</p>
-    <pre><code>cat /etc/cron.d/infra-golive                     # the job itself
-cat admin/infra/state/golive_tick.json           # last run's result
+    <table>
+        <tr><th>File</th><th>Schedule</th><th>Does</th><th>Heartbeat / log</th></tr>
+        <tr><td><code>infra-golive</code></td><td>daily 09:00</td>
+            <td>Releases domains whose scheduled <code>go_live_at</code> has arrived (switches
+            nameservers at the registrar), up to a daily cap. Refuses any domain whose Upload cell
+            isn't green (<code>infra_golive_gate()</code>) — a scheduled date can never point DNS at
+            an empty folder.</td>
+            <td><code>state/golive_tick.json</code> · <code>/var/log/infra-golive.log</code></td></tr>
+        <tr><td><code>infra-crawl</code></td><td>daily 04:17</td>
+            <td>Reads each live site's own access log for IP-verified Googlebot activity. The log is
+            a rolling ~3.5-day window — daily leaves roughly 3x headroom against one missed run;
+            anything older scrolls out permanently, there is no backfill.</td>
+            <td>(none; cursor is per-domain in <code>fleet.db</code>) · <code>/var/log/infra-crawl.log</code></td></tr>
+        <tr><td><code>infra-filedate</code></td><td>every 10 min</td>
+            <td>Drains the file-date-refresh queue (re-uploads a domain's own files unchanged to
+            reset FTP mtimes, purges Cloudflare cache). No content is generated or altered.</td>
+            <td><code>state/filedate_tick.json</code> · <code>/var/log/infra-filedate.log</code></td></tr>
+        <tr><td><code>infra-rank</code> <em>(recommended, not yet installed)</em></td>
+            <td>daily, <code>--if-due</code></td>
+            <td>Checks the operator-set cadence on the Fleet audit settings card
+            (<code>rank_cadence_weeks</code>, default weekly) and only actually runs — and spends —
+            a full paid DataForSEO rank sweep on the day it's due. A daily check costs nothing; see
+            <code>tools/audit_fleet_rank.php --if-due</code> and <code>rank_audit_due()</code>.</td>
+            <td><code>state/rank_tick.json</code></td></tr>
+    </table>
+    <pre><code>cat /etc/cron.d/infra-golive                     # a job's crontab entry
+cat admin/infra/state/golive_tick.json           # its last run's result
 tail -50 /var/log/infra-golive.log               # its output history
-ls /etc/cron.d/                                  # system cron jobs</code></pre>
+ls /etc/cron.d/                                  # system cron jobs
+
+# to install the recommended rank cadence job:
+echo '0 6 * * *  www-data  php /var/www/homepage-builder-new/tools/audit_fleet_rank.php --if-due >> /var/log/infra-rank.log 2>&1' \
+  | sudo tee /etc/cron.d/infra-rank</code></pre>
     <div class="callout tip">
         <p>If you later automate backups or Let's Encrypt renewal, this is where those jobs would go.</p>
     </div>

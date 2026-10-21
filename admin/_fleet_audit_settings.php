@@ -47,6 +47,8 @@ $fasCsrf = $csrf ?? ($csrfToken ?? ($_SESSION['csrf_token'] ?? ''));
              'How far down the keyword tiers a rank sweep pays for. The homepage term is always included. <strong>This drives the bill directly</strong>: high-1 is 567 keywords (~$6.18), high-2 roughly doubles it.'],
             ['Probe concurrency', 'probe_concurrency', 'number', 'parallel', 'index · rank',
              'How many DataForSEO probes run at once. More is not faster past a point &mdash; it throttles, and the retries cost the time back. 2 was no better than 4 in testing.'],
+            ['Rank sweep cadence', 'rank_cadence_weeks', 'number', 'week(s)', 'rank',
+             'How often the unattended rank sweep (cron) fires. The <strong>Run sweep</strong> button on the fleet rank card still works on demand any time, regardless of this value. Weekly is the floor &mdash; closer together than that and two sweeps start landing inside each other&rsquo;s SERP noise (see the fleet rank card&rsquo;s own note on a same-evening rerun misreading as a ranking collapse).'],
             ['Cost per probe', 'cost_per_probe', 'cost', 'USD', 'index · rank',
              'Used for the estimate and the confirmation prompt before a paid sweep. Measured 2026-10-21: the balance moved $70.3400 &rarr; $70.2206 over 11 probes. <strong>If this is wrong you are being misinformed about the spend</strong>, so re-measure rather than guess.'],
             ['Crawl log tail', 'crawl_tail_lines', 'number', 'lines', 'crawl',
