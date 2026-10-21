@@ -2084,8 +2084,16 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const isLive = r.status === 'live';
         const editing = msEditingDomain === domain;
         const numCell = '<td class="hint">' + rowNum + '</td>';
+        // NOT disabled for LIVE rows: this checkbox now drives two actions, not one.
+        // Get CTM Phone Numbers still refuses a live row (checked server-side, in
+        // multisite_api.php's ctm_get_numbers case) since changing the tracking
+        // number itself needs a rebuild — but Set Call Routing is explicitly safe on
+        // a live domain (it only ever changes CTM's own forwarding config), and a
+        // disabled checkbox here was blocking that for nearly every real row in the
+        // fleet.
         const checkCell = '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '" style="width:20px;height:20px;cursor:pointer"' +
-            (isLive ? ' disabled title="LIVE — use Correct & Regenerate to change its phone number"' : (msCtmSelected[domain] ? ' checked' : '')) +
+            (msCtmSelected[domain] ? ' checked' : '') +
+            (isLive ? ' title="LIVE — Get CTM Phone Numbers will refuse this row; Set Call Routing works on it fine"' : '') +
             ' onclick="msCtmToggleOne(this)"></td>';
         let cells;
         if (editing) {
