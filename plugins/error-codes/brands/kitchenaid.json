@@ -86,7 +86,10 @@
       {
         "code": "F2E1 (commercial range)",
         "meaning": "Signals an electronics fault in the commercial range's control system.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F2E1": 170
+        }
       }
     ]
   },
@@ -113,7 +116,10 @@
       {
         "code": "F9E1",
         "meaning": "Water isn't draining out fast enough, usually from a blockage somewhere in the drain path.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F9E1": 30
+        }
       },
       {
         "code": "H2O",
@@ -123,7 +129,10 @@
       {
         "code": "F8E4",
         "meaning": "Water has been detected pooling in the drip tray underneath the unit.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F8E4": 50
+        }
       }
     ]
   },
@@ -138,7 +147,10 @@
       {
         "code": "PO",
         "meaning": "A power interruption was long enough for internal temperatures to climb past the safe threshold.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "PO": 10
+        }
       },
       {
         "code": "Over Temperature",

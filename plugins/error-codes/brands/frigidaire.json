@@ -10,12 +10,18 @@
       {
         "code": "E1",
         "meaning": "The top-load washer is taking an unusually long time to fill, pointing to a weak or interrupted water supply.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E1": 10
+        }
       },
       {
         "code": "E2",
         "meaning": "Water is draining out of the tub far slower than it should, suggesting a drain-path restriction.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E2": 10
+        }
       },
       {
         "code": "E3",
@@ -25,7 +31,10 @@
       {
         "code": "E4",
         "meaning": "The load has shifted unevenly inside the drum during spin, throwing the machine off balance.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E4": 30
+        }
       },
       {
         "code": "E5",
@@ -52,7 +61,10 @@
       {
         "code": "LOC",
         "meaning": "The dishwasher's door-locking feature is currently engaged.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "LOC": 20
+        }
       },
       {
         "code": "CL or Cd",
@@ -67,17 +79,26 @@
       {
         "code": "i20",
         "meaning": "A cycle finished without the tub fully emptying its water, pointing to a drainage problem.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "i20": 70
+        }
       },
       {
         "code": "i40",
         "meaning": "Food debris has built up enough in the filter or sump area to block normal water flow.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "i40": 10
+        }
       },
       {
         "code": "PF",
         "meaning": "The dishwasher lost electrical power partway through a cycle.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "PF": 70
+        }
       }
     ]
   },
@@ -137,7 +158,10 @@
       {
         "code": "Door Ajar",
         "meaning": "One of the unit's doors has been open for an extended period.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "Door Ajar": 10
+        }
       },
       {
         "code": "SB SB",
@@ -159,22 +183,34 @@
       {
         "code": "F1",
         "meaning": "A key on the control's touchpad is electrically shorted, as if being held down continuously.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F1": 50
+        }
       },
       {
         "code": "F10",
         "meaning": "The oven's safety logic has detected the cavity running hotter than it should, treating it as a runaway-heat condition.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F10": 260
+        }
       },
       {
         "code": "F30",
         "meaning": "The oven temperature probe circuit is open, meaning the control isn't getting a signal from it.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F30": 40
+        }
       },
       {
         "code": "F31",
         "meaning": "The oven temperature probe circuit is shorted, giving the control a false reading.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F31": 140
+        }
       },
       {
         "code": "F40 or F41",
@@ -189,7 +225,10 @@
       {
         "code": "F3 / F20 / F26",
         "meaning": "The control boards inside the range have lost communication with one another.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F3": 20
+        }
       },
       {
         "code": "F12",
@@ -199,7 +238,10 @@
       {
         "code": "F13",
         "meaning": "An internal prompt/display check failed during start-up.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F13": 10
+        }
       },
       {
         "code": "– (dash)",

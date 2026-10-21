@@ -4432,6 +4432,53 @@ a.lb-item:hover .lb-logo { opacity: 1; filter: none !important; }
     font-size: var(--font-size-body);
     line-height: 1.6;
 }
+/* Featured codes — the searched-for ones, answered ABOVE the reference table.
+   Same 860px column and card treatment as .ec-tablewrap below, so the two read as
+   one section rather than two competing panels. */
+.ec-featured {
+    max-width: 860px;
+    margin: 0 auto 28px;
+}
+.ec-featured-item {
+    background: #fff;
+    border: 1px solid var(--color-border, #e5e7eb);
+    border-radius: var(--radius, 8px);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    padding: 20px 22px;
+    margin-bottom: 14px;
+}
+.ec-featured-code {
+    margin: 0 0 8px;
+    font-size: calc(var(--font-size-body) * 1.15);
+    color: var(--color-heading, #1a2e5a);
+}
+/* The first thing a visitor wants, before any prose: am I fixing this or calling. */
+.ec-featured-flag {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: calc(var(--font-size-body) * 0.82);
+    font-weight: 600;
+    line-height: 1.5;
+}
+.ec-featured-flag.is-diy     { background: #e7f6ec; color: #1b5e34; }
+.ec-featured-flag.is-service { background: #fdeeee; color: #8a2222; }
+.ec-featured-part {
+    margin: 0 0 10px;
+    color: var(--color-muted, #556);
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+}
+.ec-featured-part strong { color: var(--color-heading, #1a2e5a); }
+.ec-featured-src {
+    margin: 12px 0 0;
+    font-size: calc(var(--font-size-body) * 0.85);
+}
+@media (max-width: 480px) {
+    .ec-featured-item { padding: 16px; }
+}
+
 .ec-tablewrap {
     max-width: 860px;
     margin: 0 auto;

@@ -89,7 +89,10 @@
       {
         "code": "E15",
         "meaning": "A safety float switch has sensed water pooling in the bottom of the tub.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E15": 210
+        }
       },
       {
         "code": "E16 / E17",
@@ -124,12 +127,19 @@
       {
         "code": "E22",
         "meaning": "The filter, drain pump, hose or air gap is clogged enough to stop the machine draining.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E22": 40
+        }
       },
       {
         "code": "E24 / E25",
         "meaning": "The drain pump is blocked or loose, the hose is kinked, or the air gap is clogged.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E24": 110,
+          "E25": 30
+        }
       },
       {
         "code": "E0110",
@@ -139,7 +149,10 @@
       {
         "code": "UP",
         "meaning": "Not a fault — the dishwasher has finished installing a software update.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "UP": 20
+        }
       }
     ]
   },

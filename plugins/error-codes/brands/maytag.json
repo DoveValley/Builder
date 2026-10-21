@@ -7,7 +7,10 @@
       {
         "code": "AF / F4E3",
         "meaning": "Restricted airflow — the lint screen or vent is clogged, or the vent is crushed, kinked, or has too many turns.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "AF": 50
+        }
       },
       {
         "code": "L2",
@@ -17,12 +20,18 @@
       {
         "code": "PF",
         "meaning": "The drying cycle was interrupted by a power failure.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "PF": 70
+        }
       },
       {
         "code": "F01",
         "meaning": "Primary control board failure.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F01": 20
+        }
       },
       {
         "code": "F03",
@@ -134,7 +143,10 @@
       {
         "code": "F5 E2",
         "meaning": "The door/lid isn't latching securely, so the control won't proceed with the cycle.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F5 E2": 50
+        }
       },
       {
         "code": "F8 E1 or LO FL",
@@ -144,7 +156,18 @@
       {
         "code": "F9 E1",
         "meaning": "The tub is taking unusually long to drain — roughly eight minutes or more triggers it.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F9 E1": 1000
+        },
+        "detail": {
+          "F9 E1": {
+            "what_it_means": "The tub is taking unusually long to drain -- roughly eight minutes or more triggers the code.",
+            "why_it_happens": "Normally a restriction in the drain path rather than a failed part: a kinked hose, a standpipe that cannot take the flow, or debris in the pump.",
+            "what_to_try": "Straighten the drain hose, check it is not inserted too far into the standpipe, and clear the pump filter if your model has one you can reach.",
+            "when_to_call": "If the drain path is clear and it still times out, the pump needs testing."
+          }
+        }
       }
     ]
   },
@@ -156,7 +179,10 @@
       {
         "code": "F8E4",
         "meaning": "Water has been detected pooling in the drip tray beneath the dishwasher.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F8E4": 30
+        }
       },
       {
         "code": "F7E2",
@@ -166,7 +192,10 @@
       {
         "code": "F9E1",
         "meaning": "The dishwasher is taking far longer than normal to drain, or isn't draining at all.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F9E1": 50
+        }
       },
       {
         "code": "F6E1",

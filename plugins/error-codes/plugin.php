@@ -226,6 +226,66 @@ function error_codes_resolve(
     ];
 }
 
+/**
+ * Pull the FEATURED codes out of a resolved set — the ones a visitor searches for by
+ * name, which earn a heading and a real answer instead of a table row.
+ *
+ * WHY THIS EXISTS. A table row is a mention, not an answer. "bosch dishwasher e15" is
+ * 4,400 searches a month at KD 0 (measured — see the `demand` field), and the page
+ * carrying that table answered it in a single sentence, with the code appearing in no
+ * heading at all. Featured codes get an <h3> that matches the query and a four-part
+ * answer under it.
+ *
+ * KEYED BY DISPLAY CODE, NOT BY ENTRY. One stored entry can cover several codes
+ * ("E16 / E17", "d75 / d80 / d90 / d95") whose demand differs by orders of magnitude —
+ * d80 is 6,600/mo while d75 has none. So `demand` and `detail` are both maps keyed by
+ * the individual display code, and this splits an entry into one featured item per
+ * code that has its own detail.
+ *
+ * Featuring is decided by the PRESENCE OF `detail`, never by demand alone: demand says
+ * a code is worth writing up, a human actually writing it is what makes it worth
+ * showing. A code with demand but no detail stays an ordinary table row.
+ *
+ * @return array<int,array{code:string,meaning:string,detail:array,demand:int,
+ *                         self_clearable:bool,source_url:string}> highest demand first
+ */
+function error_codes_featured(array $ec): array {
+    $out = [];
+    foreach ($ec['codes'] ?? [] as $c) {
+        $detail = $c['detail'] ?? null;
+        if (!is_array($detail) || !$detail) continue;
+        $demand = is_array($c['demand'] ?? null) ? $c['demand'] : [];
+        // Hub rows carry their own source_url; a leaf shares the entry-level one.
+        $src = (string) ($c['source_url'] ?? ($ec['source_url'] ?? ''));
+        foreach ($detail as $code => $d) {
+            if (!is_array($d) || !$d) continue;
+            $out[] = [
+                'code'           => (string) $code,
+                'meaning'        => (string) ($c['meaning'] ?? ''),
+                'detail'         => $d,
+                'demand'         => (int) ($demand[$code] ?? 0),
+                'self_clearable' => !empty($c['self_clearable']),
+                'source_url'     => $src,
+                // Hub rows each name their own appliance; a leaf's is on $ec instead.
+                'type_label'     => (string) ($c['type_label'] ?? ''),
+            ];
+        }
+    }
+    // Highest demand first, so the most-searched code is the first heading on the page.
+    usort($out, fn($a, $b) => $b['demand'] <=> $a['demand']);
+    return $out;
+}
+
+/** The four parts of a featured answer, in render order, with their visible labels. */
+function error_codes_detail_parts(): array {
+    return [
+        'what_it_means'  => 'What it means',
+        'why_it_happens' => 'Why it happens',
+        'what_to_try'    => 'What you can check',
+        'when_to_call'   => 'When to call someone',
+    ];
+}
+
 /** Appliance order for a brand-hub table — the ones people search for most, first,
  *  so a capped hub list drops the obscure appliance rather than the refrigerator. */
 function error_codes_type_priority(): array {

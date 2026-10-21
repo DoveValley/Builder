@@ -12,12 +12,18 @@
       {
         "code": "22E / 22C",
         "meaning": "Same kind of fan-feedback problem, but on the fresh-food side. Often shows up after a door's been left open long enough to ice over the fan.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "22E": 90
+        }
       },
       {
         "code": "5E",
         "meaning": "The sensor that tracks the fridge's defrost cycle isn't reporting a valid reading.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "5E": 10
+        }
       },
       {
         "code": "85C",
@@ -32,17 +38,26 @@
       {
         "code": "88 88",
         "meaning": "A communication fault inside the unit, typically triggered when power is interrupted mid-startup.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "88 88": 30
+        }
       },
       {
         "code": "AP",
         "meaning": "Not a fault — the fridge is acting as a temporary Wi-Fi access point so it can be set up.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "AP": 10
+        }
       },
       {
         "code": "OF OF / O FF",
         "meaning": "Cooling has been switched off deliberately, usually demo or shop mode rather than a failure.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "OF OF": 320
+        }
       },
       {
         "code": "76C",
@@ -52,12 +67,19 @@
       {
         "code": "PC ER / PC CH",
         "meaning": "Components inside the fridge have lost communication with one another.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "PC ER": 110,
+          "PC CH": 10
+        }
       },
       {
         "code": "33E",
         "meaning": "The heater that keeps the ice pipe clear is reporting a fault.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "33E": 140
+        }
       },
       {
         "code": "39E / 39C",
@@ -173,7 +195,10 @@
       {
         "code": "d0",
         "meaning": "The touch panel thinks a button is being held down continuously for too long, usually because the surface is wet or something is resting on the controls.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "d0": 10
+        }
       },
       {
         "code": "U",

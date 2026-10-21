@@ -57,7 +57,10 @@
       {
         "code": "F3",
         "meaning": "The probe that measures oven temperature has failed and needs replacement.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F3": 40
+        }
       },
       {
         "code": "F5",
@@ -67,7 +70,10 @@
       {
         "code": "F9",
         "meaning": "A part within the oven door's latching/locking mechanism has stopped working correctly.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F9": 50
+        }
       },
       {
         "code": "FD",
@@ -82,12 +88,18 @@
       {
         "code": "F8",
         "meaning": "The electronic control itself has failed and needs replacing.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F8": 10
+        }
       },
       {
         "code": "F350",
         "meaning": "A problem in the upper cooling fan circuit, or the fan is physically obstructed.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F350": 20
+        }
       },
       {
         "code": "FC",
@@ -102,7 +114,10 @@
       {
         "code": "LOC",
         "meaning": "The child lockout feature is switched on, so the controls will not respond.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "LOC": 20
+        }
       },
       {
         "code": "ERR",
@@ -186,7 +201,10 @@
       {
         "code": "F350",
         "meaning": "A problem in the upper cooling fan circuit, or the fan is physically obstructed.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F350": 10
+        }
       },
       {
         "code": "FC",

@@ -54,7 +54,10 @@
       {
         "code": "LF / Lo FL / F8 E1",
         "meaning": "Indicates the washer is taking too long to fill, usually from a restricted or interrupted water supply.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "Lo FL": 10
+        }
       },
       {
         "code": "OL",
@@ -81,7 +84,10 @@
       {
         "code": "F9 / F9 E0",
         "meaning": "Points to a wiring problem with the home's outlet or the oven's electrical connection.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F9": 10
+        }
       },
       {
         "code": "\"C\"",
@@ -96,7 +102,12 @@
       {
         "code": "LOC / Lock / Locked",
         "meaning": "Appears when the control-lock feature is switched on, blocking keypad use.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "LOC": 10,
+          "Lock": 20,
+          "Locked": 20
+        }
       },
       {
         "code": "SAB / Sab / 5AB / 5A6",

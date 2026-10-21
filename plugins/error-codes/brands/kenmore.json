@@ -8,27 +8,42 @@
       {
         "code": "F20",
         "meaning": "The machine isn't getting water into the tub, usually a shut supply valve or a pinched/iced fill line.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F20": 50
+        }
       },
       {
         "code": "F24",
         "meaning": "The sensor that reads water temperature is sending a bad signal, often a loose or damaged wiring connection.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F24": 20
+        }
       },
       {
         "code": "F28",
         "meaning": "The motor controller and the main control board have lost communication with each other mid-cycle.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F28": 10
+        }
       },
       {
         "code": "F35",
         "meaning": "The sensor that measures water pressure/level inside the tub is reporting an invalid reading.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F35": 20
+        }
       },
       {
         "code": "Sud/Fd",
         "meaning": "The machine has detected more suds than it can handle, usually from non-HE detergent or too much of it.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "Sud": 30
+        }
       },
       {
         "code": "F1 E1",
@@ -51,22 +66,34 @@
       {
         "code": "F1",
         "meaning": "The oven's main electronic control unit itself has failed.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F1": 40
+        }
       },
       {
         "code": "F2/E0",
         "meaning": "The wiring between the keypad and the control board has come loose or disconnected.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F2": 10
+        }
       },
       {
         "code": "F3/E0",
         "meaning": "The oven's temperature sensor circuit is reading incorrectly.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F3": 10
+        }
       },
       {
         "code": "F3/E3",
         "meaning": "During a self-clean cycle, internal temperature exceeded roughly 950°F, treated as an overheat fault.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F3": 10
+        }
       }
     ]
   },
@@ -79,12 +106,18 @@
       {
         "code": "PF",
         "meaning": "Power to the dryer was interrupted mid-cycle; the cycle can simply be resumed once power is restored.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "PF": 10
+        }
       },
       {
         "code": "F:01",
         "meaning": "The dryer's main control board has failed internally.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F:01": 10
+        }
       },
       {
         "code": "F:02",
@@ -160,7 +193,10 @@
       {
         "code": "Er IF",
         "meaning": "The small fan that circulates air through the ice compartment has stopped working.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "Er IF": 10
+        }
       },
       {
         "code": "Er CF",

@@ -7,7 +7,10 @@
       {
         "code": "dE",
         "meaning": "The control doesn't register the door as fully latched.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "dE": 10
+        }
       },
       {
         "code": "tE1-tE4",
@@ -17,7 +20,32 @@
       {
         "code": "d75 / d80 / d90 / d95",
         "meaning": "Exhaust airflow is restricted, at increasing severity — almost always a duct or vent blockage.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "d80": 6600,
+          "d90": 2400,
+          "d95": 1000
+        },
+        "detail": {
+          "d80": {
+            "what_it_means": "The dryer has measured restricted exhaust airflow and is telling you the vent is roughly 80% blocked.",
+            "why_it_happens": "Lint accumulates along the duct run between the dryer and the outside wall. The longer the run and the more bends it has, the faster it builds up.",
+            "what_to_try": "Clean the lint filter, then disconnect and clear the duct between the dryer and the wall, and check the outside vent flap opens freely. Restricted airflow is the cause in almost every case.",
+            "when_to_call": "If the whole duct run is clear and the code returns, the sensor or control reading it may be at fault."
+          },
+          "d90": {
+            "what_it_means": "The same airflow restriction as d80, but worse -- roughly 90% blocked.",
+            "why_it_happens": "It is the same lint build-up, caught later. A dryer that reached d80 and was not cleared will usually arrive here.",
+            "what_to_try": "Treat it as urgent rather than routine: filter, full duct run, and the outside vent. A heavily blocked dryer duct is a fire risk as well as a drying problem.",
+            "when_to_call": "If clearing the duct does not resolve it, stop using the dryer until it has been checked."
+          },
+          "d95": {
+            "what_it_means": "Airflow is restricted to roughly 95%, the most severe level the dryer reports.",
+            "why_it_happens": "Long-neglected lint build-up, a crushed duct behind the machine, or an outside vent flap that has stopped opening.",
+            "what_to_try": "Clear the entire duct run rather than just the filter, and confirm the outside vent actually opens when the dryer runs. At this level a partial clean will not clear it.",
+            "when_to_call": "If the duct is genuinely clear and the code persists, have it looked at before running the dryer again."
+          }
+        }
       },
       {
         "code": "PF",
@@ -27,7 +55,10 @@
       {
         "code": "GAS",
         "meaning": "A gas dryer isn't detecting a gas supply or successful ignition.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "GAS": 9900
+        }
       }
     ]
   },
@@ -118,7 +149,10 @@
       {
         "code": "F9",
         "meaning": "Shows up when the upper oven is running but not reaching or holding its set temperature.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F9": 170
+        }
       },
       {
         "code": "F10",
@@ -143,12 +177,18 @@
       {
         "code": "F11",
         "meaning": "The oven's internal boards have lost communication with one another.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F11": 20
+        }
       },
       {
         "code": "F19",
         "meaning": "The oven is running but failing to heat the cavity as it should.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F19": 90
+        }
       },
       {
         "code": "F20",

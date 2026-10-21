@@ -2277,6 +2277,48 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             echo '<div class="content-block block-error-codes"' . $anchorAttr . '><div class="container">';
             echo '<h2 class="section-heading">' . h($ecHeading) . '</h2>';
             if ($ecIntro) echo '<p class="ec-intro">' . h($ecIntro) . '</p>';
+
+            // ── Featured codes: the ones people search for by name ────────────────
+            // Above the table, because for the visitor who typed "bosch dishwasher e15"
+            // this IS the page's answer and the table is reference material behind it.
+            // An <h3> per code is the point: the code previously appeared in no heading
+            // at all, so nothing on the page matched the query it was eligible for.
+            // Everything here is plain data from the plugin's brand files -- a code with
+            // no `detail` written for it simply stays an ordinary table row below.
+            $ecFeatured = function_exists('error_codes_featured') ? error_codes_featured($ec) : [];
+            if ($ecFeatured) {
+                $ecParts = error_codes_detail_parts();
+                echo '<div class="ec-featured">';
+                foreach ($ecFeatured as $fc) {
+                    // Heading mirrors the search phrase: "<Brand> <Appliance> <Code>".
+                    $fcType = $fc['type_label'] !== '' ? $fc['type_label'] : (string) ($ec['type_label'] ?? '');
+                    $fcTitle = trim(($ec['brand_label'] ?? '') . ' ' . $fcType . ' ' . $fc['code']);
+                    echo '<div class="ec-featured-item">';
+                    echo '<h3 class="ec-featured-code">' . h($fcTitle) . '</h3>';
+                    // The self-clearable flag is the one thing a visitor wants first:
+                    // am I fixing this myself or calling someone? Shown as a badge so it
+                    // reads before the prose does.
+                    echo '<p class="ec-featured-flag ' . ($fc['self_clearable'] ? 'is-diy' : 'is-service') . '">'
+                        . ($fc['self_clearable']
+                            ? 'Often clearable without a technician'
+                            : 'Usually needs a technician')
+                        . '</p>';
+                    foreach ($ecParts as $key => $label) {
+                        $val = trim((string) ($fc['detail'][$key] ?? ''));
+                        if ($val === '') continue;   // a part nobody wrote is simply absent
+                        echo '<p class="ec-featured-part"><strong>' . h($label) . ':</strong> '
+                            . h(resolve_shortcodes($val)) . '</p>';
+                    }
+                    if ($fc['source_url'] !== '') {
+                        echo '<p class="ec-featured-src"><a href="' . h($fc['source_url'])
+                            . '" target="_blank" rel="noopener">'
+                            . h(($ec['brand_label'] ?? '') . "'s official documentation") . ' &#8599;</a></p>';
+                    }
+                    echo '</div>';
+                }
+                echo '</div>';
+            }
+
             // Collect first so a combo whose rows are all malformed disappears entirely
             // rather than printing a header row over an empty table -- same "render
             // nothing before you render something broken" rule as the resolve() guard.

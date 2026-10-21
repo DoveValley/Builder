@@ -19,7 +19,10 @@
       {
         "code": "E01 / E02",
         "meaning": "The lint screen has become clogged enough to restrict airflow.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E01": 20
+        }
       },
       {
         "code": "E03",
@@ -44,27 +47,43 @@
       {
         "code": "E56",
         "meaning": "The sensor that measures moisture in the load is not reading correctly.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E56": 10
+        }
       },
       {
         "code": "E06 / E08 / E09 / E24 / E25 / E28 / E36 / E90",
         "meaning": "Bosch groups these together as internal electronics faults — none of them clear with a reset, and all need a technician.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E09": 10,
+          "E90": 10
+        }
       },
       {
         "code": "E63",
         "meaning": "The heating element has failed, so the drum keeps turning but the load never actually dries.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E63": 10
+        }
       },
       {
         "code": "DR",
         "meaning": "The door isn't shut far enough for the latch to register, so the cycle won't begin.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "DR": 30
+        }
       },
       {
         "code": "CrE",
         "meaning": "A reminder that the dryer's built-in care and maintenance program is due to be run.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "CrE": 10
+        }
       }
     ]
   },
@@ -155,77 +174,171 @@
       {
         "code": "E01",
         "meaning": "The motor circuit for the heat pump on the main control board has failed.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E01": 110
+        }
       },
       {
         "code": "E09",
         "meaning": "The internal heater inside the heat pump assembly isn't working correctly.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E09": 480
+        },
+        "detail": {
+          "E09": {
+            "what_it_means": "The heating element inside the heat pump assembly is not working, so the dishwasher cannot bring the water up to temperature.",
+            "why_it_happens": "This is a component failure rather than anything that builds up over time, so there is usually no warning before it appears.",
+            "what_to_try": "Nothing here is a homeowner check. The heater sits inside a sealed assembly and is not reachable without dismantling the machine.",
+            "when_to_call": "Straight away. A dishwasher that will not heat still washes, but it will not sanitise or dry properly."
+          }
+        }
       },
       {
         "code": "E15",
         "meaning": "A float-type safety switch has sensed water pooling in the dishwasher's base pan.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E15": 4400
+        },
+        "detail": {
+          "E15": {
+            "what_it_means": "The dishwasher has detected water sitting in the base pan underneath the tub, and a float-type safety switch has shut the wash cycle down to stop the leak spreading.",
+            "why_it_happens": "Water reaches the base pan when something above it is leaking -- a seal, hose connection or the tub itself. The code is the safety system doing its job, not the fault in its own right.",
+            "what_to_try": "Stop using the machine and turn off its water supply at the valve. The drain pump will often keep running on its own while the float stays raised, which is normal. The leak has to be found before the code will clear for good.",
+            "when_to_call": "This one needs a technician. The code tells you water is where it should not be, but not where it came from, and tracing that means getting under or behind the machine."
+          }
+        }
       },
       {
         "code": "E18",
         "meaning": "Either not enough water is entering the tub or the system isn't pumping it correctly.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E18": 20
+        }
       },
       {
         "code": "E24",
         "meaning": "Water isn't draining out properly, most often because the drain filter is clogged with debris.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E24": 4400
+        },
+        "detail": {
+          "E24": {
+            "what_it_means": "The dishwasher cannot pump its water out, and in most cases the drain filter at the bottom of the tub is blocked with food debris.",
+            "why_it_happens": "The filter catches everything rinsed off the dishes. Left long enough it packs solid, and once water cannot pass through it the machine stops mid-cycle with standing water in the tub.",
+            "what_to_try": "Switch the machine off, lift out the filter assembly at the base of the tub and clear it, then check the drain hose is not kinked behind the machine. This is the most common cause and the one a homeowner can usually resolve.",
+            "when_to_call": "If the filter is clean and the hose is clear, the drain pump itself may be obstructed or failed, which is where it stops being a DIY job."
+          }
+        }
       },
       {
         "code": "E27",
         "meaning": "The household electrical supply feeding the dishwasher is running below the voltage it needs.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E27": 40
+        }
       },
       {
         "code": "E12",
         "meaning": "Hard-water scale has built up inside the heat pump and the machine needs descaling.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E12": 10
+        }
       },
       {
         "code": "E14",
         "meaning": "The flow meter has failed, or water is not entering at the rate the cycle expects.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E14": 50
+        }
       },
       {
         "code": "E16 / E17",
         "meaning": "Water cannot get into the tub at all — usually a closed supply valve or a blocked inlet screen.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E16": 30,
+          "E17": 320
+        },
+        "detail": {
+          "E17": {
+            "what_it_means": "No water is getting into the tub at all -- the machine asked to fill and nothing arrived.",
+            "why_it_happens": "Most often the supply valve under the sink has been turned off, or the inlet screen where the hose meets the machine has silted up. Both are outside the machine.",
+            "what_to_try": "Check the water supply valve is fully open, then look at the inlet screen at the hose connection for scale or grit. These two account for most cases.",
+            "when_to_call": "If water is reaching the machine and it still will not fill, the inlet valve on the machine is the next suspect, and that is a technician's job."
+          }
+        }
       },
       {
         "code": "E21",
         "meaning": "The heat pump is blocked and cannot move water through the wash system.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E21": 110
+        }
       },
       {
         "code": "E22",
         "meaning": "The filter, drain pump, hose or air gap is clogged enough to stop the machine draining.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E22": 1900
+        },
+        "detail": {
+          "E22": {
+            "what_it_means": "Water is not draining because something in the filter, drain pump, hose or air gap is blocked enough to stop the flow.",
+            "why_it_happens": "The same debris that blocks a filter can travel further into the drain path. An air gap on the worktop can also silt up, which blocks the line without anything inside the machine looking wrong.",
+            "what_to_try": "Clear the tub filter first, then check the air gap if your sink has one, then look at the drain hose for kinks. Those are the three points you can reach without opening the machine.",
+            "when_to_call": "If all three are clear and it still will not drain, the pump needs looking at."
+          }
+        }
       },
       {
         "code": "E23",
         "meaning": "The drain pump itself is obstructed or has failed outright.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E23": 390
+        },
+        "detail": {
+          "E23": {
+            "what_it_means": "The drain pump itself is obstructed or has failed, rather than the filter or hose in front of it.",
+            "why_it_happens": "Hard debris -- glass fragments, fruit stones, bones -- can pass the filter and jam the impeller. The pump can also simply fail electrically.",
+            "what_to_try": "Clear the tub filter and check for anything visible in the pump housing underneath it. If the impeller is jammed by something you can see and remove, the code may clear.",
+            "when_to_call": "If nothing is visibly jamming it, the pump needs testing or replacing."
+          }
+        }
       },
       {
         "code": "E06",
         "meaning": "A fault in the door sensor circuit, so the control cannot confirm whether the door is shut.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E06": 40
+        }
       },
       {
         "code": "E04",
         "meaning": "The machine's own self-test found a fault in the heater electronics.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E04": 30
+        }
       },
       {
         "code": "E19",
         "meaning": "The solenoid that releases detergent from the dispenser is not responding.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E19": 90
+        }
       }
     ]
   },
@@ -237,22 +350,43 @@
       {
         "code": "E16 / F16",
         "meaning": "The door hasn't latched securely, so the machine won't start or continue the cycle.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E16": 10
+        }
       },
       {
         "code": "E17 / F17",
         "meaning": "Water is taking too long to fill the drum, often from a blocked inlet filter or AquaStop hose screen.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E17": 40
+        }
       },
       {
         "code": "E18 / F18",
         "meaning": "The hose carrying wastewater out of the machine is kinked or clogged.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "E18": 210,
+          "F18": 10
+        },
+        "detail": {
+          "E18": {
+            "what_it_means": "The hose carrying wastewater out of the machine is kinked or clogged.",
+            "why_it_happens": "Washing machines get pushed back against the wall and the drain hose gets crushed behind them -- the most common cause by a distance.",
+            "what_to_try": "Pull the machine out far enough to see the hose run and straighten any kinks. Check the pump filter at the front as well.",
+            "when_to_call": "If the hose is clear and straight and it still will not drain, have the pump checked."
+          }
+        }
       },
       {
         "code": "E23 / F23",
         "meaning": "The AquaStop leak-protection system has detected water where it shouldn't be and shut the machine down.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "E23": 10
+        }
       },
       {
         "code": "E32 / F32",
@@ -282,12 +416,34 @@
       {
         "code": "E:00 / -18",
         "meaning": "The drain pump is jammed or obstructed, so the drum cannot empty.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "-18": 2400
+        },
+        "detail": {
+          "-18": {
+            "what_it_means": "The drain pump is jammed or obstructed, so the drum cannot empty. Bosch washers show this as E:00 on some models and -18 on others.",
+            "why_it_happens": "Coins, hair grips and small items work their way past the drum and into the pump. The pump filter at the front of the machine catches them, and fills up over time.",
+            "what_to_try": "Open the small access flap at the bottom front, drain the residual water into a tray and clean out the pump filter. This is the designed homeowner check and resolves most cases.",
+            "when_to_call": "If the filter is clean and the drum still will not empty, the pump itself needs testing."
+          }
+        }
       },
       {
         "code": "E:30 / -80",
         "meaning": "The drain pipe is blocked or kinked, or the pump is not moving water out.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "-80": 2400
+        },
+        "detail": {
+          "-80": {
+            "what_it_means": "The drain path is blocked or kinked, or the pump is not moving water out. Shown as E:30 on some models and -80 on others.",
+            "why_it_happens": "Unlike the pump filter, this usually points further down the line -- the drain hose behind the machine, or the standpipe it empties into.",
+            "what_to_try": "Check the drain hose for kinks where it leaves the machine and make sure it is not pushed too far into the standpipe. Clean the pump filter at the front while you are there.",
+            "when_to_call": "If the hose run is clear and the pump filter is clean, the pump or its wiring is next."
+          }
+        }
       }
     ]
   }

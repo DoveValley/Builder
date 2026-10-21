@@ -7,32 +7,99 @@
       {
         "code": "F5 E2",
         "meaning": "The door isn't locking properly before the cycle can start.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F5 E2": 480
+        },
+        "detail": {
+          "F5 E2": {
+            "what_it_means": "The lid or door is not locking properly, so the machine will not begin the cycle.",
+            "why_it_happens": "Something is stopping the latch seating -- laundry caught under the lid, a bent strike, or a lock mechanism that is wearing out.",
+            "what_to_try": "Open and close the lid firmly with nothing caught in the opening, and check the strike and latch for anything obstructing them.",
+            "when_to_call": "If the latch is clear and it still will not lock, the lid lock assembly is the usual culprit."
+          }
+        }
       },
       {
         "code": "F7 E1",
         "meaning": "The motor's speed sensor isn't reading correctly.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F7 E1": 10
+        }
       },
       {
         "code": "F8 E1 / LO FL",
         "meaning": "The machine isn't detecting enough incoming water flow.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F8 E1": 480,
+          "LO FL": 320
+        },
+        "detail": {
+          "F8 E1": {
+            "what_it_means": "The washer is not detecting enough incoming water flow. Some models display this as LO FL instead.",
+            "why_it_happens": "Most often a supply tap that is not fully open, or an inlet screen behind the fill hoses that has silted up with scale and grit.",
+            "what_to_try": "Check both hot and cold taps are fully open, then disconnect the fill hoses and look at the small screens in the inlet ports for debris.",
+            "when_to_call": "If the supply is good and the screens are clean, the inlet valve on the machine needs checking."
+          },
+          "LO FL": {
+            "what_it_means": "Low fill -- the washer is not seeing enough water coming in to run the cycle. The same condition as F8 E1 on models that show words rather than codes.",
+            "why_it_happens": "A partly closed supply tap or a blocked inlet screen, the same two causes as F8 E1.",
+            "what_to_try": "Confirm both taps are fully open and check the inlet screens behind the fill hoses.",
+            "when_to_call": "If supply and screens are both fine, the machine's inlet valve needs testing."
+          }
+        }
       },
       {
         "code": "F9 E1",
         "meaning": "Water is taking longer than about 8 minutes to drain.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F9 E1": 2400
+        },
+        "detail": {
+          "F9 E1": {
+            "what_it_means": "The washer is taking longer than about eight minutes to drain, so it stops and reports a long drain.",
+            "why_it_happens": "Usually a restriction rather than a failure -- a blocked drain hose, a standpipe that cannot take the flow, or debris in the pump.",
+            "what_to_try": "Check the drain hose is not kinked and is not pushed more than a few inches into the standpipe, then check the pump filter if your model has an accessible one.",
+            "when_to_call": "If the hose and standpipe are clear, the drain pump is the next thing to test."
+          }
+        }
       },
       {
         "code": "Sud / Sd",
         "meaning": "Too many suds have built up in the drum.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "Sud": 210,
+          "Sd": 210
+        },
+        "detail": {
+          "Sud": {
+            "what_it_means": "Too many suds have built up in the drum, so the washer pauses to let them clear. Displayed as Sd on some models.",
+            "why_it_happens": "Usually too much detergent, or a non-HE detergent in a high-efficiency machine, which produces far more foam than the drum is designed to handle.",
+            "what_to_try": "Let the cycle run its suds-clearing routine rather than interrupting it, then use less detergent next time and check it is HE-rated if your machine requires one.",
+            "when_to_call": "If it appears with correct detergent and correct dosing, something is holding water in the drum and it is worth having checked."
+          }
+        }
       },
       {
         "code": "LOC / LC",
         "meaning": "Not a fault — Control Lock is simply switched on.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "LOC": 210,
+          "LC": 20
+        },
+        "detail": {
+          "LOC": {
+            "what_it_means": "Not a fault. Control Lock is switched on, so the buttons are deliberately ignoring input. Shown as LC on some models.",
+            "why_it_happens": "It is usually turned on by accident, or on purpose to stop children changing a running cycle, and then forgotten.",
+            "what_to_try": "Press and hold the Control Lock button -- often marked with a padlock, and sometimes a secondary function of another button -- for a few seconds to release it.",
+            "when_to_call": "Only if the lock will not release, which points at the control panel rather than the setting."
+          }
+        }
       },
       {
         "code": "dET",
@@ -47,7 +114,10 @@
       {
         "code": "rL / F34",
         "meaning": "Items were left in the drum during a Clean Washer cycle, which has to run empty.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "rL": 30
+        }
       },
       {
         "code": "F8 E2",
@@ -64,7 +134,10 @@
       {
         "code": "PO",
         "meaning": "The fridge is flagging that it lost power long enough for the freezer compartment to climb to 18°F or warmer.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "PO": 10
+        }
       },
       {
         "code": "F8 EC",
@@ -101,7 +174,10 @@
       {
         "code": "F8E4",
         "meaning": "Moisture has pooled in the tray underneath the tub, which the machine reads as a possible leak.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F8E4": 50
+        }
       },
       {
         "code": "F8E2",
@@ -116,12 +192,18 @@
       {
         "code": "F9E1",
         "meaning": "A cycle is taking far longer than normal to drain out the used wash water.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F9E1": 40
+        }
       },
       {
         "code": "F6E1",
         "meaning": "The main control board and the user-facing interface aren't communicating properly.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F6E1": 10
+        }
       },
       {
         "code": "FAE4 / F10E4",
@@ -229,7 +311,10 @@
       {
         "code": "PF",
         "meaning": "A power blip during the cycle — not a hardware fault — interrupted the dryer mid-run.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "PF": 110
+        }
       },
       {
         "code": "L2",
@@ -239,7 +324,10 @@
       {
         "code": "AF / F4E3",
         "meaning": "Airflow through the dryer is restricted, almost always from a clogged lint screen or a crushed, kinked, or overly long vent run.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "AF": 50
+        }
       },
       {
         "code": "F2E4",
@@ -249,7 +337,10 @@
       {
         "code": "F3E2",
         "meaning": "The moisture sensor has failed to register any moisture reading across five dry cycles in a row.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F3E2": 30
+        }
       },
       {
         "code": "F# E#",

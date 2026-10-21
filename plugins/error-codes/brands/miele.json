@@ -84,22 +84,34 @@
       {
         "code": "F11",
         "meaning": "Water isn't draining out of the tub quickly enough.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F11": 140
+        }
       },
       {
         "code": "F13",
         "meaning": "The incoming water supply line is blocked or restricted.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F13": 90
+        }
       },
       {
         "code": "F25",
         "meaning": "Wash water didn't reach its target temperature in time, linked to a bad heater relay or failed heating element.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F25": 10
+        }
       },
       {
         "code": "F51",
         "meaning": "The pressure switch that senses water level in the sump has malfunctioned.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F51": 10
+        }
       },
       {
         "code": "F67",
@@ -109,7 +121,10 @@
       {
         "code": "F78",
         "meaning": "The circulation pump has physically seized.",
-        "self_clearable": false
+        "self_clearable": false,
+        "demand": {
+          "F78": 90
+        }
       }
     ]
   },
@@ -213,7 +228,10 @@
       {
         "code": "F66",
         "meaning": "Airflow through the dryer is restricted, most often from a dirty lint/condenser filter.",
-        "self_clearable": true
+        "self_clearable": true,
+        "demand": {
+          "F66": 110
+        }
       },
       {
         "code": "F104",
