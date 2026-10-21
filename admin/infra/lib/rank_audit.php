@@ -44,6 +44,9 @@ function rank_tiers(): array { return infra_audit_rank_tier_list(); }
 function rank_too_new_days(): int { return (int) infra_audit_setting('too_new_days'); }
 const RANK_PROBE_ATTEMPTS = 3;
 const RANK_DEPTH = 100;
+/** Two sweeps closer together than this are the same measurement attempt, not a
+ *  trend — see the note in rank_audit_latest(). */
+const RANK_MIN_SWEEP_GAP_HOURS = 6;
 /** Measured on the same endpoint the index sweep uses. */
 function rank_cost_per_probe(): float { return (float) infra_audit_setting('cost_per_probe'); }
 
@@ -279,10 +282,24 @@ function rank_audit_latest(): array
               'top10' => 0, 'top20' => 0, 'top100' => 0, 'nowhere' => 0, 'in_pack' => 0,
               'up' => 0, 'down' => 0, 'domains' => []];
     $db = rank_audit_db();
-    $sweeps = array_column($db->query('SELECT DISTINCT sweep_at FROM rank_sweep ORDER BY sweep_at DESC LIMIT 2')
+    // Every DISTINCT sweep_at, not just the last two — a same-session rerun sits
+    // between them and would otherwise be picked as "prev" by LIMIT 2 alone.
+    $sweeps = array_column($db->query('SELECT DISTINCT sweep_at FROM rank_sweep ORDER BY sweep_at DESC')
         ->fetchAll(PDO::FETCH_ASSOC), 'sweep_at');
     if (!$sweeps) return $empty;
-    [$at, $prevAt] = [$sweeps[0], $sweeps[1] ?? ''];
+    $at = $sweeps[0];
+    // ⚠ "PREV" MUST BE A DIFFERENT MEASUREMENT, NOT A RERUN OF THE SAME ONE.
+    // 2026-10-21: gannmoldremediation.com's "mold remediation Vista, CA" read #1 then
+    // "nowhere" — a real-looking collapse. The two sweeps compared were 59 SECONDS
+    // apart, both from the same evening of testing this module. That is SERP noise on
+    // a 21-day-old site, not Google re-ranking it twice inside a minute. Rank sweeps
+    // are button-only (monthly/weekly cadence once mature), so anything closer than
+    // this counts as the same attempt, not a trend — skip it rather than report it.
+    $prevAt = '';
+    $atTs = strtotime($at);
+    foreach (array_slice($sweeps, 1) as $s) {
+        if (($atTs - strtotime($s)) >= RANK_MIN_SWEEP_GAP_HOURS * 3600) { $prevAt = $s; break; }
+    }
 
     $st = $db->prepare('SELECT domain, keyword, position, url, local_pack, pack_shown, location
                         FROM rank_sweep WHERE sweep_at = ?');
