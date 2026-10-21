@@ -277,6 +277,7 @@ function fmt_date(string $iso): string {
         <?php include __DIR__ . '/_fleet_index.php'; ?>
         <?php include __DIR__ . '/_fleet_rank.php'; ?>
         <?php include __DIR__ . '/_fleet_calls.php'; ?>
+        <?php include __DIR__ . '/_fleet_revenue.php'; ?>
         <?php include __DIR__ . '/_fleet_audit_settings.php'; ?>
 
         <div id="batch-steps-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
