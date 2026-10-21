@@ -178,6 +178,16 @@ function error_codes_resolve(
     if ($type === '' && $brand !== '') return error_codes_resolve_hub($brand, $max);
     if ($type === '') return null; // no brand either (the master hub) — nothing to anchor on
 
+    // TYPE-HUB PAGE: an appliance but no brand in the slug (refrigerator-repair-{city}).
+    // Show one code from each manufacturer rather than standing in for a single brand —
+    // the old fall-through picked the first brand in priority order, which made every
+    // type hub a byte-identical copy of its own Whirlpool leaf. Falls back to the
+    // single-brand path below when too few brands have data for a real comparison.
+    if (!$brandExplicit) {
+        $cross = error_codes_resolve_type_hub($type, $max);
+        if ($cross) return $cross;
+    }
+
     $tryTypes = error_codes_type_synonyms($type);
 
     $lookup = function (string $b) use ($data, $tryTypes): ?array {
@@ -266,8 +276,11 @@ function error_codes_featured(array $ec): array {
                 'demand'         => (int) ($demand[$code] ?? 0),
                 'self_clearable' => !empty($c['self_clearable']),
                 'source_url'     => $src,
-                // Hub rows each name their own appliance; a leaf's is on $ec instead.
+                // A brand hub varies the appliance per row and a type hub varies the
+                // brand; whichever axis this table walks, the row carries its own label
+                // and $ec's is empty. A leaf has neither and takes both from $ec.
                 'type_label'     => (string) ($c['type_label'] ?? ''),
+                'brand_label'    => (string) ($c['brand_label'] ?? ''),
             ];
         }
     }
@@ -362,6 +375,99 @@ function error_codes_resolve_hub(string $brand, int $max = 6): ?array {
     ];
 }
 
+/** A type hub needs enough brands to be a comparison; below this it would just be a
+ *  short single-brand table wearing the wrong heading, so it falls back instead. */
+function error_codes_type_hub_min_brands(): int { return 4; }
+
+/**
+ * Cross-BRAND sampler for a type-hub page: one code from each manufacturer that makes
+ * this appliance, so the page compares brands instead of standing in for one.
+ *
+ * WHY THIS EXISTS. A type hub has no brand in its slug, so resolve() used to fall
+ * through to error_codes_brand_priority() and show the first brand with data —
+ * Whirlpool, every time. Measured on the live site afterwards: all seven type hubs
+ * with a code block were publishing a table 100% identical to their own Whirlpool
+ * leaf (refrigerator 7/7 rows, washer 11/11, dryer 7/7, dishwasher 7/7, oven 7/7,
+ * cooktop 7/7, freezer 3/3), with identical FAQ answers to match. Parent and child
+ * competing on the same words.
+ *
+ * This is the de-duplication fix, NOT a play for "<appliance> error codes" as a
+ * query — that phrase was swept across all 76 researched combos and returned zero
+ * volume everywhere. The value is that the type hub stops repeating its child and
+ * becomes the only page on the site that shows the same appliance across brands.
+ *
+ * Mirrors error_codes_resolve_hub() deliberately: that one walks appliances for a
+ * fixed brand, this one walks brands for a fixed appliance. Same dedupe rule, same
+ * per-row source_url (rows come from several manufacturer documents, so one shared
+ * "Source:" line could not say which claim came from where), same minimum-rows guard.
+ */
+function error_codes_resolve_type_hub(string $type, int $max = 12): ?array {
+    $data = error_codes_data();
+    if (!$data) return null;
+    $tryTypes = error_codes_type_synonyms($type);
+
+    // Priority order first so the result is deterministic and the best-known brands
+    // lead; any brand not named there still gets a turn, alphabetically.
+    $ordered = error_codes_brand_priority();
+    foreach (array_keys($data) as $b) if (!in_array($b, $ordered, true)) $ordered[] = $b;
+
+    $rows = [];
+    $seen = [];
+    $resolvedType = $type;
+    foreach ($ordered as $b) {
+        if ($max > 0 && count($rows) >= $max) break;
+        $brandData = $data[$b] ?? null;
+        if (!is_array($brandData)) continue;
+        foreach ($tryTypes as $t) {
+            $entry = $brandData[$t] ?? null;
+            if (!is_array($entry) || empty($entry['found']) || empty($entry['codes'])) continue;
+            // First code this brand has that no other brand has already contributed.
+            // Corporate siblings genuinely share codes — Maytag, Amana, JennAir and
+            // KitchenAid all show Whirlpool's PO — and printing it four times would
+            // read as padding rather than as a comparison.
+            $pick = null;
+            foreach ($entry['codes'] as $c) {
+                $key = strtolower(trim((string) ($c['code'] ?? '')));
+                if ($key === '' || isset($seen[$key])) continue;
+                $pick = $c;
+                $seen[$key] = true;
+                break;
+            }
+            if ($pick === null) break;   // everything this brand has is already shown
+            $resolvedType = $t;
+            $rows[] = [
+                'code'           => (string) ($pick['code'] ?? ''),
+                'meaning'        => (string) ($pick['meaning'] ?? ''),
+                'self_clearable' => !empty($pick['self_clearable']),
+                'detail'         => is_array($pick['detail'] ?? null) ? $pick['detail'] : [],
+                'demand'         => is_array($pick['demand'] ?? null) ? $pick['demand'] : [],
+                'brand'          => $b,
+                'brand_label'    => error_codes_brand_label($b),
+                'source_url'     => (string) ($entry['source_url'] ?? ''),
+            ];
+            break;
+        }
+    }
+    if (count($rows) < error_codes_type_hub_min_brands()) return null;
+
+    $diy = 0;
+    foreach ($rows as $r) if ($r['self_clearable']) $diy++;
+
+    return [
+        'brand'          => '',
+        'brand_label'    => '',
+        'type'           => $resolvedType,
+        'type_label'     => error_codes_type_label($resolvedType),
+        'source_url'     => '',          // per-row instead; see the render case
+        'codes'          => $rows,
+        'brand_explicit' => false,
+        'hub'            => false,
+        'cross_brand'    => true,
+        'diy_count'      => $diy,
+        'service_count'  => count($rows) - $diy,
+    ];
+}
+
 /** Small cardinals read better than digits in prose; past twelve, digits do. */
 function error_codes_num(int $n): string {
     static $w = [0 => 'none', 1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four',
@@ -404,9 +510,23 @@ function error_codes_intro(array $ec, string $domain = ''): string {
     $V = error_codes_num($v);
     $codeWord = $n === 1 ? 'code' : 'codes';
 
-    // A type-hub page cites one representative manufacturer, so the caveat that
-    // codes differ by brand has to come FIRST -- it is the honest framing, and
-    // it matters more than any voice variation.
+    // A cross-brand type hub shows one code per manufacturer, so the framing is
+    // "these are not interchangeable" rather than "here is one brand's set".
+    if (!empty($ec['cross_brand'])) {
+        $lead = 'Every manufacturer uses its own codes, so the same fault reads differently '
+              . 'depending on who made your ' . $type . '. Below is one from each — find your '
+              . 'brand, then check the exact characters against your own model\'s manual.';
+        if ($d && $v) {
+            $lead .= ' Of the ' . $N . ' here, ' . $D . ' are usually a check you can make '
+                   . 'yourself and ' . $V . ' need a technician.';
+        }
+        return $lead;
+    }
+
+    // A type-hub page that fell back to ONE representative manufacturer (too few
+    // brands researched for a real comparison), so the caveat that codes differ by
+    // brand has to come FIRST -- it is the honest framing, and it matters more than
+    // any voice variation.
     if (empty($ec['brand_explicit'])) {
         $lead = 'Error codes vary by manufacturer — below is what the most common ones mean on '
               . $brand . ' units. A different brand will use different codes, but the fix usually '

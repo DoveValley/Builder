@@ -77,10 +77,13 @@ function error_code_pairs_from_blocks(array $blocks): array {
             $code    = trim((string) ($row['code'] ?? ''));
             $meaning = trim((string) ($row['meaning'] ?? ''));
             if ($code === '' || $meaning === '') continue;
-            // Brand-hub rows each belong to a DIFFERENT appliance, so the question has
-            // to name that row's own appliance, not the block's (which is empty here).
+            // Brand-hub rows each belong to a DIFFERENT appliance and type-hub rows to a
+            // DIFFERENT brand, so the question has to name that row's own label rather
+            // than the block's — which is empty on whichever axis the table varies.
             $rowType = strtolower(trim((string) ($row['type_label'] ?? '')));
             if ($rowType !== '') $typeLabel = $rowType;
+            $rowBrand = trim((string) ($row['brand_label'] ?? ''));
+            if ($rowBrand !== '') $brandLabel = $rowBrand;
 
             /*
              * ONE QUESTION PER DISPLAY CODE, NOT PER STORED ENTRY.

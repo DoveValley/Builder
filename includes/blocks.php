@@ -2259,6 +2259,9 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             if ($ecHeading === '') {
                 if (!empty($ec['hub'])) {
                     $ecHeading = 'Common ' . $ec['brand_label'] . ' Error Codes by Appliance';
+                } elseif (!empty($ec['cross_brand'])) {
+                    // Mirrors the brand hub's "by Appliance" — this one walks the other axis.
+                    $ecHeading = 'Common ' . $ec['type_label'] . ' Error Codes by Brand';
                 } else {
                     $ecHeading = $ec['brand_explicit']
                         ? 'Common ' . $ec['brand_label'] . ' ' . $ec['type_label'] . ' Error Codes'
@@ -2291,8 +2294,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                 echo '<div class="ec-featured">';
                 foreach ($ecFeatured as $fc) {
                     // Heading mirrors the search phrase: "<Brand> <Appliance> <Code>".
-                    $fcType = $fc['type_label'] !== '' ? $fc['type_label'] : (string) ($ec['type_label'] ?? '');
-                    $fcTitle = trim(($ec['brand_label'] ?? '') . ' ' . $fcType . ' ' . $fc['code']);
+                    // Brand and appliance each come from the ROW when the table varies
+                    // along that axis — a brand hub varies appliance, a type hub varies
+                    // brand — and from the block otherwise. Taking either from $ec alone
+                    // would label a cross-brand row with an empty brand.
+                    $fcType  = $fc['type_label']  !== '' ? $fc['type_label']  : (string) ($ec['type_label'] ?? '');
+                    $fcBrand = $fc['brand_label'] !== '' ? $fc['brand_label'] : (string) ($ec['brand_label'] ?? '');
+                    $fcTitle = trim($fcBrand . ' ' . $fcType . ' ' . $fc['code']);
                     echo '<div class="ec-featured-item">';
                     echo '<h3 class="ec-featured-code">' . h($fcTitle) . '</h3>';
                     // The self-clearable flag is the one thing a visitor wants first:
@@ -2331,6 +2339,7 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
                     'code'       => $code,
                     'meaning'    => $meaning,
                     'type_label' => trim((string) ($row['type_label'] ?? '')),
+                    'brand_label'=> trim((string) ($row['brand_label'] ?? '')),
                     'source_url' => trim((string) ($row['source_url'] ?? '')),
                 ];
             }
@@ -2339,26 +2348,32 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             // A real <table>, not the former <dl>: this is two labelled columns of
             // repeated data, so a screen reader navigating cells announces "Code /
             // What it means" per row, which a definition list cannot express.
-            // Hub mode keeps the SAME two-column shape rather than adding an appliance
-            // column -- three columns of prose do not survive a 375px screen. The
-            // appliance becomes a small label above its code, which reads the same and
-            // costs no horizontal room.
-            $ecIsHub = !empty($ec['hub']);
+            //
+            // THREE SHAPES, ONE TABLE. A leaf names a single brand and appliance, so its
+            // rows need no label. A brand hub walks appliances for one brand; a type hub
+            // walks brands for one appliance. Both of those carry a per-row label, and
+            // both keep the SAME two columns rather than adding a third -- three columns
+            // of prose do not survive a 375px screen. The label becomes a small line
+            // above its code, which reads the same and costs no horizontal room.
+            $ecIsHub   = !empty($ec['hub']);          // brand hub: label = appliance
+            $ecIsCross = !empty($ec['cross_brand']);  // type hub:  label = brand
+            $ecLabelHead = $ecIsHub ? 'Appliance &amp; code' : ($ecIsCross ? 'Brand &amp; code' : 'Code');
             // tabindex+role: .ec-tablewrap is overflow-x:auto, and a scroll container is
             // unreachable by keyboard unless it is focusable. A named region is required --
             // an unnamed role="region" announces "region" and tells the user nothing -- so
             // it borrows the <h2> printed just above, which is also unique on the page.
             echo '<div class="ec-tablewrap" role="region" tabindex="0" aria-label="'
                 . h($ecHeading) . '"><table class="ec-table">';
-            echo '<thead><tr><th scope="col">' . ($ecIsHub ? 'Appliance &amp; code' : 'Code')
+            echo '<thead><tr><th scope="col">' . $ecLabelHead
                 . '</th><th scope="col">What it means</th></tr></thead><tbody>';
             foreach ($ecRows as $r) {
+                $rowLabel = $ecIsHub ? $r['type_label'] : ($ecIsCross ? $r['brand_label'] : '');
                 echo '<tr><th scope="row" class="ec-code">';
-                if ($ecIsHub && $r['type_label'] !== '') {
-                    // Each appliance label links to ITS OWN manufacturer document: a hub
-                    // row's codes come from several sources, so one shared "Source:" line
-                    // at the foot could not say which claim came from where.
-                    $lbl = h($r['type_label']);
+                if ($rowLabel !== '') {
+                    // Each label links to ITS OWN manufacturer document: these rows come
+                    // from several sources, so one shared "Source:" line at the foot could
+                    // not say which claim came from where.
+                    $lbl = h($rowLabel);
                     echo '<span class="ec-appliance">'
                         . ($r['source_url'] !== ''
                             ? '<a href="' . h($r['source_url']) . '" target="_blank" rel="noopener">' . $lbl . '</a>'
