@@ -137,7 +137,13 @@
     ]
   },
   "washer": {
-    "found": false
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "KitchenAid publishes an error-code list for DISHWASHERS only. For washers there are owner's manuals with symptom troubleshooting (won't fill, won't drain, won't spin) but no displayed-code list. Service tech sheets exist as PDFs but are service literature, not owner-facing published codes.",
+    "checked_sources": [
+      "https://producthelp.kitchenaid.com/Dishwashers/Dishwasher/Error_Code_or_Flashing_Lights",
+      "https://www.kitchenaid.com/repair-or-replace/troubleshoot.html"
+    ]
   },
   "refrigerator": {
     "found": true,

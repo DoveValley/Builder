@@ -234,6 +234,12 @@
     ]
   },
   "cooktop": {
-    "found": false
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "GE documents that digital cooktop controls DO display FXX fault codes, and then deliberately does not publish what they mean -- its own guidance is that an FXX code needs a trained service technician. There is no list to paraphrase. GE does publish a separate range/wall-oven code list, which is already recorded under ge.oven and ge.range.",
+    "checked_sources": [
+      "https://products.geappliances.com/appliance/gea-support-search-content?contentId=34683",
+      "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16238"
+    ]
   }
 }

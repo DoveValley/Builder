@@ -37,7 +37,9 @@
     ]
   },
   "cooktop": {
-    "found": false
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "Re-checked against the manufacturer and no published owner-facing error-code list was found."
   },
   "freezer": {
     "found": true,
@@ -72,10 +74,22 @@
     ]
   },
   "range": {
-    "found": false
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "Same position as viking.oven: no owner-facing list, third-party aggregators only, and an unread manufacturer service-manual PDF on Viking's own extranet.",
+    "checked_sources": [
+      "https://www.vikingrange.com/extranetcontent/service/serviceLiterature/manualsschematics/cooking/freestandingranges/Service_Manual_-_VGSC306-366-486.pdf"
+    ],
+    "lead": "Viking service-manual PDFs on vikingrange.com/extranetcontent — rate-limited, retry."
   },
   "oven": {
-    "found": false
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "No owner-facing code list on vikingrange.com. Codes for Viking ovens circulate widely, but every accessible source is a third-party repair aggregator, which this plugin refuses by design. A Viking service-manual PDF exists on their own extranet and is the one promising lead -- it returned HTTP 429 when fetched and has not been read.",
+    "checked_sources": [
+      "https://www.vikingrange.com/extranetcontent/service/serviceLiterature/manualsschematics/cooking/freestandingranges/Service_Manual_-_VGSC306-366-486.pdf"
+    ],
+    "lead": "Viking service-manual PDFs on vikingrange.com/extranetcontent — rate-limited, retry."
   },
   "refrigerator": {
     "found": true,

@@ -232,6 +232,12 @@
     ]
   },
   "refrigerator": {
-    "found": false
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "Thermador publishes an error-code page for OVENS and one for Home Connect, but has no refrigerator equivalent -- refrigerator support routes to per-model owner resources and a phone number. The oven list is already recorded under thermador.oven.",
+    "checked_sources": [
+      "https://www.thermador.com/us/support/ovens/error-codes",
+      "https://www.thermador.com/us/support/quicklinks"
+    ]
   }
 }
