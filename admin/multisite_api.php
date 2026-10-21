@@ -1746,17 +1746,35 @@ switch ($action) {
             if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
             $byDomain[$dom]['phone']      = $r['phone'];
             $byDomain[$dom]['area_code']  = $r['area_code'];
-            $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $r['warning']];
+            // A destination can be staged on this row before any CTM number exists
+            // (ctm_set_routing below, "pending" case — forward_to set, forward_rpn_id
+            // not) precisely so this moment doesn't require a second manual step: the
+            // number this domain was always going to route to just got one to attach to.
+            $warning = $r['warning'];
+            $pendingDest = trim((string) ($byDomain[$dom]['forward_to'] ?? ''));
+            if ($pendingDest !== '' && trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? '')) === '') {
+                $routed = ctm_set_routing_for_domain($accountId, $r['phone'], $pendingDest, '');
+                if ($routed['ok']) {
+                    $byDomain[$dom]['forward_to']     = $routed['destination'];
+                    $byDomain[$dom]['forward_rpn_id'] = $routed['receiving_id'];
+                    $warning .= ($warning !== '' ? ' ' : '') . "Pre-set routing to {$routed['destination']} applied.";
+                } else {
+                    $warning .= ($warning !== '' ? ' ' : '') . "Could not apply its pre-set routing destination: {$routed['error']}";
+                }
+            }
+            $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $warning];
         }
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
         echo json_encode(['results' => $results]);
         break;
 
-    // Call routing — where a domain's EXISTING tracking number forwards to. Isolated
+    // Call routing — where a domain's tracking number forwards to. Isolated
     // capability, same reasoning as ctm_get_numbers above. Deliberately NOT gated on
     // LIVE: unlike the tracking number itself, this never touches the generated site
     // (CTM forwards the same printed number to a different destination), so it is
-    // safe to change on an already-live domain with no rebuild.
+    // safe to change on an already-live domain with no rebuild. Also NOT gated on
+    // having a tracking number yet — a domain with none gets its destination staged
+    // locally and applied automatically once ctm_get_numbers buys one.
     case 'ctm_set_routing':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
         require_once __DIR__ . '/../includes/calltrackingmetrics.php';
@@ -1775,7 +1793,14 @@ switch ($action) {
             if (!isset($byDomain[$dom])) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
             $phone = trim((string) ($byDomain[$dom]['phone'] ?? ''));
             if ($phone === '') {
-                $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'No CTM tracking number on this row yet — get one first.'];
+                // No tracking number to attach a destination to yet — CTM has nothing
+                // for this to point at. Record the INTENT anyway rather than refuse:
+                // forward_to set + forward_rpn_id blank is how a row reads "staged,
+                // not yet pushed" (no extra column needed). ctm_get_numbers applies it
+                // automatically the moment this domain's real number gets bought, so
+                // setting the destination ahead of go-live is one step, not two.
+                $byDomain[$dom]['forward_to'] = $destination;
+                $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $destination, 'pending' => true];
                 continue;
             }
             $oldId = trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? ''));

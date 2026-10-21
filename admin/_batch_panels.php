@@ -92,7 +92,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             <button type="button" class="btn btn-primary" id="ms-route-btn" onclick="msCtmSetRouting()">Set Call Routing (<span id="ms-route-count">0</span> selected)</button>
             <span id="ms-route-msg" class="hint" style="margin-left:8px;"></span>
             <div class="hint" style="margin-top:4px;width:100%;">
-                Uses the same checkboxes as Get CTM Phone Numbers above. A row with no tracking number yet is skipped with an error — get one first.
+                Uses the same checkboxes as Get CTM Phone Numbers above. A row with no tracking number yet still saves the destination — it applies automatically the moment that row's number gets bought.
             </div>
         </div>
         <div id="ms-route-results" style="margin-top:8px;font-size:.8rem;"></div>
@@ -2078,6 +2078,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             .catch(() => alert('Reset failed — lost contact with the server.'));
     };
 
+    // forward_to set + forward_rpn_id blank = staged, never pushed to CTM yet (no
+    // tracking number existed when it was set) — distinct from actually applied, so
+    // this never implies a call is really routing somewhere when it is not yet.
+    function msRoutesToCell(f) {
+        if (!f.forward_to) return '<span class="hint">not set</span>';
+        if (!f.forward_rpn_id) return '<span style="color:#b45309;">' + esc(f.forward_to) + '</span> <span class="hint">(staged — no CTM number yet)</span>';
+        return esc(f.forward_to);
+    }
+
     function msRenderRowPair(domain, rowNum) {
         const r = msRows[domain] || {};
         const f = r.fields || {};
@@ -2102,7 +2111,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
                 '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
-                '<td>' + (f.forward_to ? esc(f.forward_to) : '<span class="hint">not set</span>') + '</td>' +
+                '<td>' + msRoutesToCell(f) + '</td>' +
                 '<td><input class="ms-row-input" data-f="city" value="' + esc(f.city || '') + '" style="width:110px;"></td>' +
                 '<td><input class="ms-row-input" data-f="state" value="' + esc(f.state || '') + '" style="width:100px;" placeholder="Florida"></td>' +
                 '<td><input class="ms-row-input" data-f="SS" maxlength="2" value="' + esc(f.SS || '') + '" style="width:40px;"></td>' +
@@ -2114,7 +2123,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + esc(f.business || '') + '</td>' +
                 '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
-                '<td>' + (f.forward_to ? esc(f.forward_to) : '<span class="hint">not set</span>') + '</td>' +
+                '<td>' + msRoutesToCell(f) + '</td>' +
                 '<td>' + esc(f.city || '') + '</td>' +
                 '<td>' + esc(f.state || '') + '</td>' +
                 '<td>' + esc(f.SS || '') + '</td>' +
@@ -2217,7 +2226,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
         if (!destination) { msgEl.textContent = 'Enter a destination phone number first.'; return; }
         if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
-        if (!confirm('Point ' + domains.length + ' domain(s)\' existing tracking number at ' + destination + '?\n\nThis replaces whatever each one currently routes to, for real, in CTM.')) return;
+        if (!confirm('Point ' + domains.length + ' domain(s) at ' + destination + '?\n\nFor any row with a CTM tracking number already, this replaces whatever it currently routes to, for real, in CTM. A row with no number yet just has the destination saved for when it gets one.')) return;
 
         const btn = document.getElementById('ms-route-btn');
         btn.disabled = true;
@@ -2237,10 +2246,11 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
 
         if (d.error) { msgEl.textContent = d.error; return; }
         msgEl.textContent = '';
-        resEl.innerHTML = (d.results || []).map(r => r.ok
-            ? '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.destination) + '</div>'
-            : '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>'
-        ).join('');
+        resEl.innerHTML = (d.results || []).map(r => {
+            if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+            if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + ' → ' + esc(r.destination) + ' (saved — no CTM number yet, applies automatically once it has one)</div>';
+            return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.destination) + '</div>';
+        }).join('');
         await msLoadRows();
     };
 
