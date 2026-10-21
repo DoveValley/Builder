@@ -2082,7 +2082,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     // tracking number existed when it was set) — distinct from actually applied, so
     // this never implies a call is really routing somewhere when it is not yet.
     function msRoutesToCell(f) {
-        if (!f.forward_to) return '<span class="hint">not set</span>';
+        if (!f.forward_to) return '<span style="color:#991b1b;font-weight:600;">not set</span>';
         if (!f.forward_rpn_id) return '<span style="color:#b45309;">' + esc(f.forward_to) + '</span> <span class="hint">(staged — no CTM number yet)</span>';
         return esc(f.forward_to);
     }
