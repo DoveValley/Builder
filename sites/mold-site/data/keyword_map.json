@@ -41,7 +41,11 @@
         "water damage mold",
         "mold after water damage"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 74000,
+      "cpc": 30.87,
+      "kd": 21,
+      "value_weight": 2284380
     },
     {
       "primary": "mold damage restoration {city}, {ST}",
@@ -56,7 +60,11 @@
         "water damage mold",
         "mold after water damage"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 1300,
+      "cpc": 44.48,
+      "kd": 15,
+      "value_weight": 57824
     },
     {
       "primary": "mold inspection {city}, {ST}",
@@ -74,7 +82,11 @@
         "mold sampling",
         "mold lab testing"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 27100,
+      "cpc": 21.55,
+      "kd": 12,
+      "value_weight": 584005
     },
     {
       "primary": "black mold removal {city}, {ST}",
@@ -89,7 +101,11 @@
         "black mold in shower",
         "black mold removal near me"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 12100,
+      "cpc": 15.26,
+      "kd": 17,
+      "value_weight": 184646
     },
     {
       "primary": "mold testing {city}, {ST}",
@@ -102,7 +118,11 @@
         "mold sampling",
         "mold lab testing"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 22200,
+      "cpc": 9.73,
+      "kd": 32,
+      "value_weight": 216006
     },
     {
       "primary": "commercial mold remediation {city}, {ST}",
@@ -122,7 +142,11 @@
         "property manager mold remediation",
         "landlord mold remediation"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 480,
+      "cpc": 22.45,
+      "kd": 0,
+      "value_weight": 10776
     },
     {
       "primary": "mold mitigation {city}, {ST}",
@@ -136,7 +160,11 @@
         "mold containment",
         "mold remediation vs mitigation"
       ],
-      "pool": "skip"
+      "pool": "skip",
+      "volume": 74000,
+      "cpc": 30.87,
+      "kd": 21,
+      "value_weight": 2284380
     },
     {
       "primary": "crawl space mold removal {city}, {ST}",
@@ -148,7 +176,11 @@
         "mold in crawl space",
         "crawl space mold removal near me"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 1900,
+      "cpc": 35.19,
+      "kd": 0,
+      "value_weight": 66861
     },
     {
       "primary": "attic mold removal {city}, {ST}",
@@ -161,7 +193,11 @@
         "mold in attic",
         "attic mold removal near me"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 2900,
+      "cpc": 32.16,
+      "kd": 0,
+      "value_weight": 93264
     },
     {
       "primary": "basement mold removal {city}, {ST}",
@@ -174,7 +210,11 @@
         "mold in basement",
         "basement mold removal near me"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 1900,
+      "cpc": 21.88,
+      "kd": 4,
+      "value_weight": 41572
     },
     {
       "primary": "air conditioner mold removal {city}, {ST}",
@@ -188,7 +228,11 @@
         "air duct mold removal",
         "ac mold removal near me"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 2400,
+      "cpc": 7.98,
+      "kd": 0,
+      "value_weight": 19152
     },
     {
       "primary": "mold prevention {city}, {ST}",
@@ -201,7 +245,11 @@
         "moisture detection",
         "mold proofing"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 1900,
+      "cpc": 5.4,
+      "kd": 39,
+      "value_weight": 10260
     },
     {
       "primary": "indoor air quality testing {city}, {ST}",
@@ -216,7 +264,11 @@
         "air sampling for mold",
         "indoor air quality assessment"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 3600,
+      "cpc": 5.92,
+      "kd": 1,
+      "value_weight": 21312
     },
     {
       "primary": "bathroom mold removal {city}, {ST}",
@@ -231,7 +283,11 @@
         "bathroom tile mold removal",
         "get rid of bathroom mold"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 5400,
+      "cpc": 7.37,
+      "kd": 7,
+      "value_weight": 39798
     },
     {
       "primary": "ceiling mold removal {city}, {ST}",
@@ -245,7 +301,11 @@
         "ceiling mold treatment",
         "bathroom ceiling mold"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 880,
+      "cpc": 5.41,
+      "kd": 2,
+      "value_weight": 4761
     },
     {
       "primary": "drywall mold removal {city}, {ST}",
@@ -260,7 +320,11 @@
         "drywall mold remediation",
         "mold inside a wall cavity"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 1000,
+      "cpc": 10.7,
+      "kd": 0,
+      "value_weight": 10700
     },
     {
       "primary": "air duct mold removal {city}, {ST}",
@@ -274,7 +338,11 @@
         "air duct mold remediation",
         "ac duct mold cleaning"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 390,
+      "cpc": 25.91,
+      "kd": 2,
+      "value_weight": 10105
     },
     {
       "primary": "kitchen mold removal {city}, {ST}",
@@ -288,7 +356,11 @@
         "mold in kitchen cabinets",
         "kitchen mold cleanup"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 30,
+      "cpc": 2.09,
+      "kd": 0,
+      "value_weight": 63
     },
     {
       "primary": "carpet mold removal {city}, {ST}",
@@ -302,7 +374,11 @@
         "wet carpet mold",
         "carpet mold treatment"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 2400,
+      "cpc": 3.97,
+      "kd": 0,
+      "value_weight": 9528
     },
     {
       "primary": "garage mold removal {city}, {ST}",
@@ -315,7 +391,11 @@
         "mold on the garage ceiling",
         "garage mold cleanup"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 70,
+      "cpc": 6.77,
+      "kd": 0,
+      "value_weight": 474
     },
     {
       "primary": "home inspection mold testing {city}, {ST}",
@@ -329,7 +409,11 @@
         "pre purchase mold inspection",
         "mold inspection before buying a house"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 90,
+      "cpc": 15.19,
+      "kd": 23,
+      "value_weight": 1367
     },
     {
       "primary": "mold removal cost {city}, {ST}",
@@ -344,7 +428,11 @@
         "mold removal cost estimate",
         "how much does mold removal cost"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 9900,
+      "cpc": 18.24,
+      "kd": 18,
+      "value_weight": 180576
     }
   ],
   "updated_at": "2026-10-04T18:11:22+00:00",
@@ -355,5 +443,6 @@
       19,
       21
     ]
-  }
+  },
+  "keyword_metrics_pulled_at": "2026-10-21"
 }

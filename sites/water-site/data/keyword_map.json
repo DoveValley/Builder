@@ -27,7 +27,11 @@
         "flood damage cleanup",
         "flood restoration services"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 33100,
+      "cpc": 73.73,
+      "kd": 9,
+      "value_weight": 2440463
     },
     {
       "primary": "storm damage restoration {city}, {ST}",
@@ -41,7 +45,11 @@
         "storm restoration",
         "catastrophic storm response"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 33100,
+      "cpc": 16.49,
+      "kd": 0,
+      "value_weight": 545819
     },
     {
       "primary": "water damage repair {city}, {ST}",
@@ -53,7 +61,11 @@
         "home water damage repair",
         "water damage repair services"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 9900,
+      "cpc": 52.34,
+      "kd": 38,
+      "value_weight": 518166
     },
     {
       "primary": "water mitigation {city}, {ST}",
@@ -68,7 +80,11 @@
         "moisture mapping",
         "water mitigation company"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 5400,
+      "cpc": 37.97,
+      "kd": 0,
+      "value_weight": 205038
     },
     {
       "primary": "emergency water damage restoration {city}, {ST}",
@@ -81,7 +97,11 @@
         "water damage restoration near me",
         "emergency water damage cleanup"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 3600,
+      "cpc": 77.57,
+      "kd": 19,
+      "value_weight": 279252
     },
     {
       "primary": "sewage cleanup {city}, {ST}",
@@ -94,7 +114,11 @@
         "black water cleanup",
         "sewage damage cleanup"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 1600,
+      "cpc": 61.54,
+      "kd": 21,
+      "value_weight": 98464
     },
     {
       "primary": "flooded basement repair {city}, {ST}",
@@ -111,7 +135,11 @@
         "basement water damage",
         "wet basement cleanup"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 720,
+      "cpc": 52.99,
+      "kd": 7,
+      "value_weight": 38153
     },
     {
       "primary": "commercial water damage restoration {city}, {ST}",
@@ -124,7 +152,11 @@
         "business water damage restoration",
         "commercial water damage cleanup"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 590,
+      "cpc": 24.31,
+      "kd": 15,
+      "value_weight": 14343
     },
     {
       "primary": "burst pipe cleanup {city}, {ST}",
@@ -140,7 +172,11 @@
         "burst pipe in wall",
         "water line break"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 1000,
+      "cpc": 77.18,
+      "kd": 0,
+      "value_weight": 77180
     },
     {
       "primary": "ceiling water damage {city}, {ST}",
@@ -152,7 +188,11 @@
         "water stained ceiling",
         "ceiling leak repair"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 2900,
+      "cpc": 43.33,
+      "kd": 0,
+      "value_weight": 125657
     },
     {
       "primary": "hardwood floor water damage {city}, {ST}",
@@ -165,7 +205,11 @@
         "hardwood floor water damage repair",
         "wet wood floor"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 1600,
+      "cpc": 13.8,
+      "kd": 0,
+      "value_weight": 22080
     },
     {
       "primary": "carpet water damage {city}, {ST}",
@@ -177,7 +221,11 @@
         "carpet water extraction",
         "carpet flood damage"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 720,
+      "cpc": 42.53,
+      "kd": 0,
+      "value_weight": 30622
     },
     {
       "primary": "roof leak water damage {city}, {ST}",
@@ -189,7 +237,11 @@
         "ceiling leak from roof",
         "roof leak water damage repair"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 170,
+      "cpc": 22.95,
+      "kd": 0,
+      "value_weight": 3902
     },
     {
       "primary": "attic water damage {city}, {ST}",
@@ -200,7 +252,11 @@
         "attic water damage repair",
         "wet attic insulation"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 110,
+      "cpc": 69.89,
+      "kd": 16,
+      "value_weight": 7688
     },
     {
       "primary": "drywall water damage repair {city}, {ST}",
@@ -213,7 +269,11 @@
         "sheetrock water damage repair",
         "wet drywall repair"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 880,
+      "cpc": 21.92,
+      "kd": 0,
+      "value_weight": 19290
     },
     {
       "primary": "toilet overflow cleanup {city}, {ST}",
@@ -225,7 +285,11 @@
         "overflowing toilet cleanup",
         "toilet flood cleanup"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 90,
+      "cpc": 26.78,
+      "kd": 0,
+      "value_weight": 2410
     },
     {
       "primary": "emergency board-up {city}, {ST}",
@@ -237,7 +301,11 @@
         "emergency board up services",
         "window board up"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 210,
+      "cpc": 228.28,
+      "kd": 0,
+      "value_weight": 47939
     },
     {
       "primary": "roof tarping {city}, {ST}",
@@ -249,7 +317,11 @@
         "roof tarp service",
         "temporary roof tarp"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 5400,
+      "cpc": 4.17,
+      "kd": 1,
+      "value_weight": 22518
     },
     {
       "primary": "hurricane damage restoration {city}, {ST}",
@@ -260,7 +332,10 @@
         "hurricane damage cleanup",
         "hurricane damage repair"
       ],
-      "pool": "skip"
+      "pool": "skip",
+      "volume": 30,
+      "kd": 0,
+      "value_weight": 0
     },
     {
       "primary": "water heater leak {city}, {ST}",
@@ -272,7 +347,11 @@
         "burst water heater",
         "water heater flood"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 14800,
+      "cpc": 38.65,
+      "kd": 11,
+      "value_weight": 572020
     },
     {
       "primary": "appliance leak & overflow cleanup {city}, {ST}",
@@ -284,7 +363,9 @@
         "washing machine overflow",
         "dishwasher leak cleanup"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 0,
+      "value_weight": 0
     },
     {
       "primary": "flooded bathroom cleanup {city}, {ST}",
@@ -296,7 +377,9 @@
         "overflowing tub cleanup",
         "shower overflow cleanup"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 0,
+      "value_weight": 0
     },
     {
       "primary": "water damage inspection {city}, {ST}",
@@ -309,7 +392,11 @@
         "water damage evaluation",
         "water damage estimate"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 590,
+      "cpc": 77.11,
+      "kd": 0,
+      "value_weight": 45495
     },
     {
       "primary": "water damage reconstruction {city}, {ST}",
@@ -321,7 +408,11 @@
         "rebuild after water damage",
         "post water damage reconstruction"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 50,
+      "cpc": 17.72,
+      "kd": 28,
+      "value_weight": 886
     },
     {
       "primary": "contents restoration {city}, {ST}",
@@ -332,7 +423,11 @@
         "pack out services",
         "contents pack out"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 260,
+      "cpc": 46.39,
+      "kd": 0,
+      "value_weight": 12061
     },
     {
       "primary": "winter storm damage {city}, {ST}",
@@ -343,7 +438,10 @@
         "ice damage restoration",
         "ice dam water damage"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 170,
+      "kd": 2,
+      "value_weight": 0
     },
     {
       "primary": "water damage insurance claim {city}, {ST}",
@@ -359,7 +457,11 @@
         "homeowners insurance water damage",
         "water damage insurance adjuster"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 480,
+      "cpc": 12.25,
+      "kd": 27,
+      "value_weight": 5880
     },
     {
       "primary": "emergency water removal {city}, {ST}",
@@ -375,7 +477,11 @@
         "flood water removal",
         "standing water removal"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 5400,
+      "cpc": 45.71,
+      "kd": 7,
+      "value_weight": 246834
     },
     {
       "primary": "water damage restoration cost {city}, {ST}",
@@ -390,7 +496,11 @@
         "water mitigation cost",
         "water damage cleanup cost"
       ],
-      "pool": "pinned"
+      "pool": "pinned",
+      "volume": 720,
+      "cpc": 63.07,
+      "kd": 0,
+      "value_weight": 45410
     },
     {
       "primary": "basement water damage {city}, {ST}",
@@ -404,7 +514,11 @@
         "basement moisture",
         "damp basement"
       ],
-      "pool": "rotate"
+      "pool": "rotate",
+      "volume": 480,
+      "cpc": 46.77,
+      "kd": 1,
+      "value_weight": 22450
     }
   ],
   "updated_at": "2026-07-12T00:06:08+00:00",
@@ -415,5 +529,6 @@
       29
     ],
     "enabled": true
-  }
+  },
+  "keyword_metrics_pulled_at": "2026-10-21"
 }
