@@ -127,6 +127,14 @@
         "self_clearable": true,
         "demand": {
           "F9E1": 30
+        },
+        "detail": {
+          "F9E1": {
+            "what_it_means": "Water is not draining out fast enough, usually from a blockage in the drain path.",
+            "why_it_happens": "A clogged tub filter, a kinked hose, or a silted-up air gap on the worktop.",
+            "what_to_try": "Clear the tub filter, check the air gap, then the drain hose.",
+            "when_to_call": "If the filter and hose are clear and it still will not drain, the drain pump needs testing."
+          }
         }
       },
       {
@@ -140,6 +148,14 @@
         "self_clearable": false,
         "demand": {
           "F8E4": 50
+        },
+        "detail": {
+          "F8E4": {
+            "what_it_means": "Water has been detected pooling in the drip tray underneath the unit.",
+            "why_it_happens": "A leak above the tray rather than a drainage problem inside the tub.",
+            "what_to_try": "Turn the supply off at the valve and stop using the machine until the leak is traced.",
+            "when_to_call": "This needs a technician — the tray only tells you water arrived, not where from."
+          }
         }
       }
     ]

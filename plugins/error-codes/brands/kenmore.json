@@ -11,6 +11,14 @@
         "self_clearable": true,
         "demand": {
           "F20": 50
+        },
+        "detail": {
+          "F20": {
+            "what_it_means": "The machine is not getting water into the tub.",
+            "why_it_happens": "Usually a shut supply valve, or a fill line that is pinched or has frozen.",
+            "what_to_try": "Check both taps are fully open and the fill hoses are not kinked or crushed behind the machine.",
+            "when_to_call": "If the supply is good and water still will not arrive, the inlet valve needs testing."
+          }
         }
       },
       {
@@ -19,6 +27,14 @@
         "self_clearable": false,
         "demand": {
           "F24": 20
+        },
+        "detail": {
+          "F24": {
+            "what_it_means": "The sensor that reads water temperature is sending a bad signal.",
+            "why_it_happens": "Often a loose or damaged wiring connection rather than the sensor itself.",
+            "what_to_try": "Nothing here is an owner check — the sensor and its wiring are inside the machine.",
+            "when_to_call": "When you see it. The machine cannot run temperature-dependent cycles correctly."
+          }
         }
       },
       {
@@ -35,6 +51,14 @@
         "self_clearable": false,
         "demand": {
           "F35": 20
+        },
+        "detail": {
+          "F35": {
+            "what_it_means": "The sensor that measures water pressure and level inside the tub is reporting an invalid reading.",
+            "why_it_happens": "A sensor or wiring fault, not something caused by the load.",
+            "what_to_try": "A power-cycle at the breaker clears a one-off. There is no other owner-side check.",
+            "when_to_call": "If it returns, the pressure sensor needs testing."
+          }
         }
       },
       {
@@ -43,6 +67,14 @@
         "self_clearable": true,
         "demand": {
           "Sud": 30
+        },
+        "detail": {
+          "Sud": {
+            "what_it_means": "The machine has detected more suds than it can handle and is pausing to clear them.",
+            "why_it_happens": "Too much detergent, or a non-HE detergent in a high-efficiency drum, which foams far more.",
+            "what_to_try": "Let the suds-clearing routine finish rather than cancelling it, then cut the dose next load and check it is HE-rated.",
+            "when_to_call": "If it appears with a correct HE dose, the drain path is worth checking."
+          }
         }
       },
       {
@@ -69,6 +101,14 @@
         "self_clearable": false,
         "demand": {
           "F1": 40
+        },
+        "detail": {
+          "F1": {
+            "what_it_means": "The oven's main electronic control unit has failed.",
+            "why_it_happens": "An electronic failure rather than a setting or a door condition.",
+            "what_to_try": "Cut power at the breaker for a minute to clear a one-off glitch.",
+            "when_to_call": "If it returns after a power cycle, the control unit needs replacing."
+          }
         }
       },
       {

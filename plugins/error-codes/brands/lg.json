@@ -188,6 +188,14 @@
         "self_clearable": false,
         "demand": {
           "F11": 20
+        },
+        "detail": {
+          "F11": {
+            "what_it_means": "The oven's internal boards have lost communication with one another.",
+            "why_it_happens": "A wiring or connector fault between boards rather than a cooking fault.",
+            "what_to_try": "Cut power at the breaker for a minute — that clears a one-off. A code that returns is naming a real fault.",
+            "when_to_call": "If it comes back after a power cycle, it needs a technician."
+          }
         }
       },
       {
@@ -196,6 +204,14 @@
         "self_clearable": false,
         "demand": {
           "F19": 90
+        },
+        "detail": {
+          "F19": {
+            "what_it_means": "The oven is running but failing to bring the cavity up to the temperature it was set to.",
+            "why_it_happens": "Usually the element not delivering or the sensor misreporting, rather than a setting or a door problem.",
+            "what_to_try": "Check the door closes fully and the oven is not in a mode that limits temperature. Beyond that there is no owner check.",
+            "when_to_call": "If the door seals and the mode is right, the element or sensor needs testing."
+          }
         }
       },
       {
@@ -431,6 +447,14 @@
         "meaning": "The water level sensor is not reporting correctly, so the washer cannot tell how full the tub is.",
         "demand": {
           "PE": 90
+        },
+        "detail": {
+          "PE": {
+            "what_it_means": "The water level sensor is not reporting correctly, so the washer cannot tell how full the tub is.",
+            "why_it_happens": "A sensor or wiring fault, not something caused by the load or the detergent.",
+            "what_to_try": "A power-cycle at the breaker clears a one-off reading error. There is no other owner-side check here.",
+            "when_to_call": "If it returns, the pressure sensor needs testing."
+          }
         }
       },
       {
@@ -439,6 +463,14 @@
         "meaning": "A heating fault, normally traced to the thermistor that reads water temperature.",
         "demand": {
           "TE": 40
+        },
+        "detail": {
+          "TE": {
+            "what_it_means": "A heating fault, normally traced to the thermistor that reads water temperature.",
+            "why_it_happens": "The sensor has drifted or failed, so the control cannot confirm the water reached temperature.",
+            "what_to_try": "Nothing here is an owner check — the thermistor sits inside the machine.",
+            "when_to_call": "When you see it. Cold cycles may still run, but the machine is not doing what the programme selected."
+          }
         }
       },
       {
@@ -447,6 +479,14 @@
         "meaning": "The door latch itself is malfunctioning rather than simply being obstructed.",
         "demand": {
           "dL": 30
+        },
+        "detail": {
+          "dL": {
+            "what_it_means": "The door latch itself is malfunctioning rather than simply being obstructed.",
+            "why_it_happens": "Unlike dE1, this points at the mechanism rather than at laundry caught in the doorway.",
+            "what_to_try": "Close the door firmly once with nothing in the way, to rule out the simple case.",
+            "when_to_call": "If it still will not lock with a clear doorway, the latch assembly needs replacing."
+          }
         }
       },
       {

@@ -40,6 +40,14 @@
         "self_clearable": true,
         "demand": {
           "E4": 30
+        },
+        "detail": {
+          "E4": {
+            "what_it_means": "The load has shifted unevenly inside the drum during spin, throwing the machine off balance.",
+            "why_it_happens": "Usually one heavy item on its own, or a load that has bunched to one side.",
+            "what_to_try": "Open the lid, redistribute the load by hand and restart the spin. Adding a similar-weight item often settles it.",
+            "when_to_call": "If balanced loads also trip it, the suspension is worth checking."
+          }
         }
       },
       {
@@ -70,6 +78,14 @@
         "self_clearable": true,
         "demand": {
           "LOC": 20
+        },
+        "detail": {
+          "LOC": {
+            "what_it_means": "Not a fault — the door-locking feature is engaged, so the controls will not respond.",
+            "why_it_happens": "Normally switched on to stop a running cycle being changed, then forgotten about.",
+            "what_to_try": "Hold the lock pad for a few seconds to release it; the panel returns to normal once it takes.",
+            "when_to_call": "Only if the lock will not release."
+          }
         }
       },
       {
@@ -88,6 +104,14 @@
         "self_clearable": true,
         "demand": {
           "i20": 70
+        },
+        "detail": {
+          "i20": {
+            "what_it_means": "A cycle finished without the tub fully emptying, pointing to a drainage problem.",
+            "why_it_happens": "Usually a clogged filter, a kinked drain hose, or a disposer holding debris where the dishwasher line joins it.",
+            "what_to_try": "Clear the tub filter, check the drain hose for kinks, and run the disposer if the line joins one.",
+            "when_to_call": "If the filter and hose are clear and it still will not drain, the drain pump needs testing."
+          }
         }
       },
       {
@@ -104,6 +128,14 @@
         "self_clearable": true,
         "demand": {
           "PF": 70
+        },
+        "detail": {
+          "PF": {
+            "what_it_means": "Not a fault. The dishwasher lost electrical power partway through a cycle.",
+            "why_it_happens": "An outage, a tripped breaker, or the door opened long enough to cut the cycle.",
+            "what_to_try": "Select your cycle again and restart. If it recurs with no outage, check the breaker and the circuit.",
+            "when_to_call": "If PF keeps appearing on a stable supply, the power board is worth checking."
+          }
         }
       }
     ]
@@ -192,6 +224,14 @@
         "self_clearable": false,
         "demand": {
           "F1": 50
+        },
+        "detail": {
+          "F1": {
+            "what_it_means": "A key on the control's touchpad is electrically shorted, as if it were being held down.",
+            "why_it_happens": "Moisture or wear in the touchpad membrane rather than anything to do with cooking.",
+            "what_to_try": "Cut power at the breaker for a minute. If moisture caused it, letting the panel dry can clear it.",
+            "when_to_call": "If it returns, the touchpad or control board needs replacing."
+          }
         }
       },
       {
@@ -216,6 +256,14 @@
         "self_clearable": false,
         "demand": {
           "F30": 40
+        },
+        "detail": {
+          "F30": {
+            "what_it_means": "The oven temperature probe circuit is open — the control is getting no signal from it.",
+            "why_it_happens": "A broken probe or a disconnected wire, so the oven has no temperature reading to work from.",
+            "what_to_try": "Nothing here is an owner check — the probe circuit is internal.",
+            "when_to_call": "When you see it. Do not keep using an oven that cannot read its own temperature."
+          }
         }
       },
       {
@@ -250,6 +298,14 @@
         "self_clearable": false,
         "demand": {
           "F3": 20
+        },
+        "detail": {
+          "F3": {
+            "what_it_means": "The control boards inside the range have lost communication with one another.",
+            "why_it_happens": "A wiring or connector fault between boards rather than a cooking fault.",
+            "what_to_try": "Cut power at the breaker for a minute to clear a one-off.",
+            "when_to_call": "If it returns after a power cycle, it needs a technician."
+          }
         }
       },
       {

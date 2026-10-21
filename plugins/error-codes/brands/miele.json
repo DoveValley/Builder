@@ -103,6 +103,14 @@
         "self_clearable": true,
         "demand": {
           "F13": 90
+        },
+        "detail": {
+          "F13": {
+            "what_it_means": "The incoming water supply line is blocked or restricted, so the machine cannot fill properly.",
+            "why_it_happens": "Most often a closed supply valve or a silted-up inlet screen where the hose meets the machine.",
+            "what_to_try": "Check the supply valve is fully open, then turn it off and inspect the inlet screen at the machine end for scale and grit.",
+            "when_to_call": "If the supply is good and the screen is clear, the inlet valve needs testing."
+          }
         }
       },
       {
@@ -132,6 +140,14 @@
         "self_clearable": false,
         "demand": {
           "F78": 90
+        },
+        "detail": {
+          "F78": {
+            "what_it_means": "The circulation pump has physically seized and cannot move water through the wash system.",
+            "why_it_happens": "A mechanical failure rather than a blockage you can reach from the tub.",
+            "what_to_try": "Nothing here is an owner check — the circulation pump is inside the machine.",
+            "when_to_call": "When you see it. The machine cannot wash until the pump is dealt with."
+          }
         }
       }
     ]

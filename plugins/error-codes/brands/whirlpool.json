@@ -104,6 +104,12 @@
             "why_it_happens": "It is usually turned on by accident, or on purpose to stop children changing a running cycle, and then forgotten.",
             "what_to_try": "Press and hold the Control Lock button -- often marked with a padlock, and sometimes a secondary function of another button -- for a few seconds to release it.",
             "when_to_call": "Only if the lock will not release, which points at the control panel rather than the setting."
+          },
+          "LC": {
+            "what_it_means": "Not a fault — Control Lock is switched on, so the buttons are ignoring input.",
+            "why_it_happens": "Usually turned on to stop a running cycle being changed, and then forgotten.",
+            "what_to_try": "Hold the Control Lock button, often marked with a padlock, for a few seconds to release it.",
+            "when_to_call": "Only if the lock will not release, which points at the control panel."
           }
         }
       },
@@ -123,6 +129,14 @@
         "self_clearable": true,
         "demand": {
           "rL": 30
+        },
+        "detail": {
+          "rL": {
+            "what_it_means": "Not a fault. Items were left in the drum during a Clean Washer cycle, which has to run empty.",
+            "why_it_happens": "The cycle is designed to clean the drum itself, so anything inside stops it from running.",
+            "what_to_try": "Take everything out of the drum and restart the Clean Washer cycle.",
+            "when_to_call": "No call needed — this is the machine refusing to run a cycle incorrectly."
+          }
         }
       },
       {
@@ -183,6 +197,14 @@
         "self_clearable": false,
         "demand": {
           "F8E4": 50
+        },
+        "detail": {
+          "F8E4": {
+            "what_it_means": "Moisture has pooled in the tray underneath the tub, which the machine reads as a possible leak.",
+            "why_it_happens": "Water reaching the base tray means something above it is leaking — a seal, a hose or the tub.",
+            "what_to_try": "Turn the water supply off at the valve and stop using the machine until the source is found.",
+            "when_to_call": "This needs a technician — the code says water is escaping but not from where."
+          }
         }
       },
       {
@@ -201,6 +223,14 @@
         "self_clearable": true,
         "demand": {
           "F9E1": 40
+        },
+        "detail": {
+          "F9E1": {
+            "what_it_means": "A cycle is taking far longer than normal to drain out the used wash water.",
+            "why_it_happens": "Usually a restriction: a clogged tub filter, a kinked drain hose, or a silted-up air gap.",
+            "what_to_try": "Clear the tub filter, check the air gap if your sink has one, then look at the drain hose for kinks.",
+            "when_to_call": "If the filter and hose are clear and it still will not drain, the drain pump needs testing."
+          }
         }
       },
       {
@@ -341,6 +371,14 @@
         "self_clearable": true,
         "demand": {
           "AF": 50
+        },
+        "detail": {
+          "AF": {
+            "what_it_means": "Airflow through the dryer is restricted.",
+            "why_it_happens": "Almost always a clogged lint screen, or a duct that is crushed, kinked or has too many turns between the dryer and the wall.",
+            "what_to_try": "Clean the lint screen, then disconnect and clear the duct run and check the outside vent flap opens freely.",
+            "when_to_call": "If the whole run is clear and it returns, the sensor reading airflow may be at fault."
+          }
         }
       },
       {
@@ -354,6 +392,14 @@
         "self_clearable": false,
         "demand": {
           "F3E2": 30
+        },
+        "detail": {
+          "F3E2": {
+            "what_it_means": "The moisture sensor has registered no reading across five dry cycles in a row.",
+            "why_it_happens": "Fabric-softener residue coats the sensor bars over time and insulates them, so they stop reading the load.",
+            "what_to_try": "Wipe the moisture sensor bars inside the drum with a little rubbing alcohol on a soft cloth.",
+            "when_to_call": "If cleaning the bars does not clear it, the sensor or its wiring needs testing."
+          }
         }
       },
       {

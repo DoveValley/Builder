@@ -138,6 +138,14 @@
         "self_clearable": true,
         "demand": {
           "E22": 40
+        },
+        "detail": {
+          "E22": {
+            "what_it_means": "The filter, drain pump, hose or air gap is clogged enough to stop the machine draining.",
+            "why_it_happens": "Debris from the tub works into the drain path; an air gap on the worktop can silt up independently.",
+            "what_to_try": "Clear the tub filter first, then the air gap, then check the drain hose for kinks.",
+            "when_to_call": "If the filter and hose are clear and it still will not drain, the drain pump needs testing."
+          }
         }
       },
       {
@@ -154,6 +162,12 @@
             "why_it_happens": "A packed tub filter, a kinked drain hose, a loose pump, or a silted-up air gap on the worktop.",
             "what_to_try": "Clear the tub filter first, then check the air gap if your sink has one, then the drain hose for kinks. Those are the three reachable points.",
             "when_to_call": "If all three are clear, the pump itself needs looking at."
+          },
+          "E25": {
+            "what_it_means": "The drain pump is blocked or loose, the hose is kinked, or the air gap is clogged.",
+            "why_it_happens": "The same drain path as E22, but pointing more squarely at the pump end of it.",
+            "what_to_try": "Clear the tub filter and check for anything visible jamming the pump underneath it, then check the hose and air gap.",
+            "when_to_call": "If nothing is visibly jamming it, the pump needs testing or reseating."
           }
         }
       },
@@ -168,6 +182,14 @@
         "self_clearable": true,
         "demand": {
           "UP": 20
+        },
+        "detail": {
+          "UP": {
+            "what_it_means": "Not a fault — the dishwasher has finished installing a software update.",
+            "why_it_happens": "Connected models update themselves; this is the confirmation, not a problem.",
+            "what_to_try": "Dismiss it and use the machine normally.",
+            "when_to_call": "No call needed."
+          }
         }
       }
     ]

@@ -15,6 +15,14 @@
         "self_clearable": false,
         "demand": {
           "22E": 90
+        },
+        "detail": {
+          "22E": {
+            "what_it_means": "The fresh-food fan is not reporting back correctly to the control.",
+            "why_it_happens": "Samsung notes this often appears after a door has been left open a long time, when frost builds up around the fan.",
+            "what_to_try": "Close the door and give the fridge several hours to recover. If frost has formed around the fan, the code may clear once it melts.",
+            "when_to_call": "If it persists after the cabinet has had time to settle, the fan or its sensor needs replacing."
+          }
         }
       },
       {
@@ -41,6 +49,14 @@
         "self_clearable": true,
         "demand": {
           "88 88": 30
+        },
+        "detail": {
+          "88 88": {
+            "what_it_means": "A communication fault inside the unit rather than a cooling problem.",
+            "why_it_happens": "Typically triggered when power is interrupted partway through start-up, leaving the boards out of step.",
+            "what_to_try": "Cut power at the breaker for a minute and let it restart cleanly. That resolves most cases.",
+            "when_to_call": "If it returns after a clean restart, the boards or their wiring need looking at."
+          }
         }
       },
       {
@@ -306,6 +322,12 @@
             "why_it_happens": "A packed debris filter at the bottom front, a kinked drain hose, or a standpipe that cannot take the flow.",
             "what_to_try": "Clean the filter behind the flap at the bottom front, draining the residual water into a tray first, then check the hose run behind the machine.",
             "when_to_call": "If the filter is clean and the hose is clear, the drain pump needs testing."
+          },
+          "5E": {
+            "what_it_means": "The same not-draining fault Samsung shows as SE and 5C on other panels.",
+            "why_it_happens": "A packed debris filter at the bottom front, a kinked drain hose, or a standpipe that cannot take the flow.",
+            "what_to_try": "Open the flap at the bottom front, drain the residual water into a tray and clean the filter, then check the hose run.",
+            "when_to_call": "If the filter and hose are clear and it still will not drain, the drain pump needs testing."
           }
         },
         "demand": {
@@ -391,6 +413,14 @@
         "meaning": "Moisture has been detected somewhere inside the machine that it should not be, which is a leak rather than a setting.",
         "demand": {
           "LE": 70
+        },
+        "detail": {
+          "LE": {
+            "what_it_means": "Moisture has been found somewhere inside the machine it should not be — a leak, not a setting.",
+            "why_it_happens": "Water escaping from a hose connection, a seal or the tub reaches a sensor that shuts the cycle down.",
+            "what_to_try": "Turn the supply taps off at the wall and stop using the machine. The code says water is escaping but not from where.",
+            "when_to_call": "This needs a technician — tracing the source means getting behind or under the machine."
+          }
         }
       },
       {
@@ -415,6 +445,14 @@
         "meaning": "A motor fault — the drive is not behaving as the control expects.",
         "demand": {
           "3E": 70
+        },
+        "detail": {
+          "3E": {
+            "what_it_means": "A motor fault — the drive is not behaving the way the control expects.",
+            "why_it_happens": "A failure in the motor or its control circuit rather than anything to do with the load or detergent.",
+            "what_to_try": "Nothing here is an owner check. A single power-cycle at the breaker clears a one-off glitch; a code that returns is real.",
+            "when_to_call": "If it comes back after a power cycle, the motor circuit needs testing."
+          }
         }
       },
       {
@@ -436,6 +474,14 @@
         "meaning": "The detergent drawer has not been pushed fully closed.",
         "demand": {
           "SDC": 20
+        },
+        "detail": {
+          "SDC": {
+            "what_it_means": "The detergent drawer has not been pushed fully closed, so the cycle will not start.",
+            "why_it_happens": "The drawer catches easily on dried detergent residue and stops short of seating.",
+            "what_to_try": "Pull the drawer right out, rinse off any caked detergent, and push it firmly closed until it seats.",
+            "when_to_call": "If a clean drawer still reads as open, the drawer switch needs checking."
+          }
         }
       },
       {
@@ -444,6 +490,14 @@
         "meaning": "Not a fault — Child Lock is active, so the panel is ignoring input until it is released.",
         "demand": {
           "CL": 50
+        },
+        "detail": {
+          "CL": {
+            "what_it_means": "Not a fault. Child Lock is on, so the panel is deliberately ignoring input.",
+            "why_it_happens": "Usually switched on to stop a running cycle being changed, then forgotten.",
+            "what_to_try": "Hold the Child Lock button — often a secondary function marked with a padlock — for a few seconds to release it.",
+            "when_to_call": "Only if the lock will not release, which points at the panel rather than the setting."
+          }
         }
       },
       {

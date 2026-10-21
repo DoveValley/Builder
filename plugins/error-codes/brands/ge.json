@@ -60,6 +60,14 @@
         "self_clearable": false,
         "demand": {
           "F3": 40
+        },
+        "detail": {
+          "F3": {
+            "what_it_means": "The probe that measures oven temperature has failed.",
+            "why_it_happens": "A sensor failure, so the control is working from a reading it cannot trust.",
+            "what_to_try": "Nothing here is an owner check — the probe is inside the oven cavity wall.",
+            "when_to_call": "When you see it. An oven working from a false temperature will not cook predictably."
+          }
         }
       },
       {
@@ -73,6 +81,14 @@
         "self_clearable": false,
         "demand": {
           "F9": 50
+        },
+        "detail": {
+          "F9": {
+            "what_it_means": "A part of the oven door's latching and locking mechanism has stopped working correctly.",
+            "why_it_happens": "Usually wear in the latch motor or its switch, often first noticed after a self-clean cycle.",
+            "what_to_try": "Check nothing is obstructing the door latch. That is the only owner-side cause to rule out.",
+            "when_to_call": "If the latch is clear and still will not operate, the mechanism needs replacing."
+          }
         }
       },
       {
@@ -99,6 +115,14 @@
         "self_clearable": false,
         "demand": {
           "F350": 20
+        },
+        "detail": {
+          "F350": {
+            "what_it_means": "A problem in the upper cooling fan circuit, or the fan is physically obstructed.",
+            "why_it_happens": "Either the fan has failed or something is blocking it from turning freely.",
+            "what_to_try": "Check the vents around the oven are clear and nothing is obstructing airflow.",
+            "when_to_call": "If the vents are clear and the code stays, the fan or its circuit needs testing."
+          }
         }
       },
       {
@@ -117,6 +141,14 @@
         "self_clearable": true,
         "demand": {
           "LOC": 20
+        },
+        "detail": {
+          "LOC": {
+            "what_it_means": "Not a fault — the child lockout feature is switched on, so the controls will not respond.",
+            "why_it_happens": "Easily switched on by accident, and often set deliberately and then forgotten.",
+            "what_to_try": "Hold the lock pad, usually marked with a padlock, for a few seconds to release it.",
+            "when_to_call": "Only if the lockout will not release, which points at the control panel."
+          }
         }
       },
       {

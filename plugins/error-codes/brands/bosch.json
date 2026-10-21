@@ -22,6 +22,14 @@
         "self_clearable": true,
         "demand": {
           "E01": 20
+        },
+        "detail": {
+          "E01": {
+            "what_it_means": "The lint screen has clogged enough to restrict airflow through the dryer.",
+            "why_it_happens": "Lint builds on the screen every cycle; left uncleaned it chokes the airflow the dryer needs.",
+            "what_to_try": "Clean the lint screen, and check the condenser filter too if your model has one.",
+            "when_to_call": "If both are clean and the code returns, the airflow sensor or fan needs checking."
+          }
         }
       },
       {
@@ -75,6 +83,14 @@
         "self_clearable": true,
         "demand": {
           "DR": 30
+        },
+        "detail": {
+          "DR": {
+            "what_it_means": "The door is not shut far enough for the latch to register, so the cycle will not begin.",
+            "why_it_happens": "Laundry caught in the opening, or a door pushed to rather than closed until it seats.",
+            "what_to_try": "Open it fully, clear anything caught around the seal, and close it firmly.",
+            "when_to_call": "If a clear doorway still reads as open, the door switch needs checking."
+          }
         }
       },
       {
@@ -225,6 +241,14 @@
         "self_clearable": true,
         "demand": {
           "E18": 20
+        },
+        "detail": {
+          "E18": {
+            "what_it_means": "Either not enough water is entering the tub, or the system is not pumping it correctly.",
+            "why_it_happens": "A restricted fill or a struggling pump — the code covers both, so work the fill side first because it is reachable.",
+            "what_to_try": "Check the supply valve and the inlet screen, then clear the tub filter in case the problem is on the drain side.",
+            "when_to_call": "If fill and filter are both fine, the pump needs testing."
+          }
         }
       },
       {
@@ -249,6 +273,14 @@
         "self_clearable": false,
         "demand": {
           "E27": 40
+        },
+        "detail": {
+          "E27": {
+            "what_it_means": "The household electrical supply feeding the dishwasher is running below the voltage it needs.",
+            "why_it_happens": "A supply problem rather than a fault inside the machine — often a shared or overloaded circuit.",
+            "what_to_try": "Check the dishwasher is not sharing a circuit with something that draws heavily. Avoid extension leads.",
+            "when_to_call": "If the supply is dedicated and the code persists, have an electrician check the circuit."
+          }
         }
       },
       {
@@ -265,6 +297,14 @@
         "self_clearable": false,
         "demand": {
           "E14": 50
+        },
+        "detail": {
+          "E14": {
+            "what_it_means": "The flow meter has failed, or water is not entering at the rate the cycle expects.",
+            "why_it_happens": "Either the meter itself, or a restriction upstream of it limiting the fill rate.",
+            "what_to_try": "Check the supply valve is fully open and the inlet screen at the hose connection is clear — that covers the upstream causes.",
+            "when_to_call": "If the supply is unrestricted, the flow meter needs testing."
+          }
         }
       },
       {
@@ -281,6 +321,12 @@
             "why_it_happens": "Most often the supply valve under the sink has been turned off, or the inlet screen where the hose meets the machine has silted up. Both are outside the machine.",
             "what_to_try": "Check the water supply valve is fully open, then look at the inlet screen at the hose connection for scale or grit. These two account for most cases.",
             "when_to_call": "If water is reaching the machine and it still will not fill, the inlet valve on the machine is the next suspect, and that is a technician's job."
+          },
+          "E16": {
+            "what_it_means": "No water is getting into the tub at all — the machine asked to fill and nothing arrived.",
+            "why_it_happens": "Usually a closed supply valve or an inlet screen blocked with scale and grit. Both sit outside the machine.",
+            "what_to_try": "Check the supply valve under the sink is fully open, then look at the inlet screen where the hose meets the machine.",
+            "when_to_call": "If water reaches the machine freely and it still will not fill, the inlet valve is next."
           }
         }
       },
@@ -338,6 +384,14 @@
         "self_clearable": false,
         "demand": {
           "E06": 40
+        },
+        "detail": {
+          "E06": {
+            "what_it_means": "A fault in the door sensor circuit, so the control cannot confirm whether the door is shut.",
+            "why_it_happens": "The sensor or its wiring rather than the door itself.",
+            "what_to_try": "Close the door firmly with nothing caught in the seal, to rule out the obvious cause first.",
+            "when_to_call": "If a properly closed door still reads as open, the door switch needs replacing."
+          }
         }
       },
       {
@@ -346,6 +400,14 @@
         "self_clearable": false,
         "demand": {
           "E04": 30
+        },
+        "detail": {
+          "E04": {
+            "what_it_means": "The machine's own self-test has found a fault in the heater electronics.",
+            "why_it_happens": "A component failure, not something that builds up with use.",
+            "what_to_try": "Nothing here is an owner check — the heater electronics are inside the machine.",
+            "when_to_call": "When you see it. The dishwasher may still run but will not heat properly."
+          }
         }
       },
       {
@@ -354,6 +416,14 @@
         "self_clearable": false,
         "demand": {
           "E19": 90
+        },
+        "detail": {
+          "E19": {
+            "what_it_means": "The solenoid that releases detergent from the dispenser is not responding.",
+            "why_it_happens": "An electrical failure in the dispenser rather than a blockage or a loading mistake.",
+            "what_to_try": "Check nothing is physically jamming the dispenser flap. That is the only owner-side cause worth ruling out.",
+            "when_to_call": "If the flap moves freely and the code stays, the dispenser needs replacing."
+          }
         }
       }
     ]
@@ -377,6 +447,14 @@
         "self_clearable": true,
         "demand": {
           "E17": 40
+        },
+        "detail": {
+          "E17": {
+            "what_it_means": "Water is taking too long to fill the drum.",
+            "why_it_happens": "Usually a blocked inlet filter or a silted-up AquaStop hose screen restricting the flow.",
+            "what_to_try": "Turn the tap off, disconnect the fill hose at the machine and check the inlet screen for grit. Check the tap is fully open.",
+            "when_to_call": "If the supply and screens are clear, the inlet valve needs testing."
+          }
         }
       },
       {

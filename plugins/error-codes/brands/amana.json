@@ -107,6 +107,20 @@
           "LOC": 10,
           "Lock": 20,
           "Locked": 20
+        },
+        "detail": {
+          "Lock": {
+            "what_it_means": "Not a fault — the control-lock feature is switched on, blocking keypad use.",
+            "why_it_happens": "Usually switched on by accident, or deliberately to stop settings being changed.",
+            "what_to_try": "Hold the lock pad, often a secondary function marked with a padlock, for a few seconds to release it.",
+            "when_to_call": "Only if the lock will not release, which points at the control panel."
+          },
+          "Locked": {
+            "what_it_means": "Not a fault — the same control lock as Lock, spelled out in full on some displays.",
+            "why_it_happens": "Switched on by accident or on purpose, then forgotten.",
+            "what_to_try": "Hold the lock pad for a few seconds to release it.",
+            "when_to_call": "Only if it will not release."
+          }
         }
       },
       {

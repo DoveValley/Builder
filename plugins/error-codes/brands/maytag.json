@@ -10,6 +10,14 @@
         "self_clearable": true,
         "demand": {
           "AF": 50
+        },
+        "detail": {
+          "AF": {
+            "what_it_means": "Restricted airflow through the dryer.",
+            "why_it_happens": "A clogged lint screen or vent, or a duct that is crushed, kinked or has too many turns.",
+            "what_to_try": "Clean the lint screen, clear the duct run to the outside wall, and check the vent flap opens when the dryer runs.",
+            "when_to_call": "If the run is genuinely clear and it returns, the airflow sensor needs checking."
+          }
         }
       },
       {
@@ -23,6 +31,14 @@
         "self_clearable": true,
         "demand": {
           "PF": 70
+        },
+        "detail": {
+          "PF": {
+            "what_it_means": "Not a fault. The drying cycle was interrupted by a power failure.",
+            "why_it_happens": "An outage, a tripped breaker, or the plug pulled mid-cycle.",
+            "what_to_try": "Restart the cycle. If it recurs with no outage you can account for, check the breaker and whether the dryer shares a loaded circuit.",
+            "when_to_call": "If PF keeps appearing on a stable supply, the power board is worth checking."
+          }
         }
       },
       {
@@ -31,6 +47,14 @@
         "self_clearable": false,
         "demand": {
           "F01": 20
+        },
+        "detail": {
+          "F01": {
+            "what_it_means": "The primary control board has failed.",
+            "why_it_happens": "An electronic failure rather than anything to do with how the dryer is used.",
+            "what_to_try": "A power-cycle at the breaker clears a one-off glitch; a code that returns is naming a real board fault.",
+            "when_to_call": "If it comes back after a power cycle, the board needs replacing."
+          }
         }
       },
       {
@@ -146,6 +170,14 @@
         "self_clearable": true,
         "demand": {
           "F5 E2": 50
+        },
+        "detail": {
+          "F5 E2": {
+            "what_it_means": "The door or lid is not latching securely, so the control will not start the cycle.",
+            "why_it_happens": "Laundry caught in the opening, or a strike and latch that are no longer meeting properly.",
+            "what_to_try": "Clear anything caught around the seal and close firmly. Check the strike the latch engages for damage.",
+            "when_to_call": "If a clear doorway still will not lock, the lid lock assembly is the usual cause."
+          }
         }
       },
       {
@@ -182,6 +214,14 @@
         "self_clearable": false,
         "demand": {
           "F8E4": 30
+        },
+        "detail": {
+          "F8E4": {
+            "what_it_means": "Water has been detected pooling in the drip tray beneath the dishwasher.",
+            "why_it_happens": "Something above the tray is leaking — a seal, a hose connection or the tub itself.",
+            "what_to_try": "Turn the water supply off at the valve and stop using the machine.",
+            "when_to_call": "This needs a technician — the code reports water where it should not be, not its source."
+          }
         }
       },
       {
@@ -195,6 +235,14 @@
         "self_clearable": true,
         "demand": {
           "F9E1": 50
+        },
+        "detail": {
+          "F9E1": {
+            "what_it_means": "The dishwasher is taking far longer than normal to drain, or is not draining at all.",
+            "why_it_happens": "Usually a clogged tub filter, a kinked drain hose, or an air gap that has silted up.",
+            "what_to_try": "Clear the tub filter, check the air gap, then the drain hose for kinks.",
+            "when_to_call": "If the filter and hose are clear and it still will not drain, the drain pump needs testing."
+          }
         }
       },
       {
