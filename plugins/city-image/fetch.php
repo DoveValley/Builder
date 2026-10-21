@@ -73,6 +73,24 @@ function city_image_alt_text(string $title, string $city, string $ss): string {
     $s = preg_replace('/\.(jpe?g|png|webp|tiff?)$/i', '', $s);
     $s = preg_replace('/\s*\([^)]*\)/', '', $s);                 // drop "(36514799203)" etc.
     $s = preg_replace('/[_]+/', ' ', $s);
+    // Commons' standard name for a city collage is "OcalaFLMontage.jpg" /
+    // "VistaCAMontage.jpg" — one token, no spaces, with the state abbreviation glued
+    // inside it. Every rule below assumes space-separated words, so without this the
+    // whole thing survives as a single "word": the city test at the foot of this
+    // function matches, finds no trailing " FL" to normalise, and appends one — which
+    // shipped alt="OcalaFLMontage, FL" on 31 Dobbs pages.
+    //
+    // Deliberately keyed on the Montage/Collage/Composite suffix rather than on
+    // "has no spaces". Splitting every space-free CamelCase title would mangle names
+    // whose capitals are load-bearing — "McDonaldObservatory" -> "Mc Donald
+    // Observatory", "LaSalleStreetChicago" -> "La Salle Street Chicago" — and those
+    // read worse than the raw filename. The collage suffix is the one shape where the
+    // run-together form is certain and the trailing word is certainly not the subject.
+    if (preg_match('/^\S+(Montage|Collage|Composite)$/i', $s)) {
+        $s = preg_replace('/(Montage|Collage|Composite)$/i', '', $s);       // drop the file-ism
+        $s = preg_replace('/(?<=[a-z0-9])(?=[A-Z])/', ' ', $s);             // Ocala|FL
+        $s = preg_replace('/(?<=[A-Z])(?=[A-Z][a-z])/', ' ', $s);           // FL|Something
+    }
     $s = preg_replace('/\b(IMG|DSC|LCCN|LOC)[\s_]?\d+\b/i', '', $s);   // camera / archive ids
     $s = preg_replace('/\s+\d{6,}\b/', '', $s);                  // trailing numeric ids
 

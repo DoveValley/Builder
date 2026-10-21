@@ -2053,10 +2053,10 @@
     {
         "id": "tpl_flooded_basement_cleanup",
         "base": 0,
-        "title": "Flooded Basement Repair in {city_state} | {business_short}",
+        "title": "Flooded Basement Cleanup in {city_state} | {business_short}",
         "slug_pattern": "flooded-basement-cleanup-{city_slug}",
         "page_type": "template",
-        "service": "Flooded Basement Repair",
+        "service": "Flooded Basement Cleanup",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -2320,22 +2320,22 @@
             }
         ],
         "seo": {
-            "seo_title": "Flooded Basement Repair in {city_state} | {business_short}",
+            "seo_title": "Flooded Basement Cleanup in {city_state} | {business_short}",
             "canonical_url": "",
             "meta_description": "Flooded basement repair addresses standing water that damages foundations, mechanical systems, and stored items. Serving {city_state}. Call {phone}.",
             "meta_keywords": "flooded basement repair {city} {SS}, flooded basement {city}, flooded basement cleanup {city}, basement flood cleanup {city}",
-            "og_title": "Flooded Basement Repair in {city_state} | {business}",
+            "og_title": "Flooded Basement Cleanup in {city_state} | {business}",
             "og_description": "24/7 flooded basement repair in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/ai_c8177f_7ae1c0.webp",
-            "service_name": "Flooded Basement Repair",
-            "service_type": "Flooded Basement Repair",
+            "service_name": "Flooded Basement Cleanup",
+            "service_type": "Flooded Basement Cleanup",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Flooded basement repair for homes and businesses in {city_state}, including flooded basement cleanup, basement flood clean up and basement water removal.",
-            "bc_label": "Flooded Basement Repair",
+            "bc_label": "Flooded Basement Cleanup",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Basement Repair\",\n    \"name\": \"Flooded Basement Repair in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded basement repair in {city_state} \\u2014 flooded basement cleanup, basement flood clean up and basement water removal.\"\n}",
-            "primary_keyword": "Flooded Basement Repair",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Flooded Basement Cleanup\",\n    \"name\": \"Flooded Basement Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 flooded basement repair in {city_state} \\u2014 flooded basement cleanup, basement flood clean up and basement water removal.\"\n}",
+            "primary_keyword": "Flooded Basement Cleanup",
             "secondary_keywords": "flooded basement, flooded basement cleanup, basement flood cleanup, basement flooding, basement water removal, flooded basement water removal, basement water damage, wet basement cleanup"
         },
         "base_role": "Restoration",
@@ -2725,10 +2725,10 @@
     {
         "id": "tpl_burst_pipe_water_damage",
         "base": 0,
-        "title": "Burst Pipe Cleanup in {city_state} | {business_short}",
+        "title": "Burst Pipe Water Damage in {city_state} | {business_short}",
         "slug_pattern": "burst-pipe-water-damage-{city_slug}",
         "page_type": "template",
-        "service": "Burst Pipe Cleanup",
+        "service": "Burst Pipe Water Damage",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -2993,22 +2993,22 @@
             }
         ],
         "seo": {
-            "seo_title": "Burst Pipe Cleanup in {city_state} | {business_short}",
+            "seo_title": "Burst Pipe Water Damage in {city_state} | {business_short}",
             "canonical_url": "",
             "meta_description": "Burst pipe cleanup addresses the sudden, high-volume water a ruptured pipe spreads through walls and floors. Serving {city_state}. Call {phone}.",
             "meta_keywords": "burst pipe cleanup {city} {SS}, burst pipe water damage {city}, pipe burst in house {city}, frozen pipe burst {city}, leaking pipe repair {city}",
-            "og_title": "Burst Pipe Cleanup in {city_state} | {business}",
+            "og_title": "Burst Pipe Water Damage in {city_state} | {business}",
             "og_description": "24/7 burst pipe cleanup in {city_state}. Fast, professional local response.",
             "og_image": "sites/water-site/uploads/media/ai_571d57_3604b9.webp",
-            "service_name": "Burst Pipe Cleanup",
-            "service_type": "Burst Pipe Cleanup",
+            "service_name": "Burst Pipe Water Damage",
+            "service_type": "Burst Pipe Water Damage",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "Burst pipe cleanup for homes and businesses in {city_state}, including water removal, drying and frozen pipe water damage.",
-            "bc_label": "Burst Pipe Cleanup",
+            "bc_label": "Burst Pipe Water Damage",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Cleanup\",\n    \"name\": \"Burst Pipe Cleanup in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe cleanup in {city_state} \\u2014 burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
-            "primary_keyword": "Burst Pipe Cleanup",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Burst Pipe Water Damage\",\n    \"name\": \"Burst Pipe Water Damage in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"24/7 burst pipe cleanup in {city_state} \\u2014 burst pipe cleanup, water line break and frozen pipe water damage.\"\n}",
+            "primary_keyword": "Burst Pipe Water Damage",
             "secondary_keywords": "burst pipe water damage, pipe burst in house, burst water pipe, frozen pipe burst, frozen pipe water damage, burst pipe in wall, water line break, leaking pipe repair"
         },
         "base_role": "Restoration",

@@ -120,6 +120,26 @@ function services_links_resolve(array $cfg, array $filter = ['brand' => '', 'typ
     return $links;
 }
 
+/* The ' width="W" height="H"' attribute pair for a brand logo, or '' when the file
+   cannot be measured. Without these the browser has no intrinsic size until the image
+   itself arrives, so a grid of 18 logos reflows the content under it — the one
+   remaining layout-shift (CLS) penalty in the fleet, and it lands on the homepage.
+
+   Measured per file rather than hardcoded: the logos are near-uniform (157-158 x 48)
+   but not identical, and a declared size that disagrees with the real one distorts the
+   image. Returns '' for anything remote or unreadable so the markup is unchanged when
+   the size genuinely is not knowable — the same "cannot measure, do not guess" contract
+   photo_is_wide() uses in includes/blocks.php. */
+function _services_links_logo_dims(string $logo): string {
+    if ($logo === '' || str_starts_with($logo, 'http') || str_starts_with($logo, '//')) return '';
+    if (!function_exists('upload_fs_path')) return '';
+    $fs = upload_fs_path($logo);
+    if ($fs === '' || !is_file($fs)) return '';
+    $sz = @getimagesize($fs);
+    if (!$sz || empty($sz[0]) || empty($sz[1])) return '';
+    return ' width="' . (int) $sz[0] . '" height="' . (int) $sz[1] . '"';
+}
+
 function _services_links_render(array $cfg, string $pathPrefix = '', array $attrs = []): string {
     global $data;
 
@@ -250,7 +270,8 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
                 // alt="" — decorative: the brand name right below it is the same text a
                 // screen reader would otherwise announce twice, and it's the visible anchor
                 // text (not this attribute) that carries the link's SEO weight.
-                $logoTag = '<img src="' . h($logoSrc) . '" alt="" class="lg-link-logo" loading="lazy">';
+                $logoTag = '<img src="' . h($logoSrc) . '" alt="" class="lg-link-logo"'
+                         . _services_links_logo_dims($logo) . ' loading="lazy">';
                 $cls .= ' lg-has-logo';
             }
             echo '<a href="' . h($url) . '" class="' . $cls . '">' . $logoTag . h($name) . '</a>';
@@ -278,7 +299,8 @@ function _services_links_render(array $cfg, string $pathPrefix = '', array $attr
                 // alt="" — decorative: the brand name right below it is the same text a
                 // screen reader would otherwise announce twice, and it's the visible anchor
                 // text (not this attribute) that carries the link's SEO weight.
-                $logoTag = '<img src="' . h($logoSrc) . '" alt="" class="lg-link-logo" loading="lazy">';
+                $logoTag = '<img src="' . h($logoSrc) . '" alt="" class="lg-link-logo"'
+                         . _services_links_logo_dims($logo) . ' loading="lazy">';
                 $cls .= ' lg-has-logo';
             }
             echo '<a href="' . h($url) . '" class="' . $cls . '">' . $logoTag . h($name) . '</a>';

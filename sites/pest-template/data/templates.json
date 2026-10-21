@@ -2,7 +2,7 @@
     {
         "id": "tpl_cockroach_exterminator",
         "base": true,
-        "title": "Cockroach Exterminator in {city_state} | Fast, Targeted Roach Control",
+        "title": "Cockroach Exterminator in {city_state} | {business_short}",
         "slug_pattern": "cockroach-exterminator-{city_slug}",
         "page_type": "template",
         "service": "Cockroach Extermination",
@@ -219,11 +219,11 @@
             }
         ],
         "seo": {
-            "seo_title": "Cockroach Exterminator in {city_state} | Fast, Targeted Roach Control",
+            "seo_title": "Cockroach Exterminator in {city_state} | {business_short}",
             "canonical_url": "",
             "meta_description": "A cockroach exterminator stops infestations fast, since cockroaches spread bacteria indoors. Serving {city_state}. Call {phone}.",
             "meta_keywords": "cockroach exterminator {city} {SS}, roach exterminator, cockroach control, roach control, german cockroach removal",
-            "og_title": "Cockroach Exterminator in {city_state} | Fast, Targeted Roach Control",
+            "og_title": "Cockroach Exterminator in {city_state} | {business_short}",
             "og_description": "Get rid of roaches fast with a professional cockroach exterminator in {city_state}. Targeted treatment for homes and businesses, from a local provider.",
             "og_image": "",
             "service_name": "Cockroach Extermination",

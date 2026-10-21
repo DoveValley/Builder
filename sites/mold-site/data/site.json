@@ -799,7 +799,7 @@
       ],
       "seo": {
         "meta_keywords": "",
-        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information when you visit {website} or call our helpline.",
+        "meta_description": "Read the {business} Privacy Policy to learn how we collect, use, and protect your information.",
         "og_title": "Privacy Policy | {business}",
         "og_description": "How {business} collects, uses, and protects your information.",
         "og_image": "",
@@ -898,7 +898,7 @@
       ],
       "seo": {
         "meta_keywords": "",
-        "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted mold inspection and remediation specialist in {city_state}.",
+        "meta_description": "Contact {business_short} — call our 24/7 helpline or email us to connect with a trusted mold inspection and remediation specialist in {city_state}.",
         "og_title": "Contact Us | {business}",
         "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
         "og_image": "",
@@ -1322,7 +1322,7 @@
   },
   "blog_settings": {
     "blog_heading": "Mold Tips & News for {city}",
-    "blog_intro": "Straight answers about mold for {city}, {SS} homeowners — where it starts, what gets cleaned versus removed, and when testing is actually worth paying for, from {business}.",
+    "blog_intro": "Straight answers about mold for {city}, {SS} homeowners — where it starts, what gets cleaned vs removed, and when testing is worth paying for, from {business_short}.",
     "posts_per_page": 9,
     "enabled": true
   },
@@ -1391,6 +1391,30 @@
       {
         "name": "Drywall Mold Removal",
         "url": "/drywall-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Air Duct Mold Removal",
+        "url": "/air-duct-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Ceiling Mold Removal",
+        "url": "/ceiling-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Kitchen Mold Removal",
+        "url": "/kitchen-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Garage Mold Removal",
+        "url": "/garage-mold-removal-{city_slug}"
+      },
+      {
+        "name": "Real Estate Mold Inspection",
+        "url": "/real-estate-mold-inspection-{city_slug}"
+      },
+      {
+        "name": "Mold Removal Cost",
+        "url": "/mold-removal-cost-{city_slug}"
       }
     ],
     "url_pattern": "/{service_slug}-{city_slug}",

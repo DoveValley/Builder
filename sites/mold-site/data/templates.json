@@ -3985,7 +3985,7 @@
     {
         "id": "tpl_bathroom_mold_removal",
         "base": 0,
-        "title": "Bathroom Mold Removal in {city_state} | {business}",
+        "title": "Bathroom Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "bathroom-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Bathroom Mold Removal",
@@ -4296,7 +4296,7 @@
     {
         "id": "tpl_ceiling_mold_removal",
         "base": 0,
-        "title": "Ceiling Mold Removal in {city_state} | {business}",
+        "title": "Ceiling Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "ceiling-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Ceiling Mold Removal",
@@ -4607,7 +4607,7 @@
     {
         "id": "tpl_drywall_mold_removal",
         "base": 0,
-        "title": "Drywall Mold Removal in {city_state} | {business}",
+        "title": "Drywall Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "drywall-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Drywall Mold Removal",
@@ -4918,7 +4918,7 @@
     {
         "id": "tpl_air_duct_mold_removal",
         "base": 0,
-        "title": "Air Duct Mold Removal in {city_state} | {business}",
+        "title": "Air Duct Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "air-duct-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Air Duct Mold Removal",
@@ -5229,7 +5229,7 @@
     {
         "id": "tpl_kitchen_mold_removal",
         "base": 0,
-        "title": "Kitchen Mold Removal in {city_state} | {business}",
+        "title": "Kitchen Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "kitchen-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Kitchen Mold Removal",
@@ -5540,7 +5540,7 @@
     {
         "id": "tpl_carpet_mold_removal",
         "base": 0,
-        "title": "Carpet Mold Removal in {city_state} | {business}",
+        "title": "Carpet Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "carpet-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Carpet Mold Removal",
@@ -5851,7 +5851,7 @@
     {
         "id": "tpl_garage_mold_removal",
         "base": 0,
-        "title": "Garage Mold Removal in {city_state} | {business}",
+        "title": "Garage Mold Removal in {city_state} | {business_short}",
         "slug_pattern": "garage-mold-removal-{city_slug}",
         "page_type": "template",
         "service": "Garage Mold Removal",
@@ -6162,10 +6162,10 @@
     {
         "id": "tpl_real_estate_mold_inspection",
         "base": 0,
-        "title": "Home Inspection Mold Testing in {city_state} | {business}",
+        "title": "Real Estate Mold Inspection in {city_state} | {business_short}",
         "slug_pattern": "real-estate-mold-inspection-{city_slug}",
         "page_type": "template",
-        "service": "Home Inspection Mold Testing",
+        "service": "Real Estate Mold Inspection",
         "generation_steps": [
             {
                 "step": "city_vars"
@@ -6398,22 +6398,22 @@
             }
         ],
         "seo": {
-            "seo_title": "Home Inspection Mold Testing in {city_state} | {business_short}",
+            "seo_title": "Real Estate Mold Inspection in {city_state} | {business_short}",
             "canonical_url": "",
-            "meta_description": "Home inspection mold testing flags moisture concerns before a home sale or purchase moves forward. Serving {city_state}. Call {phone}.",
+            "meta_description": "Real estate mold inspection flags moisture concerns before a home sale or purchase moves forward. Serving {city_state}. Call {phone}.",
             "meta_keywords": "home inspection mold {city}, mold testing for home inspection {city}, real estate mold inspection {city}, pre purchase mold inspection {city}",
-            "og_title": "Home Inspection Mold Testing in {city_state} | {business}",
-            "og_description": "Home Inspection Mold Testing in {city_state} — fast, local response for buyers, sellers, and agents. Call {phone} to connect with a local provider.",
+            "og_title": "Real Estate Mold Inspection in {city_state} | {business}",
+            "og_description": "Real Estate Mold Inspection in {city_state} — fast, local response for buyers, sellers, and agents. Call {phone} to connect with a local provider.",
             "og_image": "sites/mold-site/uploads/media/ai_cc6653_2577de.webp",
-            "service_name": "Home Inspection Mold Testing",
-            "service_type": "Home Inspection Mold Testing",
+            "service_name": "Real Estate Mold Inspection",
+            "service_type": "Real Estate Mold Inspection",
             "service_area": "{city_state} and surrounding areas",
             "service_description": "A thorough mold inspection and testing service for mold concerns found during a home inspection, helping buyers, sellers, and agents make informed decisions on properties in {city_state}.",
-            "bc_label": "Home Inspection Mold Testing",
+            "bc_label": "Real Estate Mold Inspection",
             "bc_mid_label": "",
             "bc_mid_url": "",
-            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Home Inspection Mold Testing\",\n    \"name\": \"Home Inspection Mold Testing in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Home Inspection Mold Testing in {city_state} \\u2014 a thorough inspection to locate visible and hidden mold and the moisture source feeding it, to support informed real estate decisions.\"\n}",
-            "primary_keyword": "Home Inspection Mold Testing",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Service\",\n    \"serviceType\": \"Real Estate Mold Inspection\",\n    \"name\": \"Real Estate Mold Inspection in {city_state}\",\n    \"areaServed\": {\n        \"@type\": \"City\",\n        \"name\": \"{city}\"\n    },\n    \"provider\": {\n        \"@type\": \"LocalBusiness\",\n        \"@id\": \"{website}/#localbusiness\",\n        \"name\": \"{business}\",\n        \"telephone\": \"{tel}\",\n        \"url\": \"{website}\"\n    },\n    \"description\": \"Real Estate Mold Inspection in {city_state} \\u2014 a thorough inspection to locate visible and hidden mold and the moisture source feeding it, to support informed real estate decisions.\"\n}",
+            "primary_keyword": "Real Estate Mold Inspection",
             "secondary_keywords": "home inspection mold, mold testing for home inspection, real estate mold inspection, pre purchase mold inspection, mold inspection before buying a house"
         },
         "base_role": "Remediation",

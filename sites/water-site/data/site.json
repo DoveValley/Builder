@@ -629,7 +629,7 @@
     "secondary_keywords": "flood damage restoration, storm damage restoration, water extraction, sewage cleanup, water mitigation",
     "seo_title": "Water Damage Restoration in {city_state} | {business_short}",
     "canonical_url": "",
-    "meta_description": "24/7 water and storm damage restoration in {city_state}. {business_short} connects you with a local provider for extraction, drying, and flood cleanup. Call {phone}.",
+    "meta_description": "24/7 water and storm damage restoration in {city_state}. {business_short} connects you with a local provider for extraction, drying and cleanup. Call {phone}.",
     "meta_keywords": "water damage restoration {city} {SS}, flood damage restoration {city}, water extraction {city} {SS}, storm damage restoration {city}, sewage cleanup {city}",
     "og_title": "Water Damage Restoration in {city_state} | {business}",
     "og_description": "24/7 emergency water damage restoration in {city_state} — water extraction, flood & storm cleanup, structural drying, and full repairs. Fast local response.",
@@ -865,7 +865,7 @@
       ],
       "seo": {
         "meta_keywords": "",
-        "meta_description": "Contact {business} — call our free 24/7 helpline or email us to connect with a trusted water damage restoration specialist in {city_state}.",
+        "meta_description": "Contact {business_short} — call our 24/7 helpline or email us to connect with a trusted water damage restoration specialist in {city_state}.",
         "og_title": "Contact Us | {business}",
         "og_description": "Get in touch with {business} — call our free 24/7 helpline or send us an email.",
         "og_image": "",
@@ -999,7 +999,7 @@
   "posts": [],
   "blog_settings": {
     "blog_heading": "Water Damage Tips & News for {city}",
-    "blog_intro": "Practical water damage guidance for {city}, {SS} homeowners — what to do in the first hours, what can usually be dried, and what tends to need replacing, from {business}.",
+    "blog_intro": "Practical water damage guidance for {city}, {SS} homeowners — what to do in the first hours, what can be dried, and what needs replacing, from {business_short}.",
     "posts_per_page": 9,
     "enabled": true
   },
@@ -1032,6 +1032,10 @@
       {
         "name": "Flooded Basement Cleanup",
         "url": "/flooded-basement-cleanup-{city_slug}"
+      },
+      {
+        "name": "Basement Water Damage",
+        "url": "/basement-water-damage-{city_slug}"
       },
       {
         "name": "Commercial Water Damage Restoration",
