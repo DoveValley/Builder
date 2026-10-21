@@ -35882,5 +35882,585 @@
                 "map_info_1"
             ]
         ]
+    },
+    {
+        "id": "tpl_ge_washer_repair",
+        "page_type": "template",
+        "title": "GE Washer Repair in {city_state} | {business_short}",
+        "slug_pattern": "ge-washer-repair-{city_slug}",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "GE Washer Repair in {city_state}",
+                "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Fast local response, often same-day.</p>",
+                "hs_btn_text": "Call {phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo": "sites/appliance-site/uploads/media/ai_c7b1a3_f74d97.webp",
+                "hs_photo_alt": "GE Washer Repair in {city_state}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#f3f6f7",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "id": "hero_split_1",
+                "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_show_icons": false,
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "ge",
+                "ec_type": "washer",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "common_problems",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "fc_num_cols": 3,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our Repair Service Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Call or Book Online",
+                        "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Diagnose & Quote",
+                        "text": "A local provider diagnoses the fault and talks you through what it needs."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Repair & Warranty",
+                        "text": "We complete the repair with quality parts and back the work with a warranty."
+                    }
+                ],
+                "ai_type_id": "steps_local",
+                "id": "steps_1"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Need appliance repair in {city}? Our technicians can help fast.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
+                "_it_photo_prechart": "",
+                "it_caption": "{chart_group_water_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "id": "ai_block_4"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQ — {city_state}",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 4,
+                "rl_items": [
+                    {
+                        "url": "/washer-repair-{city_slug}",
+                        "text": "washer repair"
+                    },
+                    {
+                        "url": "/ge-appliance-repair-{city_slug}",
+                        "text": "ge appliance repair"
+                    },
+                    {
+                        "url": "/appliance-repair-cost-{city_slug}",
+                        "text": "appliance repair cost"
+                    },
+                    {
+                        "url": "/emergency-appliance-repair-{city_slug}",
+                        "text": "emergency appliance repair"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "services",
+                "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]",
+                "id": "custom_html_1"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Appliance Repair Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Book your {city} appliance repair today.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "pest_services",
+                "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]",
+                "id": "custom_html_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
+            }
+        ],
+        "seo": {
+            "seo_title": "GE Washer Repair in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Professional GE washer repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.",
+            "meta_keywords": "ge washer repair {city} {SS}",
+            "og_title": "GE Washer Repair in {city_state} | {business}",
+            "og_description": "Professional GE washer repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.",
+            "og_image": "",
+            "service_name": "GE Washer Repair",
+            "service_type": "GE Washer Repair",
+            "service_area": "{city}, {SS}",
+            "service_description": "Professional GE washer repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.",
+            "bc_label": "",
+            "bc_mid_label": "Washer Repair",
+            "bc_mid_url": "/washer-repair-{city_slug}/",
+            "primary_keyword": "GE Washer Repair",
+            "secondary_keywords": "ge washer repair near me, ge washer not draining, ge washer won't spin, ge washing machine repair, ge washer service",
+            "brand": "GE",
+            "appliance_type": "Washer",
+            "schema": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Service\",\"name\":\"GE Washer Repair in {city_state}\",\"serviceType\":\"GE Washer Repair\",\"description\":\"Professional GE washer repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.\",\"areaServed\":{\"@type\":\"City\",\"name\":\"{city}\"},\"provider\":{\"@type\":\"LocalBusiness\",\"@id\":\"{website}/#localbusiness\",\"name\":\"{business}\",\"telephone\":\"{tel}\",\"url\":\"{website}\"}}]}"
+        },
+        "service": "GE Washer Repair",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "ai_block_3",
+                "steps_1",
+                "cta_banner_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "custom_html_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "ai_block_1",
+                "trust_bar_1",
+                "ai_block_2",
+                "ai_block_3",
+                "steps_1",
+                "cta_banner_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "custom_html_1",
+                "custom_html_2",
+                "cta_banner_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "custom_html_2",
+                "ai_block_1",
+                "ai_block_2",
+                "ai_block_3",
+                "steps_1",
+                "cta_banner_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "cta_banner_2",
+                "custom_html_1",
+                "trust_bar_1",
+                "map_info_1"
+            ]
+        ]
+    },
+    {
+        "id": "tpl_ge_dishwasher_repair",
+        "page_type": "template",
+        "title": "GE Dishwasher Repair in {city_state} | {business_short}",
+        "slug_pattern": "ge-dishwasher-repair-{city_slug}",
+        "generation_steps": [
+            {
+                "step": "city_vars"
+            }
+        ],
+        "content_blocks": [
+            {
+                "type": "hero_split",
+                "hs_heading": "GE Dishwasher Repair in {city_state}",
+                "hs_subtext": "<p>Fast, reliable Appliance Repair from {business}. Connect with a local provider — fast response, often same-day.</p>",
+                "hs_btn_text": "Call {phone}",
+                "hs_btn_url": "tel:{tel}",
+                "hs_caption1": "",
+                "hs_caption2": "",
+                "hs_photo": "sites/appliance-site/uploads/media/ai_436eab_01f7c0.webp",
+                "hs_photo_alt": "GE Dishwasher Repair in {city_state}",
+                "hs_image_side": "right",
+                "hs_bg_color": "#f3f6f7",
+                "ai_type_id": "hero_subtext",
+                "ai_inject_field": "hs_subtext",
+                "ai_inject_mode": "replace",
+                "id": "hero_split_1",
+                "hs_bg_photo": "sites/appliance-site/uploads/media/hero-bg-light.webp"
+            },
+            {
+                "type": "trust_bar",
+                "tb_bg_custom": "#f3f6f7",
+                "tb_show_icons": false,
+                "tb_items": "@safe_trust_badges",
+                "anchor": "trust_bar",
+                "id": "trust_bar_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "city_intro",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "left",
+                "it_photo": "",
+                "it_alt": "Appliance repair technician in {city_state}",
+                "id": "ai_block_1"
+            },
+            {
+                "type": "error_codes",
+                "ec_heading": "",
+                "ec_brand": "ge",
+                "ec_type": "dishwasher",
+                "ec_max": 12,
+                "ec_intro": "",
+                "ec_cta_text": "",
+                "ec_cta_url": "",
+                "id": "error_codes_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "common_problems",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "fc_num_cols": 3,
+                "id": "ai_block_2"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "feature_columns_local",
+                "ai_mode": "standalone",
+                "ai_render_as": "feature_columns",
+                "id": "ai_block_3"
+            },
+            {
+                "type": "steps",
+                "steps_heading": "How Our Repair Service Works",
+                "steps_items": [
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Call or Book Online",
+                        "text": "Tell us the brand, appliance, and symptom. We schedule quickly, often same-day."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Diagnose & Quote",
+                        "text": "A local provider diagnoses the fault and gives you an upfront, no-surprise quote."
+                    },
+                    {
+                        "image": "",
+                        "alt": "",
+                        "heading": "Repair & Warranty",
+                        "text": "We complete the repair with quality parts and back the work with a warranty."
+                    }
+                ],
+                "ai_type_id": "steps_local",
+                "id": "steps_1"
+            },
+            {
+                "type": "cta_banner",
+                "anchor": "mid_cta",
+                "cb_text": "Need appliance repair in {city}? Connect with a local provider fast.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "header",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_1"
+            },
+            {
+                "type": "ai_block",
+                "ai_type_id": "local_relevance",
+                "ai_mode": "standalone",
+                "ai_render_as": "image_text",
+                "it_image_side": "right",
+                "it_photo": "{chart_group_water}",
+                "it_alt": "{chart_group_water_alt}",
+                "_it_photo_prechart": "",
+                "it_caption": "{chart_group_water_caption}",
+                "it_ratio": "auto",
+                "it_layout": "stacked",
+                "id": "ai_block_4"
+            },
+            {
+                "type": "faq_two_col",
+                "fq_heading": "{primary_keyword} FAQ — {city_state}",
+                "ai_type_id": "faq_local",
+                "ai_inject_field": "fq_items",
+                "ai_inject_mode": "replace",
+                "fq_items": [],
+                "id": "faq_two_col_1"
+            },
+            {
+                "type": "related_links",
+                "rl_heading": "Related Services",
+                "rl_max": 4,
+                "rl_items": [
+                    {
+                        "url": "/dishwasher-repair-{city_slug}",
+                        "text": "dishwasher repair"
+                    },
+                    {
+                        "url": "/ge-appliance-repair-{city_slug}",
+                        "text": "ge appliance repair"
+                    },
+                    {
+                        "url": "/appliance-repair-cost-{city_slug}",
+                        "text": "appliance repair cost"
+                    },
+                    {
+                        "url": "/emergency-appliance-repair-{city_slug}",
+                        "text": "emergency appliance repair"
+                    },
+                    {
+                        "url": "/ge-refrigerator-repair-{city_slug}",
+                        "text": "ge refrigerator repair"
+                    },
+                    {
+                        "url": "/ge-dryer-repair-{city_slug}",
+                        "text": "ge dryer repair"
+                    },
+                    {
+                        "url": "/whirlpool-dishwasher-repair-{city_slug}",
+                        "text": "whirlpool dishwasher repair"
+                    },
+                    {
+                        "url": "/maytag-dishwasher-repair-{city_slug}",
+                        "text": "maytag dishwasher repair"
+                    },
+                    {
+                        "url": "/refrigerator-repair-{city_slug}",
+                        "text": "refrigerator repair"
+                    },
+                    {
+                        "url": "/washer-repair-{city_slug}",
+                        "text": "washer repair"
+                    }
+                ],
+                "id": "related_links_1"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "services",
+                "html": "[services_links brand=\"self\" heading=\"More Repairs for This Brand\" cols=\"4\"]",
+                "id": "custom_html_1"
+            },
+            {
+                "type": "cards",
+                "cards_label": "Homeowner Safety Toolkit",
+                "cards_heading": "Verify Your {city_state} Appliance Repair Company",
+                "cards_subtext": "Before you hire anyone, use these independent national resources to confirm credentials, standards, and track record.",
+                "cards_cols": 3,
+                "cards_centered": true,
+                "cards_accent": "accent",
+                "cards_items": "@safety_toolkit_default",
+                "anchor": "safety-toolkit",
+                "id": "cards_safety_toolkit"
+            },
+            {
+                "type": "cta_banner",
+                "cb_text": "Book your {city} appliance repair today.",
+                "cb_btn_text": "Call {phone}",
+                "cb_btn_url": "tel:{tel}",
+                "cb_bg": "accent",
+                "cb_text_color": "#ffffff",
+                "cb_padding": "compact",
+                "id": "cta_banner_2"
+            },
+            {
+                "type": "custom_html",
+                "anchor": "pest_services",
+                "html": "[services_links appliance_type=\"self\" heading=\"Other Brands We Repair\"]",
+                "id": "custom_html_2"
+            },
+            {
+                "type": "map_info",
+                "mi_map_heading": "Areas We Serve in {city}, {state}",
+                "mi_info_heading": "{city_state} Information",
+                "mi_info_text": "{city_spotlight}",
+                "mi_info_alt": "{city_image_alt}",
+                "mi_info_credit": "{city_image_credit}",
+                "mi_map_embed": "<img src=\"/{city_map}\" alt=\"{city_map_alt}\" {city_map_dims}>",
+                "mi_head_color": "header",
+                "mi_head_color_custom": "#65a30d",
+                "mi_info_photo": "{city_image}",
+                "mi_map_side": "top",
+                "mi_map_caption": "{city_map_caption}",
+                "id": "map_info_1"
+            }
+        ],
+        "seo": {
+            "seo_title": "GE Dishwasher Repair in {city_state} | {business_short}",
+            "canonical_url": "",
+            "meta_description": "Professional GE dishwasher repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.",
+            "meta_keywords": "ge dishwasher repair {city} {SS}",
+            "og_title": "GE Dishwasher Repair in {city_state} | {business}",
+            "og_description": "Professional GE dishwasher repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.",
+            "og_image": "",
+            "service_name": "GE Dishwasher Repair",
+            "service_type": "GE Dishwasher Repair",
+            "service_area": "{city}, {SS}",
+            "service_description": "Professional GE dishwasher repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.",
+            "bc_label": "",
+            "bc_mid_label": "Dishwasher Repair",
+            "bc_mid_url": "/dishwasher-repair-{city_slug}/",
+            "primary_keyword": "GE Dishwasher Repair",
+            "secondary_keywords": "ge dishwasher repair near me, ge dishwasher not draining, ge dishwasher ftd code, ge dishwasher not cleaning, ge dishwasher service",
+            "brand": "GE",
+            "appliance_type": "Dishwasher",
+            "schema": "{\n    \"@context\": \"https://schema.org\",\n    \"@graph\": [\n        {\n            \"@type\": \"Service\",\n            \"name\": \"GE Dishwasher Repair in {city_state}\",\n            \"serviceType\": \"GE Dishwasher Repair\",\n            \"description\": \"Professional GE dishwasher repair in {city_state} from {business}. Fast local response, often same-day. Call {phone}.\",\n            \"areaServed\": {\n                \"@type\": \"City\",\n                \"name\": \"{city}\"\n            },\n            \"provider\": {\n                \"@type\": \"LocalBusiness\",\n                \"@id\": \"{website}/#localbusiness\",\n                \"name\": \"{business}\",\n                \"telephone\": \"{tel}\",\n                \"url\": \"{website}\"\n            }\n        }\n    ]\n}"
+        },
+        "service": "GE Dishwasher Repair",
+        "layout_enabled": true,
+        "layout_variants": [
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_2",
+                "ai_block_3",
+                "steps_1",
+                "faq_two_col_1",
+                "cta_banner_1",
+                "ai_block_4",
+                "custom_html_1",
+                "cta_banner_2",
+                "custom_html_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_1",
+                "ai_block_3",
+                "ai_block_2",
+                "cta_banner_1",
+                "steps_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "custom_html_1",
+                "cta_banner_2",
+                "custom_html_2",
+                "map_info_1"
+            ],
+            [
+                "hero_split_1",
+                "trust_bar_1",
+                "ai_block_2",
+                "ai_block_1",
+                "steps_1",
+                "ai_block_3",
+                "cta_banner_1",
+                "ai_block_4",
+                "faq_two_col_1",
+                "custom_html_1",
+                "cta_banner_2",
+                "custom_html_2",
+                "map_info_1"
+            ]
+        ]
     }
 ]

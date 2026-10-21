@@ -241,5 +241,136 @@
       "https://products.geappliances.com/appliance/gea-support-search-content?contentId=34683",
       "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16238"
     ]
+  },
+  "dishwasher": {
+    "found": true,
+    "source_url": "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16673",
+    "confidence": "direct_fetch",
+    "note": "GE states plainly that most dishwasher fault codes need a technician, and that a power-cycle at the breaker clears some of them. Codes are not present on every model. Codes are ordered by measured search demand first so the most-searched ones survive a block's ec_max cap; the plugin takes the first N in array order.",
+    "codes": [
+      {
+        "code": "FTD / F56",
+        "self_clearable": true,
+        "meaning": "Failure to drain — water is not leaving the machine.",
+        "detail": {
+          "FTD": {
+            "what_it_means": "The dishwasher has given up trying to drain and is telling you the water is not going anywhere.",
+            "why_it_happens": "The usual three: a clogged air gap, a kinked or poorly routed drain hose, or a disposer holding debris where the dishwasher line joins it.",
+            "what_to_try": "Check the air gap, then the drain hose behind or under the machine, then run the disposer. Clear standing water from the tub bottom before restarting.",
+            "when_to_call": "If all three are clear and water still will not leave, the drain pump needs testing."
+          }
+        }
+      },
+      {
+        "code": "1H",
+        "self_clearable": true,
+        "meaning": "Not a fault — the dishwasher is in Delay Start and counting down the hours before it begins.",
+        "detail": {
+          "1H": {
+            "what_it_means": "Nothing is wrong. Delay Start is switched on and the number in front of the H is how many hours remain before the cycle begins.",
+            "why_it_happens": "It is easy to set by accident, and it is often deliberately set to run overnight and then forgotten about.",
+            "what_to_try": "Cancel the delay — on most models holding the Start pad for a few seconds clears it — then select your cycle and start normally.",
+            "when_to_call": "No call needed. This is a setting, not a fault."
+          }
+        }
+      },
+      {
+        "code": "LEAK DETECTED",
+        "self_clearable": false,
+        "meaning": "The leak-detection system has sensed water where it should not be and stopped the machine.",
+        "detail": {
+          "LEAK DETECTED": {
+            "what_it_means": "A sensor has found water outside the tub and shut the dishwasher down to stop it spreading.",
+            "why_it_happens": "Something above the base is leaking — a seal, a hose connection, or the tub. The message is the safety system working, not the fault itself.",
+            "what_to_try": "Stop using the machine and turn its water supply off at the valve. The code tells you water is escaping but not from where.",
+            "when_to_call": "This needs a technician — tracing the source means getting under or behind the machine."
+          }
+        }
+      },
+      {
+        "code": "C1",
+        "self_clearable": true,
+        "meaning": "Draining has run past two minutes, so the machine has flagged a slow pump-out.",
+        "detail": {
+          "C1": {
+            "what_it_means": "The dishwasher tried to pump out and the drain took longer than the two minutes it allows.",
+            "why_it_happens": "Normally a restriction rather than a failure — a clogged air gap on the worktop, a drain hose that is kinked or badly positioned, or a disposer that has not been run and is holding debris in the line.",
+            "what_to_try": "Clean the air gap if your sink has one, check the drain hose for kinks, and run the disposer to clear it. Those are the three points GE names and all three are reachable.",
+            "when_to_call": "If the line is clear and it still drains slowly, the pump needs looking at."
+          }
+        }
+      },
+      {
+        "code": "C2",
+        "self_clearable": true,
+        "meaning": "The whole pump-out cycle has exceeded seven minutes."
+      },
+      {
+        "code": "C3",
+        "self_clearable": true,
+        "meaning": "The dishwasher will not drain at all."
+      },
+      {
+        "code": "C4",
+        "self_clearable": true,
+        "meaning": "The machine filled twice after a power failure, which points at a float switch stuck or failed."
+      },
+      {
+        "code": "C5",
+        "self_clearable": true,
+        "meaning": "The pump-out finished faster than it should have, suggesting there was less water to move than expected."
+      },
+      {
+        "code": "C6",
+        "self_clearable": true,
+        "meaning": "Incoming water is too cool — GE expects at least 120°F at the dishwasher."
+      },
+      {
+        "code": "C7",
+        "self_clearable": false,
+        "meaning": "The water temperature sensor circuit has stopped working, so the control cannot tell how hot the water is."
+      },
+      {
+        "code": "C8",
+        "self_clearable": true,
+        "meaning": "The detergent cup is blocked and cannot open fully during the cycle."
+      },
+      {
+        "code": "PF",
+        "self_clearable": true,
+        "meaning": "Not a fault — the dishwasher lost power mid-cycle and is reporting the interruption."
+      },
+      {
+        "code": "Cup Open",
+        "self_clearable": true,
+        "meaning": "The detergent cup has been left open rather than latched shut."
+      },
+      {
+        "code": "H2O",
+        "self_clearable": true,
+        "meaning": "A low-water condition — the machine is not getting as much water as the cycle needs."
+      },
+      {
+        "code": "999",
+        "self_clearable": false,
+        "meaning": "Either a possible leak or a control that needs resetting — GE lists both causes for this one."
+      },
+      {
+        "code": "PrS",
+        "self_clearable": false,
+        "meaning": "The pressure sensor is sending the control a signal it cannot make sense of."
+      }
+    ]
+  },
+  "washer": {
+    "found": false,
+    "checked_at": "2026-10-21",
+    "note": "GE publishes no general washer error-code list. Its Harmony washer support page documents only a generic \"a problem has been detected with this unit\" message with no codes behind it. Real GE washer codes do exist (353 for a lint filter clogged with softener residue, 18 for a pump filter needing cleaning, plus several consumer-help messages) but they belong specifically to the Profile UltraFast Combo washer/dryer. Publishing those under a \"GE Washer\" heading would show combo-only faults to top-loader and front-loader owners, so they are deliberately not recorded here.",
+    "checked_sources": [
+      "https://products.geappliances.com/appliance/gea-support-search-content?contentId=16577",
+      "https://products.geappliances.com/appliance/gea-support-search-content?contentId=000063878",
+      "https://www.geappliances.com/ge/service-and-support/washers-dryers.htm"
+    ],
+    "lead": "Profile UltraFast Combo codes are real and sourced. If a ge-combo-washer-dryer page is ever built they belong on it, not on the general washer page."
   }
 }
