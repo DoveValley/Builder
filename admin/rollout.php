@@ -291,7 +291,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step"><strong>You can see whether it worked.</strong> Open the &#9432; next to any domain and look at <em>File dates</em> — it shows when the last refresh ran, whether it succeeded, and when the next one is due. If one fails, an amber warning appears above the calendar naming the domains, because the refresh runs unattended and nobody would otherwise go looking.</div>'
           + '<div class="ro-step"><strong>It can never undo an upload.</strong> The refresh reads each file and writes the same bytes back, so if one of your uploads lands in that gap the old copy could in theory be written over the new one. It checks first: a file is only re-sent while it still matches exactly what the last upload put there, and anything that has changed is left alone. Your upload always wins.</div>'
           + '<div class="ro-step"><strong>Dates you can see on the page</strong> are separate and already handled: blog posts are spread 14–270 days back (a fixed spread per domain, so rebuilds don\'t reshuffle them), photos have their embedded camera/edit dates stripped out, and the sitemap now reports each page and post\'s own date instead of one shared date for every URL.</div>'
-          + '<div class="ro-step" style="color:#92400e;">Known gap: the Cloudflare cache purge needs <strong>Cache Purge</strong> permission on each account\'s API token, which is still outstanding on some accounts. Until then a refreshed date takes up to ~4 hours to show publicly instead of straight away. Pages are unaffected (they are not edge-cached) — it only delays assets like CSS.</div>'],
+          + '<div class="ro-step">Every Cloudflare account\'s API token now carries <strong>Cache Purge</strong> permission '
+            + '(confirmed 2026-10-24: 117 of 118 live domains\' last refresh reports "cache: purged," 0 failures — the '
+            + 'one exception is a missing deploy manifest, unrelated to Cloudflare). A refreshed date shows publicly '
+            + 'right away, not after the old ~4-hour delay.</div>'],
     };
     function showStaticInfo(key) {
         const [title, body] = STATIC_INFO[key] || ['', ''];
