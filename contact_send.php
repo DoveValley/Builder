@@ -20,9 +20,12 @@ function cf_redirect(string $path, string $msg): void {
     exit;
 }
 
-// CSRF
-$token = $_POST['cf_csrf'] ?? '';
-if (!hash_equals($_SESSION['cf_csrf_token'] ?? '', $token)) {
+// CSRF — a client that never sends its session cookie back gets a fresh,
+// empty session on every request, so an unset session token must NOT be
+// treated as a match just because the submitted token is also empty.
+$sessionToken = $_SESSION['cf_csrf_token'] ?? '';
+$token        = $_POST['cf_csrf'] ?? '';
+if ($sessionToken === '' || !hash_equals($sessionToken, $token)) {
     cf_redirect($returnPath, 'error');
 }
 // Rotate token after use
@@ -33,17 +36,35 @@ if (($_POST['cf_hp'] ?? '') !== '') {
     cf_redirect($returnPath, 'success'); // silent discard
 }
 
-// Rate limit: 5 submissions per IP per hour
-$ipKey = 'cf_rate_' . md5($_SERVER['REMOTE_ADDR'] ?? '');
-$rate  = $_SESSION[$ipKey] ?? ['count' => 0, 'start' => time()];
-if (time() - $rate['start'] > 3600) {
-    $rate = ['count' => 0, 'start' => time()];
+// Rate limit: 5 submissions per IP per hour. Stored in a shared file keyed by
+// IP, NOT in $_SESSION — a scripted client that drops its session cookie got
+// a brand new, empty counter every single request, making the old
+// session-based limit a no-op for exactly the traffic it was meant to catch.
+$rateFile = dirname(DATA_FILE) . '/.cf_rate_limit.json';
+$ipKey    = md5($_SERVER['REMOTE_ADDR'] ?? '');
+$now      = time();
+$fh       = fopen($rateFile, 'c+');
+flock($fh, LOCK_EX);
+$rates = json_decode(stream_get_contents($fh) ?: '', true) ?: [];
+foreach ($rates as $k => $v) {
+    if ($now - ($v['start'] ?? 0) > 3600) unset($rates[$k]); // drop stale entries
+}
+$rate = $rates[$ipKey] ?? ['count' => 0, 'start' => $now];
+if ($now - $rate['start'] > 3600) {
+    $rate = ['count' => 0, 'start' => $now];
 }
 if ($rate['count'] >= 5) {
+    flock($fh, LOCK_UN);
+    fclose($fh);
     cf_redirect($returnPath, 'limit');
 }
 $rate['count']++;
-$_SESSION[$ipKey] = $rate;
+$rates[$ipKey] = $rate;
+ftruncate($fh, 0);
+rewind($fh);
+fwrite($fh, json_encode($rates));
+flock($fh, LOCK_UN);
+fclose($fh);
 
 // Validate required fields
 $name    = trim($_POST['cf_name']    ?? '');

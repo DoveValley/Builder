@@ -414,7 +414,7 @@ function rank_audit_render_rows(array $domains, int $tooNewDays): string
         <?php foreach ($domains as $d):
             $tooNew = $d['age'] >= 0 && $d['age'] < $tooNewDays; ?>
             <tr class="<?= $tooNew ? 'fa-dim' : '' ?>">
-                <td><?= h($d['domain']) ?></td>
+                <td><a href="https://<?= h($d['domain']) ?>/" target="_blank" rel="noopener"><?= h($d['domain']) ?></a></td>
                 <td><strong><?= $d['best'] ?: '—' ?></strong></td>
                 <td class="<?= $d['top10'] ? 'fa-good' : '' ?>"><?= (int) $d['top10'] ?></td>
                 <td><?= (int) $d['top100'] ?></td>

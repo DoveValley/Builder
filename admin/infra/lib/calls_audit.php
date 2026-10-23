@@ -250,7 +250,7 @@ function calls_audit_render_rows(array $domains): string
     ob_start(); ?>
         <?php foreach ($domains as $d): ?>
             <tr>
-                <td><?= h($d['domain']) ?></td>
+                <td><a href="https://<?= h($d['domain']) ?>/" target="_blank" rel="noopener"><?= h($d['domain']) ?></a></td>
                 <td><?= (int) $d['calls'] ?></td>
                 <td class="<?= $d['engaged'] ? 'fa-good' : '' ?>"><?= (int) $d['engaged'] ?></td>
                 <td><?= h($d['last_call_at']) ?></td>

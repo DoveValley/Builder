@@ -336,7 +336,7 @@ function index_audit_render_rows(array $rows): string
             $pct = ($r['indexed'] >= 0 && $r['built'] > 0) ? round($r['indexed'] / $r['built'] * 100) . '%' : '—';
         ?>
             <tr>
-                <td><?= h($r['domain']) ?></td>
+                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a></td>
                 <td>
                     <?php if ($r['indexed'] < 0): ?>
                         <span class="fa-warn" title="<?= h($r['note']) ?>">not measured</span>

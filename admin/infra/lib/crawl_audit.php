@@ -340,7 +340,7 @@ function crawl_audit_render_rows(array $rows): string
     ob_start(); ?>
         <?php foreach ($rows as $r): ?>
             <tr class="<?= !$r['collected'] ? 'fa-row-dim' : '' ?>">
-                <td><?= h($r['domain']) ?></td>
+                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a></td>
                 <td><?= (int) $r['hits'] ?></td>
                 <td><?= (int) $r['urls'] ?></td>
                 <td><?= (int) $r['s200'] ?></td>
