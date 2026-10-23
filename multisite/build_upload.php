@@ -39,13 +39,14 @@ require __DIR__ . '/../includes/multisite/batch_options.php';
 
 $args = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
-$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false;
+$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false; $wipe = false;
 foreach ($args as $a) {
     if (str_starts_with($a, '--batch=')) $batchId = substr($a, 8);
     if (str_starts_with($a, '--only='))  $only    = strtolower(substr($a, 7));
     if (str_starts_with($a, '--do='))    $doArg   = strtolower(substr($a, 5));
     if ($a === '--force-photos')         $forcePhotos = true;
     if ($a === '--logo-only')            $logoOnly = true;
+    if ($a === '--wipe')                 $wipe = true;
 }
 
 // Palette/font/jitter/logo/icon/favicon all live under the one 'visual' step (colors and
@@ -66,6 +67,20 @@ $sel = $doArg !== '' ? array_fill_keys(array_filter(array_map('trim', explode(',
 $do = ['host' => isset($sel['host']), 'build' => isset($sel['build']), 'upload' => isset($sel['upload'])];
 if (!$do['host'] && !$do['build'] && !$do['upload']) {
     echo "Nothing selected to run.\n"; exit(2);
+}
+// Wipe deletes every file already on a domain's remote host before uploading fresh.
+// Safe ONLY when this same run is about to regenerate everything the site needs —
+// --logo-only explicitly skips landing/pagepool (see $logoOnlySkip above), so the
+// local output it produces is missing most of the site's real pages. Wipe + a
+// logo-only build would delete a live domain's actual content and replace it with
+// just the handful of pages logo-only touches. Checked here too, not just by the
+// panel/API caller — same reasoning as upload_sites.php's own --wipe guard: a
+// destructive flag must refuse itself at every layer that can reach it, not trust
+// the layer above to have gotten it right.
+if ($wipe && (!$do['build'] || !$do['upload'] || $logoOnly)) {
+    echo "Refusing --wipe: it requires a full Build AND Upload in the same run (not --logo-only) so nothing "
+       . "is deleted without being replaced. Run a normal full build with Upload (and --wipe) together.\n";
+    exit(2);
 }
 $php = ms_php_cli();
 
@@ -130,9 +145,11 @@ if ($do['build']) {
 $uploadOk = true;
 if ($do['upload']) {
     if ($built) {
-        echo "\n== 3/4 Upload " . count($built) . " domain(s)\n";
-        passthru(implode(' ', array_map('escapeshellarg', [$php, BASE_DIR . '/multisite/upload_sites.php', $masterId,
-            '--batch=' . $batchId, '--only=' . implode(',', $built)])), $rcUp);
+        echo "\n== 3/4 Upload " . count($built) . " domain(s)" . ($wipe ? ' [--wipe: existing remote files deleted first]' : '') . "\n";
+        $upCmd = [$php, BASE_DIR . '/multisite/upload_sites.php', $masterId,
+            '--batch=' . $batchId, '--only=' . implode(',', $built)];
+        if ($wipe) $upCmd[] = '--wipe';
+        passthru(implode(' ', array_map('escapeshellarg', $upCmd)), $rcUp);
         $uploadOk = ($rcUp === 0);
     } else {
         echo "\n== 3/4 Upload skipped — nothing built\n";

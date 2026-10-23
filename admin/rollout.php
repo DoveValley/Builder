@@ -89,9 +89,10 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-do-upload" checked> Upload</label>
         <label><input type="checkbox" id="ro-force-photos"> Force-regenerate photos <a href="#" class="ro-info" data-static-info="force_photos" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-logo-only"> Colors, fonts, logo &amp; favicon only <a href="#" class="ro-info" data-static-info="logo_only" title="Details">&#9432;</a></label>
+        <label><input type="checkbox" id="ro-wipe"> Wipe server files first <a href="#" class="ro-info" data-static-info="wipe_files" title="Details">&#9432;</a></label>
         <button type="button" class="btn" id="ro-build">Run selected</button>
         <a href="#" class="ro-info" data-static-info="file_dates" title="What this does to file dates">&#9432;</a>
-        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). Force-regenerate photos and Colors, fonts, logo &amp; favicon only both only do anything while Build is ticked &mdash; see the &#9432; next to each for what ticking both together does.</span>
+        <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). Force-regenerate photos and Colors, fonts, logo &amp; favicon only both only do anything while Build is ticked &mdash; see the &#9432; next to each for what ticking both together does. Wipe server files first needs a full Build AND Upload (not Colors/fonts/logo/favicon only) and is capped at 5 domains per run.</span>
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
@@ -252,6 +253,36 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + '<div class="ro-step">Local rendering only (no AI/OpenAI call), so there\'s no real cost — safe to run as often as you like.</div>'
           + '<div class="ro-step">Does <strong>not</strong> change this batch\'s saved Generate settings — it\'s a one-off override just for this click. Use it after editing a Theme Preset, Logo Config, or icon in Brand Design to push that change out without a full rebuild.</div>'
           + COMBO_NOTE],
+        wipe_files: ['Wipe server files first',
+            '<div class="ro-step">Deletes <strong>every file already on the live server</strong> for each ticked domain, '
+            + 'THEN uploads this run\'s fresh build on top of the now-empty server. Normal uploads never do this — they '
+            + 'only add new files or overwrite changed ones, so anything already on the server that a newer build no '
+            + 'longer produces is simply left behind, forever, by every ordinary run.</div>'
+          + '<div class="ro-step"><strong>Why this exists (added 2026-10-24):</strong> every domain\'s build used to copy '
+            + 'its ENTIRE shared master uploads/ folder into its own output — not just the photos that domain actually '
+            + 'uses. That folder accumulates every photo ever generated across every build of every domain on that '
+            + 'master, and nothing ever pruned it. Measured live: wrenappliancerepair.com\'s uploads/ held 751 files — a '
+            + 'near-exact copy of the master\'s then-748-file folder — for a site whose own ~115 pages need a small '
+            + 'fraction of that. The build itself is fixed now (it only copies files a domain\'s own pages actually '
+            + 'reference), but that fix only stops things from getting WORSE going forward — it does nothing about the '
+            + 'hundreds of excess files a domain like Wren already has sitting live on its server from before the fix. '
+            + 'Wipe is how those get actually removed.</div>'
+          + '<div class="ro-step"><strong>Only selectable together with a full Build AND Upload</strong> (Colors/fonts/logo/favicon '
+            + 'only is not enough, and is greyed out automatically the moment this is ticked — unticking Build or Upload '
+            + 'does the same). Reason: that cheaper mode skips page-pool and landing-page generation entirely, so its '
+            + 'local output is missing most of a live domain\'s real pages, and without Upload ticked wipe never reaches '
+            + 'the step that actually does anything. Wiping the server and then uploading an incomplete build would '
+            + 'delete a domain\'s actual content and replace it with only the handful of pages that mode touches. A full '
+            + 'Build regenerates everything the site needs, so wiping first and uploading second never leaves a gap — '
+            + 'the same checked a second and '
+            + 'third time, server-side and inside the upload script itself, not just here.</div>'
+          + '<div class="ro-step">Capped at <strong>5 explicitly ticked domains per run</strong> — never "whatever\'s '
+            + 'checked in the grid" at fleet scale. Run it again for the next few if you have more to clean up.</div>'
+          + '<div class="ro-step">Not sticky: this box un-ticks itself the moment a run is confirmed, success or not — '
+            + 'it can never silently carry over and wipe a different set of domains on your next, unrelated click.</div>'
+          + '<div class="ro-step" style="color:#92400e;"><strong>This cannot be undone.</strong> Use it on a domain you '
+            + 'know has accumulated excess files (check its file count against a sibling domain\'s first if unsure), not '
+            + 'as a routine option.</div>'],
         file_dates: ['What a run does to file dates',
             '<div class="ro-step">Every file carries the date it was written, and the server tells the whole internet that date in its <code>Last-Modified</code> header. <strong>Uploading stamps every file it sends with the time of that upload.</strong> So a batch run leaves all its domains carrying timestamps minutes — sometimes seconds — apart.</div>'
           + '<div class="ro-step">That is the one thing on these sites that visibly links them to each other. Measured on the live fleet on 15 Oct 2026: four domains released <em>weeks</em> apart all had homepage dates inside the same <strong>98 seconds</strong> of one night, because a later rebuild had overwritten their original staggered dates.</div>'
@@ -502,20 +533,35 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             rows.filter(f).filter(canTick).forEach(r => e.target.checked ? sel.add(r.domain) : sel.delete(r.domain));
             render();
         }
-        if (e.target.id === 'ro-do-build') syncForcePhotos();
+        if (e.target.id === 'ro-do-build' || e.target.id === 'ro-logo-only' || e.target.id === 'ro-do-upload') syncForcePhotos();
     });
     // Force-regenerate photos and Colors, fonts, logo & favicon only are both meaningless without
     // Build — greyed out and auto-unticked the moment Build is off, not just blocked at
     // submit time, so it's never possible to leave either checked in a state where it
     // would silently do nothing. Tickable together on purpose — see rollout_build's
     // server-side handling of logo_only+force_photos for what that combination means.
+    //
+    // Wipe is different: it's not meaningless without a full Build + Upload, it's
+    // DANGEROUS without one. --logo-only skips landing/pagepool, so its local output is
+    // missing most of a live domain's real pages — wipe would delete everything already
+    // on the server and replace it with just the handful of pages logo-only touches.
+    // Without Upload ticked, wipe never reaches the step that actually does anything, so
+    // it would silently no-op. Greyed out and auto-unticked whenever Build is off, Upload
+    // is off, or logo-only is on. Re-checked again server-side in rollout_build and again
+    // in build_upload.php itself — a destructive flag refuses itself at every layer that
+    // can reach it, never trusting the layer above.
     function syncForcePhotos() {
-        const buildOn = $('ro-do-build').checked;
+        const buildOn  = $('ro-do-build').checked;
+        const uploadOn = $('ro-do-upload').checked;
+        const logoOn   = $('ro-logo-only').checked;
         const fp = $('ro-force-photos');
         const lo = $('ro-logo-only');
+        const wp = $('ro-wipe');
         fp.disabled = !buildOn;
         lo.disabled = !buildOn;
+        wp.disabled = !buildOn || !uploadOn || logoOn;
         if (!buildOn) { fp.checked = false; lo.checked = false; }
+        if (!buildOn || !uploadOn || logoOn) wp.checked = false;
     }
     syncForcePhotos();
     $('ro-sched').onclick = async () => {
@@ -619,7 +665,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     let jobTimer = null;
     function stepsPicked() {
         return { host: $('ro-do-host').checked, build: $('ro-do-build').checked, upload: $('ro-do-upload').checked,
-                 forcePhotos: $('ro-force-photos').checked, logoOnly: $('ro-logo-only').checked };
+                 forcePhotos: $('ro-force-photos').checked, logoOnly: $('ro-logo-only').checked, wipe: $('ro-wipe').checked };
     }
     function stepsLabel(p) {
         const names = [p.host && 'Create host', p.build && 'Build', p.upload && 'Upload'].filter(Boolean);
@@ -682,10 +728,26 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             msg += '\n\nCOLORS, FONTS, LOGO & FAVICON ONLY is ticked — this run skips AI text, photos, page pool, and landing pages for '
                  + sel.size + ' domain(s), rebuilding just the color palette, font, jitter, logo, icon, and favicon from current settings. No cost (local only). Continue?';
         }
+        if (picked.wipe) {
+            // Checkbox is greyed out + auto-unticked whenever Build is off or logo-only is
+            // on (see syncForcePhotos()), so these two should be unreachable from the UI —
+            // checked again anyway, same reasoning as the server-side and build_upload.php
+            // checks: a destructive flag refuses itself at every layer, never trusts the
+            // layer above to have gotten it right.
+            if (!picked.build || !picked.upload || picked.logoOnly) return say('Wipe requires a full Build AND Upload in this same run — turn off Colors/fonts/logo/favicon only.');
+            if (sel.size > 5) return say('Wipe is limited to 5 domains at a time — tick fewer, or run it again for the rest.');
+            msg += '\n\n⚠ WIPE SERVER FILES FIRST is ticked — every file already on the live server for:\n'
+                 + [...sel].join('\n')
+                 + '\nwill be DELETED, then replaced with this run\'s fresh build. This cannot be undone. Continue?';
+        }
         if (!confirm(msg)) return;
+        // Never sticky: unticked the instant the run is confirmed (success or failure),
+        // so a second, unrelated "Run selected" click later can never silently wipe
+        // whatever happens to be ticked in the grid at that point.
+        $('ro-wipe').checked = false;
         const r = await post({ action: 'rollout_build', domains: JSON.stringify([...sel]),
             do_host: picked.host ? '1' : '0', do_build: picked.build ? '1' : '0', do_upload: picked.upload ? '1' : '0',
-            force_photos: picked.forcePhotos ? '1' : '0', logo_only: picked.logoOnly ? '1' : '0' });
+            force_photos: picked.forcePhotos ? '1' : '0', logo_only: picked.logoOnly ? '1' : '0', wipe: picked.wipe ? '1' : '0' });
         if (r.error) return say(r.error);
         say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);

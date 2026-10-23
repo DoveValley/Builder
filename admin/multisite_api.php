@@ -763,9 +763,30 @@ switch ($action) {
         // only), without touching this batch's own saved Generate settings. See
         // build_upload.php's --logo-only for the exact skip list.
         $rtLogoOnly = !empty($_POST['logo_only']);
+        // Wipe deletes every file already on a domain's remote host before uploading
+        // fresh — only safe when this same run also does a full Build (never
+        // --logo-only, which skips landing/pagepool and would delete a live domain's
+        // real pages without regenerating them). Refused here too, not just by the UI
+        // greying the checkbox out and not just by build_upload.php's own check below —
+        // a destructive flag must refuse itself at every layer that can reach it.
+        // Capped at a handful of EXPLICITLY ticked domains (never "however many happen
+        // to be selected"), the same spirit as upload_sites.php's own "--wipe requires
+        // --only, never a batch-wide wipe" rule, one level more conservative.
+        $rtWipe = !empty($_POST['wipe']);
+        if ($rtWipe) {
+            if (!in_array('build', $rtDo, true) || !in_array('upload', $rtDo, true) || $rtLogoOnly) {
+                echo json_encode(['error' => 'Wipe requires a full Build AND Upload in this same run — turn off "Colors, fonts, logo & favicon only" and make sure both Build and Upload are ticked.']);
+                break;
+            }
+            if (count($rtDoms) > 5) {
+                echo json_encode(['error' => 'Wipe is limited to 5 domains at a time — tick fewer, or run it again for the rest.']);
+                break;
+            }
+        }
         $rtArgs = [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $rtDoms), '--do=' . implode(',', $rtDo)];
         if ($rtForcePhotos) $rtArgs[] = '--force-photos';
         if ($rtLogoOnly) $rtArgs[] = '--logo-only';
+        if ($rtWipe) $rtArgs[] = '--wipe';
         echo json_encode(ms_launch_job($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',
             'A run is already in progress for this batch — wait for it to finish.',
             BASE_DIR . '/multisite/build_upload.php', $rtArgs));
