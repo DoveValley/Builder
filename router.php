@@ -25,7 +25,13 @@ foreach ($phpFiles as $f) {
     }
 }
 
-// 4. /blog or /blog/some-post → blog.php
+// 4. /favicon.ico -> favicon.php (mirrors the .htaccess rewrite in production)
+if ($slug === 'favicon.ico') {
+    require __DIR__ . '/favicon.php';
+    return true;
+}
+
+// 5. /blog or /blog/some-post → blog.php
 if ($slug === 'blog' || str_starts_with($slug, 'blog/')) {
     $post = substr($slug, 5); // strip "blog/"
     $_GET['slug'] = ltrim($post, '/');
@@ -34,7 +40,7 @@ if ($slug === 'blog' || str_starts_with($slug, 'blog/')) {
     return true;
 }
 
-// 5. Everything else is a page slug → page.php
+// 6. Everything else is a page slug → page.php
 if ($slug !== '') {
     $_GET['slug'] = $slug;
     $_SERVER['SCRIPT_NAME'] = '/page.php';
@@ -42,6 +48,6 @@ if ($slug !== '') {
     return true;
 }
 
-// 6. Root → homepage
+// 7. Root → homepage
 require __DIR__ . '/index.php';
 return true;

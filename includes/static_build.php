@@ -606,6 +606,19 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     progress_log("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''), $uploadFailed ? 'warn' : 'log');
     progress_tick(++$_preDone, $_preTotal);
 
+    // ── 7b. favicon.ico ───────────────────────────────────────────────────────────
+    // Browsers/crawlers probe this exact path regardless of what the page's own
+    // <link rel="icon"> points to. This is a static host — there is no PHP route to
+    // catch it and redirect, so the only fix is a real file at the output root.
+    $faviconRel = trim((string) ($siteData['header']['favicon'] ?? ''));
+    if ($faviconRel !== '') {
+        $faviconSrc = $outputBase . 'uploads/' . basename($faviconRel);
+        if (is_file($faviconSrc)) {
+            copy($faviconSrc, $outputBase . 'favicon.ico');
+            progress_log('Wrote favicon.ico from ' . basename($faviconRel) . '.');
+        }
+    }
+
     // ── 8. sitemap.xml ────────────────────────────────────────────────────────────
     if ($canonicalDomain !== '') {
         // Deterministic lastmod: use the site's own last_modified if set — never the

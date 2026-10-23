@@ -37,6 +37,10 @@ Options -Indexes
     RewriteRule ^sitemap\.xml$ sitemap.php [L]
     RewriteRule ^robots\.txt$  robots.php  [L]
 
+    # /favicon.ico -> this domain's actual configured favicon. Browsers/crawlers
+    # probe this literal path regardless of the page's own <link rel="icon">.
+    RewriteRule ^favicon\.ico$ favicon.php [L]
+
     # Blog listing (with optional ?tag=&p=) and single posts
     RewriteRule ^blog/?$ blog.php [L,QSA]
     RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog.php?slug=$1 [L,QSA]
