@@ -112,6 +112,56 @@ if (!function_exists('gen_copy_dir')) {
     }
 }
 
+if (!function_exists('gen_copy_referenced_uploads')) {
+    /**
+     * Copy only the files under $src that this build's own HTML actually references,
+     * instead of the whole directory.
+     *
+     * $src (UPLOAD_DIR) is a clone of the MASTER's shared uploads/ folder, which
+     * accumulates every photo ever generated across every build of every domain on
+     * this master — nothing ever prunes it. A blind gen_copy_dir() of the whole thing
+     * shipped hundreds of irrelevant files (other domains' cached photos, even the
+     * master's own demo logo) to every single live domain. Measured live 2026-10-23:
+     * wrenappliancerepair.com's uploads/ held 751 files — a near-exact copy of the
+     * master's then-748-file uploads/ folder — for a site whose own ~115 pages need a
+     * small fraction of that. A sibling built earlier, before the shared folder had
+     * grown as large, only carried 161.
+     *
+     * Scans every .html file already written under $outputHtmlDir for the literal
+     * substring "uploads/" rather than parsing tags — robust to wherever a reference
+     * appears (img/picture/srcset, OG/schema meta, inline style backgrounds) without
+     * needing a separate code path for each. Must run AFTER all pages are written and
+     * BEFORE sitemap.xml/robots.txt (neither references uploads/, so the ordering
+     * doesn't miss anything) — see call site.
+     */
+    function gen_copy_referenced_uploads(string $src, string $dst, string $outputHtmlDir): array {
+        $copied = 0; $failed = 0;
+        if (!is_dir($dst)) mkdir($dst, 0755, true);
+        if (!is_dir($src)) return [$copied, $failed];
+
+        $referenced = [];
+        $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($outputHtmlDir, FilesystemIterator::SKIP_DOTS));
+        foreach ($it as $f) {
+            if (!$f->isFile() || $f->getExtension() !== 'html') continue;
+            $html = (string) @file_get_contents($f->getPathname());
+            if (preg_match_all('~uploads/[^"\'\s)>?#]+~', $html, $m)) {
+                foreach ($m[0] as $ref) $referenced[substr($ref, strlen('uploads/'))] = true;
+            }
+        }
+
+        foreach (array_keys($referenced) as $rel) {
+            if (strpos($rel, '..') !== false) continue; // defensive — should never appear in our own generated output
+            $srcFile = rtrim($src, '/') . '/' . $rel;
+            $dstFile = rtrim($dst, '/') . '/' . $rel;
+            if (!is_file($srcFile)) { $failed++; continue; }
+            $dstDir = dirname($dstFile);
+            if (!is_dir($dstDir)) mkdir($dstDir, 0755, true);
+            if (copy($srcFile, $dstFile)) $copied++; else $failed++;
+        }
+        return [$copied, $failed];
+    }
+}
+
 if (!function_exists('contact_mail_static_php')) {
     /**
      * Source for the small, dependency-free contact-form handler dropped into every
@@ -599,11 +649,15 @@ function build_static_site(string $outputBase, string $canonicalDomain = '', str
     [$assetCount, $assetFailed] = gen_copy_dir(BASE_DIR . '/assets', $outputBase . 'assets', ['admin', 'src']);
     progress_log("Assets: {$assetCount} files copied." . ($assetFailed ? " ({$assetFailed} failed)" : ''), $assetFailed ? 'warn' : 'log');
 
-    // ── 7. Copy uploads ───────────────────────────────────────────────────────────
+    // ── 7. Copy uploads — scoped to what this build's own HTML references ─────────
+    // (not a blind copy of the whole shared uploads/ folder — see
+    // gen_copy_referenced_uploads()'s docblock for why that shipped hundreds of
+    // irrelevant files to every live domain). Must run after every page in
+    // $outputBase has been written, which by this point in the function they have.
     progress_log('Copying uploads…');
     gen_clear_dir($outputBase . 'uploads/');
-    [$uploadCount, $uploadFailed] = gen_copy_dir(UPLOAD_DIR, $outputBase . 'uploads/');
-    progress_log("Uploads: {$uploadCount} files copied." . ($uploadFailed ? " ({$uploadFailed} failed)" : ''), $uploadFailed ? 'warn' : 'log');
+    [$uploadCount, $uploadFailed] = gen_copy_referenced_uploads(UPLOAD_DIR, $outputBase . 'uploads/', $outputBase);
+    progress_log("Uploads: {$uploadCount} referenced file(s) copied." . ($uploadFailed ? " ({$uploadFailed} referenced but missing)" : ''), $uploadFailed ? 'warn' : 'log');
     progress_tick(++$_preDone, $_preTotal);
 
     // ── 7b. favicon.ico ───────────────────────────────────────────────────────────
