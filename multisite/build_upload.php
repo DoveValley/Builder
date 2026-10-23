@@ -155,7 +155,20 @@ foreach (['built', 'upload'] as $step) {
 $st = infra_pipeline_stored($domains);
 $up = 0;
 foreach ($domains as $d) if (($st[$d]['upload']['state'] ?? '') === 'ok') $up++;
-echo "\nDONE: {$up} of " . count($domains) . " uploaded and ready to schedule.\n";
+// This is each domain's STORED upload status, not a report of what step 3 just did —
+// true of a domain's upload from months ago just as much as one from 30 seconds ago.
+// Said plainly only when Upload actually ran this time; otherwise worded so "Upload —
+// skipped (not selected)" two lines up isn't contradicted by a line that reads like an
+// upload just happened. Hit for real 2026-10-23: a Build-only run (new favicon.ico
+// generated locally, Upload left unticked) still ended in "DONE: 1 of 1 uploaded and
+// ready to schedule," which read as confirmation the new file had reached the live
+// server when it was still sitting in the local output dir, untouched.
+if ($do['upload']) {
+    echo "\nDONE: {$up} of " . count($domains) . " uploaded and ready to schedule.\n";
+} else {
+    echo "\nUpload was not ticked this run, so nothing was sent to any live server — {$up} of "
+       . count($domains) . " show as uploaded from an EARLIER run.\n";
+}
 // Only the steps actually asked for count toward success — a Create-host-only run that
 // succeeds is a success, even though nothing got built or uploaded this time.
 $ok = (!$do['host'] || $hostOk) && (!$do['build'] || $buildOk) && (!$do['upload'] || $uploadOk);
