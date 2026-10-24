@@ -900,13 +900,28 @@ function picdrop_vary_bg_prompt(): string {
  * close to the reference" suffix is exactly what's needed, nothing extra.
  */
 function picdrop_tech_customer_prompt(): string {
+    // Picked at random once per page render (same timing as every other mode's prompt
+    // text) purely to vary the homeowner's clothing across generations — otherwise the
+    // model tends to default to a similar outfit every time. Clothing only, no
+    // demographic specifics — see feedback_no_demographic_specification_in_image_prompts.
+    $customerOutfits = [
+        'a light gray crewneck sweater',
+        'a navy blue button-down shirt',
+        'a forest green quarter-zip pullover',
+        'a burgundy cardigan over a white t-shirt',
+        'a mustard yellow knit sweater',
+        'a denim jacket over a plain white t-shirt',
+        'a striped long-sleeve shirt',
+        'a plain white cotton blouse',
+    ];
+    $outfit = $customerOutfits[array_rand($customerOutfits)];
     return 'Photorealistic photo, bright white modern kitchen with subway tile and stainless '
          . 'appliances, natural light. A similar-looking appliance technician to the one in the '
          . 'first image, but with a different hairstyle and face, in a light blue short-sleeve '
          . 'work shirt and navy pants (no logos). He stands beside a stainless steel range with '
-         . 'the oven door open, explaining the repair to a homeowner in their 40s-50s who is '
-         . 'listening and smiling. Unbranded appliance, no text or logos visible. Candid, warm, '
-         . 'trustworthy. Horizontal 4:3.';
+         . 'the oven door open, explaining the repair to a homeowner in their 40s-50s, wearing '
+         . $outfit . ', who is listening and smiling. Unbranded appliance, no text or logos '
+         . 'visible. Candid, warm, trustworthy. Horizontal 4:3.';
 }
 
 /**
