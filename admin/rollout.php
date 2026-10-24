@@ -98,11 +98,16 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
 
-    <div class="ro-bar" style="justify-content:space-between;">
-        <div style="display:flex;align-items:center;gap:8px;">
+    <div class="ro-bar" style="justify-content:space-between;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
             <strong style="font-size:.92rem">Site Final Check</strong>
             <a href="#" class="ro-info" id="ro-cc-info" title="What this checks">&#9432;</a>
-            <span class="hint">Checks this master's own template pages — not tied to the domains ticked below.</span>
+            <select id="ro-cc-mode" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
+                <option value="template">This master's template</option>
+                <option value="built">First built domain</option>
+                <option value="live">First live domain</option>
+            </select>
+            <span class="hint" id="ro-cc-hint">Checks this master's own template pages — not tied to the domains ticked below.</span>
         </div>
         <button type="button" class="btn sec" id="ro-cc-run">Run Final Check</button>
     </div>
@@ -111,24 +116,46 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     <div class="ro-cc-modal-bg" id="ro-cc-modal-bg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:60;align-items:center;justify-content:center" onclick="if(event.target.id==='ro-cc-modal-bg')this.style.display='none'">
         <div style="background:#fff;border-radius:8px;padding:18px 22px;max-width:640px;width:92%;max-height:84vh;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.2);line-height:1.6;font-size:.86rem;color:#334155">
             <h3 style="margin:0 0 4px;font-size:1.05rem;color:#1e3a5f">Site Final Check — what runs</h3>
-            <p style="margin:0 0 14px;color:#64748b">Fast, local checks against this master's own template pages — every page, no AI
-                cost, no external API, done in a second or two. This is the full list; nothing runs that isn't named here.</p>
-            <ol style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_registry() as $i => $c): ?>
+            <p style="margin:0 0 14px;color:#64748b">Three separate modes, picked with the dropdown next to the button — each checks
+                a different thing and needs a different precondition. This is the full list for each; nothing runs that isn't named here.</p>
+
+            <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">This master's template <span style="font-weight:400;color:#64748b;">— instant, free, no domain needed</span></h4>
+            <ol class="ro-cc-list" data-mode="template" style="margin:0 0 14px 20px;padding:0;">
+                <?php foreach (cc_registry() as $c): ?>
                 <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
                 <?php endforeach; ?>
             </ol>
-            <p style="margin:0 0 10px;color:#64748b">Not covered yet, on purpose: anything needing an AI vision call (does the photo
-                actually match its alt text) or an external Google API (PageSpeed Insights, Rich Results Test) —
-                both cost real money per check and belong in their own tool, not bolted onto this fast one. Also not
-                covered: Google's existing on-page SEO gate, which needs a real build to already exist first — read its
-                report separately after a build.</p>
-            <p style="margin:0;color:#64748b">Two more were tried and deliberately left out, not just forgotten: a filename
-                mirrors its own page's keyword (AI-generated photos legitimately carry opaque cache-style names like
-                <code>ai_bd09e3_8c5ef2.webp</code> on 47&ndash;80% of photos in some niches — not a bug, just a different
-                naming convention — so this check's false-positive rate was too high to trust); and legal page links are
-                "real" (the standard legal pages are built directly into every site, not stored as checkable page files,
-                so "real" would need to mean something about their actual text content instead — not yet scoped).</p>
+
+            <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">First built domain <span style="font-weight:400;color:#64748b;">— needs this batch's first completed Build (not live yet — that's the point: catch it before Go Live)</span></h4>
+            <ol class="ro-cc-list" data-mode="built" style="margin:0 0 14px 20px;padding:0;">
+                <?php foreach (cc_registry_built() as $c): ?>
+                <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
+                <?php endforeach; ?>
+            </ol>
+            <p style="margin:0 0 14px;color:#64748b;">Deliberately narrow for now: Google's own on-page SEO gate already runs
+                automatically on every build, but can't be re-run here — it needs the build's temporary working directory,
+                which is deleted right after the build finishes. Read its report in that build's own run log instead.
+                Schema-identity and <code>aggregateRating</code> checks need careful JSON-LD parsing that deserves its own
+                pass, not a rushed one — not built yet.</p>
+
+            <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">First live domain <span style="font-weight:400;color:#64748b;">— needs this batch's first domain actually confirmed live (real HTTP requests to the real internet)</span></h4>
+            <ol class="ro-cc-list" data-mode="live" style="margin:0 0 14px 20px;padding:0;">
+                <?php foreach (cc_registry_live() as $c): ?>
+                <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
+                <?php endforeach; ?>
+            </ol>
+            <p style="margin:0 0 10px;color:#64748b;">Deliberately narrow here too: broken-internal-link crawling and sitemap
+                completeness are real and valuable but need an actual crawler walking the live site — a separate, bigger
+                build, not a quick addition. External paid APIs (PageSpeed Insights, Rich Results Test, Search Console) are
+                a different thing again — real cost and API-key setup, a decision of its own, not bundled in here.</p>
+
+            <p style="margin:0;color:#64748b">Two more were tried for the template mode and deliberately left out, not just
+                forgotten: a filename mirrors its own page's keyword (AI-generated photos legitimately carry opaque
+                cache-style names like <code>ai_bd09e3_8c5ef2.webp</code> on 47&ndash;80% of photos in some niches — not a
+                bug, just a different naming convention — so this check's false-positive rate was too high to trust); and
+                legal page links are "real" (the standard legal pages are built directly into every site, not stored as
+                checkable page files, so "real" would need to mean something about their actual text content instead —
+                not yet scoped).</p>
             <div style="text-align:right;margin-top:10px;"><button type="button" class="btn-sm-outline" onclick="document.getElementById('ro-cc-modal-bg').style.display='none'">Close</button></div>
         </div>
     </div>
@@ -791,16 +818,31 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);
     };
-    // Site Final Check — ⓘ just opens the static "what runs" modal (built server-side from
-    // the same PHP registry the run itself uses, see content_check.php — no separate JS
-    // copy of the list to drift out of sync). Run posts, waits (it's synchronous — no
-    // job/poll needed, see that file's docblock for why), and renders the report in place.
+    // Site Final Check — ⓘ opens the static "what runs" modal (built server-side from the
+    // same PHP registries the run itself uses — cc_registry()/cc_registry_built()/
+    // cc_registry_live() — no separate JS copy of any list to drift out of sync). Run
+    // posts the currently-selected mode and renders the report in place; each mode is
+    // synchronous (no job/poll needed — see content_check.php's docblock for why none of
+    // these three modes are slow enough to need it).
+    const ccHints = {
+        template: 'Checks this master\'s own template pages — not tied to the domains ticked below.',
+        built:    'Checks the first domain in this batch with a completed Build — not live yet, that\'s the point.',
+        live:     'Checks the first domain in this batch confirmed live — real HTTP requests to the real internet.',
+    };
     $('ro-cc-info').onclick = (e) => { e.preventDefault(); $('ro-cc-modal-bg').style.display = 'flex'; };
 
     function renderContentCheck(payload) {
         const box = $('ro-cc-report');
         if (!payload || !payload.checked_at) { box.innerHTML = ''; return; }
-        const rows = (payload.results || []).map(r => {
+        if (!payload.results || !payload.results.length) {
+            const mode = $('ro-cc-mode').value;
+            const why = mode === 'built' ? 'no domain in this batch has a completed Build yet'
+                      : mode === 'live'  ? 'no domain in this batch is confirmed live yet'
+                      : 'nothing to check';
+            box.innerHTML = '<div class="card" style="padding:12px 14px;color:#64748b;font-size:.85rem;">Not available yet — ' + esc(why) + '.</div>';
+            return;
+        }
+        const rows = payload.results.map(r => {
             const head = '<div style="display:flex;align-items:center;gap:8px;margin-top:10px;">'
                 + '<span class="dot ' + (r.ok ? 'ok' : 'fail') + '"></span>'
                 + '<strong>' + r.n + '. ' + esc(r.label) + '</strong>'
@@ -814,22 +856,31 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 + '<ul style="margin:6px 0 0 20px;font-size:.82rem;color:#4b5563;">' + items + more + '</ul>'
                 + '<p style="margin:4px 0 0 20px;font-size:.82rem;color:#1e3a5f;"><strong>Fix:</strong> ' + esc(r.recommendation) + '</p>';
         }).join('');
+        const domainLine = payload.domain ? ' &mdash; checked <strong>' + esc(payload.domain) + '</strong>' : '';
         box.innerHTML = '<div class="card" style="padding:12px 14px;">'
-            + '<div style="font-size:.78rem;color:#94a3b8;">Checked ' + esc(payload.checked_at) + '</div>'
+            + '<div style="font-size:.78rem;color:#94a3b8;">Checked ' + esc(payload.checked_at) + domainLine + '</div>'
             + rows + '</div>';
     }
+
+    async function loadLastContentCheck() {
+        const mode = $('ro-cc-mode').value;
+        renderContentCheck(await (await fetch(API + '?action=content_check_last&mode=' + mode)).json());
+    }
+
+    $('ro-cc-mode').onchange = () => { $('ro-cc-hint').textContent = ccHints[$('ro-cc-mode').value]; loadLastContentCheck(); };
 
     $('ro-cc-run').onclick = async () => {
         const btn = $('ro-cc-run');
         btn.disabled = true; btn.textContent = 'Checking…';
-        const r = await post({ action: 'content_check_run' });
+        const r = await post({ action: 'content_check_run', mode: $('ro-cc-mode').value });
         btn.disabled = false; btn.textContent = 'Run Final Check';
         if (r.error) return say(r.error);
         renderContentCheck(r);
     };
-    // Show the last stored report on load, if one exists, so reopening the page doesn't
-    // read as "never checked" when it just hasn't been re-run this session.
-    (async () => { renderContentCheck(await (await fetch(API + '?action=content_check_last')).json()); })();
+    // Show the last stored report for the default mode on load, if one exists, so
+    // reopening the page doesn't read as "never checked" when it just hasn't run yet
+    // this session.
+    loadLastContentCheck();
 
     load();
     watchJob('');   // a job already running (page reloaded mid-run) shows its log

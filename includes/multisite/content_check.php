@@ -31,6 +31,10 @@ function cc_registry(): array {
         ['id' => 'alt_keyword',  'label' => "Every real photo has alt text, and it relates to that page's own primary keyword", 'fn' => 'cc_check_alt_keyword'],
         ['id' => 'site_vars',    'label' => 'Business phone/email/name are not an obvious placeholder (e.g. a 555 exchange, "example.com", "Your Business")', 'fn' => 'cc_check_site_vars'],
         ['id' => 'dupe_font',    'label' => "No two entries in this master's font pool use the exact same font-family (a real past bug — cost mold/appliance 5–12 mobile PageSpeed points)", 'fn' => 'cc_check_duplicate_font'],
+        ['id' => 'cannibalize',  'label' => 'No two pages share the exact same primary keyword (splits ranking signal between them instead of concentrating it on one page)', 'fn' => 'cc_check_keyword_cannibalization'],
+        ['id' => 'orphan_pages', 'label' => 'Every page is linked to from at least one other page\'s Related Links block (not just reachable by guessing the URL)', 'fn' => 'cc_check_orphan_pages'],
+        ['id' => 'og_title_length', 'label' => 'Social-share title (og:title, also used for Twitter) is not too long — Facebook/Twitter truncate it same as Google does a title tag', 'fn' => 'cc_check_og_title_length'],
+        ['id' => 'og_desc_length',  'label' => 'Social-share description (og:description, also used for Twitter) is not too long', 'fn' => 'cc_check_og_description_length'],
     ];
 }
 
@@ -175,6 +179,18 @@ function cc_check_title_length(string $masterId): array {
 
 function cc_check_meta_length(string $masterId): array {
     return cc_check_field_length($masterId, 'meta_description', 155, 'The meta description');
+}
+
+function cc_check_og_title_length(string $masterId): array {
+    // 70, not 60: og:title isn't shown in a Google SERP, so it doesn't share the title
+    // tag's exact limit — but Facebook/Twitter/LinkedIn do truncate a social-preview
+    // title past roughly this length. Found a real one at 81 chars on pest-template
+    // while calibrating this threshold against live data before shipping it.
+    return cc_check_field_length($masterId, 'og_title', 70, 'The social-share title (og:title)');
+}
+
+function cc_check_og_description_length(string $masterId): array {
+    return cc_check_field_length($masterId, 'og_description', 200, 'The social-share description (og:description)');
 }
 
 /** Recursively visit every associative (non-list) array in the tree — one page, one
@@ -322,4 +338,522 @@ function cc_check_duplicate_font(string $masterId): array {
         'issues'         => $issues,
         'recommendation' => $issues ? 'Two font pool entries render identically — a domain that "rotates" between them isn\'t actually varying. Give one a distinct font-family.' : '',
     ];
+}
+
+/**
+ * Group every page in this master by its own city_vars.city_slug. For a single-city
+ * master (appliance-site, mold-site, water-site — every page targets the one same demo
+ * city), this produces exactly one group holding every page. For a MULTI-city master
+ * (pest-template: 1158 pages spanning ~100+ different cities, each city's page set
+ * destined for a DIFFERENT live domain via Page Pool), this is the difference between a
+ * real finding and total noise — pages in different cities never coexist on the same
+ * live site, so nothing about how they relate to each other means anything.
+ *
+ * Found live, 2026-10-24: an earlier version of cc_check_keyword_cannibalization() and
+ * cc_check_orphan_pages() compared across the WHOLE master regardless of city. On
+ * pest-template that produced "ant pest control is the primary keyword on 102 different
+ * pages" (every city's own ant-control page, correctly sharing that keyword — each will
+ * only ever appear on its own, separate domain) and 1147 false "orphans" (a page in
+ * Albany, OR flagged because nothing in Boerne, TX links to it — they could never link
+ * to each other in the first place). Both checks must only ever compare within one
+ * city's group, never across.
+ *
+ * @return array<string, array> city_slug => [page data, ...]
+ */
+function cc_pages_by_city(string $masterId): array
+{
+    $groups = [];
+    foreach (glob(cc_master_base($masterId) . '/data/pages/*.json') ?: [] as $f) {
+        $data = json_decode((string) file_get_contents($f), true);
+        if (!is_array($data)) continue;
+        $cs = (string) ($data['city_vars']['city_slug'] ?? '');
+        $groups[$cs][] = $data;
+    }
+    return $groups;
+}
+
+function cc_check_keyword_cannibalization(string $masterId): array {
+    $issues = [];
+    foreach (cc_pages_by_city($masterId) as $cityPages) {
+        $byKeyword = []; // normalized keyword => [slug, ...] — WITHIN this one city only
+        foreach ($cityPages as $data) {
+            $kw = trim((string) ($data['seo']['primary_keyword'] ?? ''));
+            if ($kw === '') continue;
+            $byKeyword[strtolower($kw)][] = (string) ($data['slug'] ?? '');
+        }
+        foreach ($byKeyword as $norm => $slugs) {
+            if (count($slugs) > 1) {
+                $issues[] = ['page' => implode(', ', $slugs), 'field' => 'seo.primary_keyword',
+                    'detail' => "\"{$norm}\" is the primary keyword on " . count($slugs) . ' different pages in the same city'];
+            }
+        }
+    }
+    return [
+        'ok'             => empty($issues),
+        'count'          => count($issues),
+        'issues'         => array_slice($issues, 0, 30),
+        'recommendation' => $issues ? 'Give each listed page its own distinct primary keyword, or merge the duplicates into one page — two pages on the same live site competing for the same keyword split the ranking signal that one page targeting it alone would keep.' : '',
+    ];
+}
+
+/**
+ * A page is reachable by typing its exact URL whether or not anything links to it —
+ * this checks the DIFFERENT, real thing: does any other page in the SAME city's page
+ * set actually link to it via a Related Links block. Scoped to one city group at a time
+ * (see cc_pages_by_city()'s docblock for why that's required, not optional) and to
+ * Related Links specifically, not every possible link-shaped field on the page (nav/
+ * footer/services_links are structural chrome rendered the same on every page, not an
+ * editorial "this page is relevant to that one" signal, and services_links' hub grids
+ * are auto-derived from slug patterns — see plugins/services_links/plugin.php's own
+ * docblock — so there's no hand-kept list there that could drift the way Related Links'
+ * curated candidate lists can and do).
+ *
+ * Verified against real data before shipping: appliance-site's 120 pages (one city) have
+ * Related Links candidate lists covering only 89 distinct targets combined — 31 pages
+ * never referenced anywhere, confirmed real (not a URL-pattern parsing miss: every
+ * candidate URL on the site uses the same `-{city_slug}` token, checked directly).
+ */
+function cc_check_orphan_pages(string $masterId): array {
+    $issues = [];
+    foreach (cc_pages_by_city($masterId) as $citySlug => $cityPages) {
+        if ($citySlug === '') continue; // nothing to stem against — skip rather than guess
+
+        $stems = [];    // stem => slug, for reporting
+        $incoming = []; // stem => true
+        foreach ($cityPages as $data) {
+            $slug = (string) ($data['slug'] ?? '');
+            $stem = preg_replace('/-' . preg_quote($citySlug, '/') . '$/', '', $slug);
+            $stems[$stem] = $slug;
+            foreach (($data['content_blocks'] ?? []) as $block) {
+                if (!is_array($block) || ($block['type'] ?? '') !== 'related_links') continue;
+                foreach (($block['rl_items'] ?? []) as $item) {
+                    $url = trim((string) ($item['url'] ?? ''), '/');
+                    $incoming[preg_replace('/-\{city_slug\}$/', '', $url)] = true;
+                }
+            }
+        }
+        // The homepage/site.json's own Related Links block can also link OUT to pages —
+        // counts as a source of incoming links for every city group (the home page is
+        // the one shared entry point), but the home page itself is never "orphaned."
+        $site = json_decode((string) @file_get_contents(cc_master_base($masterId) . '/data/site.json'), true);
+        if (is_array($site)) {
+            foreach (($site['content_blocks'] ?? []) as $block) {
+                if (!is_array($block) || ($block['type'] ?? '') !== 'related_links') continue;
+                foreach (($block['rl_items'] ?? []) as $item) {
+                    $url = trim((string) ($item['url'] ?? ''), '/');
+                    $incoming[preg_replace('/-\{city_slug\}$/', '', $url)] = true;
+                }
+            }
+        }
+
+        foreach ($stems as $stem => $slug) {
+            if (!isset($incoming[$stem])) {
+                $issues[] = ['page' => $slug, 'field' => 'related_links (within its own city)', 'detail' => 'no other page in this city\'s page set links to this page'];
+            }
+        }
+    }
+    return [
+        'ok'             => empty($issues),
+        'count'          => count($issues),
+        'issues'         => array_slice($issues, 0, 30),
+        'recommendation' => $issues ? 'Add these pages to the Related Links candidate list on at least one relevant sibling page in the same city — a page search engines and visitors never get linked to is far less likely to rank or be found.' : '',
+    ];
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * SHARED HTML-content checks — used by BOTH mode 2 (built domain, local files) and
+ * mode 3 (live domain, real HTTP). The logic ("is this title too long," "is noindex
+ * present") only cares about a string of final rendered HTML — it has no idea and
+ * doesn't need to know whether that string came from a local file or a live fetch.
+ * Writing it once here means mode 2 and mode 3 can never quietly drift into checking
+ * the same thing two different ways; if the detection logic improves, both modes get
+ * the improvement for free.
+ *
+ * Each cc_html_issue_*() takes raw HTML + a page label for reporting, and returns a
+ * single issue array or null (nothing wrong). The per-mode registry functions below
+ * handle iterating however many pages that mode has HTML for and aggregating into the
+ * {ok,count,issues,recommendation} shape every other check already returns.
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+function cc_html_issue_title(string $html, string $pageLabel): ?array {
+    if (!preg_match('~<title[^>]*>(.*?)</title>~is', $html, $m)) {
+        return ['page' => $pageLabel, 'field' => '<title>', 'detail' => 'no <title> tag found at all'];
+    }
+    $title = trim(html_entity_decode($m[1], ENT_QUOTES | ENT_HTML5));
+    $len = strlen($title);
+    if ($len === 0) return ['page' => $pageLabel, 'field' => '<title>', 'detail' => '<title> tag is empty'];
+    if ($len > 60) return ['page' => $pageLabel, 'field' => '<title>', 'detail' => "{$len} characters (limit 60) — actual rendered text: \"{$title}\""];
+    return null;
+}
+
+function cc_html_issue_meta_description(string $html, string $pageLabel): ?array {
+    if (!preg_match('~<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']~is', $html, $m)) {
+        return null; // absent is a template-mode concern already covered; don't double-report here
+    }
+    $desc = trim(html_entity_decode($m[1], ENT_QUOTES | ENT_HTML5));
+    $len = strlen($desc);
+    if ($len > 155) return ['page' => $pageLabel, 'field' => 'meta description', 'detail' => "{$len} characters (limit 155) — actual rendered text: \"{$desc}\""];
+    return null;
+}
+
+/**
+ * A page can look completely normal to a visitor and still be invisible to Google —
+ * a leftover noindex from staging is the classic, silent way this happens. Matches
+ * <meta name="robots" ...noindex...> case-insensitively, wherever "noindex" appears
+ * in the content attribute (it can be combined with other directives, e.g.
+ * "noindex, follow").
+ */
+function cc_html_issue_noindex(string $html, string $pageLabel): ?array {
+    if (preg_match('~<meta\s+name=["\']robots["\']\s+content=["\']([^"\']*noindex[^"\']*)["\']~i', $html, $m)) {
+        return ['page' => $pageLabel, 'field' => 'meta robots', 'detail' => "noindex is set (\"{$m[1]}\") — Google will never index this page while this is present"];
+    }
+    return null;
+}
+
+/** $expectedHost with no scheme/path, e.g. "wrenappliancerepair.com". */
+function cc_html_issue_canonical(string $html, string $pageLabel, string $expectedHost): ?array {
+    if (!preg_match('~<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)["\']~i', $html, $m)) {
+        return ['page' => $pageLabel, 'field' => 'canonical', 'detail' => 'no canonical link tag found'];
+    }
+    $host = strtolower((string) parse_url($m[1], PHP_URL_HOST));
+    $expectedHost = strtolower(preg_replace('/^www\./', '', $expectedHost));
+    $host = preg_replace('/^www\./', '', $host);
+    if ($host !== '' && $host !== $expectedHost) {
+        return ['page' => $pageLabel, 'field' => 'canonical', 'detail' => "canonical points at {$host}, not this domain ({$expectedHost}) — \"{$m[1]}\""];
+    }
+    return null;
+}
+
+/** Yield [relative path => html contents] for every .html file under $dir. */
+function cc_each_html_file(string $dir): Generator {
+    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
+    foreach ($it as $f) {
+        if (!$f->isFile() || $f->getExtension() !== 'html') continue;
+        $html = (string) @file_get_contents($f->getPathname());
+        yield substr($f->getPathname(), strlen($dir) + 1) => $html;
+    }
+}
+
+/** Shared shape-builder: turn a flat list of issues into the standard check result. */
+function cc_issue_list_result(array $issues, string $recommendation): array {
+    return [
+        'ok'             => empty($issues),
+        'count'          => count($issues),
+        'issues'         => array_slice($issues, 0, 30),
+        'recommendation' => $issues ? $recommendation : '',
+    ];
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * MODE 2 — "First built domain": checks that need a real build's rendered HTML
+ * to exist, which the template-only checks above structurally cannot see. Kept as
+ * fully separate functions/registry from cc_registry()/cc_run() above, on purpose —
+ * zero risk of touching already-shipped, already-tested template-mode behavior.
+ *
+ * Scoped deliberately narrow for this first pass: ms_seo_gate() (Google's own 5-check
+ * gate, already run automatically on every build) can't be re-exposed here without new
+ * plumbing — it reads $workingDir/data/site.json, and build_one.php deletes workingDir
+ * right after the build finishes. Schema-identity/aggregateRating/areaServed checks need
+ * careful JSON-LD parsing that deserves its own careful pass, not a rushed one bolted
+ * onto this batch.
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+function cc_registry_built(): array {
+    return [
+        ['id' => 'unresolved_tokens', 'label' => 'No literal {token} placeholder survived into the actual rendered HTML (checked on a real build, not the raw template)', 'fn' => 'cc_check_unresolved_tokens'],
+        ['id' => 'built_title',       'label' => 'Title tag, as it actually rendered, is not too long — checked on every real page, not the raw template guess', 'fn' => 'cc_check_built_title'],
+        ['id' => 'built_meta',        'label' => 'Meta description, as it actually rendered, is not too long', 'fn' => 'cc_check_built_meta'],
+        ['id' => 'built_noindex',     'label' => 'No page accidentally carries a noindex tag (a page can look completely normal and still never reach Google)', 'fn' => 'cc_check_built_noindex'],
+        ['id' => 'built_canonical',   'label' => 'Every page\'s canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_built_canonical'],
+    ];
+}
+
+/**
+ * The first domain, in this batch's own target-list order, that has a completed build —
+ * NOT the first LIVE domain. Matches the existing manual checklist's own wording ("after
+ * Generate Sites and BEFORE Go Live, run..."): this has to be checkable before a domain
+ * is anywhere near DNS, or it stops being a pre-flight gate and becomes a post-mortem.
+ */
+function cc_find_first_built_domain(string $masterId, string $batchId): ?array {
+    $csvPath = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (!is_file($csvPath)) return null;
+    $built  = ms_batch_built($masterId, $batchId);
+    $parsed = ms_parse_csv($csvPath);
+    foreach ($parsed['rows'] ?? [] as $row) {
+        $domain = strtolower(trim((string) ($row['domain'] ?? '')));
+        if ($domain === '') continue;
+        $slug = ms_domain_slug($domain);
+        if (isset($built[$slug])) {
+            return ['domain' => $domain, 'dir' => $built[$slug]['dir'], 'built_at' => $built[$slug]['built_at']];
+        }
+    }
+    return null;
+}
+
+/**
+ * Verified against 20 real built domains before shipping (appliance-site/b3's full
+ * output/ at the time): zero false positives from this pattern — no inline JS object
+ * destructuring, no CSS rule block, nothing else in real rendered output happens to look
+ * like a lowercase-only {token}. Deliberately narrow (letters/underscores only, nothing
+ * else between the braces) — a JSON-LD `{"@context":...}` or a CSS `{color:red}` can't
+ * match this pattern either way, so there's no need to special-case script/style tags.
+ */
+function cc_check_unresolved_tokens(array $domainInfo): array {
+    $dir = $domainInfo['dir'];
+    $issues = [];
+    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
+    foreach ($it as $f) {
+        if (!$f->isFile() || $f->getExtension() !== 'html') continue;
+        $html = (string) @file_get_contents($f->getPathname());
+        if (preg_match_all('~\{[a-z_]+\}~', $html, $m)) {
+            $rel = substr($f->getPathname(), strlen($dir) + 1);
+            foreach (array_unique($m[0]) as $tok) {
+                $issues[] = ['page' => $rel, 'field' => 'rendered HTML', 'detail' => "literal unresolved token found: {$tok}"];
+            }
+        }
+    }
+    return [
+        'ok'             => empty($issues),
+        'count'          => count($issues),
+        'issues'         => array_slice($issues, 0, 30),
+        'recommendation' => $issues ? 'A shortcode token survived into live HTML — find the field that set it (often a photo/alt field captured before resolve_shortcodes() ran) and fix the source, then rebuild.' : '',
+    ];
+}
+
+function cc_check_built_title(array $domainInfo): array {
+    $issues = [];
+    foreach (cc_each_html_file($domainInfo['dir']) as $rel => $html) {
+        if ($issue = cc_html_issue_title($html, $rel)) $issues[] = $issue;
+    }
+    return cc_issue_list_result($issues, 'Shorten the <title> tag on the listed pages — this is the actual rendered text, post city/business substitution, so it\'s the real test of what Google will truncate.');
+}
+
+function cc_check_built_meta(array $domainInfo): array {
+    $issues = [];
+    foreach (cc_each_html_file($domainInfo['dir']) as $rel => $html) {
+        if ($issue = cc_html_issue_meta_description($html, $rel)) $issues[] = $issue;
+    }
+    return cc_issue_list_result($issues, 'Shorten the meta description on the listed pages.');
+}
+
+/** 404.html is DELIBERATELY noindexed with no canonical — static_build.php sets
+ *  $seo['robots_noindex'] = true for it on purpose, and site-template.php's own comment
+ *  explains why a noindexed page has no canonical either ("a bare slug ('') falling
+ *  through [to a real canonical] would be a false, misleading pair of signals on a
+ *  404"). Found live while testing this exact check before shipping it — excluding by
+ *  name rather than guessing at a general rule, since 404.html is the one page this
+ *  codebase has actually confirmed intentional for. */
+const CC_NOINDEX_EXEMPT_PAGES = ['404.html'];
+
+function cc_check_built_noindex(array $domainInfo): array {
+    $issues = [];
+    foreach (cc_each_html_file($domainInfo['dir']) as $rel => $html) {
+        if (in_array($rel, CC_NOINDEX_EXEMPT_PAGES, true)) continue;
+        if ($issue = cc_html_issue_noindex($html, $rel)) $issues[] = $issue;
+    }
+    return cc_issue_list_result($issues, 'Remove the noindex directive on the listed pages, unless it was genuinely intentional for that one page.');
+}
+
+function cc_check_built_canonical(array $domainInfo): array {
+    $issues = [];
+    foreach (cc_each_html_file($domainInfo['dir']) as $rel => $html) {
+        if (in_array($rel, CC_NOINDEX_EXEMPT_PAGES, true)) continue;
+        if ($issue = cc_html_issue_canonical($html, $rel, $domainInfo['domain'])) $issues[] = $issue;
+    }
+    return cc_issue_list_result($issues, 'Fix the canonical tag on the listed pages — a clone that canonicalizes to the wrong domain hands that page\'s ranking away entirely.');
+}
+
+/** Run every "built domain" check against the batch's first built domain. */
+function cc_run_built(string $masterId, string $batchId): array {
+    $domainInfo = cc_find_first_built_domain($masterId, $batchId);
+    if ($domainInfo === null) {
+        return ['domain' => null, 'results' => []];
+    }
+    $results = [];
+    foreach (cc_registry_built() as $i => $check) {
+        $fn = $check['fn'];
+        $r  = $fn($domainInfo);
+        $results[] = ['n' => $i + 1, 'id' => $check['id'], 'label' => $check['label'],
+            'ok' => $r['ok'], 'count' => $r['count'], 'issues' => $r['issues'], 'recommendation' => $r['recommendation']];
+    }
+    return ['domain' => $domainInfo['domain'], 'results' => $results];
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+ * MODE 3 — "Live domain": checks that need the domain actually resolving on the
+ * real internet — a real HTTP request, not a file read. Separate precondition from
+ * mode 2 (a domain can be fully built and still not be live yet), so this has its own
+ * domain-discovery against the live fleet state, not the batch's local build output.
+ *
+ * The homepage is fetched ONCE in cc_run_live() and handed to every check via $ctx —
+ * title/meta/noindex/canonical reuse the exact same cc_html_issue_*() functions mode 2
+ * uses (same detection logic, same thresholds, just handed a live-fetched string
+ * instead of a local file's contents), so the two modes can never quietly check the
+ * same thing two different ways.
+ *
+ * Scoped narrow for the same reason as mode 2: everything here is one or two cheap GET/
+ * HEAD requests, no cost. Broken-internal-link crawling and sitemap-completeness are
+ * real, valuable, and NOT here — they need an actual crawler walking the live site, a
+ * bigger, separate build. The external-API tier (PageSpeed Insights, Rich Results Test,
+ * Search Console) is a different thing again — real cost and API-key setup, its own
+ * decision.
+ * ════════════════════════════════════════════════════════════════════════════ */
+
+function cc_registry_live(): array {
+    return [
+        ['id' => 'https_ok',        'label' => 'The live domain actually resolves over HTTPS with no certificate or connection error', 'fn' => 'cc_check_https'],
+        ['id' => 'robots_sane',     'label' => 'robots.txt exists and does not block the whole site from crawlers', 'fn' => 'cc_check_robots_sane'],
+        ['id' => 'live_title',      'label' => 'Homepage title tag, as it actually rendered live, is not too long', 'fn' => 'cc_check_live_title'],
+        ['id' => 'live_meta',       'label' => 'Homepage meta description, as it actually rendered live, is not too long', 'fn' => 'cc_check_live_meta'],
+        ['id' => 'live_noindex',    'label' => 'Homepage does not accidentally carry a noindex tag', 'fn' => 'cc_check_live_noindex'],
+        ['id' => 'live_canonical',  'label' => 'Homepage canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_live_canonical'],
+        ['id' => 'og_image_loads',  'label' => 'The social-share image (og:image) is a real, loadable file — not just present in the markup', 'fn' => 'cc_check_og_image_loads'],
+        ['id' => 'redirect_chain',  'label' => 'http:// reaches this domain\'s https:// version in exactly one hop — no wrong-domain redirect, no redirect chain', 'fn' => 'cc_check_redirect_consistency'],
+    ];
+}
+
+/** The first domain in this batch that infra_state_db() shows as actually live. */
+function cc_find_live_domain(string $masterId, string $batchId): ?string {
+    require_once __DIR__ . '/../../admin/infra/lib/state.php';
+    $db = infra_state_db();
+    $stmt = $db->prepare("SELECT domain FROM domains WHERE batch = ? AND status = 'live' ORDER BY go_live_at LIMIT 1");
+    $stmt->execute([$masterId . '/' . $batchId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $row['domain'] ?? null;
+}
+
+function cc_check_https(array $ctx): array {
+    $r = $ctx['home'];
+    $ok = $r['code'] >= 200 && $r['code'] < 400 && $r['error'] === '';
+    return cc_issue_list_result(
+        $ok ? [] : [['page' => $ctx['domain'], 'field' => 'https://', 'detail' => $r['error'] !== '' ? $r['error'] : "HTTP {$r['code']}"]],
+        'The domain did not respond cleanly over HTTPS — check DNS, the SSL certificate, and that the origin is actually up.'
+    );
+}
+
+function cc_check_robots_sane(array $ctx): array {
+    require_once __DIR__ . '/../../admin/infra/lib/http.php';
+    $domain = $ctx['domain'];
+    $r = infra_http('GET', "https://{$domain}/robots.txt", ['timeout' => 15]);
+    if ($r['code'] !== 200) {
+        return cc_issue_list_result(
+            [['page' => $domain, 'field' => '/robots.txt', 'detail' => "did not load (HTTP {$r['code']})"]],
+            'robots.txt should always exist on a static build (static_build.php writes one unconditionally) — a missing one usually means the upload is incomplete.'
+        );
+    }
+    $body = (string) ($r['raw'] ?? '');
+    $blocksEverything = (bool) preg_match('/^\s*Disallow:\s*\/\s*$/mi', $body);
+    return cc_issue_list_result(
+        $blocksEverything ? [['page' => $domain, 'field' => '/robots.txt', 'detail' => 'contains a blanket "Disallow: /" — blocks every crawler from the entire site']] : [],
+        'Remove the blanket Disallow rule — this is telling Google (and everything else) not to crawl any page on this domain.'
+    );
+}
+
+function cc_check_live_title(array $ctx): array {
+    $issue = cc_html_issue_title((string) ($ctx['home']['raw'] ?? ''), $ctx['domain'] . ' (homepage)');
+    return cc_issue_list_result($issue ? [$issue] : [], 'Shorten the live <title> tag — this is the real, post-substitution text Google actually sees.');
+}
+
+function cc_check_live_meta(array $ctx): array {
+    $issue = cc_html_issue_meta_description((string) ($ctx['home']['raw'] ?? ''), $ctx['domain'] . ' (homepage)');
+    return cc_issue_list_result($issue ? [$issue] : [], 'Shorten the live meta description.');
+}
+
+function cc_check_live_noindex(array $ctx): array {
+    $issue = cc_html_issue_noindex((string) ($ctx['home']['raw'] ?? ''), $ctx['domain'] . ' (homepage)');
+    return cc_issue_list_result($issue ? [$issue] : [], 'Remove the noindex directive — the homepage should never carry one.');
+}
+
+function cc_check_live_canonical(array $ctx): array {
+    $issue = cc_html_issue_canonical((string) ($ctx['home']['raw'] ?? ''), $ctx['domain'] . ' (homepage)', $ctx['domain']);
+    return cc_issue_list_result($issue ? [$issue] : [], 'Fix the canonical tag — it should point at this exact domain.');
+}
+
+function cc_check_og_image_loads(array $ctx): array {
+    $html = (string) ($ctx['home']['raw'] ?? '');
+    if (!preg_match('~<meta\s+property=["\']og:image["\']\s+content=["\']([^"\']+)["\']~i', $html, $m)) {
+        return cc_issue_list_result(
+            [['page' => $ctx['domain'] . ' (homepage)', 'field' => 'og:image', 'detail' => 'no og:image meta tag found']],
+            'Set an og:image on the homepage.'
+        );
+    }
+    require_once __DIR__ . '/../../admin/infra/lib/http.php';
+    $r = infra_http('GET', $m[1], ['timeout' => 15]);
+    $ok = $r['code'] >= 200 && $r['code'] < 300;
+    return cc_issue_list_result(
+        $ok ? [] : [['page' => $ctx['domain'] . ' (homepage)', 'field' => 'og:image', 'detail' => "image at {$m[1]} did not load (HTTP {$r['code']})"]],
+        'The social-share image URL is broken — this is exactly the og_image class of bug fixed fleet-wide earlier (see includes/site-template.php\'s fallback) — rebuild so it points at a real file.'
+    );
+}
+
+/**
+ * Not built on infra_http() — that module deliberately never follows redirects (every
+ * other caller needs the raw first response, e.g. to read a Location header itself), and
+ * extending its shared contract for this one niche need would risk changing behavior for
+ * every other consumer across the infra console. A small, self-contained curl call here
+ * is the more honest fix than bending a shared module to one caller's shape.
+ */
+function cc_trace_redirects(string $url): array {
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL            => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_NOBODY         => true, // HEAD-equivalent — only the redirect chain matters here
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_MAXREDIRS      => 10,
+        CURLOPT_CONNECTTIMEOUT => 10,
+        CURLOPT_TIMEOUT        => 15,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
+    ]);
+    curl_exec($ch);
+    $result = [
+        'final_url'      => (string) curl_getinfo($ch, CURLINFO_EFFECTIVE_URL),
+        'redirect_count' => (int) curl_getinfo($ch, CURLINFO_REDIRECT_COUNT),
+        'error'          => curl_error($ch),
+    ];
+    curl_close($ch);
+    return $result;
+}
+
+function cc_check_redirect_consistency(array $ctx): array {
+    $domain = $ctx['domain'];
+    $trace  = cc_trace_redirects("http://{$domain}/");
+    $issues = [];
+    if ($trace['error'] !== '') {
+        $issues[] = ['page' => $domain, 'field' => 'http://', 'detail' => "could not test redirects: {$trace['error']}"];
+    } else {
+        $finalScheme  = strtolower((string) parse_url($trace['final_url'], PHP_URL_SCHEME));
+        $finalHost    = preg_replace('/^www\./', '', strtolower((string) parse_url($trace['final_url'], PHP_URL_HOST)));
+        $expectedHost = preg_replace('/^www\./', '', strtolower($domain));
+        if ($finalScheme !== 'https') {
+            $issues[] = ['page' => $domain, 'field' => 'http://', 'detail' => "never reaches https:// — final URL was {$trace['final_url']}"];
+        } elseif ($finalHost !== $expectedHost) {
+            $issues[] = ['page' => $domain, 'field' => 'http://', 'detail' => "redirects to a different host ({$finalHost}) instead of this domain"];
+        } elseif ($trace['redirect_count'] > 1) {
+            $issues[] = ['page' => $domain, 'field' => 'http://', 'detail' => "takes {$trace['redirect_count']} redirect hops to reach https:// instead of 1 — wastes crawl budget and adds latency"];
+        }
+    }
+    return cc_issue_list_result($issues, 'Fix the redirect so http:// reaches this domain\'s https:// version in exactly one hop.');
+}
+
+/** Run every "live domain" check against the batch's first confirmed-live domain. The
+ *  homepage is fetched ONCE here, not once per check — title/meta/noindex/canonical/
+ *  og:image all read from the same $ctx['home'] response. */
+function cc_run_live(string $masterId, string $batchId): array {
+    $domain = cc_find_live_domain($masterId, $batchId);
+    if ($domain === null) {
+        return ['domain' => null, 'results' => []];
+    }
+    require_once __DIR__ . '/../../admin/infra/lib/http.php';
+    $ctx = ['domain' => $domain, 'home' => infra_http('GET', "https://{$domain}/", ['timeout' => 15])];
+
+    $results = [];
+    foreach (cc_registry_live() as $i => $check) {
+        $fn = $check['fn'];
+        $r  = $fn($ctx);
+        $results[] = ['n' => $i + 1, 'id' => $check['id'], 'label' => $check['label'],
+            'ok' => $r['ok'], 'count' => $r['count'], 'issues' => $r['issues'], 'recommendation' => $r['recommendation']];
+    }
+    return ['domain' => $domain, 'results' => $results];
 }

@@ -1539,18 +1539,39 @@ switch ($action) {
     // synchronous (no job/poll needed) and why seo_gate isn't wrapped into it.
     case 'content_check_run':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $ccMode = (string) ($_POST['mode'] ?? 'template');
+        if (!in_array($ccMode, ['template', 'built', 'live'], true)) $ccMode = 'template';
         $checkedAt = gmdate('Y-m-d H:i:s') . ' UTC';
-        $payload   = ['checked_at' => $checkedAt, 'results' => cc_run($masterId)];
-        ms_atomic_write_json(ms_master_dir($masterId) . '/content_check.json', $payload);
+        // Template mode needs no open batch (it only ever reads the master's own
+        // pages/), but built/live mode genuinely can't run without one — the batch is
+        // where "first built domain" / "first live domain" comes from.
+        if ($ccMode !== 'template' && $batchId === '') {
+            echo json_encode(['error' => 'Open a batch first — this mode checks a domain from the open batch\'s target list.']);
+            break;
+        }
+        if ($ccMode === 'built') {
+            $run     = cc_run_built($masterId, $batchId);
+            $payload = ['checked_at' => $checkedAt, 'domain' => $run['domain'], 'results' => $run['results']];
+        } elseif ($ccMode === 'live') {
+            $run     = cc_run_live($masterId, $batchId);
+            $payload = ['checked_at' => $checkedAt, 'domain' => $run['domain'], 'results' => $run['results']];
+        } else {
+            $payload = ['checked_at' => $checkedAt, 'domain' => null, 'results' => cc_run($masterId)];
+        }
+        ms_atomic_write_json(ms_master_dir($masterId) . "/content_check_{$ccMode}.json", $payload);
         echo json_encode($payload);
         break;
 
-    // Last stored report, if any — so reopening the panel shows the last run instead of
-    // nothing, same spirit as the fleet-audit cards' stored state.
+    // Last stored report for the requested mode, if any — so reopening the panel shows
+    // the last run instead of nothing, same spirit as the fleet-audit cards' stored
+    // state. Cached per mode (three separate files) so switching the toggle shows that
+    // mode's own last result, not whichever mode happened to run most recently.
     case 'content_check_last':
-        $cacheFile = ms_master_dir($masterId) . '/content_check.json';
+        $ccMode = (string) ($_REQUEST['mode'] ?? 'template');
+        if (!in_array($ccMode, ['template', 'built', 'live'], true)) $ccMode = 'template';
+        $cacheFile = ms_master_dir($masterId) . "/content_check_{$ccMode}.json";
         $stored = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
-        echo json_encode(is_array($stored) ? $stored : ['checked_at' => null, 'results' => []]);
+        echo json_encode(is_array($stored) ? $stored : ['checked_at' => null, 'domain' => null, 'results' => []]);
         break;
 
     // ── Per-row target-list editing — day-to-day edits without a full CSV round-trip.
