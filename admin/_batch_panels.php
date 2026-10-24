@@ -1424,7 +1424,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         let html = '<div><strong style="color:' + color + ';">' + state.toUpperCase() + '</strong> — ' +
             (d.done || 0) + '/' + (d.total || 0) + ' done · ' + (d.ok || 0) + ' ok · ' + (d.failed || 0) + ' failed' +
             (t.files_uploaded ? ' · ' + t.files_uploaded + ' files' : '') +
-            (t.cost_usd ? ' · $' + Number(t.cost_usd).toFixed(4) : '') +
+            (t.cost_usd ? ' · text $' + Number(t.cost_usd).toFixed(4) : '') +
+            (t.image_cost_usd ? ' · photos $' + Number(t.image_cost_usd).toFixed(4) : '') +
             (d.params_version ? ' · <span title="target list version used">list ' + esc(d.params_version) + '</span>' : '') + '</div>' +
             // A run that found nothing to process (every row already live, per its
             // live-skip guard) still has a state/total/done to render above, but
@@ -1470,6 +1471,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                     return '<div>' + mk + ' ' + esc(r.domain) + ' — ' + esc(r.status) + stepLabel +
                         (r.uploaded != null ? ' (' + r.uploaded + ' up)' : '') +
                         (r.cost > 0 ? ' $' + Number(r.cost).toFixed(4) : '') +
+                        (r.image_cost > 0 ? ' + img $' + Number(r.image_cost).toFixed(4) : '') +
                         (r.last ? ' — ' + esc(r.last) : '') + viewLink + publicLink + deployLink + '</div>';
                 }).join('') + '</div>';
         }

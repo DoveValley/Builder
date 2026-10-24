@@ -475,6 +475,15 @@ if ($skipped('images')) {
             progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
                 . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',
                 $aiImgRes['failed'] ? 'warn' : 'info');
+            // Real OpenAI spend, not the Anthropic text-generation "Est. cost" line above —
+            // a separate service at separate rates. Only printed when something was
+            // actually generated; a cache-hit-only run has nothing to bill and this line
+            // would just be noise. run_campaign.php's ms_parse_line() picks this up into
+            // its own 'image_cost' field, kept apart from 'cost' the whole way through.
+            if ($aiImgRes['generated'] > 0) {
+                progress_log(sprintf('Images: AI photo cost: $%.4f (%d generated at %s quality).',
+                    $aiImgRes['cost'], $aiImgRes['generated'], $imageQuality));
+            }
             foreach ($aiImgRes['errors'] ?? [] as $aiImgErr) {
                 progress_log("Images: AI photo — $aiImgErr", 'warn');
             }

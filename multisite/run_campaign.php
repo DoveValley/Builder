@@ -183,7 +183,7 @@ if ($n === 0) {
         'done'         => 0,
         'ok'           => 0,
         'failed'       => 0,
-        'totals'       => ['files_uploaded' => 0, 'tokens_in' => 0, 'tokens_out' => 0, 'cost_usd' => 0],
+        'totals'       => ['files_uploaded' => 0, 'tokens_in' => 0, 'tokens_out' => 0, 'cost_usd' => 0, 'image_cost_usd' => 0],
         'results'      => [],
         'note'         => $note,
     ];
@@ -239,6 +239,7 @@ $writeStatus = function (string $state, array $results) use ($statusFile, $runId
             'tokens_in'      => array_sum(array_column($results, 'tokens_in')),
             'tokens_out'     => array_sum(array_column($results, 'tokens_out')),
             'cost_usd'       => round(array_sum(array_column($results, 'cost')), 4),
+            'image_cost_usd' => round(array_sum(array_column($results, 'image_cost')), 4),
         ],
         'results'     => $results,
     ];
@@ -319,6 +320,10 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
         $m['tokens_out'] = (int)str_replace(',', '', $x[2]);
     }
     if (preg_match('/Est\. cost:\s*\$([0-9.]+)/u', $msg, $x)) $m['cost'] = (float)$x[1];
+    // Real OpenAI image spend — a SEPARATE field from 'cost' above (Anthropic text
+    // generation), never summed together: different service, different per-unit price,
+    // and a row can have one without the other (e.g. no new photo this run) or both.
+    if (preg_match('/Images: AI photo cost:\s*\$([0-9.]+)/u', $msg, $x)) $m['image_cost'] = (float)$x[1];
 }
 
 /**
@@ -329,7 +334,7 @@ function ms_parse_line(string $line, array &$m, bool $verbose): void {
 function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose, ?callable $onProgress = null): array {
     // 'step' = the stage this row is in right now (or died in); 'steps' = the stages it
     // got through. Both come from build_one's step events — see ms_step_begin().
-    $fresh   = fn() => ['status' => 'unknown', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => '', 'step' => '', 'steps' => []];
+    $fresh   = fn() => ['status' => 'unknown', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'image_cost' => 0.0, 'last' => '', 'step' => '', 'steps' => []];
     $total   = count($queue);
     $running = []; $results = []; $done = 0;
 
@@ -337,7 +342,7 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
         $proc = proc_open($job['cmd'], [1 => ['pipe', 'w'], 2 => ['pipe', 'w']], $pipes);
         if (!is_resource($proc)) {
             $running[] = ['job' => $job, 'proc' => null, 'pipes' => null, 'buf' => '', 't0' => microtime(true),
-                          'm' => ['status' => 'failed', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'last' => 'could not spawn build_one', 'step' => '', 'steps' => []], 'dead' => true];
+                          'm' => ['status' => 'failed', 'uploaded' => null, 'tokens_in' => 0, 'tokens_out' => 0, 'cost' => 0.0, 'image_cost' => 0.0, 'last' => 'could not spawn build_one', 'step' => '', 'steps' => []], 'dead' => true];
             return;
         }
         stream_set_blocking($pipes[1], false);
@@ -388,14 +393,20 @@ function ms_run_pool(array $queue, int $concurrency, int $retries, bool $verbose
             } else {
                 $done++;
                 $mark  = $m['status'] === 'ok' ? '✓' : '✗';
+                // 'cost' (Anthropic text) and 'image_cost' (OpenAI photos) are two
+                // different services at two different per-unit prices — shown as two
+                // separate figures, never added into one number, same as they're kept
+                // apart everywhere else in this pipeline (ms_parse_line() above,
+                // $results below, and the totals rollup).
                 $extra = ($m['uploaded'] !== null ? " ({$m['uploaded']} up)" : '')
                        . ($m['cost'] > 0 ? sprintf(' $%.4f', $m['cost']) : '')
+                       . ($m['image_cost'] > 0 ? sprintf(' + img $%.4f', $m['image_cost']) : '')
                        . ($job['attempts'] > 1 ? " [{$job['attempts']}x]" : '');
                 echo "  [{$done}/{$total}] {$mark} {$job['domain']}: {$m['status']}{$extra}" . ($m['last'] ? " — {$m['last']}" : '') . "\n";
                 $results[] = [
                     'domain' => $job['domain'], 'status' => $m['status'], 'attempts' => $job['attempts'],
                     'uploaded' => $m['uploaded'], 'tokens_in' => $m['tokens_in'], 'tokens_out' => $m['tokens_out'],
-                    'cost' => $m['cost'], 'duration_ms' => $dur, 'last' => $m['last'],
+                    'cost' => $m['cost'], 'image_cost' => $m['image_cost'], 'duration_ms' => $dur, 'last' => $m['last'],
                     'step' => $m['step'], 'steps' => $m['steps'],
                 ];
                 // Reported below, once per tick, alongside whatever's still in flight.

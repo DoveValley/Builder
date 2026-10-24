@@ -219,7 +219,7 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
  * @param string $quality OpenAI quality tier for every photo generated this call —
  *        'low'|'medium'|'high'. Defaults to 'medium', the tier every caller used
  *        before this param existed, so an old call site is unaffected.
- * @return array{generated:int,cached:int,failed:int}
+ * @return array{generated:int,cached:int,failed:int,cost:float}
  */
 function ms_generate_ai_images_for_domain(
     string $workingDir, string $domain, string $masterDir, ?callable $onProgress = null,
@@ -227,7 +227,7 @@ function ms_generate_ai_images_for_domain(
     bool $force = false, string $quality = 'medium'
 ): array {
     if (!in_array($quality, ['low', 'medium', 'high'], true)) $quality = 'medium';
-    $out = ['generated' => 0, 'cached' => 0, 'failed' => 0, 'errors' => []];
+    $out = ['generated' => 0, 'cached' => 0, 'failed' => 0, 'cost' => 0.0, 'errors' => []];
     $templates = ms_image_ai_prompts_load($masterDir);
     if (!$templates) return $out;
 
@@ -679,6 +679,12 @@ function ms_generate_ai_images_for_domain(
             $cache[$slotKey] = ['url' => $p['url'], 'prompt' => $p['prompt'], 'generated_at' => date('Y-m-d H:i:s')];
             if ($pf !== null) { $pageDirty[$pf] = true; } else { $dirty = true; }
             $out['generated']++;
+            // Real dollar cost, not a guess — same estimator Pic Drop already shows the
+            // user before a manual generate (openai_images_estimate_cost(), includes/
+            // openai_images.php). Counted only HERE, on a confirmed-written success, not
+            // per job queued — a cache hit above costs nothing, and a failed job (caught
+            // earlier in this loop) was never billed as a completed image either.
+            $out['cost'] += openai_images_estimate_cost($p['size'], $quality);
         }
     }
 
@@ -691,6 +697,7 @@ function ms_generate_ai_images_for_domain(
     if ($dirty || $pageDirty || $out['failed'] > 0) {
         file_put_contents($cacheFile, json_encode($cache, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
+    $out['cost'] = round($out['cost'], 4);
     return $out;
 }
 
