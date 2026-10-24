@@ -47,6 +47,15 @@ set_time_limit(1800);
 $siteData = load_data();
 $classified = imgclean_classify($siteData);
 
+// Occurrences (richer than $classified's plain page-label list) group by basename so a
+// file used in more than one place still gets one vision call with the single best
+// context — see imgclean_best_occurrence()'s docblock for the hero/keyword priority.
+$occurrences = imgclean_usage_occurrences($siteData);
+$occByFile = [];
+foreach ($occurrences as $o) {
+    $occByFile[basename($o['path'])][] = $o;
+}
+
 $businessDescriptor = 'a local service business';
 if (defined('ACTIVE_SITE_DIR')) {
     $brief = @json_decode((string) @file_get_contents(ACTIVE_SITE_DIR . '/multisite/niche_brief.json'), true);
@@ -70,21 +79,31 @@ imgclean_emit(['type' => 'progress', 'done' => 0, 'total' => $total]);
 
 foreach ($toAnalyze as $filename => $contexts) {
     $absPath = MEDIA_DIR . $filename;
-    $result  = imgclean_analyze($absPath, $filename, $contexts, $businessDescriptor);
+    $best    = imgclean_best_occurrence($occByFile[$filename] ?? []);
+    $result  = imgclean_analyze($absPath, $filename, $contexts, $businessDescriptor, $best['primary_keyword'], $best['is_hero']);
     $done++;
 
     if ($result === null) {
         imgclean_emit(['type' => 'skipped', 'filename' => $filename, 'pages' => $contexts]);
     } else {
+        $suggestedAlt = $result['suggested_alt_text'];
         imgclean_emit([
-            'type'               => 'result',
-            'filename'           => $filename,
-            'pages'              => $contexts,
-            'description'        => $result['description'],
-            'matches_topic'      => $result['matches_topic'],
-            'suggested_filename' => $result['suggested_filename'],
+            'type'                => 'result',
+            'filename'            => $filename,
+            'pages'               => $contexts,
+            'description'         => $result['description'],
+            'matches_topic'       => $result['matches_topic'],
+            'suggested_filename'  => $result['suggested_filename'],
             // Never propose "renaming" a file to the name it already has.
-            'no_change_needed'   => $result['suggested_filename'] === $filename,
+            'no_change_needed'    => $result['suggested_filename'] === $filename,
+            'is_hero'             => $best['is_hero'],
+            'primary_keyword'     => $best['primary_keyword'],
+            'current_alt'         => $best['current_alt'],
+            'suggested_alt_text'  => $suggestedAlt,
+            // No alt field at all for this slot (e.g. a background photo) — nothing to
+            // propose or apply, whatever Claude returned for it is meaningless here.
+            'has_alt_field'       => $best['alt_field'] !== null,
+            'alt_no_change'       => $suggestedAlt !== '' && $suggestedAlt === $best['current_alt'],
         ]);
     }
     imgclean_emit(['type' => 'progress', 'done' => $done, 'total' => $total]);

@@ -799,7 +799,7 @@ function addLink(button) {
         const progLbl  = document.getElementById('imgclean-progress-label');
         const results  = document.getElementById('imgclean-results');
 
-        if (!confirm('Scan every image on this site with AI? This costs a small real amount per image (roughly a cent or two each) and nothing will be renamed or deleted without your approval afterward.')) return;
+        if (!confirm('Scan every image on this site with AI? This costs a small real amount per image (roughly a cent or two each) and nothing will be renamed, re-alt-texted, or deleted without your approval afterward.')) return;
 
         btn.disabled = true;
         btn.textContent = 'Scanning…';
@@ -866,7 +866,11 @@ function addLink(button) {
         const el = document.getElementById('imgclean-results');
         el.style.display = '';
 
-        const renameable = imgcleanResults.filter(r => !r.no_change_needed);
+        // A row can qualify for display via a rename suggestion, an alt-text suggestion,
+        // or both — shown as one row either way, since they're the same vision call on
+        // the same photo, not two separate passes.
+        const altWorthShowing = r => r.has_alt_field && r.suggested_alt_text && !r.alt_no_change;
+        const renameable = imgcleanResults.filter(r => !r.no_change_needed || altWorthShowing(r));
         let html = '';
 
         if (imgcleanOrphans.length) {
@@ -882,22 +886,30 @@ function addLink(button) {
         }
 
         if (renameable.length) {
-            html += '<h3 style="font-size:.95rem;">Proposed renames (' + renameable.length + ')</h3>';
-            html += '<p class="hint">Rows flagged <strong style="color:#b45309;">mismatch</strong> mean the photo doesn\'t actually show what the page is about — unchecked by default so a wrong photo never quietly gets a false keyword name. Review each before applying.</p>';
+            html += '<h3 style="font-size:.95rem;">Proposed renames &amp; alt text (' + renameable.length + ')</h3>';
+            html += '<p class="hint">Rows flagged <strong style="color:#b45309;">mismatch</strong> mean the photo doesn\'t actually show what the page is about — unchecked by default so a wrong photo never quietly gets a false keyword name or alt text. The hero/primary photo on a page is marked <strong>HERO</strong> — that\'s the one slot where tying alt text to the page\'s own keyword is good SEO, not spam. Review each before applying.</p>';
             html += '<table style="width:100%;border-collapse:collapse;font-size:.85rem;">';
             html += '<thead><tr style="text-align:left;border-bottom:2px solid #e2e8f0;">'
-                + '<th style="padding:6px 8px;width:26px;"></th>'
+                + '<th style="padding:6px 8px;width:26px;">Name</th>'
                 + '<th style="padding:6px 8px;">Current name</th>'
                 + '<th style="padding:6px 8px;">Proposed name</th>'
+                + '<th style="padding:6px 8px;width:26px;">Alt</th>'
+                + '<th style="padding:6px 8px;">Current alt</th>'
+                + '<th style="padding:6px 8px;">Proposed alt</th>'
                 + '<th style="padding:6px 8px;">Used on</th>'
                 + '<th style="padding:6px 8px;">What Claude saw</th>'
                 + '</tr></thead><tbody>';
             renameable.forEach(function (r, i) {
                 const mismatch = !r.matches_topic;
+                const showRen = !r.no_change_needed;
+                const showAlt = altWorthShowing(r);
                 html += '<tr style="border-bottom:1px solid #eef2f6;' + (mismatch ? 'background:#fffbeb;' : '') + '">'
-                    + '<td style="padding:6px 8px;"><input type="checkbox" class="imgclean-ren" data-idx="' + i + '"' + (mismatch ? '' : ' checked') + '></td>'
+                    + '<td style="padding:6px 8px;">' + (showRen ? '<input type="checkbox" class="imgclean-ren" data-idx="' + i + '"' + (mismatch ? '' : ' checked') + '>' : '') + '</td>'
                     + '<td style="padding:6px 8px;font-family:monospace;font-size:.78rem;">' + escHtml(r.filename) + '</td>'
-                    + '<td style="padding:6px 8px;font-family:monospace;font-size:.78rem;">' + escHtml(r.suggested_filename) + '</td>'
+                    + '<td style="padding:6px 8px;font-family:monospace;font-size:.78rem;">' + (showRen ? escHtml(r.suggested_filename) : '<span style="color:#9ca3af;">(no change)</span>') + '</td>'
+                    + '<td style="padding:6px 8px;">' + (showAlt ? '<input type="checkbox" class="imgclean-alt" data-idx="' + i + '"' + (mismatch ? '' : ' checked') + '>' : '') + '</td>'
+                    + '<td style="padding:6px 8px;font-size:.78rem;color:#6b7280;">' + (r.current_alt ? escHtml(r.current_alt) : '<em>(empty)</em>') + '</td>'
+                    + '<td style="padding:6px 8px;font-size:.78rem;">' + (showAlt ? escHtml(r.suggested_alt_text) + (r.is_hero ? ' <strong style="color:#1e3a5f;">HERO</strong>' : '') : '<span style="color:#9ca3af;">(no change)</span>') + '</td>'
                     + '<td style="padding:6px 8px;font-size:.78rem;color:#6b7280;">' + escHtml((r.pages || []).join(', ')) + '</td>'
                     + '<td style="padding:6px 8px;font-size:.78rem;">' + escHtml(r.description)
                     + (mismatch ? ' <strong style="color:#b45309;">— mismatch</strong>' : '') + '</td>'
@@ -923,11 +935,19 @@ function addLink(button) {
             const r = renameable[parseInt(cb.dataset.idx, 10)];
             return { old: r.filename, new: r.suggested_filename };
         });
+        // Always keyed by the ORIGINAL filename, same as rename's "old" — the apply
+        // endpoint resolves a row's post-rename name itself if that row's rename was
+        // also ticked, so this never needs to guess which name will be current by the
+        // time it runs.
+        const altTexts = Array.from(document.querySelectorAll('.imgclean-alt:checked')).map(function (cb) {
+            const r = renameable[parseInt(cb.dataset.idx, 10)];
+            return { filename: r.filename, alt: r.suggested_alt_text };
+        });
         const deletes = Array.from(document.querySelectorAll('.imgclean-del:checked')).map(function (cb) {
             return cb.dataset.file;
         });
-        if (!renames.length && !deletes.length) { alert('Nothing selected.'); return; }
-        if (!confirm('Apply ' + renames.length + ' rename(s) and ' + deletes.length + ' deletion(s)? This changes real files and page data.')) return;
+        if (!renames.length && !deletes.length && !altTexts.length) { alert('Nothing selected.'); return; }
+        if (!confirm('Apply ' + renames.length + ' rename(s), ' + altTexts.length + ' alt text update(s), and ' + deletes.length + ' deletion(s)? This changes real files and page data.')) return;
 
         const status = document.getElementById('imgclean-apply-status');
         status.textContent = 'Applying…';
@@ -936,19 +956,23 @@ function addLink(button) {
         fd.append('csrf_token', CSRF_TOKEN);
         fd.append('renames', JSON.stringify(renames));
         fd.append('deletes', JSON.stringify(deletes));
+        fd.append('alt_texts', JSON.stringify(altTexts));
         const res  = await fetch('image_cleanup_apply.php', { method: 'POST', body: fd });
         const data = await res.json();
 
         const renOk  = (data.renames || []).filter(r => r.ok).length;
         const renBad = (data.renames || []).filter(r => !r.ok);
+        const altOk  = (data.alt_texts || []).filter(r => r.ok).length;
+        const altBad = (data.alt_texts || []).filter(r => !r.ok);
         const delOk  = (data.deletes || []).filter(r => r.ok).length;
         const delBad = (data.deletes || []).filter(r => !r.ok);
 
-        let msg = renOk + ' renamed, ' + delOk + ' deleted.';
-        if (renBad.length || delBad.length) {
-            msg += ' Problems: ' + renBad.concat(delBad).map(r => escHtml(r.error)).join(' | ');
+        let msg = renOk + ' renamed, ' + altOk + ' alt text updated, ' + delOk + ' deleted.';
+        const problems = renBad.concat(altBad).concat(delBad);
+        if (problems.length) {
+            msg += ' Problems: ' + problems.map(r => escHtml(r.error)).join(' | ');
         }
-        status.innerHTML = (renBad.length || delBad.length)
+        status.innerHTML = problems.length
             ? '<span style="color:#b45309;">' + msg + '</span>'
             : '<span style="color:#166534;">' + msg + '</span>';
 

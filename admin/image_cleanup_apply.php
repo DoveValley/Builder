@@ -29,10 +29,12 @@ if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
     exit;
 }
 
-$renames = json_decode($_POST['renames'] ?? '[]', true);
-$deletes = json_decode($_POST['deletes'] ?? '[]', true);
-if (!is_array($renames)) $renames = [];
-if (!is_array($deletes)) $deletes = [];
+$renames  = json_decode($_POST['renames'] ?? '[]', true);
+$deletes  = json_decode($_POST['deletes'] ?? '[]', true);
+$altTexts = json_decode($_POST['alt_texts'] ?? '[]', true);
+if (!is_array($renames))  $renames  = [];
+if (!is_array($deletes))  $deletes  = [];
+if (!is_array($altTexts)) $altTexts = [];
 
 $renameResults = [];
 foreach ($renames as $row) {
@@ -41,6 +43,23 @@ foreach ($renames as $row) {
     if ($old === '' || $new === '') continue;
     $r = imgclean_apply_rename($old, $new);
     $renameResults[] = ['old' => $old, 'new' => $new] + $r;
+}
+
+// Alt text runs AFTER renames, matching on whatever filename is CURRENT right now — the
+// browser sends each row's post-rename name already (see admin/index.php's imgcleanApply:
+// it resolves this per-row before building the request), but resolving it again here
+// too means a row whose rename failed above still gets its alt text applied against the
+// name that's actually still on disk, not one that silently never took effect.
+$renameNewByOld = [];
+foreach ($renameResults as $r) { if ($r['ok']) $renameNewByOld[$r['old']] = $r['new']; }
+$altResults = [];
+foreach ($altTexts as $row) {
+    $filename = basename((string) ($row['filename'] ?? ''));
+    $alt      = (string) ($row['alt'] ?? '');
+    if ($filename === '' || $alt === '') continue;
+    $filename = $renameNewByOld[$filename] ?? $filename;
+    $r = imgclean_apply_alt_text($filename, $alt);
+    $altResults[] = ['filename' => $filename, 'alt' => $alt] + $r;
 }
 
 // Re-load data fresh — a rename above may have just changed it — before checking
@@ -55,6 +74,7 @@ foreach ($deletes as $filename) {
 }
 
 echo json_encode([
-    'renames' => $renameResults,
-    'deletes' => $deleteResults,
+    'renames'   => $renameResults,
+    'deletes'   => $deleteResults,
+    'alt_texts' => $altResults,
 ]);

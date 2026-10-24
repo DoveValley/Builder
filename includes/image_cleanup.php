@@ -35,6 +35,9 @@
  */
 
 require_once __DIR__ . '/anthropic.php';
+// CC_PHOTO_FIELD_KEYS / CC_PHOTO_ALT_MAP / cc_walk_dicts() — reused from Site Final Check
+// rather than re-encoding "what's a photo field, what's its alt field" a third time.
+require_once __DIR__ . '/multisite/content_check.php';
 
 /** Filenames that don't need a topic match — logos, icons, favicons, etc. */
 function imgclean_is_content_file(string $filename): bool
@@ -111,6 +114,77 @@ function imgclean_usage_map(array $siteData): array
     return $usage;
 }
 
+/**
+ * One entry per (image, page, block) OCCURRENCE — richer than imgclean_usage_map()'s
+ * per-file page-label list, and built separately rather than merged into it: the orphan/
+ * rename flow only ever needed "is this file used, where" and array_walk_recursive() is
+ * the cheap, correct way to answer that. This needs more — which page's primary keyword
+ * applies, and whether this occurrence is the page's HERO photo, the one slot where tying
+ * directly to the keyword is good SEO practice (doing that on every photo reads as
+ * keyword-stuffing to Google instead) — which means walking blocks in order, by field
+ * name, not flattening the tree.
+ *
+ * "Hero" = the page's first content block, if it's a hero/hero_split/hero_grid type with
+ * a real photo in it. Not just "first image found" — a page could lead with a non-hero
+ * block that happens to have a photo, which isn't the same slot SEO-wise.
+ */
+function imgclean_usage_occurrences(array $siteData): array
+{
+    $occ = [];
+    $scanPage = function (array $page, string $label, string $keyword) use (&$occ): void {
+        foreach (($page['content_blocks'] ?? []) as $i => $block) {
+            if (!is_array($block)) continue;
+            $isHeroBlock = $i === 0 && in_array($block['type'] ?? '', ['hero', 'hero_split', 'hero_grid'], true);
+            cc_walk_dicts($block, function ($dict) use (&$occ, $label, $keyword, $isHeroBlock): void {
+                foreach (CC_PHOTO_FIELD_KEYS as $photoKey) {
+                    $v = $dict[$photoKey] ?? null;
+                    if (!is_string($v) || $v === '' || str_contains($v, '{')) continue;
+                    $altField = CC_PHOTO_ALT_MAP[$photoKey] ?? null;
+                    $occ[] = [
+                        'path'            => $v,
+                        'page_label'      => $label,
+                        'primary_keyword' => $keyword,
+                        'is_hero'         => $isHeroBlock && $altField !== null,
+                        'alt_field'       => $altField,
+                        'current_alt'     => $altField !== null ? (string) ($dict[$altField] ?? '') : '',
+                    ];
+                }
+            });
+        }
+    };
+
+    if (isset($siteData['content_blocks'])) {
+        $scanPage($siteData, 'Home', (string) ($siteData['seo']['primary_keyword'] ?? ''));
+    }
+    foreach (($siteData['pages'] ?? []) as $page) {
+        if (!is_array($page)) continue;
+        $label = trim((string) preg_replace('/\s*[|\-–—].*$/', '', (string) ($page['title'] ?? $page['slug'] ?? 'Page')));
+        $scanPage($page, $label, (string) ($page['seo']['primary_keyword'] ?? ''));
+    }
+    if (defined('PAGES_DIR')) {
+        foreach (glob(PAGES_DIR . '*.json') ?: [] as $pageFile) {
+            $page = json_decode((string) @file_get_contents($pageFile), true);
+            if (!is_array($page)) continue;
+            $label = trim((string) preg_replace('/\s*[|\-–—].*$/', '', (string) ($page['title'] ?? $page['slug'] ?? basename($pageFile))));
+            $scanPage($page, $label, (string) ($page['seo']['primary_keyword'] ?? ''));
+        }
+    }
+    return $occ;
+}
+
+/**
+ * Pick the single best occurrence to drive one image's vision-call context, when the
+ * same file is used in more than one place: prefer a hero occurrence (and its keyword)
+ * over any other, since that's the one with a real SEO instruction to give Claude;
+ * otherwise the first occurrence with a non-empty keyword; otherwise just the first.
+ */
+function imgclean_best_occurrence(array $occurrencesForFile): array
+{
+    foreach ($occurrencesForFile as $o) if ($o['is_hero']) return $o;
+    foreach ($occurrencesForFile as $o) if ($o['primary_keyword'] !== '') return $o;
+    return $occurrencesForFile[0] ?? ['primary_keyword' => '', 'is_hero' => false, 'alt_field' => null, 'current_alt' => ''];
+}
+
 /** Every file physically in uploads/media/, basename only. */
 function imgclean_all_media_files(): array
 {
@@ -154,16 +228,28 @@ function imgclean_classify(array $siteData): array
 }
 
 /** The vision prompt for one image. Strict JSON out, nothing else. */
-function imgclean_build_prompt(string $filename, array $pageContexts, string $businessDescriptor): string
+function imgclean_build_prompt(string $filename, array $pageContexts, string $businessDescriptor, string $primaryKeyword, bool $isHero): string
 {
     $contextStr = implode(', ', $pageContexts) ?: 'no specific page found';
+    if ($primaryKeyword === '') {
+        $altGuidance = "Describe what's genuinely visible in the photo — there's no specific page keyword to tie it to here.";
+    } elseif ($isHero) {
+        $altGuidance = "This is the page's HERO/primary photo. Its alt text should naturally work in this page's own "
+            . "primary keyword — \"{$primaryKeyword}\" — while still genuinely describing what's visible. This is the "
+            . "one photo on the page where that's good SEO practice, not keyword-stuffing.";
+    } else {
+        $altGuidance = "This is a secondary photo, not the page's hero. Describe what's genuinely visible; only work in "
+            . "\"{$primaryKeyword}\" if it's an honest description of this specific photo — never force it. Repeating "
+            . "the exact same keyword on every photo on a page reads as spam to Google, not a signal.";
+    }
     return "You are reviewing one photo from a website's image library for {$businessDescriptor}.\n\n"
          . "This file is currently named \"{$filename}\" and is used on: {$contextStr}.\n\n"
          . "Look at the photo and answer honestly. Return ONLY a JSON object, no markdown fences, no explanation:\n\n"
          . "{\n"
          . "  \"description\": \"one plain sentence describing what is literally visible in the photo\",\n"
          . "  \"matches_topic\": true or false — does the photo genuinely show something related to the page(s) listed above?,\n"
-         . "  \"suggested_filename\": \"a clean filename: one real topic keyword (from the page context if matches_topic is true, otherwise based on what the photo actually shows), a short honest description of the photo, then the city if one is relevant. Lowercase, hyphen-separated, ending in the same file extension as the original. Do NOT stack multiple keywords or phrases — one real topic term is enough.\"\n"
+         . "  \"suggested_filename\": \"a clean filename: one real topic keyword (from the page context if matches_topic is true, otherwise based on what the photo actually shows), a short honest description of the photo, then the city if one is relevant. Lowercase, hyphen-separated, ending in the same file extension as the original. Do NOT stack multiple keywords or phrases — one real topic term is enough.\",\n"
+         . "  \"suggested_alt_text\": \"a natural, human-readable alt text sentence for this exact photo. {$altGuidance} Never just repeat the filename.\"\n"
          . "}";
 }
 
@@ -171,8 +257,11 @@ function imgclean_build_prompt(string $filename, array $pageContexts, string $bu
  * Call Claude vision for one image. Returns null on any failure (bad response,
  * unparseable JSON, API error) rather than guessing — a skipped image is far
  * safer than a wrong rename.
+ *
+ * $primaryKeyword/$isHero come from imgclean_best_occurrence() — picked by the caller
+ * once per file, since the same image can appear on more than one page.
  */
-function imgclean_analyze(string $absPath, string $filename, array $pageContexts, string $businessDescriptor): ?array
+function imgclean_analyze(string $absPath, string $filename, array $pageContexts, string $businessDescriptor, string $primaryKeyword = '', bool $isHero = false): ?array
 {
     if (!is_file($absPath)) return null;
     $ext = strtolower(pathinfo($absPath, PATHINFO_EXTENSION));
@@ -185,10 +274,10 @@ function imgclean_analyze(string $absPath, string $filename, array $pageContexts
     $bytes = @file_get_contents($absPath);
     if ($bytes === false) return null;
 
-    $prompt = imgclean_build_prompt($filename, $pageContexts, $businessDescriptor);
+    $prompt = imgclean_build_prompt($filename, $pageContexts, $businessDescriptor, $primaryKeyword, $isHero);
     $result = anthropic_message($prompt, [
         'model'            => ANTHROPIC_FAST,
-        'max_tokens'       => 400,
+        'max_tokens'       => 500,
         'image_base64'     => base64_encode($bytes),
         'image_media_type' => $mediaType,
         'timeout'          => 60,
@@ -206,9 +295,13 @@ function imgclean_analyze(string $absPath, string $filename, array $pageContexts
     if ($suggested === '' || !str_contains($suggested, '.')) return null;
 
     return [
-        'description'        => (string) ($parsed['description'] ?? ''),
+        'description'         => (string) ($parsed['description'] ?? ''),
         'matches_topic'       => !empty($parsed['matches_topic']),
         'suggested_filename'  => $suggested,
+        // Optional, additive — a missing/empty alt suggestion never fails the whole
+        // result the way a missing filename does; the rename half of this tool still
+        // works on its own even if alt-text parsing ever has an issue.
+        'suggested_alt_text'  => trim((string) ($parsed['suggested_alt_text'] ?? '')),
     ];
 }
 
@@ -288,6 +381,68 @@ function imgclean_apply_rename(string $oldFilename, string $newFilename): array
     }
 
     return ['ok' => true, 'error' => '', 'files_updated' => $filesUpdated, 'replacements' => $replacements];
+}
+
+/**
+ * Set a photo field's alt field, in place, for every dict in $node whose photo value's
+ * basename matches $targetFilename. Mutates by reference — PHP arrays need that to be
+ * changed from inside a recursive walk. Unlike imgclean_apply_rename()'s blind
+ * str_replace() (which only works because a filename swap is pure text substitution),
+ * setting a field that may not even exist yet genuinely needs the decoded structure.
+ */
+function imgclean_walk_set_alt(array &$node, string $targetFilename, string $newAlt, int &$count): void
+{
+    foreach (CC_PHOTO_ALT_MAP as $photoKey => $altKey) {
+        $v = $node[$photoKey] ?? null;
+        if (is_string($v) && $v !== '' && basename($v) === $targetFilename) {
+            $node[$altKey] = $newAlt;
+            $count++;
+        }
+    }
+    foreach ($node as &$v) {
+        if (is_array($v)) imgclean_walk_set_alt($v, $targetFilename, $newAlt, $count);
+    }
+    unset($v);
+}
+
+/**
+ * Apply one approved alt-text suggestion: re-scans site.json + every page file fresh and
+ * sets every occurrence's alt field for whatever $filename IS RIGHT NOW. The caller
+ * (image_cleanup_apply.php) is responsible for passing the post-rename name when the
+ * same image also had its rename applied in this same batch — renames run first in that
+ * endpoint specifically so this always matches against the current, not the stale,
+ * filename. No "re-validate as JSON" step the way imgclean_apply_rename() needs one: this
+ * works on the already-decoded array the whole time and only re-encodes at the end, so
+ * there's no intermediate raw-text state that could come out broken.
+ *
+ * @return array{ok:bool, error:string, files_updated:int, fields_updated:int}
+ */
+function imgclean_apply_alt_text(string $filename, string $newAltText): array
+{
+    $filename = basename($filename);
+    $flags = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
+    $dataFiles = [DATA_FILE];
+    if (defined('PAGES_DIR')) $dataFiles = array_merge($dataFiles, glob(PAGES_DIR . '*.json') ?: []);
+
+    $filesUpdated = 0;
+    $fieldsUpdated = 0;
+    foreach ($dataFiles as $f) {
+        if (!is_file($f)) continue;
+        $decoded = json_decode((string) file_get_contents($f), true);
+        if (!is_array($decoded)) continue;
+        $count = 0;
+        imgclean_walk_set_alt($decoded, $filename, $newAltText, $count);
+        if ($count === 0) continue;
+        if (file_put_contents($f, json_encode($decoded, $flags)) === false) {
+            return ['ok' => false, 'error' => 'Could not write ' . basename($f), 'files_updated' => $filesUpdated, 'fields_updated' => $fieldsUpdated];
+        }
+        $filesUpdated++;
+        $fieldsUpdated += $count;
+    }
+    if ($fieldsUpdated === 0) {
+        return ['ok' => false, 'error' => "No photo field currently uses {$filename} — nothing to update (did a rename in this batch already move it?).", 'files_updated' => 0, 'fields_updated' => 0];
+    }
+    return ['ok' => true, 'error' => '', 'files_updated' => $filesUpdated, 'fields_updated' => $fieldsUpdated];
 }
 
 /** Delete one orphaned file, after re-confirming (fresh scan) it's still unused. */
