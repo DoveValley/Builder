@@ -39,15 +39,12 @@ require_once __DIR__ . '/anthropic.php';
 // rather than re-encoding "what's a photo field, what's its alt field" a third time.
 require_once __DIR__ . '/multisite/content_check.php';
 
-/** Filenames that don't need a topic match — logos, icons, favicons, etc. */
+/** Filenames that don't need a topic match — logos, icons, favicons, etc. Defers to
+ *  content_check.php's cc_is_decorative_filename(), the canonical copy of this list, so
+ *  this tool and Site Final Check's live/built image checks can't drift apart on it. */
 function imgclean_is_content_file(string $filename): bool
 {
-    if (!preg_match('/\.(jpe?g|png|webp|gif)$/i', $filename)) return false;
-    $base = strtolower($filename);
-    foreach (['logo', 'icon', 'favicon', 'badge', 'sprite'] as $ex) {
-        if (strpos($base, $ex) !== false) return false;
-    }
-    return true;
+    return cc_is_decorative_filename($filename);
 }
 
 /**

@@ -227,6 +227,84 @@ const CC_PHOTO_ALT_MAP = [
     'photo' => 'photo_alt', 'image' => 'alt', 'featured_image' => 'featured_image_alt',
 ];
 
+/** Filenames that don't need a topic/keyword match — logos, icons, favicons, etc. Canonical
+ *  home for this list: includes/image_cleanup.php's imgclean_is_content_file() defers to it,
+ *  so the two tools can't quietly drift on what counts as "decorative." */
+function cc_is_decorative_filename(string $filename): bool {
+    if (!preg_match('/\.(jpe?g|png|webp|gif)$/i', $filename)) return false;
+    $base = strtolower($filename);
+    foreach (['logo', 'icon', 'favicon', 'badge', 'sprite'] as $ex) {
+        if (strpos($base, $ex) !== false) return false;
+    }
+    return true;
+}
+
+/**
+ * Scans every real <img> tag in a rendered page for two things: a missing/empty alt
+ * attribute, and (when $keyword is known) alt text that doesn't relate to this page's own
+ * primary keyword. Decorative images (logo/icon/favicon/badge/sprite) are exempt from both —
+ * same list cc_is_decorative_filename() applies everywhere else.
+ *
+ * The hero image — hero_split's <img class="hs-image">, the ONE hero block type that
+ * renders a real <img> rather than a CSS background (plain hero and hero_grid both use
+ * background-image, so they have no alt-bearing element at all — the same reason
+ * CC_PHOTO_ALT_MAP excludes background-photo fields from the template-mode alt check) — is
+ * held to a stricter bar than any other content photo: it's the single strongest place on
+ * the page for the keyword to land, so this requires most of the keyword's words (or the
+ * whole phrase) rather than just one shared word.
+ *
+ * Deliberately does NOT check whether a filename matches the keyword, or whether the alt/
+ * filename matches what's actually IN the photo — the first was tried for template mode and
+ * dropped (see admin/rollout.php's "what runs" modal: AI-generated photos legitimately carry
+ * opaque cache-style names on 47-80% of photos in some niches, same filenames here since a
+ * build never renames a file); the second needs an actual AI vision call per photo, which is
+ * exactly what includes/image_cleanup.php's Image Name Cleanup tool already does — duplicating
+ * it here would break this tool's always-free, always-synchronous design.
+ */
+function cc_html_issue_images(string $html, string $pageLabel, string $keyword): array {
+    $words        = cc_significant_words($keyword);
+    $keywordLower = strtolower(trim($keyword));
+    $issues       = [];
+    if (!preg_match_all('~<img\b[^>]*>~i', $html, $tags)) return $issues;
+    foreach ($tags[0] as $tag) {
+        if (!preg_match('~\bsrc=["\']([^"\']+)["\']~i', $tag, $sm)) continue;
+        $filename = basename((string) (parse_url($sm[1], PHP_URL_PATH) ?: $sm[1]));
+        if (!cc_is_decorative_filename($filename)) continue;
+
+        $isHero = (bool) preg_match('~\bclass=["\'][^"\']*\bhs-image\b[^"\']*["\']~i', $tag);
+        $field  = $isHero ? 'hero image alt' : 'content image alt';
+
+        $hasAlt = (bool) preg_match('~\balt=["\']([^"\']*)["\']~i', $tag, $am);
+        $alt    = $hasAlt ? trim(html_entity_decode($am[1], ENT_QUOTES | ENT_HTML5)) : '';
+        if ($alt === '') {
+            $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => "{$filename} has no alt text at all"];
+            continue;
+        }
+        if (!$words) continue; // no keyword known for this page — not this check's problem
+
+        // City Image / Area Map / Data Chart plugin output ({city_image}, {chart_*} —
+        // see includes/shortcodes.php) is legitimately about geography or weather, not
+        // the page's service, so a keyword mismatch here is correct, not a bug. Verified
+        // against all 4 niche masters before shipping: every chart-/service-area-map-/
+        // city-scenic- hit in a first real pass was exactly this, zero genuine misses.
+        if (preg_match('/^(chart-[a-z0-9_]+|service-area-map|city-scenic)-/i', $filename)) continue;
+
+        $altLower = strtolower($alt);
+        $hits = 0;
+        foreach ($words as $w) { if (str_contains($altLower, $w)) $hits++; }
+
+        if ($isHero) {
+            $needed = max(1, (int) ceil(count($words) / 2));
+            if (!str_contains($altLower, $keywordLower) && $hits < $needed) {
+                $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => "{$filename} alt text \"{$alt}\" doesn't closely match this page's keyword \"{$keyword}\" — the hero is the strongest place on the page for it to land"];
+            }
+        } elseif ($hits === 0) {
+            $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => "{$filename} alt text \"{$alt}\" doesn't share a word with this page's keyword"];
+        }
+    }
+    return $issues;
+}
+
 function cc_check_alt_keyword(string $masterId): array {
     $base = cc_master_base($masterId);
     $issues = [];
@@ -565,7 +643,40 @@ function cc_registry_built(): array {
         ['id' => 'built_meta',        'label' => 'Meta description, as it actually rendered, is not too long', 'fn' => 'cc_check_built_meta'],
         ['id' => 'built_noindex',     'label' => 'No page accidentally carries a noindex tag (a page can look completely normal and still never reach Google)', 'fn' => 'cc_check_built_noindex'],
         ['id' => 'built_canonical',   'label' => 'Every page\'s canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_built_canonical'],
+        ['id' => 'built_images',      'label' => 'Every content photo has real alt text that relates to its own page\'s keyword — checked stricter on the hero image than on the rest', 'fn' => 'cc_check_built_images'],
     ];
+}
+
+/** Homepage's own primary_keyword, plus every data/pages/*.json page's, keyed by the exact
+ *  relative output path cc_each_html_file() yields for it ('index.html' for the homepage,
+ *  '{slug}/index.html' for a landing page) — so a rendered file can be matched straight back
+ *  to the template keyword that produced it. City pages and blog posts (generated per-domain,
+ *  not stored as a static data/pages/*.json file) aren't in this map; cc_html_issue_images()
+ *  still checks them for missing alt, it just has no keyword to compare against — same as
+ *  cc_check_alt_keyword() already does for any page with no keyword set. */
+function cc_page_keywords_by_output_path(string $masterId): array {
+    $base = cc_master_base($masterId);
+    $map = [];
+    $site = json_decode((string) @file_get_contents("$base/data/site.json"), true) ?: [];
+    $map['index.html'] = (string) ($site['seo']['primary_keyword'] ?? '');
+    foreach (glob("$base/data/pages/*.json") ?: [] as $f) {
+        $data = json_decode((string) file_get_contents($f), true);
+        if (!is_array($data)) continue;
+        $slug = (string) ($data['slug'] ?? '');
+        if ($slug === '') continue;
+        $map["$slug/index.html"] = (string) ($data['seo']['primary_keyword'] ?? '');
+    }
+    return $map;
+}
+
+function cc_check_built_images(array $domainInfo): array {
+    $keywords = cc_page_keywords_by_output_path($domainInfo['masterId']);
+    $issues = [];
+    foreach (cc_each_html_file($domainInfo['dir']) as $rel => $html) {
+        $keyword = $keywords[$rel] ?? '';
+        $issues = array_merge($issues, cc_html_issue_images($html, $rel, $keyword));
+    }
+    return cc_issue_list_result($issues, 'Add real alt text to the listed photos, written to relate to that page\'s own keyword — and for a hero image specifically, make it a close match: it\'s the single strongest place on the page for it to land.');
 }
 
 /**
@@ -669,6 +780,7 @@ function cc_run_built(string $masterId, string $batchId): array {
     if ($domainInfo === null) {
         return ['domain' => null, 'results' => []];
     }
+    $domainInfo['masterId'] = $masterId;
     $results = [];
     foreach (cc_registry_built() as $i => $check) {
         $fn = $check['fn'];
@@ -709,6 +821,7 @@ function cc_registry_live(): array {
         ['id' => 'live_canonical',  'label' => 'Homepage canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_live_canonical'],
         ['id' => 'og_image_loads',  'label' => 'The social-share image (og:image) is a real, loadable file — not just present in the markup', 'fn' => 'cc_check_og_image_loads'],
         ['id' => 'redirect_chain',  'label' => 'http:// reaches this domain\'s https:// version in exactly one hop — no wrong-domain redirect, no redirect chain', 'fn' => 'cc_check_redirect_consistency'],
+        ['id' => 'live_images',     'label' => 'Homepage photos, as they actually rendered live, have real alt text that relates to the homepage keyword — checked stricter on the hero image than on the rest', 'fn' => 'cc_check_live_images'],
     ];
 }
 
@@ -816,6 +929,17 @@ function cc_trace_redirects(string $url): array {
     return $result;
 }
 
+/** Homepage-only, not every page — live mode stays at one HTTP request per check by
+ *  design (see this file's mode-3 docblock); the full every-page version of this same
+ *  check already runs for free in built mode (cc_check_built_images), off local files. */
+function cc_check_live_images(array $ctx): array {
+    $base = cc_master_base($ctx['masterId']);
+    $site = json_decode((string) @file_get_contents("$base/data/site.json"), true) ?: [];
+    $keyword = (string) ($site['seo']['primary_keyword'] ?? '');
+    $issues = cc_html_issue_images((string) ($ctx['home']['raw'] ?? ''), $ctx['domain'] . ' (homepage)', $keyword);
+    return cc_issue_list_result($issues, 'Add real alt text to the listed photos, written to relate to the homepage keyword — and for the hero image specifically, make it a close match.');
+}
+
 function cc_check_redirect_consistency(array $ctx): array {
     $domain = $ctx['domain'];
     $trace  = cc_trace_redirects("http://{$domain}/");
@@ -846,7 +970,7 @@ function cc_run_live(string $masterId, string $batchId): array {
         return ['domain' => null, 'results' => []];
     }
     require_once __DIR__ . '/../../admin/infra/lib/http.php';
-    $ctx = ['domain' => $domain, 'home' => infra_http('GET', "https://{$domain}/", ['timeout' => 15])];
+    $ctx = ['domain' => $domain, 'masterId' => $masterId, 'home' => infra_http('GET', "https://{$domain}/", ['timeout' => 15])];
 
     $results = [];
     foreach (cc_registry_live() as $i => $check) {

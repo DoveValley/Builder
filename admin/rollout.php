@@ -82,6 +82,25 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <div class="ro-views"><a href="rollout.php" class="on">Simple</a><a href="batch.php">Detailed</a></div>
     </div>
 
+    <details id="ro-cc-details" style="margin:0 0 14px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;">
+        <summary style="cursor:pointer;padding:8px 12px;font-weight:600;font-size:.92rem;list-style:revert;">Site Final Check</summary>
+        <div style="padding:4px 12px 14px;">
+            <div class="ro-bar" style="justify-content:space-between;flex-wrap:wrap;">
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                    <a href="#" class="ro-info" id="ro-cc-info" title="What this checks">&#9432;</a>
+                    <select id="ro-cc-mode" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
+                        <option value="template">This master's template</option>
+                        <option value="built">First built domain</option>
+                        <option value="live">First live domain</option>
+                    </select>
+                    <span class="hint" id="ro-cc-hint">Checks this master's own template pages — not tied to the domains ticked below.</span>
+                </div>
+                <button type="button" class="btn sec" id="ro-cc-run">Run Final Check</button>
+            </div>
+            <div id="ro-cc-report" style="margin:0;"></div>
+        </div>
+    </details>
+
     <p class="hint" id="ro-settings" style="margin:0 0 14px;">Loading&hellip;</p>
 
     <div class="ro-bar">
@@ -97,21 +116,6 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
-
-    <div class="ro-bar" style="justify-content:space-between;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-            <strong style="font-size:.92rem">Site Final Check</strong>
-            <a href="#" class="ro-info" id="ro-cc-info" title="What this checks">&#9432;</a>
-            <select id="ro-cc-mode" style="font-size:.82rem;padding:3px 6px;border-radius:4px;border:1px solid #cbd5e1;">
-                <option value="template">This master's template</option>
-                <option value="built">First built domain</option>
-                <option value="live">First live domain</option>
-            </select>
-            <span class="hint" id="ro-cc-hint">Checks this master's own template pages — not tied to the domains ticked below.</span>
-        </div>
-        <button type="button" class="btn sec" id="ro-cc-run">Run Final Check</button>
-    </div>
-    <div id="ro-cc-report" style="margin:0 0 18px;"></div>
 
     <div class="ro-cc-modal-bg" id="ro-cc-modal-bg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:60;align-items:center;justify-content:center" onclick="if(event.target.id==='ro-cc-modal-bg')this.style.display='none'">
         <div style="background:#fff;border-radius:8px;padding:18px 22px;max-width:640px;width:92%;max-height:84vh;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.2);line-height:1.6;font-size:.86rem;color:#334155">
@@ -149,13 +153,23 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 build, not a quick addition. External paid APIs (PageSpeed Insights, Rich Results Test, Search Console) are
                 a different thing again — real cost and API-key setup, a decision of its own, not bundled in here.</p>
 
-            <p style="margin:0;color:#64748b">Two more were tried for the template mode and deliberately left out, not just
+            <p style="margin:0 0 10px;color:#64748b">Three more were tried or asked for and deliberately left out, not just
                 forgotten: a filename mirrors its own page's keyword (AI-generated photos legitimately carry opaque
                 cache-style names like <code>ai_bd09e3_8c5ef2.webp</code> on 47&ndash;80% of photos in some niches — not a
-                bug, just a different naming convention — so this check's false-positive rate was too high to trust); and
-                legal page links are "real" (the standard legal pages are built directly into every site, not stored as
-                checkable page files, so "real" would need to mean something about their actual text content instead —
-                not yet scoped).</p>
+                bug, just a different naming convention — so this check's false-positive rate was too high to trust in
+                template mode, and a build never renames a file, so the same false positives would show up in built/live
+                mode too); legal page links are "real" (the standard legal pages are built directly into every site, not
+                stored as checkable page files, so "real" would need to mean something about their actual text content
+                instead — not yet scoped); and whether an alt/filename actually describes what's IN the photo (that needs
+                a real AI vision call per image, which is exactly what the separate Image Name Cleanup tool already does —
+                duplicating it here would break this tool's always-free, always-instant design).</p>
+            <p style="margin:0;color:#64748b">What built/live mode's image checks DO cover, for free: any content photo
+                (decorative images — logo/icon/favicon/badge/sprite filenames — are exempt) missing alt text at all, and
+                alt text that doesn't share a word with its own page's keyword. The hero image specifically (the page's
+                lead photo, when the hero block renders a real &lt;img&gt; rather than a background) is held to a
+                stricter bar — most of the keyword's words, not just one — since it's the single strongest spot on the
+                page for it to land. Built mode checks every page this way for free (local file reads); live mode checks
+                only the homepage, to stay at the one request per check this mode is scoped to.</p>
             <div style="text-align:right;margin-top:10px;"><button type="button" class="btn-sm-outline" onclick="document.getElementById('ro-cc-modal-bg').style.display='none'">Close</button></div>
         </div>
     </div>
