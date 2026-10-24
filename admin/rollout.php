@@ -118,11 +118,17 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
                 <?php endforeach; ?>
             </ol>
-            <p style="margin:0;color:#64748b">Not covered yet, on purpose: anything needing an AI vision call (does the photo
-                actually match its alt text/filename) or an external Google API (PageSpeed Insights, Rich Results Test) —
+            <p style="margin:0 0 10px;color:#64748b">Not covered yet, on purpose: anything needing an AI vision call (does the photo
+                actually match its alt text) or an external Google API (PageSpeed Insights, Rich Results Test) —
                 both cost real money per check and belong in their own tool, not bolted onto this fast one. Also not
                 covered: Google's existing on-page SEO gate, which needs a real build to already exist first — read its
                 report separately after a build.</p>
+            <p style="margin:0;color:#64748b">Two more were tried and deliberately left out, not just forgotten: a filename
+                mirrors its own page's keyword (AI-generated photos legitimately carry opaque cache-style names like
+                <code>ai_bd09e3_8c5ef2.webp</code> on 47&ndash;80% of photos in some niches — not a bug, just a different
+                naming convention — so this check's false-positive rate was too high to trust); and legal page links are
+                "real" (the standard legal pages are built directly into every site, not stored as checkable page files,
+                so "real" would need to mean something about their actual text content instead — not yet scoped).</p>
             <div style="text-align:right;margin-top:10px;"><button type="button" class="btn-sm-outline" onclick="document.getElementById('ro-cc-modal-bg').style.display='none'">Close</button></div>
         </div>
     </div>
