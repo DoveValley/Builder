@@ -75,6 +75,24 @@ function slugify($text) {
 }
 
 /**
+ * Does a stored upload-path field (og_image, a block's photo field, etc.) actually point
+ * at a real file? Stored values come in two shapes depending on how they were last
+ * written — BASE_DIR-relative ("sites/{id}/uploads/media/x.webp", the single-site-data
+ * format a domain's own admin edits use) or already-flattened ACTIVE_SITE_DIR-relative
+ * ("uploads/media/x.webp", what a multisite build's cloned data uses after
+ * ms_flatten_upload_paths()). Both resolve the same way: take everything from the
+ * "uploads/" segment onward and check it against UPLOAD_DIR, which already points at the
+ * right uploads/ folder for whichever mode (single site, active multisite site, or
+ * worker/static-build) is currently running.
+ */
+function uploaded_file_exists(string $path): bool {
+    if ($path === '') return false;
+    $pos = strpos($path, 'uploads/');
+    if ($pos === false) return false;
+    return is_file(rtrim(UPLOAD_DIR, '/') . '/' . substr($path, $pos + strlen('uploads/')));
+}
+
+/**
  * Hard cap for a hero-type block's intro text (hero_subtext, hs_subtext, fs_subtext,
  * hg_body) — these render as the first thing in a narrow flex column whose box HEIGHT
  * depends entirely on how many lines the text wraps to. A long paragraph here is a real,

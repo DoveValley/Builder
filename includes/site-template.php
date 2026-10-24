@@ -73,15 +73,29 @@ if (isset($seo['og_description']))   $seo['og_description']   = resolve_shortcod
 // so this was never visibly wrong before, but a bare-token photo value (e.g. hs_photo set to
 // "{city_image}", which the Contact Us page's hero_split uses) was captured unresolved and
 // never touched again, shipping the literal "{city_image}" in <meta property="og:image">.
-if (empty($seo['og_image'])) {
+//
+// Triggered by EMPTY *or* by a reference to a file that no longer exists — found live
+// 2026-10-24: 35 pages across two niches carried a non-blank but broken og_image (pointing
+// at a stock photo that was never actually uploaded), and an empty-only check ships a
+// broken link forever once a value is present, since nothing else ever revisits this field.
+// Every candidate below — including the final site-wide default — is existence-checked the
+// same way via uploaded_file_exists(), so a broken hero photo can't get swapped in for a
+// broken og_image and called fixed.
+if (empty($seo['og_image']) || !uploaded_file_exists($seo['og_image'])) {
+    $seo['og_image'] = '';
     foreach ($contentBlocks as $_b) {
         $_t = $_b['type'] ?? '';
-        if ($_t === 'hero_split' && !empty($_b['hs_photo']))      { $seo['og_image'] = resolve_shortcodes($_b['hs_photo']);      break; }
-        if ($_t === 'hero'       && !empty($_b['hero_bg_image'])) { $seo['og_image'] = resolve_shortcodes($_b['hero_bg_image']); break; }
-        if ($_t === 'hero_grid'  && !empty($_b['hg_photo']))      { $seo['og_image'] = resolve_shortcodes($_b['hg_photo']);      break; }
-        if ($_t === 'post_meta'  && !empty($_b['featured_image'])){ $seo['og_image'] = resolve_shortcodes($_b['featured_image']); break; }
+        $_cand = '';
+        if ($_t === 'hero_split' && !empty($_b['hs_photo']))         $_cand = resolve_shortcodes($_b['hs_photo']);
+        elseif ($_t === 'hero'        && !empty($_b['hero_bg_image'])) $_cand = resolve_shortcodes($_b['hero_bg_image']);
+        elseif ($_t === 'hero_grid'   && !empty($_b['hg_photo']))      $_cand = resolve_shortcodes($_b['hg_photo']);
+        elseif ($_t === 'post_meta'   && !empty($_b['featured_image']))$_cand = resolve_shortcodes($_b['featured_image']);
+        if ($_cand !== '' && uploaded_file_exists($_cand)) { $seo['og_image'] = $_cand; break; }
     }
-    if (empty($seo['og_image'])) $seo['og_image'] = $data['seo']['og_image'] ?? '';
+    if ($seo['og_image'] === '') {
+        $_default = $data['seo']['og_image'] ?? '';
+        if ($_default !== '' && uploaded_file_exists($_default)) $seo['og_image'] = $_default;
+    }
 }
 ?>
 <!DOCTYPE html>
