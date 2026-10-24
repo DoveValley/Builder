@@ -94,6 +94,10 @@
                            style="flex:1;min-width:200px;padding:9px 12px;border:1px solid #d1d5db;border-radius:6px;">
                     <button type="button" class="btn btn-secondary btn-small" onclick="pdToggleAll(true)">Expand all</button>
                     <button type="button" class="btn btn-secondary btn-small" onclick="pdToggleAll(false)">Collapse all</button>
+                    <label class="hint" style="display:flex;align-items:center;gap:6px;white-space:nowrap;">
+                        <input type="checkbox" id="pd-missing-only">
+                        Missing only
+                    </label>
                     <span id="pd-shown" style="font-size:.85rem;color:#6b7280;white-space:nowrap;">
                         <?= count($pdRenderGroups) ?> groups &middot; <?= $pdTotal ?> pictures
                     </span>
@@ -138,13 +142,29 @@
                     <p class="hint" style="margin:0 0 12px;">One row per template &mdash; not per city. Setting a photo here and checking
                         "also replace elsewhere" pushes it onto every page already built from this template.</p>
                 <?php endif; ?>
-                <?php $gid = 'pdg' . $gi; ?>
-                <div class="card pd-group" data-search="<?= h(strtolower($g['title'] . ' ' . $g['sub'])) ?>" style="padding:0;overflow:hidden;">
+                <?php
+                $gid = 'pdg' . $gi;
+                // $s['needs_photo'] (includes/picdrop.php) is scoped to block types that
+                // actually render visibly wrong with a blank field — same list Site Final
+                // Check uses (CC_IMAGE_REQUIRED_BLOCKS). A blank per-item photo on a
+                // repeater (steps/cards/logo_bar/feature_columns) is NOT flagged: those
+                // blocks have a real designed fallback (steps shows a numbered circle,
+                // logo_bar/gallery/cards just skip the row) and flagging them anyway was
+                // the first thing that made this count look alarmingly high and wrong.
+                $gMissing = 0;
+                foreach ($g['slots'] as $s) {
+                    if ($s['needs_photo']) $gMissing++;
+                }
+                ?>
+                <div class="card pd-group" data-search="<?= h(strtolower($g['title'] . ' ' . $g['sub'])) ?>" data-missing="<?= $gMissing ?>" style="padding:0;overflow:hidden;">
                     <button type="button" class="pd-head" onclick="pdToggle('<?= $gid ?>')"
                             style="width:100%;display:flex;align-items:center;gap:10px;padding:12px 16px;background:none;border:0;cursor:pointer;text-align:left;">
                         <span id="<?= $gid ?>_caret" style="color:#6b7280;font-size:.8rem;width:12px;">&#9660;</span>
                         <span style="font-weight:600;color:#1e3a5f;"><?= h($g['title']) ?></span>
                         <span class="hint" style="flex:1;"><?= h($g['sub']) ?></span>
+                        <?php if ($gMissing > 0): ?>
+                            <span style="white-space:nowrap;font-size:.76rem;font-weight:600;color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;border-radius:10px;padding:1px 8px;">&#9888; <?= $gMissing ?> missing</span>
+                        <?php endif; ?>
                         <span class="hint" style="white-space:nowrap;"><?= count($g['slots']) ?> picture<?= count($g['slots']) === 1 ? '' : 's' ?></span>
                     </button>
 
@@ -175,7 +195,8 @@
                                     $propShow = ($shared > 1 || $tplHits > 0);
                                 }
                                 ?>
-                                <div class="pd-slot" style="display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #f1f5f9;">
+                                <?php $sMissing = $s['needs_photo']; ?>
+                                <div class="pd-slot" data-missing="<?= $sMissing ? 1 : 0 ?>" style="display:flex;gap:14px;padding:12px <?= $sMissing ? '10px' : '0' ?>;border-bottom:1px solid #f1f5f9;<?= $sMissing ? 'border:2px solid #fca5a5;border-radius:8px;background:#fef2f2;margin:4px 0;' : '' ?>">
                                     <div id="<?= $sid ?>_prev" style="flex-shrink:0;width:132px;">
                                         <?php
                                         $pair = $s['pair'] ?? ['real' => null, 'ai' => null, 'active' => 'real'];
@@ -218,6 +239,12 @@
                                     <div style="flex:1;min-width:0;">
                                         <div style="font-size:.85rem;font-weight:600;color:#374151;">
                                             <?= h($s['block_label']) ?> &middot; <?= h($s['label']) ?>
+                                        </div>
+                                        <div class="hint" style="margin-top:1px;">
+                                            Block <?= (int) $s['block_pos'] ?> of <?= (int) $s['block_total'] ?>
+                                            <?php if ($s['block_hint'] !== ''): ?>
+                                                &middot; <?= h($s['block_hint']) ?>
+                                            <?php endif; ?>
                                         </div>
                                         <div id="<?= $sid ?>_meta" class="hint" style="margin-top:2px;">
                                             <?php if ($s['token']): ?>
@@ -348,6 +375,11 @@
                                         // an instruction to recolor the background tacked on after it. See
                                         // picdrop_vary_bg_prompt().
                                         $aiPromptVaryBg = picdrop_vary_bg_prompt();
+                                        // Scott's own written prompt (picdrop_tech_customer_prompt()) —
+                                        // a different technician plus a customer now in frame. The
+                                        // bracketed appearance choice inside it is resolved once here,
+                                        // same timing as every other mode's prompt text.
+                                        $aiPromptTechCustomer = picdrop_tech_customer_prompt();
                                         ?>
                                         <div style="flex-shrink:0;width:210px;">
                                             <div class="pd-drop" data-key="<?= h($s['key']) ?>" data-sid="<?= $sid ?>"
@@ -366,6 +398,7 @@
                                                           data-prompt-newperson="<?= h($aiPromptNewPerson) ?>"
                                                           data-prompt-vary="<?= h($aiPromptVary) ?>"
                                                           data-prompt-varybg="<?= h($aiPromptVaryBg) ?>"
+                                                          data-prompt-techcustomer="<?= h($aiPromptTechCustomer) ?>"
                                                           placeholder="Describe the one change you want, e.g. &quot;make the wall purple instead of white&quot;"
                                                           style="width:100%;font-size:.74rem;padding:6px 7px;border:1px solid #d1d5db;border-radius:5px;box-sizing:border-box;resize:vertical;"><?= h($aiPromptTech) ?></textarea>
                                                 <?php
@@ -391,6 +424,7 @@
                                                 <label class="hint" style="display:flex;align-items:center;gap:5px;margin-top:5px;font-size:.7rem;">
                                                     <input type="checkbox" checked disabled>
                                                     Using current photo as reference
+                                                    <a href="#" class="pd-info" data-pd-info="reference" title="What this does" style="color:#94a3b8;text-decoration:none;">&#9432;</a>
                                                 </label>
                                                 <?php /* A real radio group, not checkboxes faking exclusivity —
                                                          exactly one of the seven is always selected, "Add/ensure
@@ -414,6 +448,7 @@
                                                     ['newperson', '4.', 'Different person', false],
                                                     ['vary', '5.', 'Subtle variation', false],
                                                     ['varybg', '6.', 'Subtle variation, change background color', false],
+                                                    ['techcustomer', '6.5', 'Technician with appliance & customer', false],
                                                     ['custom', '7.', 'Custom instruction', false],
                                                 ];
                                                 foreach ($pdModes as [$modeVal, $modeNum, $modeLabel, $modeChecked]):
@@ -421,6 +456,7 @@
                                                 <label class="hint" style="display:flex;align-items:flex-start;gap:5px;margin-top:<?= $modeChecked ? '6' : '3' ?>px;font-size:.7rem;">
                                                     <input type="radio" name="<?= $sid ?>_ai_mode" value="<?= $modeVal ?>" <?= $modeChecked ? 'checked ' : '' ?>onchange="pdSetPromptMode('<?= $sid ?>','<?= $modeVal ?>')" style="margin-top:1px;">
                                                     <span><span style="font-family:monospace;color:#94a3b8;display:inline-block;min-width:13px;"><?= $modeNum ?></span><?= h($modeLabel) ?></span>
+                                                    <a href="#" class="pd-info" data-pd-info="<?= $modeVal ?>" title="What this does" style="color:#94a3b8;text-decoration:none;flex-shrink:0;">&#9432;</a>
                                                 </label>
                                                 <?php endforeach; ?>
                                                 </div>
@@ -512,6 +548,18 @@
               </div>
             </div>
 
+            <?php /* One shared modal for every &#9432; in the AI-generate panel, across every
+                     slot on the page — the explanations are the same 8 regardless of which
+                     slot's icon was clicked, so the content lives once in PD_INFO (JS) rather
+                     than being duplicated into the DOM per slot. */ ?>
+            <div id="pd-info-modal" style="display:none;position:fixed;inset:0;z-index:9100;background:rgba(15,23,42,.45);align-items:center;justify-content:center;">
+                <div style="background:#fff;border-radius:8px;padding:16px 18px;max-width:420px;width:90%;max-height:80vh;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.2);">
+                    <button type="button" id="pd-info-close" style="float:right;background:none;border:0;cursor:pointer;color:#94a3b8;font-size:1.1rem;line-height:1;">&times;</button>
+                    <h3 id="pd-info-title" style="margin:0 0 10px;font-size:1rem;color:#1e3a5f;"></h3>
+                    <p id="pd-info-body" style="margin:0;font-size:.85rem;color:#374151;line-height:1.5;"></p>
+                </div>
+            </div>
+
             <div id="pd-lightbox" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(15,23,42,.88);align-items:center;justify-content:center;padding:32px;">
                 <div style="max-width:100%;max-height:100%;display:flex;flex-direction:column;gap:10px;align-items:center;">
                     <img id="pd-lb-img" src="" alt="" style="max-width:100%;max-height:calc(100vh - 132px);object-fit:contain;border-radius:6px;background:#fff;">
@@ -565,21 +613,72 @@
                     });
                 };
 
-                document.getElementById('pd-filter').addEventListener('input', function () {
-                    var q = this.value.trim().toLowerCase();
+                function pdApplyFilters() {
+                    var q = document.getElementById('pd-filter').value.trim().toLowerCase();
+                    var missingOnly = document.getElementById('pd-missing-only').checked;
                     var shown = 0;
                     document.querySelectorAll('.pd-group').forEach(function (g) {
-                        var hit = !q || g.getAttribute('data-search').indexOf(q) !== -1;
+                        var hit = (!q || g.getAttribute('data-search').indexOf(q) !== -1)
+                            && (!missingOnly || parseInt(g.getAttribute('data-missing'), 10) > 0);
                         g.style.display = hit ? '' : 'none';
                         if (hit) shown++;
                     });
                     document.getElementById('pd-shown').textContent =
-                        shown + (q ? ' of <?= count($pdRenderGroups) ?>' : '') + ' groups';
-                });
+                        shown + ((q || missingOnly) ? ' of <?= count($pdRenderGroups) ?>' : '') + ' groups';
+                }
+                document.getElementById('pd-filter').addEventListener('input', pdApplyFilters);
+                document.getElementById('pd-missing-only').addEventListener('change', pdApplyFilters);
 
                 function markDirty() {
                     document.getElementById('pd-dirty').style.display = '';
                 }
+
+                // ── AI-generate mode info popups ──────────────────────────────────
+                // One shared map + one shared modal (see the #pd-info-modal div above) for
+                // every &#9432; across every slot's AI panel — plain-English summaries of
+                // what each mode actually asks for, kept in sync with the real prompt text
+                // in includes/picdrop.php (picdrop_bare_scene_prompt(), picdrop_vary_prompt(),
+                // picdrop_vary_bg_prompt(), picdrop_reference_prompt()) rather than the raw
+                // prompt itself, which is written for the model, not for reading at a glance.
+                var PD_INFO = {
+                    reference: ['Using current photo as reference',
+                        'Every mode below edits the slot’s current ACTIVE photo (Real or AI, whichever shows the blue border and checkmark) instead of generating a brand-new scene from scratch. Always on — there’s no mode that starts from a blank page.'],
+                    tech: ['1. Add/ensure technician',
+                        'Puts a technician genuinely at work in the shot — visible, in focus, not posed for the camera. Keeps the same scene and equipment. This is the default, “normal” mode.'],
+                    notech: ['2. No technician',
+                        'Removes the person from the photo entirely. Keeps the equipment and surroundings exactly as they are — useful for an equipment-only shot.'],
+                    bare: ['3. No technician, no equipment',
+                        'Removes the person AND all equipment, tools, and vehicles — just the plain, empty location, as if no job were in progress.'],
+                    newperson: ['4. Different person',
+                        'Keeps the same scene and equipment, but swaps in a different-looking person doing the same job — useful for a second photo that doesn’t look like the same person twice.'],
+                    vary: ['5. Subtle variation',
+                        'Same photo, taken again from a very slightly different camera angle — nothing added, removed, or changed. Useful when you need a second photo of the same scene that isn’t a pixel-identical duplicate.'],
+                    varybg: ['6. Subtle variation, change background color',
+                        'Same as Subtle variation, plus the background color or setting changes. The subject and equipment stay exactly as they are.'],
+                    techcustomer: ['6.5. Technician with appliance & customer',
+                        'Keeps the reference photo’s setting and appliance, but gives the technician a different hairstyle and face, now shown explaining the repair to a customer who’s also in the shot. The only mode that adds a second person to the scene.'],
+                    custom: ['7. Custom instruction',
+                        'Clears the prompt box so you can type your own one-off change instead of picking a canned mode. Everything else in the photo is kept as-is — only the change you describe gets applied.']
+                };
+                function showPdInfo(key) {
+                    var entry = PD_INFO[key];
+                    if (!entry) return;
+                    document.getElementById('pd-info-title').textContent = entry[0];
+                    document.getElementById('pd-info-body').textContent = entry[1];
+                    document.getElementById('pd-info-modal').style.display = 'flex';
+                }
+                document.addEventListener('click', function (e) {
+                    var link = e.target.closest ? e.target.closest('a.pd-info') : null;
+                    if (link) { e.preventDefault(); showPdInfo(link.getAttribute('data-pd-info')); return; }
+                    if (e.target.id === 'pd-info-close' || e.target.id === 'pd-info-modal') {
+                        document.getElementById('pd-info-modal').style.display = 'none';
+                    }
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && document.getElementById('pd-info-modal').style.display !== 'none') {
+                        document.getElementById('pd-info-modal').style.display = 'none';
+                    }
+                });
 
                 // ── Full-size viewer ──────────────────────────────────────────────
                 var lb     = document.getElementById('pd-lightbox');
@@ -862,6 +961,7 @@
                         : which === 'newperson' ? box.dataset.promptNewperson
                         : which === 'vary' ? box.dataset.promptVary
                         : which === 'varybg' ? box.dataset.promptVarybg
+                        : which === 'techcustomer' ? box.dataset.promptTechcustomer
                         : box.dataset.promptTech;
                 };
 

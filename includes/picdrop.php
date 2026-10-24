@@ -18,6 +18,14 @@
  * fieldPath may be dotted for fields nested in a repeater ("ts_tabs.2.photo").
  */
 
+// For CC_IMAGE_REQUIRED_BLOCKS — Site Final Check already worked out which block
+// types actually go visibly wrong with a blank photo field vs. which ones have a
+// real designed fallback (repeater rows that just skip the image, hero types with
+// a color background, etc). Reusing that constant here instead of a second,
+// independently-maintained list is what keeps "missing" meaning the same thing in
+// both tools.
+require_once __DIR__ . '/multisite/content_check.php';
+
 require_once __DIR__ . '/../config.php';
 
 /**
@@ -349,8 +357,9 @@ function picdrop_block_paths(array $block): array {
 
 /* Build the slot descriptors for one array of blocks. */
 function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): array {
-    $fields = picdrop_fields();
-    $slots  = [];
+    $fields     = picdrop_fields();
+    $slots      = [];
+    $blockTotal = count($blocks);
 
     foreach ($blocks as $bi => $block) {
         if (!is_array($block)) continue;
@@ -360,6 +369,25 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
             $leaf  = picdrop_leaf($path);
             $spec  = $fields[$leaf];
             $value = (string) picdrop_get($block, $path);
+
+            // Two block types this common enough to name explicitly ("Ai Block",
+            // "Steps") carry no clue about WHERE on the page they sit or WHICH one
+            // they are when a page has more than one — Scott had to ask which of two
+            // "Ai Block · Image & text" rows was which. $blockPos/$blockTotal place it
+            // on the page; $blockHint adds a human-readable distinguisher: which
+            // repeater row ("Item 2 of 3") or, for an ai_block, its ai_type_id (the
+            // one thing that already names what content it holds, e.g. "city_intro").
+            $blockPos  = $bi + 1;
+            $blockHint = '';
+            $pathParts = explode('.', $path);
+            if (count($pathParts) === 3) {
+                $repKey   = $pathParts[0];
+                $rowIdx   = (int) $pathParts[1];
+                $rowTotal = is_array($block[$repKey] ?? null) ? count($block[$repKey]) : $rowIdx + 1;
+                $blockHint = 'Item ' . ($rowIdx + 1) . ' of ' . $rowTotal;
+            } elseif ($type === 'ai_block' && (string) ($block['ai_type_id'] ?? '') !== '') {
+                $blockHint = (string) $block['ai_type_id'];
+            }
 
             // A {token} value is not a picture — map_info's mi_info_photo is normally
             // "{city_image}", which the City Image plugin fills per city at render time.
@@ -377,6 +405,14 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
             $altPath = picdrop_alt_path($path, $spec['alt']);
             $altVal  = $altPath !== null ? (string) (picdrop_get($block, $altPath) ?? '') : '';
 
+            // An 'ai_block' is a placeholder — render_content_block() proxies it as
+            // whatever ai_render_as says once generated (see the 'ai_block' case in
+            // blocks.php), so that's the type CC_IMAGE_REQUIRED_BLOCKS needs to match
+            // against, not the literal 'ai_block' string.
+            $effType    = $type === 'ai_block' ? (string) ($block['ai_render_as'] ?? '') : $type;
+            $isRequired = !$isToken && (CC_IMAGE_REQUIRED_BLOCKS[$effType] ?? null) === $leaf;
+            $needsPhoto = $isRequired && ($value === '' || $file === null);
+
             $slotKey = "$scope:$id:$bi:$path";
             $slots[] = [
                 'key'        => $slotKey,
@@ -393,11 +429,15 @@ function picdrop_slots_for_blocks(array $blocks, string $scope, string $id): arr
                 // type+field matching in that case.
                 'block_id'   => (string) ($block['id'] ?? ''),
                 'block_label'=> picdrop_block_label($type),
+                'block_pos'  => $blockPos,
+                'block_total'=> $blockTotal,
+                'block_hint' => $blockHint,
                 'label'      => $spec['label'],
                 'kind'       => $spec['kind'],
                 'value'      => $value,
                 'exists'     => $file !== null,
                 'token'      => $isToken,
+                'needs_photo'=> $needsPhoto,
                 'w'          => (int) $w,
                 'h'          => (int) $h,
                 'bytes'      => $bytes,
@@ -847,9 +887,32 @@ function picdrop_vary_bg_prompt(): string {
 }
 
 /**
+ * "Technician with appliance & customer" mode (6.5) — Scott's own prompt. Originally
+ * named race/gender/age as alternatives for "a different technician"; revised
+ * 2026-10-24 to ask for a similar-looking technician with just a different
+ * hairstyle and face instead — same approach mode 4 ("Different person",
+ * $aiPromptNewPerson above) already uses, and it drops the demographic list
+ * entirely rather than needing one resolved out of it.
+ *
+ * Falls through picdrop_reference_prompt()'s default branch (same as "tech") rather
+ * than getting its own case — the prompt already fully describes the one change
+ * (a similar technician, plus a customer now in frame), so the shared "keep this
+ * close to the reference" suffix is exactly what's needed, nothing extra.
+ */
+function picdrop_tech_customer_prompt(): string {
+    return 'Photorealistic photo, bright white modern kitchen with subway tile and stainless '
+         . 'appliances, natural light. A similar-looking appliance technician to the one in the '
+         . 'first image, but with a different hairstyle and face, in a light blue short-sleeve '
+         . 'work shirt and navy pants (no logos). He stands beside a stainless steel range with '
+         . 'the oven door open, explaining the repair to a homeowner in their 40s-50s who is '
+         . 'listening and smiling. Unbranded appliance, no text or logos visible. Candid, warm, '
+         . 'trustworthy. Horizontal 4:3.';
+}
+
+/**
  * The full instruction sent with a reference edit: the prompt from the textarea plus
  * a mode-specific "stay close to the reference" suffix (mode = Pic Drop's radio
- * group: tech | notech | bare | newperson | vary | varybg | custom).
+ * group: tech | notech | bare | newperson | vary | varybg | techcustomer | custom).
  *
  * The shared suffix names equipment and vehicles on purpose for the modes that are
  * ABOUT the scene's contents while still wanting that equipment to stay put (tech,
