@@ -174,16 +174,16 @@ function find_post_by_slug($posts, $slug) {
 function upload_image($fieldName, $prefix) {
     if (!isset($_FILES[$fieldName]) || $_FILES[$fieldName]['error'] === UPLOAD_ERR_NO_FILE) return null;
     if ($_FILES[$fieldName]['error'] !== UPLOAD_ERR_OK) return false;
-    return save_uploaded_file($_FILES[$fieldName]['tmp_name'], $prefix);
+    return save_uploaded_file($_FILES[$fieldName]['tmp_name'], $prefix, $_FILES[$fieldName]['name'] ?? '');
 }
 
 function upload_image_indexed($fieldName, $index, $prefix) {
     if (!isset($_FILES[$fieldName]['error'][$index]) || $_FILES[$fieldName]['error'][$index] === UPLOAD_ERR_NO_FILE) return null;
     if ($_FILES[$fieldName]['error'][$index] !== UPLOAD_ERR_OK) return false;
-    return save_uploaded_file($_FILES[$fieldName]['tmp_name'][$index], $prefix);
+    return save_uploaded_file($_FILES[$fieldName]['tmp_name'][$index], $prefix, $_FILES[$fieldName]['name'][$index] ?? '');
 }
 
-function save_uploaded_file($tmpPath, $prefix) {
+function save_uploaded_file($tmpPath, $prefix, $origName = '') {
     // Raster types get converted → WebP. GIF and SVG are passed through unchanged.
     $raster    = ['image/jpeg', 'image/png', 'image/webp'];
     $passthru  = ['image/gif' => 'gif', 'image/svg+xml' => 'svg'];
@@ -198,9 +198,20 @@ function save_uploaded_file($tmpPath, $prefix) {
 
     if (!is_dir(UPLOAD_DIR)) mkdir(UPLOAD_DIR, 0775, true);
 
+    // Whatever the uploader's own file was named carries real local-SEO signal when
+    // it's descriptive (e.g. "dallas-water-damage.jpg") — same reasoning the AI photo
+    // pipeline already uses for its public filenames (see includes/multisite/image_ai.php).
+    // Previously this was thrown away entirely: every manual upload got a bare
+    // {prefix}_{time}_{hash} name no matter what the person called their own file.
+    // '' when it reduces to nothing usable (e.g. the original was just "IMG_4521" after
+    // stripping punctuation — not wrong, just not descriptive — or no name was passed at
+    // all by an older caller), so the filename falls back to exactly today's pattern.
+    $stem = $origName !== '' ? slugify(pathinfo($origName, PATHINFO_FILENAME)) : '';
+    $mid  = $stem !== '' ? $stem . '_' : '';
+
     // GIF — move as-is, no processing
     if ($mime === 'image/gif') {
-        $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.gif';
+        $filename = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.gif';
         return move_uploaded_file($tmpPath, UPLOAD_DIR . $filename) ? UPLOAD_URL . $filename : false;
     }
 
@@ -208,12 +219,12 @@ function save_uploaded_file($tmpPath, $prefix) {
     if ($mime === 'image/svg+xml') {
         $svg = sanitize_svg(file_get_contents($tmpPath));
         if ($svg === false) return false;
-        $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.svg';
+        $filename = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.svg';
         return file_put_contents(UPLOAD_DIR . $filename, $svg) !== false ? UPLOAD_URL . $filename : false;
     }
 
     // Raster — resize to max 1800px wide and convert to WebP via GD
-    $filename = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.webp';
+    $filename = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.webp';
     $dest     = UPLOAD_DIR . $filename;
 
     if (extension_loaded('gd') && function_exists('imagewebp')) {
@@ -244,7 +255,7 @@ function save_uploaded_file($tmpPath, $prefix) {
 
     // GD fallback — move original file without processing
     $origExt  = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'][$mime];
-    $fallback = $prefix . '_' . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $origExt;
+    $fallback = $prefix . '_' . $mid . time() . '_' . substr(md5(mt_rand()), 0, 6) . '.' . $origExt;
     return move_uploaded_file($tmpPath, UPLOAD_DIR . $fallback) ? UPLOAD_URL . $fallback : false;
 }
 

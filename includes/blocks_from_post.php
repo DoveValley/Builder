@@ -116,7 +116,7 @@ function parse_blocks_from_post(): array {
                     $iconPath = trim($itemExisting[$fi] ?? '');
                     if (isset($_FILES['fs_item_icon']['error'][$i][$fi]) &&
                         $_FILES['fs_item_icon']['error'][$i][$fi] === UPLOAD_ERR_OK) {
-                        $up2 = save_uploaded_file($_FILES['fs_item_icon']['tmp_name'][$i][$fi], 'fs_icon');
+                        $up2 = save_uploaded_file($_FILES['fs_item_icon']['tmp_name'][$i][$fi], 'fs_icon', $_FILES['fs_item_icon']['name'][$i][$fi] ?? '');
                         if ($up2) $iconPath = $up2;
                         elseif ($up2 === false) $uploadError = true;
                     }
@@ -146,7 +146,7 @@ function parse_blocks_from_post(): array {
                     $colImg = trim($existing[$ci] ?? '');
                     if (isset($_FILES['fc_col_image']['error'][$i][$ci]) &&
                         $_FILES['fc_col_image']['error'][$i][$ci] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['fc_col_image']['tmp_name'][$i][$ci], 'fc_icon');
+                        $up = save_uploaded_file($_FILES['fc_col_image']['tmp_name'][$i][$ci], 'fc_icon', $_FILES['fc_col_image']['name'][$i][$ci] ?? '');
                         if ($up) $colImg = $up;
                     }
                     $colHead = trim($ch);
@@ -332,7 +332,7 @@ function parse_blocks_from_post(): array {
                 $block['eb_badge_text']  = trim($_POST['eb_badge_text'][$i]  ?? '');
                 $ebBadgeExisting = trim($_POST['eb_badge_existing'][$i] ?? '');
                 if (isset($_FILES['eb_badge_image']['error'][$i]) && $_FILES['eb_badge_image']['error'][$i] === UPLOAD_ERR_OK) {
-                    $up = save_uploaded_file($_FILES['eb_badge_image']['tmp_name'][$i], 'badge');
+                    $up = save_uploaded_file($_FILES['eb_badge_image']['tmp_name'][$i], 'badge', $_FILES['eb_badge_image']['name'][$i] ?? '');
                     $ebBadgeExisting = $up ?: $ebBadgeExisting;
                 }
                 $block['eb_badge_image'] = $ebBadgeExisting;
@@ -471,7 +471,7 @@ function parse_blocks_from_post(): array {
                     $iconPath = trim($scExisting[$si] ?? '');
                     if (isset($_FILES['sc_item_icon']['error'][$i][$si]) &&
                         $_FILES['sc_item_icon']['error'][$i][$si] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['sc_item_icon']['tmp_name'][$i][$si], 'sc_icon');
+                        $up = save_uploaded_file($_FILES['sc_item_icon']['tmp_name'][$i][$si], 'sc_icon', $_FILES['sc_item_icon']['name'][$i][$si] ?? '');
                         if ($up) $iconPath = $up; elseif ($up === false) $uploadError = true;
                     }
                     $sh = trim($sh); $st = trim($scTexts[$si] ?? '');
@@ -514,7 +514,7 @@ function parse_blocks_from_post(): array {
                     $iconPath = trim($hgExisting[$gi] ?? '');
                     if (isset($_FILES['hg_item_icon']['error'][$i][$gi]) &&
                         $_FILES['hg_item_icon']['error'][$i][$gi] === UPLOAD_ERR_OK) {
-                        $up2 = save_uploaded_file($_FILES['hg_item_icon']['tmp_name'][$i][$gi], 'hg_icon');
+                        $up2 = save_uploaded_file($_FILES['hg_item_icon']['tmp_name'][$i][$gi], 'hg_icon', $_FILES['hg_item_icon']['name'][$i][$gi] ?? '');
                         if ($up2) $iconPath = $up2; elseif ($up2 === false) $uploadError = true;
                     }
                     $gl = trim($gl);
@@ -547,13 +547,13 @@ function parse_blocks_from_post(): array {
                     // Icon upload
                     if (isset($_FILES['ts_tab_icon']['error'][$i][$ti]) &&
                         $_FILES['ts_tab_icon']['error'][$i][$ti] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['ts_tab_icon']['tmp_name'][$i][$ti], 'ts_icon');
+                        $up = save_uploaded_file($_FILES['ts_tab_icon']['tmp_name'][$i][$ti], 'ts_icon', $_FILES['ts_tab_icon']['name'][$i][$ti] ?? '');
                         if ($up) $iconPath = $up; elseif ($up === false) $uploadError = true;
                     }
                     // Photo upload
                     if (isset($_FILES['ts_tab_photo']['error'][$i][$ti]) &&
                         $_FILES['ts_tab_photo']['error'][$i][$ti] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['ts_tab_photo']['tmp_name'][$i][$ti], 'ts_photo');
+                        $up = save_uploaded_file($_FILES['ts_tab_photo']['tmp_name'][$i][$ti], 'ts_photo', $_FILES['ts_tab_photo']['name'][$i][$ti] ?? '');
                         if ($up) $photoPath = $up; elseif ($up === false) $uploadError = true;
                     }
                     $tl = trim($tl);
@@ -580,7 +580,7 @@ function parse_blocks_from_post(): array {
                     $imgPath = trim($existingPath);
                     if (isset($_FILES['gallery_photo']['error'][$i][$gi]) &&
                         $_FILES['gallery_photo']['error'][$i][$gi] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['gallery_photo']['tmp_name'][$i][$gi], 'gallery');
+                        $up = save_uploaded_file($_FILES['gallery_photo']['tmp_name'][$i][$gi], 'gallery', $_FILES['gallery_photo']['name'][$i][$gi] ?? '');
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
@@ -606,7 +606,7 @@ function parse_blocks_from_post(): array {
                     $imgPath = trim($stepExisting[$si] ?? '');
                     if (isset($_FILES['steps_image']['error'][$i][$si]) &&
                         $_FILES['steps_image']['error'][$i][$si] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['steps_image']['tmp_name'][$i][$si], 'step');
+                        $up = save_uploaded_file($_FILES['steps_image']['tmp_name'][$i][$si], 'step', $_FILES['steps_image']['name'][$i][$si] ?? '');
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
@@ -689,7 +689,7 @@ function parse_blocks_from_post(): array {
                     $imgPath = trim($cardExisting[$ci] ?? '');
                     if (isset($_FILES['cards_image']['error'][$i][$ci]) &&
                         $_FILES['cards_image']['error'][$i][$ci] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['cards_image']['tmp_name'][$i][$ci], 'card');
+                        $up = save_uploaded_file($_FILES['cards_image']['tmp_name'][$i][$ci], 'card', $_FILES['cards_image']['name'][$i][$ci] ?? '');
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
@@ -864,7 +864,7 @@ function parse_blocks_from_post(): array {
                     $imgPath = trim($existingPath);
                     if (isset($_FILES['lb_photo']['error'][$i][$li]) &&
                         $_FILES['lb_photo']['error'][$i][$li] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['lb_photo']['tmp_name'][$i][$li], 'logo');
+                        $up = save_uploaded_file($_FILES['lb_photo']['tmp_name'][$i][$li], 'logo', $_FILES['lb_photo']['name'][$i][$li] ?? '');
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
@@ -966,7 +966,7 @@ function parse_blocks_from_post(): array {
                     $imgPath = trim($existingPath);
                     if (isset($_FILES['team_photo']['error'][$i][$ti]) &&
                         $_FILES['team_photo']['error'][$i][$ti] === UPLOAD_ERR_OK) {
-                        $up = save_uploaded_file($_FILES['team_photo']['tmp_name'][$i][$ti], 'team');
+                        $up = save_uploaded_file($_FILES['team_photo']['tmp_name'][$i][$ti], 'team', $_FILES['team_photo']['name'][$i][$ti] ?? '');
                         if ($up) $imgPath = $up;
                         elseif ($up === false) $uploadError = true;
                     }
