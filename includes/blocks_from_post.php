@@ -277,6 +277,8 @@ function parse_blocks_from_post(): array {
                 $msRaw = $_POST['mi_map_side'][$i] ?? 'left';
                 $block['mi_map_side'] = in_array($msRaw, ['left', 'right', 'top'], true) ? $msRaw : 'left';
                 $block['mi_map_caption'] = trim($_POST['mi_map_caption'][$i] ?? '');
+                $block['mi_map_link'] = sanitize_url($_POST['mi_map_link'][$i] ?? '');
+                $block['mi_map_link_text'] = trim($_POST['mi_map_link_text'][$i] ?? '');
                 $mhc = in_array($_POST['mi_head_color'][$i] ?? '', ['accent','header','custom']) ? $_POST['mi_head_color'][$i] : 'header';
                 $block['mi_head_color'] = $mhc;
                 $mcc = trim($_POST['mi_head_color_custom'][$i] ?? '#120575');

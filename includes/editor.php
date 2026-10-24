@@ -764,6 +764,15 @@ function render_content_blocks_editor($blocks) {
                         <label>Map caption (optional)</label>
                         <input type="text" name="mi_map_caption[]" value="<?= h($block['mi_map_caption'] ?? '') ?>" placeholder="Shown under the map">
                     </div>
+                    <div class="form-group">
+                        <label>"View on Google Maps" link (optional)</label>
+                        <input type="text" name="mi_map_link[]" value="<?= h($block['mi_map_link'] ?? '') ?>" placeholder="https://maps.google.com/?q=...">
+                        <span class="hint">Shown under the map, opens in a new tab so visitors don't lose their place on the page.</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Google Maps link text (optional)</label>
+                        <input type="text" name="mi_map_link_text[]" value="<?= h($block['mi_map_link_text'] ?? '') ?>" placeholder="View on Google Maps ↗">
+                    </div>
 
                     <h4 style="margin:14px 0 8px;font-size:0.95rem;border-bottom:1px solid #e5e7eb;padding-bottom:6px;">Info Panel</h4>
                     <div class="form-group">

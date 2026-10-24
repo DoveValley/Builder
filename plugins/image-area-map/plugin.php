@@ -76,7 +76,7 @@ function city_map_current_city(): array
 add_hook('shortcode_tokens', function (array $map): array {
     static $cache = null;
     if ($cache === null) {
-        $cache = ['{city_map}' => '', '{city_map_alt}' => '', '{city_map_caption}' => '', '{city_map_dims}' => ''];
+        $cache = ['{city_map}' => '', '{city_map_alt}' => '', '{city_map_caption}' => '', '{city_map_dims}' => '', '{city_map_link}' => ''];
         if (defined('ACTIVE_SITE_DIR') && ACTIVE_SITE_DIR) {
             $city = city_map_current_city();
             $theme = city_map_theme();
@@ -94,6 +94,9 @@ add_hook('shortcode_tokens', function (array $map): array {
                 // which Lighthouse flags as a CLS risk even on a page where nothing actually
                 // shifted yet.
                 '{city_map_dims}'    => img_intrinsic_attrs($r['path']),
+                // A real, clickable Google Maps link for the same point the diagram is
+                // centred on — see city_map_link_url() for why this is a link, not an embed.
+                '{city_map_link}'    => city_map_link_url($city),
             ];
         }
     }

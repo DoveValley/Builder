@@ -940,6 +940,13 @@ function render_content_block($block, $pathPrefix = '', $isBlogPost = false) {
             if ($mapEmbed && $mapCaption !== '') {
                 $mapPanel .= '<p class="mi-map-caption">'.h($mapCaption).'</p>';
             }
+            // A trust/UX link to the real Google Maps listing — opens in a new tab so it
+            // doesn't carry the visitor off the page they were reading.
+            $mapLink = trim((string) ($block['mi_map_link'] ?? ''));
+            $mapLinkText = trim((string) ($block['mi_map_link_text'] ?? '')) ?: 'View on Google Maps ↗';
+            if ($mapEmbed && $mapLink !== '') {
+                $mapPanel .= '<p class="mi-map-link"><a href="'.h($mapLink).'" target="_blank" rel="noopener noreferrer">'.h($mapLinkText).'</a></p>';
+            }
             $mapPanel .= '</div>';
 
             $photoHtml = '';

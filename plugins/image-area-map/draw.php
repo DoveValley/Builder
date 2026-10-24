@@ -394,3 +394,21 @@ function city_map_caption(array $city, string $domain = ''): string
     return $opts[$pick] ?? $opts[0];
 }
 
+/**
+ * A real Google Maps URL centred on this city — for a "View on Google Maps" link, NOT an
+ * embed (see plugin.php header for why an embed is skipped). Prefers the city's own verified
+ * coordinates (same ones the diagram is drawn from) so the link lands on exactly the point
+ * shown in the picture; falls back to a plain text search when a city has no geocode on file.
+ */
+function city_map_link_url(array $city): string
+{
+    $latlng = city_map_latlng($city);
+    if ($latlng) {
+        return 'https://www.google.com/maps/search/?api=1&query=' . $latlng['lat'] . ',' . $latlng['lng'];
+    }
+    $name = trim((string) ($city['city'] ?? ''));
+    if ($name === '') return '';
+    $ss = trim((string) ($city['SS'] ?? ''));
+    return 'https://www.google.com/maps/search/?api=1&query=' . urlencode($ss !== '' ? "$name, $ss" : $name);
+}
+

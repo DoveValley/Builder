@@ -510,6 +510,8 @@ function content_editor_scripts() {
                 <div class="form-group"><label>Google Maps embed code</label>
                     <textarea name="mi_map_embed[]" rows="3" placeholder="Paste &lt;iframe&gt; embed code here"></textarea>
                 </div>
+                <div class="form-group"><label>"View on Google Maps" link (optional)</label><input type="text" name="mi_map_link[]" placeholder="https://maps.google.com/?q=..."></div>
+                <div class="form-group"><label>Google Maps link text (optional)</label><input type="text" name="mi_map_link_text[]" placeholder="View on Google Maps ↗"></div>
                 <div class="form-group"><label>Info panel heading</label><input type="text" name="mi_info_heading[]" placeholder="e.g. Katy, TX Information"></div>
                 <div class="form-group"><label>Info text</label><textarea name="mi_info_text[]" rows="3"></textarea></div>
                 <div class="form-group"><label>Info photo</label>
