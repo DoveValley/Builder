@@ -21,40 +21,163 @@
  * "always fast, always runnable against raw template data" contract every check here keeps.
  */
 
-/** The one list. Add/remove a check by adding/removing one entry (+ its function below). */
+/** The one list. Add/remove a check by adding/removing one entry (+ its function below).
+ *  'id' is the shared CONCEPT id (see cc_master_checklist() below) — title/meta/images are
+ *  checked again, under the same id, in built/live mode; that's what lets all three modes'
+ *  numbered lists share one fixed numbering instead of three independently-numbered ones. */
 function cc_registry(): array {
     return [
         ['id' => 'photo_fields', 'label' => 'Every photo field with a real (non-token) value points at a file that actually exists', 'fn' => 'cc_check_photo_fields'],
+        ['id' => 'missing_block_photo', 'label' => 'No image-type block (Image Left/Right, Hero Split, Feature Split, Image + Text, Image Features, Wide Banner) is missing its photo', 'fn' => 'cc_check_missing_block_images'],
         ['id' => 'favicon',      'label' => 'A favicon is set, and the file it points at actually exists', 'fn' => 'cc_check_favicon'],
-        ['id' => 'title_length', 'label' => 'Title tags are not too long for Google to show in full (checked against the raw template text — a real city/business name can add a few characters on top)', 'fn' => 'cc_check_title_length'],
-        ['id' => 'meta_length',  'label' => 'Meta descriptions are not too long for Google to show in full (same raw-template caveat as titles)', 'fn' => 'cc_check_meta_length'],
-        ['id' => 'alt_keyword',  'label' => "Every real photo has alt text, and it relates to that page's own primary keyword", 'fn' => 'cc_check_alt_keyword'],
+        ['id' => 'title',        'label' => 'Title tags are not too long for Google to show in full (checked against the raw template text — a real city/business name can add a few characters on top)', 'fn' => 'cc_check_title_length'],
+        ['id' => 'meta',         'label' => 'Meta descriptions are not too long for Google to show in full (same raw-template caveat as titles)', 'fn' => 'cc_check_meta_length'],
+        ['id' => 'images',       'label' => "Every real photo has alt text, and it relates to that page's own primary keyword — checked stricter on the hero image than on the rest", 'fn' => 'cc_check_alt_keyword'],
         ['id' => 'site_vars',    'label' => 'Business phone/email/name are not an obvious placeholder (e.g. a 555 exchange, "example.com", "Your Business")', 'fn' => 'cc_check_site_vars'],
         ['id' => 'dupe_font',    'label' => "No two entries in this master's font pool use the exact same font-family (a real past bug — cost mold/appliance 5–12 mobile PageSpeed points)", 'fn' => 'cc_check_duplicate_font'],
         ['id' => 'cannibalize',  'label' => 'No two pages share the exact same primary keyword (splits ranking signal between them instead of concentrating it on one page)', 'fn' => 'cc_check_keyword_cannibalization'],
         ['id' => 'orphan_pages', 'label' => 'Every page is linked to from at least one other page\'s Related Links block (not just reachable by guessing the URL)', 'fn' => 'cc_check_orphan_pages'],
-        ['id' => 'og_title_length', 'label' => 'Social-share title (og:title, also used for Twitter) is not too long — Facebook/Twitter truncate it same as Google does a title tag', 'fn' => 'cc_check_og_title_length'],
-        ['id' => 'og_desc_length',  'label' => 'Social-share description (og:description, also used for Twitter) is not too long', 'fn' => 'cc_check_og_description_length'],
+        ['id' => 'og_title',     'label' => 'Social-share title (og:title, also used for Twitter) is not too long — Facebook/Twitter truncate it same as Google does a title tag', 'fn' => 'cc_check_og_title_length'],
+        ['id' => 'og_desc',      'label' => 'Social-share description (og:description, also used for Twitter) is not too long', 'fn' => 'cc_check_og_description_length'],
     ];
 }
 
-/** Run every check in the registry, in order. Returns the registry entries + their results. */
-function cc_run(string $masterId): array {
+/** Bump this whenever cc_master_checklist()'s items/order change. admin/multisite_api.php
+ *  stamps every saved report with it and discards a cached report on mismatch — otherwise
+ *  a report saved under the OLD numbering (e.g. live mode's old 9-item list) would sit on
+ *  disk and get shown as-is by "last stored report" after a reorg like this one, looking
+ *  like a bug ("why does live only show 9 instead of 18?") instead of what it actually is:
+ *  a stale cache nobody re-ran yet. */
+const CC_CHECKLIST_VERSION = 3;
+
+/**
+ * Every distinct check CONCEPT across all three modes, in ONE fixed order. Every mode's
+ * numbered list — the ⓘ popup AND the run report — walks THIS list, not its own registry
+ * directly, so item #5 is always "images" whether you're looking at template, built, or
+ * live. A mode that doesn't run a given concept shows WHY instead of silently renumbering
+ * around the gap (cc_not_run_reason() below) — e.g. "canonical" has no raw-template
+ * equivalent to check before a domain is even built, so template mode says that, rather
+ * than just not mentioning canonical tags at all.
+ */
+function cc_master_checklist(): array {
+    return [
+        ['id' => 'title',             'concept' => 'Title tag length'],
+        ['id' => 'meta',              'concept' => 'Meta description length'],
+        ['id' => 'noindex',           'concept' => 'No accidental noindex tag'],
+        ['id' => 'canonical',         'concept' => 'Canonical tag points at the right domain'],
+        ['id' => 'images',            'concept' => "Photo alt text relates to the page's keyword"],
+        ['id' => 'photo_fields',      'concept' => 'Every photo field points at a file that exists'],
+        ['id' => 'missing_block_photo', 'concept' => 'No photo-type block is missing its photo'],
+        ['id' => 'favicon',           'concept' => 'Favicon is set and exists'],
+        ['id' => 'site_vars',         'concept' => 'Business info is not a placeholder'],
+        ['id' => 'dupe_font',         'concept' => 'No duplicate fonts in the font pool'],
+        ['id' => 'cannibalize',       'concept' => 'No keyword cannibalization'],
+        ['id' => 'orphan_pages',      'concept' => 'No orphan pages'],
+        ['id' => 'og_title',          'concept' => 'Social-share title length'],
+        ['id' => 'og_desc',           'concept' => 'Social-share description length'],
+        ['id' => 'unresolved_tokens', 'concept' => 'No literal {token} survived into rendered HTML'],
+        ['id' => 'https_ok',          'concept' => 'Resolves cleanly over HTTPS'],
+        ['id' => 'robots_sane',       'concept' => 'robots.txt exists and is sane'],
+        ['id' => 'og_image_loads',    'concept' => 'Social-share image is a real, loadable file'],
+        ['id' => 'redirect_chain',    'concept' => 'http:// reaches https:// in one hop'],
+    ];
+}
+
+/** Why a given master-checklist concept isn't run in a given mode — shown in place of a
+ *  pass/fail result, never just a silent gap. Verified each reason states a real structural
+ *  fact (needs a live domain / needs real build output / already covered elsewhere for
+ *  free), not a vague "not implemented". */
+function cc_not_run_reason(string $mode, string $id): string {
+    $reasons = [
+        'template' => [
+            'noindex'           => 'Needs real rendered output to see whether a noindex tag actually made it onto the page — there\'s no "accidental" version of this to catch in the raw template.',
+            'canonical'         => 'Canonical URLs are built from the real domain at build time — there\'s no per-domain value yet to check against the raw template.',
+            'unresolved_tokens' => 'An unresolved token is, by definition, a build-time failure — nothing to catch before a build has actually happened.',
+            'https_ok'          => 'Needs the domain to actually resolve on the real internet.',
+            'robots_sane'       => 'robots.txt is generated at build time — nothing exists yet to check.',
+            'og_image_loads'    => 'Needs a real, built og:image file to request over HTTP.',
+            'redirect_chain'    => 'Needs the domain to actually be live to trace a redirect.',
+        ],
+        'built' => [
+            'photo_fields' => 'Already checked for free at the template level — every domain in this batch shares the same source photo fields, so a build doesn\'t change the answer. See that result.',
+            'missing_block_photo' => 'Already checked for free at the template level — which blocks have a photo is template/page-pool data, not something a build changes. See that result.',
+            'favicon'      => 'Already checked for free at the template level — a build doesn\'t change the answer. See that result.',
+            'site_vars'    => 'Already checked for free at the template level — a build doesn\'t change the answer. See that result.',
+            'dupe_font'    => 'Already checked for free at the template level (the shared font pool) — a build doesn\'t change the answer. See that result.',
+            'cannibalize'  => 'A page-pool-wide concern, checked once at the template level, not per build. See that result.',
+            'orphan_pages' => 'A page-pool-wide concern, checked once at the template level, not per build. See that result.',
+            'og_title'     => 'Not yet re-checked post-render — see the template-mode result for the raw-text version of this.',
+            'og_desc'      => 'Not yet re-checked post-render — see the template-mode result for the raw-text version of this.',
+            'https_ok'       => 'Needs the domain to actually be live on the real internet — a built domain isn\'t live yet by definition. See live mode.',
+            'robots_sane'    => 'Needs a real live HTTP request. See live mode.',
+            'og_image_loads' => 'Needs a real live HTTP request to actually fetch the image. See live mode.',
+            'redirect_chain' => 'Needs the domain to actually be live to trace a redirect. See live mode.',
+        ],
+        'live' => [
+            'photo_fields'      => 'Already checked for free at the template level — see that result.',
+            'missing_block_photo' => 'Already checked for free at the template level — see that result.',
+            'favicon'           => 'Already checked for free at the template level — see that result.',
+            'site_vars'         => 'Already checked for free at the template level — see that result.',
+            'dupe_font'         => 'Already checked for free at the template level — see that result.',
+            'cannibalize'       => 'A page-pool-wide concern, checked once at the template level — see that result.',
+            'orphan_pages'      => 'A page-pool-wide concern, checked once at the template level — see that result.',
+            'og_title'          => 'Not yet re-checked post-render — see the template-mode result for the raw-text version of this.',
+            'og_desc'           => 'Not yet re-checked post-render — see the template-mode result for the raw-text version of this.',
+            'unresolved_tokens' => 'Live mode only fetches the homepage, to stay at one request per check — built mode already checks this across every page for free. See that result.',
+        ],
+    ];
+    return $reasons[$mode][$id] ?? 'Not applicable to this mode.';
+}
+
+/** Same master-checklist walk as cc_run_against_master(), but for the ⓘ popup — lists what
+ *  WOULD run and what's skipped (+ why), without actually calling any check function. Used
+ *  so the popup and the real run can never list a different set of checks for a mode. */
+function cc_checklist_popup_rows(array $modeRegistry, string $mode): array {
+    $byId = [];
+    foreach ($modeRegistry as $c) $byId[$c['id']] = $c;
+    $rows = [];
+    foreach (cc_master_checklist() as $i => $item) {
+        $id = $item['id'];
+        $rows[] = isset($byId[$id])
+            ? ['n' => $i + 1, 'label' => $byId[$id]['label'], 'skipped' => false]
+            : ['n' => $i + 1, 'label' => $item['concept'], 'skipped' => true, 'reason' => cc_not_run_reason($mode, $id)];
+    }
+    return $rows;
+}
+
+/** Run a mode's own registry against the shared master checklist, in master order — a
+ *  concept the mode's registry doesn't have becomes a "skipped" row with a reason instead
+ *  of being silently absent (and instead of the mode's own list renumbering around it). */
+function cc_run_against_master(array $modeRegistry, string $mode, callable $callFn): array {
+    $byId = [];
+    foreach ($modeRegistry as $c) $byId[$c['id']] = $c;
+
     $results = [];
-    foreach (cc_registry() as $i => $check) {
-        $fn = $check['fn'];
-        $r  = $fn($masterId);
-        $results[] = [
-            'n'              => $i + 1,
-            'id'             => $check['id'],
-            'label'          => $check['label'],
-            'ok'             => $r['ok'],
-            'count'          => $r['count'],
-            'issues'         => $r['issues'],
-            'recommendation' => $r['recommendation'],
-        ];
+    foreach (cc_master_checklist() as $i => $item) {
+        $id = $item['id'];
+        if (isset($byId[$id])) {
+            $c = $byId[$id];
+            $r = $callFn($c);
+            $results[] = [
+                'n' => $i + 1, 'id' => $id, 'label' => $c['label'], 'skipped' => false,
+                'ok' => $r['ok'], 'count' => $r['count'], 'issues' => $r['issues'], 'recommendation' => $r['recommendation'],
+            ];
+        } else {
+            $results[] = [
+                'n' => $i + 1, 'id' => $id, 'label' => $item['concept'], 'skipped' => true,
+                'reason' => cc_not_run_reason($mode, $id),
+            ];
+        }
     }
     return $results;
+}
+
+/** Run every check in the registry, in master-checklist order. */
+function cc_run(string $masterId): array {
+    return cc_run_against_master(cc_registry(), 'template', function (array $c) use ($masterId) {
+        $fn = $c['fn'];
+        return $fn($masterId);
+    });
 }
 
 /** sites/{master}/uploads/ base — computed directly, not via UPLOAD_DIR, which tracks
@@ -127,6 +250,59 @@ function cc_check_photo_fields(string $masterId): array {
             ? 'For og_image specifically: just rebuild — a fixed fallback now picks a real photo automatically. For every other field: the correct photo needs to be re-uploaded in Pic Drop for that slot.'
             : '',
     ];
+}
+
+/** Block types whose whole purpose is to show a photo, and which render NOTHING in its
+ *  place when the photo field is blank (no fallback color/box — see hs-image-wrap/fs-arch-
+ *  wrap/if-photo-wrap/the wb_photo background block in includes/blocks.php) — so an empty
+ *  field here isn't a style choice, it's a block that's missing its one reason to exist.
+ *  Deliberately excludes plain hero and hero_grid: both have a real, designed no-photo
+ *  fallback (a flat background color / --color-media-fallback), so a blank photo there is
+ *  a legitimate choice, not a gap. Also excludes map_info (the map embed is the block's main
+ *  content; its photo is a secondary accent) and every repeater-based block (gallery, cards,
+ *  logo_bar, team) — "should every row have a photo" is a different, per-item question this
+ *  check isn't trying to answer. */
+const CC_IMAGE_REQUIRED_BLOCKS = [
+    'image_left'     => 'photo',
+    'image_right'    => 'photo',
+    'hero_split'      => 'hs_photo',
+    'feature_split'   => 'fs_photo',
+    'image_text'      => 'it_photo',
+    'image_features'  => 'if_photo',
+    'wide_banner'     => 'wb_photo',
+];
+
+function cc_check_missing_block_images_for_page(array $data, string $label, array &$issues): void {
+    foreach ($data['content_blocks'] ?? [] as $i => $block) {
+        if (!is_array($block)) continue;
+        $type = $block['type'] ?? '';
+        if (!isset(CC_IMAGE_REQUIRED_BLOCKS[$type])) continue;
+        $field = CC_IMAGE_REQUIRED_BLOCKS[$type];
+        $val   = $block[$field] ?? '';
+        // A value still holding a {token} (e.g. {city_image}) isn't missing — it just hasn't
+        // resolved yet, same reasoning cc_walk_photo_fields() uses everywhere else.
+        if (is_string($val) && str_contains($val, '{')) continue;
+        if (!is_string($val) || $val === '') {
+            $issues[] = ['page' => $label, 'field' => $field, 'detail' => "block #" . ($i + 1) . " ({$type}) has no photo in its {$field} field"];
+        }
+    }
+}
+
+function cc_check_missing_block_images(string $masterId): array {
+    $base = cc_master_base($masterId);
+    $issues = [];
+
+    $site = json_decode((string) @file_get_contents("$base/data/site.json"), true);
+    if (is_array($site)) cc_check_missing_block_images_for_page($site, 'Homepage / site-wide', $issues);
+
+    foreach (glob("$base/data/pages/*.json") ?: [] as $f) {
+        $data = json_decode((string) file_get_contents($f), true);
+        if (!is_array($data)) continue;
+        $label = (string) ($data['slug'] ?? basename($f, '.json'));
+        cc_check_missing_block_images_for_page($data, $label, $issues);
+    }
+
+    return cc_issue_list_result($issues, 'Upload a photo for the listed blocks in Pic Drop or the block editor — a photo-type block with no photo renders a visible gap, not a graceful fallback.');
 }
 
 function cc_check_favicon(string $masterId): array {
@@ -261,6 +437,24 @@ function cc_is_decorative_filename(string $filename): bool {
  * exactly what includes/image_cleanup.php's Image Name Cleanup tool already does — duplicating
  * it here would break this tool's always-free, always-synchronous design.
  */
+/** The core "is this alt text close enough to the keyword" decision — shared by the
+ *  template-mode check (reads the field straight from JSON) and the built/live rendered-
+ *  HTML check, so the hero-vs-general threshold can't drift between the two places it's
+ *  applied. General content photos pass on ANY shared word (loose); the hero photo needs
+ *  most of the keyword's words, or the phrase itself (strict) — it's the single strongest
+ *  spot on the page for the keyword to land. */
+function cc_alt_matches_keyword(string $alt, array $words, string $keywordLower, bool $isHero): bool {
+    if (!$words) return true; // no keyword known for this page — not this check's problem
+    $altLower = strtolower($alt);
+    $hits = 0;
+    foreach ($words as $w) { if (str_contains($altLower, $w)) $hits++; }
+    if ($isHero) {
+        $needed = max(1, (int) ceil(count($words) / 2));
+        return str_contains($altLower, $keywordLower) || $hits >= $needed;
+    }
+    return $hits > 0;
+}
+
 function cc_html_issue_images(string $html, string $pageLabel, string $keyword): array {
     $words        = cc_significant_words($keyword);
     $keywordLower = strtolower(trim($keyword));
@@ -280,7 +474,6 @@ function cc_html_issue_images(string $html, string $pageLabel, string $keyword):
             $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => "{$filename} has no alt text at all"];
             continue;
         }
-        if (!$words) continue; // no keyword known for this page — not this check's problem
 
         // City Image / Area Map / Data Chart plugin output ({city_image}, {chart_*} —
         // see includes/shortcodes.php) is legitimately about geography or weather, not
@@ -289,60 +482,83 @@ function cc_html_issue_images(string $html, string $pageLabel, string $keyword):
         // city-scenic- hit in a first real pass was exactly this, zero genuine misses.
         if (preg_match('/^(chart-[a-z0-9_]+|service-area-map|city-scenic)-/i', $filename)) continue;
 
-        $altLower = strtolower($alt);
-        $hits = 0;
-        foreach ($words as $w) { if (str_contains($altLower, $w)) $hits++; }
-
-        if ($isHero) {
-            $needed = max(1, (int) ceil(count($words) / 2));
-            if (!str_contains($altLower, $keywordLower) && $hits < $needed) {
-                $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => "{$filename} alt text \"{$alt}\" doesn't closely match this page's keyword \"{$keyword}\" — the hero is the strongest place on the page for it to land"];
-            }
-        } elseif ($hits === 0) {
-            $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => "{$filename} alt text \"{$alt}\" doesn't share a word with this page's keyword"];
+        if (!cc_alt_matches_keyword($alt, $words, $keywordLower, $isHero)) {
+            $detail = $isHero
+                ? "{$filename} alt text \"{$alt}\" doesn't closely match this page's keyword \"{$keyword}\" — the hero is the strongest place on the page for it to land"
+                : "{$filename} alt text \"{$alt}\" doesn't share a word with this page's keyword";
+            $issues[] = ['page' => $pageLabel, 'field' => $field, 'detail' => $detail];
         }
     }
     return $issues;
 }
 
+/** One page's (or the homepage's) worth of alt/keyword checking — shared so the hero
+ *  special-case and the general walk aren't written twice for "pages" vs "the homepage".
+ *  The hero is identified by BLOCK TYPE here (the page's own first content block being
+ *  hero_split), not by CSS class like the rendered-HTML version — template mode has the
+ *  real block type available directly, no need to guess from markup. Popped out of
+ *  $data before the generic walk runs, so it isn't checked twice. */
+function cc_check_alt_keyword_for_page(array $data, string $label, array &$issues): void {
+    $keyword      = (string) ($data['seo']['primary_keyword'] ?? '');
+    $words        = cc_significant_words($keyword);
+    $keywordLower = strtolower(trim($keyword));
+
+    $heroBlock = $data['content_blocks'][0] ?? null;
+    if (is_array($heroBlock) && ($heroBlock['type'] ?? '') === 'hero_split') {
+        $photoVal = $heroBlock['hs_photo'] ?? null;
+        if (is_string($photoVal) && $photoVal !== '' && !str_contains($photoVal, '{')) {
+            $altVal = (string) ($heroBlock['hs_photo_alt'] ?? '');
+            if ($altVal === '') {
+                $issues[] = ['page' => $label, 'field' => 'hs_photo_alt (hero)', 'detail' => 'no alt text at all on the hero photo'];
+            } elseif (!str_contains($altVal, '{service}') && !str_contains($altVal, '{primary_keyword}')
+                      && !cc_alt_matches_keyword($altVal, $words, $keywordLower, true)) {
+                $issues[] = ['page' => $label, 'field' => 'hs_photo_alt (hero)', 'detail' => "alt text \"{$altVal}\" doesn't closely match this page's keyword \"{$keyword}\" — the hero is the strongest place on the page for it to land"];
+            }
+        }
+        array_shift($data['content_blocks']); // already handled above — don't double-check it below
+    }
+
+    if (!$words) return; // nothing to compare against for the general walk — not this check's problem
+
+    cc_walk_dicts($data, function ($dict) use ($words, $keywordLower, $label, &$issues) {
+        foreach (CC_PHOTO_ALT_MAP as $photoKey => $altKey) {
+            $photoVal = $dict[$photoKey] ?? null;
+            // Only a REAL, non-token photo — a block that doesn't use this slot, or
+            // one still holding a dynamic {token}, has nothing to judge the alt text
+            // of (same reasoning as cc_walk_photo_fields).
+            if (!is_string($photoVal) || $photoVal === '' || str_contains($photoVal, '{')) continue;
+
+            $altVal = (string) ($dict[$altKey] ?? '');
+            if ($altVal === '') {
+                $issues[] = ['page' => $label, 'field' => $altKey, 'detail' => 'no alt text at all on this photo'];
+                continue;
+            }
+            // {service}/{primary_keyword} resolve to this exact page's own keyword at
+            // render time — that's the strongest possible match, not a failure to check
+            // for literally. Skip straight to pass without a literal-text comparison.
+            if (str_contains($altVal, '{service}') || str_contains($altVal, '{primary_keyword}')) continue;
+
+            if (!cc_alt_matches_keyword($altVal, $words, $keywordLower, false)) {
+                $issues[] = ['page' => $label, 'field' => $altKey, 'detail' => "alt text \"{$altVal}\" doesn't share a word with this page's keyword"];
+            }
+        }
+    });
+}
+
 function cc_check_alt_keyword(string $masterId): array {
     $base = cc_master_base($masterId);
     $issues = [];
+
+    $site = json_decode((string) @file_get_contents("$base/data/site.json"), true);
+    if (is_array($site)) cc_check_alt_keyword_for_page($site, 'Homepage / site-wide', $issues);
+
     foreach (glob("$base/data/pages/*.json") ?: [] as $f) {
         $data = json_decode((string) file_get_contents($f), true);
         if (!is_array($data)) continue;
-        $label   = (string) ($data['slug'] ?? basename($f, '.json'));
-        $keyword = (string) ($data['seo']['primary_keyword'] ?? '');
-        $words   = cc_significant_words($keyword);
-        if (!$words) continue; // nothing to compare against — not this check's problem
-
-        cc_walk_dicts($data, function ($dict) use ($words, $label, &$issues) {
-            foreach (CC_PHOTO_ALT_MAP as $photoKey => $altKey) {
-                $photoVal = $dict[$photoKey] ?? null;
-                // Only a REAL, non-token photo — a block that doesn't use this slot, or
-                // one still holding a dynamic {token}, has nothing to judge the alt text
-                // of (same reasoning as cc_walk_photo_fields).
-                if (!is_string($photoVal) || $photoVal === '' || str_contains($photoVal, '{')) continue;
-
-                $altVal = (string) ($dict[$altKey] ?? '');
-                if ($altVal === '') {
-                    $issues[] = ['page' => $label, 'field' => $altKey, 'detail' => 'no alt text at all on this photo'];
-                    continue;
-                }
-                // {service}/{primary_keyword} resolve to this exact page's own keyword at
-                // render time — that's the strongest possible match, not a failure to check
-                // for literally. Skip straight to pass without a literal-text comparison.
-                if (str_contains($altVal, '{service}') || str_contains($altVal, '{primary_keyword}')) continue;
-
-                $altLower = strtolower($altVal);
-                $hit = false;
-                foreach ($words as $w) { if (str_contains($altLower, $w)) { $hit = true; break; } }
-                if (!$hit) {
-                    $issues[] = ['page' => $label, 'field' => $altKey, 'detail' => "alt text \"{$altVal}\" doesn't share a word with this page's keyword"];
-                }
-            }
-        });
+        $label = (string) ($data['slug'] ?? basename($f, '.json'));
+        cc_check_alt_keyword_for_page($data, $label, $issues);
     }
+
     return [
         'ok'             => empty($issues),
         'count'          => count($issues),
@@ -639,11 +855,11 @@ function cc_issue_list_result(array $issues, string $recommendation): array {
 function cc_registry_built(): array {
     return [
         ['id' => 'unresolved_tokens', 'label' => 'No literal {token} placeholder survived into the actual rendered HTML (checked on a real build, not the raw template)', 'fn' => 'cc_check_unresolved_tokens'],
-        ['id' => 'built_title',       'label' => 'Title tag, as it actually rendered, is not too long — checked on every real page, not the raw template guess', 'fn' => 'cc_check_built_title'],
-        ['id' => 'built_meta',        'label' => 'Meta description, as it actually rendered, is not too long', 'fn' => 'cc_check_built_meta'],
-        ['id' => 'built_noindex',     'label' => 'No page accidentally carries a noindex tag (a page can look completely normal and still never reach Google)', 'fn' => 'cc_check_built_noindex'],
-        ['id' => 'built_canonical',   'label' => 'Every page\'s canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_built_canonical'],
-        ['id' => 'built_images',      'label' => 'Every content photo has real alt text that relates to its own page\'s keyword — checked stricter on the hero image than on the rest', 'fn' => 'cc_check_built_images'],
+        ['id' => 'title',             'label' => 'Title tag, as it actually rendered, is not too long — checked on every real page, not the raw template guess', 'fn' => 'cc_check_built_title'],
+        ['id' => 'meta',              'label' => 'Meta description, as it actually rendered, is not too long', 'fn' => 'cc_check_built_meta'],
+        ['id' => 'noindex',           'label' => 'No page accidentally carries a noindex tag (a page can look completely normal and still never reach Google)', 'fn' => 'cc_check_built_noindex'],
+        ['id' => 'canonical',         'label' => 'Every page\'s canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_built_canonical'],
+        ['id' => 'images',            'label' => 'Every content photo has real alt text that relates to its own page\'s keyword — checked stricter on the hero image than on the rest', 'fn' => 'cc_check_built_images'],
     ];
 }
 
@@ -781,13 +997,10 @@ function cc_run_built(string $masterId, string $batchId): array {
         return ['domain' => null, 'results' => []];
     }
     $domainInfo['masterId'] = $masterId;
-    $results = [];
-    foreach (cc_registry_built() as $i => $check) {
-        $fn = $check['fn'];
-        $r  = $fn($domainInfo);
-        $results[] = ['n' => $i + 1, 'id' => $check['id'], 'label' => $check['label'],
-            'ok' => $r['ok'], 'count' => $r['count'], 'issues' => $r['issues'], 'recommendation' => $r['recommendation']];
-    }
+    $results = cc_run_against_master(cc_registry_built(), 'built', function (array $c) use ($domainInfo) {
+        $fn = $c['fn'];
+        return $fn($domainInfo);
+    });
     return ['domain' => $domainInfo['domain'], 'results' => $results];
 }
 
@@ -815,13 +1028,13 @@ function cc_registry_live(): array {
     return [
         ['id' => 'https_ok',        'label' => 'The live domain actually resolves over HTTPS with no certificate or connection error', 'fn' => 'cc_check_https'],
         ['id' => 'robots_sane',     'label' => 'robots.txt exists and does not block the whole site from crawlers', 'fn' => 'cc_check_robots_sane'],
-        ['id' => 'live_title',      'label' => 'Homepage title tag, as it actually rendered live, is not too long', 'fn' => 'cc_check_live_title'],
-        ['id' => 'live_meta',       'label' => 'Homepage meta description, as it actually rendered live, is not too long', 'fn' => 'cc_check_live_meta'],
-        ['id' => 'live_noindex',    'label' => 'Homepage does not accidentally carry a noindex tag', 'fn' => 'cc_check_live_noindex'],
-        ['id' => 'live_canonical',  'label' => 'Homepage canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_live_canonical'],
+        ['id' => 'title',           'label' => 'Homepage title tag, as it actually rendered live, is not too long', 'fn' => 'cc_check_live_title'],
+        ['id' => 'meta',            'label' => 'Homepage meta description, as it actually rendered live, is not too long', 'fn' => 'cc_check_live_meta'],
+        ['id' => 'noindex',         'label' => 'Homepage does not accidentally carry a noindex tag', 'fn' => 'cc_check_live_noindex'],
+        ['id' => 'canonical',       'label' => 'Homepage canonical tag points at this domain, not somewhere else', 'fn' => 'cc_check_live_canonical'],
         ['id' => 'og_image_loads',  'label' => 'The social-share image (og:image) is a real, loadable file — not just present in the markup', 'fn' => 'cc_check_og_image_loads'],
         ['id' => 'redirect_chain',  'label' => 'http:// reaches this domain\'s https:// version in exactly one hop — no wrong-domain redirect, no redirect chain', 'fn' => 'cc_check_redirect_consistency'],
-        ['id' => 'live_images',     'label' => 'Homepage photos, as they actually rendered live, have real alt text that relates to the homepage keyword — checked stricter on the hero image than on the rest', 'fn' => 'cc_check_live_images'],
+        ['id' => 'images',          'label' => 'Homepage photos, as they actually rendered live, have real alt text that relates to the homepage keyword — checked stricter on the hero image than on the rest', 'fn' => 'cc_check_live_images'],
     ];
 }
 
@@ -972,12 +1185,9 @@ function cc_run_live(string $masterId, string $batchId): array {
     require_once __DIR__ . '/../../admin/infra/lib/http.php';
     $ctx = ['domain' => $domain, 'masterId' => $masterId, 'home' => infra_http('GET', "https://{$domain}/", ['timeout' => 15])];
 
-    $results = [];
-    foreach (cc_registry_live() as $i => $check) {
-        $fn = $check['fn'];
-        $r  = $fn($ctx);
-        $results[] = ['n' => $i + 1, 'id' => $check['id'], 'label' => $check['label'],
-            'ok' => $r['ok'], 'count' => $r['count'], 'issues' => $r['issues'], 'recommendation' => $r['recommendation']];
-    }
+    $results = cc_run_against_master(cc_registry_live(), 'live', function (array $c) use ($ctx) {
+        $fn = $c['fn'];
+        return $fn($ctx);
+    });
     return ['domain' => $domain, 'results' => $results];
 }

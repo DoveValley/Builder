@@ -121,19 +121,29 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <div style="background:#fff;border-radius:8px;padding:18px 22px;max-width:640px;width:92%;max-height:84vh;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.2);line-height:1.6;font-size:.86rem;color:#334155">
             <h3 style="margin:0 0 4px;font-size:1.05rem;color:#1e3a5f">Site Final Check — what runs</h3>
             <p style="margin:0 0 14px;color:#64748b">Three separate modes, picked with the dropdown next to the button — each checks
-                a different thing and needs a different precondition. This is the full list for each; nothing runs that isn't named here.</p>
+                a different thing and needs a different precondition. All three lists below share ONE fixed numbering (item 5
+                is always "images" in every list) — a greyed-out item means this mode doesn't run that check, with the
+                reason stated right there, not just a gap.</p>
 
             <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">This master's template <span style="font-weight:400;color:#64748b;">— instant, free, no domain needed</span></h4>
             <ol class="ro-cc-list" data-mode="template" style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_registry() as $c): ?>
-                <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
+                <?php foreach (cc_checklist_popup_rows(cc_registry(), 'template') as $r): ?>
+                <?php if ($r['skipped']): ?>
+                <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
+                <?php else: ?>
+                <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ol>
 
             <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">First built domain <span style="font-weight:400;color:#64748b;">— needs this batch's first completed Build (not live yet — that's the point: catch it before Go Live)</span></h4>
             <ol class="ro-cc-list" data-mode="built" style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_registry_built() as $c): ?>
-                <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
+                <?php foreach (cc_checklist_popup_rows(cc_registry_built(), 'built') as $r): ?>
+                <?php if ($r['skipped']): ?>
+                <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
+                <?php else: ?>
+                <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ol>
             <p style="margin:0 0 14px;color:#64748b;">Deliberately narrow for now: Google's own on-page SEO gate already runs
@@ -144,8 +154,12 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 
             <h4 style="margin:0 0 4px;font-size:.88rem;color:#1e3a5f;">First live domain <span style="font-weight:400;color:#64748b;">— needs this batch's first domain actually confirmed live (real HTTP requests to the real internet)</span></h4>
             <ol class="ro-cc-list" data-mode="live" style="margin:0 0 14px 20px;padding:0;">
-                <?php foreach (cc_registry_live() as $c): ?>
-                <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
+                <?php foreach (cc_checklist_popup_rows(cc_registry_live(), 'live') as $r): ?>
+                <?php if ($r['skipped']): ?>
+                <li style="margin-bottom:8px;color:#94a3b8;font-style:italic;"><?= h($r['label']) ?> — not run here: <?= h($r['reason']) ?></li>
+                <?php else: ?>
+                <li style="margin-bottom:8px;"><?= h($r['label']) ?></li>
+                <?php endif; ?>
                 <?php endforeach; ?>
             </ol>
             <p style="margin:0 0 10px;color:#64748b;">Deliberately narrow here too: broken-internal-link crawling and sitemap
@@ -857,6 +871,12 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             return;
         }
         const rows = payload.results.map(r => {
+            if (r.skipped) {
+                return '<div style="display:flex;align-items:center;gap:8px;margin-top:10px;opacity:.6;">'
+                    + '<span class="dot" style="background:#cbd5e1;"></span>'
+                    + '<span><strong>' + r.n + '. ' + esc(r.label) + '</strong>'
+                    + ' <span style="color:#94a3b8;">— not run here: ' + esc(r.reason) + '</span></span></div>';
+            }
             const head = '<div style="display:flex;align-items:center;gap:8px;margin-top:10px;">'
                 + '<span class="dot ' + (r.ok ? 'ok' : 'fail') + '"></span>'
                 + '<strong>' + r.n + '. ' + esc(r.label) + '</strong>'

@@ -1558,6 +1558,7 @@ switch ($action) {
         } else {
             $payload = ['checked_at' => $checkedAt, 'domain' => null, 'results' => cc_run($masterId)];
         }
+        $payload['checklist_version'] = CC_CHECKLIST_VERSION;
         ms_atomic_write_json(ms_master_dir($masterId) . "/content_check_{$ccMode}.json", $payload);
         echo json_encode($payload);
         break;
@@ -1571,6 +1572,11 @@ switch ($action) {
         if (!in_array($ccMode, ['template', 'built', 'live'], true)) $ccMode = 'template';
         $cacheFile = ms_master_dir($masterId) . "/content_check_{$ccMode}.json";
         $stored = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
+        // A report saved under an older cc_master_checklist() shape (different items/
+        // numbering) is worse than no report — it would render with today's labels against
+        // yesterday's row count/order. Treat it as if nothing's been run yet rather than
+        // show something that looks broken but is just stale.
+        if (is_array($stored) && (int) ($stored['checklist_version'] ?? 0) !== CC_CHECKLIST_VERSION) $stored = null;
         echo json_encode(is_array($stored) ? $stored : ['checked_at' => null, 'domain' => null, 'results' => []]);
         break;
 
