@@ -39,7 +39,7 @@ require __DIR__ . '/../includes/multisite/batch_options.php';
 
 $args = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
-$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false; $wipe = false;
+$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false; $wipe = false; $imageQuality = 'medium'; $skipAiPhotos = false;
 foreach ($args as $a) {
     if (str_starts_with($a, '--batch=')) $batchId = substr($a, 8);
     if (str_starts_with($a, '--only='))  $only    = strtolower(substr($a, 7));
@@ -47,7 +47,23 @@ foreach ($args as $a) {
     if ($a === '--force-photos')         $forcePhotos = true;
     if ($a === '--logo-only')            $logoOnly = true;
     if ($a === '--wipe')                 $wipe = true;
+    if ($a === '--skip-ai-photos')       $skipAiPhotos = true;
+    if (str_starts_with($a, '--image-quality=')) $imageQuality = strtolower(substr($a, 16));
 }
+if (!in_array($imageQuality, ['low', 'medium', 'high'], true)) $imageQuality = 'medium';
+// Opposites — refused here too, not just by the panel/API caller, same "never trust the
+// layer above" reasoning as every other contradictory-flag guard in this file.
+if ($forcePhotos && $skipAiPhotos) {
+    echo "Refusing: --force-photos and --skip-ai-photos are opposites — pick one.\n"; exit(2);
+}
+// The four categories a normal run would otherwise generate AI photos for — see
+// build_one.php's own $skipped('images.ai_photos_*') checks, which this list feeds via
+// --skip= below. Deliberately NOT the bare 'images' step: that would also turn off the
+// free, non-AI per-domain uniqueness pass (crop/tone jitter + EXIF strip) that every
+// photo — AI-eligible or not — goes through regardless of this flag, which is what keeps
+// a domain built with --skip-ai-photos from shipping an exact duplicate of the master's
+// photo. See includes/multisite/image_overlay.php.
+$aiPhotoSkip = ['images.ai_photos_hero_home', 'images.ai_photos_hero_landing', 'images.ai_photos_other_home', 'images.ai_photos_other_landing'];
 
 // Palette/font/jitter/logo/icon/favicon all live under the one 'visual' step (colors and
 // the logo move together on purpose — the logo is painted FROM the current theme colors)
@@ -113,6 +129,11 @@ if ($do['build']) {
     $skipList = $logoOnly
         ? ($forcePhotos ? array_values(array_diff($logoOnlySkip, ['images'])) : $logoOnlySkip)
         : $saved['skip'];
+    // One-off addition, not a change to the batch's saved Generate settings — same spirit
+    // as --logo-only's own skip list above. Harmless (and redundant, not double-applied)
+    // if $skipList already contains the bare 'images' step from $logoOnly above; the whole
+    // step not running already covers these four.
+    if ($skipAiPhotos) $skipList = array_values(array_unique(array_merge($skipList, $aiPhotoSkip)));
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $cmd = [$php, BASE_DIR . '/multisite/run_campaign.php', $masterId, '--batch=' . $batchId, '--run-id=' . $runId,
             '--no-preflight', '--jobs=1', '--retries=1', '--no-deploy', '--only=' . implode(',', $domains)];
@@ -121,6 +142,7 @@ if ($do['build']) {
     // the saved pin counts would do nothing anyway — left out entirely for a logo-only run.
     if (!$logoOnly) foreach ($saved['rotation'] as $flag => $n) $cmd[] = '--' . $flag . '=' . (int) $n;
     if ($forcePhotos) $cmd[] = '--force-photos';
+    if ($imageQuality !== 'medium') $cmd[] = '--image-quality=' . $imageQuality;
     // Printed before the build starts (not after, when run_campaign.php itself logs it) —
     // rollout_build_status reads this line to find the live run.json and show per-domain
     // step progress while step 2 is still in flight.
@@ -128,6 +150,8 @@ if ($do['build']) {
     echo "== 2/4 Build " . count($domains) . " domain(s)" . ($skipList ? ' (skipping: ' . implode(', ', $skipList) . ')' : '')
        . ($logoOnly ? ' [--logo-only: this batch\'s saved Generate settings are not used for this run]' : '')
        . ($forcePhotos ? ' [--force-photos: every AI photo slot regenerated from the master]' : '')
+       . ($skipAiPhotos ? ' [--skip-ai-photos: no OpenAI photo call this run, free uniqueness pass only]' : '')
+       . ($imageQuality !== 'medium' ? " [--image-quality={$imageQuality}]" : '')
        . ($logoOnly && $forcePhotos ? ' [combined: visual identity + photos only, AI text/pages skipped]' : '') . "\n";
     passthru(implode(' ', array_map('escapeshellarg', $cmd)), $rc);
 

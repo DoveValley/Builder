@@ -47,7 +47,7 @@ progress_set_sink(progress_jsonlines_sink());
 
 // ── Parse args ──────────────────────────────────────────────────────────────
 $rowFile = null; $snapshotArg = null; $keep = false; $force = false; $noAi = false; $skip = [];
-$noDeploy = false; $outDirArg = null; $forcePhotos = false;
+$noDeploy = false; $outDirArg = null; $forcePhotos = false; $imageQuality = 'medium';
 // Section-order rotation pin counts (see ms_differentiate_working_dir()'s $rotation param) —
 // how many leading/trailing blocks never move. Left null when the caller doesn't pass one, so
 // the default (1/1 — hero pinned first, closing block pinned last) is decided in one place.
@@ -56,6 +56,7 @@ foreach (array_slice($argv, 1) as $a) {
     if ($a === '--keep')                       $keep = true;
     elseif ($a === '--force')                  $force = true;
     elseif ($a === '--force-photos')            $forcePhotos = true;
+    elseif (str_starts_with($a, '--image-quality=')) $imageQuality = strtolower(substr($a, 16));
     elseif ($a === '--no-ai')                  $noAi = true;
     elseif ($a === '--no-deploy')              $noDeploy = true;
     elseif (str_starts_with($a, '--out-dir='))  $outDirArg = substr($a, 10);
@@ -67,6 +68,7 @@ foreach (array_slice($argv, 1) as $a) {
     elseif (str_starts_with($a, '--rot-landing-bottom=')) $rotLandingBottom = (int) substr($a, 21);
     elseif ($rowFile === null)                 $rowFile = $a;
 }
+if (!in_array($imageQuality, ['low', 'medium', 'high'], true)) $imageQuality = 'medium';
 /**
  * Steps the caller turned off for this run.
  *
@@ -464,10 +466,11 @@ if ($skipped('images')) {
     if (!$genOtherHome)    progress_log('Images: AI photo (other images, home) skipped — turned off for this run.', 'warn');
     if (!$genOtherLanding) progress_log('Images: AI photo (other images, service pages) skipped — turned off for this run.', 'warn');
     if ($forcePhotos) progress_log('Images: AI photo — forced, every slot regenerated from the master\'s own photo.', 'warn');
+    if ($imageQuality !== 'medium') progress_log("Images: AI photo quality — {$imageQuality} (default is medium).", 'warn');
     if ($genHeroHome || $genHeroLanding || $genOtherHome || $genOtherLanding) {
         $aiImgRes = ms_generate_ai_images_for_domain($workingDir, $domain, $masterSiteDir,
             function (int $done, int $total) { progress_log("Images: AI photo {$done} of {$total}…"); },
-            $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding, $forcePhotos);
+            $genHeroHome, $genHeroLanding, $genOtherHome, $genOtherLanding, $forcePhotos, $imageQuality);
         if ($aiImgRes['generated'] > 0 || $aiImgRes['cached'] > 0 || $aiImgRes['failed'] > 0) {
             progress_log("Images: AI photo generated {$aiImgRes['generated']}, reused {$aiImgRes['cached']} from cache"
                 . ($aiImgRes['failed'] ? ", {$aiImgRes['failed']} failed" : '') . '.',

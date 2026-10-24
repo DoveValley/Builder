@@ -774,6 +774,23 @@ switch ($action) {
         // to be selected"), the same spirit as upload_sites.php's own "--wipe requires
         // --only, never a batch-wide wipe" rule, one level more conservative.
         $rtWipe = !empty($_POST['wipe']);
+        // Quality tier for any AI photo generated this run (new or forced) — defaults to
+        // 'medium', the tier every run used before this existed, so an old client that
+        // never sends this field is unaffected. Validated against the real OpenAI tiers
+        // openai_images_estimate_cost() knows how to price (includes/openai_images.php);
+        // anything else falls back to 'medium' rather than reaching the API with junk.
+        $rtImageQuality = (string) ($_POST['image_quality'] ?? 'medium');
+        if (!in_array($rtImageQuality, ['low', 'medium', 'high'], true)) $rtImageQuality = 'medium';
+        // Opt-in, one-off — turns off every AI photo category for this run only (no OpenAI
+        // call, no cost), without touching this batch's own saved Generate settings. The
+        // opposite of force_photos: a slot with no AI photo yet still gets the master's own
+        // photo, just run through the normal free per-domain uniqueness pass instead of an
+        // OpenAI edit — see build_upload.php for exactly which skip keys this adds.
+        $rtSkipAiPhotos = !empty($_POST['skip_ai_photos']);
+        if ($rtForcePhotos && $rtSkipAiPhotos) {
+            echo json_encode(['error' => 'Force-regenerate photos and Skip AI photos this run are opposites — pick one.']);
+            break;
+        }
         if ($rtWipe) {
             if (!in_array('build', $rtDo, true) || !in_array('upload', $rtDo, true) || $rtLogoOnly) {
                 echo json_encode(['error' => 'Wipe requires a full Build AND Upload in this same run — turn off "Colors, fonts, logo & favicon only" and make sure both Build and Upload are ticked.']);
@@ -786,6 +803,8 @@ switch ($action) {
         }
         $rtArgs = [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $rtDoms), '--do=' . implode(',', $rtDo)];
         if ($rtForcePhotos) $rtArgs[] = '--force-photos';
+        if ($rtSkipAiPhotos) $rtArgs[] = '--skip-ai-photos';
+        if ($rtImageQuality !== 'medium') $rtArgs[] = '--image-quality=' . $rtImageQuality;
         if ($rtLogoOnly) $rtArgs[] = '--logo-only';
         if ($rtWipe) $rtArgs[] = '--wipe';
         echo json_encode(ms_launch_job($batchDir . '/buildupload', '__MS_BUILDUP_DONE__',

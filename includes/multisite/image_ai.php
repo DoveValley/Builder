@@ -216,13 +216,17 @@ function ms_image_ai_fill_tokens(string $prompt, array $siteVars): string {
  *        services_links block) gets one — "AI photo — other images (home)".
  * @param bool $genOtherLanding same, for every other slot on service pages.
  *        All four are independent; any combination may be true.
+ * @param string $quality OpenAI quality tier for every photo generated this call —
+ *        'low'|'medium'|'high'. Defaults to 'medium', the tier every caller used
+ *        before this param existed, so an old call site is unaffected.
  * @return array{generated:int,cached:int,failed:int}
  */
 function ms_generate_ai_images_for_domain(
     string $workingDir, string $domain, string $masterDir, ?callable $onProgress = null,
     bool $genHeroHome = true, bool $genHeroLanding = true, bool $genOtherHome = true, bool $genOtherLanding = true,
-    bool $force = false
+    bool $force = false, string $quality = 'medium'
 ): array {
+    if (!in_array($quality, ['low', 'medium', 'high'], true)) $quality = 'medium';
     $out = ['generated' => 0, 'cached' => 0, 'failed' => 0, 'errors' => []];
     $templates = ms_image_ai_prompts_load($masterDir);
     if (!$templates) return $out;
@@ -622,7 +626,7 @@ function ms_generate_ai_images_for_domain(
     // ── Pass 2: generate every queued slot concurrently, apply each as it lands ──
     if ($pending) {
         $jobs = array_map(
-            fn($p) => ['prompt' => $p['prompt'], 'ref_path' => $p['refPath'], 'opts' => ['size' => $p['size'], 'quality' => 'medium', 'output_format' => 'webp']],
+            fn($p) => ['prompt' => $p['prompt'], 'ref_path' => $p['refPath'], 'opts' => ['size' => $p['size'], 'quality' => $quality, 'output_format' => 'webp']],
             $pending
         );
 
