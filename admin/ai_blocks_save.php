@@ -33,7 +33,12 @@ function _abt_save(array $types): bool {
     return rename($tmp, AI_REGISTRY_FILE);
 }
 
-function _abt_parse_post(): array|string {
+// $existingModel: the block's current ai_model before this save, if any. Passed as
+// model_or_default()'s $fallback so a POST that somehow arrives without a valid
+// ai_model (a stale form, a hand-made request) preserves what was already there
+// instead of silently resetting to the catalog default — the form itself always
+// submits a real value now, but a save handler shouldn't depend on that alone.
+function _abt_parse_post(?string $existingModel = null): array|string {
     $mode       = $_POST['ai_mode'] ?? 'standalone';
     $schemaJson = trim($_POST['ai_output_schema_json'] ?? '{}');
     $defaultJson = trim($_POST['default_fields_json']  ?? '{}');
@@ -63,7 +68,7 @@ function _abt_parse_post(): array|string {
         'description'      => trim($_POST['description'] ?? ''),
         'ai_mode'          => $isInject ? 'inject' : 'standalone',
         'ai_render_as'     => $isInject ? null : trim($_POST['ai_render_as'] ?? ''),
-        'ai_model'         => model_or_default($_POST['ai_model'] ?? ''),
+        'ai_model'         => model_or_default($_POST['ai_model'] ?? '', $existingModel),
         'ai_inject_target' => $isInject ? (trim($_POST['ai_inject_target'] ?? '') ?: null) : null,
         'ai_inject_field'  => $isInject ? (trim($_POST['ai_inject_field']  ?? '') ?: null) : null,
         'ai_inject_mode'   => $isInject ? (in_array($_POST['ai_inject_mode'] ?? '', ['replace', 'append', 'prepend'], true) ? $_POST['ai_inject_mode'] : 'replace') : null,
@@ -113,7 +118,7 @@ if ($action === 'save') {
         exit;
     }
 
-    $fields = _abt_parse_post();
+    $fields = _abt_parse_post($types[$id]['ai_model'] ?? null);
     if (is_string($fields)) {
         header('Location: index.php?tab=ai_blocks&edit=' . urlencode($id) . '&msg=error:' . urlencode($fields));
         exit;

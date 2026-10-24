@@ -60,6 +60,18 @@ function _abt_form(array $bt = [], string $action = 'add', string $id = ''): voi
                 <option value="inject"<?= $is('ai_mode', 'inject') ?>>Inject — merges into an adjacent block's field</option>
             </select>
         </div>
+        <div class="form-group">
+            <label>Model</label>
+            <select name="ai_model">
+                <?php $_abtCurModel = $bt['ai_model'] ?? ''; $_abtKnown = false;
+                foreach ($_abt_models as $_abtMv => $_abtMl): if ($_abtMv === $_abtCurModel) $_abtKnown = true; ?>
+                <option value="<?= h($_abtMv) ?>"<?= $_abtMv === $_abtCurModel ? ' selected' : '' ?>><?= h($_abtMl) ?></option>
+                <?php endforeach; if (!$_abtKnown && $_abtCurModel !== ''): ?>
+                <option value="<?= h($_abtCurModel) ?>" selected><?= h($_abtCurModel) ?></option>
+                <?php endif; ?>
+            </select>
+            <span class="hint">Which Claude model generates this content type. Defaults to the cheapest tier if left unset.</span>
+        </div>
     </div>
 
     <!-- Standalone fields -->
