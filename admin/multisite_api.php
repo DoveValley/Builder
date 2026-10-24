@@ -10,6 +10,7 @@ require_once __DIR__ . '/../includes/multisite/batch.php';
 require_once __DIR__ . '/../includes/multisite/master_lint.php';
 require_once __DIR__ . '/../includes/multisite/deploy.php';
 require_once __DIR__ . '/../includes/multisite/page_pool.php'; // ms_page_pool_status()/_reset() — row_list/pool_reset
+require_once __DIR__ . '/../includes/multisite/content_check.php'; // cc_run() — content_check_run
 
 header('Content-Type: application/json');
 
@@ -26,7 +27,7 @@ $masterId = ACTIVE_SITE_ID;
 
 // ── Which batch ───────────────────────────────────────────────────────────────
 // Everything except the master-level actions below operates on the open batch.
-const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 'test_deploy_save'];
+const MS_MASTER_ONLY_ACTIONS = ['sample_csv', 'lint_master', 'test_deploy_get', 'test_deploy_save', 'content_check_run'];
 
 /** Fields the per-row editor (row_save/row_correct/row_add) may touch. Deliberately
  *  excludes ftp_* (Create Host's job, not a hand edit) and 'domain' itself (renaming
@@ -1531,6 +1532,25 @@ switch ($action) {
     // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).
     case 'lint_master':
         echo json_encode(ms_lint_master($masterId));
+        break;
+
+    // Site Final Check — fast, local, file/text-only checks against this master's own
+    // template pages. See includes/multisite/content_check.php's docblock for why this is
+    // synchronous (no job/poll needed) and why seo_gate isn't wrapped into it.
+    case 'content_check_run':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        $checkedAt = gmdate('Y-m-d H:i:s') . ' UTC';
+        $payload   = ['checked_at' => $checkedAt, 'results' => cc_run($masterId)];
+        ms_atomic_write_json(ms_master_dir($masterId) . '/content_check.json', $payload);
+        echo json_encode($payload);
+        break;
+
+    // Last stored report, if any — so reopening the panel shows the last run instead of
+    // nothing, same spirit as the fleet-audit cards' stored state.
+    case 'content_check_last':
+        $cacheFile = ms_master_dir($masterId) . '/content_check.json';
+        $stored = is_file($cacheFile) ? json_decode((string) file_get_contents($cacheFile), true) : null;
+        echo json_encode(is_array($stored) ? $stored : ['checked_at' => null, 'results' => []]);
         break;
 
     // ── Per-row target-list editing — day-to-day edits without a full CSV round-trip.

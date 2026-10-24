@@ -8,6 +8,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/multisite/batch.php';
+require_once __DIR__ . '/../includes/multisite/content_check.php';
 
 if (empty($_SESSION['admin_logged_in'])) { header('Location: login.php'); exit; }
 if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -96,6 +97,35 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     </div>
     <div id="ro-job-stage" style="display:none;font-weight:600;margin:0 0 6px;"></div>
     <pre id="ro-job" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+
+    <div class="ro-bar" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:8px;">
+            <strong style="font-size:.92rem">Site Final Check</strong>
+            <a href="#" class="ro-info" id="ro-cc-info" title="What this checks">&#9432;</a>
+            <span class="hint">Checks this master's own template pages — not tied to the domains ticked below.</span>
+        </div>
+        <button type="button" class="btn sec" id="ro-cc-run">Run Final Check</button>
+    </div>
+    <div id="ro-cc-report" style="margin:0 0 18px;"></div>
+
+    <div class="ro-cc-modal-bg" id="ro-cc-modal-bg" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);z-index:60;align-items:center;justify-content:center" onclick="if(event.target.id==='ro-cc-modal-bg')this.style.display='none'">
+        <div style="background:#fff;border-radius:8px;padding:18px 22px;max-width:640px;width:92%;max-height:84vh;overflow:auto;box-shadow:0 10px 30px rgba(0,0,0,.2);line-height:1.6;font-size:.86rem;color:#334155">
+            <h3 style="margin:0 0 4px;font-size:1.05rem;color:#1e3a5f">Site Final Check — what runs</h3>
+            <p style="margin:0 0 14px;color:#64748b">Fast, local checks against this master's own template pages — every page, no AI
+                cost, no external API, done in a second or two. This is the full list; nothing runs that isn't named here.</p>
+            <ol style="margin:0 0 14px 20px;padding:0;">
+                <?php foreach (cc_registry() as $i => $c): ?>
+                <li style="margin-bottom:8px;"><?= h($c['label']) ?></li>
+                <?php endforeach; ?>
+            </ol>
+            <p style="margin:0;color:#64748b">Not covered yet, on purpose: anything needing an AI vision call (does the photo
+                actually match its alt text/filename) or an external Google API (PageSpeed Insights, Rich Results Test) —
+                both cost real money per check and belong in their own tool, not bolted onto this fast one. Also not
+                covered: Google's existing on-page SEO gate, which needs a real build to already exist first — read its
+                report separately after a build.</p>
+            <div style="text-align:right;margin-top:10px;"><button type="button" class="btn-sm-outline" onclick="document.getElementById('ro-cc-modal-bg').style.display='none'">Close</button></div>
+        </div>
+    </div>
 
     <div class="ro-bar">
         <label>Cloudflare account
@@ -755,6 +785,46 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);
     };
+    // Site Final Check — ⓘ just opens the static "what runs" modal (built server-side from
+    // the same PHP registry the run itself uses, see content_check.php — no separate JS
+    // copy of the list to drift out of sync). Run posts, waits (it's synchronous — no
+    // job/poll needed, see that file's docblock for why), and renders the report in place.
+    $('ro-cc-info').onclick = (e) => { e.preventDefault(); $('ro-cc-modal-bg').style.display = 'flex'; };
+
+    function renderContentCheck(payload) {
+        const box = $('ro-cc-report');
+        if (!payload || !payload.checked_at) { box.innerHTML = ''; return; }
+        const rows = (payload.results || []).map(r => {
+            const head = '<div style="display:flex;align-items:center;gap:8px;margin-top:10px;">'
+                + '<span class="dot ' + (r.ok ? 'ok' : 'fail') + '"></span>'
+                + '<strong>' + r.n + '. ' + esc(r.label) + '</strong>'
+                + '<span style="margin-left:auto;font-size:.82rem;color:' + (r.ok ? '#166534' : '#991b1b') + '">'
+                + (r.ok ? 'Pass' : r.count + ' issue(s)') + '</span></div>';
+            if (r.ok) return head;
+            const items = r.issues.slice(0, 10).map(iss =>
+                '<li>' + esc(iss.page) + ' &mdash; <code>' + esc(iss.field) + '</code>: ' + esc(iss.detail) + '</li>').join('');
+            const more = r.count > r.issues.length ? '<li style="color:#94a3b8">&hellip; and ' + (r.count - r.issues.length) + ' more</li>' : '';
+            return head
+                + '<ul style="margin:6px 0 0 20px;font-size:.82rem;color:#4b5563;">' + items + more + '</ul>'
+                + '<p style="margin:4px 0 0 20px;font-size:.82rem;color:#1e3a5f;"><strong>Fix:</strong> ' + esc(r.recommendation) + '</p>';
+        }).join('');
+        box.innerHTML = '<div class="card" style="padding:12px 14px;">'
+            + '<div style="font-size:.78rem;color:#94a3b8;">Checked ' + esc(payload.checked_at) + '</div>'
+            + rows + '</div>';
+    }
+
+    $('ro-cc-run').onclick = async () => {
+        const btn = $('ro-cc-run');
+        btn.disabled = true; btn.textContent = 'Checking…';
+        const r = await post({ action: 'content_check_run' });
+        btn.disabled = false; btn.textContent = 'Run Final Check';
+        if (r.error) return say(r.error);
+        renderContentCheck(r);
+    };
+    // Show the last stored report on load, if one exists, so reopening the page doesn't
+    // read as "never checked" when it just hasn't been re-run this session.
+    (async () => { renderContentCheck(await (await fetch(API + '?action=content_check_last')).json()); })();
+
     load();
     watchJob('');   // a job already running (page reloaded mid-run) shows its log
 })();
