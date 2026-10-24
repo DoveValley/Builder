@@ -260,7 +260,7 @@ function fmt_date(string $iso): string {
     <?php endif; ?>
 
     <!-- ===================== MULTISITE BATCHES ===================== -->
-    <div class="sm-section" id="fleet-audit">
+    <div class="sm-section">
         <div class="sm-section-head">
             <div>
                 <h2>Your Multisite Batches</h2>
@@ -271,15 +271,6 @@ function fmt_date(string $iso): string {
             <button class="btn-open" onclick="showNewBatch()">+ New Batch</button>
             <?php endif; ?>
         </div>
-
-        <?php include __DIR__ . '/_fleet_fingerprint.php'; ?>
-        <?php include __DIR__ . '/_fleet_audit_filter.php'; ?>
-        <?php include __DIR__ . '/_fleet_crawl.php'; ?>
-        <?php include __DIR__ . '/_fleet_index.php'; ?>
-        <?php include __DIR__ . '/_fleet_rank.php'; ?>
-        <?php include __DIR__ . '/_fleet_calls.php'; ?>
-        <?php include __DIR__ . '/_fleet_revenue.php'; ?>
-        <?php include __DIR__ . '/_fleet_audit_settings.php'; ?>
 
         <div id="batch-steps-card" class="card" style="display:none;background:#f8fafc;border-left:3px solid #7c3aed;margin-bottom:18px;">
             <h3 style="margin-top:0;color:#1e3a5f;">New Batch — all the steps</h3>
@@ -482,6 +473,34 @@ function fmt_date(string $iso): string {
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- ===================== REPORTING (fleet fingerprint/crawl/index/rank/calls/
+         revenue + audit settings) — collapsed by default so it doesn't take up space
+         on every visit to this page; the scope-filter bar below (_fleet_audit_filter.php)
+         still round-trips to "sites.php#fleet-audit", so the id lives on this <details>
+         now and the inline script below force-opens it on arrival so that link still
+         actually shows the thing it's jumping to, not a closed section. -->
+    <div class="sm-section">
+        <details id="fleet-audit">
+            <summary style="cursor:pointer;font-size:1.15rem;font-weight:700;color:#111827;">Reporting</summary>
+            <div style="margin-top:18px;">
+                <?php include __DIR__ . '/_fleet_fingerprint.php'; ?>
+                <?php include __DIR__ . '/_fleet_audit_filter.php'; ?>
+                <?php include __DIR__ . '/_fleet_crawl.php'; ?>
+                <?php include __DIR__ . '/_fleet_index.php'; ?>
+                <?php include __DIR__ . '/_fleet_rank.php'; ?>
+                <?php include __DIR__ . '/_fleet_calls.php'; ?>
+                <?php include __DIR__ . '/_fleet_revenue.php'; ?>
+                <?php include __DIR__ . '/_fleet_audit_settings.php'; ?>
+            </div>
+        </details>
+    </div>
+    <script>
+        if (location.hash === '#fleet-audit') {
+            var fa = document.getElementById('fleet-audit');
+            if (fa) fa.open = true;
+        }
+    </script>
 
 </div>
 
