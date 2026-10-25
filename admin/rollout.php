@@ -215,12 +215,15 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <span><strong>Go live</strong> per day:
             <button type="button" class="ro-chip" data-n="3">3</button>
             <button type="button" class="ro-chip" data-n="4">4</button>
-            <button type="button" class="ro-chip on" data-n="5">5</button>
+            <button type="button" class="ro-chip" data-n="5">5</button>
             <button type="button" class="ro-chip" data-n="6">6</button>
             <button type="button" class="ro-chip" data-n="7">7</button>
             <button type="button" class="ro-chip" data-n="8">8</button>
             <button type="button" class="ro-chip" data-n="9">9</button>
             <button type="button" class="ro-chip" data-n="10">10</button>
+            <input type="number" id="ro-per-day-custom" min="1" step="1" placeholder="or any #"
+                   style="width:84px;margin-left:6px;padding:4px 8px;border:1px solid #cbd5e1;border-radius:6px;">
+            <button type="button" class="ro-chip on" data-n="999999" style="margin-left:6px;">No limit</button>
         </span>
         <label>starting <input type="date" id="ro-start"></label>
         <label>starting at <input type="time" id="ro-start-time"></label>
@@ -284,7 +287,11 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
 (function () {
     const CSRF = <?= json_encode($_SESSION['csrf_token']) ?>;
     const API  = 'multisite_api.php';
-    let rows = [], settings = {}, perDay = 5, view = 'all';
+    // Matches the "No limit" chip's data-n below — a real cap would require
+    // unrealistically many domains in one batch to ever bite, so for display
+    // purposes anything at or above this is treated as "don't throttle by day."
+    const NO_LIMIT = 999999;
+    let rows = [], settings = {}, perDay = NO_LIMIT, view = 'all';
     const sel = new Set();
     const $ = id => document.getElementById(id);
     const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -580,7 +587,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         const r = await (await fetch(API + '?action=rollout_rows')).json();
         if (r.error) { $('ro-body').innerHTML = '<tr><td colspan="15">' + esc(r.error) + '</td></tr>'; return; }
         rows = r.rows; settings = r.settings; window.RO_TODAY = r.today;
-        if (!$('ro-start').value) { $('ro-start').value = r.tomorrow; $('ro-start').min = r.today; }
+        if (!$('ro-start').value) { $('ro-start').value = r.today; $('ro-start').min = r.today; }
         [...sel].forEach(d => { const x = rows.find(y => y.domain === d); if (!x || !canTick(x)) sel.delete(d); });
         renderSettings(); render();
     }
@@ -628,7 +635,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         }
         if (e.target.id === 'ro-modal-close' || e.target.id === 'ro-modal-bg') { $('ro-modal-bg').style.display = 'none'; return; }
         const chip = e.target.closest('.ro-chip');
-        if (chip) { perDay = +chip.dataset.n; document.querySelectorAll('.ro-chip').forEach(c => c.classList.toggle('on', c === chip)); return; }
+        if (chip) { perDay = +chip.dataset.n; document.querySelectorAll('.ro-chip').forEach(c => c.classList.toggle('on', c === chip)); $('ro-per-day-custom').value = ''; return; }
         const tab = e.target.closest('[data-view]');
         if (tab) { view = tab.dataset.view; render(); return; }
         const s = e.target.closest('[data-sel]');
@@ -648,6 +655,14 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             render();
         }
         if (e.target.id === 'ro-do-build' || e.target.id === 'ro-logo-only' || e.target.id === 'ro-do-upload') syncForcePhotos();
+        // Chips are quick picks for the common cases; this is the escape hatch for
+        // "as many as I want" — any positive whole number, not capped at the chip row's
+        // highest (10). Typing a value here un-highlights whichever chip was selected so
+        // the UI never shows two different numbers as "the" per-day count at once.
+        if (e.target.id === 'ro-per-day-custom') {
+            const n = parseInt(e.target.value, 10);
+            if (n > 0) { perDay = n; document.querySelectorAll('.ro-chip').forEach(c => c.classList.remove('on')); }
+        }
         // Force-regenerate and Skip-AI-photos are opposites — ticking one live un-ticks
         // the other immediately, not just refused at submit time, so the checkboxes can
         // never visibly disagree with what the run is actually about to do.
@@ -722,7 +737,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         }
         const names = list => list.length <= 8 ? list.join('\n') : list.slice(0, 8).join('\n') + '\n…and ' + (list.length - 8) + ' more';
         const days  = Math.ceil(ready / perDay);
-        let msg = 'Schedule ' + ready + ' domain(s): ' + perDay + ' per day from ' + niceDate(start) + ' ' + when
+        let msg = 'Schedule ' + ready + ' domain(s): ' + (perDay >= NO_LIMIT ? 'no limit' : perDay + ' per day') + ' from ' + niceDate(start) + ' ' + when
                 + '\n\nThat is ' + days + ' day' + (days === 1 ? '' : 's') + ' of releases.';
         if (notUp.length) {
             msg += '\n\n' + notUp.length + ' of the ' + picked.length + ' ticked will be SKIPPED — nothing is uploaded to them yet:\n' + names(notUp);

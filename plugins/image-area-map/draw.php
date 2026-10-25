@@ -399,16 +399,28 @@ function city_map_caption(array $city, string $domain = ''): string
  * embed (see plugin.php header for why an embed is skipped). Prefers the city's own verified
  * coordinates (same ones the diagram is drawn from) so the link lands on exactly the point
  * shown in the picture; falls back to a plain text search when a city has no geocode on file.
+ *
+ * A bare lat,lng query drops an unlabeled pin — Google's Maps URL spec supports attaching a
+ * readable label to an exact coordinate by appending it in parentheses (documented:
+ * developers.google.com/maps/documentation/urls/get-started, e.g.
+ * query=38.883381,-77.003531(Washington,DC)), so the pin someone lands on reads "Harrisburg,
+ * NC" instead of just a dropped marker. Zoom is deliberately NOT set — the only alternate URL
+ * form that supports it (the @lat,lng,zoomz "share current view" link) carries no pin/label at
+ * all, and a point-of-interest pin's default zoom is already enough for this link's actual
+ * job (confirming it's a real place), not a detailed study of the city's borders.
  */
 function city_map_link_url(array $city): string
 {
+    $name  = trim((string) ($city['city'] ?? ''));
+    $ss    = trim((string) ($city['SS'] ?? ''));
+    $label = $ss !== '' ? "$name, $ss" : $name;
+
     $latlng = city_map_latlng($city);
     if ($latlng) {
-        return 'https://www.google.com/maps/search/?api=1&query=' . $latlng['lat'] . ',' . $latlng['lng'];
+        $q = $latlng['lat'] . ',' . $latlng['lng'] . ($label !== '' ? "($label)" : '');
+        return 'https://www.google.com/maps/search/?api=1&query=' . urlencode($q);
     }
-    $name = trim((string) ($city['city'] ?? ''));
     if ($name === '') return '';
-    $ss = trim((string) ($city['SS'] ?? ''));
-    return 'https://www.google.com/maps/search/?api=1&query=' . urlencode($ss !== '' ? "$name, $ss" : $name);
+    return 'https://www.google.com/maps/search/?api=1&query=' . urlencode($label);
 }
 
