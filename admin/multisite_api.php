@@ -582,6 +582,8 @@ switch ($action) {
     case 'rollout_rows':
         require_once __DIR__ . '/infra/lib/fleet_view.php';
         require_once __DIR__ . '/infra/lib/fleet_settings.php';
+        require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/infra/lib/cf_alloc.php';
         require_once __DIR__ . '/../includes/multisite/geocode.php';
         $rtTargets = ms_parse_csv($paramsPath)['rows'] ?? [];
         $rtCity = []; $rtHosted = []; $rtPhone = []; $rtOther = []; $rtCityKey = []; $rtLine = []; $rtN = [];
@@ -628,6 +630,11 @@ switch ($action) {
             }
         }
         $rtRows = infra_fleet_view_rows(array_keys($rtCity));
+        // Which position (1st/2nd/3rd/4th) a domain's assigned CF account sits at on its
+        // own box — same ordering rollout_set_cf_slot's dropdown uses
+        // (infra_cf_accounts_for_server()), computed once per box and reused per row.
+        $rtStateAll   = infra_state_all_domains();
+        $rtSlotByBox  = [];
         foreach ($rtRows as &$rr) {
             $rr['n']     = $rtN[$rr['domain']] ?? 0;
             $rr['line']  = $rtLine[$rr['domain']] ?? 0;
@@ -636,6 +643,16 @@ switch ($action) {
             $rr['other'] = $rtOther[$rr['domain']] ?? '';
             $rr['pop']     = $rtCityPop[$rtCityKey[$rr['domain']] ?? ''] ?? null;
             $rr['nm_city'] = $rtCityNM[$rtCityKey[$rr['domain']] ?? ''] ?? '';
+            $rtRec = $rtStateAll[$rr['domain']] ?? null;
+            $rtSid = (string) ($rtRec['server_id'] ?? '');
+            $rtAid = (string) ($rtRec['cf_account_id'] ?? '');
+            $rr['cf_slot'] = null;
+            if ($rtSid !== '' && $rtAid !== '') {
+                if (!array_key_exists($rtSid, $rtSlotByBox)) $rtSlotByBox[$rtSid] = infra_cf_accounts_for_server($rtSid);
+                foreach ($rtSlotByBox[$rtSid] as $rtIdx => $rtAcct) {
+                    if ((string) ($rtAcct['id'] ?? '') === $rtAid) { $rr['cf_slot'] = $rtIdx + 1; break; }
+                }
+            }
             $rtRes = $rtCityResearch[$rtCityKey[$rr['domain']] ?? ''] ?? ['researched' => false, 'at' => ''];
             $rr['steps']['research'] = $rtRes['researched'] ? INFRA_STEP_OK : '';
             $rr['research_at'] = $rtRes['at'];

@@ -322,6 +322,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     }
     const dot = s => '<span class="dot ' + esc(s) + '" title="' + esc(s || 'not checked') + '"></span>';
     const popColor = p => p >= 50000 ? '#16a34a' : (p >= 35000 ? '#ca8a04' : '#dc2626');
+    // 1st CF account on a box = white/default, 2nd = blue, 3rd = purple, 4th = green.
+    const CF_SLOT_COLOR = { 2: '#2563eb', 3: '#9333ea', 4: '#16a34a' };
 
     const STEP_LABELS = { host: 'Host', built: 'Built', upload: 'Uploaded', zone: 'Zone', live: 'Live' };
     // The stored timestamp is "last checked", not "last succeeded" — the DB column is
@@ -528,7 +530,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
                 + '<td>' + dot(r.phone ? 'ok' : '') + '</td>'
                 + '<td>' + dot(r.other ? 'ok' : '') + '</td>'
                 + '<td>' + (r.box ? esc(r.box) : '<span class="muted">—</span>') + '</td>'
-                + '<td>' + (r.cf_account ? esc(r.cf_account) : '<span class="muted">—</span>') + '</td>'
+                + '<td>' + (r.cf_account ? '<span' + (CF_SLOT_COLOR[r.cf_slot] ? ' style="color:' + CF_SLOT_COLOR[r.cf_slot] + ';font-weight:600"' : '') + '>' + esc(r.cf_account) + '</span>' : '<span class="muted">—</span>') + '</td>'
                 + '<td>' + dot(r.steps.research) + '</td>'
                 + '<td>' + dot(r.steps.host) + '</td>'
                 + '<td>' + dot(r.steps.built) + '</td><td>' + dot(r.steps.upload) + '</td><td>' + dot(r.steps.zone) + '</td>'
