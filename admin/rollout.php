@@ -321,6 +321,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
     }
     const dot = s => '<span class="dot ' + esc(s) + '" title="' + esc(s || 'not checked') + '"></span>';
+    const popColor = p => p >= 50000 ? '#16a34a' : (p >= 35000 ? '#ca8a04' : '#dc2626');
 
     const STEP_LABELS = { host: 'Host', built: 'Built', upload: 'Uploaded', zone: 'Zone', live: 'Live' };
     // The stored timestamp is "last checked", not "last succeeded" — the DB column is
@@ -521,7 +522,9 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             const lab = label(r), tick = canTick(r);
             return '<tr>'
                 + '<td>' + (tick ? '<input type="checkbox" data-d="' + esc(r.domain) + '"' + (sel.has(r.domain) ? ' checked' : '') + '>' : '') + '</td>'
-                + '<td><span style="color:#0f172a" title="CSV line ' + esc(r.line) + ' in this batch\'s target list">' + esc(r.n) + '.</span> <strong>' + esc(r.domain) + '</strong> <a href="#" class="ro-info" data-info="' + esc(r.domain) + '" title="Details">&#9432;</a></td><td>' + esc(r.city) + '</td>'
+                + '<td><span style="color:#0f172a" title="CSV line ' + esc(r.line) + ' in this batch\'s target list">' + esc(r.n) + '.</span> <strong>' + esc(r.domain) + '</strong> <a href="#" class="ro-info" data-info="' + esc(r.domain) + '" title="Details">&#9432;</a>'
+                + (r.pop || r.nm_city ? '<div class="muted" style="font-size:11px">(' + esc(r.city.split(',')[0]) + (r.pop ? ', <span style="color:' + popColor(r.pop) + '">' + Number(r.pop).toLocaleString() + '</span>' : '') + (r.nm_city ? ', NMCity=' + esc(r.nm_city) : '') + ')</div>' : '')
+                + '</td><td>' + esc(r.city) + '</td>'
                 + '<td>' + dot(r.phone ? 'ok' : '') + '</td>'
                 + '<td>' + dot(r.other ? 'ok' : '') + '</td>'
                 + '<td>' + (r.box ? esc(r.box) : '<span class="muted">—</span>') + '</td>'

@@ -111,6 +111,44 @@ function ms_geocode_cities_file(string $citiesFile, ?callable $log = null, bool 
 }
 
 /**
+ * Great-circle distance between two lat/lng points, in miles.
+ */
+function ms_haversine_miles(float $lat1, float $lng1, float $lat2, float $lng2): float {
+    $earthRadiusMiles = 3958.8;
+    $dLat = deg2rad($lat2 - $lat1);
+    $dLng = deg2rad($lng2 - $lng1);
+    $a = sin($dLat / 2) ** 2 + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * sin($dLng / 2) ** 2;
+    return $earthRadiusMiles * 2 * atan2(sqrt($a), sqrt(1 - $a));
+}
+
+/**
+ * Find the closest city in the static major-US-cities reference list to a given point.
+ * $excludeCity/$excludeSS skip a same-name/state entry (the source city itself may also
+ * be in the major-cities list, e.g. Ann Arbor, MI — without this it would "match itself"
+ * at 0 miles). Returns ['city'=>string,'state'=>string,'SS'=>string,'miles'=>float] or
+ * null if the reference list can't be read or the input coordinates are blank.
+ */
+function ms_nearest_major_city(float $lat, float $lng, string $excludeCity = '', string $excludeSS = ''): ?array {
+    static $majors = null;
+    if ($majors === null) {
+        $majors = json_decode((string)@file_get_contents(__DIR__ . '/major_us_cities.json'), true);
+        if (!is_array($majors)) $majors = [];
+    }
+    $excludeCity = strtolower(trim($excludeCity));
+    $excludeSS   = strtolower(trim($excludeSS));
+    $best = null; $bestMiles = null;
+    foreach ($majors as $m) {
+        if (!is_array($m) || !isset($m['lat'], $m['lng'])) continue;
+        if ($excludeCity !== '' && strtolower((string)($m['city'] ?? '')) === $excludeCity
+            && strtolower((string)($m['SS'] ?? '')) === $excludeSS) continue;
+        $miles = ms_haversine_miles($lat, $lng, (float)$m['lat'], (float)$m['lng']);
+        if ($bestMiles === null || $miles < $bestMiles) { $bestMiles = $miles; $best = $m; }
+    }
+    if ($best === null) return null;
+    return ['city' => $best['city'], 'state' => $best['state'] ?? '', 'SS' => $best['SS'] ?? '', 'miles' => round($bestMiles)];
+}
+
+/**
  * Fill a build row's blank lat/lng from the master's cities.json (matched by city|SS).
  * Lets the params CSV leave coordinates blank — they flow in from the geocoded research.
  * Returns the params array, possibly with lat/lng added.

@@ -582,6 +582,7 @@ switch ($action) {
     case 'rollout_rows':
         require_once __DIR__ . '/infra/lib/fleet_view.php';
         require_once __DIR__ . '/infra/lib/fleet_settings.php';
+        require_once __DIR__ . '/../includes/multisite/geocode.php';
         $rtTargets = ms_parse_csv($paramsPath)['rows'] ?? [];
         $rtCity = []; $rtHosted = []; $rtPhone = []; $rtOther = []; $rtCityKey = []; $rtLine = []; $rtN = [];
         $rtCount = 0;
@@ -612,12 +613,19 @@ switch ($action) {
         // a single "when" (there's no one unified research timestamp field).
         $rtCities = json_decode((string) @file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/cities.json'), true) ?: [];
         $rtCityResearch = [];
+        $rtCityPop = []; $rtCityNM = [];
         foreach ($rtCities as $c) {
             if (!is_array($c)) continue;
             $key = strtolower(trim((string) ($c['city'] ?? ''))) . '|' . strtolower(trim((string) ($c['SS'] ?? '')));
             $dates = array_filter([$c['noaa_fetched_at'] ?? '', $c['figures_fetched_at'] ?? '',
                                     $c['flood_fetched_at'] ?? '', $c['acs_fetched_at'] ?? '']);
             $rtCityResearch[$key] = ['researched' => !empty($c['_researched']), 'at' => $dates ? max($dates) : ''];
+            $rtCityPop[$key] = $c['population'] ?? null;
+            $lat = (float) ($c['lat'] ?? 0); $lng = (float) ($c['lng'] ?? 0);
+            if ($lat !== 0.0 && $lng !== 0.0) {
+                $nm = ms_nearest_major_city($lat, $lng, (string) ($c['city'] ?? ''), (string) ($c['SS'] ?? ''));
+                if ($nm !== null) $rtCityNM[$key] = $nm['city'] . ', ' . $nm['SS'] . ' (' . $nm['miles'] . ' mi)';
+            }
         }
         $rtRows = infra_fleet_view_rows(array_keys($rtCity));
         foreach ($rtRows as &$rr) {
@@ -626,6 +634,8 @@ switch ($action) {
             $rr['city']  = $rtCity[$rr['domain']] ?? '';
             $rr['phone'] = $rtPhone[$rr['domain']] ?? '';
             $rr['other'] = $rtOther[$rr['domain']] ?? '';
+            $rr['pop']     = $rtCityPop[$rtCityKey[$rr['domain']] ?? ''] ?? null;
+            $rr['nm_city'] = $rtCityNM[$rtCityKey[$rr['domain']] ?? ''] ?? '';
             $rtRes = $rtCityResearch[$rtCityKey[$rr['domain']] ?? ''] ?? ['researched' => false, 'at' => ''];
             $rr['steps']['research'] = $rtRes['researched'] ? INFRA_STEP_OK : '';
             $rr['research_at'] = $rtRes['at'];
