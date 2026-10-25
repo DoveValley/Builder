@@ -179,6 +179,202 @@ $draft = infra_research_load_draft($niche) ?? [];
     <input type="hidden" name="niche" value="<?= ih($niche) ?>">
     <div class="ic-card"><div class="body" style="display:flex;flex-direction:column;gap:14px">
 
+      <?php if ($niche === 'appliance'): ?>
+      <?php /* Niche-specific reference content — appliance only for now (the target-city
+               matrix especially so). Other niches may get their own version later. */ ?>
+      <div>
+        <button type="button" class="btn sec" style="padding:4px 12px;font-size:13px"
+                onclick="document.getElementById('popGuide').showModal()">Population Guide</button>
+      </div>
+<dialog id="popGuide" style="max-width:820px;width:94%;border:1px solid #d1d5db;border-radius:10px;padding:0">
+  <div style="padding:18px 22px;max-height:82vh;overflow:auto">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <strong style="font-size:15px">Population ranges for a website-only approach (no links, no GBP)</strong>
+      <button type="button" onclick="this.closest('dialog').close()"
+              style="border:none;background:none;font-size:20px;line-height:1;cursor:pointer;color:#6b7280;padding:0 4px">&times;</button>
+    </div>
+    <p style="font-size:13px;line-height:1.5;color:#374151;margin:0 0 10px">
+      Income is the top priority, ahead of population. Aim for a median household income of at least
+      <strong>$90k, ideally $110k+</strong>, and a high homeownership rate — renters call landlords, not
+      repair companies. A 60,000-person town with $130k income will usually beat a 150,000-person city
+      with $55k income.
+    </p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12.5px">
+        <thead>
+          <tr style="background:#f9fafb;text-align:left">
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Rank</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Population</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Why</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Expected calls/mo (established)</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Examples</th>
+          </tr>
+        </thead>
+        <tbody style="color:#374151">
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">1 (Best)</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">75k–200k</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">The true sweet spot: enough search volume to matter, competition still beatable without links, and many affluent suburbs fall here</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">8–25</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">The Woodlands TX, Allen TX, Sugar Land TX, Johns Creek GA</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">2</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">200k–400k</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">More volume, moderately harder; affluent ones are excellent targets, but takes longer</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">10–30</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Plano TX, Frisco TX, Huntsville AL</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">3</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">25k–75k</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Easiest to rank, high-ticket jobs in wealthy towns, but volume is thin; best when you cover several neighboring towns together</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">3–12 per town</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Southlake TX, Colleyville TX, Prosper TX, Alpharetta GA</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">4</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">400k–1M</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Lots of volume but strong competition; only worth it if you target affluent neighborhoods rather than the whole city</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">5–25</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fort Worth TX, Atlanta GA (city)</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;font-weight:600">5 (Worst)</td>
+            <td style="padding:6px 8px;white-space:nowrap">1M+</td>
+            <td style="padding:6px 8px">Hardest to rank without links or GBP; map pack and big brands dominate, and the city is too spread out</td>
+            <td style="padding:6px 8px;white-space:nowrap">0–20</td>
+            <td style="padding:6px 8px">Dallas TX, Houston TX</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;line-height:1.5;color:#374151;margin:14px 0 0"><strong>A few things to keep in mind:</strong></p>
+    <ul style="font-size:13px;line-height:1.5;color:#374151;margin:6px 0 0;padding-left:20px">
+      <li><strong>Cluster your targets.</strong> The best setup is often a tier 1 or tier 2 city plus two or
+        three affluent tier 3 neighbors (e.g., The Woodlands + Spring + Shenandoah, or Allen + Fairview +
+        Lucas). You get easy rankings and combined volume.</li>
+      <li><strong>Under 25k is usually too small on its own.</strong> For reference, the Harrisburg, NC site
+        targets a town of about 18,500, which is why pairing it with Concord and other nearby areas matters.</li>
+      <li><strong>Check income before you build.</strong> Census QuickFacts lists median household income and
+        owner-occupied housing rate for every city, so you can screen candidates in a few minutes.</li>
+      <li><strong>High-income areas favor high-end brand pages.</strong> Sub-Zero, Wolf, Thermador, Viking,
+        and Miele pages are worth extra effort in these markets, because those owners repair rather than
+        replace.</li>
+    </ul>
+    <p style="font-size:12px;line-height:1.5;color:#6b7280;margin:14px 0 0">
+      The calls estimates assume template-quality issues are fixed; if the pages read as heavily templated,
+      expect the low end of each range.
+    </p>
+
+    <hr style="margin:18px 0;border:none;border-top:1px solid #e5e7eb">
+
+    <p style="font-size:14px;font-weight:600;margin:0 0 10px">
+      Target city matrix: website-only appliance repair microsites (no links, no GBP)
+    </p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:12.5px">
+        <thead>
+          <tr style="background:#f9fafb;text-align:left">
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Target type</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">75k–200k</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">200k–400k</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">25k–75k</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">400k–1M</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Small high-income 15k–25k</th>
+            <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Total</th>
+          </tr>
+        </thead>
+        <tbody style="color:#374151">
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">OK (~$65k–90k income)</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~150–180</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~30–40</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~250–350</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~10–15</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">—</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~440–585</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">Good ($90k+)</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~90–110</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~10–15</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~250–300</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~3–5</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~200–250</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~550–680</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">Great ($110k+, part of good)</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~40–50</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~5–8</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~120–150</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1–3</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~100–130</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~265–340</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">Total viable</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~240–290</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~40–55</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~500–650</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~13–20</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~200–250</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">~1,000–1,250</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;font-weight:600">Est. calls/mo (established)</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">8–25</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">10–30</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">3–12</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">5–25</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2–8</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          </tr>
+          <tr>
+            <td style="padding:6px 8px;font-weight:600">Rank (best to worst)</td>
+            <td style="padding:6px 8px">1</td>
+            <td style="padding:6px 8px">2</td>
+            <td style="padding:6px 8px">3</td>
+            <td style="padding:6px 8px">5</td>
+            <td style="padding:6px 8px">4</td>
+            <td style="padding:6px 8px"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
+      Cities over 1M (Dallas, Houston, etc.) are excluded as the worst fit for this approach. Small
+      high-income towns add about 200–250 viable targets (~25% more) and about 100–130 great targets
+      (~60% more).
+    </p>
+
+    <p style="font-size:13px;line-height:1.5;color:#374151;margin:14px 0 0"><strong>Key notes</strong></p>
+    <ul style="font-size:13px;line-height:1.5;color:#374151;margin:6px 0 0;padding-left:20px">
+      <li><strong>Income beats population.</strong> Target $90k+ median household income and high
+        homeownership; affluent owners repair high-end appliances rather than replace them, so push
+        Sub-Zero, Wolf, Thermador, Viking, and Miele pages there.</li>
+      <li><strong>Cluster nearby towns.</strong> Pairing a tier 1 or 2 city with neighboring affluent small
+        towns gives easy rankings plus combined volume.</li>
+      <li><strong>Expect a ramp-up.</strong> Smaller towns can produce calls in 2–6 months; larger cities
+        often take 6–12 months. Small-town calls are lumpy, so judge them on a 6-month average.</li>
+      <li><strong>Fix the template before scaling.</strong> Cut the repeated regional boilerplate (hard
+        water, storms, sitewide blocks), add brand-specific detail, make sure FAQ answers are in the HTML,
+        and align on-page wording with how calls are actually routed. Repetition across hundreds of sites
+        is the biggest ranking risk.</li>
+      <li><strong>Count qualified calls, not raw calls.</strong> Pay-per-call buyers often require a minimum
+        call length, so only about 50–70% of calls may pay. Make sure each site's qualified calls cover its
+        costs.</li>
+      <li><strong>Verify before you build.</strong> These counts are estimates and exclude unincorporated
+        communities like The Woodlands. The Census American Community Survey has population, income, and
+        homeownership for every place, so you can build a confirmed target list.</li>
+      <li><strong>Track every page.</strong> Call tracking on your first 5–10 sites will show real per-city
+        averages, so you can adjust before scaling.</li>
+    </ul>
+  </div>
+</dialog>
+      <?php endif; ?>
+
       <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
         <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
           ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
