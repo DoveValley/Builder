@@ -38,24 +38,12 @@ $draft = infra_research_load_draft($niche) ?? [];
   <span style="font-size:12px;color:#6b7280">Census income/housing lookup — independent of niche, not scoped to any run below.</span>
 </div>
 
-<div class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px">
-  <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
-    <?php foreach ($niches as $s => $n):
-        $c = count(array_filter($allRuns, fn($r) => ($r['niche'] ?? '') === $s)); ?>
-      <a href="index.php?view=research&niche=<?= urlencode($s) ?>"
-         class="btn <?= $s === $niche ? '' : 'sec' ?>" style="padding:4px 12px;font-size:13px">
-        <?= ih($n['label']) ?>
-        <span style="opacity:.7;font-size:11px"><?= $c ?>&nbsp;run<?= $c === 1 ? '' : 's' ?></span>
-      </a>
-    <?php endforeach; ?>
-  </div>
-</div></div>
-
-<?php if ($niche === 'appliance'): ?>
-<?php /* Niche-specific reference content — appliance only for now (the target-city matrix
-         especially so). Other niches may get their own version later. Inline on the page,
-         not a popup: the whole point is that this theory reads BEFORE the operational
-         walkthrough below it, not tucked behind a click. */ ?>
+<?php /* Universal — applies to every niche the same way (income/population theory, the
+         target-city matrix's viable-count numbers, and the eLocal mechanics are all niche-
+         agnostic; only "Expected calls/mo" and the brand-specific push below are actually
+         calibrated to one niche's data, and those get their own small addendum inside that
+         niche's own form further down). Inline on the page, not a popup: the whole point is
+         that this theory reads BEFORE the operational walkthrough below it. */ ?>
 <div class="ic-note" style="margin-bottom:14px">
   <strong style="font-size:15px">What makes a city worth targeting (website-only approach — no links, no GBP)</strong>
   <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
@@ -73,7 +61,7 @@ $draft = infra_research_load_draft($niche) ?? [];
           <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Rank</th>
           <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Population</th>
           <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Why</th>
-          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Expected calls/mo (established)</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Expected calls/mo (appliance, established)</th>
           <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Examples</th>
         </tr>
       </thead>
@@ -125,13 +113,16 @@ $draft = infra_research_load_draft($niche) ?? [];
   </div>
   <p style="font-size:12px;line-height:1.5;color:#6b7280;margin:14px 0 0">
     The calls estimates assume template-quality issues are fixed; if the pages read as heavily templated,
-    expect the low end of each range.
+    expect the low end of each range. <strong>These specific numbers are calibrated from appliance's own
+    real run data</strong> — another niche's true figures will differ (lower frequency/higher value per
+    job for something like water damage restoration vs. appliance's higher frequency), so treat them as a
+    rough starting reference until a niche has its own real City Research data to check against.
   </p>
 
   <hr style="margin:18px 0;border:none;border-top:1px solid #e5e7eb">
 
   <p style="font-size:14px;font-weight:600;margin:0 0 10px">
-    Target city matrix: website-only appliance repair microsites (no links, no GBP)
+    Target city matrix: website-only microsites (no links, no GBP)
   </p>
   <div style="overflow-x:auto">
     <table style="width:100%;border-collapse:collapse;font-size:12.5px">
@@ -217,11 +208,52 @@ $draft = infra_research_load_draft($niche) ?? [];
     (~60% more).
   </p>
 
+  <p style="font-size:13px;line-height:1.5;color:#374151;margin:14px 0 0">
+    <strong>Bucket prioritization, before any real data exists for this niche</strong> — income tier first,
+    population band second within each tier, per the top principle above. Treat this as a starting
+    heuristic only, not a conclusion — see why below.
+  </p>
+  <ol style="font-size:13px;line-height:1.5;color:#374151;margin:6px 0 0;padding-left:20px;columns:2;column-gap:28px">
+    <li>Great × 75k–200k</li>
+    <li>Great × 200k–400k</li>
+    <li>Great × 25k–75k</li>
+    <li>Great × 15k–25k</li>
+    <li>Great × 400k–1M</li>
+    <li>Great × 1M+</li>
+    <li>Good × 75k–200k</li>
+    <li>Good × 200k–400k</li>
+    <li>Good × 25k–75k</li>
+    <li>Good × 15k–25k</li>
+    <li>Good × 400k–1M</li>
+    <li>Good × 1M+</li>
+    <li>OK × 75k–200k</li>
+    <li>OK × 200k–400k</li>
+    <li>OK × 25k–75k</li>
+    <li>OK × 15k–25k</li>
+    <li>OK × 400k–1M</li>
+    <li>OK × 1M+</li>
+  </ol>
+  <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
+    <strong>Once a niche has real merged run data, this heuristic gets overridden — and it already has,
+    materially, for both niches checked so far.</strong> Real Score (which already factors in actual
+    competition, not just population) shows population/volume matters more than this income-first
+    heuristic assumes: for appliance, "Great × 75k–200k" — the heuristic's #1 pick — actually ranks 8th
+    in real data, behind several bigger, lower-income-tier buckets (e.g. "OK × 400k–1M" and "OK ×
+    200k–400k" both score higher, with 20+ real cities backing each, not a fluke from a tiny sample).
+    <strong>The real pattern isn't even the same across niches</strong> — for appliance, "Good × 75k–200k"
+    outscores "Great × 75k–200k" in the exact same population band (richer areas there draw more real
+    competition, enough to outweigh the extra demand); for plumbing, Great correctly beats Good and OK in
+    that same band, the "expected" order. <strong>Always check the real order in that niche's own bucketed
+    export's Read Me tab once a run exists</strong> — don't assume either the theoretical order above or
+    another niche's real order carries over.
+  </p>
+
   <p style="font-size:13px;line-height:1.5;color:#374151;margin:14px 0 0"><strong>Key notes</strong></p>
   <ul style="font-size:13px;line-height:1.5;color:#374151;margin:6px 0 0;padding-left:20px">
     <li><strong>Income beats population.</strong> Target $90k+ median household income and high
-      homeownership; affluent owners repair high-end appliances rather than replace them, so push
-      Sub-Zero, Wolf, Thermador, Viking, and Miele pages there.</li>
+      homeownership; affluent owners repair rather than replace, so push whatever this niche's
+      highest-end service/product-line pages are in those markets (see the niche-specific note inside
+      the form below, if one exists for this niche).</li>
     <li><strong>Cluster your targets.</strong> The best setup is often a tier 1 or tier 2 city plus two or
       three affluent tier 3 neighbors (e.g., The Woodlands + Spring + Shenandoah, or Allen + Fairview +
       Lucas). You get easy rankings and combined volume.</li>
@@ -236,11 +268,11 @@ $draft = infra_research_load_draft($niche) ?? [];
     <li><strong>Count qualified calls, not raw calls.</strong> Pay-per-call buyers often require a minimum
       call length, so only about 50–70% of calls may pay. Make sure each site's qualified calls cover its
       costs.</li>
-    <li><strong>Verify before you build.</strong> Census QuickFacts gives median household income and
-      owner-occupied rate in a couple of minutes per city; the American Community Survey has the full
-      population/income/homeownership table for every place. These matrix counts are estimates and
-      exclude unincorporated communities like The Woodlands, so confirm your actual target list against
-      real census data.</li>
+    <li><strong>Verify before you build.</strong> The City Data tab (linked above the niche tabs) already
+      has real Census income/homeownership for ~99.8% of cities in this console — look a candidate up
+      there before building rather than reasoning from these matrix estimates alone. These matrix counts
+      are national theoretical ranges and exclude unincorporated communities like The Woodlands; City
+      Data's numbers are the real, current ACS figures for an actual candidate.</li>
     <li><strong>Track every page.</strong> Call tracking on your first 5–10 sites will show real per-city
       averages, so you can adjust before scaling.</li>
   </ul>
@@ -278,7 +310,19 @@ $draft = infra_research_load_draft($niche) ?? [];
     writing off those cities.
   </p>
 </div>
-<?php endif; ?>
+
+<div class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px">
+  <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+    <?php foreach ($niches as $s => $n):
+        $c = count(array_filter($allRuns, fn($r) => ($r['niche'] ?? '') === $s)); ?>
+      <a href="index.php?view=research&niche=<?= urlencode($s) ?>"
+         class="btn <?= $s === $niche ? '' : 'sec' ?>" style="padding:4px 12px;font-size:13px">
+        <?= ih($n['label']) ?>
+        <span style="opacity:.7;font-size:11px"><?= $c ?>&nbsp;run<?= $c === 1 ? '' : 's' ?></span>
+      </a>
+    <?php endforeach; ?>
+  </div>
+</div></div>
 
 <div class="ic-note">
   <strong>Getting a list of best cities — what you do vs. what happens on its own:</strong>
@@ -350,12 +394,25 @@ $draft = infra_research_load_draft($niche) ?? [];
       on the <a href="index.php?view=cities">Cities/Niche</a> tab first (same credentials, reused here).<?php endif; ?>
   </p>
   <p style="margin:10px 0 0">
-    <strong>Two limits worth knowing up front:</strong> one run can't cover the full population range — to
+    <strong>Four limits worth knowing up front:</strong> one run can't cover the full population range — to
     span, say, 8k–1M+, run the tool twice (once each side of a cutoff) and pick between the two downloads;
-    there's no automatic merge, ask if you want one combined ranked list. And <strong>scores aren't
+    there's no automatic merge, ask if you want one combined ranked list. <strong>Scores aren't
     comparable across separate runs</strong> — each run's score is normalized only against its own candidate
     pool, so Run A's "B" grade and Run B's "B" grade don't mean the same thing. A real merge recomputes
-    scores across the combined set; two separate downloads do not.
+    scores across the combined set; two separate downloads do not. <strong>If two runs being merged used
+    different providers</strong> (one Ahrefs, one DataForSEO — e.g. because Ahrefs ran out of API units
+    mid-niche), merging them as-is skews the result: DataForSEO reports roughly 3× the search volume of
+    Ahrefs for the same real searches, so cities from the DataForSEO-sourced run score artificially higher
+    on demand, not because they're better. A real merge across mixed providers needs that volume rescaled
+    to one consistent basis first, not just combined and re-scored as-is. And <strong>the Score/SEO
+    Difficulty only measure competition for this run's own keyword patterns</strong> (typically 2-3 generic
+    head terms, e.g. "appliance repair {city}") — they never test the long-tail brand/model-specific pages
+    (Sub-Zero refrigerator repair, KitchenAid oven repair, etc.) that make up most of a real site's page
+    inventory. That cuts both ways and roughly evenly across city sizes: the generic head term may be
+    harder to win in a big metro than Score fully captures (map pack / national brands dominate there more
+    than an organic-only check sees), but a national competitor rarely has a dedicated long-tail page
+    either, in a small town or a big one — so Score understates long-tail upside everywhere, not
+    specifically in big or small cities. Treat it as "can I win the obvious term," not the full picture.
   </p>
 </div>
 
@@ -424,6 +481,182 @@ $draft = infra_research_load_draft($niche) ?? [];
     <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
     <input type="hidden" name="niche" value="<?= ih($niche) ?>">
     <div class="ic-card"><div class="body" style="display:flex;flex-direction:column;gap:14px">
+
+      <?php if ($niche === 'appliance'): ?>
+      <div class="ic-note">
+        <strong style="font-size:15px">Appliance-specific notes</strong>
+        <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
+          <strong>Brand push:</strong> affluent owners repair rather than replace — Sub-Zero, Wolf, Thermador,
+          Viking, and Miele pages are worth extra effort in this niche's high-income markets specifically.
+        </p>
+        <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
+          <strong>Tiny-sample standouts from the real merged run</strong> — the 5 buckets too thin to be a
+          repeatable strategy (1–7 cities each), but each one is a real, named, individually-checkable city,
+          not a statistical pattern. Score already factors in real competition.
+        </p>
+        <div style="overflow-x:auto">
+          <table style="width:100%;border-collapse:collapse;font-size:12.5px">
+            <thead>
+              <tr style="background:#f9fafb;text-align:left">
+                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Bucket</th>
+                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">City</th>
+                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Population</th>
+                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Income</th>
+                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Score</th>
+                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Volume/mo</th>
+              </tr>
+            </thead>
+            <tbody style="color:#374151">
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6" rowspan="1">Good × 1M+</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Diego, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,404,452</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$104,321</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.068</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,220</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Great × 400k–1M</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Jose, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">997,368</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$141,565</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.079</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,930</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Francisco, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">827,526</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$141,446</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.875</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">870</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Seattle, WA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">780,995</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$121,984</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.725</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">920</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Great × 200k–400k</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Frisco, TX</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">235,208</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$146,158</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.16</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">770</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Irvine, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">318,683</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$129,647</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.094</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">190</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fremont, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">228,192</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$176,350</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.972</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">390</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Gilbert, AZ</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">288,790</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$121,351</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.656</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">690</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">McKinney, TX</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">227,526</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$120,273</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.513</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,250</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Santa Clarita, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">229,159</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$119,926</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.38</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">640</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">OK × 1M+</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Phoenix, AZ</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,673,164</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$77,041</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><strong>1.215</strong></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,060</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Los Angeles, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">3,878,704</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$80,366</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.17</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,730</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Chicago, IL</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,721,308</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$75,134</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.898</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><strong>4,190</strong></td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Dallas, TX</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,326,087</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$67,760</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.759</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,830</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">New York, NY</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">8,478,072</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$79,713</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.6</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">730</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fort Worth, TX</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,008,106</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$76,602</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.552</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,210</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Jacksonville, FL</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,009,833</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$66,981</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.485</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,810</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Good × 400k–1M</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Virginia Beach, VA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">454,808</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$90,685</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.946</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,270</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Austin, TX</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">993,588</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$91,461</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.89</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,890</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Boston, MA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">673,458</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$94,755</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.758</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">690</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Denver, CO</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">729,019</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$91,681</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.643</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,750</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Oakland, CA</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">443,554</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$97,369</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.642</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">400</td></tr>
+              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Washington, DC</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">702,250</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$106,287</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.358</td>
+                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">390</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:12px;line-height:1.5;color:#6b7280;margin:8px 0 0">
+          Phoenix (score 1.215) is the single highest-scoring city across all 2,185 scored appliance
+          candidates — in the "OK" income tier, not "Great," reinforcing that income tier alone
+          undersells it. Pulled from run <code>appliance-20261026-152705-merged</code>; the full real
+          bucketed list (1,208 cities) is in Downloads for Scott as
+          <code>appliance-city-income-buckets-2026-10-26.xlsx</code>.
+        </p>
+      </div>
+      <?php endif; ?>
 
       <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
         <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
