@@ -335,12 +335,12 @@ function crawl_audit_latest(int $days = 7, ?array $scope = null): array
  * panel fetches this only once the <details> is opened) instead of shipping every
  * row's markup on every page load. Same markup the panel used to render inline.
  */
-function crawl_audit_render_rows(array $rows): string
+function crawl_audit_render_rows(array $rows, array $cityInfo = []): string
 {
     ob_start(); ?>
         <?php foreach ($rows as $r): ?>
             <tr class="<?= !$r['collected'] ? 'fa-row-dim' : '' ?>">
-                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a></td>
+                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a><?= ms_fleet_city_subline($r['domain'], $cityInfo) ?></td>
                 <td><?= (int) $r['hits'] ?></td>
                 <td><?= (int) $r['urls'] ?></td>
                 <td><?= (int) $r['s200'] ?></td>

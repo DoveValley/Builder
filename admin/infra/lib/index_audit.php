@@ -328,7 +328,7 @@ function index_audit_latest(?array $scope = null): array
  * The per-domain table body, fetched on demand when the <details> is opened rather
  * than shipped on every page load. Same markup and sort the panel used to render inline.
  */
-function index_audit_render_rows(array $rows): string
+function index_audit_render_rows(array $rows, array $cityInfo = []): string
 {
     usort($rows, fn($a, $b) => $b['indexed'] <=> $a['indexed']);
     ob_start(); ?>
@@ -336,7 +336,7 @@ function index_audit_render_rows(array $rows): string
             $pct = ($r['indexed'] >= 0 && $r['built'] > 0) ? round($r['indexed'] / $r['built'] * 100) . '%' : '—';
         ?>
             <tr>
-                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a></td>
+                <td><a href="https://<?= h($r['domain']) ?>/" target="_blank" rel="noopener"><?= h($r['domain']) ?></a><?= ms_fleet_city_subline($r['domain'], $cityInfo) ?></td>
                 <td>
                     <?php if ($r['indexed'] < 0): ?>
                         <span class="fa-warn" title="<?= h($r['note']) ?>">not measured</span>

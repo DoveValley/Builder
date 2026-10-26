@@ -11,6 +11,8 @@
  * ~1 request/second. Both are honored here.
  */
 
+require_once __DIR__ . '/params.php'; // ms_parse_csv(), used by ms_fleet_domain_city_info()
+
 const MS_GEOCODE_ENDPOINT   = 'https://nominatim.openstreetmap.org/search';
 const MS_GEOCODE_USER_AGENT = 'SiteFactory-Geocoder/1.0 (multisite city coordinates)';
 
@@ -146,6 +148,72 @@ function ms_nearest_major_city(float $lat, float $lng, string $excludeCity = '',
     }
     if ($best === null) return null;
     return ['city' => $best['city'], 'state' => $best['state'] ?? '', 'SS' => $best['SS'] ?? '', 'miles' => round($bestMiles)];
+}
+
+/**
+ * Fleet-wide domain -> {city, pop, nm_city} map. Batch Simple (admin/rollout.php)
+ * already shows "(City, Population, NMCity=...)" under a domain's name, but it's
+ * scoped to one batch at a time, joining that one params.csv to that one master's
+ * cities.json (see rollout_rows in admin/multisite_api.php). The fleet-wide reporting
+ * tables (crawl/index/rank/calls audits) have no single batch/master of their own —
+ * they list domains across every niche and batch — so this does the same per-batch
+ * join across ALL of them at once and merges the results into one lookup by domain.
+ */
+function ms_fleet_domain_city_info(): array {
+    static $cache = null;
+    if ($cache !== null) return $cache;
+    $out = [];
+    foreach (glob(BASE_DIR . '/sites/*/batches/*/params.csv') ?: [] as $csvPath) {
+        $masterId = basename(dirname($csvPath, 3));
+        $cities = json_decode((string) @file_get_contents(BASE_DIR . '/sites/' . $masterId . '/data/cities.json'), true) ?: [];
+        $cityPop = []; $cityNM = [];
+        foreach ($cities as $c) {
+            if (!is_array($c)) continue;
+            $key = strtolower(trim((string) ($c['city'] ?? ''))) . '|' . strtolower(trim((string) ($c['SS'] ?? '')));
+            $cityPop[$key] = $c['population'] ?? null;
+            $lat = (float) ($c['lat'] ?? 0); $lng = (float) ($c['lng'] ?? 0);
+            if ($lat !== 0.0 && $lng !== 0.0) {
+                $nm = ms_nearest_major_city($lat, $lng, (string) ($c['city'] ?? ''), (string) ($c['SS'] ?? ''));
+                if ($nm !== null) $cityNM[$key] = $nm['city'] . ', ' . $nm['SS'] . ' (' . $nm['miles'] . ' mi)';
+            }
+        }
+        // First batch to mention a domain wins — a domain only ever lives in one
+        // batch in practice, but a collision should not overwrite a found answer
+        // with a blank one.
+        foreach ((ms_parse_csv($csvPath)['rows'] ?? []) as $t) {
+            $dom = strtolower(trim((string) ($t['domain'] ?? '')));
+            if ($dom === '' || isset($out[$dom])) continue;
+            $city = trim((string) ($t['city'] ?? ''));
+            $ss   = trim((string) ($t['SS'] ?? ''));
+            $key  = strtolower($city) . '|' . strtolower($ss);
+            $out[$dom] = [
+                'city'    => $city !== '' ? $city . ($ss !== '' ? ', ' . $ss : '') : '',
+                'pop'     => $cityPop[$key] ?? null,
+                'nm_city' => $cityNM[$key] ?? '',
+            ];
+        }
+    }
+    return $cache = $out;
+}
+
+/**
+ * The same sub-line markup as Batch Simple's JS popColor()/city renderer, as a PHP
+ * helper so the fleet reporting tables (plain server-rendered HTML, not a JS table)
+ * can show it under a domain's name too. Empty string when there's nothing to show.
+ */
+function ms_fleet_city_subline(string $domain, array $cityInfo): string {
+    $info = $cityInfo[strtolower(trim($domain))] ?? null;
+    if (!$info || (empty($info['pop']) && $info['nm_city'] === '')) return '';
+    $cityOnly = explode(',', (string) $info['city'])[0];
+    $bits = [h($cityOnly)];
+    if (!empty($info['pop'])) {
+        $pop = (int) $info['pop'];
+        $color = $pop >= 50000 ? '#16a34a' : ($pop >= 35000 ? '#ca8a04' : '#dc2626');
+        $bits[] = '<span style="color:' . $color . '">' . number_format($pop) . '</span>';
+    }
+    $line = implode(', ', $bits);
+    if ($info['nm_city'] !== '') $line .= ', NMCity=' . h($info['nm_city']);
+    return '<div class="fa-mute" style="font-size:11px">(' . $line . ')</div>';
 }
 
 /**

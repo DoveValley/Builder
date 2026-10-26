@@ -104,24 +104,26 @@ switch ($action) {
         // has no case here on purpose: it is never scoped, see infra_audit_scope()'s
         // own docblock for why.
         require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/../includes/multisite/geocode.php'; // ms_fleet_domain_city_info/ms_fleet_city_subline
         $scope = infra_audit_scope((string) ($_GET['faniche'] ?? ''), (string) ($_GET['fabatch'] ?? ''));
+        $cityInfo = ms_fleet_domain_city_info();
         switch ($which) {
             case 'crawl':
                 require_once __DIR__ . '/infra/lib/crawl_audit.php';
-                $html = crawl_audit_render_rows(crawl_audit_latest((int) ($_GET['days'] ?? 7), $scope)['rows']);
+                $html = crawl_audit_render_rows(crawl_audit_latest((int) ($_GET['days'] ?? 7), $scope)['rows'], $cityInfo);
                 break;
             case 'index':
                 require_once __DIR__ . '/infra/lib/index_audit.php';
-                $html = index_audit_render_rows(index_audit_latest($scope)['rows']);
+                $html = index_audit_render_rows(index_audit_latest($scope)['rows'], $cityInfo);
                 break;
             case 'rank':
                 require_once __DIR__ . '/infra/lib/rank_audit.php';
                 require_once __DIR__ . '/infra/lib/audit_settings.php';
-                $html = rank_audit_render_rows(rank_audit_latest($scope)['domains'], (int) infra_audit_setting('too_new_days'));
+                $html = rank_audit_render_rows(rank_audit_latest($scope)['domains'], (int) infra_audit_setting('too_new_days'), $cityInfo);
                 break;
             case 'calls':
                 require_once __DIR__ . '/infra/lib/calls_audit.php';
-                $html = calls_audit_render_rows(calls_audit_latest(30, $scope)['domains']);
+                $html = calls_audit_render_rows(calls_audit_latest(30, $scope)['domains'], $cityInfo);
                 break;
             default:
                 http_response_code(400); echo json_encode(['error' => 'No per-domain table for this audit.']); exit;

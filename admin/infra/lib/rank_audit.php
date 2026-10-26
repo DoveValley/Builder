@@ -408,13 +408,13 @@ function rank_audit_latest(?array $scope = null): array
  * The per-site table body, fetched on demand when the <details> is opened rather
  * than shipped on every page load. Same markup the panel used to render inline.
  */
-function rank_audit_render_rows(array $domains, int $tooNewDays): string
+function rank_audit_render_rows(array $domains, int $tooNewDays, array $cityInfo = []): string
 {
     ob_start(); ?>
         <?php foreach ($domains as $d):
             $tooNew = $d['age'] >= 0 && $d['age'] < $tooNewDays; ?>
             <tr class="<?= $tooNew ? 'fa-dim' : '' ?>">
-                <td><a href="https://<?= h($d['domain']) ?>/" target="_blank" rel="noopener"><?= h($d['domain']) ?></a></td>
+                <td><a href="https://<?= h($d['domain']) ?>/" target="_blank" rel="noopener"><?= h($d['domain']) ?></a><?= ms_fleet_city_subline($d['domain'], $cityInfo) ?></td>
                 <td><strong><?= $d['best'] ?: '—' ?></strong></td>
                 <td class="<?= $d['top10'] ? 'fa-good' : '' ?>"><?= (int) $d['top10'] ?></td>
                 <td><?= (int) $d['top100'] ?></td>

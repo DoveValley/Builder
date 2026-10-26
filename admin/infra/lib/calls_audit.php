@@ -245,12 +245,12 @@ function calls_audit_latest(int $days = 30, ?array $scope = null): array
 }
 
 /** The per-domain table body, fetched on demand like every other audit's <details>. */
-function calls_audit_render_rows(array $domains): string
+function calls_audit_render_rows(array $domains, array $cityInfo = []): string
 {
     ob_start(); ?>
         <?php foreach ($domains as $d): ?>
             <tr>
-                <td><a href="https://<?= h($d['domain']) ?>/" target="_blank" rel="noopener"><?= h($d['domain']) ?></a></td>
+                <td><a href="https://<?= h($d['domain']) ?>/" target="_blank" rel="noopener"><?= h($d['domain']) ?></a><?= ms_fleet_city_subline($d['domain'], $cityInfo) ?></td>
                 <td><?= (int) $d['calls'] ?></td>
                 <td class="<?= $d['engaged'] ? 'fa-good' : '' ?>"><?= (int) $d['engaged'] ?></td>
                 <td><?= h($d['last_call_at']) ?></td>
