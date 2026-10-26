@@ -167,9 +167,16 @@ function infra_census_backfill(?callable $onState = null): array
     foreach (infra_census_state_fips() as $stateName => $fips) {
         $localStmt = $db->prepare('SELECT id, city FROM cities WHERE state = ?');
         $localStmt->execute([$stateName]);
+        // Keyed by array of rows, not one row — `cities` has a handful of genuine
+        // duplicate entries (e.g. reno-tx / reno-tx-5829, both "Reno" in Texas).
+        // A single-row dict here silently dropped whichever id lost the last-write,
+        // before it was ever even attempted against Census — invisible in both the
+        // matched AND unmatched counts. Every id sharing a normalized name now gets
+        // the same Census row (they're the same real place) or the same unmatched
+        // outcome — nothing is silently discarded.
         $localByNorm = [];
         foreach ($localStmt as $row) {
-            $localByNorm[infra_census_normalize_local($row['city'])] = $row;
+            $localByNorm[infra_census_normalize_local($row['city'])][] = $row;
         }
         if (!$localByNorm) continue; // no cities from this state in our table at all
 
@@ -194,18 +201,25 @@ function infra_census_backfill(?callable $onState = null): array
                  housing_units_total = excluded.housing_units_total, census_place_name = excluded.census_place_name,
                  updated_at = excluded.updated_at'
         );
-        foreach ($localByNorm as $norm => $cityRow) {
-            if (!isset($censusByNorm[$norm])) { $report['unmatched'][] = $cityRow['id']; continue; }
+        $stTotal = 0;
+        foreach ($localByNorm as $norm => $cityRows) {
+            $stTotal += count($cityRows);
+            if (!isset($censusByNorm[$norm])) {
+                foreach ($cityRows as $cityRow) $report['unmatched'][] = $cityRow['id'];
+                continue;
+            }
             $d = $censusByNorm[$norm];
-            $upsert->execute([
-                $cityRow['id'], $d['income_median'], $d['homeownership_pct'], $d['home_value_median'],
-                $d['year_built_median'], $d['housing_units_total'], $d['name'], infra_now(),
-            ]);
-            $stMatched++;
+            foreach ($cityRows as $cityRow) {
+                $upsert->execute([
+                    $cityRow['id'], $d['income_median'], $d['homeownership_pct'], $d['home_value_median'],
+                    $d['year_built_median'], $d['housing_units_total'], $d['name'], infra_now(),
+                ]);
+                $stMatched++;
+            }
         }
         $report['matched']     += $stMatched;
-        $report['total_local'] += count($localByNorm);
-        if ($onState) $onState($stateName, $stMatched, count($localByNorm));
+        $report['total_local'] += $stTotal;
+        if ($onState) $onState($stateName, $stMatched, $stTotal);
     }
     return $report;
 }
