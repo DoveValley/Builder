@@ -31,6 +31,17 @@ if (!$active && $nicheRuns && ($nicheRuns[0]['phase'] ?? '') !== 'done') {
 $kwOn  = infra_kw_configured();
 $tpl   = $niches[$niche]['template'] ?? '';
 $draft = infra_research_load_draft($niche) ?? [];
+$elocalLibrary = $niche === 'appliance' ? infra_elocal_library_load($niche) : null;
+
+// Data 3's run picker + floor-suggestion — only loads a completed run's full
+// candidates (needed for the floor suggestion) when there's one to suggest from.
+$bucketCompletedRuns = array_values(array_filter($nicheRuns, fn($r) => ($r['phase'] ?? '') === 'done'));
+$bucketDefaultRunId = $bucketCompletedRuns[0]['id'] ?? null;
+$bucketSuggestedFloor = 15000;
+if ($niche === 'appliance' && $bucketDefaultRunId) {
+    $bucketDefaultRun = infra_research_load_run($bucketDefaultRunId);
+    if ($bucketDefaultRun) $bucketSuggestedFloor = infra_city_bucket_suggest_floor($bucketDefaultRun['candidates']);
+}
 ?>
 
 <div style="margin-bottom:10px">
@@ -416,6 +427,83 @@ $draft = infra_research_load_draft($niche) ?? [];
   </p>
 </div>
 
+<?php if ($niche === 'appliance'): ?>
+<?php /* Standalone, NOT inside the Data 2 form on purpose (fixed 2026-10-26): the
+         per-row Select/Delete buttons each need their own <form> — nested inside
+         another <form>, browsers silently drop the inner one and those buttons end
+         up submitting to the OUTER form instead (verified against the real parsed
+         DOM, not assumed). Living here also means the library stays visible even
+         while a run is actively in progress, instead of disappearing along with the
+         "Start a new run" form. */ ?>
+<div class="ic-card" style="margin-bottom:14px"><div class="body">
+  <h2 style="margin-top:0">Data 1 — eLocal</h2>
+  <strong style="font-size:13px">File library</strong>
+  <div style="font-size:12px;color:#6b7280;margin:4px 0 8px">
+    Upload as many eLocal exports as you want, then pick which one is active — Select copies it
+    into the slot Save/Run actually reads, so only one is ever "live" at a time.
+  </div>
+  <?php if ($elocalLibrary['files']): ?>
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px;max-width:720px">
+      <thead>
+        <tr style="background:#f9fafb;text-align:left">
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb"></th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">File</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Size</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Uploaded</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb"></th>
+        </tr>
+      </thead>
+      <tbody style="color:#374151">
+        <?php foreach ($elocalLibrary['files'] as $f): $isSel = $f['id'] === $elocalLibrary['selected_id']; ?>
+          <tr>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">
+              <?= $isSel ? '<span class="badge b-ok">selected</span>' : '' ?></td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><?= ih($f['original_name']) ?></td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><?= number_format($f['size'] / 1024, 0) ?> KB</td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><?= ih(substr($f['uploaded_at'], 0, 10)) ?></td>
+            <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6;white-space:nowrap">
+              <?php if (!$isSel): ?>
+                <form method="post" action="actions/elocal_library_save.php" style="display:inline">
+                  <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                  <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+                  <input type="hidden" name="action" value="select">
+                  <input type="hidden" name="id" value="<?= ih($f['id']) ?>">
+                  <button class="btn sec" style="padding:2px 8px;font-size:11px" type="submit">Select</button>
+                </form>
+              <?php endif; ?>
+              <a class="btn sec" style="padding:2px 8px;font-size:11px"
+                 href="actions/elocal_library_download.php?niche=<?= urlencode($niche) ?>&id=<?= urlencode($f['id']) ?>">Download</a>
+              <form method="post" action="actions/elocal_library_save.php" style="display:inline"
+                    onsubmit="return confirm('Remove &quot;<?= ih(addslashes($f['original_name'])) ?>&quot; from the library?')">
+                <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+                <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="id" value="<?= ih($f['id']) ?>">
+                <button class="btn sec" style="padding:2px 8px;font-size:11px" type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  <?php else: ?>
+    <p style="font-size:12px;color:#9ca3af">No files in the library yet.</p>
+  <?php endif; ?>
+  <form method="post" action="actions/elocal_library_save.php" enctype="multipart/form-data" style="margin-top:10px">
+    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+    <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+    <input type="hidden" name="action" value="upload">
+    <input type="file" name="elocal_file" accept=".csv,.tsv,.txt,.xlsx" style="padding:5px 0">
+    <button class="btn sec" type="submit">Add to library</button>
+  </form>
+  <?php if (!empty($draft['elocal_csv_name'])): ?>
+    <div style="font-size:12px;color:#065f46;margin-top:8px">
+      <strong>Currently held: <?= ih($draft['elocal_csv_name']) ?></strong> — used automatically on Save/Run.
+    </div>
+  <?php endif; ?>
+</div></div>
+<?php endif; ?>
+
 <?php if ($active): $phase = $active['phase'];
     $numPatterns = count($active['patterns']);
     $totalCities = count($active['candidates']);
@@ -483,202 +571,43 @@ $draft = infra_research_load_draft($niche) ?? [];
     <div class="ic-card"><div class="body" style="display:flex;flex-direction:column;gap:14px">
 
       <?php if ($niche === 'appliance'): ?>
-      <div class="ic-note">
-        <strong style="font-size:15px">Appliance-specific notes</strong>
-        <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
-          <strong>Brand push:</strong> affluent owners repair rather than replace — Sub-Zero, Wolf, Thermador,
-          Viking, and Miele pages are worth extra effort in this niche's high-income markets specifically.
-        </p>
-        <p style="font-size:13px;line-height:1.5;color:#374151;margin:10px 0 0">
-          <strong>Tiny-sample standouts from the real merged run</strong> — the 5 buckets too thin to be a
-          repeatable strategy (1–7 cities each), but each one is a real, named, individually-checkable city,
-          not a statistical pattern. Score already factors in real competition.
-        </p>
-        <div style="overflow-x:auto">
-          <table style="width:100%;border-collapse:collapse;font-size:12.5px">
-            <thead>
-              <tr style="background:#f9fafb;text-align:left">
-                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Bucket</th>
-                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">City</th>
-                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Population</th>
-                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Income</th>
-                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Score</th>
-                <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Volume/mo</th>
-              </tr>
-            </thead>
-            <tbody style="color:#374151">
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6" rowspan="1">Good × 1M+</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Diego, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,404,452</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$104,321</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.068</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,220</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Great × 400k–1M</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Jose, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">997,368</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$141,565</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.079</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,930</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Francisco, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">827,526</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$141,446</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.875</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">870</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Seattle, WA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">780,995</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$121,984</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.725</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">920</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Great × 200k–400k</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Frisco, TX</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">235,208</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$146,158</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.16</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">770</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Irvine, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">318,683</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$129,647</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.094</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">190</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fremont, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">228,192</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$176,350</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.972</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">390</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Gilbert, AZ</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">288,790</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$121,351</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.656</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">690</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">McKinney, TX</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">227,526</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$120,273</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.513</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,250</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Santa Clarita, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">229,159</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$119,926</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.38</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">640</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">OK × 1M+</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Phoenix, AZ</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,673,164</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$77,041</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><strong>1.215</strong></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,060</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Los Angeles, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">3,878,704</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$80,366</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.17</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,730</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Chicago, IL</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,721,308</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$75,134</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.898</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><strong>4,190</strong></td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Dallas, TX</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,326,087</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$67,760</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.759</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,830</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">New York, NY</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">8,478,072</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$79,713</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.6</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">730</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fort Worth, TX</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,008,106</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$76,602</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.552</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,210</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Jacksonville, FL</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,009,833</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$66,981</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.485</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,810</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Good × 400k–1M</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Virginia Beach, VA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">454,808</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$90,685</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.946</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,270</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Austin, TX</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">993,588</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$91,461</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.89</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,890</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Boston, MA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">673,458</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$94,755</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.758</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">690</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Denver, CO</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">729,019</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$91,681</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.643</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,750</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Oakland, CA</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">443,554</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$97,369</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.642</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">400</td></tr>
-              <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Washington, DC</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">702,250</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$106,287</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.358</td>
-                <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">390</td></tr>
-            </tbody>
-          </table>
+        <h2 style="margin:0">Data 2 — Volume Run</h2>
+        <div style="font-size:12px;color:#6b7280">
+          eLocal file management (upload / select / delete) lives in Data 1, above the niche tabs —
+          whatever's marked "selected" there is what Save/Run below actually reads.
+          <?php if (!empty($draft['elocal_csv_name'])): ?>
+            <br><strong style="color:#065f46">Currently held: <?= ih($draft['elocal_csv_name']) ?></strong>
+          <?php endif; ?>
         </div>
-        <p style="font-size:12px;line-height:1.5;color:#6b7280;margin:8px 0 0">
-          Phoenix (score 1.215) is the single highest-scoring city across all 2,185 scored appliance
-          candidates — in the "OK" income tier, not "Great," reinforcing that income tier alone
-          undersells it. Pulled from run <code>appliance-20261026-152705-merged</code>; the full real
-          bucketed list (1,208 cities) is in Downloads for Scott as
-          <code>appliance-city-income-buckets-2026-10-26.xlsx</code>.
-        </p>
-      </div>
-      <?php endif; ?>
+        <label style="font-size:12px">Or paste eLocal rows directly (optional, supplements the selected file)<br>
+          <textarea name="elocal_paste" rows="3" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace"
+                    placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea></label>
+        <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
+          <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
+            ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
+      <?php else: ?>
+        <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
+          <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
+            ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
 
-      <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
-        <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
-          ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
-
-      <div>
-        <label style="font-size:12px">eLocal buyer-coverage export<br>
-          <input type="file" name="elocal_csv" accept=".csv,.tsv,.txt,.xlsx" style="padding:5px 0"></label>
-        <?php if (!empty($draft['elocal_csv_name'])): ?>
-          <div style="font-size:12px;color:#065f46;margin-top:4px">
-            <strong>Currently held: <?= ih($draft['elocal_csv_name']) ?></strong> — used automatically on Save/Run
-            until you choose a different file above.
+        <div>
+          <label style="font-size:12px">eLocal buyer-coverage export<br>
+            <input type="file" name="elocal_csv" accept=".csv,.tsv,.txt,.xlsx" style="padding:5px 0"></label>
+          <?php if (!empty($draft['elocal_csv_name'])): ?>
+            <div style="font-size:12px;color:#065f46;margin-top:4px">
+              <strong>Currently held: <?= ih($draft['elocal_csv_name']) ?></strong> — used automatically on Save/Run
+              until you choose a different file above.
+            </div>
+          <?php endif; ?>
+          <div style="font-size:12px;color:#6b7280;margin-top:4px">.csv, .tsv, .txt, or a real .xlsx file
+            (first sheet only) — or paste rows below. Needs columns for city, state, buyer count, avg call
+            price (and optionally max price); header names are matched loosely (e.g. "SMB Buyers", "1P Avg $").
+            <?php if (($draft['elocal_paste'] ?? '') !== ''): ?><br><strong>Saved paste loaded below.</strong><?php endif; ?>
           </div>
-        <?php endif; ?>
-        <div style="font-size:12px;color:#6b7280;margin-top:4px">.csv, .tsv, .txt, or a real .xlsx file
-          (first sheet only) — or paste rows below. Needs columns for city, state, buyer count, avg call
-          price (and optionally max price); header names are matched loosely (e.g. "SMB Buyers", "1P Avg $").
-          <?php if (($draft['elocal_paste'] ?? '') !== ''): ?><br><strong>Saved paste loaded below.</strong><?php endif; ?>
+          <textarea name="elocal_paste" rows="4" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace;margin-top:6px"
+                    placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea>
         </div>
-        <textarea name="elocal_paste" rows="4" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace;margin-top:6px"
-                  placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea>
-      </div>
+      <?php endif; ?>
 
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <label style="font-size:12px">Population min<br><input name="pop_min" type="number" value="<?= ih($draft['pop_min'] ?? '30000') ?>" style="width:100px;padding:5px 8px"></label>
@@ -741,6 +670,262 @@ $draft = infra_research_load_draft($niche) ?? [];
       <?php endforeach; ?>
     </tbody></table>
   </div></div>
+<?php endif; ?>
+
+<?php if ($niche === 'appliance'): ?>
+<div class="ic-card" style="margin-top:14px"><div class="body">
+  <h2 style="margin-top:0">Data 3 — City Matrix &amp; Build Order</h2>
+
+  <?php if ($bucketCompletedRuns): ?>
+  <form method="post" action="actions/city_bucket_run.php" data-show-working="Working…"
+        style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px;margin-bottom:12px">
+    <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
+    <input type="hidden" name="niche" value="<?= ih($niche) ?>">
+    <label style="font-size:12px">Run<br>
+      <select name="run_id" style="padding:5px 8px;max-width:360px">
+        <?php foreach ($bucketCompletedRuns as $r): ?>
+          <option value="<?= ih($r['id']) ?>" <?= $r['id'] === $bucketDefaultRunId ? 'selected' : '' ?>>
+            <?= ih(substr($r['created_at'], 0, 16)) ?> — <?= (int) ($r['candidate_count'] ?? 0) ?> cities
+            (<?= ih($r['id']) ?>)</option>
+        <?php endforeach; ?>
+      </select></label>
+    <label style="font-size:12px">Population floor<br>
+      <input name="pop_floor" type="number" step="1000" value="<?= ih((string) $bucketSuggestedFloor) ?>"
+             style="width:100px;padding:5px 8px"></label>
+    <div>
+      <button class="btn" type="submit">Run Data 3</button>
+      <button type="button" onclick="document.getElementById('data3Info').showModal()"
+              style="border:1px solid #d1d5db;background:#fff;border-radius:50%;width:22px;height:22px;
+                     line-height:20px;text-align:center;cursor:pointer;font-size:12px;color:#6b7280;padding:0"
+              title="What does this do?">i</button>
+    </div>
+  </form>
+  <dialog id="data3Info" style="max-width:520px;width:92%;border:1px solid #d1d5db;border-radius:10px;padding:0">
+    <div style="padding:18px 20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <strong style="font-size:14px">What "Run Data 3" does</strong>
+        <button type="button" onclick="this.closest('dialog').close()"
+                style="border:none;background:none;font-size:18px;line-height:1;cursor:pointer;color:#6b7280">&times;</button>
+      </div>
+      <p style="font-size:13px;line-height:1.5;color:#374151;margin:0 0 8px">
+        Takes the selected completed Data 2 run and joins every one of its candidate cities against
+        Census City Data (median income, homeownership) — a local database lookup, no API cost. Buckets
+        each city by population band × income tier, computes a real Score-ranked Build Order per bucket
+        (not the theoretical income-first order), and writes a downloadable xlsx with a Read Me tab.
+      </p>
+      <p style="font-size:13px;line-height:1.5;color:#374151;margin:0 0 8px">
+        <strong>Population floor</strong> excludes cities below it entirely — some niches (water damage
+        restoration, mold, roofing) show near-zero real search volume below 75k population, so their
+        floor should be 75000, not 15000. The value shown is auto-suggested from this run's own real
+        volume data (checks the 15k–25k band specifically), but it's a judgment call, not a hard rule —
+        change it if you know better for this run.
+      </p>
+      <p style="font-size:13px;line-height:1.5;color:#374151;margin:0">
+        Safe to run as many times as you want — it never changes the underlying run, just reads it and
+        writes a new dated xlsx each time.
+      </p>
+    </div>
+  </dialog>
+  <?php else: ?>
+  <p style="font-size:13px;color:#9ca3af">No completed Data 2 run yet to bucket.</p>
+  <?php endif; ?>
+
+  <p style="font-size:13px;line-height:1.5;color:#374151">
+    The real output of Data 1 + Data 2, once a run is joined against City Data: every candidate city
+    bucketed by population band × income tier, with a Build Order number so the whole list sorts into
+    build-priority order with one click.
+  </p>
+
+  <?php $bucketHistory = infra_city_bucket_history_load($niche); ?>
+  <?php if ($bucketHistory): ?>
+    <h2 style="margin:14px 0 8px;font-size:15px">Past bucket runs — <?= ih($niches[$niche]['label']) ?></h2>
+    <table><thead><tr>
+        <th>When</th><th>Source run</th><th>Floor</th><th>Cities</th><th>File</th><th></th>
+      </tr></thead><tbody>
+      <?php foreach ($bucketHistory as $h): ?>
+        <tr>
+          <td><?= ih(substr($h['created_at'], 0, 16)) ?></td>
+          <td style="font-size:11px;color:#6b7280"><?= ih($h['source_run_id']) ?></td>
+          <td><?= number_format((int) $h['pop_floor']) ?></td>
+          <td><?= (int) $h['count'] ?></td>
+          <td><a href="/uploads/downloads/<?= rawurlencode($h['file']) ?>" download><?= ih($h['file']) ?></a></td>
+          <td><a class="btn sec" style="padding:2px 8px;font-size:11px" target="_blank"
+                 href="/uploads/downloads/<?= rawurlencode($h['file']) ?>">Open</a></td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody></table>
+  <?php else: ?>
+    <p style="font-size:13px;color:#9ca3af">No bucket runs yet — use "Run Data 3" above.</p>
+  <?php endif; ?>
+  <p style="font-size:13px;line-height:1.5;color:#374151;margin-top:10px">
+    <strong>Brand push:</strong> affluent owners repair rather than replace — Sub-Zero, Wolf, Thermador,
+    Viking, and Miele pages are worth extra effort in this niche's high-income markets specifically.
+  </p>
+  <p style="font-size:13px;line-height:1.5;color:#374151;margin-top:10px">
+    <strong>Tiny-sample standouts from the real merged run</strong> — the 5 buckets too thin to be a
+    repeatable strategy (1–7 cities each), but each one is a real, named, individually-checkable city,
+    not a statistical pattern. Score already factors in real competition.
+  </p>
+  <div style="overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;font-size:12.5px">
+      <thead>
+        <tr style="background:#f9fafb;text-align:left">
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">Bucket</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb">City</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Population</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Income</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Score</th>
+          <th style="padding:6px 8px;border-bottom:1px solid #e5e7eb;white-space:nowrap">Volume/mo</th>
+        </tr>
+      </thead>
+      <tbody style="color:#374151">
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6" rowspan="1">Good × 1M+</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Diego, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,404,452</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$104,321</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.068</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,220</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Great × 400k–1M</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Jose, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">997,368</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$141,565</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.079</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,930</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">San Francisco, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">827,526</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$141,446</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.875</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">870</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Seattle, WA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">780,995</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$121,984</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.725</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">920</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Great × 200k–400k</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Frisco, TX</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">235,208</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$146,158</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.16</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">770</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Irvine, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">318,683</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$129,647</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.094</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">190</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fremont, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">228,192</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$176,350</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.972</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">390</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Gilbert, AZ</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">288,790</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$121,351</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.656</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">690</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">McKinney, TX</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">227,526</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$120,273</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.513</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,250</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Santa Clarita, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">229,159</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$119,926</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.38</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">640</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">OK × 1M+</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Phoenix, AZ</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,673,164</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$77,041</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><strong>1.215</strong></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,060</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Los Angeles, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">3,878,704</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$80,366</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1.17</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,730</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Chicago, IL</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,721,308</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$75,134</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.898</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"><strong>4,190</strong></td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Dallas, TX</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,326,087</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$67,760</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.759</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,830</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">New York, NY</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">8,478,072</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$79,713</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.6</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">730</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Fort Worth, TX</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,008,106</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$76,602</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.552</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,210</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Jacksonville, FL</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,009,833</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$66,981</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.485</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,810</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Good × 400k–1M</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Virginia Beach, VA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">454,808</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$90,685</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.946</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">1,270</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Austin, TX</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">993,588</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$91,461</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.89</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,890</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Boston, MA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">673,458</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$94,755</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.758</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">690</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Denver, CO</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">729,019</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$91,681</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.643</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">2,750</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Oakland, CA</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">443,554</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$97,369</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.642</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">400</td></tr>
+        <tr><td style="padding:6px 8px;border-bottom:1px solid #f3f4f6"></td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">Washington, DC</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">702,250</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">$106,287</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">0.358</td>
+          <td style="padding:6px 8px;border-bottom:1px solid #f3f4f6">390</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px;line-height:1.5;color:#6b7280;margin:8px 0 0">
+    Phoenix (score 1.215) is the single highest-scoring city across all 2,185 scored appliance
+    candidates — in the "OK" income tier, not "Great," reinforcing that income tier alone
+    undersells it. Pulled from run <code>appliance-20261026-152705-merged</code>.
+  </p>
+</div></div>
 <?php endif; ?>
 
 <script>

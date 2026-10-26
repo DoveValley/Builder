@@ -18,6 +18,7 @@
 require_once __DIR__ . '/keywords.php';
 require_once __DIR__ . '/serp.php';
 require_once __DIR__ . '/cities.php';
+require_once __DIR__ . '/census.php';
 
 const INFRA_RESEARCH_TIME_BUDGET = 90;
 
@@ -974,6 +975,102 @@ function infra_research_persist_elocal_upload(string $niche, ?array $file): ?str
     return (string) ($file['name'] ?? 'uploaded.csv');
 }
 
+/* ---------------------------------------------------------------------------
+ * eLocal file LIBRARY — upload/keep several per niche, pick which one is
+ * active. Deliberately a thin layer ON TOP of the single held-file slot
+ * above, not a replacement for it: "select" just copies the chosen library
+ * file's bytes onto the existing canonical draft_elocal_path, so Run/Save/
+ * Start never need to change — they keep reading that one fixed path exactly
+ * as before. Appliance-only for now (2026-10-26), same rollout pattern as
+ * the theory content before it went universal.
+ * ------------------------------------------------------------------------- */
+
+function infra_elocal_library_dir(string $niche): string
+{
+    $safe = preg_replace('/[^a-z0-9_-]/i', '', $niche);
+    $dir = infra_research_dir() . '/drafts/elocal_library/' . $safe;
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return $dir;
+}
+
+function infra_elocal_library_manifest_path(string $niche): string
+{
+    $safe = preg_replace('/[^a-z0-9_-]/i', '', $niche);
+    return infra_research_dir() . '/drafts/elocal_library/' . $safe . '.json';
+}
+
+/** @return array{selected_id:?string,files:array} */
+function infra_elocal_library_load(string $niche): array
+{
+    $d = infra_load_json(infra_elocal_library_manifest_path($niche), []);
+    return ['selected_id' => $d['selected_id'] ?? null, 'files' => $d['files'] ?? []];
+}
+
+function infra_elocal_library_save(string $niche, array $data): void
+{
+    file_put_contents(infra_elocal_library_manifest_path($niche), json_encode($data, JSON_PRETTY_PRINT));
+}
+
+/** Stores a new upload in the library (does NOT select it — a separate, explicit step). */
+function infra_elocal_library_add(string $niche, ?array $file): ?array
+{
+    if (!$file || empty($file['tmp_name']) || !is_uploaded_file($file['tmp_name'])
+        || ($file['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK || ($file['size'] ?? 0) > 4 * 1024 * 1024) {
+        return null;
+    }
+    $id = bin2hex(random_bytes(8));
+    $origName = (string) ($file['name'] ?? 'uploaded.csv');
+    $storedName = $id . '_' . preg_replace('/[^A-Za-z0-9 ._-]/', '', $origName);
+    $dest = infra_elocal_library_dir($niche) . '/' . $storedName;
+    if (!@move_uploaded_file($file['tmp_name'], $dest)) return null;
+
+    $entry = [
+        'id' => $id, 'original_name' => $origName, 'stored_name' => $storedName,
+        'uploaded_at' => infra_now(), 'size' => (int) ($file['size'] ?? filesize($dest)),
+    ];
+    $lib = infra_elocal_library_load($niche);
+    $lib['files'][] = $entry;
+    infra_elocal_library_save($niche, $lib);
+    return $entry;
+}
+
+/** Removes a library entry's file + manifest row. Leaves the canonical held file alone
+ *  even if this was the selected one — deleting a library entry must never silently
+ *  delete the data a run is actively configured to use. */
+function infra_elocal_library_delete(string $niche, string $id): bool
+{
+    $lib = infra_elocal_library_load($niche);
+    $found = null;
+    foreach ($lib['files'] as $f) if ($f['id'] === $id) { $found = $f; break; }
+    if (!$found) return false;
+    @unlink(infra_elocal_library_dir($niche) . '/' . $found['stored_name']);
+    $lib['files'] = array_values(array_filter($lib['files'], fn($f) => $f['id'] !== $id));
+    if ($lib['selected_id'] === $id) $lib['selected_id'] = null;
+    infra_elocal_library_save($niche, $lib);
+    return true;
+}
+
+/** Copies a library file's bytes onto the canonical held-file slot and marks it selected —
+ *  this is the only write path that actually changes what Run/Save/Start will use. */
+function infra_elocal_library_select(string $niche, string $id): bool
+{
+    $lib = infra_elocal_library_load($niche);
+    $found = null;
+    foreach ($lib['files'] as $f) if ($f['id'] === $id) { $found = $f; break; }
+    if (!$found) return false;
+
+    $src = infra_elocal_library_dir($niche) . '/' . $found['stored_name'];
+    if (!is_file($src) || !@copy($src, infra_research_draft_elocal_path($niche))) return false;
+
+    $lib['selected_id'] = $id;
+    infra_elocal_library_save($niche, $lib);
+
+    $draft = infra_research_load_draft($niche) ?? [];
+    $draft['elocal_csv_name'] = $found['original_name'];
+    infra_research_save_draft($niche, $draft);
+    return true;
+}
+
 /**
  * All runs, newest first, WITH their full `candidates` payload intact.
  *
@@ -1320,4 +1417,199 @@ function infra_research_write_xlsx(string $niche, array $picked, array $allScore
         'Method' => $method,
     ]);
     return $ok ? $fname : null;
+}
+
+/* ---------------------------------------------------------------------------
+ * City Bucket Run — Data 3's "Run Data 3" button. Joins one completed run's
+ * candidates against Census City Data, buckets by population band x income
+ * tier, computes a real (not theoretical) per-bucket Score order, and writes
+ * the same xlsx format the one-off merge scripts produced by hand on
+ * 2026-10-26 (see project_current_state.md v313) — this is that logic turned
+ * into a real, reusable, panel-triggered function instead of a throwaway
+ * script. No API cost: City Data is a local SQLite join, not a live call.
+ * ------------------------------------------------------------------------- */
+
+const INFRA_CITY_BUCKET_BANDS = [
+    '15k-25k'   => [15000, 25000],
+    '25k-75k'   => [25000, 75000],
+    '75k-200k'  => [75000, 200000],
+    '200k-400k' => [200000, 400000],
+    '400k-1M'   => [400000, 1000000],
+    '1M+'       => [1000000, PHP_INT_MAX],
+];
+
+function infra_city_bucket_band_of(int $pop): ?string
+{
+    foreach (INFRA_CITY_BUCKET_BANDS as $label => [$lo, $hi]) if ($pop >= $lo && $pop < $hi) return $label;
+    return null;
+}
+
+function infra_city_bucket_median(array $a): float
+{
+    sort($a);
+    $n = count($a);
+    if (!$n) return 0.0;
+    $m = intdiv($n, 2);
+    return $n % 2 ? $a[$m] : ($a[$m - 1] + $a[$m]) / 2;
+}
+
+/**
+ * Runs the same per-band real search-volume check done by hand for every niche
+ * in the 2026-10-26 session (see project_current_state.md v313, "step 0") —
+ * returns the lowest population floor where median volume isn't near-zero.
+ * This is a judgment call, not a hard rule (the original per-niche calls
+ * weighed median AND %-at-zero together), so it's a DEFAULT for the input
+ * field, not a silent decision — always shown and editable next to the button.
+ */
+function infra_city_bucket_suggest_floor(array $candidates): int
+{
+    $vols15to25 = [];
+    foreach ($candidates as $c) {
+        if (infra_city_bucket_band_of((int) ($c['population'] ?? 0)) === '15k-25k') {
+            $vols15to25[] = (float) ($c['volume'] ?? 0);
+        }
+    }
+    // Matches every real case found this session (v313): a niche's 15k-25k band either
+    // has real median volume (appliance/plumbing/pest/electrician/hvac/garage-door-repair,
+    // all 15k) or comes back at literal zero (restoration/mold/roofing, all 75k) — no
+    // niche landed in between, so this two-way split is what's actually been observed,
+    // not a guess at a third option.
+    return ($vols15to25 && infra_city_bucket_median($vols15to25) > 0) ? 15000 : 75000;
+}
+
+/** Where a niche's bucket-run history lives — same idea as Past Runs for City Research
+ *  itself, so "Run Data 3" has its own visible history instead of overwriting one file. */
+function infra_city_bucket_history_path(string $niche): string
+{
+    $dir = infra_research_dir() . '/city_bucket_runs';
+    if (!is_dir($dir)) mkdir($dir, 0775, true);
+    return $dir . '/' . preg_replace('/[^a-z0-9_-]/i', '', $niche) . '.json';
+}
+
+/** @return array newest first */
+function infra_city_bucket_history_load(string $niche): array
+{
+    $rows = infra_load_json(infra_city_bucket_history_path($niche), []);
+    usort($rows, fn($a, $b) => strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''));
+    return $rows;
+}
+
+function infra_city_bucket_history_add(string $niche, array $entry): void
+{
+    $rows = infra_load_json(infra_city_bucket_history_path($niche), []);
+    $rows[] = $entry;
+    file_put_contents(infra_city_bucket_history_path($niche), json_encode($rows, JSON_PRETTY_PRINT));
+}
+
+/**
+ * @return array{ok:bool,msg:string,file:?string,count:?int}
+ */
+function infra_city_bucket_run(string $niche, string $runId, int $popFloor): array
+{
+    $run = infra_research_load_run($runId);
+    if (!$run || $run['niche'] !== $niche) return ['ok' => false, 'msg' => 'Run not found for this niche.', 'file' => null, 'count' => null];
+    if ($run['phase'] !== 'done') return ['ok' => false, 'msg' => 'That run is not finished yet.', 'file' => null, 'count' => null];
+
+    $db = infra_state_db();
+    $out = [];
+    $belowBand = 0; $belowIncome = 0; $noIncome = 0;
+    foreach ($run['candidates'] as $id => $c) {
+        $pop = (int) $c['population'];
+        if ($pop < $popFloor) { $belowBand++; continue; }
+        $band = infra_city_bucket_band_of($pop);
+        if ($band === null) { $belowBand++; continue; }
+
+        $st = $db->prepare('SELECT income_median, homeownership_pct FROM city_data WHERE city_id = ?');
+        $st->execute([$id]);
+        $row = $st->fetch(PDO::FETCH_ASSOC);
+        if (!$row || $row['income_median'] === null) { $noIncome++; continue; }
+
+        $income = (int) $row['income_median'];
+        if ($income >= 110000) $tier = 'Great';
+        elseif ($income >= 90000) $tier = 'Good';
+        elseif ($income >= 65000) $tier = 'OK';
+        else { $belowIncome++; continue; }
+
+        $seoDifficulty = round(($c['local_competitors'] ?? 0) + ($c['national_brands'] ?? 0), 1);
+        $out[] = [
+            null, $band, $tier, (string) $c['city'], (string) $c['ss'], $pop, $income,
+            $row['homeownership_pct'] !== null ? (float) $row['homeownership_pct'] : null,
+            (int) round($c['volume'] ?? 0), $seoDifficulty,
+            (float) ($c['buyers'] ?? 0), (float) ($c['price_avg'] ?? 0),
+            round((float) ($c['score'] ?? 0), 3), (string) ($c['grade'] ?? ''),
+        ];
+    }
+    if (!$out) return ['ok' => false, 'msg' => 'Nothing survived the population/income filters — check the floor.', 'file' => null, 'count' => null];
+
+    // Real per-bucket order (median Score, not the theoretical income-first heuristic).
+    $buckets = [];
+    foreach ($out as $r) $buckets["{$r[2]}|{$r[1]}"][] = $r[12];
+    $order = [];
+    foreach ($buckets as $key => $scores) {
+        [$tier, $band] = explode('|', $key);
+        $order[] = ['label' => "$tier x $band", 'n' => count($scores), 'med_score' => round(infra_city_bucket_median($scores), 3)];
+    }
+    usort($order, fn($a, $b) => $b['med_score'] <=> $a['med_score']);
+    $bucketRank = [];
+    foreach ($order as $i => $r) $bucketRank[$r['label']] = $i + 1;
+    foreach ($out as &$r) $r[0] = $bucketRank["{$r[2]} x {$r[1]}"] ?? 999;
+    unset($r);
+    usort($out, fn($a, $b) => [$a[0], -$a[12]] <=> [$b[0], -$b[12]]);
+
+    $sheet = [[
+        'Build Order', 'Population Band', 'Income Tier', 'City', 'State', 'Population', 'Median Income',
+        'Homeownership %', 'Search Volume', 'SEO Difficulty', 'Local Buyers', '1P Avg $', 'Score', 'Grade',
+    ]];
+    foreach ($out as $r) $sheet[] = $r;
+
+    $smallLabels = array_column(array_filter($order, fn($r) => $r['n'] < 20), 'label');
+    $standouts = [];
+    foreach ($smallLabels as $label) {
+        [$tier, , $band] = explode(' ', $label);
+        $rows = array_filter($out, fn($r) => $r[1] === $band && $r[2] === $tier);
+        usort($rows, fn($a, $b) => $b[12] <=> $a[12]);
+        foreach ($rows as $r) $standouts[] = ['bucket' => $label, 'city' => $r[3], 'state' => $r[4], 'pop' => $r[5], 'income' => $r[6], 'score' => $r[12], 'volume' => $r[8]];
+    }
+
+    $readme = [
+        ["{$niche} City Bucket — Read Me"],
+        [''],
+        ['Built by Data 3\'s "Run Data 3" button from run ' . $runId . ', population floor ' . $popFloor . '.'],
+        ['Joins each candidate against Census City Data (income, homeownership) and buckets by population'
+            . ' band x income tier, same method as every other niche\'s bucketed export this session.'],
+        [''],
+        ["Below the {$popFloor} population floor: {$belowBand} cities."],
+        ["Below the \$65k median income floor: {$belowIncome} cities."],
+        ["Missing Census data: {$noIncome} cities."],
+        ['Final count: ' . count($out) . ' cities.'],
+        [''],
+        ['REAL PRIORITY ORDER (median Score per bucket, not the theoretical income-first heuristic)'],
+    ];
+    foreach ($order as $i => $r) {
+        $flag = $r['n'] < 20 ? " (small sample, n={$r['n']})" : " (n={$r['n']})";
+        $readme[] = [($i + 1) . '. ' . $r['label'] . $flag . ' — median Score ' . $r['med_score']];
+    }
+    if ($standouts) {
+        $readme[] = [''];
+        $readme[] = ['TINY-SAMPLE STANDOUTS'];
+        $last = null;
+        foreach ($standouts as $c) {
+            if ($c['bucket'] !== $last) { $readme[] = [$c['bucket']]; $last = $c['bucket']; }
+            $readme[] = ['  ' . $c['city'] . ', ' . $c['state'] . ' | pop ' . number_format($c['pop'])
+                . ' | income $' . number_format($c['income']) . ' | score ' . $c['score']
+                . ' | volume ' . number_format($c['volume']) . '/mo'];
+        }
+    }
+
+    $fname = preg_replace('/[^a-z0-9-]/i', '', $niche) . '-city-bucket-' . date('Ymd-His') . '.xlsx';
+    $path = infra_research_downloads_dir() . '/' . $fname;
+    $ok = infra_research_write_xlsx_file($path, ['Bucketed Cities' => $sheet, 'Read Me' => $readme]);
+    if (!$ok) return ['ok' => false, 'msg' => 'Writing the xlsx failed.', 'file' => null, 'count' => null];
+
+    infra_city_bucket_history_add($niche, [
+        'created_at' => date('c'), 'source_run_id' => $runId, 'pop_floor' => $popFloor,
+        'file' => $fname, 'count' => count($out),
+    ]);
+
+    return ['ok' => true, 'msg' => count($out) . ' cities bucketed.', 'file' => $fname, 'count' => count($out)];
 }
