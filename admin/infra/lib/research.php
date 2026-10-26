@@ -1119,6 +1119,53 @@ function infra_research_list_run_summaries(): array
     return $out;
 }
 
+/**
+ * Before paying for a fresh volume/SERP fetch, carry over already-scored data
+ * from this niche's most recent completed run for any candidate city present
+ * in both — e.g. after `cities` gains rows and previously-unmatched eLocal
+ * rows start matching, there's no reason to re-fetch the hundreds of cities
+ * that already matched and scored fine last time.
+ *
+ * Only carries over from a prior run that used the EXACT SAME keyword
+ * patterns in the same order — a stored volume/SERP sum is meaningless
+ * against a different keyword set, so a patterns change here means every
+ * candidate gets a fresh fetch, same as before this existed.
+ *
+ * Mutates $candidates in place (by reference). Returns how many were carried
+ * over, purely for the caller's flash message — zero is a normal result, not
+ * an error (no prior done run, or patterns changed).
+ */
+function infra_research_carry_over_scored(array &$candidates, string $niche, array $patterns): int
+{
+    $prior = null;
+    foreach (infra_research_list_run_summaries() as $r) {
+        if (($r['niche'] ?? '') !== $niche || ($r['phase'] ?? '') !== 'done') continue;
+        if (($r['patterns'] ?? []) !== $patterns) continue;
+        $prior = $r; // newest first already, from the usort above
+        break;
+    }
+    if (!$prior) return 0;
+    $full = infra_research_load_run($prior['id']);
+    if (!$full) return 0;
+
+    $numPatterns = count($patterns);
+    $carried = 0;
+    foreach ($candidates as $id => &$c) {
+        $old = $full['candidates'][$id] ?? null;
+        if (!$old || $old['volume'] === null || ($old['serp_patterns_done'] ?? 0) < $numPatterns) continue;
+        $c['volume']             = $old['volume'];
+        $c['volume_by_pattern']  = $old['volume_by_pattern'] ?? [];
+        $c['serp_open_sum']      = $old['serp_open_sum'];
+        $c['serp_local_sum']     = $old['serp_local_sum'];
+        $c['serp_natl_sum']      = $old['serp_natl_sum'];
+        $c['serp_by_pattern']    = $old['serp_by_pattern'] ?? [];
+        $c['serp_patterns_done'] = $old['serp_patterns_done'];
+        $carried++;
+    }
+    unset($c);
+    return $carried;
+}
+
 /* ---------------------------------------------------------------------------
  * Output: a real .xlsx into uploads/downloads/ — Test Lab's existing
  * "Downloads for Scott" panel picks it up automatically, no new delivery UI.

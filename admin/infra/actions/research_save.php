@@ -130,6 +130,13 @@ if ($action === 'start') {
         header('Location: ' . $back . '&niche=' . urlencode($niche)); exit;
     }
 
+    // Skip re-paying for cities this niche's last completed run (same keyword
+    // patterns) already scored — see infra_research_carry_over_scored()'s
+    // docblock. Matters most right after `cities` gains rows: most candidates
+    // already matched and scored last time, only the newly-matched ones need
+    // a real fetch.
+    $carried = infra_research_carry_over_scored($candidates, $niche, $patterns);
+
     $run = [
         'id' => infra_research_new_run_id($niche),
         'niche' => $niche,
@@ -146,8 +153,9 @@ if ($action === 'start') {
         'stats' => ['from_elocal' => count($parsed['rows']), 'rejected_money' => $rejectedMoney, 'unmatched' => $unmatched],
     ];
     infra_research_save_run($run);
+    $carryNote = $carried > 0 ? " ({$carried} already scored by an earlier run with the same patterns — carried over, not re-fetched)" : '';
     infra_set_flash('ok', count($candidates) . ' cities cleared the money filter (' . $rejectedMoney . ' rejected, '
-        . $unmatched . ' not matched to a known city). Press Continue to fetch volume.');
+        . $unmatched . ' not matched to a known city)' . $carryNote . '. Press Continue to fetch volume.');
     header('Location: ' . $back . '&niche=' . urlencode($niche) . '&run=' . urlencode($run['id'])); exit;
 }
 

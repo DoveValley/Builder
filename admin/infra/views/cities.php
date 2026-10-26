@@ -85,8 +85,9 @@
     <?php if (!$total): ?>
       <div class="ic-card"><div class="body">
         <p style="margin-top:0">The city list has not been loaded yet. It comes from
-          <code>admin/infra/data/us_cities.csv</code> — the 10,000 largest US cities by
-          2024 Census population, ranked 1 (largest) down, with suggested area codes.</p>
+          <code>admin/infra/data/us_cities.csv</code> — every US Census place (incorporated
+          cities and Census-Designated Places alike), ranked 1 (largest) down by population,
+          with suggested area codes.</p>
         <form method="post" action="actions/cities_save.php">
           <input type="hidden" name="csrf" value="<?= ih(infra_csrf()) ?>">
           <input type="hidden" name="action" value="seed">
@@ -509,7 +510,9 @@
 
     <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12px;color:#6b7280">Where this data comes from</summary>
       <div class="ic-note" style="margin-top:8px">
-        Population and rank: <strong>US Census sub-est2024</strong> (rank 1 = largest of the 10,000 loaded).
+        Population and rank: <strong>US Census ACS 5-Year</strong> (rank 1 = largest), covering every
+        place the Census recognizes — incorporated and Census-Designated Place (CDP) alike, not just
+        incorporated cities. Lat/lng from the Census Gazetteer file, joined by place GEOID.
         Area codes: exact city matches from a public area-code database, otherwise borrowed from
         cities nearby <em>in the same state</em> and flagged <span class="badge b-mut">nearby</span> —
         a suggestion to check, not a fact. Rebuild the file with
