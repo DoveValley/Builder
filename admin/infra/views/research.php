@@ -33,6 +33,11 @@ $tpl   = $niches[$niche]['template'] ?? '';
 $draft = infra_research_load_draft($niche) ?? [];
 ?>
 
+<div style="margin-bottom:10px">
+  <a class="btn sec" style="padding:4px 12px;font-size:13px" href="index.php?view=citydata">City Data &rarr;</a>
+  <span style="font-size:12px;color:#6b7280">Census income/housing lookup — independent of niche, not scoped to any run below.</span>
+</div>
+
 <div class="ic-card" style="margin-bottom:14px"><div class="body" style="padding:10px 14px">
   <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
     <?php foreach ($niches as $s => $n):
