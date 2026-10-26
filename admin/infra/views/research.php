@@ -31,14 +31,14 @@ if (!$active && $nicheRuns && ($nicheRuns[0]['phase'] ?? '') !== 'done') {
 $kwOn  = infra_kw_configured();
 $tpl   = $niches[$niche]['template'] ?? '';
 $draft = infra_research_load_draft($niche) ?? [];
-$elocalLibrary = $niche === 'appliance' ? infra_elocal_library_load($niche) : null;
+$elocalLibrary = infra_elocal_library_load($niche);
 
 // Data 3's run picker + floor-suggestion — only loads a completed run's full
 // candidates (needed for the floor suggestion) when there's one to suggest from.
 $bucketCompletedRuns = array_values(array_filter($nicheRuns, fn($r) => ($r['phase'] ?? '') === 'done'));
 $bucketDefaultRunId = $bucketCompletedRuns[0]['id'] ?? null;
 $bucketSuggestedFloor = 15000;
-if ($niche === 'appliance' && $bucketDefaultRunId) {
+if ($bucketDefaultRunId) {
     $bucketDefaultRun = infra_research_load_run($bucketDefaultRunId);
     if ($bucketDefaultRun) $bucketSuggestedFloor = infra_city_bucket_suggest_floor($bucketDefaultRun['candidates']);
 }
@@ -427,14 +427,14 @@ if ($niche === 'appliance' && $bucketDefaultRunId) {
   </p>
 </div>
 
-<?php if ($niche === 'appliance'): ?>
 <?php /* Standalone, NOT inside the Data 2 form on purpose (fixed 2026-10-26): the
          per-row Select/Delete buttons each need their own <form> — nested inside
          another <form>, browsers silently drop the inner one and those buttons end
          up submitting to the OUTER form instead (verified against the real parsed
          DOM, not assumed). Living here also means the library stays visible even
          while a run is actively in progress, instead of disappearing along with the
-         "Start a new run" form. */ ?>
+         "Start a new run" form. Universal since 2026-10-26 (was appliance-only
+         pilot first) — infra_elocal_library_*() was already niche-agnostic. */ ?>
 <div class="ic-card" style="margin-bottom:14px"><div class="body">
   <h2 style="margin-top:0">Data 1 — eLocal</h2>
   <strong style="font-size:13px">File library</strong>
@@ -502,7 +502,6 @@ if ($niche === 'appliance' && $bucketDefaultRunId) {
     </div>
   <?php endif; ?>
 </div></div>
-<?php endif; ?>
 
 <?php if ($active): $phase = $active['phase'];
     $numPatterns = count($active['patterns']);
@@ -570,44 +569,20 @@ if ($niche === 'appliance' && $bucketDefaultRunId) {
     <input type="hidden" name="niche" value="<?= ih($niche) ?>">
     <div class="ic-card"><div class="body" style="display:flex;flex-direction:column;gap:14px">
 
-      <?php if ($niche === 'appliance'): ?>
-        <h2 style="margin:0">Data 2 — Volume Run</h2>
-        <div style="font-size:12px;color:#6b7280">
-          eLocal file management (upload / select / delete) lives in Data 1, above the niche tabs —
-          whatever's marked "selected" there is what Save/Run below actually reads.
-          <?php if (!empty($draft['elocal_csv_name'])): ?>
-            <br><strong style="color:#065f46">Currently held: <?= ih($draft['elocal_csv_name']) ?></strong>
-          <?php endif; ?>
-        </div>
-        <label style="font-size:12px">Or paste eLocal rows directly (optional, supplements the selected file)<br>
-          <textarea name="elocal_paste" rows="3" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace"
-                    placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea></label>
-        <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
-          <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
-            ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
-      <?php else: ?>
-        <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
-          <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
-            ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
-
-        <div>
-          <label style="font-size:12px">eLocal buyer-coverage export<br>
-            <input type="file" name="elocal_csv" accept=".csv,.tsv,.txt,.xlsx" style="padding:5px 0"></label>
-          <?php if (!empty($draft['elocal_csv_name'])): ?>
-            <div style="font-size:12px;color:#065f46;margin-top:4px">
-              <strong>Currently held: <?= ih($draft['elocal_csv_name']) ?></strong> — used automatically on Save/Run
-              until you choose a different file above.
-            </div>
-          <?php endif; ?>
-          <div style="font-size:12px;color:#6b7280;margin-top:4px">.csv, .tsv, .txt, or a real .xlsx file
-            (first sheet only) — or paste rows below. Needs columns for city, state, buyer count, avg call
-            price (and optionally max price); header names are matched loosely (e.g. "SMB Buyers", "1P Avg $").
-            <?php if (($draft['elocal_paste'] ?? '') !== ''): ?><br><strong>Saved paste loaded below.</strong><?php endif; ?>
-          </div>
-          <textarea name="elocal_paste" rows="4" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace;margin-top:6px"
-                    placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea>
-        </div>
-      <?php endif; ?>
+      <h2 style="margin:0">Data 2 — Volume Run</h2>
+      <div style="font-size:12px;color:#6b7280">
+        eLocal file management (upload / select / delete) lives in Data 1, above the niche tabs —
+        whatever's marked "selected" there is what Save/Run below actually reads.
+        <?php if (!empty($draft['elocal_csv_name'])): ?>
+          <br><strong style="color:#065f46">Currently held: <?= ih($draft['elocal_csv_name']) ?></strong>
+        <?php endif; ?>
+      </div>
+      <label style="font-size:12px">Or paste eLocal rows directly (optional, supplements the selected file)<br>
+        <textarea name="elocal_paste" rows="3" style="width:100%;max-width:640px;padding:6px 8px;font-family:monospace"
+                  placeholder="city,state,buyers,price_avg,price_max"><?= ih($draft['elocal_paste'] ?? '') ?></textarea></label>
+      <label style="font-size:12px">Keyword patterns (one per line, <code>{city}</code> required)<br>
+        <textarea name="patterns" rows="3" style="width:100%;max-width:520px;padding:6px 8px;font-family:monospace"><?=
+          ih($draft['patterns'] ?? ($tpl !== '' ? $tpl : '')) ?></textarea></label>
 
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <label style="font-size:12px">Population min<br><input name="pop_min" type="number" value="<?= ih($draft['pop_min'] ?? '30000') ?>" style="width:100px;padding:5px 8px"></label>
@@ -672,7 +647,9 @@ if ($niche === 'appliance' && $bucketDefaultRunId) {
   </div></div>
 <?php endif; ?>
 
-<?php if ($niche === 'appliance'): ?>
+<?php /* Universal since 2026-10-26 (was appliance-only pilot first) —
+         infra_city_bucket_run() was already niche-agnostic; the floor suggestion
+         reads THIS niche's own real volume data, not a hardcoded assumption. */ ?>
 <div class="ic-card" style="margin-top:14px"><div class="body">
   <h2 style="margin-top:0">Data 3 — City Matrix &amp; Build Order</h2>
 
@@ -757,6 +734,11 @@ if ($niche === 'appliance' && $bucketDefaultRunId) {
   <?php else: ?>
     <p style="font-size:13px;color:#9ca3af">No bucket runs yet — use "Run Data 3" above.</p>
   <?php endif; ?>
+</div></div>
+
+<?php if ($niche === 'appliance'): ?>
+<div class="ic-card" style="margin-top:14px"><div class="body">
+  <h2 style="margin-top:0;font-size:15px">Appliance-specific — brand push &amp; tiny-sample standouts</h2>
   <p style="font-size:13px;line-height:1.5;color:#374151;margin-top:10px">
     <strong>Brand push:</strong> affluent owners repair rather than replace — Sub-Zero, Wolf, Thermador,
     Viking, and Miele pages are worth extra effort in this niche's high-income markets specifically.
