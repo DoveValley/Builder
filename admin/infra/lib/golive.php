@@ -230,6 +230,15 @@ function infra_golive_unschedule(array $domains, string $batch = ''): array
  * Domains scheduled on/before $now's day (and, for the day they're scheduled on, at
  * or past $now's time-of-day) and not yet live.
  *
+ * 'releasing' is excluded too, not just 'live': that status means the registrar
+ * switch already succeeded and the domain is only waiting on DNS propagation /
+ * infra_golive_refresh_live() to confirm it — re-running the switch there is a
+ * no-op at best. Found calling NameSilo's set-nameservers API every 5-minute tick
+ * for 5+ hours straight on one domain whose own confirmation check was failing for
+ * an unrelated reason (stale local DNS cache on this box). 'awaiting-ns' stays
+ * due on purpose — that status means the registrar call did NOT take, so retrying
+ * it is the intended recovery path.
+ *
  * go_live_time is optional per domain — blank means "any time that day" (the
  * original, only behaviour before go_live_time existed), so a domain scheduled by
  * date alone is due the instant its day starts, same as always. A domain that also
@@ -251,7 +260,7 @@ function infra_golive_due(?string $now = null): array
     $nowTime = substr($now, 11, 5); // 'H:i', empty string if $now had no time part
     $due = [];
     foreach (infra_state_all_domains() as $dom => $r) {
-        if (($r['status'] ?? '') === 'live') continue;
+        if (in_array($r['status'] ?? '', ['live', 'releasing'], true)) continue;
         $gla = (string) ($r['go_live_at'] ?? '');
         if ($gla === '' || $gla > $nowDate) continue;
         if ($gla === $nowDate) {
