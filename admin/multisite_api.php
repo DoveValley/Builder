@@ -1978,6 +1978,50 @@ switch ($action) {
         echo json_encode(['results' => $results]);
         break;
 
+    // Release each checked row's CTM tracking number back to the sub-account's pool and
+    // clear Phone/Area Code — the inverse of ctm_get_numbers above, for rows that turned
+    // out not to need a number yet (e.g. overflow rows added ahead of their real go-live).
+    // Same isolated capability, see includes/calltrackingmetrics.php. Refuses a live row
+    // for the same reason ctm_get_numbers does: clearing Phone is a site-content change
+    // that needs a rebuild to actually stop showing the old number, and this never
+    // triggers one.
+    case 'ctm_release_numbers':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/infra/lib/state.php';
+        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
+        $crAccountId = trim((string) ($_POST['account_id'] ?? ''));
+        $crDomainsIn = (array) ($_POST['domains'] ?? []);
+        if ($crAccountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
+        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
+        if (!$crDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+        set_time_limit(0);
+
+        $crByDomain = ms_rows_by_domain($paramsPath);
+        $crResults  = [];
+        foreach ($crDomainsIn as $crDom) {
+            $crDom = strtolower(trim((string) $crDom));
+            if (!isset($crByDomain[$crDom])) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
+            $crRec = infra_state_get_domain($crDom);
+            if ($crRec && ($crRec['status'] ?? '') === 'live') {
+                $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'LIVE — releasing would clear Phone with no rebuild to stop the site showing it. Use Correct & Regenerate first if this domain really should lose its number.'];
+                continue;
+            }
+            $crPhone = trim((string) ($crByDomain[$crDom]['phone'] ?? ''));
+            if ($crPhone === '') { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'No phone number on file for this row — nothing to release.']; continue; }
+            $crLookup = ctm_number_by_phone($crAccountId, $crPhone);
+            if (!$crLookup['ok']) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => $crLookup['error']]; continue; }
+            $crNumberId = (string) ($crLookup['number']['id'] ?? '');
+            if ($crNumberId === '') { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'CTM returned a match with no number id — cannot release.']; continue; }
+            $crRel = ctm_release_number($crAccountId, $crNumberId);
+            if (!$crRel['ok']) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => $crRel['error']]; continue; }
+            $crByDomain[$crDom]['phone']     = '';
+            $crByDomain[$crDom]['area_code'] = '';
+            $crResults[] = ['domain' => $crDom, 'ok' => true, 'released_phone' => $crPhone];
+        }
+        ms_write_rows_by_domain($batchDir, $paramsPath, $crByDomain);
+        echo json_encode(['results' => $crResults]);
+        break;
+
     default:
         http_response_code(400);
         echo json_encode(['error' => 'Unknown action.']);

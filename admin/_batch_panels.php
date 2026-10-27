@@ -97,6 +97,19 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </div>
         <div id="ms-route-results" style="margin-top:8px;font-size:.8rem;"></div>
     </div>
+    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+        <strong style="font-size:.82rem;color:#1e3a5f;">Release CTM Numbers</strong>
+        <span class="hint" style="margin-left:6px;">The inverse of Get CTM Phone Numbers — for each checked row: find its tracking number in CTM by its Phone on file, release it back to the sub-account's pool, then clear Phone and Area Code here. Use for rows that got a number ahead of when they actually needed one (e.g. overflow rows added before their real go-live).</span>
+        <div style="margin-top:8px;">
+            <input type="text" id="ms-release-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
+            <button type="button" class="btn btn-danger" id="ms-release-btn" onclick="msCtmReleaseNumbers()">Release CTM Numbers (<span id="ms-release-count">0</span> selected)</button>
+            <span id="ms-release-msg" class="hint" style="margin-left:8px;"></span>
+            <div class="hint" style="margin-top:4px;width:100%;">
+                Uses the same checkboxes as Get CTM Phone Numbers above. Refuses a LIVE row — Phone is site content, and clearing it here never triggers a rebuild. A row with no phone on file is skipped as nothing to release, not an error you need to clear first.
+            </div>
+        </div>
+        <div id="ms-release-results" style="margin-top:8px;font-size:.8rem;"></div>
+    </div>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
@@ -2104,7 +2117,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         // fleet.
         const checkCell = '<td><input type="checkbox" class="ms-ctm-check" data-domain="' + esc(domain) + '" style="width:20px;height:20px;cursor:pointer"' +
             (msCtmSelected[domain] ? ' checked' : '') +
-            (isLive ? ' title="LIVE — Get CTM Phone Numbers will refuse this row; Set Call Routing works on it fine"' : '') +
+            (isLive ? ' title="LIVE — Get CTM Phone Numbers and Release CTM Numbers will both refuse this row; Set Call Routing works on it fine"' : '') +
             ' onclick="msCtmToggleOne(this)"></td>';
         let cells;
         if (editing) {
@@ -2172,9 +2185,11 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const n = Object.keys(msCtmSelected).length;
         const el = document.getElementById('ms-ctm-count');
         if (el) el.textContent = n;
-        // Same checkbox selection drives both bulk actions — see Set Call Routing.
+        // Same checkbox selection drives all three bulk actions below.
         const el2 = document.getElementById('ms-route-count');
         if (el2) el2.textContent = n;
+        const el3 = document.getElementById('ms-release-count');
+        if (el3) el3.textContent = n;
     }
 
     window.msCtmGetNumbers = async function () {
@@ -2253,6 +2268,43 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + ' → ' + esc(r.destination) + ' (saved — no CTM number yet, applies automatically once it has one)</div>';
             return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.destination) + '</div>';
         }).join('');
+        await msLoadRows();
+    };
+
+    // ── "Release CTM Numbers" — the inverse of Get CTM Phone Numbers, see
+    // ctm_release_number()/ctm_number_by_phone() in includes/calltrackingmetrics.php.
+    // Reuses msCtmSelected same as Set Call Routing above.
+    window.msCtmReleaseNumbers = async function () {
+        const domains = Object.keys(msCtmSelected);
+        const accountId = document.getElementById('ms-release-account').value.trim();
+        const msgEl = document.getElementById('ms-release-msg');
+        const resEl = document.getElementById('ms-release-results');
+        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+        if (!confirm('Release the CTM tracking number for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' and clear Phone/Area Code here?\n\nThis is a real release back to the pool, not a preview — those numbers stop ringing immediately.')) return;
+
+        const btn = document.getElementById('ms-release-btn');
+        btn.disabled = true;
+        msgEl.textContent = 'Working…';
+        resEl.innerHTML = '';
+
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('account_id', accountId);
+        domains.forEach(d => fd.append('domains[]', d));
+
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=ctm_release_numbers', { method: 'POST', body: fd })).json(); }
+        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
+        btn.disabled = false;
+
+        if (d.error) { msgEl.textContent = d.error; return; }
+        msgEl.textContent = '';
+        resEl.innerHTML = (d.results || []).map(r => {
+            if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+            return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — released ' + esc(r.released_phone) + '</div>';
+        }).join('');
+        msCtmSelected = {};
         await msLoadRows();
     };
 
