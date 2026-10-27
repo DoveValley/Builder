@@ -1947,5 +1947,55 @@
     "output_tokens": 0,
     "api_calls": 0,
     "estimated_cost_usd": 0.0
+  },
+  {
+    "run_id": "223c2af7-3ddf-4264-92b1-269eeae4a455",
+    "started_at": "2026-10-27T02:27:13.363645Z",
+    "finished_at": "2026-10-27T02:27:30.296978Z",
+    "duration_ms": 16933,
+    "dry_run": false,
+    "options": {
+      "site": "water-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 1,
+    "input_tokens": 786,
+    "output_tokens": 1400,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.023358
+  },
+  {
+    "run_id": "dad06331-197d-474b-8aa4-0c84eccfba4e",
+    "started_at": "2026-10-27T02:30:30.254967Z",
+    "finished_at": "2026-10-27T02:35:06.365522Z",
+    "duration_ms": 276110,
+    "dry_run": false,
+    "options": {
+      "site": "water-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 5,
+    "input_tokens": 4977,
+    "output_tokens": 9301,
+    "api_calls": 9,
+    "estimated_cost_usd": 0.154446
   }
 ]
