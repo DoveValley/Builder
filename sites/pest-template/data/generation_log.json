@@ -1472,5 +1472,55 @@
     "output_tokens": 0,
     "api_calls": 0,
     "estimated_cost_usd": 0.0
+  },
+  {
+    "run_id": "1feb94a3-8562-4443-9802-3f1f45fec4f5",
+    "started_at": "2026-10-27T03:54:39.686750Z",
+    "finished_at": "2026-10-27T04:51:38.011400Z",
+    "duration_ms": 3418324,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 50,
+    "input_tokens": 50434,
+    "output_tokens": 128653,
+    "api_calls": 97,
+    "estimated_cost_usd": 2.081097
+  },
+  {
+    "run_id": "06202981-bfd7-4aa8-adbb-07380b075bc7",
+    "started_at": "2026-10-27T05:11:31.481459Z",
+    "finished_at": "2026-10-27T05:12:56.326030Z",
+    "duration_ms": 84844,
+    "dry_run": false,
+    "options": {
+      "site": "pest-template",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 0,
+    "input_tokens": 238,
+    "output_tokens": 311,
+    "api_calls": 1,
+    "estimated_cost_usd": 0.005379
   }
 ]

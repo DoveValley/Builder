@@ -12326,6 +12326,14 @@
     "market_blurb": "San Diego's economy is anchored by a major U.S. Navy presence, a globally recognized biotech and life sciences cluster, and a strong tourism industry built around its beaches and climate. The city also hosts significant telecommunications, defense contracting, and higher-education research activity, with UC San Diego serving as a key innovation hub.",
     "local_note": "San Diego's municipal water supply is generally considered hard to very hard due to its reliance on Colorado River and State Water Project sources, which accelerates scale buildup in water heaters, dishwashers, and washing machines. The region sees infrequent but occasionally intense winter storms and Santa Ana wind events, and while widespread power surges are not especially common, older grid infrastructure in some neighborhoods can still contribute to appliance electrical stress.",
     "neighborhoods": [
+      "Allied Gardens",
+      "Azure Vista",
+      "Banker's Hill",
+      "Barrio Logan",
+      "Bay Park",
+      "Chollas Creek",
+      "Chollas View",
+      "Clairemont Village",
       "La Jolla",
       "Pacific Beach",
       "North Park",
@@ -12334,7 +12342,6 @@
       "Clairemont",
       "Point Loma",
       "Rancho Bernardo",
-      "Chula Vista Eastlake",
       "Kearny Mesa"
     ],
     "population": 1388000,
@@ -12375,7 +12382,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "san-jose-ca",
@@ -12453,12 +12461,17 @@
     "market_blurb": "San Jose, widely regarded as the capital of Silicon Valley, anchors one of the world's leading technology economies, home to major software, semiconductor, and internet companies. The city's economy is driven by innovation in hardware and software engineering, supported by a dense network of startups and research institutions. Beyond tech, healthcare, education, and professional services also contribute significantly to San Jose's diverse employment base.",
     "local_note": "San Jose's municipal water supply, sourced from a mix of local groundwater and imported surface water, is generally considered hard to very hard, which accelerates mineral scale buildup in dishwashers, washing machines, and water heaters. The region experiences periodic winter atmospheric river storms that can cause flooding and localized power outages, and aging grid infrastructure combined with these storm events makes power surges an occasional but real risk for sensitive appliance electronics.",
     "neighborhoods": [
-      "Willow Glen",
       "Almaden Valley",
-      "Cambrian Park",
-      "Berryessa",
-      "Evergreen",
+      "Alum Rock",
       "Alviso",
+      "Avenida Espana",
+      "Berryessa",
+      "Branham",
+      "Buena Vista",
+      "Chantilley",
+      "Willow Glen",
+      "Cambrian Park",
+      "Evergreen",
       "Japantown",
       "Naglee Park",
       "Rose Garden",
@@ -12502,7 +12515,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "san-francisco-ca",
@@ -12578,6 +12592,14 @@
     "market_blurb": "San Francisco's economy is anchored by a world-renowned technology sector, alongside strong finance, tourism, and biotechnology industries. The city serves as a global hub for innovation, drawing major corporate headquarters and a dense concentration of startups. Its robust professional services and healthcare sectors further diversify a highly skilled, high-cost labor market.",
     "local_note": "San Francisco's municipal water, sourced largely from the Hetch Hetchy reservoir, is notably soft, which reduces mineral scale buildup in appliances but can make some detergents less effective. The region experiences periodic atmospheric river storms and occasional power grid stress during wind events, which can contribute to voltage surges affecting sensitive appliance electronics.",
     "neighborhoods": [
+      "Anza Vista",
+      "Balboa Terrace",
+      "Bayview District",
+      "Bernal Heights",
+      "Castro District",
+      "Chinatown",
+      "Civic Center",
+      "Cole Valley",
       "Mission District",
       "Pacific Heights",
       "Nob Hill",
@@ -12585,8 +12607,6 @@
       "Sunset District",
       "Richmond District",
       "SoMa",
-      "Bernal Heights",
-      "Castro District",
       "North Beach"
     ],
     "population": 808437,
@@ -12626,7 +12646,8 @@
         "miles": 12
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "seattle-wa",
@@ -12704,15 +12725,21 @@
     "market_blurb": "Seattle, Washington anchors a diverse regional economy driven by technology giants like Amazon and Microsoft, aerospace manufacturing led by Boeing, and a major maritime shipping industry through the Port of Seattle. The city also has strong healthcare, biotech, and retail sectors, supporting a high cost of living and steady population growth.",
     "local_note": "Seattle's municipal water supply, sourced from the Cedar and Tolt River watersheds, is notably soft, which reduces mineral scale buildup in appliances but means detergent and soap residue can accumulate differently. The region experiences frequent fall and winter windstorms and occasional power outages, which can contribute to electrical surges affecting major appliances.",
     "neighborhoods": [
-      "Capitol Hill",
+      "Alki",
+      "Arbor Heights",
+      "Arroyo Heights",
       "Ballard",
+      "Beacon Hill",
+      "Belltown",
+      "Bitter Lake",
+      "Blue Ridge",
+      "Capitol Hill",
       "Fremont",
       "Queen Anne",
       "West Seattle",
       "Wallingford",
       "University District",
       "Columbia City",
-      "Beacon Hill",
       "Georgetown"
     ],
     "population": 749256,
@@ -12752,7 +12779,8 @@
         "miles": 17
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "frisco-tx",
@@ -12829,6 +12857,10 @@
     "market_blurb": "Frisco, Texas has become one of the fastest-growing cities in the U.S., driven by corporate relocations, a booming healthcare sector, and its reputation as 'Sports City USA' thanks to venues like The Star and Toyota Stadium. Retail, hospitality, and real estate development continue to expand alongside the city's rapid residential growth.",
     "local_note": "Frisco's municipal water, supplied largely by the North Texas Municipal Water District, is generally considered moderately hard to hard, contributing to mineral buildup in water heaters and dishwashers. North Texas also experiences frequent severe thunderstorms, hail, and occasional tornadoes, particularly in spring, which can cause power surges that stress refrigerators, HVAC systems, and other major appliances.",
     "neighborhoods": [
+      "Emerson Estates",
+      "Firefly Park",
+      "Liberty Crossing",
+      "The Grove Frisco",
       "Starwood",
       "Stonebriar",
       "Phillips Creek Ranch",
@@ -12876,7 +12908,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "irvine-ca",
@@ -12954,6 +12987,14 @@
     "market_blurb": "Irvine, California is a major hub for technology, biotechnology, and corporate headquarters within Orange County, anchored by firms like Broadcom and Edwards Lifesciences alongside the University of California, Irvine. Master-planned development and a strong education sector continue to drive steady population and commercial growth in Irvine.",
     "local_note": "Irvine's municipal water supply, drawn largely from imported and local groundwater sources, is generally considered hard to very hard, which accelerates mineral scale buildup in dishwashers, washing machines, and water heaters. Southern California's occasional Santa Ana wind events and winter atmospheric river storms can also cause power fluctuations that stress appliance electronics over time.",
     "neighborhoods": [
+      "Altair",
+      "Concordia East",
+      "Concordia West",
+      "Cypress Village",
+      "Doria",
+      "Eastwood",
+      "El Camino Real",
+      "Frances",
       "Woodbridge",
       "Northwood",
       "Turtle Rock",
@@ -12962,7 +13003,6 @@
       "Quail Hill",
       "Portola Springs",
       "Orchard Hills",
-      "Cypress Village",
       "Northpark"
     ],
     "population": 307670,
@@ -13003,7 +13043,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "fremont-ca",
@@ -13079,6 +13120,14 @@
     "market_blurb": "Fremont, California anchors the southern end of the Bay Area's innovation corridor, home to Tesla's primary vehicle assembly plant and a dense cluster of semiconductor, biotech, and advanced manufacturing firms. The city's economy benefits from its location within Silicon Valley's broader tech ecosystem, drawing a highly skilled workforce and steady industrial investment. Residential growth has kept pace with job growth, supporting a strong base of homeowners who rely on local services.",
     "local_note": "Fremont's municipal water, supplied by the Alameda County Water District from a blend of local groundwater and imported sources, tends toward the harder end of the spectrum, which accelerates mineral scale buildup in dishwashers, washing machines, and water heaters. The region also sees periodic winter atmospheric river storms and occasional grid power surges, both of which contribute to added wear on electrical and water-using appliances.",
     "neighborhoods": [
+      "Centerville District",
+      "Curtner",
+      "Irvington District",
+      "Mission San Jose District",
+      "Niles District",
+      "Niles Junction",
+      "Shinn",
+      "Snoboy",
       "Centerville",
       "Niles",
       "Irvington",
@@ -13125,7 +13174,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "gilbert-az",
@@ -13201,6 +13251,14 @@
     "market_blurb": "Gilbert, Arizona has transformed from an agricultural community into one of the Phoenix metro's fastest-growing suburbs, anchored by healthcare, advanced manufacturing, and technology employers. The town's economy benefits from major medical campuses and corporate offices alongside a strong base of retail, construction, and education-related jobs. Gilbert's continued population growth has fueled demand for housing, services, and local businesses across the community.",
     "local_note": "Gilbert's municipal water supply, drawn from a mix of Salt River Project surface water and groundwater, is considered hard to very hard, which accelerates mineral buildup in water heaters, dishwashers, and ice makers. The region also experiences intense monsoon thunderstorms each summer with frequent lightning and power surges, adding to electrical stress on major appliances.",
     "neighborhoods": [
+      "Allen Ranch",
+      "Arboreta",
+      "Avalon Estates",
+      "Copperleaf",
+      "Estates at Spectrum",
+      "Gilbert Commons",
+      "Gilbert Ranch",
+      "Greenfield Farms",
       "Power Ranch",
       "Val Vista Lakes",
       "Seville",
@@ -13244,7 +13302,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "mckinney-tx",
@@ -13322,12 +13381,10 @@
     "neighborhoods": [
       "Stonebridge Ranch",
       "Craig Ranch",
-      "Eldorado",
       "Trinity Falls",
       "Tucker Hill",
       "Adriatica Village",
-      "Historic Downtown McKinney",
-      "Westridge"
+      "Historic Downtown McKinney"
     ],
     "population": 207000,
     "nearby_towns": [
@@ -13367,7 +13424,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "santa-clarita-ca",
@@ -13444,14 +13502,17 @@
     "market_blurb": "Santa Clarita's economy blends entertainment and media production with aerospace, biotech, and advanced manufacturing, supported by major employers like Six Flags Magic Mountain and several defense-related firms. The city also benefits from a strong healthcare and education sector anchored by Henry Mayo Newhall Hospital and College of the Canyons. Its proximity to Los Angeles makes it a hub for film studios, logistics, and growing residential and commercial development.",
     "local_note": "Water supplied by the Santa Clarita Valley Water Agency is considered hard, contributing to mineral buildup in water heaters, dishwashers, and washing machines, while the region's hot, dry summers and occasional Santa Ana wind events can bring power surges and voltage fluctuations that stress appliance electronics.",
     "neighborhoods": [
-      "Valencia",
-      "Newhall",
-      "Saugus",
+      "Brock Billa",
       "Canyon Country",
-      "Tesoro del Valle",
-      "Fair Oaks Ranch",
-      "Golden Valley Ranch",
+      "Copper Hill",
+      "Honby",
+      "Mint Canyon",
+      "Newhall",
       "Plum Canyon",
+      "Sand Canyon",
+      "Valencia",
+      "Saugus",
+      "Golden Valley Ranch",
       "West Creek"
     ],
     "population": 228673,
@@ -13491,7 +13552,8 @@
         "miles": 30
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "phoenix-az",
@@ -13569,6 +13631,14 @@
     "market_blurb": "Phoenix anchors one of the fastest-growing metro economies in the U.S., driven by healthcare systems, a booming semiconductor and advanced manufacturing sector led by Intel, and strong finance and tourism industries. The city's year-round sunshine and growing population have also fueled robust construction and real estate activity.",
     "local_note": "Phoenix's municipal water supply is considered hard to very hard, which accelerates mineral scale buildup in water heaters, dishwashers, and washing machines. The region also experiences intense monsoon thunderstorms each summer, bringing lightning and power surges that can damage sensitive appliance electronics.",
     "neighborhoods": [
+      "A-1 Trailer Park",
+      "Ahwatukee Foothills",
+      "Alhambra",
+      "Amberwood North",
+      "Basking Ridge",
+      "Biltmore Greens III",
+      "Biltmore Villas",
+      "Bronze Boot",
       "Arcadia",
       "Biltmore",
       "Ahwatukee",
@@ -13617,7 +13687,8 @@
         "miles": 25
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "los-angeles-ca",
@@ -13695,13 +13766,20 @@
     "market_blurb": "Los Angeles anchors one of the largest and most diverse metropolitan economies in the United States, driven by entertainment and media production, international trade through the Port of Los Angeles, aerospace, and technology. The city's economy also benefits from a robust tourism sector and a deep base of small businesses and manufacturing, particularly in fashion and apparel. This diversity helps Los Angeles maintain resilience across economic cycles.",
     "local_note": "Los Angeles generally has moderately hard to hard municipal water, and the region experiences infrequent but occasionally intense winter storms along with periodic heat-driven power grid strain, both of which can contribute to scale buildup and electrical stress on home appliances.",
     "neighborhoods": [
+      "Angeleno Heights",
+      "Atwater Village",
+      "Baird Park",
+      "Bel Air",
+      "Beverly Glen",
+      "Boyle Heights",
+      "Brentwood",
+      "Brentwood Heights",
       "Hollywood",
       "Silver Lake",
       "Echo Park",
       "Venice",
       "Downtown Los Angeles",
       "Westwood",
-      "Boyle Heights",
       "Koreatown",
       "Eagle Rock",
       "Highland Park"
@@ -13744,7 +13822,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "chicago-il",
@@ -13822,6 +13901,14 @@
     "market_blurb": "Chicago anchors the Midwest economy with strength in finance, transportation, manufacturing, and professional services. Its central location and O'Hare International Airport make it a logistics and distribution hub, while a deep base of corporate headquarters supports a diverse labor market. The city also has a large healthcare and education sector tied to institutions like the University of Chicago and Northwestern.",
     "local_note": "Chicago's municipal water, drawn from Lake Michigan, is moderately hard, and the region experiences frequent severe thunderstorms, high winds, and occasional power surges, especially in summer, which accelerate wear on water heaters, washing machines, and other appliance components.",
     "neighborhoods": [
+      "Albany Park",
+      "Archer Heights",
+      "Archer Limits",
+      "Austin",
+      "Avondale",
+      "Back of the Yards",
+      "Becks Park",
+      "Bowmanville",
       "Lincoln Park",
       "Wicker Park",
       "Hyde Park",
@@ -13830,8 +13917,7 @@
       "Lakeview",
       "Bronzeville",
       "Rogers Park",
-      "Bridgeport",
-      "Avondale"
+      "Bridgeport"
     ],
     "population": 2665039,
     "water_hardness_gpg": 7.8,
@@ -13870,7 +13956,8 @@
         "miles": 40
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "dallas-tx",
@@ -13948,14 +14035,19 @@
     "market_blurb": "Dallas, Texas anchors one of the largest metropolitan economies in the U.S., driven by financial services, technology, telecommunications, and healthcare. The city is headquarters to major corporations like AT&T and American Airlines, and its diversified economy continues to draw corporate relocations and population growth. Dallas also serves as a key logistics and transportation hub for the broader Southwest region.",
     "local_note": "Dallas municipal water is generally considered moderately hard to hard, which can accelerate mineral scale buildup in water heaters, dishwashers, and ice makers. The region also experiences frequent severe thunderstorms, hail, and occasional tornadoes, which contribute to power surges that stress electronic appliance components.",
     "neighborhoods": [
-      "Uptown",
-      "Deep Ellum",
+      "Addison Circle",
+      "Arts District",
+      "Asian Trade District",
       "Bishop Arts District",
+      "Bonton",
+      "Cypress Waters",
+      "Deep Ellum",
+      "Design District",
+      "Uptown",
       "Oak Lawn",
       "Lakewood",
       "Lake Highlands",
       "Preston Hollow",
-      "Design District",
       "Knox-Henderson"
     ],
     "population": 1300000,
@@ -13996,7 +14088,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "new-york-ny",
@@ -14074,6 +14167,14 @@
     "market_blurb": "New York City anchors one of the world's largest metropolitan economies, driven by finance on Wall Street, global media and entertainment headquarters, a growing technology sector, and major academic medical centers. Tourism and real estate also play outsized roles, with millions of visitors and a dense, high-value property market supporting constant renovation and building activity across the five boroughs.",
     "local_note": "New York City's municipal water is naturally soft, though older co-op and apartment buildings often have aging plumbing and water heaters that still accumulate sediment. The region experiences frequent severe thunderstorms, nor'easters, and occasional hurricanes or tropical storms, and summer heat waves combined with grid strain make power surges and brownouts a recurring stress on major appliances.",
     "neighborhoods": [
+      "Alphabet City",
+      "Arverne",
+      "Bayside",
+      "Bellaire",
+      "Bergen Beach",
+      "Blissville",
+      "Brooklyn Manor",
+      "Cambria Heights",
       "Upper East Side",
       "Upper West Side",
       "Park Slope",
@@ -14122,7 +14223,8 @@
         "miles": 22
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "fort-worth-tx",
@@ -14200,10 +14302,14 @@
     "market_blurb": "Fort Worth's economy is anchored by aerospace and defense manufacturing, led by Lockheed Martin's major production facility, alongside strong transportation, logistics, and energy sectors. The city serves as a key hub for BNSF Railway and benefits from its proximity to Dallas-Fort Worth International Airport, supporting a diverse industrial base. Healthcare and education also play significant roles in Fort Worth's growing and diversifying local economy.",
     "local_note": "Fort Worth's municipal water supply is considered moderately hard to hard, which can accelerate mineral buildup in water heaters, dishwashers, and ice makers over time. The region experiences frequent severe thunderstorms, hail, and occasional tornadoes in spring and early summer, with associated power surges that can stress HVAC compressors, refrigerators, and other electrical appliance components.",
     "neighborhoods": [
+      "Como",
+      "Downtown Fort Worth",
+      "Fairmount",
+      "Fort Worth Stockyards National Historic District",
       "Sundance Square",
+      "Wedgwood",
       "TCU/West Cliff",
       "Near Southside",
-      "Fairmount",
       "Ryan Place",
       "Arlington Heights",
       "Mistletoe Heights",
@@ -14248,7 +14354,8 @@
         "miles": 28
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "jacksonville-fl",
@@ -14326,15 +14433,21 @@
     "market_blurb": "Jacksonville, Florida has a diversified economy anchored by a major deepwater port, a strong military presence including Naval Air Station Jacksonville and Naval Station Mayport, and significant financial services and insurance sectors. Healthcare systems like Mayo Clinic and Baptist Health are also major economic contributors. The city's logistics and banking industries have made it a regional hub in the Southeast.",
     "local_note": "Jacksonville's municipal water, sourced from the Floridan aquifer, is generally considered moderately hard to hard, contributing to mineral scale buildup in water heaters, dishwashers, and washing machines. The region experiences frequent severe thunderstorms, hurricanes, and tropical storms, which can cause power surges and flooding that stress appliance electronics and motors.",
     "neighborhoods": [
-      "Riverside",
+      "Admirals Inlet",
       "Avondale",
+      "Azalea Terrace",
+      "Baymeadows",
+      "Beeghly Heights",
+      "Belle Rive",
+      "Brentwood",
+      "Brooklyn",
+      "Riverside",
       "San Marco",
       "Mandarin",
       "Arlington",
       "Southside",
       "Murray Hill",
       "Springfield",
-      "Baymeadows",
       "Ortega"
     ],
     "population": 971319,
@@ -14375,7 +14488,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "virginia-beach-va",
@@ -14452,6 +14566,14 @@
     "market_blurb": "Virginia Beach, Virginia has a diverse economy anchored by a major U.S. Navy presence, including Naval Air Station Oceana and Joint Expeditionary Base Little Creek-Fort Story, alongside a strong tourism and hospitality sector driven by its oceanfront resort area. The city also supports significant healthcare, retail, and agricultural activity, with large employers like Sentara Healthcare, GEICO, and STIHL Inc. maintaining major operations locally.",
     "local_note": "Virginia Beach's municipal water supply is generally considered moderately soft to moderately hard, and the region experiences frequent severe weather including nor'easters, hurricanes, and tropical storms that bring heavy rain, high winds, and power surges capable of accelerating wear on appliances and electrical components.",
     "neighborhoods": [
+      "Alexandria",
+      "Arrowhead",
+      "Avalon Hills",
+      "Avalon Terrace",
+      "Ballylynn Shores",
+      "Barret's Corner",
+      "Bay Colony",
+      "Bay Island",
       "Sandbridge",
       "Ocean Lakes",
       "Kempsville",
@@ -14497,7 +14619,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "austin-tx",
@@ -14575,6 +14698,14 @@
     "market_blurb": "Austin's economy is anchored by a thriving technology sector, often called 'Silicon Hills,' alongside strong government and higher education employment tied to the state capital and the University of Texas. The city also has growing healthcare, manufacturing, and clean energy industries, supported by steady population growth and a robust housing market.",
     "local_note": "Austin's municipal water supply, drawn primarily from the Colorado River, is moderately hard, and the region experiences frequent severe thunderstorms, hail, and occasional ice storms that can cause power surges — both factors contribute to accelerated wear on water heaters, dishwashers, and other appliances.",
     "neighborhoods": [
+      "Allandale",
+      "Bancroft Woods",
+      "Blackshear-Prospect Hill",
+      "Bluffington",
+      "Bouldin",
+      "Brentwood",
+      "Broadacres",
+      "Bryker Woods",
       "Zilker",
       "Hyde Park",
       "Mueller",
@@ -14583,8 +14714,7 @@
       "Tarrytown",
       "East Austin",
       "Clarksville",
-      "South Congress",
-      "Allandale"
+      "South Congress"
     ],
     "population": 975000,
     "water_hardness_gpg": 7.6,
@@ -14623,7 +14753,8 @@
         "miles": 22
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "boston-ma",
@@ -14701,7 +14832,14 @@
     "market_blurb": "Boston's economy is anchored by world-renowned hospitals, universities, and biotech firms, making healthcare, life sciences, and higher education the city's dominant industries. The city is also a major financial hub, home to large asset management and insurance firms, alongside a growing technology and innovation sector. This diverse, knowledge-based economy supports a dense, high-income residential market with a mix of historic housing stock and new development.",
     "local_note": "Boston's municipal water, supplied by the MWRA from the Quabbin and Wachusett reservoirs, is notably soft, which reduces mineral scale buildup in appliances but doesn't eliminate wear from the region's weather. Boston experiences frequent nor'easters, heavy winter storms, and occasional summer thunderstorms that can cause power surges or outages, contributing to added strain on appliances like refrigerators, washers, and water heaters.",
     "neighborhoods": [
+      "Aberdeen",
+      "Allston",
+      "Allston Heights",
+      "Allston Village",
+      "Ashmont",
+      "Audubon Circle",
       "Back Bay",
+      "Barry's Corner",
       "Beacon Hill",
       "South End",
       "North End",
@@ -14709,7 +14847,6 @@
       "Jamaica Plain",
       "Roxbury",
       "Charlestown",
-      "Allston",
       "West Roxbury"
     ],
     "population": 650706,
@@ -14749,7 +14886,8 @@
         "miles": 6
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "denver-co",
@@ -14827,6 +14965,14 @@
     "market_blurb": "Denver, Colorado serves as a major hub for aerospace, technology, and energy companies, bolstered by a growing healthcare and financial services sector. The city's economy benefits from a highly educated workforce and its status as a regional business and transportation center for the Rocky Mountain West. Tourism and outdoor recreation also contribute significantly to Denver's local economy.",
     "local_note": "Denver's municipal water supply is moderately hard, and the region experiences frequent severe thunderstorms, hail, and occasional high-wind events, especially in spring and summer, which can cause power surges and added strain on home appliances.",
     "neighborhoods": [
+      "Alamo Placita",
+      "Arapahoe Square",
+      "Auraria",
+      "Baker",
+      "Ballpark",
+      "Barnum",
+      "Belmont Heights",
+      "Berkeley",
       "Capitol Hill",
       "Highlands",
       "Five Points",
@@ -14834,7 +14980,6 @@
       "Cherry Creek",
       "Park Hill",
       "Sloan's Lake",
-      "Baker",
       "Lower Downtown (LoDo)",
       "Stapleton (Central Park)"
     ],
@@ -14875,7 +15020,8 @@
         "miles": 30
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "oakland-ca",
@@ -14953,6 +15099,14 @@
     "market_blurb": "Oakland, California anchors the East Bay economy with a diverse base spanning healthcare, logistics tied to the Port of Oakland, government administration, and a growing technology sector. The city's housing stock ranges from early 20th-century bungalows to high-rise condos, creating steady demand for appliance repair and maintenance services. Oakland's economy benefits from its proximity to San Francisco while maintaining a distinct, more affordable commercial and residential base.",
     "local_note": "Oakland's municipal water, supplied by EBMUD from the Mokelumne River watershed, is considered relatively soft, which reduces (but doesn't eliminate) scale buildup in dishwashers and water heaters. The region experiences periodic winter atmospheric river storms and occasional grid power surges, both of which can stress appliance electronics and motors over time.",
     "neighborhoods": [
+      "7th Street Historic District",
+      "Adams Point",
+      "Broadway Auto Row",
+      "Brookfield Village",
+      "Chinatown",
+      "Civic Center",
+      "Cleveland Heights",
+      "Clinton",
       "Rockridge",
       "Temescal",
       "Fruitvale",
@@ -15001,7 +15155,8 @@
         "miles": 14
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "washington-dc",
@@ -15079,10 +15234,17 @@
     "market_blurb": "Washington, DC's economy is anchored by the federal government, which drives extensive activity in law, lobbying, consulting, and nonprofit sectors. The city also has a strong presence in higher education, healthcare, and tourism, with millions of visitors drawn to its national monuments and museums each year. A dense mix of rowhouses, condos, and historic residential neighborhoods creates steady demand for home services citywide.",
     "local_note": "Washington, DC's municipal water supply is considered moderately hard to hard, which can accelerate mineral buildup in water heaters, dishwashers, and washing machines. The region experiences frequent summer thunderstorms, occasional hurricanes/tropical storm remnants, and humid conditions that contribute to power surges and appliance strain throughout the year.",
     "neighborhoods": [
+      "Adams Morgan",
+      "American University Park",
+      "Anacostia",
+      "Barnaby Woods",
+      "Bellevue",
+      "Benning",
+      "Bloomingdale",
+      "Brentwood",
       "Georgetown",
       "Capitol Hill",
       "Dupont Circle",
-      "Adams Morgan",
       "Foggy Bottom",
       "Columbia Heights",
       "Petworth",
@@ -15127,7 +15289,8 @@
         "miles": 8
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "arlington-tx",
@@ -15205,6 +15368,14 @@
     "market_blurb": "Arlington, Texas anchors much of the Dallas-Fort Worth entertainment and tourism economy, home to AT&T Stadium, Globe Life Field, and Six Flags Over Texas, drawing millions of visitors annually. Manufacturing remains a cornerstone with the large General Motors Arlington Assembly plant, while the University of Texas at Arlington and a growing healthcare sector add stability and diversity to the local job base. Logistics, insurance, and financial services firms also maintain a significant presence given Arlington's central location between Dallas and Fort Worth.",
     "local_note": "Arlington's municipal water supply, sourced largely from area reservoirs via the Tarrant Regional Water District, is generally considered moderately hard. The region experiences frequent severe thunderstorms, hail, and occasional tornadoes in spring and early summer, which can cause power surges and voltage fluctuations that accelerate wear on appliance electronics and motors.",
     "neighborhoods": [
+      "Ambercrest",
+      "Arlington Lakeside",
+      "Artist's Glen",
+      "Berkeley Square",
+      "Deer Cove",
+      "Enchanted Creek",
+      "Fox Run",
+      "Harris Crossing",
       "Downtown Arlington",
       "Viridian",
       "Entertainment District",
@@ -15252,7 +15423,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "aurora-co",
@@ -15330,14 +15502,19 @@
     "market_blurb": "Aurora, Colorado's economy is anchored by a strong healthcare and biomedical sector centered around the Anschutz Medical Campus, alongside significant aerospace, defense, and government employment tied to Buckley Space Force Base. The city also benefits from retail, logistics, and education sectors, making it one of the most economically diverse cities along Colorado's Front Range.",
     "local_note": "Aurora's municipal water supply is generally considered hard, which can accelerate mineral buildup and scaling in dishwashers, washing machines, and water heaters. The region also experiences frequent severe spring and summer hailstorms and thunderstorms, which can cause power surges that stress electrical components in major appliances.",
     "neighborhoods": [
+      "Adonea",
+      "Allred Subdivision",
+      "Aurora Highlands",
+      "Aurora Hills",
+      "Aurora Hills Golf Course",
+      "Aurora Knolls-Hutchison Heights",
+      "Beacon Point",
+      "Blackstone Country Club",
       "Saddle Rock",
       "Southshore",
       "Tollgate Crossing",
       "Heather Gardens",
-      "Murphy Creek",
-      "Aurora Highlands",
-      "Hoffman Town",
-      "Del Mar Parkway"
+      "Murphy Creek"
     ],
     "population": 397000,
     "nearby_towns": [
@@ -15373,7 +15550,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "portland-or",
@@ -15451,6 +15629,14 @@
     "market_blurb": "Portland, Oregon has a diversified economy anchored by technology manufacturing in the 'Silicon Forest,' major athletic and apparel companies like Nike and Columbia Sportswear, and a strong healthcare sector led by OHSU and Providence. The city also benefits from trade and logistics tied to the Columbia River and Port of Portland, along with a notable craft beer, wine, and coffee industry.",
     "local_note": "Portland's municipal water, sourced largely from the Bull Run watershed, is notably soft, which reduces mineral scale buildup in appliances but the region experiences periodic windstorms and winter ice storms that can cause power outages and voltage surges contributing to appliance wear.",
     "neighborhoods": [
+      "Alameda",
+      "Alberta",
+      "Albina",
+      "Argay Terrace",
+      "Arleta",
+      "Barnes Heights",
+      "Beaumont-Wilshire",
+      "Belmont",
       "Pearl District",
       "Hawthorne",
       "Alberta Arts District",
@@ -15499,7 +15685,8 @@
         "miles": 14
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "charlotte-nc",
@@ -15576,6 +15763,14 @@
     "market_blurb": "Charlotte, North Carolina is one of the largest banking hubs in the United States, anchored by Bank of America and major operations for Wells Fargo and Truist. The city's economy also benefits from strong healthcare, energy, and logistics sectors, with Atrium Health, Duke Energy, and American Airlines maintaining significant regional operations in Charlotte.",
     "local_note": "Charlotte generally has moderately soft to moderate water drawn from the Catawba River system, which is gentler on appliances than hard-water regions, but the area experiences frequent summer thunderstorms, occasional hurricanes/tropical remnants, and ice storms that can cause power surges and outages stressing refrigerators, washers, and HVAC-connected appliances.",
     "neighborhoods": [
+      "Arlington",
+      "Ashley Park",
+      "Atando Junction",
+      "Barclay Downs",
+      "Belmont",
+      "Beverly Woods",
+      "Biddleville",
+      "Briarcliff",
       "Uptown",
       "NoDa",
       "South End",
@@ -15625,7 +15820,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "columbus-oh",
@@ -15703,6 +15899,14 @@
     "market_blurb": "Columbus, Ohio serves as the state capital and is anchored by a diverse economy spanning insurance, banking, logistics, and higher education through The Ohio State University. The presence of major corporate headquarters like Nationwide and L Brands, combined with a growing logistics and distribution sector due to its central location, has fueled steady population and job growth. Columbus's economy is often cited as a bellwether for consumer retail trends nationally.",
     "local_note": "Columbus draws from the Scioto and Olentangy rivers, and its municipal water is generally considered moderately hard. The region experiences regular severe thunderstorms and occasional tornado warnings in spring and summer, along with winter ice storms, both of which contribute to power surges and fluctuations that can stress appliance electronics and motors over time.",
     "neighborhoods": [
+      "American Addition",
+      "Arena District",
+      "Argyle Park",
+      "Bannon",
+      "Beechwold",
+      "Berwick",
+      "Brentnell Park",
+      "Brentwood Park",
       "German Village",
       "Short North",
       "Victorian Village",
@@ -15750,7 +15954,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "tampa-fl",
@@ -15828,6 +16033,14 @@
     "market_blurb": "Tampa, FL anchors a diversified Gulf Coast economy built on healthcare, finance, and logistics, bolstered by a major deepwater port and a growing fintech sector. Tourism and hospitality remain strong thanks to the city's waterfront attractions, while MacDill Air Force Base adds a significant defense presence. Steady population growth continues to drive demand for housing and local services across the metro area.",
     "local_note": "Tampa's municipal water supply is generally moderately hard, and the region experiences frequent severe thunderstorms, lightning, and occasional hurricanes, which lead to recurring power surges and outages that stress appliance electronics and compressors.",
     "neighborhoods": [
+      "Aberdeen on Glen",
+      "Ad Mer",
+      "Al Dana Park",
+      "Al Mar",
+      "Alameda",
+      "Albion",
+      "Alice Heights",
+      "Allerton Park",
       "Hyde Park",
       "Ybor City",
       "Seminole Heights",
@@ -15877,7 +16090,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "long-beach-ca",
@@ -15954,12 +16168,15 @@
     "market_blurb": "Long Beach, California's economy is anchored by the Port of Long Beach, one of the busiest container ports in the world, driving significant trade, logistics, and manufacturing activity. The city also has a strong presence in aerospace, healthcare, and education, with California State University, Long Beach and major hospital systems serving as key institutions. Tourism, fueled by attractions like the Aquarium of the Pacific and the Queen Mary, further diversifies the local economy.",
     "local_note": "Long Beach's municipal water supply is generally considered hard, which can accelerate mineral buildup and scaling in water heaters, dishwashers, and washing machines. The region experiences occasional severe winter storms and Santa Ana wind events, and power surges from grid demand spikes during heat waves are not uncommon, both of which can contribute to appliance wear and electrical component failure.",
     "neighborhoods": [
+      "American Gold Star Manor",
       "Belmont Shore",
       "Bixby Knolls",
+      "California Heights",
+      "Cambodia Town",
+      "Los Altos",
+      "Marina Pacifica",
       "Naples",
       "Downtown Long Beach",
-      "California Heights",
-      "Los Altos",
       "Wrigley",
       "El Dorado Park",
       "Alamitos Beach",
@@ -16003,7 +16220,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "atlanta-ga",
@@ -16081,6 +16299,14 @@
     "market_blurb": "Atlanta, Georgia serves as a major hub for logistics, finance, and corporate headquarters in the Southeast, anchored by Hartsfield-Jackson Atlanta International Airport and companies like Delta Air Lines and The Home Depot. The city has also grown into a national center for film and television production, alongside a thriving technology and startup scene. Healthcare and higher education, led by institutions such as Emory University and Grady Health System, further diversify Atlanta's economic base.",
     "local_note": "Atlanta's municipal water, drawn primarily from the Chattahoochee River, is generally considered moderately soft; the region also experiences frequent severe thunderstorms, occasional tornadoes, and summer power surges that can stress appliance electrical components over time.",
     "neighborhoods": [
+      "Adams Park",
+      "Adamsville",
+      "Ansley Park",
+      "Atlanta University Center",
+      "Battle Hill Haven",
+      "Bellwood",
+      "Ben Hill",
+      "Brookwood",
       "Buckhead",
       "Midtown",
       "Virginia-Highland",
@@ -16130,7 +16356,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "sacramento-ca",
@@ -16208,6 +16435,14 @@
     "market_blurb": "Sacramento, as California's capital, has an economy anchored by state and local government employment, alongside major healthcare systems and higher education institutions. The city also benefits from a strong agricultural processing sector tied to the Central Valley and a growing technology and food innovation scene. Sacramento's relatively affordable cost of living compared to the Bay Area has fueled steady population and business growth.",
     "local_note": "Sacramento's municipal water supply, drawn primarily from the American and Sacramento Rivers, is generally considered moderately hard, which can contribute to mineral buildup in water heaters and dishwashers over time. The region also experiences periodic atmospheric river storms and occasional summer heat-driven power grid stress, both of which can cause power surges that strain appliance electronics.",
     "neighborhoods": [
+      "Alhambra Triangle",
+      "Alkali Flat",
+      "Avondale",
+      "Belvedere",
+      "Ben Ali",
+      "Boulevard Park",
+      "Brentwood",
+      "Campus Commons",
       "Midtown",
       "East Sacramento",
       "Land Park",
@@ -16216,8 +16451,7 @@
       "Curtis Park",
       "Tahoe Park",
       "Oak Park",
-      "Elmhurst",
-      "Arden-Arcade"
+      "Elmhurst"
     ],
     "population": 525398,
     "nearby_towns": [
@@ -16257,7 +16491,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "minneapolis-mn",
@@ -16335,6 +16570,14 @@
     "market_blurb": "Minneapolis anchors Minnesota's largest metro economy, built on a mix of Fortune 500 corporate headquarters, healthcare systems, and financial services firms. The city's downtown core hosts major banking and insurance operations alongside a growing tech and creative sector, while strong ties to regional agriculture and manufacturing round out its diverse employment base. Minneapolis consistently ranks among the healthiest big-city economies in the Midwest due to this sector diversity.",
     "local_note": "Minneapolis draws its municipal water from the Mississippi River, producing a moderately hard supply that still leaves mineral scale buildup in water heaters, dishwashers, and washing machines over time. The region also experiences frequent severe summer thunderstorms, hail, and occasional derecho-type wind events, which contribute to power surges that can stress or damage appliance electronics and motors.",
     "neighborhoods": [
+      "Armatage",
+      "Audubon Park",
+      "Bancroft",
+      "Beltrami",
+      "Bottineau",
+      "Bryant",
+      "Bryn Mawr",
+      "Camden",
       "Uptown",
       "North Loop",
       "Northeast Minneapolis",
@@ -16383,7 +16626,8 @@
         "miles": 15
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "colorado-springs-co",
@@ -16461,6 +16705,14 @@
     "market_blurb": "Colorado Springs, Colorado's economy is heavily shaped by its large military presence, including Fort Carson, Peterson Space Force Base, and the U.S. Air Force Academy, alongside a growing aerospace and defense contractor base. Tourism tied to Pikes Peak and the Garden of the Gods, along with expanding healthcare and technology sectors, round out the city's diverse economic base.",
     "local_note": "Colorado Springs' municipal water supply is generally considered soft to moderately soft due to its mountain snowmelt sources, though this can reduce mineral scale buildup compared to harder-water cities. The region experiences frequent high-altitude thunderstorms, hail, and occasional strong wind events, which can contribute to power surges and increased wear on home appliances.",
     "neighborhoods": [
+      "Bonnievillie",
+      "Cragmor",
+      "Divine Redeemer",
+      "Downtown",
+      "Fairfax",
+      "Gold Hill Mesa",
+      "Hillside",
+      "Historic Uptown",
       "Old Colorado City",
       "Broadmoor",
       "Briargate",
@@ -16510,7 +16762,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "bakersfield-ca",
@@ -16588,6 +16841,7 @@
     "market_blurb": "Bakersfield, CA sits at the heart of Kern County's economy, historically anchored by oil and gas extraction and expansive agricultural production in the surrounding San Joaquin Valley. The city has diversified in recent decades with growth in logistics, healthcare, and renewable energy projects, while remaining a key hub for farm processing and distribution. Government and public education employers also make up a significant share of local jobs.",
     "local_note": "Bakersfield's municipal water supply is considered moderately hard to hard, contributing to mineral scale buildup in water heaters, dishwashers, and washing machines over time. The region experiences relatively infrequent but occasionally intense storms, along with dry, dusty conditions and periodic grid strain during extreme summer heat that can contribute to power surges affecting appliance electronics.",
     "neighborhoods": [
+      "The Polo Greens",
       "Downtown Bakersfield",
       "Seven Oaks",
       "Stockdale",
@@ -16635,7 +16889,8 @@
     "_research_declined": {
       "water_hardness_gpg": 1
     },
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "mesa-az",
@@ -16711,6 +16966,14 @@
     "market_blurb": "Mesa, Arizona has grown into one of the largest cities in the Phoenix metro area, anchored by a strong aerospace and manufacturing base that includes Boeing's helicopter production facility and NXP Semiconductors. Healthcare and education are also major economic drivers, with Banner Health facilities and Mesa Community College among the city's largest employers, while tourism tied to spring training baseball and outdoor recreation adds seasonal economic activity.",
     "local_note": "Mesa's municipal water supply, drawn from a blend of Salt River Project surface water and groundwater, is classified as hard, which accelerates scale buildup in water heaters, dishwashers, and ice makers. The region also experiences intense summer monsoon storms with lightning and dust, along with frequent triple-digit heat, both of which contribute to power surges and added strain on appliance compressors and electronics.",
     "neighborhoods": [
+      "Adobe Estates",
+      "Amberwood",
+      "Asian District",
+      "Buckhorn",
+      "Cadence",
+      "Camberley Place",
+      "Continental at Superstition Springs",
+      "Copperstone",
       "Dobson Ranch",
       "Las Sendas",
       "Eastmark",
@@ -16757,7 +17020,8 @@
         "miles": 20
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "omaha-ne",
@@ -16835,11 +17099,16 @@
     "market_blurb": "Omaha's economy is anchored by major insurance, financial services, and transportation firms, with Union Pacific Railroad and Berkshire Hathaway headquartered in the city. The region also has a strong agribusiness and food processing base, along with a growing healthcare sector supported by large hospital systems.",
     "local_note": "Omaha's municipal water supply, drawn primarily from the Missouri River and treated by the Metropolitan Utilities District, is moderately hard, contributing to mineral buildup in water heaters and dishwashers over time. The region also experiences frequent severe thunderstorms, hail, and occasional tornadoes in spring and summer, which can cause power surges that stress appliance electronics and compressors.",
     "neighborhoods": [
-      "Dundee",
+      "Aksarben",
+      "Aksarben Village",
+      "Beechwood",
       "Benson",
+      "Blackstone",
+      "Debolt",
+      "Dundee",
+      "East Omaha",
       "Old Market",
       "Blackstone District",
-      "Aksarben Village",
       "Midtown Omaha",
       "Florence",
       "Elmwood Park",
@@ -16883,6 +17152,7 @@
         "miles": 35
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   }
 ]

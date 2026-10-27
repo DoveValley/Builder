@@ -1547,5 +1547,30 @@
     "output_tokens": 0,
     "api_calls": 0,
     "estimated_cost_usd": 0.0
+  },
+  {
+    "run_id": "69ee308c-0839-4c6e-9733-4ffa4ffac85b",
+    "started_at": "2026-10-27T03:41:40.964249Z",
+    "finished_at": "2026-10-27T04:36:46.096243Z",
+    "duration_ms": 3305132,
+    "dry_run": false,
+    "options": {
+      "site": "mold-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 50,
+    "input_tokens": 48866,
+    "output_tokens": 115147,
+    "api_calls": 97,
+    "estimated_cost_usd": 1.873803
   }
 ]
