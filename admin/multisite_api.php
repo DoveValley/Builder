@@ -1563,8 +1563,48 @@ switch ($action) {
         $rArgs = [$masterId, '--batch=' . $batchId];
         if (!empty($_POST['dry_run'])) $rArgs[] = '--dry-run';
         if (!empty($_POST['force']))   $rArgs[] = '--force';
-        echo json_encode(ms_launch_job($batchDir . '/research', '__MS_RESEARCH_DONE__', 'Research is already running.',
-            BASE_DIR . '/multisite/research_cities.php', $rArgs));
+        // Optional scope: only these domains' own city + landing_cities — Batch Simple's
+        // "Research selected" button sends its ticked rows here so a quick preview/top-up
+        // doesn't touch (or, under Force, re-bill) every city in the whole batch. Live
+        // domains are skipped outright: the point of this button is grounding content
+        // BEFORE go-live, and a live domain's research already ran as part of its build.
+        $rSkippedLive = [];
+        $rDomainsIn = json_decode((string) ($_POST['domains'] ?? ''), true);
+        if (is_array($rDomainsIn) && $rDomainsIn) {
+            require_once __DIR__ . '/infra/lib/state.php';
+            $rByDomain = ms_rows_by_domain($paramsPath);
+            $rCityIds = [];
+            foreach ($rDomainsIn as $rDom) {
+                $rDom = strtolower(trim((string) $rDom));
+                if (!isset($rByDomain[$rDom])) continue;
+                $rRec = infra_state_get_domain($rDom);
+                if ($rRec && ($rRec['status'] ?? '') === 'live') { $rSkippedLive[] = $rDom; continue; }
+                $rCity = trim((string) ($rByDomain[$rDom]['city'] ?? ''));
+                $rSS   = trim((string) ($rByDomain[$rDom]['SS'] ?? ''));
+                if ($rCity !== '' && $rSS !== '') $rCityIds[slugify("{$rCity}-{$rSS}")] = true;
+                // Same "City, ST" ; / newline-separated parsing infra_pipeline_research_index()
+                // uses, restated here rather than required for the same self-contained reason.
+                foreach (preg_split('/[;\r\n]+/', (string) ($rByDomain[$rDom]['landing_cities'] ?? '')) ?: [] as $rEntry) {
+                    $rParts = array_map('trim', explode(',', trim($rEntry)));
+                    if (count($rParts) < 2) continue;
+                    $rLss   = strtoupper(array_pop($rParts));
+                    $rLcity = implode(', ', $rParts);
+                    if ($rLcity === '' || !preg_match('/^[A-Z]{2}$/', $rLss)) continue;
+                    $rCityIds[slugify("{$rLcity}-{$rLss}")] = true;
+                }
+            }
+            if (!$rCityIds) {
+                echo json_encode(['error' => $rSkippedLive
+                    ? 'Every selected domain is already live — nothing to research before go-live.'
+                    : 'None of the selected domains have a city on file yet.']);
+                break;
+            }
+            $rArgs[] = '--cities=' . implode(',', array_keys($rCityIds));
+        }
+        $rResult = ms_launch_job($batchDir . '/research', '__MS_RESEARCH_DONE__', 'Research is already running.',
+            BASE_DIR . '/multisite/research_cities.php', $rArgs);
+        if ($rSkippedLive) $rResult['skipped_live'] = $rSkippedLive;
+        echo json_encode($rResult);
         break;
 
     case 'research_status':

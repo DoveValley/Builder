@@ -2786,6 +2786,9 @@ def main():
     ap.add_argument('--all',             action='store_true', help='Process homepage + core + landing pages')
     ap.add_argument('--file',            default=None,        help='Limit to page files whose name contains this string')
     ap.add_argument('--tag',             default=None,        help='Limit to cities carrying this tag in cities.json (e.g. tier1)')
+    ap.add_argument('--cities',          default=None,        help='Limit to these city ids in cities.json, comma-separated — '
+                                                                     'an explicit one-off whitelist rather than a stored tag '
+                                                                     '(e.g. "just these selected domains" from the batch UI)')
     ap.add_argument('--refresh',         action='store_true', help='Regenerate even _ai_locked blocks')
     ap.add_argument('--research',        action='store_true', help='Research missing city data before generating content')
     ap.add_argument('--research-report', action='store_true', dest='research_report',
@@ -2866,14 +2869,23 @@ def main():
     if args.research_report:
         sys.exit(report_research_completeness(paths))
 
-    tag_ids = resolve_tag_city_ids(paths, args.tag)
-    if args.tag and not tag_ids:
-        _warn(f'  --tag {args.tag} matched no cities in cities.json')
+    # --cities is an explicit whitelist (ids given directly, not looked up by a stored
+    # tag) — takes priority over --tag when both are somehow given, same "set of
+    # allowed city ids" shape resolve_tag_city_ids() already produces, so every step
+    # that threads tag_ids through (research, images, neighborhoods, landing pages)
+    # scopes correctly with no further changes.
+    if args.cities:
+        tag_ids = {c.strip() for c in args.cities.split(',') if c.strip()}
+    else:
+        tag_ids = resolve_tag_city_ids(paths, args.tag)
+        if args.tag and not tag_ids:
+            _warn(f'  --tag {args.tag} matched no cities in cities.json')
 
     _log(f'\n{"═"*54}')
     _log(f'generate.py · site={args.site}')
     scope = '--all' if args.all else ('--research-only' if args.research_only else args.page)
-    _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else '') + (f' --tag {args.tag}' if args.tag else ''))
+    _log(f'Scope    : {scope}' + (f' --file {args.file}' if args.file else '') + (f' --tag {args.tag}' if args.tag else '')
+         + (f' --cities {len(tag_ids)} id(s)' if args.cities else ''))
     _log(f'Research : {args.research}  |  Refresh : {args.refresh}  |  Dry run : {args.dry_run}  |  Workers : {args.workers}')
     if args.model:
         _log(f'Model    : {args.model} (override)')

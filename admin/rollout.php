@@ -82,6 +82,17 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <div class="ro-views"><a href="rollout.php" class="on">Simple</a><a href="batch.php">Detailed</a></div>
     </div>
 
+    <div class="ro-bar">
+        <strong style="font-size:.9rem;">Research</strong>
+        <label><input type="checkbox" id="ro-research-dry"> Dry run (preview only, no API)</label>
+        <label><input type="checkbox" id="ro-research-force"> Force (re-research even if already done)</label>
+        <button type="button" class="btn sec" id="ro-research-btn">Research selected</button>
+        <span class="hint" id="ro-research-state"></span>
+        <a href="#" class="ro-info" data-static-info="research_selected" title="Details">&#9432;</a>
+        <span class="hint">Runs the per-city research pass for the domains ticked below, before Build spends real money on them — skips any that are already live (their research already ran as part of their build). Covers each domain's own city plus its <code>landing_cities</code>.</span>
+    </div>
+    <pre id="ro-research-out" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+
     <details id="ro-cc-details" style="margin:0 0 14px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;">
         <summary style="cursor:pointer;padding:8px 12px;font-weight:600;font-size:.92rem;list-style:revert;">Site Final Check</summary>
         <div style="padding:4px 12px 14px;">
@@ -416,6 +427,21 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
             + '(confirmed 2026-10-24: 117 of 118 live domains\' last refresh reports "cache: purged," 0 failures — the '
             + 'one exception is a missing deploy manifest, unrelated to Cloudflare). A refreshed date shows publicly '
             + 'right away, not after the old ~4-hour delay.</div>'],
+        research_selected: ['Research selected',
+            '<div class="ro-step">Looks up real local facts (industries, employers, market blurb, population, plus '
+          + 'whatever this niche\'s chart figures and custom research fields ask for) for every ticked domain\'s own '
+          + '<strong>city</strong> and <strong>landing_cities</strong> — the same data a normal Build already fetches '
+          + 'automatically the first time it needs it. This button exists to preview or top it up <em>before</em> '
+          + 'spending a Build\'s full cost, not to replace Build\'s own automatic research.</div>'
+          + '<div class="ro-step">Skipped per field, not per city — a city already fully researched costs nothing; '
+          + 'one missing a single field is asked for only that field. <strong>Force</strong> ignores that and re-asks '
+          + 'every field for every matched city, real cost regardless of what is already on file.</div>'
+          + '<div class="ro-step">Scoped to the <strong>ticked rows only</strong> — never the whole batch — so it is '
+          + 'safe to run on a handful of domains without touching (or, under Force, re-billing) every city the batch '
+          + 'has. <strong>Live domains are skipped outright</strong>: the point is grounding content before go-live, '
+          + 'and a live domain\'s research already ran as part of the build that put it live.</div>'
+          + '<div class="ro-step">Detached, same as Run selected — this box keeps streaming its log after you '
+          + 'navigate away and back. Tick <strong>Dry run</strong> to preview with no API cost.</div>'],
     };
     function showStaticInfo(key) {
         const [title, body] = STATIC_INFO[key] || ['', ''];
@@ -909,6 +935,59 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         say(what + ' started for ' + sel.size + ' domain(s).', true);
         sel.clear(); render(); clearTimeout(jobTimer); watchJob(r.run_id);
     };
+    // Research selected — same detached-job shape as Run selected above (one job per
+    // batch, watched by run_id), but scoped server-side to the ticked domains' cities
+    // rather than the whole batch. See the ⓘ next to the button for what it actually does.
+    let researchTimer = null;
+    function setResearchDisabled(disabled) {
+        $('ro-research-dry').disabled = disabled;
+        $('ro-research-force').disabled = disabled;
+        $('ro-research-btn').disabled = disabled;
+    }
+    async function watchResearch(runId) {
+        const r = await (await fetch(API + '?action=research_status' + (runId ? '&run_id=' + encodeURIComponent(runId) : ''))).json();
+        if (r.none) return;
+        const out = $('ro-research-out');
+        out.style.display = ''; out.textContent = r.output || 'Starting…';
+        out.scrollTop = out.scrollHeight;
+        if (!r.done) {
+            setResearchDisabled(true);
+            $('ro-research-state').style.color = '#2563eb';
+            $('ro-research-state').textContent = 'working…';
+            researchTimer = setTimeout(() => watchResearch(r.run_id), 2500);
+            return;
+        }
+        setResearchDisabled(false);
+        const ok = !r.dead && r.exit === 0;
+        $('ro-research-state').style.color = ok ? '#166534' : '#991b1b';
+        $('ro-research-state').textContent = r.dead ? 'stopped unexpectedly' : (ok ? 'done' : 'failed (exit ' + r.exit + ')');
+        out.textContent += r.dead
+            ? '\n\n✗ Stopped unexpectedly before finishing — killed, or the server restarted.'
+            : (ok ? '\n\n✓ Done.' : '\n\n✗ Exited with code ' + r.exit + '.');
+        load();   // refresh the Research column's dots/dates
+    }
+    $('ro-research-btn').onclick = async () => {
+        if (!sel.size) return say('Tick some domains first.');
+        const dry = $('ro-research-dry').checked, force = $('ro-research-force').checked;
+        if (force && !dry && !confirm('Force will re-research EVERY city these ' + sel.size + ' domain(s) need, even ones already complete — real API cost, not just gaps. Continue?')) return;
+        setResearchDisabled(true);
+        $('ro-research-out').style.display = ''; $('ro-research-out').textContent = 'Starting…';
+        $('ro-research-state').style.color = '#2563eb'; $('ro-research-state').textContent = 'working…';
+        const r = await post({ action: 'research', domains: JSON.stringify([...sel]), dry_run: dry ? '1' : '0', force: force ? '1' : '0' });
+        if (r.error) {
+            setResearchDisabled(false);
+            $('ro-research-out').textContent = r.error;
+            $('ro-research-state').style.color = '#991b1b'; $('ro-research-state').textContent = 'failed';
+            // Carries the live run_id when the batch's one research slot is already busy —
+            // resume watching it instead of leaving the controls disabled with no feedback.
+            if (r.run_id) { clearTimeout(researchTimer); watchResearch(r.run_id); }
+            return;
+        }
+        if (r.skipped_live && r.skipped_live.length) {
+            say('Skipped ' + r.skipped_live.length + ' already-live domain(s) — ' + r.skipped_live.join(', ') + '.', true, 'warn');
+        }
+        clearTimeout(researchTimer); watchResearch(r.run_id);
+    };
     // Site Final Check — ⓘ opens the static "what runs" modal (built server-side from the
     // same PHP registries the run itself uses — cc_registry()/cc_registry_built()/
     // cc_registry_live() — no separate JS copy of any list to drift out of sync). Run
@@ -980,7 +1059,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     loadLastContentCheck();
 
     load();
-    watchJob('');   // a job already running (page reloaded mid-run) shows its log
+    watchJob('');       // a job already running (page reloaded mid-run) shows its log
+    watchResearch('');  // ditto for a research run started before this page load
 })();
 </script>
 </body>

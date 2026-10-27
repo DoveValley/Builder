@@ -5,13 +5,19 @@
  * each city gets real local facts before a batch generates copy. Research is stored
  * ONCE in the persistent cities.json (not per ephemeral build), so it's reused + free.
  *
- *   php multisite/research_cities.php <master_id> [--dry-run] [--force]
+ *   php multisite/research_cities.php <master_id> [--dry-run] [--force] [--cities=id1,id2,...]
  *
  * No-op (exit 0) if the niche brief has uses_research_fields=false — that niche localizes
  * through its own angle + shortcodes and needs no per-city lookup.
  *
  * --force re-researches every city regardless of what it already has (a rewritten research
  * prompt, or facts believed stale/wrong) — see generate.py's --research-force.
+ *
+ * --cities scopes the actual Claude research call to just these city ids (generate.py's
+ * own --cities) — the seeding + geocoding steps above still run over the whole batch's
+ * params.csv regardless (both are free, no reason to narrow them). Used by Batch Simple's
+ * "Research selected" button so a quick pass over a handful of ticked domains doesn't
+ * touch — or, under --force, re-bill — every city in the batch.
  */
 if (PHP_SAPI !== 'cli') { fwrite(STDERR, "research_cities.php is CLI only\n"); exit(2); }
 
@@ -21,15 +27,19 @@ require __DIR__ . '/../includes/multisite/params.php';
 
 require __DIR__ . '/../includes/multisite/batch.php';
 
-$args     = array_slice($argv, 1);
-$dry      = in_array('--dry-run', $args, true);
-$force    = in_array('--force', $args, true);
-$batchArg = '';
-foreach ($args as $a) { if (str_starts_with($a, '--batch=')) $batchArg = substr($a, 8); }
+$args       = array_slice($argv, 1);
+$dry        = in_array('--dry-run', $args, true);
+$force      = in_array('--force', $args, true);
+$batchArg   = '';
+$citiesArg  = '';
+foreach ($args as $a) {
+    if (str_starts_with($a, '--batch='))  $batchArg  = substr($a, 8);
+    if (str_starts_with($a, '--cities=')) $citiesArg = substr($a, 9);
+}
 $pos      = array_values(array_filter($args, fn($a) => !str_starts_with($a, '--')));
 $masterId = $pos[0] ?? '';
 if ($masterId === '' || !is_dir(BASE_DIR . '/sites/' . $masterId)) {
-    fwrite(STDERR, "usage: research_cities.php <master_id> [--batch=bN] [--dry-run] [--force]\n");
+    fwrite(STDERR, "usage: research_cities.php <master_id> [--batch=bN] [--dry-run] [--force] [--cities=id1,id2,...]\n");
     exit(2);
 }
 
@@ -92,7 +102,9 @@ if (empty($brief['uses_research_fields'])) {
 if (defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== '') putenv('ANTHROPIC_API_KEY=' . ANTHROPIC_API_KEY);
 $cmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
      . ' --site-dir ' . escapeshellarg($masterDir) . ' --research-only'
-     . ($dry ? ' --dry-run' : '') . ($force ? ' --research-force' : '') . ' 2>&1';
-echo "Running research (" . ($dry ? 'dry-run' : 'live') . ($force ? ', FORCED — every matched city' : '') . ")…\n";
+     . ($dry ? ' --dry-run' : '') . ($force ? ' --research-force' : '')
+     . ($citiesArg !== '' ? ' --cities=' . escapeshellarg($citiesArg) : '') . ' 2>&1';
+echo "Running research (" . ($dry ? 'dry-run' : 'live') . ($force ? ', FORCED — every matched city' : '')
+   . ($citiesArg !== '' ? ', scoped to ' . count(array_filter(explode(',', $citiesArg))) . ' city id(s)' : '') . ")…\n";
 passthru($cmd, $code);
 exit((int)$code);
