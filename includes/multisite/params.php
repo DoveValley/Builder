@@ -307,6 +307,41 @@ function ms_rehydrate_ftp_pass(array $rows, string $storedCsvPath): array {
 }
 
 /**
+ * Clear a stale area_code left over from a city swap (matched by domain against the
+ * previously-stored CSV). Found 2026-10-27: swapping a row's city/state/SS without
+ * also updating area_code left the OLD city's code in place, and a later "Get CTM
+ * Phone Numbers" run trusted that stale field outright and bought a real wrong-region
+ * number (ctm_get_number_for_domain() always prefers a typed area_code over deriving
+ * one from the city) — 139 rows across 3 batches this way. Only clears when the new
+ * row's area_code is UNCHANGED from the old one; a row that also supplies a genuinely
+ * new area_code alongside its new city is trusted outright, same as a human typing
+ * both together.
+ */
+function ms_scrub_stale_area_code(array $rows, string $storedCsvPath): array {
+    if (!is_file($storedCsvPath)) return $rows;
+    $old = ms_parse_csv($storedCsvPath);
+    if ($old['error']) return $rows;
+    $map = [];
+    foreach ($old['rows'] as $sr) {
+        $d = strtolower(trim((string)($sr['domain'] ?? '')));
+        if ($d !== '') $map[$d] = $sr;
+    }
+    foreach ($rows as &$r) {
+        $d = strtolower(trim((string)($r['domain'] ?? '')));
+        if (!isset($map[$d])) continue;
+        $o = $map[$d];
+        $cityChanged = trim((string)($r['city'] ?? '')) !== trim((string)($o['city'] ?? ''))
+            || trim((string)($r['state'] ?? '')) !== trim((string)($o['state'] ?? ''))
+            || trim((string)($r['SS'] ?? '')) !== trim((string)($o['SS'] ?? ''));
+        $areaCodeUnchanged = trim((string)($r['area_code'] ?? '')) !== ''
+            && trim((string)($r['area_code'] ?? '')) === trim((string)($o['area_code'] ?? ''));
+        if ($cityChanged && $areaCodeUnchanged) $r['area_code'] = '';
+    }
+    unset($r);
+    return $rows;
+}
+
+/**
  * Snapshot the just-uploaded CSV into params_versions/ and prune to the newest $keep.
  * @return string the new version id, or '' on failure.
  */

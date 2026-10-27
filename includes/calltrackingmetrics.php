@@ -343,6 +343,43 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
         // candidate in the 'near' list.
         'san francisco|ca' => '415', 'chicago|il'       => '312', 'fort worth|tx'   => '817',
         'frisco|tx'        => '972', 'mckinney|tx'      => '972', 'arlington|tx'    => '817',
+        // These 9 had NO row in fleet.db's cities table at all (not 'near', not
+        // 'exact' — just missing), found 2026-10-27 while clearing the rebuy-
+        // blockers ahead of the mold/pest/water batch-1 area-code cleanup. Picked
+        // each city's primary/original code for consistency with the rest of this
+        // table — NOT because the overlay would be wrong: a 2026-10-27 audit found
+        // most of this table's "corrections" were cosmetic (overlay codes are
+        // equally real and equally local, no geographic difference), so where a
+        // city below has a known overlay it's noted, but either code would work.
+        'kent|wa'          => '253', // overlay 425 also serves Kent
+        'carson|ca'        => '310', // overlay 424
+        'pasadena|ca'      => '626', // no overlay live yet (279 pending CPUC approval)
+        'leander|tx'       => '512', // overlay 737
+        'charleston|sc'    => '843', // overlay 854
+        'lehi|ut'          => '801', // overlay 385
+        'warwick|ri'       => '401', // no overlay — RI is single-code statewide
+        'miami beach|fl'   => '305', // overlays 786, 645
+        'tustin|ca'        => '714', // overlay 657
+        // Full mold-site batch-2 audit, 2026-10-27 — all 19 of this batch's cities with
+        // no row in fleet.db's cities table at all, verified one at a time against live
+        // sources. 17 of 19 were already correct on file; 2 were real mismatches
+        // (overlay instead of primary), found and left on their LIVE rows pending a
+        // Correct & Regenerate decision rather than changed out from under a working
+        // number — see coltonmoldremediation.com / norbertmoldremediation.com.
+        'pueblo|co'            => '719', 'whitestown|in'      => '317', // overlay 463
+        'new hyde park|ny'     => '516', // overlay 363
+        'san gabriel|ca'       => '626', // overlay 840 (same split code as Pasadena above)
+        'red bank|nj'          => '732', // overlay 848
+        'columbia|sc'          => '803', // overlay 839
+        'foley|al'             => '251', 'grayslake|il'       => '847', // overlay 224 — this batch's row had the overlay
+        'sonoma|ca'            => '707', // overlay 369
+        'glenwood springs|co'  => '970', 'arlington|tn'       => '901',
+        'connersville|in'      => '765', 'chowchilla|ca'      => '559', // overlay 349
+        'maricopa|az'          => '520', // Pinal County town, NOT Maricopa COUNTY (Phoenix) — overlay 887
+        'bogalusa|la'          => '985', 'lenoir|nc'          => '828',
+        'manvel|tx'            => '281', // Houston-suburb split code, not downtown's 713
+        'london|oh'            => '740', // this batch's row had 614 (Columbus) — wrong city's code entirely
+        'lynn haven|fl'        => '850',
     ];
     $key = strtolower(trim($city)) . '|' . strtolower(trim($ss));
     if (isset($manual[$key])) return $manual[$key];
@@ -474,6 +511,27 @@ function ctm_get_number_for_domain(string $accountId, string $domain, string $ci
  *   - detach: DELETE /accounts/{a}/receiving_numbers/{receiving_number_id}.json —
  *             account-level, NOT nested under /numbers/{id}/ (that 404s).
  */
+/**
+ * If $phone is a bare local number (7 digits, no area code) and $areaCode is a real
+ * 3-digit code, combine them before any CTM lookup. Found live 2026-10-27: a row can
+ * have the correct Area Code typed into its own column while Phone holds only the
+ * local 7 digits — nothing else ever concatenates the two — and ctm_number_by_phone()'s
+ * mismatch guard has no way to tell "right number, just missing its area code" from
+ * "wrong number entirely" on a query this short. Confirmed live that CTM's own search
+ * isn't a strict match on a 7-digit query either — it returned a completely unrelated
+ * number for one. Leaves anything else (already full, or not a plain 7-digit string)
+ * untouched — only intervenes in this one narrow, understood case.
+ */
+function ctm_combine_phone_area(string $phone, string $areaCode): string
+{
+    $digits = preg_replace('/\D/', '', $phone);
+    $areaCode = trim($areaCode);
+    if (strlen($digits) === 7 && preg_match('/^\d{3}$/', $areaCode)) {
+        return $areaCode . '-' . $digits;
+    }
+    return $phone;
+}
+
 function ctm_number_by_phone(string $accountId, string $phone): array
 {
     $digits = preg_replace('/\D/', '', $phone);

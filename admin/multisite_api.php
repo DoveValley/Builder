@@ -1364,6 +1364,9 @@ switch ($action) {
         if ($parsed['error']) { echo json_encode(['error' => 'CSV error: ' . $parsed['error']]); break; }
         // Swap any masked (__KEEP__) passwords back to the stored real ones before validating.
         $rows = ms_rehydrate_ftp_pass($parsed['rows'], $paramsPath);
+        // A city swap with no matching area_code update leaves the OLD city's code
+        // behind — see ms_scrub_stale_area_code().
+        $rows = ms_scrub_stale_area_code($rows, $paramsPath);
         $v = ms_validate_rows($rows, $parsed['header']);
 
         $stored = false;
@@ -1759,6 +1762,7 @@ switch ($action) {
             break;
         }
         foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
+        $byDomain[$dom] = ms_scrub_stale_area_code([$byDomain[$dom]], $paramsPath)[0];
         $rv = ms_validate_rows([$byDomain[$dom]]);
         // An edit here is filling a row in incrementally, not finishing it - a row
         // still missing OTHER fields you're not touching right now must still be
@@ -1797,6 +1801,7 @@ switch ($action) {
             echo json_encode(['error' => "{$dom} is not live — use the regular row editor instead."]); break;
         }
         foreach (MS_ROW_EDITABLE_COLS as $c) if (array_key_exists($c, $_POST)) $byDomain[$dom][$c] = trim((string) $_POST[$c]);
+        $byDomain[$dom] = ms_scrub_stale_area_code([$byDomain[$dom]], $paramsPath)[0];
         $rv = ms_validate_rows([$byDomain[$dom]]);
         if ($rv['error'] > 0) { echo json_encode(['error' => 'Not saved — ' . implode('; ', $rv['rows'][0]['errors'])]); break; }
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
@@ -2062,7 +2067,8 @@ switch ($action) {
             }
             $crPhone = trim((string) ($crByDomain[$crDom]['phone'] ?? ''));
             if ($crPhone === '') { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'No phone number on file for this row — nothing to release.']; continue; }
-            $crLookup = ctm_number_by_phone($crAccountId, $crPhone);
+            $crLookupPhone = ctm_combine_phone_area($crPhone, (string) ($crByDomain[$crDom]['area_code'] ?? ''));
+            $crLookup = ctm_number_by_phone($crAccountId, $crLookupPhone);
             if (!$crLookup['ok']) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => $crLookup['error']]; continue; }
             $crNumberId = (string) ($crLookup['number']['id'] ?? '');
             if ($crNumberId === '') { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'CTM returned a match with no number id — cannot release.']; continue; }
@@ -2089,6 +2095,118 @@ switch ($action) {
         // The one real versioned checkpoint for this whole action.
         ms_write_rows_by_domain($batchDir, $paramsPath, $crByDomain);
         echo json_encode(['results' => $crResults]);
+        break;
+
+    // For a number bought by hand directly in CTM (inventory the search API won't
+    // surface) rather than through Get CTM Phone Numbers above: once its phone is
+    // pasted into this row, nothing else lines up the way an automated purchase does —
+    // not the CTM dashboard label, not area_code, not call routing. For each checked
+    // row, find the REAL CTM number behind its Phone (same lookup Release uses — this
+    // is also how a stale/wrong-account phone on file gets caught, same as
+    // poolerestoration.com turning out not to exist under this account at all), then
+    // bring CTM's label, area_code, and routing back into agreement with it. No LIVE
+    // guard: unlike Get/Release this never writes Phone — label is CTM-side only,
+    // area_code isn't rendered anywhere on the generated site, and routing changes
+    // nothing there either (same reasoning Set Call Routing above already relies on).
+    case 'ctm_resync_numbers':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
+        $rsAccountId = trim((string) ($_POST['account_id'] ?? ''));
+        $rsDomainsIn = (array) ($_POST['domains'] ?? []);
+        if ($rsAccountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
+        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
+        if (!$rsDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
+        set_time_limit(0);
+
+        $rsByDomain = ms_rows_by_domain($paramsPath);
+        $rsNicheCode = strtoupper(substr($masterId, 0, 3));
+        $rsBatchMeta = ms_batch_meta($masterId, $batchId);
+        $rsBatchSeq  = (int) ($rsBatchMeta['seq'] ?? 0);
+        $rsRowOrder  = array_keys($rsByDomain);
+
+        $rsResults = [];
+        foreach ($rsDomainsIn as $rsDom) {
+            $rsDom = strtolower(trim((string) $rsDom));
+            if (!isset($rsByDomain[$rsDom])) { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
+            $rsPhone = trim((string) ($rsByDomain[$rsDom]['phone'] ?? ''));
+            if ($rsPhone === '') { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => 'No phone on file — nothing to resync.']; continue; }
+            $rsAreaOnFile = (string) ($rsByDomain[$rsDom]['area_code'] ?? '');
+            $rsLookupPhone = ctm_combine_phone_area($rsPhone, $rsAreaOnFile);
+            $rsFound = ctm_number_by_phone($rsAccountId, $rsLookupPhone);
+            if (!$rsFound['ok']) { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => $rsFound['error']]; continue; }
+            $rsNumberId = (string) ($rsFound['number']['id'] ?? '');
+            if ($rsNumberId === '') { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => 'CTM returned a match with no number id — cannot resync.']; continue; }
+
+            $rsWarnings = [];
+            // Phone itself is never rewritten here (see the no-LIVE-guard reasoning
+            // above), but a bare local number is still wrong SITE content — flag it so
+            // it doesn't go unnoticed just because CTM-side sync succeeded.
+            if ($rsLookupPhone !== $rsPhone) {
+                $rsWarnings[] = "Phone on file is just '{$rsPhone}', missing its area code — the site will show an incomplete number until you fix it by hand.";
+            }
+
+            // Label — rebuilt from this row's own current position/city/state, same
+            // inputs ctm_get_numbers used when it first bought a number this way.
+            $rsRowNum = array_search($rsDom, $rsRowOrder, true);
+            $rsRowNum = $rsRowNum === false ? 0 : $rsRowNum + 1;
+            $rsCity = trim((string) ($rsByDomain[$rsDom]['city'] ?? ''));
+            $rsSS   = trim((string) ($rsByDomain[$rsDom]['SS'] ?? ''));
+            $rsLabel = ctm_build_label($rsNicheCode, $rsBatchSeq, $rsRowNum, $rsSS, $rsCity, $rsDom);
+            $rsRelabeled = false;
+            $rsVerify = ctm_get_number($rsAccountId, $rsNumberId);
+            $rsCurName = $rsVerify['ok'] ? ($rsVerify['data']['name'] ?? null) : null;
+            if ($rsCurName !== $rsLabel) {
+                $rsSetName = ctm_set_number_name($rsAccountId, $rsNumberId, $rsLabel);
+                if ($rsSetName['ok']) { $rsRelabeled = true; }
+                else { $rsWarnings[] = "Could not update its CTM label: {$rsSetName['error']}"; }
+            }
+
+            // Area code — derived from the REAL number CTM returned, not guessed from
+            // the city. Ground truth beats a lookup-table guess, and this doubles as a
+            // check against the same wrong-area-code bug class found fleet-wide earlier.
+            $rsGotPhone  = (string) ($rsFound['number']['phone_number'] ?? $rsFound['number']['number'] ?? '');
+            $rsGotDigits = substr(preg_replace('/\D/', '', $rsGotPhone), -10);
+            $rsRealArea  = substr($rsGotDigits, 0, 3);
+            $rsAreaChanged = $rsRealArea !== '' && $rsRealArea !== trim((string) ($rsByDomain[$rsDom]['area_code'] ?? ''));
+            if ($rsAreaChanged) $rsByDomain[$rsDom]['area_code'] = $rsRealArea;
+
+            // Routing — if this row has a known destination, always (re)apply it to
+            // whatever number is now in Phone: same "replace, never two destinations
+            // ringing at once" semantics Set Call Routing already uses above. Tolerates
+            // a stale/already-gone old receiving id silently (ctm_set_routing_for_domain's
+            // own documented behavior) — exactly the case right after a manual swap.
+            $rsForwardTo = trim((string) ($rsByDomain[$rsDom]['forward_to'] ?? ''));
+            $rsRouting = 'no_destination_on_file';
+            if ($rsForwardTo !== '') {
+                $rsOldRpn = trim((string) ($rsByDomain[$rsDom]['forward_rpn_id'] ?? ''));
+                $rsRouted = ctm_set_routing_for_domain($rsAccountId, $rsLookupPhone, $rsForwardTo, $rsOldRpn);
+                if ($rsRouted['ok']) {
+                    $rsByDomain[$rsDom]['forward_to']     = $rsRouted['destination'];
+                    $rsByDomain[$rsDom]['forward_rpn_id'] = $rsRouted['receiving_id'];
+                    $rsRouting = 'synced';
+                } else {
+                    $rsRouting = 'failed';
+                    $rsWarnings[] = "Could not sync call routing: {$rsRouted['error']}";
+                }
+            }
+
+            $rsResults[] = [
+                'domain'      => $rsDom,
+                'ok'          => true,
+                'phone'       => $rsPhone,
+                'area_code'   => $rsByDomain[$rsDom]['area_code'],
+                'relabeled'   => $rsRelabeled,
+                'area_synced' => $rsAreaChanged,
+                'routing'     => $rsRouting,
+                'warning'     => implode(' ', $rsWarnings),
+            ];
+            // Written per domain — see ctm_get_numbers' own note on why a mid-batch
+            // Apache timeout must not lose a real CTM write already made.
+            ms_write_rows_by_domain_live($paramsPath, $rsByDomain);
+        }
+        // The one real versioned checkpoint for this whole action.
+        ms_write_rows_by_domain($batchDir, $paramsPath, $rsByDomain);
+        echo json_encode(['results' => $rsResults]);
         break;
 
     default:

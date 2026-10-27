@@ -110,6 +110,19 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         </div>
         <div id="ms-release-results" style="margin-top:8px;font-size:.8rem;"></div>
     </div>
+    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+        <strong style="font-size:.82rem;color:#1e3a5f;">Resync from CTM</strong>
+        <span class="hint" style="margin-left:6px;">For a number bought by hand directly in CTM (not through Get CTM Phone Numbers) — paste its Phone into the row first, then check it here. Looks up the real number behind that Phone and brings CTM's dashboard label, this row's Area Code, and call routing back into agreement with it. Also how a stale or wrong-account Phone gets caught.</span>
+        <div style="margin-top:8px;">
+            <input type="text" id="ms-resync-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
+            <button type="button" class="btn btn-primary" id="ms-resync-btn" onclick="msCtmResyncNumbers()">Resync from CTM (<span id="ms-resync-count">0</span> selected)</button>
+            <span id="ms-resync-msg" class="hint" style="margin-left:8px;"></span>
+            <div class="hint" style="margin-top:4px;width:100%;">
+                Uses the same checkboxes as Get CTM Phone Numbers above. Never touches Phone itself — works on already-live rows too. A row with a destination on file always gets routing re-applied to whatever number is in Phone now, replacing anything stale.
+            </div>
+        </div>
+        <div id="ms-resync-results" style="margin-top:8px;font-size:.8rem;"></div>
+    </div>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
             <thead><tr>
@@ -2108,6 +2121,9 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const isLive = r.status === 'live';
         const editing = msEditingDomain === domain;
         const numCell = '<td class="hint">' + rowNum + '</td>';
+        const domainCell = isLive
+            ? '<a href="https://' + esc(domain) + '" target="_blank" rel="noopener">' + esc(domain) + '</a>'
+            : esc(domain);
         // NOT disabled for LIVE rows: this checkbox now drives two actions, not one.
         // Get CTM Phone Numbers still refuses a live row (checked server-side, in
         // multisite_api.php's ctm_get_numbers case) since changing the tracking
@@ -2122,7 +2138,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         let cells;
         if (editing) {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
-                '<td>' + esc(domain) + '</td>' +
+                '<td>' + domainCell + '</td>' +
                 '<td><input class="ms-row-input" data-f="business" value="' + esc(f.business || '') + '" style="width:140px;"></td>' +
                 '<td><input class="ms-row-input" data-f="area_code" maxlength="3" value="' + esc(f.area_code || '') + '" style="width:60px;"></td>' +
                 '<td><input class="ms-row-input" data-f="phone" value="' + esc(f.phone || '') + '" style="width:110px;"></td>' +
@@ -2134,7 +2150,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<button type="button" class="btn" onclick="msRowEditCancel()">Cancel</button>' + msPoolNotice(r.pool, domain) + '</td>';
         } else {
             cells = numCell + checkCell + '<td>' + msStatusBadge(r.status) + '</td>' +
-                '<td>' + esc(domain) + '</td>' +
+                '<td>' + domainCell + '</td>' +
                 '<td>' + esc(f.business || '') + '</td>' +
                 '<td>' + esc(f.area_code || '') + '</td>' +
                 '<td>' + esc(f.phone || '') + '</td>' +
@@ -2185,11 +2201,13 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         const n = Object.keys(msCtmSelected).length;
         const el = document.getElementById('ms-ctm-count');
         if (el) el.textContent = n;
-        // Same checkbox selection drives all three bulk actions below.
+        // Same checkbox selection drives all four bulk actions below.
         const el2 = document.getElementById('ms-route-count');
         if (el2) el2.textContent = n;
         const el3 = document.getElementById('ms-release-count');
         if (el3) el3.textContent = n;
+        const el4 = document.getElementById('ms-resync-count');
+        if (el4) el4.textContent = n;
     }
 
     window.msCtmGetNumbers = async function () {
@@ -2305,6 +2323,51 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — released ' + esc(r.released_phone) + '</div>';
         }).join('');
         msCtmSelected = {};
+        await msLoadRows();
+    };
+
+    // ── "Resync from CTM" — for a number bought by hand directly in CTM, see
+    // ctm_number_by_phone()/ctm_build_label()/ctm_set_routing_for_domain() in
+    // includes/calltrackingmetrics.php. Reuses msCtmSelected same as Set Call Routing
+    // and Release above. Does not reset selection after running — chainable, same
+    // reasoning as Set Call Routing (not a one-shot purchase/release).
+    window.msCtmResyncNumbers = async function () {
+        const domains = Object.keys(msCtmSelected);
+        const accountId = document.getElementById('ms-resync-account').value.trim();
+        const msgEl = document.getElementById('ms-resync-msg');
+        const resEl = document.getElementById('ms-resync-results');
+        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+        if (!confirm('Sync CTM\'s label, area code, and call routing for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' to match what\'s on file?\n\nReal CTM writes for anything found out of sync — not a preview.')) return;
+
+        const btn = document.getElementById('ms-resync-btn');
+        btn.disabled = true;
+        msgEl.textContent = 'Working…';
+        resEl.innerHTML = '';
+
+        const fd = new FormData();
+        fd.append('csrf_token', csrfToken);
+        fd.append('account_id', accountId);
+        domains.forEach(d => fd.append('domains[]', d));
+
+        let d;
+        try { d = await (await fetch('multisite_api.php?action=ctm_resync_numbers', { method: 'POST', body: fd })).json(); }
+        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
+        btn.disabled = false;
+
+        if (d.error) { msgEl.textContent = d.error; return; }
+        msgEl.textContent = '';
+        resEl.innerHTML = (d.results || []).map(r => {
+            if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+            const changes = [];
+            if (r.relabeled) changes.push('label fixed');
+            if (r.area_synced) changes.push('area code → ' + esc(r.area_code));
+            if (r.routing === 'synced') changes.push('routing re-applied');
+            if (r.routing === 'failed') changes.push('routing FAILED');
+            const summary = changes.length ? changes.join(', ') : 'already in sync';
+            const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
+            return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — ' + summary + warn + '</div>';
+        }).join('');
         await msLoadRows();
     };
 
