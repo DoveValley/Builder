@@ -59,52 +59,66 @@ $citiesFile = $masterDir . '/data/cities.json';
 
 if (!is_file($csvPath)) { fwrite(STDERR, "No params.csv for batch {$masterId}/{$batchId} — upload it first.\n"); exit(2); }
 
-// ── Seed cities.json from the params table (city|SS uniqueness) ────────────────
-$parsed = ms_parse_csv($csvPath);
-if ($parsed['error']) { fwrite(STDERR, 'CSV error: ' . $parsed['error'] . "\n"); exit(2); }
+// Every step below reads cities.json, mutates it in memory, and writes the whole
+// file back — including generate.py's checkpointed research pass, which can run
+// for several minutes. A second research run against the SAME master (a sibling
+// batch sharing this cities.json) racing against this one is a lost-update: its
+// write wins on whatever it had in memory, silently erasing this run's seeded
+// rows, geocoding, or research. Holding one lock for the master's cities.json
+// across the whole run — not just each individual write — serializes sibling
+// batches' research instead of letting them race. Different masters never touch
+// the same file, so they still run fully in parallel.
+$code = ms_with_launch_lock($masterDir . '/data/cities.json.lock', function () use (
+    $csvPath, $citiesFile, $briefPath, $masterDir, $dry, $force, $citiesArg
+) {
+    // ── Seed cities.json from the params table (city|SS uniqueness) ────────────
+    $parsed = ms_parse_csv($csvPath);
+    if ($parsed['error']) { fwrite(STDERR, 'CSV error: ' . $parsed['error'] . "\n"); return 2; }
 
-$cities = json_decode((string)@file_get_contents($citiesFile), true);
-if (!is_array($cities)) $cities = [];
-$have = [];
-foreach ($cities as $c) { $have[strtolower(trim(($c['city'] ?? '') . '|' . ($c['SS'] ?? '')))] = true; }
+    $cities = json_decode((string)@file_get_contents($citiesFile), true);
+    if (!is_array($cities)) $cities = [];
+    $have = [];
+    foreach ($cities as $c) { $have[strtolower(trim(($c['city'] ?? '') . '|' . ($c['SS'] ?? '')))] = true; }
 
-$added = 0;
-foreach ($parsed['rows'] as $r) {
-    $city = trim($r['city'] ?? ''); $SS = trim($r['SS'] ?? ''); $state = trim($r['state'] ?? '');
-    if ($city === '' || $SS === '') continue;
-    $key = strtolower("{$city}|{$SS}");
-    if (isset($have[$key])) continue;
-    $have[$key] = true;
-    $slug = slugify("{$city}-{$SS}");
-    $cities[] = ['id' => $slug, 'city' => $city, 'state' => $state, 'SS' => $SS, 'city_slug' => $slug];
-    $added++;
-}
-if ($added > 0) {
-    file_put_contents($citiesFile, json_encode(array_values($cities), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
-}
-echo "Seeded {$added} new city row(s) into cities.json (" . count($cities) . " total).\n";
+    $added = 0;
+    foreach ($parsed['rows'] as $r) {
+        $city = trim($r['city'] ?? ''); $SS = trim($r['SS'] ?? ''); $state = trim($r['state'] ?? '');
+        if ($city === '' || $SS === '') continue;
+        $key = strtolower("{$city}|{$SS}");
+        if (isset($have[$key])) continue;
+        $have[$key] = true;
+        $slug = slugify("{$city}-{$SS}");
+        $cities[] = ['id' => $slug, 'city' => $city, 'state' => $state, 'SS' => $SS, 'city_slug' => $slug];
+        $added++;
+    }
+    if ($added > 0) {
+        file_put_contents($citiesFile, json_encode(array_values($cities), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE));
+    }
+    echo "Seeded {$added} new city row(s) into cities.json (" . count($cities) . " total).\n";
 
-// ── Geocode: fill any missing city lat/lng from OpenStreetMap (authoritative, not AI) ──
-// Runs for every niche — coordinates power the LocalBusiness schema regardless of AI research.
-require_once __DIR__ . '/../includes/multisite/geocode.php';
-echo "Geocoding cities (city-center lat/lng from OpenStreetMap)…\n";
-$g = ms_geocode_cities_file($citiesFile, function ($m) { echo $m . "\n"; }, false);
-echo "Coordinates: filled {$g['filled']}, already had {$g['skipped']}, failed {$g['failed']}.\n";
+    // ── Geocode: fill any missing city lat/lng from OpenStreetMap (authoritative, not AI) ──
+    // Runs for every niche — coordinates power the LocalBusiness schema regardless of AI research.
+    require_once __DIR__ . '/../includes/multisite/geocode.php';
+    echo "Geocoding cities (city-center lat/lng from OpenStreetMap)…\n";
+    $g = ms_geocode_cities_file($citiesFile, function ($m) { echo $m . "\n"; }, false);
+    echo "Coordinates: filled {$g['filled']}, already had {$g['skipped']}, failed {$g['failed']}.\n";
 
-// Gate: niches that don't use AI research localize via their angle + shortcodes.
-$brief = json_decode((string)@file_get_contents($briefPath), true) ?: [];
-if (empty($brief['uses_research_fields'])) {
-    echo "uses_research_fields=false — coordinates done; no AI city research needed.\n";
-    exit(0);
-}
+    // Gate: niches that don't use AI research localize via their angle + shortcodes.
+    $brief = json_decode((string)@file_get_contents($briefPath), true) ?: [];
+    if (empty($brief['uses_research_fields'])) {
+        echo "uses_research_fields=false — coordinates done; no AI city research needed.\n";
+        return 0;
+    }
 
-// ── Run the niche-aware research (fills only cities lacking data, unless --force) ──
-if (defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== '') putenv('ANTHROPIC_API_KEY=' . ANTHROPIC_API_KEY);
-$cmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
-     . ' --site-dir ' . escapeshellarg($masterDir) . ' --research-only'
-     . ($dry ? ' --dry-run' : '') . ($force ? ' --research-force' : '')
-     . ($citiesArg !== '' ? ' --cities=' . escapeshellarg($citiesArg) : '') . ' 2>&1';
-echo "Running research (" . ($dry ? 'dry-run' : 'live') . ($force ? ', FORCED — every matched city' : '')
-   . ($citiesArg !== '' ? ', scoped to ' . count(array_filter(explode(',', $citiesArg))) . ' city id(s)' : '') . ")…\n";
-passthru($cmd, $code);
-exit((int)$code);
+    // ── Run the niche-aware research (fills only cities lacking data, unless --force) ──
+    if (defined('ANTHROPIC_API_KEY') && ANTHROPIC_API_KEY !== '') putenv('ANTHROPIC_API_KEY=' . ANTHROPIC_API_KEY);
+    $cmd = 'python3 ' . escapeshellarg(BASE_DIR . '/generate.py')
+         . ' --site-dir ' . escapeshellarg($masterDir) . ' --research-only'
+         . ($dry ? ' --dry-run' : '') . ($force ? ' --research-force' : '')
+         . ($citiesArg !== '' ? ' --cities=' . escapeshellarg($citiesArg) : '') . ' 2>&1';
+    echo "Running research (" . ($dry ? 'dry-run' : 'live') . ($force ? ', FORCED — every matched city' : '')
+       . ($citiesArg !== '' ? ', scoped to ' . count(array_filter(explode(',', $citiesArg))) . ' city id(s)' : '') . ")…\n";
+    passthru($cmd, $code);
+    return (int)$code;
+});
+exit($code);

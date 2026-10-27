@@ -68,6 +68,9 @@ multisite/.batch_seq.lock
 data/.generation.lock
 sites/*/data/.generation.lock
 
+# cities.json research/geocode concurrency lock (flock'd, live runtime state, not config)
+sites/*/data/cities.json.lock
+
 # Generation backups (created by generate.py on each landing regen)
 sites/*/data/pages/*.bak
 
