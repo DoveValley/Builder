@@ -330,6 +330,19 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
         // original/overlay pair like Glendale/Provo above) and the lookup just
         // took whichever was listed first — 240, the newer overlay, not 301.
         'frederick|md'     => '301',
+        // Verified against live sources (Wikipedia + area-code reference sites) while
+        // filling area_code by hand for appliance-site batch b3 rows 47/65-100 — same
+        // "took whichever was listed first, or a 'near' guess" failure as above, found
+        // on 6 of that batch's 37 cities. Dallas-area suburbs (Frisco/McKinney) split
+        // off Dallas proper's 214 into 972 in 1996; Arlington TX was never in the 214
+        // complex at all, it's always been Fort Worth's 817/682. Fort Worth itself had
+        // 682 listed first, but 682 is the 2000 overlay — 817 is the 1953 original.
+        // Chicago's 'near' list was all suburban-ring codes with no Chicago-proper code
+        // in it at all; San Francisco's 'near' pick (650) is the Peninsula, not SF —
+        // SF's real code, 415, is one of the original 86 from 1947 and wasn't even a
+        // candidate in the 'near' list.
+        'san francisco|ca' => '415', 'chicago|il'       => '312', 'fort worth|tx'   => '817',
+        'frisco|tx'        => '972', 'mckinney|tx'      => '972', 'arlington|tx'    => '817',
     ];
     $key = strtolower(trim($city)) . '|' . strtolower(trim($ss));
     if (isset($manual[$key])) return $manual[$key];
