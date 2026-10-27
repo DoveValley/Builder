@@ -380,6 +380,21 @@ function ctm_area_code_for_city(string $city, string $ss): ?string
         'manvel|tx'            => '281', // Houston-suburb split code, not downtown's 713
         'london|oh'            => '740', // this batch's row had 614 (Columbus) — wrong city's code entirely
         'lynn haven|fl'        => '850',
+        // Re-audit of mold-site batch 2, 2026-10-27 — this time EVERY one of the 100
+        // rows (not just ones missing a fleet.db entry), each checked against real
+        // split/overlay history rather than trusted because fleet.db had an 'exact'
+        // row on file. Found 10 more real overlay-vs-primary mismatches the narrower
+        // first pass missed:
+        'vista|ca'             => '760', // overlay 442 — same San Diego North County split as Oceanside below
+        'oceanside|ca'         => '760', // overlay 442
+        'american fork|ut'     => '801', // overlay 385 — same statewide pattern as Provo/Syracuse/Ogden/Lehi above
+        'layton|ut'            => '801', // overlay 385
+        'north canton|oh'      => '330', // overlay 234 — Akron/Canton's original code
+        'burbank|ca'           => '818', // overlay 747 — same San Fernando Valley split as Glendale above
+        'richardson|tx'        => '972', // the 1996 214/972 split moved the whole Dallas suburban ring, not just Frisco/McKinney
+        'grand prairie|tx'     => '972', // same 1996 suburban-ring split as Richardson
+        'naperville|il'        => '630', // overlay 331 — DuPage County's original code
+        'garden grove|ca'      => '714', // overlay 657 — Orange County's original code, same pattern as Tustin above
     ];
     $key = strtolower(trim($city)) . '|' . strtolower(trim($ss));
     if (isset($manual[$key])) return $manual[$key];

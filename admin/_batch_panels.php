@@ -2159,7 +2159,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + esc(f.state || '') + '</td>' +
                 '<td>' + esc(f.SS || '') + '</td>' +
                 '<td>' + (isLive
-                    ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button>'
+                    ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button> ' +
+                      '<span class="hint" style="cursor:help;font-size:1.05rem;" title="Saves the edited fields on this row, then automatically rebuilds just this one domain through the full pipeline (Clone, Identity, Landing pages, Differentiate, Visual identity, AI content, Images, Build) and uploads it live once that finishes. Every step always runs here — the Generate panel skip checkboxes do not apply to this button — and nothing is forced: cached AI photos are reused, not regenerated.">ⓘ</span>'
                     : '<button type="button" class="btn" onclick="msRowEditStart(\'' + domain.replace(/'/g, "\\'") + '\')">Edit</button> ' +
                       '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + domain.replace(/'/g, "\\'") + '\')">Delete</button>') +
                 msPoolNotice(r.pool, domain) +
