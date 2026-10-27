@@ -621,3 +621,177 @@ function ctm_set_routing_for_domain(string $accountId, string $trackingPhone, st
         'receiving_id' => $added['receiving_number']['id'],
     ];
 }
+
+// ── "Check primary area code" — real, AI-plus-web-search verification ──────────
+// A separate capability from ctm_area_code_for_city() above: that function only
+// ever answers from the manual table or fleet.db's own (sometimes wrong) data —
+// it cannot discover a NEW mismatch, only repeat one already found by hand. This
+// does the real research every past manual audit in this file's history did by
+// hand (see the big comment block above ctm_area_code_for_city()), as a button
+// instead of a one-off agent dispatch. Real, billed Anthropic call per city not
+// already in the cache below — never per domain, since the area code is a fact
+// about the CITY, shared by every domain (any niche, any batch) in that city.
+
+/** Fleet-wide, niche-agnostic — the real-world fact does not depend on which
+ *  batch or master asked. One city checked once is never re-billed. */
+function ctm_area_code_check_cache_path(): string
+{
+    return dirname(__DIR__) . '/admin/infra/state/area_code_checks.json';
+}
+
+function ctm_area_code_check_cache_get(string $city, string $ss): ?array
+{
+    $all = json_decode((string) @file_get_contents(ctm_area_code_check_cache_path()), true);
+    if (!is_array($all)) return null;
+    return $all[strtolower(trim($city)) . '|' . strtolower(trim($ss))] ?? null;
+}
+
+/** Read-modify-write under a lock — same reasoning as research_cities.php's
+ *  cities.json lock: two batches checking area codes at the same time must not
+ *  race and silently drop each other's results. */
+function ctm_area_code_check_cache_set(string $city, string $ss, array $result): void
+{
+    require_once __DIR__ . '/multisite/batch.php';
+    $path = ctm_area_code_check_cache_path();
+    ms_with_launch_lock($path . '.lock', function () use ($path, $city, $ss, $result) {
+        $all = json_decode((string) @file_get_contents($path), true);
+        if (!is_array($all)) $all = [];
+        $all[strtolower(trim($city)) . '|' . strtolower(trim($ss))] = $result + ['checked_at' => gmdate('c')];
+        $tmp = $path . '.' . bin2hex(random_bytes(4)) . '.tmp';
+        if (@file_put_contents($tmp, json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)) !== false) {
+            @rename($tmp, $path);
+        }
+    });
+}
+
+/** Shared by the single-city and batched lookups below — one prompt text, not two. */
+function ctm_area_code_prompt(string $city, string $ss): string
+{
+    return "You are determining the correct US phone area code for a local business's tracking number.\n\n"
+        . "City: {$city}, {$ss}\n\n"
+        . "Use real web search (Wikipedia / NANPA area-code-history pages) to determine the PRIMARY/ORIGINAL "
+        . "area code for this exact city — the code its own long-standing local phone numbers actually carry. "
+        . "If this area underwent a geographic SPLIT at some point, use the code this specific city landed in at "
+        . "the time of that split. If a newer OVERLAY code was added later on the SAME territory (not a split — "
+        . "an overlay shares the same geography as its base code), the OLDER base code is primary, not the "
+        . "overlay. Do not assume \"older is right\" or \"newer/suburb-sounding is right\" as a blanket rule — "
+        . "it depends entirely on this specific place's real history, verified by search, not guessed from "
+        . "general knowledge.\n\n"
+        . "Reply with ONLY one line of JSON, nothing else, in this exact shape:\n"
+        . '{"primary_code": "###", "evidence": "one sentence with what you found"}';
+}
+
+/** Turn one raw model reply into the same result shape the cache stores, or an
+ *  error entry — shared by the single and batched paths. */
+function ctm_area_code_parse_reply(?string $text): array
+{
+    if ($text === null) {
+        return ['checked' => false, 'cached' => false, 'primary_code' => '', 'evidence' => '', 'error' => 'Request failed.'];
+    }
+    if (defined('ANTHROPIC_RATE') && $text === ANTHROPIC_RATE) {
+        return ['checked' => false, 'cached' => false, 'primary_code' => '', 'evidence' => '', 'error' => 'Rate limited — try again shortly.'];
+    }
+    if (!preg_match('/\{.*\}/s', $text, $m) || !is_array($j = json_decode($m[0], true))) {
+        return ['checked' => false, 'cached' => false, 'primary_code' => '', 'evidence' => '',
+                 'error' => 'Model did not return parseable JSON: ' . substr($text, 0, 200)];
+    }
+    $primaryCode = preg_replace('/\D/', '', (string) ($j['primary_code'] ?? ''));
+    if (strlen($primaryCode) !== 3) {
+        return ['checked' => false, 'cached' => false, 'primary_code' => '', 'evidence' => '',
+                 'error' => 'Model did not return a valid 3-digit code: ' . substr($m[0], 0, 200)];
+    }
+    return ['checked' => true, 'cached' => false, 'primary_code' => $primaryCode,
+             'evidence' => trim((string) ($j['evidence'] ?? '')), 'error' => ''];
+}
+
+/**
+ * Ask Claude, with real web search turned on, what the true primary/original area
+ * code for $city, $ss actually is. Checks the fleet-wide cache first. Deliberately
+ * does NOT take the on-file code as an input or compare against it — this
+ * function has one job (what IS the real code), so the same cached answer serves
+ * both the "verify an existing code" and "fill in a blank one" callers in
+ * check_area_codes.php without needing two prompts or two cache shapes.
+ *
+ * A thin single-city wrapper over ctm_verify_area_codes_many() below — kept
+ * around for callers that only ever have one city at a time.
+ *
+ * @return array{checked:bool, cached:bool, primary_code:string, evidence:string, error:string}
+ */
+function ctm_verify_area_code_via_ai(string $city, string $ss): array
+{
+    $many = ctm_verify_area_codes_many([['city' => $city, 'ss' => $ss]]);
+    return $many[strtolower(trim($city)) . '|' . strtolower(trim($ss))]
+        ?? ['checked' => false, 'cached' => false, 'primary_code' => '', 'evidence' => '', 'error' => 'Internal error — no result for this city.'];
+}
+
+/**
+ * Same real lookup, batched: every cache-miss city's AI call fires CONCURRENTLY
+ * (anthropic_message_many() — curl_multi under the hood) instead of one after
+ * another. This is the real fix for a multi-row "Insert/verify" run being slow —
+ * a brand-new city is still a genuine 10-40s web-search-backed call, but five new
+ * cities now take as long as the SLOWEST one, not the sum of all five. A city
+ * already in the cache costs nothing and is never sent to the API, same as the
+ * single-city path — duplicate cities in $pairs (several domains, same city) are
+ * also deduped before anything is billed.
+ *
+ * @param array<int,array{city:string,ss:string}> $pairs
+ * @return array<string,array{checked:bool,cached:bool,primary_code:string,evidence:string,error:string}>
+ *         keyed by "city|ss" lowercase, same key shape ctm_area_code_check_cache_get() uses.
+ */
+/**
+ * @param ?callable $onCityDone function(string $city, string $ss, array $result): void
+ *        — called the MOMENT each city resolves (cache hit: immediately, inline;
+ *        real lookup: as soon as THAT city's call finishes, not after the whole
+ *        batch) so a CLI caller can print live progress during what would
+ *        otherwise be a silent 10-40s-per-city wait.
+ */
+function ctm_verify_area_codes_many(array $pairs, ?callable $onCityDone = null): array
+{
+    $out = []; $need = [];
+    foreach ($pairs as $p) {
+        $city = trim((string) ($p['city'] ?? ''));
+        $ss   = trim((string) ($p['ss'] ?? ''));
+        if ($city === '' || $ss === '') continue;
+        $key = strtolower($city) . '|' . strtolower($ss);
+        if (isset($out[$key]) || isset($need[$key])) continue;   // dedupe
+        $cached = ctm_area_code_check_cache_get($city, $ss);
+        if ($cached) {
+            $result = ['checked' => true, 'cached' => true] + $cached;
+            $out[$key] = $result;
+            if ($onCityDone) $onCityDone($city, $ss, $result);
+            continue;
+        }
+        $need[$key] = ['city' => $city, 'ss' => $ss];
+    }
+    if (!$need) return $out;
+
+    require_once __DIR__ . '/anthropic.php';
+    $ready = anthropic_ready();
+    if (!$ready['ok']) {
+        foreach ($need as $key => $p) {
+            $result = ['checked' => false, 'cached' => false, 'primary_code' => '', 'evidence' => '', 'error' => $ready['error']];
+            $out[$key] = $result;
+            if ($onCityDone) $onCityDone($p['city'], $p['ss'], $result);
+        }
+        return $out;
+    }
+
+    $prompts = [];
+    foreach ($need as $key => $p) $prompts[$key] = ctm_area_code_prompt($p['city'], $p['ss']);
+
+    anthropic_message_many($prompts, [
+        'model' => ANTHROPIC_SMART, 'max_tokens' => 600, 'timeout' => 120, 'concurrency' => 5,
+        'web_search' => true, 'web_search_max_uses' => 3,
+        'on_result' => function ($key, $text) use (&$out, $need, $onCityDone) {
+            $p = $need[$key];
+            $result = ctm_area_code_parse_reply($text);
+            if ($result['checked']) {
+                ctm_area_code_check_cache_set($p['city'], $p['ss'],
+                    ['primary_code' => $result['primary_code'], 'evidence' => $result['evidence'], 'error' => '']);
+            }
+            $out[$key] = $result;
+            if ($onCityDone) $onCityDone($p['city'], $p['ss'], $result);
+        },
+    ]);
+    return $out;
+}

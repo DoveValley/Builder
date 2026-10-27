@@ -405,3 +405,84 @@ function ms_render_pattern(string $pattern, array $row, string $primaryKeyword):
     );
     return ms_clean_title($t);
 }
+
+// ── Domain-keyed row read/write — moved here from admin/multisite_api.php so a CLI
+// script (no web request, can't require a routing file) can save rows through the
+// exact same path the panel's own row editor and bulk CTM actions use. Verbatim move,
+// no logic changed — only MS_KNOWN_COLS/ms_parse_csv/ms_write_csv/ms_store_params_csv
+// from this same file, nothing admin/multisite_api.php-specific.
+
+/** The batch's stored rows as domain(lower) => full row array. [] if nothing stored yet. */
+function ms_rows_by_domain(string $paramsPath): array {
+    if (!is_file($paramsPath)) return [];
+    $p = ms_parse_csv($paramsPath);
+    if ($p['error']) return [];
+    $out = [];
+    foreach ($p['rows'] as $r) {
+        $d = strtolower(trim((string) ($r['domain'] ?? '')));
+        if ($d !== '') $out[$d] = $r;
+    }
+    return $out;
+}
+
+/**
+ * Write a domain-keyed row map back to the batch's params.csv — used by the per-row
+ * editor so one row's edit never re-derives (or risks dropping) every other row the
+ * way a whole-file re-upload does. Goes through ms_store_params_csv() same as
+ * upload_csv, so version history (params_versions/) stays one single trail.
+ */
+function ms_write_rows_by_domain(string $batchDir, string $paramsPath, array $byDomain): void {
+    $header = MS_KNOWN_COLS;
+    if (is_file($paramsPath)) {
+        $p = ms_parse_csv($paramsPath);
+        if (!$p['error'] && $p['header']) $header = $p['header'];
+    }
+    // Union in any column a caller has started writing but the file has never had
+    // before (e.g. forward_to/forward_rpn_id, added for CTM call routing) —
+    // ms_write_csv() only writes columns listed in $header, so without this a brand
+    // new field would round-trip silently DROPPED on its very first save, the same
+    // failure class the "unknown columns still round-trip" behavior above exists to
+    // prevent for fields the header already knows about.
+    $known = array_fill_keys($header, true);
+    foreach ($byDomain as $row) {
+        foreach (array_keys($row) as $k) {
+            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
+        }
+    }
+    $tmp = tempnam(sys_get_temp_dir(), 'msrow');
+    ms_write_csv($tmp, $header, array_values($byDomain));
+    ms_store_params_csv($batchDir, $tmp);
+    @unlink($tmp);
+}
+
+/**
+ * Same write as ms_write_rows_by_domain() above, straight onto the LIVE params.csv,
+ * atomically (tmp + rename, so a concurrent reader never sees a truncated file) — but
+ * with NO params_versions/ snapshot. For a bulk CTM action's per-domain incremental save:
+ * each call is a real, already-billed purchase/release, so losing it to an Apache
+ * timeout mid-batch would mean real money spent with nothing on disk to show for it —
+ * but ms_write_rows_by_domain()'s own versioned write (ms_store_params_csv(), 15-slot
+ * rolling params_versions/ cap) called once per domain in a 30+ row batch would burn
+ * through that whole cap in one action, evicting the "before this batch ran" checkpoint
+ * before the batch even finishes. Call this per domain inside the loop; call the real
+ * ms_write_rows_by_domain() once, after the loop, for the one versioned checkpoint.
+ */
+function ms_write_rows_by_domain_live(string $paramsPath, array $byDomain): void {
+    $header = MS_KNOWN_COLS;
+    if (is_file($paramsPath)) {
+        $p = ms_parse_csv($paramsPath);
+        if (!$p['error'] && $p['header']) $header = $p['header'];
+    }
+    $known = array_fill_keys($header, true);
+    foreach ($byDomain as $row) {
+        foreach (array_keys($row) as $k) {
+            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
+        }
+    }
+    $tmp = $paramsPath . '.' . bin2hex(random_bytes(6)) . '.tmp';
+    if (ms_write_csv($tmp, $header, array_values($byDomain))) {
+        @rename($tmp, $paramsPath);
+    } else {
+        @unlink($tmp);
+    }
+}

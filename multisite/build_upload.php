@@ -2,7 +2,7 @@
 /**
  * build_upload.php — "Run selected" for a few domains, as ONE background job.
  *
- *   php multisite/build_upload.php <master> --batch=bN --only=a.com,b.com [--do=host,build,upload]
+ *   php multisite/build_upload.php <master> --batch=bN --only=a.com,b.com [--do=host,build,upload] [--skip-images]
  *
  * An orchestrator only — it runs the existing pieces in order and adds no logic of its own:
  *   1. multisite/create_hosts.php  for any of the selected domains with no box/FTP
@@ -39,7 +39,7 @@ require __DIR__ . '/../includes/multisite/batch_options.php';
 
 $args = array_slice($argv, 1);
 $masterId = (string) ($args[0] ?? '');
-$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false; $wipe = false; $imageQuality = 'medium'; $skipAiPhotos = false;
+$batchId = ''; $only = ''; $doArg = ''; $forcePhotos = false; $logoOnly = false; $wipe = false; $imageQuality = 'medium'; $skipAiPhotos = false; $skipImages = false;
 foreach ($args as $a) {
     if (str_starts_with($a, '--batch=')) $batchId = substr($a, 8);
     if (str_starts_with($a, '--only='))  $only    = strtolower(substr($a, 7));
@@ -48,6 +48,7 @@ foreach ($args as $a) {
     if ($a === '--logo-only')            $logoOnly = true;
     if ($a === '--wipe')                 $wipe = true;
     if ($a === '--skip-ai-photos')       $skipAiPhotos = true;
+    if ($a === '--skip-images')          $skipImages = true;
     if (str_starts_with($a, '--image-quality=')) $imageQuality = strtolower(substr($a, 16));
 }
 if (!in_array($imageQuality, ['low', 'medium', 'high'], true)) $imageQuality = 'medium';
@@ -55,6 +56,21 @@ if (!in_array($imageQuality, ['low', 'medium', 'high'], true)) $imageQuality = '
 // layer above" reasoning as every other contradictory-flag guard in this file.
 if ($forcePhotos && $skipAiPhotos) {
     echo "Refusing: --force-photos and --skip-ai-photos are opposites — pick one.\n"; exit(2);
+}
+// --skip-images turns off the WHOLE Images step (not just the AI-photo categories
+// --skip-ai-photos leaves alone) for this build — the cosmetic hero-stamp/crop-jitter/
+// metadata-strip pass, which is deterministic per domain and therefore safe to skip:
+// re-running it never changes what's already live. Upload is NOT touched by this flag —
+// it stays fully normal, incremental-by-hash like every other file. Found live
+// 2026-10-27: an earlier version of this ALSO blocked the upload step from sending
+// anything under uploads/media/, on the assumption that skipping Images left stale/wrong
+// local photos. That assumption was wrong — this step's photo selection and caching
+// happens independently of it — and the blanket upload block broke a real page that
+// needed a brand-new photo for the first time, which the normal incremental upload
+// would have sent correctly on its own. Opposite of --force-photos for the same reason
+// --skip-ai-photos is — there is nothing left to force once the whole step is off.
+if ($forcePhotos && $skipImages) {
+    echo "Refusing: --force-photos and --skip-images are opposites — pick one.\n"; exit(2);
 }
 // The four categories a normal run would otherwise generate AI photos for — see
 // build_one.php's own $skipped('images.ai_photos_*') checks, which this list feeds via
@@ -89,10 +105,12 @@ if (!$do['host'] && !$do['build'] && !$do['upload']) {
 // --logo-only explicitly skips landing/pagepool (see $logoOnlySkip above), so the
 // local output it produces is missing most of the site's real pages. Wipe + a
 // logo-only build would delete a live domain's actual content and replace it with
-// just the handful of pages logo-only touches. Checked here too, not just by the
-// panel/API caller — same reasoning as upload_sites.php's own --wipe guard: a
-// destructive flag must refuse itself at every layer that can reach it, not trust
-// the layer above to have gotten it right.
+// just the handful of pages logo-only touches. --skip-images carries no such risk —
+// it only turns off cosmetic photo reprocessing in the build; upload still runs fully
+// normal and will re-send everything the wipe just deleted. Checked here too, not
+// just by the panel/API caller — same reasoning as upload_sites.php's own --wipe
+// guard: a destructive flag must refuse itself at every layer that can reach it, not
+// trust the layer above to have gotten it right.
 if ($wipe && (!$do['build'] || !$do['upload'] || $logoOnly)) {
     echo "Refusing --wipe: it requires a full Build AND Upload in the same run (not --logo-only) so nothing "
        . "is deleted without being replaced. Run a normal full build with Upload (and --wipe) together.\n";
@@ -134,6 +152,9 @@ if ($do['build']) {
     // if $skipList already contains the bare 'images' step from $logoOnly above; the whole
     // step not running already covers these four.
     if ($skipAiPhotos) $skipList = array_values(array_unique(array_merge($skipList, $aiPhotoSkip)));
+    // Harmless/redundant if $logoOnly already put 'images' in the list — the whole
+    // step not running already covers it.
+    if ($skipImages) $skipList = array_values(array_unique(array_merge($skipList, ['images'])));
     $runId = gmdate('Ymd-His') . '-' . substr(bin2hex(random_bytes(3)), 0, 6);
     $cmd = [$php, BASE_DIR . '/multisite/run_campaign.php', $masterId, '--batch=' . $batchId, '--run-id=' . $runId,
             '--no-preflight', '--jobs=1', '--retries=1', '--no-deploy', '--only=' . implode(',', $domains)];
@@ -151,6 +172,7 @@ if ($do['build']) {
        . ($logoOnly ? ' [--logo-only: this batch\'s saved Generate settings are not used for this run]' : '')
        . ($forcePhotos ? ' [--force-photos: every AI photo slot regenerated from the master]' : '')
        . ($skipAiPhotos ? ' [--skip-ai-photos: no OpenAI photo call this run, free uniqueness pass only]' : '')
+       . ($skipImages ? ' [--skip-images: no cosmetic photo reprocessing this run — upload still runs normally]' : '')
        . ($imageQuality !== 'medium' ? " [--image-quality={$imageQuality}]" : '')
        . ($logoOnly && $forcePhotos ? ' [combined: visual identity + photos only, AI text/pages skipped]' : '') . "\n";
     passthru(implode(' ', array_map('escapeshellarg', $cmd)), $rc);

@@ -344,8 +344,12 @@ $msLockFail = @json_decode((string) @file_get_contents(__DIR__ . '/infra/state/l
         box.innerHTML = '<div style="overflow-x:auto;"><table style="width:100%;font-size:0.85rem;border-collapse:collapse;">' +
             '<thead><tr>' +
             '<th style="text-align:left;">Domain</th>' +
-            '<th style="text-align:left;">CF Zone <button type="button" class="btn" style="padding:0 6px;font-size:0.7rem;" onclick="msGoLiveRunColumn(\'zone\')">▶ all</button></th>' +
-            '<th style="text-align:left;">Go Live <button type="button" class="btn" style="padding:0 6px;font-size:0.7rem;" onclick="msGoLiveRunColumn(\'golive\')">▶ all</button></th>' +
+            '<th style="text-align:left;">CF Zone <button type="button" class="btn" style="padding:0 6px;font-size:0.7rem;" onclick="msGoLiveRunColumn(\'zone\')">▶ all</button>' +
+              ' <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.62rem;line-height:1;border-radius:3px;padding:1px 4px;cursor:help;vertical-align:middle;">B</span>' +
+              ' <span style="cursor:help;font-size:.95rem;" title="Runs Create zone for every domain in this batch that still needs it, one after another, as one real detached job on the server. Safe to navigate away — reopen this page to see progress or the final result.">&#9432;</span></th>' +
+            '<th style="text-align:left;">Go Live <button type="button" class="btn" style="padding:0 6px;font-size:0.7rem;" onclick="msGoLiveRunColumn(\'golive\')">▶ all</button>' +
+              ' <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.62rem;line-height:1;border-radius:3px;padding:1px 4px;cursor:help;vertical-align:middle;">B</span>' +
+              ' <span style="cursor:help;font-size:.95rem;" title="Releases EVERY eligible domain in this batch — switches nameservers at the registrar for each one, making it publicly reachable — one after another, as one real detached job on the server. Safe to navigate away — reopen this page to see progress or the final result.">&#9432;</span></th>' +
             '<th style="text-align:left;">Scheduled</th>' +
             '<th style="text-align:left;">DNS</th>' +
             '<th style="text-align:left;">Live</th>' +

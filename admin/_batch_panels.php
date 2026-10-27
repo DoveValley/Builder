@@ -60,6 +60,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     <p class="hint">Add, edit, or remove one domain at a time without re-uploading the whole CSV — a single-row edit here can never drop another row the way a full re-upload can. A <strong>LIVE</strong> row is locked: use <strong>Correct &amp; Regenerate</strong> to fix its data and push the fix live in one guided step. A live row can't be deleted from here — that goes through unclaim/teardown in the Infra console.</p>
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Get CTM Phone Numbers</strong>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
         <span class="hint" style="margin-left:6px;">Isolated capability — not part of the site factory. For each checked row: real area code from its city/state → search &amp; buy a CallTrackingMetrics number → label it in CTM → write the number into Phone.</span>
         <div class="hint" style="margin-top:6px;">
             The CTM dashboard label isn't just the bare domain — it's
@@ -81,10 +82,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Area code already typed in that row? Uses it. Blank? Looks it up. Would have to guess? Does nothing — never buys on a guess.
             </div>
         </div>
-        <div id="ms-ctm-results" style="margin-top:8px;font-size:.8rem;"></div>
+        <details id="ms-ctm-details" style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
+            <pre id="ms-ctm-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+            <div id="ms-ctm-results" style="margin-top:8px;font-size:.8rem;"></div>
+        </details>
     </div>
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Set Call Routing</strong>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
         <span class="hint" style="margin-left:6px;">Where each checked row's EXISTING tracking number forwards to — a destination phone, not a new tracking number. Never touches the generated site, so this works on already-live domains with no rebuild. Replaces whatever that row routed to before (never two destinations ringing at once).</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-route-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
@@ -95,10 +101,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Uses the same checkboxes as Get CTM Phone Numbers above. A row with no tracking number yet still saves the destination — it applies automatically the moment that row's number gets bought.
             </div>
         </div>
-        <div id="ms-route-results" style="margin-top:8px;font-size:.8rem;"></div>
+        <details id="ms-route-details" style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
+            <pre id="ms-route-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+            <div id="ms-route-results" style="margin-top:8px;font-size:.8rem;"></div>
+        </details>
     </div>
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Release CTM Numbers</strong>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
         <span class="hint" style="margin-left:6px;">The inverse of Get CTM Phone Numbers — for each checked row: find its tracking number in CTM by its Phone on file, release it back to the sub-account's pool, then clear Phone and Area Code here. Use for rows that got a number ahead of when they actually needed one (e.g. overflow rows added before their real go-live).</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-release-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
@@ -108,10 +119,15 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Uses the same checkboxes as Get CTM Phone Numbers above. Refuses a LIVE row — Phone is site content, and clearing it here never triggers a rebuild. A row with no phone on file is skipped as nothing to release, not an error you need to clear first.
             </div>
         </div>
-        <div id="ms-release-results" style="margin-top:8px;font-size:.8rem;"></div>
+        <details id="ms-release-details" style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
+            <pre id="ms-release-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+            <div id="ms-release-results" style="margin-top:8px;font-size:.8rem;"></div>
+        </details>
     </div>
     <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
         <strong style="font-size:.82rem;color:#1e3a5f;">Resync from CTM</strong>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
         <span class="hint" style="margin-left:6px;">For a number bought by hand directly in CTM (not through Get CTM Phone Numbers) — paste its Phone into the row first, then check it here. Looks up the real number behind that Phone and brings CTM's dashboard label, this row's Area Code, and call routing back into agreement with it. Also how a stale or wrong-account Phone gets caught.</span>
         <div style="margin-top:8px;">
             <input type="text" id="ms-resync-account" placeholder="CTM sub-account ID" value="151459" style="width:160px;">
@@ -121,7 +137,26 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 Uses the same checkboxes as Get CTM Phone Numbers above. Never touches Phone itself — works on already-live rows too. A row with a destination on file always gets routing re-applied to whatever number is in Phone now, replacing anything stale.
             </div>
         </div>
-        <div id="ms-resync-results" style="margin-top:8px;font-size:.8rem;"></div>
+        <details id="ms-resync-details" style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
+            <pre id="ms-resync-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+            <div id="ms-resync-results" style="margin-top:8px;font-size:.8rem;"></div>
+        </details>
+    </div>
+    <div style="margin:0 0 10px;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;">
+        <strong style="font-size:.82rem;color:#1e3a5f;">Insert/verify primary area code selected</strong>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;margin-left:6px;">B</span>
+        <a href="#" class="hint" style="cursor:help;font-size:1.05rem;text-decoration:none;" title="Real, billed check (Claude with real web search) — for each checked row, finds the true PRIMARY area code for that city, not a newer overlay.\n\nBLANK on file, not live: the primary code is WRITTEN onto the row — the only thing this does to params.csv, and only that one field.\n\nBLANK on file, LIVE row: only suggested, never written — a live row's data changes only through Correct & Regenerate.\n\nSomething already on file (right or wrong): read-only either way. A wrong code is reported, never auto-changed — a human decides what to do with an existing number, same as every other CTM action here.\n\nA city already checked once, by ANY batch or niche, is never re-billed — fleet-wide cache in admin/infra/state/area_code_checks.json.">&#9432;</a>
+        <span class="hint" style="margin-left:6px;">Uses the same checkboxes as Get CTM Phone Numbers above. Real API cost (a few cents) per NEW city only — already-checked cities are free.</span>
+        <div style="margin-top:8px;">
+            <button type="button" class="btn btn-primary" id="ms-areacode-btn" onclick="msAreaCodeCheck()">Insert/verify primary area code selected (<span id="ms-areacode-count">0</span> selected)</button>
+            <span id="ms-areacode-msg" class="hint" style="margin-left:8px;"></span>
+        </div>
+        <details id="ms-areacode-details" style="margin-top:8px;">
+            <summary style="cursor:pointer;font-size:.78rem;color:#475569;">Output &amp; results</summary>
+            <pre id="ms-areacode-out" style="margin-top:8px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+            <div id="ms-areacode-results" style="margin-top:8px;font-size:.8rem;"></div>
+        </details>
     </div>
     <div style="overflow-x:auto;">
         <table id="ms-rows-table" style="width:100%;">
@@ -342,6 +377,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-dry" style="width:auto;"> Dry run (preview only, no API)</label>
                 <label class="hint" style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" id="ms-research-force" style="width:auto;"> Force (re-research every city, ignore what's already on file)</label>
                 <button type="button" class="btn btn-primary" id="ms-research-btn" onclick="msResearch()">Research cities</button>
+                <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span>
                 <span id="ms-research-state" class="ms-state" style="font-size:.82rem;font-weight:600;margin-left:8px;color:#94a3b8;"></span>
                 <button type="button" class="btn" id="ms-rr-btn" onclick="msResearchReport()" style="background:#1e3a5f;color:#fff;" title="Free and instant. Reads what is already on file and writes nothing.">Check completeness</button>
                 <span id="ms-rr-state" class="ms-state" style="font-size:.82rem;font-weight:600;margin-left:8px;color:#94a3b8;"></span>
@@ -1529,7 +1565,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             runs.map(r => {
                 const c = stC[r.state] || '#334155';
                 const retry = r.failed > 0
-                    ? ' <button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" onclick="msRetry(\'' + esc(r.run_id) + '\', this)">retry ' + r.failed + ' failed</button>'
+                    ? ' <button type="button" class="btn" style="padding:1px 8px;font-size:0.76rem;" title="Re-runs only the domains that failed in this run — a real detached background job, same as Generate sites. Safe to navigate away; check back here for the new run\'s result." onclick="msRetry(\'' + esc(r.run_id) + '\', this)">retry ' + r.failed + ' failed</button>'
+                    + ' <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.62rem;line-height:1;border-radius:3px;padding:1px 4px;cursor:help;vertical-align:middle;">B</span>'
                     : '';
                 return '<tr>' +
                     '<td>' + esc(fmtTime(r.started_at)) + '</td>' +
@@ -1795,6 +1832,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
             '<div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">' +
               '<button type="button" class="btn sec" onclick="msClosePreflight()">Cancel</button>' +
               '<button type="button" class="btn btn-primary" onclick="msConfirmGenerate()">Confirm &amp; Generate</button>' +
+              ' <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span>' +
+              ' <span class="hint" style="cursor:help;font-size:1.05rem;" title="This launches one real detached process on the server for every domain in this run — not something your browser has to stay open to finish. Reopen this page any time to pick the live log and progress bar back up where they left off. The run keeps going exactly the same whether you watch it or not.">ⓘ</span>' +
             '</div>';
 
         document.getElementById('ms-preflight-overlay').style.display = 'flex';
@@ -2160,7 +2199,8 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
                 '<td>' + esc(f.SS || '') + '</td>' +
                 '<td>' + (isLive
                     ? '<button type="button" class="btn" onclick="msRowUnlock(\'' + domain.replace(/'/g, "\\'") + '\')">Correct &amp; Regenerate</button> ' +
-                      '<span class="hint" style="cursor:help;font-size:1.05rem;" title="Saves the edited fields on this row, then automatically rebuilds just this one domain through the full pipeline (Clone, Identity, Landing pages, Differentiate, Visual identity, AI content, Images, Build) and uploads it live once that finishes. Every step always runs here — the Generate panel skip checkboxes do not apply to this button — and nothing is forced: cached AI photos are reused, not regenerated.">ⓘ</span>'
+                      '<span title="The resulting Save and Regenerate is a background job — safe to navigate away or close this tab once you click it, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span> ' +
+                      '<span class="hint" style="cursor:help;font-size:1.05rem;" title="No photo PROCESSING happens — the cosmetic hero-stamp/crop-jitter pass is skipped outright, since it is deterministic per domain and this button has no reason to spend time re-doing it. Upload itself is completely normal: it only ever sends a file whose content actually changed, so your existing live photos are never overwritten by this button, but a page that genuinely needs a photo it never had before (new content, not yet live) still gets it — this is NOT a blanket photo block, just real incremental sync like every other file.\n\nYou can safely leave this screen or close the tab once you click Save and Regenerate — this runs as one real background job on the server, not something your browser has to stay open to finish.\n\nSaves the edited fields on this row, then automatically rebuilds just this one domain (Clone, Identity, Landing pages, Differentiate, Visual identity, AI content, Build) and uploads it live once that finishes. Every step is always full strength, with no caching shortcuts beyond the Images skip described above.">ⓘ</span>'
                     : '<button type="button" class="btn" onclick="msRowEditStart(\'' + domain.replace(/'/g, "\\'") + '\')">Edit</button> ' +
                       '<button type="button" class="btn" style="color:#991b1b;" onclick="msRowDelete(\'' + domain.replace(/'/g, "\\'") + '\')">Delete</button>') +
                 msPoolNotice(r.pool, domain) +
@@ -2209,43 +2249,164 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         if (el3) el3.textContent = n;
         const el4 = document.getElementById('ms-resync-count');
         if (el4) el4.textContent = n;
+        const el5 = document.getElementById('ms-areacode-count');
+        if (el5) el5.textContent = n;
     }
 
-    window.msCtmGetNumbers = async function () {
-        const domains = Object.keys(msCtmSelected);
-        const accountId = document.getElementById('ms-ctm-account').value.trim();
-        const msgEl = document.getElementById('ms-ctm-msg');
-        const resEl = document.getElementById('ms-ctm-results');
-        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
-        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
-        if (!confirm('Buy a real CallTrackingMetrics number for ' + domains.length + ' domain(s) under sub-account ' + accountId + '? This is a real purchase, not a preview.')) return;
+    // ── Shared launch+poll plumbing for all 4 CTM bulk actions below. Each one now
+    // runs as a detached background job (multisite/ctm_bulk.php) instead of one
+    // synchronous fetch — same reasoning as "Insert/verify primary area code
+    // selected": a double-digit selection costs several real seconds per domain
+    // (CTM's own pool-and-retry search), long enough to silently hit Apache's ~30s
+    // request timeout mid-batch. The actions stay SEQUENTIAL inside that job (not
+    // parallel like the area-code AI lookups) — see ctm_bulk.php's own docblock for
+    // why: CTM's search endpoint is not reliably deterministic, so concurrent
+    // buys/releases risk two domains colliding on the same number. Only the
+    // *visibility* changed here, not the order or the logic.
+    const msCtmBulkTimers = {};
+    const msCtmBulkIds = {
+        ctm_get_numbers:     { btn: 'ms-ctm-btn',     msg: 'ms-ctm-msg',     out: 'ms-ctm-out',     results: 'ms-ctm-results',     details: 'ms-ctm-details',     clearSelectionAfter: true },
+        ctm_set_routing:     { btn: 'ms-route-btn',   msg: 'ms-route-msg',   out: 'ms-route-out',   results: 'ms-route-results',   details: 'ms-route-details',   clearSelectionAfter: false },
+        ctm_release_numbers: { btn: 'ms-release-btn', msg: 'ms-release-msg', out: 'ms-release-out', results: 'ms-release-results', details: 'ms-release-details', clearSelectionAfter: true },
+        ctm_resync_numbers:  { btn: 'ms-resync-btn',  msg: 'ms-resync-msg',  out: 'ms-resync-out',  results: 'ms-resync-results',  details: 'ms-resync-details',  clearSelectionAfter: false },
+    };
 
-        const btn = document.getElementById('ms-ctm-btn');
+    function msRenderCtmBulkResults(action, resEl, rows) {
+        if (action === 'ctm_get_numbers') {
+            resEl.innerHTML = rows.map(r => {
+                if (r.ok) {
+                    const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
+                    return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.phone) + ' (area code ' + esc(r.area_code) + ')' + warn + '</div>';
+                }
+                return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+            }).join('');
+        } else if (action === 'ctm_set_routing') {
+            resEl.innerHTML = rows.map(r => {
+                if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+                if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + ' → ' + esc(r.destination) + ' (saved — no CTM number yet, applies automatically once it has one)</div>';
+                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.destination) + '</div>';
+            }).join('');
+        } else if (action === 'ctm_release_numbers') {
+            resEl.innerHTML = rows.map(r => {
+                if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — released ' + esc(r.released_phone) + '</div>';
+            }).join('');
+        } else if (action === 'ctm_resync_numbers') {
+            resEl.innerHTML = rows.map(r => {
+                if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
+                const changes = [];
+                if (r.relabeled) changes.push('label fixed');
+                if (r.area_synced) changes.push('area code → ' + esc(r.area_code));
+                if (r.routing === 'synced') changes.push('routing re-applied');
+                if (r.routing === 'failed') changes.push('routing FAILED');
+                const summary = changes.length ? changes.join(', ') : 'already in sync';
+                const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
+                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — ' + summary + warn + '</div>';
+            }).join('');
+        }
+    }
+
+    function msPollCtmBulk(action, runId) {
+        const ids = msCtmBulkIds[action];
+        fetch('multisite_api.php?action=ctm_bulk_status&run_id=' + encodeURIComponent(runId))
+            .then(r => r.json())
+            .then(d => {
+                const out = document.getElementById(ids.out);
+                if (d.none) { out.textContent = 'Starting…'; return; }
+                out.textContent = d.output || '';
+                out.scrollTop = out.scrollHeight;
+                if (!d.done) return;
+                if (msCtmBulkTimers[action]) clearInterval(msCtmBulkTimers[action]);
+                document.getElementById(ids.btn).disabled = false;
+                const msgEl = document.getElementById(ids.msg);
+                const ok = !d.dead && d.exit === 0;
+                msgEl.textContent = d.dead ? 'stopped unexpectedly' : (ok ? 'done' : 'failed (exit ' + d.exit + ')');
+                msgEl.style.color = ok ? '#166534' : '#991b1b';
+                if (d.report) msRenderCtmBulkResults(action, document.getElementById(ids.results), d.report.results || []);
+                if (ids.clearSelectionAfter) msCtmSelected = {};
+                msLoadRows();
+            })
+            .catch(() => {});
+    }
+
+    function msCtmBulkWatch(action, runId) {
+        if (msCtmBulkTimers[action]) clearInterval(msCtmBulkTimers[action]);
+        msCtmBulkTimers[action] = setInterval(() => msPollCtmBulk(action, runId), 2500);
+        msPollCtmBulk(action, runId);
+    }
+
+    // Found live 2026-10-27, same gap as the area-code button below: these are
+    // detached background jobs, so they keep running — and their report stays on
+    // disk — independent of the browser, but the output panel is plain JS state and
+    // used to go blank on navigating away and back even after a successful run.
+    // Called once on page load. All 4 actions share ONE job directory/lock
+    // (ctmb_launch — only one of the four can run at a time for a batch), so there is
+    // only ever one "latest run" to resume; which of the 4 cards it belongs to comes
+    // back as 'action' in the status response (see ctmb_launch's sidecar file and the
+    // ctm_bulk_status case in multisite_api.php — the report alone can't answer this
+    // while the job is still running, since it's only written at the very end).
+    function msResumeCtmBulk() {
+        fetch('multisite_api.php?action=ctm_bulk_status')
+            .then(r => r.json())
+            .then(d => {
+                if (d.none || !d.run_id || !d.action) return;
+                const action = 'ctm_' + d.action;
+                const ids = msCtmBulkIds[action];
+                if (!ids) return;
+                document.getElementById(ids.out).style.display = 'block';
+                if (!d.done) {
+                    document.getElementById(ids.btn).disabled = true;
+                    document.getElementById(ids.msg).textContent = 'Working… (resumed)';
+                }
+                msCtmBulkWatch(action, d.run_id);
+            })
+            .catch(() => {});
+    }
+
+    async function msCtmBulkStart(action, extraFields, confirmMsg) {
+        const domains = Object.keys(msCtmSelected);
+        const ids = msCtmBulkIds[action];
+        const btn = document.getElementById(ids.btn);
+        const msgEl = document.getElementById(ids.msg);
+        const out = document.getElementById(ids.out);
+        const resEl = document.getElementById(ids.results);
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+        if (confirmMsg && !confirm(confirmMsg)) return;
+
         btn.disabled = true;
-        msgEl.textContent = 'Working…';
+        msgEl.textContent = 'Working…'; msgEl.style.color = '';
+        document.getElementById(ids.details).open = true;   // a run you just started should be visible, not need an extra click to watch
+        out.style.display = 'block'; out.textContent = 'Starting…';
         resEl.innerHTML = '';
 
         const fd = new FormData();
         fd.append('csrf_token', csrfToken);
-        fd.append('account_id', accountId);
         domains.forEach(d => fd.append('domains[]', d));
+        Object.keys(extraFields).forEach(k => fd.append(k, extraFields[k]));
 
         let d;
-        try { d = await (await fetch('multisite_api.php?action=ctm_get_numbers', { method: 'POST', body: fd })).json(); }
+        try { d = await (await fetch('multisite_api.php?action=' + action, { method: 'POST', body: fd })).json(); }
         catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
-        btn.disabled = false;
-
-        if (d.error) { msgEl.textContent = d.error; return; }
+        if (d.error) {
+            msgEl.textContent = d.error;
+            // Carries the live run_id when this action is already running for this
+            // batch — resume watching it instead of leaving the button disabled with
+            // no feedback, same as the area-code button.
+            if (d.run_id) msCtmBulkWatch(action, d.run_id);
+            else btn.disabled = false;
+            return;
+        }
         msgEl.textContent = '';
-        resEl.innerHTML = (d.results || []).map(r => {
-            if (r.ok) {
-                const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
-                return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.phone) + ' (area code ' + esc(r.area_code) + ')' + warn + '</div>';
-            }
-            return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
-        }).join('');
-        msCtmSelected = {};
-        await msLoadRows();
+        msCtmBulkWatch(action, d.run_id);
+    }
+
+    window.msCtmGetNumbers = function () {
+        const domains = Object.keys(msCtmSelected);
+        const accountId = document.getElementById('ms-ctm-account').value.trim();
+        if (!accountId) { document.getElementById('ms-ctm-msg').textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!domains.length) { document.getElementById('ms-ctm-msg').textContent = 'Select at least one row first.'; return; }
+        msCtmBulkStart('ctm_get_numbers', { account_id: accountId },
+            'Buy a real CallTrackingMetrics number for ' + domains.length + ' domain(s) under sub-account ' + accountId + '? This is a real purchase, not a preview.');
     };
 
     // ── "Set Call Routing" — same isolated capability, see
@@ -2253,78 +2414,27 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     // msCtmSelected rather than its own selection state: one set of checkboxes drives
     // both "buy a number" and "point it somewhere", since they're usually done in that
     // order for the same rows.
-    window.msCtmSetRouting = async function () {
+    window.msCtmSetRouting = function () {
         const domains = Object.keys(msCtmSelected);
         const accountId = document.getElementById('ms-route-account').value.trim();
         const destination = document.getElementById('ms-route-dest').value.trim();
-        const msgEl = document.getElementById('ms-route-msg');
-        const resEl = document.getElementById('ms-route-results');
-        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
-        if (!destination) { msgEl.textContent = 'Enter a destination phone number first.'; return; }
-        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
-        if (!confirm('Point ' + domains.length + ' domain(s) at ' + destination + '?\n\nFor any row with a CTM tracking number already, this replaces whatever it currently routes to, for real, in CTM. A row with no number yet just has the destination saved for when it gets one.')) return;
-
-        const btn = document.getElementById('ms-route-btn');
-        btn.disabled = true;
-        msgEl.textContent = 'Working…';
-        resEl.innerHTML = '';
-
-        const fd = new FormData();
-        fd.append('csrf_token', csrfToken);
-        fd.append('account_id', accountId);
-        fd.append('destination', destination);
-        domains.forEach(d => fd.append('domains[]', d));
-
-        let d;
-        try { d = await (await fetch('multisite_api.php?action=ctm_set_routing', { method: 'POST', body: fd })).json(); }
-        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
-        btn.disabled = false;
-
-        if (d.error) { msgEl.textContent = d.error; return; }
-        msgEl.textContent = '';
-        resEl.innerHTML = (d.results || []).map(r => {
-            if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
-            if (r.pending) return '<div style="color:#b45309;">&#8634; ' + esc(r.domain) + ' → ' + esc(r.destination) + ' (saved — no CTM number yet, applies automatically once it has one)</div>';
-            return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' → ' + esc(r.destination) + '</div>';
-        }).join('');
-        await msLoadRows();
+        if (!accountId) { document.getElementById('ms-route-msg').textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!destination) { document.getElementById('ms-route-msg').textContent = 'Enter a destination phone number first.'; return; }
+        if (!domains.length) { document.getElementById('ms-route-msg').textContent = 'Select at least one row first.'; return; }
+        msCtmBulkStart('ctm_set_routing', { account_id: accountId, destination: destination },
+            'Point ' + domains.length + ' domain(s) at ' + destination + '?\n\nFor any row with a CTM tracking number already, this replaces whatever it currently routes to, for real, in CTM. A row with no number yet just has the destination saved for when it gets one.');
     };
 
     // ── "Release CTM Numbers" — the inverse of Get CTM Phone Numbers, see
     // ctm_release_number()/ctm_number_by_phone() in includes/calltrackingmetrics.php.
     // Reuses msCtmSelected same as Set Call Routing above.
-    window.msCtmReleaseNumbers = async function () {
+    window.msCtmReleaseNumbers = function () {
         const domains = Object.keys(msCtmSelected);
         const accountId = document.getElementById('ms-release-account').value.trim();
-        const msgEl = document.getElementById('ms-release-msg');
-        const resEl = document.getElementById('ms-release-results');
-        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
-        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
-        if (!confirm('Release the CTM tracking number for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' and clear Phone/Area Code here?\n\nThis is a real release back to the pool, not a preview — those numbers stop ringing immediately.')) return;
-
-        const btn = document.getElementById('ms-release-btn');
-        btn.disabled = true;
-        msgEl.textContent = 'Working…';
-        resEl.innerHTML = '';
-
-        const fd = new FormData();
-        fd.append('csrf_token', csrfToken);
-        fd.append('account_id', accountId);
-        domains.forEach(d => fd.append('domains[]', d));
-
-        let d;
-        try { d = await (await fetch('multisite_api.php?action=ctm_release_numbers', { method: 'POST', body: fd })).json(); }
-        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
-        btn.disabled = false;
-
-        if (d.error) { msgEl.textContent = d.error; return; }
-        msgEl.textContent = '';
-        resEl.innerHTML = (d.results || []).map(r => {
-            if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
-            return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — released ' + esc(r.released_phone) + '</div>';
-        }).join('');
-        msCtmSelected = {};
-        await msLoadRows();
+        if (!accountId) { document.getElementById('ms-release-msg').textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!domains.length) { document.getElementById('ms-release-msg').textContent = 'Select at least one row first.'; return; }
+        msCtmBulkStart('ctm_release_numbers', { account_id: accountId },
+            'Release the CTM tracking number for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' and clear Phone/Area Code here?\n\nThis is a real release back to the pool, not a preview — those numbers stop ringing immediately.');
     };
 
     // ── "Resync from CTM" — for a number bought by hand directly in CTM, see
@@ -2332,45 +2442,131 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     // includes/calltrackingmetrics.php. Reuses msCtmSelected same as Set Call Routing
     // and Release above. Does not reset selection after running — chainable, same
     // reasoning as Set Call Routing (not a one-shot purchase/release).
-    window.msCtmResyncNumbers = async function () {
+    window.msCtmResyncNumbers = function () {
         const domains = Object.keys(msCtmSelected);
         const accountId = document.getElementById('ms-resync-account').value.trim();
-        const msgEl = document.getElementById('ms-resync-msg');
-        const resEl = document.getElementById('ms-resync-results');
-        if (!accountId) { msgEl.textContent = 'Enter a CTM sub-account ID first.'; return; }
-        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
-        if (!confirm('Sync CTM\'s label, area code, and call routing for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' to match what\'s on file?\n\nReal CTM writes for anything found out of sync — not a preview.')) return;
+        if (!accountId) { document.getElementById('ms-resync-msg').textContent = 'Enter a CTM sub-account ID first.'; return; }
+        if (!domains.length) { document.getElementById('ms-resync-msg').textContent = 'Select at least one row first.'; return; }
+        msCtmBulkStart('ctm_resync_numbers', { account_id: accountId },
+            'Sync CTM\'s label, area code, and call routing for ' + domains.length + ' domain(s) under sub-account ' + accountId + ' to match what\'s on file?\n\nReal CTM writes for anything found out of sync — not a preview.');
+    };
 
-        const btn = document.getElementById('ms-resync-btn');
-        btn.disabled = true;
+    // ── "Insert/verify primary area code selected" — real AI-plus-web-search check,
+    // see ctm_verify_area_code_via_ai() in includes/calltrackingmetrics.php. Reuses
+    // msCtmSelected same as the other four actions above. Unlike those (synchronous,
+    // one request), this is a detached background job — real per-city API+web-search
+    // latency, same reasoning as "Research cities" — so it launches+polls instead of
+    // a single fetch.
+    let msAreaCodeTimer = null;
+    window.msAreaCodeCheck = async function () {
+        const domains = Object.keys(msCtmSelected);
+        const msgEl = document.getElementById('ms-areacode-msg');
+        const out = document.getElementById('ms-areacode-out');
+        if (!domains.length) { msgEl.textContent = 'Select at least one row first.'; return; }
+
+        document.getElementById('ms-areacode-btn').disabled = true;
         msgEl.textContent = 'Working…';
-        resEl.innerHTML = '';
+        document.getElementById('ms-areacode-details').open = true;   // a run you just started should be visible, not need an extra click to watch
+        out.style.display = 'block'; out.textContent = 'Starting…';
+        document.getElementById('ms-areacode-results').innerHTML = '';
 
         const fd = new FormData();
         fd.append('csrf_token', csrfToken);
-        fd.append('account_id', accountId);
         domains.forEach(d => fd.append('domains[]', d));
 
         let d;
-        try { d = await (await fetch('multisite_api.php?action=ctm_resync_numbers', { method: 'POST', body: fd })).json(); }
-        catch (e) { btn.disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
-        btn.disabled = false;
-
-        if (d.error) { msgEl.textContent = d.error; return; }
+        try { d = await (await fetch('multisite_api.php?action=check_area_codes', { method: 'POST', body: fd })).json(); }
+        catch (e) { document.getElementById('ms-areacode-btn').disabled = false; msgEl.textContent = 'Could not reach the server.'; return; }
+        if (d.error) {
+            msgEl.textContent = d.error;
+            // Carries the live run_id when a check is already running for this batch —
+            // resume watching it instead of leaving the button disabled with no feedback.
+            if (d.run_id) { if (msAreaCodeTimer) clearInterval(msAreaCodeTimer); msAreaCodeTimer = setInterval(() => msPollAreaCode(d.run_id), 2500); msPollAreaCode(d.run_id); }
+            else document.getElementById('ms-areacode-btn').disabled = false;
+            return;
+        }
         msgEl.textContent = '';
-        resEl.innerHTML = (d.results || []).map(r => {
-            if (!r.ok) return '<div style="color:#991b1b;">&#10007; ' + esc(r.domain) + ' — ' + esc(r.error) + '</div>';
-            const changes = [];
-            if (r.relabeled) changes.push('label fixed');
-            if (r.area_synced) changes.push('area code → ' + esc(r.area_code));
-            if (r.routing === 'synced') changes.push('routing re-applied');
-            if (r.routing === 'failed') changes.push('routing FAILED');
-            const summary = changes.length ? changes.join(', ') : 'already in sync';
-            const warn = r.warning ? ' <span style="color:#b45309;">— ' + esc(r.warning) + '</span>' : '';
-            return '<div style="color:#166534;">&#10003; ' + esc(r.domain) + ' — ' + summary + warn + '</div>';
-        }).join('');
-        await msLoadRows();
+        if (msAreaCodeTimer) clearInterval(msAreaCodeTimer);
+        msAreaCodeTimer = setInterval(() => msPollAreaCode(d.run_id), 2500);
+        msPollAreaCode(d.run_id);
     };
+
+    function msRenderAreaCodeReport(report) {
+        const box = document.getElementById('ms-areacode-results');
+        const rows = (report && report.results) || [];
+        if (!rows.length) { box.innerHTML = ''; return; }
+        const ACTION_LABEL = { inserted: 'INSERTED', suggested: 'SUGGESTED (live)', correct: 'correct', wrong: 'WRONG', error: 'ERROR' };
+        const ACTION_COLOR = { inserted: '#166534', suggested: '#92400e', correct: '#166534', wrong: '#991b1b', error: '#92400e' };
+        const ins  = rows.filter(r => r.action === 'inserted');
+        const mism = rows.filter(r => r.action === 'wrong');
+        const errs = rows.filter(r => r.action === 'error');
+        let html = '<table style="width:100%;font-size:.85rem;border-collapse:collapse;margin-top:8px;"><thead><tr>' +
+            '<th style="text-align:left;">Domain</th><th style="text-align:left;">City</th><th style="text-align:left;">On file</th>' +
+            '<th style="text-align:left;">Action</th><th style="text-align:left;">Primary code</th><th style="text-align:left;">Evidence</th></tr></thead><tbody>';
+        rows.forEach(r => {
+            const showCode = r.action === 'inserted' || r.action === 'suggested' || r.action === 'wrong';
+            html += '<tr>' +
+                '<td>' + esc(r.domain) + '</td>' +
+                '<td>' + esc((r.city || '') + (r.ss ? ', ' + r.ss : '')) + '</td>' +
+                '<td>' + esc(r.on_file || '(blank)') + '</td>' +
+                '<td style="color:' + (ACTION_COLOR[r.action] || '#334155') + ';font-weight:700;">' + (ACTION_LABEL[r.action] || r.action) + '</td>' +
+                '<td>' + (showCode ? '<strong>' + esc(r.correct_code) + '</strong>' : '') + '</td>' +
+                '<td class="hint">' + esc(r.action === 'error' ? r.error : (r.evidence || '')) + '</td>' +
+                '</tr>';
+        });
+        html += '</tbody></table>';
+        box.innerHTML = '<p class="hint" style="margin:8px 0 0;"><strong>' + ins.length + ' inserted</strong>, '
+            + '<strong>' + mism.length + ' mismatch(es)</strong>'
+            + (errs.length ? ', ' + errs.length + ' error(s)' : '') + ' out of ' + rows.length + ' checked.</p>' + html;
+    }
+
+    function msPollAreaCode(runId) {
+        fetch('multisite_api.php?action=check_area_codes_status&run_id=' + encodeURIComponent(runId))
+            .then(r => r.json())
+            .then(d => {
+                const out = document.getElementById('ms-areacode-out');
+                if (d.none) { out.textContent = 'Starting…'; return; }
+                out.textContent = d.output || '';
+                out.scrollTop = out.scrollHeight;
+                if (!d.done) return;
+                if (msAreaCodeTimer) clearInterval(msAreaCodeTimer);
+                document.getElementById('ms-areacode-btn').disabled = false;
+                const msgEl = document.getElementById('ms-areacode-msg');
+                const ok = !d.dead && d.exit === 0;
+                msgEl.textContent = d.dead ? 'stopped unexpectedly' : (ok ? 'done' : 'failed (exit ' + d.exit + ')');
+                msgEl.style.color = ok ? '#166534' : '#991b1b';
+                if (d.report) msRenderAreaCodeReport(d.report);
+                msCtmSelected = {};
+                msLoadRows();   // pick up any area_code this run just inserted
+            })
+            .catch(() => {});
+    }
+
+    // Found live 2026-10-27: this is a detached background job (see msAreaCodeCheck
+    // above), so it keeps running — and its report stays on disk — independent of
+    // the browser. But the output panel itself is plain JS state, so navigating away
+    // and back used to show nothing even though the job had finished successfully in
+    // the background. Called once on page load: asks for the latest run with no
+    // run_id (ms_job_resolve_run's own "no id given, find the latest" behavior,
+    // already used by every other job panel that supports a page reload mid-run),
+    // then resumes polling it exactly like a fresh launch would — which naturally
+    // also covers the already-finished case, since msPollAreaCode's first tick
+    // renders the report and stops right away.
+    function msResumeAreaCodeCheck() {
+        fetch('multisite_api.php?action=check_area_codes_status')
+            .then(r => r.json())
+            .then(d => {
+                if (d.none || !d.run_id) return;
+                document.getElementById('ms-areacode-out').style.display = 'block';
+                if (!d.done) {
+                    document.getElementById('ms-areacode-btn').disabled = true;
+                    document.getElementById('ms-areacode-msg').textContent = 'Working… (resumed)';
+                }
+                msAreaCodeTimer = setInterval(() => msPollAreaCode(d.run_id), 2500);
+                msPollAreaCode(d.run_id);
+            })
+            .catch(() => {});
+    }
 
     window.msRowEditStart = function (domain) { msEditingDomain = domain; msRenderRowsTable(); };
     window.msRowEditCancel = function () { msEditingDomain = null; msRenderRowsTable(); };
@@ -2431,65 +2627,48 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
         return row ? row.querySelector('.ms-row-progress') : null;
     }
 
+    // Launches build_upload.php (the SAME server-side job Batch Simple's "Run selected"
+    // uses) instead of two separate client-triggered calls. Found live 2026-10-27: the
+    // old two-call version (action=run, then — once the client's own setInterval saw it
+    // finish — a second action=upload call) left the site un-pushed for an hour when the
+    // tab was closed between the two. The generate half is a real detached server
+    // process and kept running fine; nothing was left to notice it finished and fire the
+    // upload. One job launched here (ms_launch_job, setsid) runs generate AND upload
+    // back to back entirely server-side, so closing the tab mid-way no longer drops the
+    // upload — only the live progress display here is lost, not the actual work.
     async function msRegenerateOne(domain) {
         const el = msProgressEl(domain);
-        if (el) el.textContent = 'Regenerating ' + domain + '…';
+        if (el) el.textContent = 'Starting rebuild + upload for ' + domain + '…';
         const fd = new FormData();
-        fd.append('csrf_token', csrfToken); fd.append('only', domain); fd.append('no_deploy', '1');
+        fd.append('csrf_token', csrfToken);
+        fd.append('domains', JSON.stringify([domain]));
+        fd.append('do_host', '0');   // already a live, hosted row — nothing for Create host to do
+        fd.append('skip_images', '1');   // a data fix has no business re-processing photos (upload itself stays normal)
         let d;
-        try { d = await (await fetch('multisite_api.php?action=run', { method: 'POST', body: fd })).json(); }
+        try { d = await (await fetch('multisite_api.php?action=rollout_build', { method: 'POST', body: fd })).json(); }
         catch (e) { if (el) el.textContent = 'Could not reach the server.'; return; }
         if (d.error) { if (el) el.innerHTML = esc(d.error); return; }
-        msPollRegenRun(domain, d.run_id);
+        msPollRegenBuild(domain, d.run_id);
     }
 
-    function msPollRegenRun(domain, runId) {
+    function msPollRegenBuild(domain, runId) {
         const el = msProgressEl(domain);
         const timer = setInterval(async () => {
             let s;
-            try { s = await (await fetch('multisite_api.php?action=run_status&run_id=' + encodeURIComponent(runId))).json(); }
-            catch (e) { return; }
-            if (!s || !s.state) return;
-            if (el) el.textContent = 'Generating ' + domain + '… ' + (s.state === 'running' ? '(in progress)' : s.state);
-            if (s.state === 'running') return;
-            clearInterval(timer);
-            if (s.state !== 'done' || (s.failed || 0) > 0) {
-                if (el) el.innerHTML = '<span style="color:#991b1b;">Generate failed for ' + esc(domain) + ' — not uploaded. Check the run log above.</span>';
-                return;
-            }
-            msRegenUpload(domain);
-        }, 2500);
-    }
-
-    async function msRegenUpload(domain) {
-        const el = msProgressEl(domain);
-        if (el) el.textContent = 'Uploading ' + domain + '…';
-        const fd = new FormData(); fd.append('csrf_token', csrfToken); fd.append('only', domain);
-        let d;
-        try { d = await (await fetch('multisite_api.php?action=upload', { method: 'POST', body: fd })).json(); }
-        catch (e) { if (el) el.textContent = 'Could not reach the server for upload.'; return; }
-        if (d.error) { if (el) el.innerHTML = esc(d.error); return; }
-        msPollRegenUpload(domain, d.run_id);
-    }
-
-    function msPollRegenUpload(domain, runId) {
-        const el = msProgressEl(domain);
-        const timer = setInterval(async () => {
-            let s;
-            try { s = await (await fetch('multisite_api.php?action=upload_status&run_id=' + encodeURIComponent(runId))).json(); }
+            try { s = await (await fetch('multisite_api.php?action=rollout_build_status&run_id=' + encodeURIComponent(runId))).json(); }
             catch (e) { return; }
             if (!s) return;
-            if (!s.done) { if (el) el.textContent = 'Uploading ' + domain + '… (in progress)'; return; }
+            if (!s.done) { if (el) el.textContent = (s.detail || s.stage_label || ('Working on ' + domain)) + '…'; return; }
             clearInterval(timer);
-            // s.dead — killed, or the box restarted, before the upload finished: no exit
-            // code was ever written, which on its own used to read as a clean success.
-            const bad = s.dead || (s.failed || 0) > 0 || (s.exit != null && s.exit !== 0);
+            // s.dead — killed, or the box restarted, mid-job: no exit code was ever
+            // written, which on its own used to read as a clean success.
+            const bad = s.dead || (s.exit != null && s.exit !== 0);
             if (el) el.innerHTML = s.dead
-                ? '<span style="color:#991b1b;">Upload stopped unexpectedly for ' + esc(domain) + ' — killed, or the server restarted. Re-run it.</span>'
+                ? '<span style="color:#991b1b;">Rebuild/upload stopped unexpectedly for ' + esc(domain) + ' — killed, or the server restarted. Re-run it.</span>'
                 : (bad
-                    ? '<span style="color:#991b1b;">Uploaded with failures for ' + esc(domain) + ' — check the log.</span>'
+                    ? '<span style="color:#991b1b;">Finished with failures for ' + esc(domain) + ' — check the log.</span>'
                     : '<span style="color:#166534;">&#10003; Regenerated &amp; redeployed ' + esc(domain) + '.</span>');
-        }, 2000);
+        }, 2500);
     }
 
     window.msRowAddToggle = function () {
@@ -2580,5 +2759,7 @@ $msBatchOptions = ms_batch_options_settings(ms_batch_file_read($masterId, $batch
     };
 
     msLoadRows();
+    msResumeAreaCodeCheck();
+    msResumeCtmBulk();
 })();
 </script>

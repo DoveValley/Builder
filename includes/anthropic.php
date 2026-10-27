@@ -101,6 +101,18 @@ function anthropic_payload(string $prompt, array $opts): string
      */
     if (!empty($opts['no_thinking'])) $body['thinking'] = ['type' => 'disabled'];
 
+    // Opt-in server-side tools (currently just web search) — Anthropic runs the
+    // search and folds the results into this same call; no client-side tool loop
+    // needed. 'max_uses' is the real cost control: it caps how many searches a
+    // single call can make, since each search is billed separately from tokens.
+    if (!empty($opts['web_search'])) {
+        $body['tools'] = [[
+            'type'     => 'web_search_20260209',
+            'name'     => 'web_search',
+            'max_uses' => max(1, (int) ($opts['web_search_max_uses'] ?? 3)),
+        ]];
+    }
+
     return (string) json_encode($body, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 }
 
@@ -177,6 +189,13 @@ function anthropic_message(string $prompt, array $opts = []): array
  * Runs at most $opts['concurrency'] at a time, in waves. Firing 500 prompts at once
  * would rate-limit the whole batch and produce nothing but backoff.
  *
+ * $opts['on_result'] => function(string|int $key, ?string $text): void — called the
+ * MOMENT each individual item finishes (via curl_multi_info_read(), not after the
+ * whole wave completes), so a caller with a slow item (e.g. a web-search-backed call
+ * that can take 10-40s) can report real progress instead of going silent until every
+ * concurrent item in the wave is done. Purely a notification — $out is still built
+ * and returned the normal way regardless of whether a callback is given.
+ *
  * @param array<string|int,string> $prompts
  * @return array<string|int,?string> same keys; null = failed, ANTHROPIC_RATE = retry
  */
@@ -187,15 +206,16 @@ function anthropic_message_many(array $prompts, array $opts = []): array
     if (!$prompts) return $out;
     if (!anthropic_ready()['ok']) return $out;
 
-    $timeout = max(5, (int) ($opts['timeout'] ?? 120));
-    $conc    = max(1, (int) ($opts['concurrency'] ?? 6));
-    $items   = [];
+    $timeout  = max(5, (int) ($opts['timeout'] ?? 120));
+    $conc     = max(1, (int) ($opts['concurrency'] ?? 6));
+    $onResult = is_callable($opts['on_result'] ?? null) ? $opts['on_result'] : null;
+    $items    = [];
     foreach ($prompts as $k => $p) $items[] = [$k, (string) $p];
     $n = count($items); $i = 0;
 
     while ($i < $n) {
         $mh = curl_multi_init();
-        $batch = [];
+        $keyOf = [];   // (int) curl handle => the caller's key, since curl_multi_info_read() only gives back the handle
         for ($c = 0; $c < $conc && $i < $n; $c++, $i++) {
             [$k, $prompt] = $items[$i];
             $ch = curl_init(ANTHROPIC_API_URL);
@@ -207,23 +227,34 @@ function anthropic_message_many(array $prompts, array $opts = []): array
                 CURLOPT_TIMEOUT        => $timeout,
             ]);
             curl_multi_add_handle($mh, $ch);
-            $batch[$k] = $ch;
+            $keyOf[(int) $ch] = $k;
         }
-        do {
-            $st = curl_multi_exec($mh, $running);
-            if ($running) curl_multi_select($mh, 1.0);
-        } while ($running && $st === CURLM_OK);
 
-        foreach ($batch as $k => $ch) {
-            $resp = curl_multi_getcontent($ch);
-            $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_multi_remove_handle($mh, $ch);
-            curl_close($ch);
-            if (anthropic_is_rate_limit($code))        { $out[$k] = ANTHROPIC_RATE; continue; }
-            if ($resp === false || $code !== 200)      { $out[$k] = null; continue; }
-            $j = json_decode((string) $resp, true);
-            $t = anthropic_text_of(is_array($j) ? $j : null);
-            $out[$k] = $t !== '' ? $t : null;
+        $pending = count($keyOf);
+        do { $mrc = curl_multi_exec($mh, $running); } while ($mrc === CURLM_CALL_MULTI_PERFORM);
+        while ($pending > 0) {
+            // Process every handle that finished since the last read before blocking
+            // again — info_read() drains what's ready right now, it does not itself wait.
+            while ($info = curl_multi_info_read($mh)) {
+                $ch = $info['handle'];
+                $k  = $keyOf[(int) $ch] ?? null;
+                if ($k === null) { curl_multi_remove_handle($mh, $ch); curl_close($ch); continue; }
+                $resp = curl_multi_getcontent($ch);
+                $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_multi_remove_handle($mh, $ch);
+                curl_close($ch);
+                if (anthropic_is_rate_limit($code))        { $out[$k] = ANTHROPIC_RATE; }
+                elseif ($resp === false || $code !== 200)  { $out[$k] = null; }
+                else {
+                    $j = json_decode((string) $resp, true);
+                    $t = anthropic_text_of(is_array($j) ? $j : null);
+                    $out[$k] = $t !== '' ? $t : null;
+                }
+                if ($onResult) $onResult($k, $out[$k]);
+                $pending--;
+            }
+            if ($pending > 0 && $running) curl_multi_select($mh, 1.0);
+            if ($pending > 0) do { $mrc = curl_multi_exec($mh, $running); } while ($mrc === CURLM_CALL_MULTI_PERFORM);
         }
         curl_multi_close($mh);
     }

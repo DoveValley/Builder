@@ -87,11 +87,13 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-research-dry"> Dry run (preview only, no API)</label>
         <label><input type="checkbox" id="ro-research-force"> Force (re-research even if already done)</label>
         <button type="button" class="btn sec" id="ro-research-btn">Research selected</button>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span>
         <span class="hint" id="ro-research-state"></span>
         <a href="#" class="ro-info" data-static-info="research_selected" title="Details">&#9432;</a>
         <span class="hint">Runs the per-city research pass for the domains ticked below, before Build spends real money on them — skips any that are already live (their research already ran as part of their build). Covers each domain's own city plus its <code>landing_cities</code>.</span>
     </div>
     <pre id="ro-research-out" style="display:none;margin:0 0 12px;background:#0f172a;color:#e2e8f0;padding:10px 12px;border-radius:6px;font-size:.76rem;max-height:220px;overflow:auto;white-space:pre-wrap;"></pre>
+
 
     <details id="ro-cc-details" style="margin:0 0 14px;border:1px solid #e2e8f0;border-radius:6px;background:#f8fafc;">
         <summary style="cursor:pointer;padding:8px 12px;font-weight:600;font-size:.92rem;list-style:revert;">Site Final Check</summary>
@@ -130,6 +132,8 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         <label><input type="checkbox" id="ro-logo-only"> Colors, fonts, logo &amp; favicon only <a href="#" class="ro-info" data-static-info="logo_only" title="Details">&#9432;</a></label>
         <label><input type="checkbox" id="ro-wipe"> Wipe server files first <a href="#" class="ro-info" data-static-info="wipe_files" title="Details">&#9432;</a></label>
         <button type="button" class="btn" id="ro-build">Run selected</button>
+        <span title="Background job — safe to navigate away or close this tab, it keeps running on the server." style="display:inline-block;background:#1e3a8a;color:#fff;font-weight:800;font-size:.68rem;line-height:1;border-radius:3px;padding:2px 5px;cursor:help;vertical-align:middle;">B</span>
+        <a href="#" class="ro-info" data-static-info="run_selected" title="What this does">&#9432;</a>
         <a href="#" class="ro-info" data-static-info="file_dates" title="What this does to file dates">&#9432;</a>
         <span class="hint">Runs only the ticked steps, in order, for the ticked domains below &mdash; leave all three checked for the old one-click behavior. Unchecking Build skips the AI generation cost when you only need to redo Upload (e.g. after fixing FTP credentials). Force-regenerate photos and Colors, fonts, logo &amp; favicon only both only do anything while Build is ticked &mdash; see the &#9432; next to each for what ticking both together does. Skip AI photos this run is the opposite of Force-regenerate photos &mdash; the two can't be ticked together. Force photo quality applies to any photo generated during Build, forced or new &mdash; see its &#9432;. Wipe server files first needs a full Build AND Upload (not Colors/fonts/logo/favicon only) and is capped at 5 domains per run.</span>
     </div>
@@ -442,6 +446,21 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
           + 'and a live domain\'s research already ran as part of the build that put it live.</div>'
           + '<div class="ro-step">Detached, same as Run selected — this box keeps streaming its log after you '
           + 'navigate away and back. Tick <strong>Dry run</strong> to preview with no API cost.</div>'],
+        run_selected: ['Run selected',
+            '<div class="ro-step"><strong>You can leave this screen or close the tab the moment you click it.</strong> '
+          + 'This launches one real detached process on the server (not something your browser has to stay open to '
+          + 'finish) that runs the ticked steps — Create host, Build, Upload — for every ticked domain below, in '
+          + 'order. Found live 2026-10-27: a similar single-row regenerate button used to chain its Build and Upload '
+          + 'as two separate browser-triggered calls, so closing the tab between them left a domain\'s rebuild sitting '
+          + 'finished on the server but never actually pushed live. This button does not have that problem — Build '
+          + 'and Upload both run inside the one server-side job.</div>'
+          + '<div class="ro-step">Reopening this page (even after closing the tab) picks the job\'s progress back up '
+          + 'automatically — the log box and progress bar re-attach to whatever is still running or already finished, '
+          + 'nothing is lost by navigating away and back.</div>'
+          + '<div class="ro-step">Unchecking a step skips it entirely for this run — e.g. untick Build to redo only '
+          + 'Upload after fixing an FTP password, with no new AI cost. See the &#9432; next to each checkbox above for '
+          + 'what it changes, and the &#9432; next to <strong>file dates</strong> for what an Upload does to a live '
+          + 'domain\'s visible timestamps.</div>'],
     };
     function showStaticInfo(key) {
         const [title, body] = STATIC_INFO[key] || ['', ''];
@@ -988,6 +1007,7 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
         }
         clearTimeout(researchTimer); watchResearch(r.run_id);
     };
+
     // Site Final Check — ⓘ opens the static "what runs" modal (built server-side from the
     // same PHP registries the run itself uses — cc_registry()/cc_registry_built()/
     // cc_registry_live() — no separate JS copy of any list to drift out of sync). Run

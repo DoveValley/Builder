@@ -104,80 +104,10 @@ function ms_validation_payload(array $v): array {
     ];
 }
 
-/** The batch's stored rows as domain(lower) => full row array. [] if nothing stored yet. */
-function ms_rows_by_domain(string $paramsPath): array {
-    if (!is_file($paramsPath)) return [];
-    $p = ms_parse_csv($paramsPath);
-    if ($p['error']) return [];
-    $out = [];
-    foreach ($p['rows'] as $r) {
-        $d = strtolower(trim((string) ($r['domain'] ?? '')));
-        if ($d !== '') $out[$d] = $r;
-    }
-    return $out;
-}
-
-/**
- * Write a domain-keyed row map back to the batch's params.csv — used by the per-row
- * editor so one row's edit never re-derives (or risks dropping) every other row the
- * way a whole-file re-upload does. Goes through ms_store_params_csv() same as
- * upload_csv, so version history (params_versions/) stays one single trail.
- */
-function ms_write_rows_by_domain(string $batchDir, string $paramsPath, array $byDomain): void {
-    $header = MS_KNOWN_COLS;
-    if (is_file($paramsPath)) {
-        $p = ms_parse_csv($paramsPath);
-        if (!$p['error'] && $p['header']) $header = $p['header'];
-    }
-    // Union in any column a caller has started writing but the file has never had
-    // before (e.g. forward_to/forward_rpn_id, added for CTM call routing) —
-    // ms_write_csv() only writes columns listed in $header, so without this a brand
-    // new field would round-trip silently DROPPED on its very first save, the same
-    // failure class the "unknown columns still round-trip" behavior above exists to
-    // prevent for fields the header already knows about.
-    $known = array_fill_keys($header, true);
-    foreach ($byDomain as $row) {
-        foreach (array_keys($row) as $k) {
-            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
-        }
-    }
-    $tmp = tempnam(sys_get_temp_dir(), 'msrow');
-    ms_write_csv($tmp, $header, array_values($byDomain));
-    ms_store_params_csv($batchDir, $tmp);
-    @unlink($tmp);
-}
-
-/**
- * Same write as ms_write_rows_by_domain() above, straight onto the LIVE params.csv,
- * atomically (tmp + rename, so a concurrent reader never sees a truncated file) — but
- * with NO params_versions/ snapshot. For a bulk CTM action's per-domain incremental save:
- * each call is a real, already-billed purchase/release, so losing it to an Apache
- * timeout mid-batch would mean real money spent with nothing on disk to show for it —
- * but ms_write_rows_by_domain()'s own versioned write (ms_store_params_csv(), 15-slot
- * rolling params_versions/ cap) called once per domain in a 30+ row batch would burn
- * through that whole cap in one action, evicting the "before this batch ran" checkpoint
- * before the batch even finishes. Call this per domain inside the loop; call the real
- * ms_write_rows_by_domain() once, after the loop, for the one versioned checkpoint.
- */
-function ms_write_rows_by_domain_live(string $paramsPath, array $byDomain): void {
-    $header = MS_KNOWN_COLS;
-    if (is_file($paramsPath)) {
-        $p = ms_parse_csv($paramsPath);
-        if (!$p['error'] && $p['header']) $header = $p['header'];
-    }
-    $known = array_fill_keys($header, true);
-    foreach ($byDomain as $row) {
-        foreach (array_keys($row) as $k) {
-            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
-        }
-    }
-    $tmp = $paramsPath . '.' . bin2hex(random_bytes(6)) . '.tmp';
-    if (ms_write_csv($tmp, $header, array_values($byDomain))) {
-        @rename($tmp, $paramsPath);
-    } else {
-        @unlink($tmp);
-    }
-}
+// ms_rows_by_domain() / ms_write_rows_by_domain() / ms_write_rows_by_domain_live()
+// moved to includes/multisite/params.php (required above) so the CTM bulk CLI
+// script (multisite/ctm_bulk.php) can save rows through the exact same path this
+// file's own row editor uses — verbatim move, no behavior change.
 
 // ── Fixed "test server" (card 4) ──────────────────────────────────────────────
 // One reusable, always-overwritten deploy target OUTSIDE the fleet — a real host
@@ -267,6 +197,37 @@ function ms_run_flags(array $o): string {
     $flags .= $rotFlag('rot-landing-top',    $o['rot_landing_top']    ?? null);
     $flags .= $rotFlag('rot-landing-bottom', $o['rot_landing_bottom'] ?? null);
     return $flags;
+}
+
+// ── The four CTM bulk actions (below, in the switch) are thin launchers — the
+// actual per-domain logic (unchanged, verbatim) lives in multisite/ctm_bulk.php,
+// run as ONE detached background job instead of inline in this request. Found
+// live 2026-10-27: the old synchronous version left every one of these silent
+// until the whole batch finished (or Apache's ~30s timeout cut it off mid-batch),
+// the same complaint that drove the area-code button's rework. Deliberately
+// still SEQUENTIAL inside that job, same order as before — see ctm_bulk.php's
+// own docblock for why these are not parallelized like the area-code lookups
+// were (CTM's search endpoint is not reliably deterministic; concurrent buys
+// risk two domains colliding on the same number).
+// Defined here, OUTSIDE the switch below — a function declared directly inside a
+// switch body only runs if control flow passes through that line, and switch
+// jumps straight to the matching case, skipping everything above it even within
+// the same block. Declaring it before the switch is what makes it callable from
+// every case.
+function ctmb_launch(string $action, string $batchDir, string $masterId, string $batchId, array $args): array
+{
+    $result = ms_launch_job($batchDir . '/ctm_bulk', '__MS_CTMBULK_DONE__',
+        'A CTM action is already running for this batch — wait for it to finish.',
+        BASE_DIR . '/multisite/ctm_bulk.php', array_merge([$masterId, '--batch=' . $batchId, '--action=' . $action], $args));
+    // Which of the 4 cards a page-load resume belongs to isn't knowable from the .out
+    // log alone, and the report (which does carry 'action') is only written once the
+    // job finishes — so resuming a STILL-RUNNING job would have nothing to show it in
+    // the right card. This sidecar is the only thing that answers "which action" while
+    // one is still in flight; ctm_bulk_status below reads it.
+    if (!empty($result['started'])) {
+        @file_put_contents($batchDir . '/ctm_bulk/' . $result['run_id'] . '.action', $action);
+    }
+    return $result;
 }
 
 switch ($action) {
@@ -854,6 +815,22 @@ switch ($action) {
             echo json_encode(['error' => 'Force-regenerate photos and Skip AI photos this run are opposites — pick one.']);
             break;
         }
+        // Opt-in — turns off the WHOLE Images step (build_upload.php's --skip-images),
+        // not just the AI-photo categories skip_ai_photos leaves alone: the cosmetic
+        // hero-stamp/crop-jitter/metadata-strip pass, safe to skip since it's
+        // deterministic per domain. Used by the row-level Correct & Regenerate button —
+        // a phone-number/identity fix has no reason to spend time reprocessing photos.
+        // Does NOT touch the upload half, which stays fully normal (incremental by
+        // hash) — an earlier version also blocked uploading anything under
+        // uploads/media/ here, on the wrong assumption that skipping Images left local
+        // photos stale. That broke a real page needing a brand-new photo for the first
+        // time (found live 2026-10-27); the normal incremental upload already sends
+        // exactly what changed, nothing more needed on top of it.
+        $rtSkipImages = !empty($_POST['skip_images']);
+        if ($rtForcePhotos && $rtSkipImages) {
+            echo json_encode(['error' => 'Force-regenerate photos and Skip images entirely are opposites — pick one.']);
+            break;
+        }
         if ($rtWipe) {
             if (!in_array('build', $rtDo, true) || !in_array('upload', $rtDo, true) || $rtLogoOnly) {
                 echo json_encode(['error' => 'Wipe requires a full Build AND Upload in this same run — turn off "Colors, fonts, logo & favicon only" and make sure both Build and Upload are ticked.']);
@@ -867,6 +844,7 @@ switch ($action) {
         $rtArgs = [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $rtDoms), '--do=' . implode(',', $rtDo)];
         if ($rtForcePhotos) $rtArgs[] = '--force-photos';
         if ($rtSkipAiPhotos) $rtArgs[] = '--skip-ai-photos';
+        if ($rtSkipImages) $rtArgs[] = '--skip-images';
         if ($rtImageQuality !== 'medium') $rtArgs[] = '--image-quality=' . $rtImageQuality;
         if ($rtLogoOnly) $rtArgs[] = '--logo-only';
         if ($rtWipe) $rtArgs[] = '--wipe';
@@ -1654,6 +1632,39 @@ switch ($action) {
                           'dead' => $j['dead'], 'run_id' => $run['run_id']]);
         break;
 
+    // "Check primary area code" — Batch Simple. Real AI-plus-web-search verification,
+    // scoped to ticked rows, same shape as Research selected above. Detached (a real
+    // billed call per city not already cached, so this can run for a while); poll
+    // with check_area_codes_status. Read-only — never touches params.csv.
+    case 'check_area_codes':
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
+        if (!is_file($paramsPath)) { echo json_encode(['error' => 'No target list stored — upload it first.']); break; }
+        // Accepts either shape: a JSON-encoded string (Batch Simple's ticked-row Set,
+        // like 'research'/'rollout_build' above) or a plain repeated domains[] field
+        // (Batch Detailed's msCtmSelected, like every other CTM action in this file).
+        $cacDomsIn = $_POST['domains'] ?? [];
+        $cacDoms = is_array($cacDomsIn) ? $cacDomsIn : (json_decode((string) $cacDomsIn, true) ?: []);
+        $cacDoms = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), is_array($cacDoms) ? $cacDoms : [])));
+        if (!$cacDoms) { echo json_encode(['error' => 'Tick at least one domain first.']); break; }
+        $cacArgs = [$masterId, '--batch=' . $batchId, '--only=' . implode(',', $cacDoms)];
+        echo json_encode(ms_launch_job($batchDir . '/check_area_codes', '__MS_AREACODE_DONE__',
+            'An area-code check is already running for this batch.',
+            BASE_DIR . '/multisite/check_area_codes.php', $cacArgs));
+        break;
+
+    case 'check_area_codes_status':
+        $run = ms_job_resolve_run($batchDir . '/check_area_codes', (string) ($_GET['run_id'] ?? ''));
+        if (!$run) { echo json_encode(['none' => true]); break; }
+        $j = ms_job_read_out($run['path'], '__MS_AREACODE_DONE__');
+        $report = null;
+        if ($j['done']) {
+            $rp = json_decode((string) @file_get_contents($batchDir . '/area_code_check_report.json'), true);
+            if (is_array($rp)) $report = $rp;
+        }
+        echo json_encode(['output' => $j['log'], 'done' => $j['done'], 'exit' => $j['exit'],
+                          'dead' => $j['dead'], 'run_id' => $run['run_id'], 'report' => $report]);
+        break;
+
     // Master lint — flag authoring leaks (literal city/state/zip; master-domain URLs).
     case 'lint_master':
         echo json_encode(ms_lint_master($masterId));
@@ -1901,84 +1912,12 @@ switch ($action) {
     // a live domain's phone still only changes through Correct & Regenerate.
     case 'ctm_get_numbers':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        require_once __DIR__ . '/infra/lib/state.php';
-        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
         $accountId = trim((string) ($_POST['account_id'] ?? ''));
-        $domainsIn = (array) ($_POST['domains'] ?? []);
+        $domainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
         if ($accountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
-        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
         if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
-        // Apache's real cap here is 30s (confirmed live) and this is one synchronous
-        // request start to finish, not a background job — each domain costs several
-        // seconds (CTM's own pool-and-retry search, see ctm_pool_numbers()), so a
-        // double-digit selection would otherwise get silently cut off partway through
-        // by PHP itself, independent of whether the browser stays open.
-        set_time_limit(0);
-
-        $byDomain = ms_rows_by_domain($paramsPath);
-        $nicheCode = strtoupper(substr($masterId, 0, 3));
-        $batchMeta = ms_batch_meta($masterId, $batchId);
-        $batchSeq  = (int) ($batchMeta['seq'] ?? 0);
-        $rowOrder  = array_keys($byDomain);
-
-        $results  = [];
-        foreach ($domainsIn as $dom) {
-            $dom = strtolower(trim((string) $dom));
-            if (!isset($byDomain[$dom])) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
-            $rec = infra_state_get_domain($dom);
-            if ($rec && ($rec['status'] ?? '') === 'live') {
-                $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'LIVE — use Correct & Regenerate to change its phone number.'];
-                continue;
-            }
-            $city = trim((string) ($byDomain[$dom]['city'] ?? ''));
-            $ss   = trim((string) ($byDomain[$dom]['SS'] ?? ''));
-            if ($city === '' || $ss === '') {
-                $results[] = ['domain' => $dom, 'ok' => false, 'error' => 'No city/state saved on this row yet — fill those in first.'];
-                continue;
-            }
-            $rowNum = array_search($dom, $rowOrder, true);
-            $rowNum = $rowNum === false ? 0 : $rowNum + 1;
-            $label  = ctm_build_label($nicheCode, $batchSeq, $rowNum, $ss, $city, $dom);
-            // A human-typed area code on this row wins outright — see
-            // ctm_get_number_for_domain()'s own doc for why it's trusted over a
-            // lookup instead of double-checked against it.
-            $areaCodeIn = trim((string) ($byDomain[$dom]['area_code'] ?? ''));
-            $r = ctm_get_number_for_domain($accountId, $dom, $city, $ss, $label, $areaCodeIn);
-            if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
-            $byDomain[$dom]['phone']      = $r['phone'];
-            $byDomain[$dom]['area_code']  = $r['area_code'];
-            // A destination can be staged on this row before any CTM number exists
-            // (ctm_set_routing below, "pending" case — forward_to set, forward_rpn_id
-            // not) precisely so this moment doesn't require a second manual step: the
-            // number this domain was always going to route to just got one to attach to.
-            $warning = $r['warning'];
-            $pendingDest = trim((string) ($byDomain[$dom]['forward_to'] ?? ''));
-            if ($pendingDest !== '' && trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? '')) === '') {
-                $routed = ctm_set_routing_for_domain($accountId, $r['phone'], $pendingDest, '');
-                if ($routed['ok']) {
-                    $byDomain[$dom]['forward_to']     = $routed['destination'];
-                    $byDomain[$dom]['forward_rpn_id'] = $routed['receiving_id'];
-                    $warning .= ($warning !== '' ? ' ' : '') . "Pre-set routing to {$routed['destination']} applied.";
-                } else {
-                    $warning .= ($warning !== '' ? ' ' : '') . "Could not apply its pre-set routing destination: {$routed['error']}";
-                }
-            }
-            $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $warning];
-            // Written after EVERY successful domain, not once at the end — each pass
-            // through this loop is a real, billed CTM purchase. A batch large enough to
-            // hit Apache's own connection timeout (confirmed live at ~30s, independent
-            // of this file's set_time_limit(0), which only lifts PHP's own limit) used
-            // to lose every number already bought this request: real money spent,
-            // nothing on disk to show for it, and the next click would buy them all
-            // again. The lightweight LIVE-only write (no params_versions/ snapshot —
-            // see its own docblock) so a 30-domain batch doesn't burn through the
-            // 15-slot rolling version cap in one action.
-            ms_write_rows_by_domain_live($paramsPath, $byDomain);
-        }
-        // The one real versioned checkpoint for this whole action — same as every
-        // other write path in this file.
-        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
-        echo json_encode(['results' => $results]);
+        echo json_encode(ctmb_launch('get_numbers', $batchDir, $masterId, $batchId,
+            ['--domains=' . implode(',', $domainsIn), '--account=' . $accountId]));
         break;
 
     // Call routing — where a domain's tracking number forwards to. Isolated
@@ -1990,51 +1929,14 @@ switch ($action) {
     // locally and applied automatically once ctm_get_numbers buys one.
     case 'ctm_set_routing':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
         $accountId   = trim((string) ($_POST['account_id'] ?? ''));
         $destination = trim((string) ($_POST['destination'] ?? ''));
-        $domainsIn   = (array) ($_POST['domains'] ?? []);
+        $domainsIn   = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
         if ($accountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
         if ($destination === '') { echo json_encode(['error' => 'A destination phone number is required.']); break; }
-        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
         if (!$domainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
-        // Same reasoning as ctm_get_numbers above — one synchronous request, Apache's
-        // real cap is 30s, and each domain costs a real CTM API round trip (plus a
-        // DELETE when replacing an existing destination).
-        set_time_limit(0);
-
-        $byDomain = ms_rows_by_domain($paramsPath);
-        $results  = [];
-        foreach ($domainsIn as $dom) {
-            $dom = strtolower(trim((string) $dom));
-            if (!isset($byDomain[$dom])) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
-            $phone = trim((string) ($byDomain[$dom]['phone'] ?? ''));
-            if ($phone === '') {
-                // No tracking number to attach a destination to yet — CTM has nothing
-                // for this to point at. Record the INTENT anyway rather than refuse:
-                // forward_to set + forward_rpn_id blank is how a row reads "staged,
-                // not yet pushed" (no extra column needed). ctm_get_numbers applies it
-                // automatically the moment this domain's real number gets bought, so
-                // setting the destination ahead of go-live is one step, not two.
-                $byDomain[$dom]['forward_to'] = $destination;
-                $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $destination, 'pending' => true];
-                // Written per domain, not once at the end — see ctm_get_numbers' own
-                // note above on why a mid-batch Apache timeout must not lose work.
-                // Lightweight LIVE-only write, no version snapshot — see its docblock.
-                ms_write_rows_by_domain_live($paramsPath, $byDomain);
-                continue;
-            }
-            $oldId = trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? ''));
-            $r = ctm_set_routing_for_domain($accountId, $phone, $destination, $oldId);
-            if (!$r['ok']) { $results[] = ['domain' => $dom, 'ok' => false, 'error' => $r['error']]; continue; }
-            $byDomain[$dom]['forward_to']     = $r['destination'];
-            $byDomain[$dom]['forward_rpn_id'] = $r['receiving_id'];
-            $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $r['destination']];
-            ms_write_rows_by_domain_live($paramsPath, $byDomain);
-        }
-        // The one real versioned checkpoint for this whole action.
-        ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
-        echo json_encode(['results' => $results]);
+        echo json_encode(ctmb_launch('set_routing', $batchDir, $masterId, $batchId,
+            ['--domains=' . implode(',', $domainsIn), '--account=' . $accountId, '--destination=' . $destination]));
         break;
 
     // Release each checked row's CTM tracking number back to the sub-account's pool and
@@ -2046,55 +1948,12 @@ switch ($action) {
     // triggers one.
     case 'ctm_release_numbers':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        require_once __DIR__ . '/infra/lib/state.php';
-        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
         $crAccountId = trim((string) ($_POST['account_id'] ?? ''));
-        $crDomainsIn = (array) ($_POST['domains'] ?? []);
+        $crDomainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
         if ($crAccountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
-        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
         if (!$crDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
-        set_time_limit(0);
-
-        $crByDomain = ms_rows_by_domain($paramsPath);
-        $crResults  = [];
-        foreach ($crDomainsIn as $crDom) {
-            $crDom = strtolower(trim((string) $crDom));
-            if (!isset($crByDomain[$crDom])) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
-            $crRec = infra_state_get_domain($crDom);
-            if ($crRec && ($crRec['status'] ?? '') === 'live') {
-                $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'LIVE — releasing would clear Phone with no rebuild to stop the site showing it. Use Correct & Regenerate first if this domain really should lose its number.'];
-                continue;
-            }
-            $crPhone = trim((string) ($crByDomain[$crDom]['phone'] ?? ''));
-            if ($crPhone === '') { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'No phone number on file for this row — nothing to release.']; continue; }
-            $crLookupPhone = ctm_combine_phone_area($crPhone, (string) ($crByDomain[$crDom]['area_code'] ?? ''));
-            $crLookup = ctm_number_by_phone($crAccountId, $crLookupPhone);
-            if (!$crLookup['ok']) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => $crLookup['error']]; continue; }
-            $crNumberId = (string) ($crLookup['number']['id'] ?? '');
-            if ($crNumberId === '') { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => 'CTM returned a match with no number id — cannot release.']; continue; }
-            $crRel = ctm_release_number($crAccountId, $crNumberId);
-            if (!$crRel['ok']) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => $crRel['error']]; continue; }
-            $crByDomain[$crDom]['phone']     = '';
-            $crByDomain[$crDom]['area_code'] = '';
-            // forward_rpn_id pointed at a receiving number on the now-released tracking
-            // number — gone along with it. Clear it but KEEP forward_to: blank
-            // forward_rpn_id + a real forward_to is exactly ctm_get_numbers' own
-            // "staged, not yet pushed" state, so the same destination gets applied
-            // automatically the moment this domain's next number is bought, instead of
-            // silently never routing again until someone notices and re-runs Set Call
-            // Routing by hand.
-            $crByDomain[$crDom]['forward_rpn_id'] = '';
-            $crResults[] = ['domain' => $crDom, 'ok' => true, 'released_phone' => $crPhone];
-            // Written per domain, not once at the end — see ctm_get_numbers' own note
-            // on why a mid-batch Apache timeout must not lose work. Here that would mean
-            // a real release that CTM already processed (number gone, not recoverable)
-            // never making it into params.csv — Phone still showing the now-dead number.
-            // Lightweight LIVE-only write, no version snapshot — see its docblock.
-            ms_write_rows_by_domain_live($paramsPath, $crByDomain);
-        }
-        // The one real versioned checkpoint for this whole action.
-        ms_write_rows_by_domain($batchDir, $paramsPath, $crByDomain);
-        echo json_encode(['results' => $crResults]);
+        echo json_encode(ctmb_launch('release_numbers', $batchDir, $masterId, $batchId,
+            ['--domains=' . implode(',', $crDomainsIn), '--account=' . $crAccountId]));
         break;
 
     // For a number bought by hand directly in CTM (inventory the search API won't
@@ -2110,103 +1969,34 @@ switch ($action) {
     // nothing there either (same reasoning Set Call Routing above already relies on).
     case 'ctm_resync_numbers':
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['error' => 'POST required.']); break; }
-        require_once __DIR__ . '/../includes/calltrackingmetrics.php';
         $rsAccountId = trim((string) ($_POST['account_id'] ?? ''));
-        $rsDomainsIn = (array) ($_POST['domains'] ?? []);
+        $rsDomainsIn = array_values(array_filter(array_map(fn($d) => strtolower(trim((string) $d)), (array) ($_POST['domains'] ?? []))));
         if ($rsAccountId === '') { echo json_encode(['error' => 'A CTM sub-account ID is required.']); break; }
-        if (!ctm_configured()) { echo json_encode(['error' => 'CTM_ACCESS_KEY/CTM_SECRET_KEY are not configured in config.php.']); break; }
         if (!$rsDomainsIn) { echo json_encode(['error' => 'No domains selected.']); break; }
-        set_time_limit(0);
+        echo json_encode(ctmb_launch('resync_numbers', $batchDir, $masterId, $batchId,
+            ['--domains=' . implode(',', $rsDomainsIn), '--account=' . $rsAccountId]));
+        break;
 
-        $rsByDomain = ms_rows_by_domain($paramsPath);
-        $rsNicheCode = strtoupper(substr($masterId, 0, 3));
-        $rsBatchMeta = ms_batch_meta($masterId, $batchId);
-        $rsBatchSeq  = (int) ($rsBatchMeta['seq'] ?? 0);
-        $rsRowOrder  = array_keys($rsByDomain);
-
-        $rsResults = [];
-        foreach ($rsDomainsIn as $rsDom) {
-            $rsDom = strtolower(trim((string) $rsDom));
-            if (!isset($rsByDomain[$rsDom])) { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => "Not in this batch's target list."]; continue; }
-            $rsPhone = trim((string) ($rsByDomain[$rsDom]['phone'] ?? ''));
-            if ($rsPhone === '') { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => 'No phone on file — nothing to resync.']; continue; }
-            $rsAreaOnFile = (string) ($rsByDomain[$rsDom]['area_code'] ?? '');
-            $rsLookupPhone = ctm_combine_phone_area($rsPhone, $rsAreaOnFile);
-            $rsFound = ctm_number_by_phone($rsAccountId, $rsLookupPhone);
-            if (!$rsFound['ok']) { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => $rsFound['error']]; continue; }
-            $rsNumberId = (string) ($rsFound['number']['id'] ?? '');
-            if ($rsNumberId === '') { $rsResults[] = ['domain' => $rsDom, 'ok' => false, 'error' => 'CTM returned a match with no number id — cannot resync.']; continue; }
-
-            $rsWarnings = [];
-            // Phone itself is never rewritten here (see the no-LIVE-guard reasoning
-            // above), but a bare local number is still wrong SITE content — flag it so
-            // it doesn't go unnoticed just because CTM-side sync succeeded.
-            if ($rsLookupPhone !== $rsPhone) {
-                $rsWarnings[] = "Phone on file is just '{$rsPhone}', missing its area code — the site will show an incomplete number until you fix it by hand.";
-            }
-
-            // Label — rebuilt from this row's own current position/city/state, same
-            // inputs ctm_get_numbers used when it first bought a number this way.
-            $rsRowNum = array_search($rsDom, $rsRowOrder, true);
-            $rsRowNum = $rsRowNum === false ? 0 : $rsRowNum + 1;
-            $rsCity = trim((string) ($rsByDomain[$rsDom]['city'] ?? ''));
-            $rsSS   = trim((string) ($rsByDomain[$rsDom]['SS'] ?? ''));
-            $rsLabel = ctm_build_label($rsNicheCode, $rsBatchSeq, $rsRowNum, $rsSS, $rsCity, $rsDom);
-            $rsRelabeled = false;
-            $rsVerify = ctm_get_number($rsAccountId, $rsNumberId);
-            $rsCurName = $rsVerify['ok'] ? ($rsVerify['data']['name'] ?? null) : null;
-            if ($rsCurName !== $rsLabel) {
-                $rsSetName = ctm_set_number_name($rsAccountId, $rsNumberId, $rsLabel);
-                if ($rsSetName['ok']) { $rsRelabeled = true; }
-                else { $rsWarnings[] = "Could not update its CTM label: {$rsSetName['error']}"; }
-            }
-
-            // Area code — derived from the REAL number CTM returned, not guessed from
-            // the city. Ground truth beats a lookup-table guess, and this doubles as a
-            // check against the same wrong-area-code bug class found fleet-wide earlier.
-            $rsGotPhone  = (string) ($rsFound['number']['phone_number'] ?? $rsFound['number']['number'] ?? '');
-            $rsGotDigits = substr(preg_replace('/\D/', '', $rsGotPhone), -10);
-            $rsRealArea  = substr($rsGotDigits, 0, 3);
-            $rsAreaChanged = $rsRealArea !== '' && $rsRealArea !== trim((string) ($rsByDomain[$rsDom]['area_code'] ?? ''));
-            if ($rsAreaChanged) $rsByDomain[$rsDom]['area_code'] = $rsRealArea;
-
-            // Routing — if this row has a known destination, always (re)apply it to
-            // whatever number is now in Phone: same "replace, never two destinations
-            // ringing at once" semantics Set Call Routing already uses above. Tolerates
-            // a stale/already-gone old receiving id silently (ctm_set_routing_for_domain's
-            // own documented behavior) — exactly the case right after a manual swap.
-            $rsForwardTo = trim((string) ($rsByDomain[$rsDom]['forward_to'] ?? ''));
-            $rsRouting = 'no_destination_on_file';
-            if ($rsForwardTo !== '') {
-                $rsOldRpn = trim((string) ($rsByDomain[$rsDom]['forward_rpn_id'] ?? ''));
-                $rsRouted = ctm_set_routing_for_domain($rsAccountId, $rsLookupPhone, $rsForwardTo, $rsOldRpn);
-                if ($rsRouted['ok']) {
-                    $rsByDomain[$rsDom]['forward_to']     = $rsRouted['destination'];
-                    $rsByDomain[$rsDom]['forward_rpn_id'] = $rsRouted['receiving_id'];
-                    $rsRouting = 'synced';
-                } else {
-                    $rsRouting = 'failed';
-                    $rsWarnings[] = "Could not sync call routing: {$rsRouted['error']}";
-                }
-            }
-
-            $rsResults[] = [
-                'domain'      => $rsDom,
-                'ok'          => true,
-                'phone'       => $rsPhone,
-                'area_code'   => $rsByDomain[$rsDom]['area_code'],
-                'relabeled'   => $rsRelabeled,
-                'area_synced' => $rsAreaChanged,
-                'routing'     => $rsRouting,
-                'warning'     => implode(' ', $rsWarnings),
-            ];
-            // Written per domain — see ctm_get_numbers' own note on why a mid-batch
-            // Apache timeout must not lose a real CTM write already made.
-            ms_write_rows_by_domain_live($paramsPath, $rsByDomain);
+    // Shared poll endpoint for all four actions above — same shape as
+    // check_area_codes_status. 'action' in the report tells the panel which
+    // card's result renderer to feed (ctm_get_numbers/ctm_set_routing/etc. each
+    // expect slightly different fields per result row — relabeled/pending/etc.).
+    case 'ctm_bulk_status':
+        $run = ms_job_resolve_run($batchDir . '/ctm_bulk', (string) ($_GET['run_id'] ?? ''));
+        if (!$run) { echo json_encode(['none' => true]); break; }
+        $j = ms_job_read_out($run['path'], '__MS_CTMBULK_DONE__');
+        $report = null;
+        if ($j['done']) {
+            $rp = json_decode((string) @file_get_contents($batchDir . '/ctm_bulk_report.json'), true);
+            if (is_array($rp)) $report = $rp;
         }
-        // The one real versioned checkpoint for this whole action.
-        ms_write_rows_by_domain($batchDir, $paramsPath, $rsByDomain);
-        echo json_encode(['results' => $rsResults]);
+        // Sidecar written at launch (see ctmb_launch) covers the still-running case;
+        // the finished report's own 'action' field covers a run from before this
+        // sidecar existed.
+        $cbAction = trim((string) @file_get_contents($batchDir . '/ctm_bulk/' . $run['run_id'] . '.action'));
+        if ($cbAction === '' && $report) $cbAction = (string) ($report['action'] ?? '');
+        echo json_encode(['output' => $j['log'], 'done' => $j['done'], 'exit' => $j['exit'], 'dead' => $j['dead'],
+                          'run_id' => $run['run_id'], 'action' => $cbAction, 'report' => $report]);
         break;
 
     default:
