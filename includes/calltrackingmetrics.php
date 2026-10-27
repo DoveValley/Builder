@@ -481,6 +481,19 @@ function ctm_number_by_phone(string $accountId, string $phone): array
     if (!$r['ok']) return ['ok' => false, 'error' => $r['error']];
     $num = $r['data']['numbers'][0] ?? null;
     if (!$num) return ['ok' => false, 'error' => "CTM has no tracking number matching {$phone} under account {$accountId}."];
+    // Confirm the search actually returned THIS number, not just its best guess —
+    // callers (release, routing) act on the id with real, sometimes irreversible
+    // consequences (ctm_release_number is a permanent DELETE), so a fuzzy/substring
+    // match from CTM's own search must never be trusted silently.
+    // Compare the last 10 digits only — CTM returns E.164 (+1 country code prefix,
+    // 11 digits), but every $phone this is ever called with (params.csv's own
+    // `phone` column) is stored without one. A straight full-string compare would
+    // reject every real, correct match, not just actual mismatches.
+    $gotPhone  = (string) ($num['phone_number'] ?? $num['number'] ?? '?');
+    $gotDigits = substr(preg_replace('/\D/', '', $gotPhone), -10);
+    if ($gotDigits !== substr($digits, -10)) {
+        return ['ok' => false, 'error' => "CTM's search for {$phone} returned a different number ({$gotPhone}) — refusing to act on a mismatch."];
+    }
     return ['ok' => true, 'number' => $num];
 }
 

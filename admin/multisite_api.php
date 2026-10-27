@@ -147,6 +147,38 @@ function ms_write_rows_by_domain(string $batchDir, string $paramsPath, array $by
     @unlink($tmp);
 }
 
+/**
+ * Same write as ms_write_rows_by_domain() above, straight onto the LIVE params.csv,
+ * atomically (tmp + rename, so a concurrent reader never sees a truncated file) — but
+ * with NO params_versions/ snapshot. For a bulk CTM action's per-domain incremental save:
+ * each call is a real, already-billed purchase/release, so losing it to an Apache
+ * timeout mid-batch would mean real money spent with nothing on disk to show for it —
+ * but ms_write_rows_by_domain()'s own versioned write (ms_store_params_csv(), 15-slot
+ * rolling params_versions/ cap) called once per domain in a 30+ row batch would burn
+ * through that whole cap in one action, evicting the "before this batch ran" checkpoint
+ * before the batch even finishes. Call this per domain inside the loop; call the real
+ * ms_write_rows_by_domain() once, after the loop, for the one versioned checkpoint.
+ */
+function ms_write_rows_by_domain_live(string $paramsPath, array $byDomain): void {
+    $header = MS_KNOWN_COLS;
+    if (is_file($paramsPath)) {
+        $p = ms_parse_csv($paramsPath);
+        if (!$p['error'] && $p['header']) $header = $p['header'];
+    }
+    $known = array_fill_keys($header, true);
+    foreach ($byDomain as $row) {
+        foreach (array_keys($row) as $k) {
+            if ($k !== '_line' && !isset($known[$k])) { $header[] = $k; $known[$k] = true; }
+        }
+    }
+    $tmp = $paramsPath . '.' . bin2hex(random_bytes(6)) . '.tmp';
+    if (ms_write_csv($tmp, $header, array_values($byDomain))) {
+        @rename($tmp, $paramsPath);
+    } else {
+        @unlink($tmp);
+    }
+}
+
 // ── Fixed "test server" (card 4) ──────────────────────────────────────────────
 // One reusable, always-overwritten deploy target OUTSIDE the fleet — a real host
 // + real domain + real HTTPS the operator already owns, so "does this look right
@@ -775,9 +807,13 @@ switch ($action) {
             }
             if ($rtUnres) {
                 echo json_encode([
+                    // No UI sends allow_unresearched today, so this message must not
+                    // promise a "re-submit with build anyway" option that doesn't
+                    // exist anywhere to click — direct the operator at the one real
+                    // path instead (the Research bar on this same page).
                     'error' => 'No city research for ' . count($rtUnres) . ' of the ' . count($rtDoms)
                              . ' ticked domain(s). Building now would succeed and write generic copy for them.'
-                             . ' Run Research first, or re-submit with "build anyway".',
+                             . ' Tick the same domains in the Research bar above and run that first.',
                     'needs_research' => $rtUnres,
                 ]);
                 break;
@@ -1923,7 +1959,19 @@ switch ($action) {
                 }
             }
             $results[] = ['domain' => $dom, 'ok' => true, 'phone' => $r['phone'], 'area_code' => $r['area_code'], 'warning' => $warning];
+            // Written after EVERY successful domain, not once at the end — each pass
+            // through this loop is a real, billed CTM purchase. A batch large enough to
+            // hit Apache's own connection timeout (confirmed live at ~30s, independent
+            // of this file's set_time_limit(0), which only lifts PHP's own limit) used
+            // to lose every number already bought this request: real money spent,
+            // nothing on disk to show for it, and the next click would buy them all
+            // again. The lightweight LIVE-only write (no params_versions/ snapshot —
+            // see its own docblock) so a 30-domain batch doesn't burn through the
+            // 15-slot rolling version cap in one action.
+            ms_write_rows_by_domain_live($paramsPath, $byDomain);
         }
+        // The one real versioned checkpoint for this whole action — same as every
+        // other write path in this file.
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
         echo json_encode(['results' => $results]);
         break;
@@ -1965,6 +2013,10 @@ switch ($action) {
                 // setting the destination ahead of go-live is one step, not two.
                 $byDomain[$dom]['forward_to'] = $destination;
                 $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $destination, 'pending' => true];
+                // Written per domain, not once at the end — see ctm_get_numbers' own
+                // note above on why a mid-batch Apache timeout must not lose work.
+                // Lightweight LIVE-only write, no version snapshot — see its docblock.
+                ms_write_rows_by_domain_live($paramsPath, $byDomain);
                 continue;
             }
             $oldId = trim((string) ($byDomain[$dom]['forward_rpn_id'] ?? ''));
@@ -1973,7 +2025,9 @@ switch ($action) {
             $byDomain[$dom]['forward_to']     = $r['destination'];
             $byDomain[$dom]['forward_rpn_id'] = $r['receiving_id'];
             $results[] = ['domain' => $dom, 'ok' => true, 'destination' => $r['destination']];
+            ms_write_rows_by_domain_live($paramsPath, $byDomain);
         }
+        // The one real versioned checkpoint for this whole action.
         ms_write_rows_by_domain($batchDir, $paramsPath, $byDomain);
         echo json_encode(['results' => $results]);
         break;
@@ -2016,8 +2070,23 @@ switch ($action) {
             if (!$crRel['ok']) { $crResults[] = ['domain' => $crDom, 'ok' => false, 'error' => $crRel['error']]; continue; }
             $crByDomain[$crDom]['phone']     = '';
             $crByDomain[$crDom]['area_code'] = '';
+            // forward_rpn_id pointed at a receiving number on the now-released tracking
+            // number — gone along with it. Clear it but KEEP forward_to: blank
+            // forward_rpn_id + a real forward_to is exactly ctm_get_numbers' own
+            // "staged, not yet pushed" state, so the same destination gets applied
+            // automatically the moment this domain's next number is bought, instead of
+            // silently never routing again until someone notices and re-runs Set Call
+            // Routing by hand.
+            $crByDomain[$crDom]['forward_rpn_id'] = '';
             $crResults[] = ['domain' => $crDom, 'ok' => true, 'released_phone' => $crPhone];
+            // Written per domain, not once at the end — see ctm_get_numbers' own note
+            // on why a mid-batch Apache timeout must not lose work. Here that would mean
+            // a real release that CTM already processed (number gone, not recoverable)
+            // never making it into params.csv — Phone still showing the now-dead number.
+            // Lightweight LIVE-only write, no version snapshot — see its docblock.
+            ms_write_rows_by_domain_live($paramsPath, $crByDomain);
         }
+        // The one real versioned checkpoint for this whole action.
         ms_write_rows_by_domain($batchDir, $paramsPath, $crByDomain);
         echo json_encode(['results' => $crResults]);
         break;

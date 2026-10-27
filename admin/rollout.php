@@ -602,13 +602,13 @@ a.pill.ro-confirm{cursor:pointer;text-decoration:underline;text-decoration-style
     }
 
     function renderSettings() {
-        $('ro-settings').innerHTML = 'Go-live time <strong>' + esc(settings.golive_time) + '</strong> (US Central) &middot; '
+        $('ro-settings').innerHTML = '<strong style="color:#92400e;">Fleet-wide</strong> &mdash; Go-live time <strong>' + esc(settings.golive_time) + '</strong> (US Central) &middot; '
             + 'max <strong>' + esc(settings.cf_max_per_account) + '</strong> domains per Cloudflare account &middot; '
             + '<a href="#" id="ro-edit">change</a>';
         $('ro-edit').onclick = async e => {
             e.preventDefault();
-            const t = prompt('Go-live time, 24-hour HH:MM (US Central):', settings.golive_time); if (t === null) return;
-            const n = prompt('Max domains per Cloudflare account:', settings.cf_max_per_account); if (n === null) return;
+            const t = prompt('Go-live time, 24-hour HH:MM (US Central).\n\nThis is a FLEET-WIDE default, not specific to this batch — changing it affects every batch\'s scheduled releases that use the default time.', settings.golive_time); if (t === null) return;
+            const n = prompt('Max domains per Cloudflare account.\n\nAlso fleet-wide — applies to every master/batch, not just this one.', settings.cf_max_per_account); if (n === null) return;
             const r = await post({ action: 'rollout_settings', golive_time: t.trim(), cf_max_per_account: n.trim() });
             if (r.settings) { settings = r.settings; renderSettings(); }
         };
