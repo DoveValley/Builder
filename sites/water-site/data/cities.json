@@ -39245,14 +39245,16 @@
     "market_blurb": "Murrieta, California's economy is anchored by healthcare, education, and retail, with major employers including Loma Linda University Medical Center and the Murrieta Valley Unified School District. The city functions as a residential and commercial hub within the Temecula Valley region, benefiting from steady population growth and proximity to wine country tourism. Professional services and construction also play a significant role as the community continues to expand.",
     "local_note": "Most homes in Murrieta are built on concrete slab foundations, typical of Southern California construction. The dominant regional water-damage risk comes from heavy seasonal winter rains and occasional flash flooding, particularly in areas near hillsides or dry creek beds that can quickly overflow during storms.",
     "neighborhoods": [
+      "Antelope Hills",
       "Bear Creek",
       "California Oaks",
+      "Greer Ranch",
+      "Linda Rosa",
+      "Mapleton",
       "Murrieta Hot Springs",
       "Copper Canyon",
       "Spencer's Crossing",
-      "Greer Ranch",
-      "The Colony",
-      "Warm Springs"
+      "The Colony"
     ],
     "population": 115000,
     "nearby_towns": [
@@ -39289,7 +39291,8 @@
         "miles": 20
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "san-marcos-ca",
@@ -39427,12 +39430,17 @@
     "market_blurb": "San Marcos, California's economy is anchored by education institutions like California State University San Marcos and Palomar College, along with a strong base in healthcare, manufacturing, and biotech. Companies such as Hunter Industries and Thermo Fisher Scientific contribute to a diversified industrial sector, while the Creek District and San Marcos Boulevard corridor support retail and hospitality growth.",
     "local_note": "Most homes in San Marcos are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk in the area comes from heavy seasonal winter rains and flash flooding, particularly in low-lying areas and near hillside runoff zones.",
     "neighborhoods": [
+      "Creek District",
+      "Discovery Hills",
+      "Furniture Row",
+      "La Mirada",
+      "Nordahl",
+      "North City",
+      "Old Creek Ranch",
+      "Quail Hill",
       "San Elijo Hills",
       "Lake San Marcos",
-      "Twin Oaks Valley",
-      "Discovery Hills",
-      "Richland",
-      "Old California Restaurant Row/Creek District"
+      "Twin Oaks Valley"
     ],
     "population": 95878,
     "nearby_towns": [
@@ -39461,7 +39469,8 @@
         "miles": 13
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "victorville-ca",
@@ -39602,12 +39611,12 @@
     "market_blurb": "Victorville, California serves as a key logistics and distribution hub in the High Desert region, anchored by the Southern California Logistics Airport and major rail and freeway access along Interstate 15. The local economy also relies heavily on healthcare, retail, and government employment, with Victor Valley College and several school districts providing additional stability. Growth in warehousing and manufacturing continues to shape the city's expanding commercial base.",
     "local_note": "Most homes in Victorville are built on concrete slab foundations, typical of Southern California's desert climate. The dominant water-damage risk comes from flash flooding during summer monsoonal storms and occasional heavy seasonal rain events that overwhelm desert drainage systems.",
     "neighborhoods": [
-      "Spring Valley Lake",
-      "Old Town Victorville",
-      "Green Tree",
+      "Duncan Corners",
       "Eagle Ranch",
-      "Mariposa",
-      "Brentwood"
+      "Golden Mesa",
+      "Old Town Victorville",
+      "Spring Valley Lake",
+      "Green Tree"
     ],
     "population": 134810,
     "nearby_towns": [
@@ -39640,7 +39649,8 @@
         "miles": 40
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "manteca-ca",
@@ -39779,9 +39789,6 @@
     "local_note": "Most homes in Manteca are built on concrete slab foundations, typical of California's Central Valley. The dominant water-damage risk comes from heavy seasonal rains and atmospheric river storms, which can cause localized flash flooding and runoff issues.",
     "neighborhoods": [
       "Union Ranch",
-      "Woodward Park",
-      "Tidewater",
-      "Northgate",
       "Powers Tract"
     ],
     "population": 85834,
@@ -39819,7 +39826,8 @@
         "miles": 27
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "bethlehem-pa",
@@ -39958,14 +39966,19 @@
     "market_blurb": "Bethlehem, Pennsylvania's economy has transformed from its steel-manufacturing roots into a diversified base anchored by healthcare, higher education, and tourism. Institutions like St. Luke's University Health Network and Lehigh University are major economic drivers, while the former Bethlehem Steel site now hosts Wind Creek Bethlehem casino and cultural attractions. Manufacturing remains present through companies like B. Braun Medical and Just Born, maintaining the city's industrial heritage.",
     "local_note": "Homes in Bethlehem typically have basements due to the region's clay and rocky soil and cold winters, which makes basement construction standard. The dominant water-damage risk is heavy seasonal rain and flash flooding, particularly from spring storms and remnants of tropical systems, along with occasional snowmelt-related flooding in late winter.",
     "neighborhoods": [
+      "Allen Junction",
+      "Altonah",
+      "Bayard Park",
+      "Beth-Allen Gardens",
+      "Bethlehem Heights",
+      "Bethlehem View",
+      "Brentwood Estates",
+      "Brinker Terrace",
       "South Side",
       "North Side",
       "Historic Downtown Bethlehem",
       "West Bethlehem",
-      "Fountain Hill",
-      "Mount Airy",
-      "East Hills",
-      "Hanover Township Industrial Area"
+      "East Hills"
     ],
     "population": 75781,
     "nearby_towns": [
@@ -40002,7 +40015,8 @@
         "miles": 15
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "oceanside-ca",
@@ -40141,13 +40155,20 @@
     "market_blurb": "Oceanside, CA benefits from its proximity to Camp Pendleton, one of the largest Marine Corps bases in the country, which anchors the local economy alongside a strong tourism sector drawn to its beaches, pier, and harbor. Biotechnology and advanced manufacturing, led by firms like Genentech and Thermo Fisher Scientific, provide a significant employment base, while agriculture and healthcare round out Oceanside's diverse economic profile.",
     "local_note": "Most homes in Oceanside are built on concrete slab foundations, typical of coastal Southern California construction. The dominant water-damage risk comes from heavy seasonal winter rains and occasional atmospheric river storms, which can cause flash flooding and roof or slab-level water intrusion.",
     "neighborhoods": [
+      "Agave at The Preserve",
+      "Arrowood",
+      "Buccaneer Beach",
+      "Capistrano",
+      "Crown Heights",
+      "Downtown Oceanside",
+      "El Corazon",
+      "Escondido Junction",
       "South Oceanside",
       "Fire Mountain",
       "Eastside",
       "Rancho del Oro",
       "Ocean Hills",
       "Jeffries Ranch",
-      "Crown Heights",
       "Loma Alta",
       "Mission San Luis Rey"
     ],
@@ -40182,7 +40203,8 @@
         "miles": 20
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "el-cajon-ca",
@@ -40323,14 +40345,15 @@
     "market_blurb": "El Cajon, California anchors much of San Diego County's East County region with a diversified economy built on healthcare, education, retail, and light manufacturing. The city benefits from its position along Interstate 8, supporting logistics and construction trades alongside a strong base of public sector and school district employment. Retail centers and medical facilities in and around El Cajon serve a broad East County population.",
     "local_note": "Most homes in El Cajon are built on concrete slab foundations, typical of Southern California construction, though some older and hillside homes have crawl spaces. The dominant water-damage risk in this region comes from heavy, intense seasonal rainstorms in winter months that can cause flash flooding and runoff issues, especially on sloped or hillside lots.",
     "neighborhoods": [
-      "Fletcher Hills",
       "Bostonia",
+      "Cajon Heights",
+      "Fletcher Hills",
+      "Hillsdale",
+      "Little Baghdad",
       "Rancho San Diego",
       "Crest",
       "Granite Hills",
-      "Blossom Valley",
-      "Rancho San Diego Village",
-      "Johnstown"
+      "Blossom Valley"
     ],
     "population": 106215,
     "nearby_towns": [
@@ -40367,7 +40390,8 @@
         "miles": 16
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "fontana-ca",
@@ -40507,14 +40531,12 @@
     "market_blurb": "Fontana, CA has grown into a major logistics and distribution hub within the Inland Empire, leveraging its proximity to the I-10 and I-15 freeways. Once home to Kaiser Steel, the city's economy today is driven by warehousing, manufacturing, and healthcare, alongside continued residential growth. Fontana also hosts Auto Club Speedway, drawing regional visitors and events.",
     "local_note": "Most homes in Fontana are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk here is flash flooding and water intrusion from heavy seasonal winter rains and occasional atmospheric river storms.",
     "neighborhoods": [
+      "Beech Avenue Logistics Center",
+      "Lifestyle",
       "Southridge Village",
       "Sierra Lakes",
-      "Citrus Heights",
       "North Fontana",
-      "Rosena Ranch",
-      "Live Oak",
-      "Coyote Canyon",
-      "Heritage"
+      "Rosena Ranch"
     ],
     "population": 215000,
     "nearby_towns": [
@@ -40551,7 +40573,8 @@
         "miles": 5
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "salem-or",
@@ -40691,13 +40714,17 @@
     "market_blurb": "As the capital of Oregon, Salem's economy is anchored by state government and public administration, alongside strong healthcare, education, and agricultural processing sectors. The surrounding Willamette Valley supports a robust farming and food processing industry, while Salem Health and several school districts provide significant regional employment. Manufacturing and retail trade round out the city's diverse economic base.",
     "local_note": "Homes in Salem typically sit on crawl space foundations, though slab-on-grade construction is also common in newer developments. The dominant water-damage risk in the region comes from heavy seasonal rain and winter atmospheric river storms, which can cause roof leaks, gutter overflow, and localized flooding.",
     "neighborhoods": [
-      "West Salem",
+      "Grant",
+      "Highland",
+      "Liberty",
+      "Oak Park",
+      "Salemtowne",
       "South Salem",
+      "Sunnyslope",
+      "West Salem",
       "North Salem",
       "Northeast Salem",
-      "Highland",
       "Fairmount Hill",
-      "Sunnyslope",
       "Morningside"
     ],
     "population": 175535,
@@ -40735,7 +40762,8 @@
         "miles": 24
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "carrollton-tx",
@@ -40874,13 +40902,13 @@
     "market_blurb": "Carrollton, Texas sits within the Dallas-Fort Worth metroplex and benefits from a diversified economy spanning telecommunications, corporate offices, light manufacturing, and distribution. Its proximity to major highways and the broader Telecom Corridor has attracted technology and business-services firms alongside established employers in food processing and retail. The city's steady population growth has supported a strong base of residential and commercial development.",
     "local_note": "Most homes in Carrollton are built on slab-on-grade foundations due to the region's expansive clay soils, making them vulnerable to shifting and slab leaks. The dominant water-damage risk is heavy seasonal rain and flash flooding, with occasional winter freeze events causing pipe bursts.",
     "neighborhoods": [
+      "Kensington Place",
+      "New Koreatown",
+      "Woodcrest Estates",
       "Castle Hills",
       "Indian Creek",
       "Old Downtown Carrollton",
       "Josey Ranch",
-      "Creekview",
-      "Country Place",
-      "Villages of Carrollton",
       "Raintree"
     ],
     "population": 133434,
@@ -40918,7 +40946,8 @@
         "miles": 18
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "inglewood-ca",
@@ -41062,8 +41091,6 @@
       "Morningside Park",
       "Centinela Heights",
       "Fairview Heights",
-      "Lockhaven",
-      "North Inglewood",
       "Downtown Inglewood"
     ],
     "population": 107847,
@@ -41101,7 +41128,8 @@
         "miles": 9
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "warwick-ri",
@@ -41240,11 +41268,17 @@
     "market_blurb": "Warwick, Rhode Island anchors much of the state's economy around T.F. Green International Airport, which drives aviation, logistics, and travel-related jobs. The city also supports a strong healthcare sector centered on Kent Hospital, along with retail hubs like Warwick Mall and a coastal tourism trade tied to its Narragansett Bay shoreline. A mix of small manufacturing and insurance/financial services firms rounds out Warwick's diversified local economy.",
     "local_note": "Most Warwick homes feature full basements, typical of New England construction, making them susceptible to groundwater seepage and sump pump failures during heavy rain. The dominant water-damage risks are coastal flooding and storm surge from hurricanes and nor'easters along Narragansett Bay, compounded by seasonal heavy rainfall.",
     "neighborhoods": [
+      "Apponaug Historic District",
+      "Bartons Corner",
+      "Bayside",
+      "Buttonwoods",
+      "Chepiwanoxet",
+      "Coles",
+      "Conimicut",
+      "East Natick",
       "Apponaug",
       "Pawtuxet Village",
-      "Conimicut",
       "Oakland Beach",
-      "Buttonwoods",
       "Cowesett",
       "Natick",
       "Hoxsie",
@@ -41285,7 +41319,8 @@
         "miles": 22
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "vista-ca",
@@ -41428,9 +41463,7 @@
       "Rancho Buena Vista",
       "Vista Village",
       "Downtown Vista",
-      "Buena Creek",
-      "Alta Vista",
-      "Foothill"
+      "Buena Creek"
     ],
     "population": 101638,
     "nearby_towns": [
@@ -41597,11 +41630,12 @@
     "market_blurb": "San Leandro, California has long served as an industrial and logistics hub along the I-880 corridor in the East Bay, anchored by manufacturing, food processing, and healthcare employers. The city's economy has diversified in recent years with growth in technology and software firms drawn to its business parks and tech campus initiatives. Its waterfront marina and proximity to Oakland also support retail and service-sector activity.",
     "local_note": "Many San Leandro homes, especially older ones built mid-20th century, sit on raised foundations with crawl spaces rather than basements, making them susceptible to moisture intrusion from below. The dominant water-damage risk in this region is heavy seasonal rain and occasional atmospheric river storms during the Pacific winter rainy season, which can cause roof leaks, crawl space flooding, and localized urban flooding.",
     "neighborhoods": [
+      "Mulford",
+      "Mulford Gardens",
       "Bay-O-Vista",
       "Broadmoor",
       "Estudillo Estates",
       "Washington Manor",
-      "Mulford Gardens",
       "Marina Faire"
     ],
     "population": 89235,
@@ -41639,7 +41673,8 @@
         "miles": 17
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "antioch-ca",
@@ -41785,8 +41820,7 @@
       "Deer Valley",
       "Lone Tree",
       "Prewett Ranch",
-      "Sand Creek",
-      "Mira Vista Hills"
+      "Sand Creek"
     ],
     "population": 115291,
     "nearby_towns": [
@@ -41823,7 +41857,8 @@
         "miles": 20
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "charleston-sc",
@@ -41963,6 +41998,14 @@
     "market_blurb": "Charleston, SC has a diverse economy anchored by tourism, the Port of Charleston's maritime and logistics operations, and a growing aerospace and advanced manufacturing sector led by Boeing. Healthcare and military institutions, including MUSC and Joint Base Charleston, also provide major employment, while a rising tech sector has earned the city the nickname 'Silicon Harbor.'",
     "local_note": "Many homes in the Charleston area are built on crawl spaces or slab foundations due to the high water table and low-lying coastal terrain, with some older historic homes elevated on piers. The dominant water-damage risk in the region is hurricane and coastal/tidal flooding, along with heavy seasonal rainfall that can cause localized flash flooding.",
     "neighborhoods": [
+      "Ansonborough",
+      "Aquarium Wharf",
+      "Bolton's Landing",
+      "Bridgewater",
+      "Brownswood Place",
+      "Cainhoy Historic District",
+      "Cannonborough-Elliotborough",
+      "Charlestowne Estates",
       "French Quarter",
       "South of Broad",
       "West Ashley",
@@ -42007,7 +42050,8 @@
         "miles": 30
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "tempe-az",
@@ -42152,7 +42196,6 @@
       "Clark Park Historic District",
       "Wilson Historic District",
       "Victory Acres Historic District",
-      "Arizona Grove Historic District",
       "Papago Park"
     ],
     "population": 180587,
@@ -42326,7 +42369,14 @@
     "market_blurb": "Layton, Utah's economy is heavily shaped by its proximity to Hill Air Force Base, which drives significant aerospace, defense, and manufacturing employment in the area. The city also serves as a regional retail and healthcare hub for Davis County, anchored by Layton Hills Mall and Intermountain Healthcare facilities. Education and logistics round out Layton's diverse economic base.",
     "local_note": "Many homes in Layton are built with basements due to the region's soil and climate conditions, making basement seepage a common concern. The dominant water-damage risk in the area comes from spring snowmelt runoff and seasonal flash flooding from heavy summer thunderstorms.",
     "neighborhoods": [
-      "Fairfield",
+      "Aspen East",
+      "Aspen Heights",
+      "Avion Vista",
+      "Brookhurst",
+      "Cherry Lane Heights",
+      "Church Hill Estates",
+      "Church Hills",
+      "Clarinda",
       "Kays Creek",
       "Adams Canyon"
     ],
@@ -42361,7 +42411,8 @@
         "miles": 13
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "joliet-il",
@@ -42502,12 +42553,17 @@
     "market_blurb": "Joliet, Illinois has grown into one of the Midwest's largest logistics and distribution hubs, leveraging its position along major interstates and rail lines near Chicago. The city's economy is also supported by manufacturing, healthcare systems, and gaming/entertainment venues. Warehousing and intermodal freight operations continue to drive significant job growth in the region.",
     "local_note": "Most homes in Joliet are built with full basements due to the regional climate and soil conditions, making basement water intrusion a common concern. The dominant water-damage risk in the area comes from heavy seasonal rainstorms and spring snowmelt, which can overwhelm drainage systems and cause localized flash flooding.",
     "neighborhoods": [
+      "Ashby Park",
+      "Aspen Falls",
+      "Autumn Fields",
+      "Caton Farm",
+      "Cedar Hill",
+      "Clearwater Springs",
+      "Clearwater Springs at Mirage",
+      "Clublands",
       "Downtown Joliet",
       "Cathedral Area Historic District",
-      "Forest Park",
-      "Preston Heights",
-      "Woodruff",
-      "Richmond Manor"
+      "Preston Heights"
     ],
     "population": 150362,
     "nearby_towns": [
@@ -42544,7 +42600,8 @@
         "miles": 10
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "lancaster-ca",
@@ -42688,8 +42745,7 @@
       "Anaverde",
       "Downtown Lancaster",
       "Eastside Lancaster",
-      "Quartz Hill",
-      "Park View Estates"
+      "Quartz Hill"
     ],
     "population": 173516,
     "nearby_towns": [
@@ -42722,7 +42778,8 @@
         "miles": 20
       }
     ],
-    "_researched": 1
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "loveland-co",
@@ -42837,7 +42894,75 @@
     "rainfall_annual": 15.88,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, FT COLLINS, CO US station (0.9 mi from Loveland)",
     "rainfall_state_avg": 18.01,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Manufacturing",
+      "Healthcare",
+      "Technology/Electronics",
+      "Agriculture",
+      "Tourism and Arts",
+      "Construction"
+    ],
+    "top_employers": [
+      "UCHealth Medical Center of the Rockies",
+      "Banner Health (McKee Medical Center)",
+      "Hach Company",
+      "Woodward, Inc.",
+      "Thompson School District",
+      "City of Loveland",
+      "Hewlett Packard Enterprise",
+      "Scheels",
+      "Walmart Distribution Center",
+      "Agilent Technologies",
+      "Rocky Mountain Timber Products",
+      "Budweiser Events Center"
+    ],
+    "market_blurb": "Loveland, Colorado maintains a diversified economy anchored by manufacturing, healthcare, and technology, with companies like Hach Company and Woodward, Inc. providing a strong industrial base. The city is also known for its vibrant arts community and tourism tied to the Rocky Mountains, while nearby Centerra has become a major retail and employment hub. Steady population growth along the Front Range continues to drive residential construction and related services in Loveland.",
+    "local_note": "Homes in Loveland commonly feature basements due to the region's soil and climate conditions, though slab-on-grade construction is also found in newer developments. The dominant water-damage risk is flash flooding and heavy runoff from spring snowmelt and intense seasonal thunderstorms, a risk historically underscored by the 1976 Big Thompson Canyon flood.",
+    "neighborhoods": [
+      "Emerald Glen",
+      "Hunter's Run",
+      "Waterfront",
+      "Olde Town Loveland",
+      "Centerra",
+      "Mariana Butte",
+      "North Lake Park area",
+      "Boyd Lake area",
+      "Namaqua"
+    ],
+    "population": 78000,
+    "nearby_towns": [
+      {
+        "name": "Fort Collins",
+        "miles": 10
+      },
+      {
+        "name": "Berthoud",
+        "miles": 9
+      },
+      {
+        "name": "Windsor",
+        "miles": 12
+      },
+      {
+        "name": "Greeley",
+        "miles": 20
+      },
+      {
+        "name": "Longmont",
+        "miles": 18
+      },
+      {
+        "name": "Johnstown",
+        "miles": 10
+      },
+      {
+        "name": "Estes Park",
+        "miles": 25
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "miami-beach-fl",
@@ -42952,7 +43077,79 @@
     "rainfall_annual": 57.18,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, MIAMI BEACH, FL US station (0.9 mi from Miami Beach)",
     "rainfall_state_avg": 54.42,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Florida statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Florida statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Tourism and Hospitality",
+      "Hotels and Resorts",
+      "Real Estate",
+      "Food and Beverage/Restaurants",
+      "Arts and Entertainment",
+      "Convention and Event Services"
+    ],
+    "top_employers": [
+      "Mount Sinai Medical Center",
+      "City of Miami Beach",
+      "Loews Miami Beach Hotel",
+      "Fontainebleau Miami Beach",
+      "Miami Beach Convention Center",
+      "The Betsy Hotel",
+      "Eden Roc Miami Beach",
+      "Miami Beach Senior High School",
+      "South Beach Group Hotels",
+      "Royal Caribbean Group"
+    ],
+    "market_blurb": "Miami Beach's economy is built primarily around tourism, hospitality, and real estate, driven by its iconic beaches, Art Deco architecture, and vibrant nightlife. The city hosts major conventions, cultural events like Art Basel, and a dense concentration of hotels and restaurants catering to international visitors. Real estate, including luxury condominiums and vacation rentals, also plays a significant role in the local economy.",
+    "local_note": "Most homes and buildings in Miami Beach are constructed on concrete slab foundations due to the area's high water table and sandy soil. The dominant water-damage risk is hurricane and coastal flooding, including storm surge, combined with frequent heavy seasonal rains and tidal/sunny-day flooding.",
+    "neighborhoods": [
+      "Española Way",
+      "North Beach",
+      "South Beach",
+      "Mid-Beach",
+      "Flamingo Park",
+      "Fisher Island",
+      "Sunset Harbour",
+      "Venetian Islands",
+      "La Gorce",
+      "Normandy Isles",
+      "Star Island"
+    ],
+    "population": 82890,
+    "nearby_towns": [
+      {
+        "name": "Miami",
+        "miles": 8
+      },
+      {
+        "name": "Surfside",
+        "miles": 7
+      },
+      {
+        "name": "Bal Harbour",
+        "miles": 9
+      },
+      {
+        "name": "Key Biscayne",
+        "miles": 10
+      },
+      {
+        "name": "Coral Gables",
+        "miles": 12
+      },
+      {
+        "name": "Hialeah",
+        "miles": 15
+      },
+      {
+        "name": "Aventura",
+        "miles": 14
+      },
+      {
+        "name": "Hollywood",
+        "miles": 20
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "asheville-nc",
@@ -43067,7 +43264,85 @@
     "rainfall_annual": 59.05,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, HENDERSONVILLE 1 NE, NC US station (1 mi from Asheville)",
     "rainfall_state_avg": 50.77,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, North Carolina statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, North Carolina statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Tourism and hospitality",
+      "Healthcare",
+      "Craft beer and beverage manufacturing",
+      "Higher education",
+      "Advanced manufacturing",
+      "Arts and crafts"
+    ],
+    "top_employers": [
+      "Mission Hospital (HCA Healthcare)",
+      "Asheville-Buncombe Technical Community College",
+      "Buncombe County Schools",
+      "City of Asheville",
+      "UNC Asheville",
+      "Eaton Corporation",
+      "BorgWarner",
+      "Sierra Nevada Brewing Co.",
+      "The Biltmore Company",
+      "Charles George VA Medical Center"
+    ],
+    "market_blurb": "Asheville, North Carolina's economy centers on tourism, healthcare, and craft beer manufacturing, bolstered by attractions like the Biltmore Estate and a nationally recognized brewery scene. Higher education and advanced manufacturing also contribute significantly to the local economy, supported by institutions like UNC Asheville and companies such as Eaton and BorgWarner. The city's mountain setting and vibrant arts culture continue to drive steady population and visitor growth.",
+    "local_note": "Homes in the Asheville area are typically built on crawl spaces or basements due to the region's hilly, mountainous terrain. The dominant water-damage risk is heavy seasonal rainfall and flash flooding, intensified by occasional hurricane remnants moving inland, as seen with catastrophic flooding from Hurricane Helene in 2024.",
+    "neighborhoods": [
+      "Albemarle",
+      "Beverly Hills",
+      "Biltmore",
+      "Biltmore Village",
+      "Broadview",
+      "Camelot",
+      "Deaver View",
+      "East Biltmore",
+      "Montford",
+      "West Asheville",
+      "North Asheville",
+      "Kenilworth",
+      "Grove Park",
+      "Haw Creek",
+      "River Arts District",
+      "South Slope",
+      "Downtown Asheville"
+    ],
+    "population": 94589,
+    "nearby_towns": [
+      {
+        "name": "Black Mountain",
+        "miles": 15
+      },
+      {
+        "name": "Hendersonville",
+        "miles": 22
+      },
+      {
+        "name": "Weaverville",
+        "miles": 12
+      },
+      {
+        "name": "Arden",
+        "miles": 10
+      },
+      {
+        "name": "Fletcher",
+        "miles": 14
+      },
+      {
+        "name": "Swannanoa",
+        "miles": 11
+      },
+      {
+        "name": "Candler",
+        "miles": 10
+      },
+      {
+        "name": "Brevard",
+        "miles": 35
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "tustin-ca",
@@ -43182,7 +43457,78 @@
     "rainfall_annual": 12.54,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, SANTA ANA FIRE STN, CA US station (2.3 mi from Tustin)",
     "rainfall_state_avg": 22.27,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Education",
+      "Retail and Shopping Centers",
+      "Healthcare",
+      "Aerospace/Advanced Manufacturing",
+      "Professional and Business Services",
+      "Logistics/Distribution"
+    ],
+    "top_employers": [
+      "Tustin Unified School District",
+      "City of Tustin",
+      "Costco Wholesale",
+      "The Home Depot",
+      "Target Corporation",
+      "Kohl's",
+      "Walmart",
+      "Kaiser Permanente",
+      "CarMax",
+      "Toshiba America Business Solutions"
+    ],
+    "market_blurb": "Tustin, California benefits from its central Orange County location, with a diversified economy anchored by retail centers like The Market Place and The District at Tustin Legacy, along with education, healthcare, and professional services. The redevelopment of the former Marine Corps Air Station Tustin into Tustin Legacy has spurred new commercial, residential, and business park growth. Retail, logistics, and service-sector jobs remain core pillars of the local economy.",
+    "local_note": "Most homes in Tustin are built on concrete slab-on-grade foundations, typical of Southern California construction. The dominant water-damage risk comes from heavy seasonal winter rains and occasional flash flooding, particularly during El Niño storm years.",
+    "neighborhoods": [
+      "Browning",
+      "Browning Station",
+      "Greenwood Tustin Legacy",
+      "Tustin Legacy",
+      "Tustin Ranch",
+      "Vidorra",
+      "Old Town Tustin",
+      "Columbus Grove",
+      "Tustin Meadows",
+      "Red Hill"
+    ],
+    "population": 80276,
+    "nearby_towns": [
+      {
+        "name": "Santa Ana",
+        "miles": 4
+      },
+      {
+        "name": "Irvine",
+        "miles": 6
+      },
+      {
+        "name": "Orange",
+        "miles": 5
+      },
+      {
+        "name": "Costa Mesa",
+        "miles": 7
+      },
+      {
+        "name": "Anaheim",
+        "miles": 9
+      },
+      {
+        "name": "Villa Park",
+        "miles": 6
+      },
+      {
+        "name": "Lake Forest",
+        "miles": 10
+      },
+      {
+        "name": "Newport Beach",
+        "miles": 12
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "boulder-co",
@@ -43297,7 +43643,86 @@
     "rainfall_annual": 21.23,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, BOULDER, CO US station (1.6 mi from Boulder)",
     "rainfall_state_avg": 18.01,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Higher education",
+      "Scientific research (federal labs)",
+      "Technology/software",
+      "Aerospace",
+      "Natural & organic foods",
+      "Outdoor recreation/sporting goods"
+    ],
+    "top_employers": [
+      "University of Colorado Boulder",
+      "National Center for Atmospheric Research (NCAR)",
+      "National Oceanic and Atmospheric Administration (NOAA)",
+      "National Institute of Standards and Technology (NIST)",
+      "BAE Systems Space & Mission Systems (formerly Ball Aerospace)",
+      "Google",
+      "IBM",
+      "Boulder Community Health",
+      "City of Boulder",
+      "Boulder Valley School District",
+      "Crocs, Inc.",
+      "Celestial Seasonings"
+    ],
+    "market_blurb": "Boulder, Colorado's economy is driven by the University of Colorado Boulder, a cluster of federal research agencies like NOAA and NCAR, and a robust technology and aerospace sector. The city is also known for its natural foods companies and outdoor recreation industry, reflecting its reputation as an innovation and lifestyle hub along the Front Range.",
+    "local_note": "Many Boulder homes feature basements, which are common throughout the Front Range region, alongside some crawl space construction in older neighborhoods. The dominant water-damage risks are flash flooding from heavy seasonal thunderstorms and rapid spring snowmelt, both of which can overwhelm Boulder Creek and local drainage systems.",
+    "neighborhoods": [
+      "Arapahoe Ridge",
+      "Boulder Junction",
+      "Central Boulder - University Hill",
+      "Dakota Ridge",
+      "East Aurora",
+      "Four Mile Creek",
+      "Frazier Meadows",
+      "Goss-Grove",
+      "Chautauqua",
+      "Mapleton Hill",
+      "University Hill",
+      "Gunbarrel",
+      "North Boulder",
+      "Table Mesa",
+      "Newlands",
+      "Whittier"
+    ],
+    "population": 108250,
+    "nearby_towns": [
+      {
+        "name": "Louisville",
+        "miles": 10
+      },
+      {
+        "name": "Lafayette",
+        "miles": 9
+      },
+      {
+        "name": "Superior",
+        "miles": 8
+      },
+      {
+        "name": "Longmont",
+        "miles": 15
+      },
+      {
+        "name": "Broomfield",
+        "miles": 15
+      },
+      {
+        "name": "Lyons",
+        "miles": 15
+      },
+      {
+        "name": "Nederland",
+        "miles": 17
+      },
+      {
+        "name": "Erie",
+        "miles": 15
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "downey-ca",
@@ -43412,7 +43837,74 @@
     "rainfall_annual": 16.74,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, GLENDALE 2.4 WSW, CA US station (3.1 mi from Downey)",
     "rainfall_state_avg": 22.27,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Healthcare",
+      "Aerospace/Manufacturing (legacy)",
+      "Education",
+      "Retail",
+      "Government/Public Services",
+      "Logistics"
+    ],
+    "top_employers": [
+      "Kaiser Permanente Downey Medical Center",
+      "Rancho Los Amigos National Rehabilitation Center",
+      "PIH Health Downey Hospital",
+      "Downey Unified School District",
+      "City of Downey",
+      "Los Angeles County",
+      "Tierra Luna Studios",
+      "Columbia Memorial Space Center",
+      "Stonewood Center",
+      "Downey Federal Credit Union"
+    ],
+    "market_blurb": "Downey, California has a diversified economy historically rooted in aerospace manufacturing, now anchored by healthcare, education, and retail. Major institutions like Kaiser Permanente and Rancho Los Amigos National Rehabilitation Center are among the city's largest employers, while the Stonewood Center shopping mall supports a strong retail base. Downey's central Los Angeles County location also makes it a hub for logistics and public-sector jobs.",
+    "local_note": "Most homes in Downey are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk is heavy seasonal winter rainstorms, which can cause roof leaks, flash flooding, and drainage issues around aging slab homes.",
+    "neighborhoods": [
+      "Orange Estates",
+      "Rolling Greens Estates",
+      "Downtown Downey",
+      "North Downey",
+      "South Downey",
+      "Downey Landing"
+    ],
+    "population": 111772,
+    "nearby_towns": [
+      {
+        "name": "Norwalk",
+        "miles": 6
+      },
+      {
+        "name": "Bellflower",
+        "miles": 6
+      },
+      {
+        "name": "Whittier",
+        "miles": 7
+      },
+      {
+        "name": "Paramount",
+        "miles": 6
+      },
+      {
+        "name": "Santa Fe Springs",
+        "miles": 5
+      },
+      {
+        "name": "Pico Rivera",
+        "miles": 5
+      },
+      {
+        "name": "Lakewood",
+        "miles": 8
+      },
+      {
+        "name": "Compton",
+        "miles": 9
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "clifton-nj",
@@ -43527,7 +44019,76 @@
     "rainfall_annual": 52.39,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, CEDAR GROVE TWP 0.4 W, NJ US station (3.8 mi from Clifton)",
     "rainfall_state_avg": 47.56,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, New Jersey statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, New Jersey statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Healthcare",
+      "Manufacturing",
+      "Retail and Wholesale Trade",
+      "Transportation and Logistics",
+      "Food and Beverage Distribution",
+      "Professional Services"
+    ],
+    "top_employers": [
+      "City of Clifton",
+      "Clifton Public School District",
+      "St. Joseph's Health",
+      "Allied Beverage Group",
+      "Costco Wholesale",
+      "Securitas Security Services USA",
+      "Tilcon New York",
+      "Clifton Savings Bank",
+      "Berkeley College",
+      "Englewood Lab"
+    ],
+    "market_blurb": "Clifton, New Jersey benefits from its strategic location near major highways and New York City, supporting a diverse economy built on healthcare, wholesale distribution, and manufacturing. The city's Allwood and Route 3 commercial corridors host numerous retail, logistics, and service businesses, while institutions like St. Joseph's Health anchor the healthcare sector. Clifton's mix of industrial parks and residential neighborhoods makes it a stable middle-class suburb within the greater New York metropolitan economy.",
+    "local_note": "Most homes in Clifton feature full basements, common throughout northern New Jersey, which makes them susceptible to water intrusion during heavy storms. The dominant water-damage risk in the area is flash flooding and heavy seasonal rain, particularly along the Third River and Weasel Brook, which have a history of overflowing during intense rainfall events.",
+    "neighborhoods": [
+      "Allwood",
+      "Athenia",
+      "Botany Village",
+      "Delawanna",
+      "Lakeview",
+      "Richfield",
+      "Rosemawr",
+      "Albion"
+    ],
+    "population": 91271,
+    "nearby_towns": [
+      {
+        "name": "Passaic",
+        "miles": 3
+      },
+      {
+        "name": "Paterson",
+        "miles": 5
+      },
+      {
+        "name": "Nutley",
+        "miles": 4
+      },
+      {
+        "name": "Wayne",
+        "miles": 7
+      },
+      {
+        "name": "Montclair",
+        "miles": 8
+      },
+      {
+        "name": "Garfield",
+        "miles": 4
+      },
+      {
+        "name": "Lyndhurst",
+        "miles": 8
+      },
+      {
+        "name": "Rutherford",
+        "miles": 9
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "garden-grove-ca",
@@ -43642,7 +44203,73 @@
     "rainfall_annual": 16.74,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, GLENDALE 2.4 WSW, CA US station (3.1 mi from Garden Grove)",
     "rainfall_state_avg": 22.27,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Tourism and hospitality",
+      "Healthcare",
+      "Retail trade",
+      "Manufacturing",
+      "Education",
+      "Professional services"
+    ],
+    "top_employers": [
+      "Garden Grove Unified School District",
+      "City of Garden Grove",
+      "Christ Cathedral",
+      "Hyatt Regency Orange County",
+      "Crowne Plaza Anaheim Resort - Garden Grove",
+      "Garden Grove Hospital Medical Center",
+      "Costco Wholesale",
+      "Target",
+      "Walmart",
+      "Albertsons",
+      "Kaiser Permanente"
+    ],
+    "market_blurb": "Garden Grove's economy benefits from its location in the heart of Orange County near Disneyland and the Anaheim Resort District, supporting a strong hospitality and tourism sector with numerous hotels. The city also has a diverse base of healthcare, retail, education, and light manufacturing employers, along with a vibrant small-business community tied to its Little Saigon district. Garden Grove Unified School District and the City of Garden Grove are among the largest direct employers in the area.",
+    "local_note": "Most homes in Garden Grove are built on concrete slab foundations, typical of Southern California construction. The dominant water-damage risk comes from heavy seasonal winter rains and occasional atmospheric river storms, which can cause flash flooding and roof or slab intrusion in older properties.",
+    "neighborhoods": [
+      "Koreatown",
+      "Little Saigon",
+      "Historic Main Street",
+      "Willowick"
+    ],
+    "population": 171949,
+    "nearby_towns": [
+      {
+        "name": "Anaheim",
+        "miles": 6
+      },
+      {
+        "name": "Santa Ana",
+        "miles": 6
+      },
+      {
+        "name": "Westminster",
+        "miles": 3
+      },
+      {
+        "name": "Fountain Valley",
+        "miles": 5
+      },
+      {
+        "name": "Orange",
+        "miles": 7
+      },
+      {
+        "name": "Stanton",
+        "miles": 3
+      },
+      {
+        "name": "Huntington Beach",
+        "miles": 8
+      },
+      {
+        "name": "Fullerton",
+        "miles": 9
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "greeley-co",
@@ -43757,7 +44384,73 @@
     "rainfall_annual": 14.65,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, GREELEY UNC, CO US station (1.5 mi from Greeley)",
     "rainfall_state_avg": 18.01,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Agriculture",
+      "Food Processing/Meatpacking",
+      "Oil & Gas",
+      "Higher Education",
+      "Healthcare",
+      "Manufacturing"
+    ],
+    "top_employers": [
+      "JBS USA",
+      "Banner Health (North Colorado Medical Center)",
+      "University of Northern Colorado",
+      "Weld County Government",
+      "Greeley-Evans School District 6",
+      "State Farm",
+      "Vestas Wind Systems",
+      "Leprino Foods",
+      "Aims Community College",
+      "City of Greeley"
+    ],
+    "market_blurb": "Greeley, Colorado anchors Weld County's economy, historically built on agriculture, livestock, and food processing, highlighted by major employers like JBS USA. The presence of the University of Northern Colorado and growing oil and gas activity in the region have diversified the local economy, alongside healthcare and manufacturing sectors.",
+    "local_note": "Many Greeley homes feature basements due to the region's stable clay-heavy soils and Front Range building practices, though slab-on-grade construction is also common in newer developments. The dominant water-damage risk comes from heavy seasonal thunderstorms and hail in late spring and summer, as well as periodic snowmelt and flash flooding events.",
+    "neighborhoods": [
+      "Downtown Greeley",
+      "University District",
+      "Westridge",
+      "Promontory",
+      "Northridge"
+    ],
+    "population": 108649,
+    "nearby_towns": [
+      {
+        "name": "Evans",
+        "miles": 4
+      },
+      {
+        "name": "Windsor",
+        "miles": 10
+      },
+      {
+        "name": "Eaton",
+        "miles": 9
+      },
+      {
+        "name": "Johnstown",
+        "miles": 15
+      },
+      {
+        "name": "Fort Collins",
+        "miles": 20
+      },
+      {
+        "name": "Loveland",
+        "miles": 22
+      },
+      {
+        "name": "Ault",
+        "miles": 15
+      },
+      {
+        "name": "Kersey",
+        "miles": 12
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "thornton-co",
@@ -43872,7 +44565,81 @@
     "rainfall_annual": 17.11,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, WHEAT RIDGE 2, CO US station (2.6 mi from Thornton)",
     "rainfall_state_avg": 18.01,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Colorado statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Healthcare",
+      "Retail Trade",
+      "Manufacturing",
+      "Construction",
+      "Logistics & Warehousing",
+      "Government/Public Administration"
+    ],
+    "top_employers": [
+      "City of Thornton",
+      "Adams 12 Five Star Schools",
+      "North Suburban Medical Center (Centura Health)",
+      "Scott's Liquid Gold Inc.",
+      "Walmart",
+      "Target",
+      "Sam's Club",
+      "King Soopers",
+      "Kohl's",
+      "Cabela's",
+      "Denver Premium Outlets",
+      "Safeway"
+    ],
+    "market_blurb": "Thornton, Colorado functions as a major residential and commercial suburb in the Denver metro area, with a local economy anchored by healthcare, retail, and logistics. The city's retail base is boosted by destinations like Denver Premium Outlets, while manufacturing and construction continue to support steady job growth. Proximity to Denver and Interstate 25 has also made Thornton attractive for distribution and warehousing operations.",
+    "local_note": "Many Thornton homes feature basements, a common foundation style across the Front Range due to expansive clay soils, making basement flooding a key concern. The dominant water-damage risks here are heavy seasonal rains and rapid snowmelt, which can lead to localized flash flooding and basement seepage.",
+    "neighborhoods": [
+      "Burgundy",
+      "Fox Run",
+      "Lambertson Lakes",
+      "North Hills",
+      "Original Thornton",
+      "Wind Dance",
+      "York Highlands",
+      "Eastlake",
+      "Hunters Glen",
+      "Trail Winds",
+      "Skyview"
+    ],
+    "population": 141867,
+    "nearby_towns": [
+      {
+        "name": "Northglenn",
+        "miles": 4
+      },
+      {
+        "name": "Westminster",
+        "miles": 7
+      },
+      {
+        "name": "Brighton",
+        "miles": 10
+      },
+      {
+        "name": "Commerce City",
+        "miles": 10
+      },
+      {
+        "name": "Denver",
+        "miles": 13
+      },
+      {
+        "name": "Broomfield",
+        "miles": 13
+      },
+      {
+        "name": "Arvada",
+        "miles": 15
+      },
+      {
+        "name": "Federal Heights",
+        "miles": 6
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "cedar-rapids-ia",
@@ -43987,7 +44754,81 @@
     "rainfall_annual": 38.75,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, CEDAR RAPIDS #1, IA US station (6.6 mi from Cedar Rapids)",
     "rainfall_state_avg": 35.55,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Iowa statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Iowa statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Insurance and financial services",
+      "Advanced manufacturing",
+      "Food processing and agribusiness",
+      "Technology",
+      "Healthcare",
+      "Transportation and logistics"
+    ],
+    "top_employers": [
+      "Collins Aerospace",
+      "Transamerica",
+      "Cargill",
+      "General Mills",
+      "UnityPoint Health - St. Luke's Hospital",
+      "Mercy Medical Center",
+      "Cedar Rapids Community School District",
+      "Kirkwood Community College",
+      "City of Cedar Rapids",
+      "CRST International",
+      "GreatAmerica Financial Services",
+      "Nordstrom"
+    ],
+    "market_blurb": "Cedar Rapids, Iowa anchors a diverse regional economy built on insurance and financial services, advanced manufacturing, and food processing, with major employers like Collins Aerospace, Cargill, and Transamerica headquartered or operating large facilities in the city. The presence of agribusiness giants and a growing technology sector has earned Cedar Rapids recognition as a key hub within the broader Iowa economy. Steady population growth and ongoing downtown redevelopment reflect the city's economic resilience.",
+    "local_note": "Basements are the dominant foundation type in Cedar Rapids due to Iowa's frost line depth requirements and cold winters. The area's primary water-damage risk comes from heavy seasonal rain and flash flooding, including historic Cedar River flooding events, along with spring snowmelt contributing to basement water intrusion.",
+    "neighborhoods": [
+      "Beverly Depot",
+      "Brendelwood Village Condominiums",
+      "Czech Village",
+      "Kenwood Park",
+      "Kingston Village",
+      "Kirkwood Estates",
+      "Lincolnway Village",
+      "New Bohemia",
+      "Wellington Heights",
+      "Oak Hill Jackson",
+      "Time Check"
+    ],
+    "population": 137710,
+    "nearby_towns": [
+      {
+        "name": "Marion",
+        "miles": 6
+      },
+      {
+        "name": "Hiawatha",
+        "miles": 7
+      },
+      {
+        "name": "Robins",
+        "miles": 10
+      },
+      {
+        "name": "North Liberty",
+        "miles": 20
+      },
+      {
+        "name": "Iowa City",
+        "miles": 27
+      },
+      {
+        "name": "Vinton",
+        "miles": 27
+      },
+      {
+        "name": "Mount Vernon",
+        "miles": 17
+      },
+      {
+        "name": "Tiffin",
+        "miles": 24
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "visalia-ca",
@@ -44102,7 +44943,80 @@
     "rainfall_annual": 10.32,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, VISALIA, CA US station (0.4 mi from Visalia)",
     "rainfall_state_avg": 22.27,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Agriculture and agribusiness",
+      "Food processing and packaging",
+      "Healthcare",
+      "Education",
+      "Manufacturing",
+      "Retail and logistics/distribution"
+    ],
+    "top_employers": [
+      "Kaweah Health",
+      "Visalia Unified School District",
+      "Tulare County",
+      "College of the Sequoias",
+      "City of Visalia",
+      "Walmart",
+      "Target",
+      "Ruiz Foods",
+      "Jostens",
+      "Visalia Medical Clinic"
+    ],
+    "market_blurb": "Visalia, California serves as the economic hub of Tulare County, anchored by a strong agricultural base supporting food processing, packaging, and distribution industries. The city also has a growing healthcare and education sector, led by Kaweah Health and College of the Sequoias, along with retail and manufacturing operations serving the broader San Joaquin Valley.",
+    "local_note": "Most homes in Visalia are built on concrete slab foundations, typical of the Central Valley region. The dominant water-damage risk comes from heavy seasonal winter rains and occasional flash flooding, particularly during atmospheric river storm events.",
+    "neighborhoods": [
+      "Amber Crossing",
+      "Ambler",
+      "Ashton Park",
+      "Avalon",
+      "Bonaventure",
+      "Brookside Estates",
+      "Cainwood Estates",
+      "Caldwell Ranch",
+      "Downtown Visalia",
+      "St. Johns",
+      "Shannon Ranch",
+      "Mooney Grove area"
+    ],
+    "population": 141000,
+    "nearby_towns": [
+      {
+        "name": "Tulare",
+        "miles": 8
+      },
+      {
+        "name": "Farmersville",
+        "miles": 6
+      },
+      {
+        "name": "Goshen",
+        "miles": 6
+      },
+      {
+        "name": "Exeter",
+        "miles": 12
+      },
+      {
+        "name": "Woodlake",
+        "miles": 14
+      },
+      {
+        "name": "Dinuba",
+        "miles": 20
+      },
+      {
+        "name": "Porterville",
+        "miles": 20
+      },
+      {
+        "name": "Hanford",
+        "miles": 25
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "rancho-cordova-ca",
@@ -44217,7 +45131,74 @@
     "rainfall_annual": 25.52,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, ROSEVILLE 2.4 SE, CA US station (2.6 mi from Rancho Cordova)",
     "rainfall_state_avg": 22.27,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, California statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Insurance",
+      "Government services",
+      "Healthcare",
+      "Technology",
+      "Aerospace/Defense",
+      "Retail/Logistics"
+    ],
+    "top_employers": [
+      "VSP Vision Care",
+      "Unum",
+      "SAFE Credit Union",
+      "Anthem Blue Cross",
+      "Aerojet Rocketdyne",
+      "Sacramento County",
+      "Apple Inc.",
+      "California Department of Health Care Services",
+      "Bel Air Markets",
+      "Toyota Motor Credit Corporation"
+    ],
+    "market_blurb": "Rancho Cordova's economy is anchored by insurance and healthcare administration, with VSP Vision Care headquartered in the city alongside major offices for Unum and Anthem Blue Cross. The city also has a strong government and aerospace/defense presence tied to its history as home to Aerojet Rocketdyne and Mather Field. Retail, logistics, and technology employers round out a diversified Sacramento-area economic base.",
+    "local_note": "Most homes in Rancho Cordova are built on concrete slab foundations typical of Central Valley California construction. The dominant water-damage risk is heavy seasonal rain from atmospheric river storms between November and March, which can cause roof leaks, flash flooding, and localized drainage issues near the American River.",
+    "neighborhoods": [
+      "Anatolia",
+      "Mather",
+      "Sunrise",
+      "White Rock",
+      "Mills Station",
+      "Rio del Oro"
+    ],
+    "population": 79223,
+    "nearby_towns": [
+      {
+        "name": "Sacramento",
+        "miles": 10
+      },
+      {
+        "name": "Folsom",
+        "miles": 9
+      },
+      {
+        "name": "Citrus Heights",
+        "miles": 9
+      },
+      {
+        "name": "Carmichael",
+        "miles": 8
+      },
+      {
+        "name": "Fair Oaks",
+        "miles": 7
+      },
+      {
+        "name": "Elk Grove",
+        "miles": 16
+      },
+      {
+        "name": "El Dorado Hills",
+        "miles": 12
+      },
+      {
+        "name": "Gold River",
+        "miles": 4
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "verified"
   },
   {
     "id": "cicero-il",
@@ -44332,7 +45313,72 @@
     "rainfall_annual": 39.75,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, ELK GROVE VILLAGE 2.2 WSW, IL US station (3.1 mi from Cicero)",
     "rainfall_state_avg": 40.74,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Illinois statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Illinois statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Manufacturing",
+      "Warehousing & Distribution/Logistics",
+      "Retail",
+      "Food & Beverage Production",
+      "Healthcare",
+      "Education"
+    ],
+    "top_employers": [
+      "Town of Cicero",
+      "Cicero School District 99",
+      "Morton College",
+      "PepsiCo (Pepsi Beverages Company Cicero Plant)",
+      "FedEx Ground",
+      "UPS",
+      "Walgreens",
+      "Walmart",
+      "Advocate Health Care",
+      "Corn Products International (Ingredion)"
+    ],
+    "market_blurb": "Cicero, Illinois has long been an industrial and manufacturing hub just west of Chicago, with a strong base in warehousing, logistics, and food and beverage production tied to its position along major rail lines and highways like I-290 and I-55. The local economy is bolstered by retail corridors, public institutions such as Morton College, and a dense residential population that supports a robust service sector. Cicero's blue-collar industrial identity continues to shape its workforce and commercial development today.",
+    "local_note": "Homes in Cicero are predominantly built with full basements, consistent with the Chicago area's deep frost line and older housing stock. The dominant water-damage risks are heavy seasonal rainfall and spring snowmelt, which frequently overwhelm aging combined sewer systems and cause basement flooding and localized flash flooding.",
+    "neighborhoods": [
+      "Clyde",
+      "Hawthorne",
+      "Grant Works",
+      "Morton Park"
+    ],
+    "population": 81601,
+    "nearby_towns": [
+      {
+        "name": "Berwyn",
+        "miles": 1
+      },
+      {
+        "name": "Oak Park",
+        "miles": 3
+      },
+      {
+        "name": "Forest Park",
+        "miles": 3
+      },
+      {
+        "name": "Stickney",
+        "miles": 2
+      },
+      {
+        "name": "North Riverside",
+        "miles": 2
+      },
+      {
+        "name": "Riverside",
+        "miles": 4
+      },
+      {
+        "name": "Lyons",
+        "miles": 4
+      },
+      {
+        "name": "Chicago",
+        "miles": 10
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   },
   {
     "id": "sparks-nv",
@@ -44447,6 +45493,79 @@
     "rainfall_annual": 9.6,
     "rainfall_annual_source": "NOAA 1991-2020 Climate Normals, RENO 2.4 SSW, NV US station (2.1 mi from Sparks)",
     "rainfall_state_avg": 10.19,
-    "rainfall_state_avg_source": "NOAA Climate at a Glance, Nevada statewide precipitation, mean of the published 1991-2020 annual values"
+    "rainfall_state_avg_source": "NOAA Climate at a Glance, Nevada statewide precipitation, mean of the published 1991-2020 annual values",
+    "industries": [
+      "Logistics and warehousing/distribution",
+      "Advanced manufacturing",
+      "Gaming and tourism",
+      "Healthcare",
+      "Retail trade",
+      "Transportation"
+    ],
+    "top_employers": [
+      "Nugget Casino Resort",
+      "Panasonic",
+      "Tesla",
+      "Amazon",
+      "Renown Health",
+      "Washoe County School District",
+      "City of Sparks",
+      "Walmart Distribution Center",
+      "Vista Outdoor",
+      "Sierra Nevada Corporation",
+      "Union Pacific Railroad"
+    ],
+    "market_blurb": "Sparks, Nevada has grown into a key logistics and manufacturing hub within the Reno-Sparks metro area, driven by its proximity to major highways and rail lines. The city's economy benefits from large distribution centers, advanced manufacturing tied to the nearby Tahoe-Reno Industrial Center, and a steady tourism and gaming sector anchored by Victorian Square and the Nugget Casino Resort. Healthcare and public services, including Washoe County School District and Renown Health, also provide significant employment in Sparks.",
+    "local_note": "Most homes in Sparks are built on concrete slab foundations, consistent with the region's dry climate and minimal frost depth. The dominant water-damage risks are flash flooding from intense summer thunderstorms and springtime snowmelt runoff from the Sierra Nevada, which can swell the Truckee River and local waterways.",
+    "neighborhoods": [
+      "Antelope Ridge Estates",
+      "Bella Vista",
+      "Big Sky",
+      "Candelara",
+      "Caserro Ranch",
+      "Chaparral Meritage",
+      "Copper Hills",
+      "Cross Timbers",
+      "Victorian Square",
+      "Wingfield Springs",
+      "D'Andrea",
+      "Kiley Ranch",
+      "Spanish Springs",
+      "Sparks Marina",
+      "Rock Park"
+    ],
+    "population": 108000,
+    "nearby_towns": [
+      {
+        "name": "Reno",
+        "miles": 5
+      },
+      {
+        "name": "Fernley",
+        "miles": 30
+      },
+      {
+        "name": "Carson City",
+        "miles": 30
+      },
+      {
+        "name": "Verdi",
+        "miles": 15
+      },
+      {
+        "name": "Washoe Valley",
+        "miles": 15
+      },
+      {
+        "name": "Fallon",
+        "miles": 60
+      },
+      {
+        "name": "Incline Village",
+        "miles": 38
+      }
+    ],
+    "_researched": 1,
+    "neighborhoods_source": "OpenStreetMap + verified"
   }
 ]
