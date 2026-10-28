@@ -3042,9 +3042,9 @@
                     "hs_tagline": "PMI Premier Authorized Training Partner — Nationwide",
                     "hs_subtext": "<p>The CAPM® certification is widely recognized across U.S. organizations as proof of foundational project management knowledge and commitment to the profession. Granite PM Academy delivers live-virtual, instructor-led CAPM preparation that fulfills PMI's required contact hours, letting you earn your credential on a schedule that fits your career. Completion opens doors to entry-level project roles and positions you for advancement toward the PMP®.</p>",
                     "hs_btn_text": "View Upcoming Schedules",
-                    "hs_btn_url": "/pmp-certification-training",
+                    "hs_btn_url": "#capm_schedule",
                     "hs_btn2_text": "On-Demand — Start Today",
-                    "hs_btn2_url": "/pmp-certification-training",
+                    "hs_btn2_url": "#capm_schedule",
                     "hs_caption1": "✓ No PM Experience Required",
                     "hs_caption2": "23 Contact Hours Included · The Stepping Stone to PMP",
                     "hs_photo_alt": "CAPM certification training students",
@@ -3165,7 +3165,7 @@
                 {
                     "type": "custom_html",
                     "skin": "",
-                    "html": "<div class=\"content-block\" style=\"padding:0;margin:0;\">\r\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\">\r\n    <div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\">\r\n      <div style=\"flex:0 0 400px;max-width:400px;\">\r\n        <h2 style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">Upcoming Sessions &amp;<br><span style=\"color:#2563eb;\">On-Demand Access</span></h2>\r\n        <p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">3-day live-virtual sessions run throughout the year. On-demand access begins immediately. Both satisfy PMI's 23-hour CAPM education requirement.</p>\r\n      </div>\r\n      <div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\">\r\n        <style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>\r\n        [course_card type=\"CAPM Certification\" tab=\"1\"]\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+                    "html": "<div class=\"content-block\" id=\"capm_schedule\" style=\"padding:0;margin:0;\">\r\n  <div style=\"width:100vw;flex-shrink:0;margin-left:calc(-50vw + 50%);background:#eef2f9;padding:72px 0;\">\r\n    <div style=\"max-width:1200px;margin:0 auto;padding:0 32px;display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;\">\r\n      <div style=\"flex:0 0 400px;max-width:400px;\">\r\n        <h2 style=\"font-size:2.4rem;font-weight:800;line-height:1.15;color:#1a2e5a;margin:0 0 16px;\">Upcoming Sessions &amp;<br><span style=\"color:#2563eb;\">On-Demand Access</span></h2>\r\n        <p style=\"color:#555e6d;font-size:1rem;line-height:1.65;margin:0;\">3-day live-virtual sessions run throughout the year. On-demand access begins immediately. Both satisfy PMI's 23-hour CAPM education requirement.</p>\r\n      </div>\r\n      <div class=\"csm2-full-width-wrap\" style=\"flex:1;min-width:360px;\">\r\n        <style>.csm2-full-width-wrap .csm2-wrap{max-width:100%}</style>\r\n        [course_card type=\"CAPM Certification\" tab=\"1\"]\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
                 },
                 {
                     "type": "ai_block",
@@ -3610,7 +3610,7 @@
                     "wb_heading_level": "h2",
                     "wb_subtext": "The CAPM is recognized globally by employers who hire for PM roles. It proves you understand PMI's framework, methodology, and vocabulary — before you have years of experience to prove it another way. And because your 23 training hours apply toward the PMP's 35-hour requirement, the CAPM isn't just a credential — it's the first step in a defined certification pathway.",
                     "wb_btn_text": "View CAPM Schedules",
-                    "wb_btn_url": "/pmp-certification-training",
+                    "wb_btn_url": "#capm_schedule",
                     "wb_btn_style": "outline",
                     "wb_centered": false,
                     "wb_photo_alt": "",
@@ -3627,7 +3627,7 @@
                     "cb_heading_level": "h2",
                     "cb_subtext": "3-day live sessions throughout the year. On-demand access starts immediately. Your first PMI credential is closer than you think.",
                     "cb_btn_text": "View CAPM Schedules & Enroll",
-                    "cb_btn_url": "/pmp-certification-training",
+                    "cb_btn_url": "#capm_schedule",
                     "cb_bg": "custom",
                     "cb_bg_custom": "#2563eb",
                     "cb_text_color": "#ffffff",
