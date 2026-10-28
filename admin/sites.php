@@ -69,6 +69,29 @@ $batches   = ms_all_batches();
 usort($batches, fn($a, $b) => ((int) ($b['seq'] ?? 0)) <=> ((int) ($a['seq'] ?? 0)));
 $siteNames = array_column($sites, 'name', 'id');
 
+// One pass up front: each batch's status/cumulative/go-live numbers, keyed by
+// "master_id/id" — computed once, read by both the fleet-wide totals banner below and
+// the per-batch cards further down, so the two can never drift apart from running the
+// same math twice.
+$batchStats = [];
+$fleetTotals = ['targets' => 0, 'built' => 0, 'live' => 0, 'failed' => 0, 'spent' => 0.0,
+                'live_today' => 0, 'scheduled_today' => 0, 'ready' => 0];
+foreach ($batches as $b) {
+    $key = $b['master_id'] . '/' . $b['id'];
+    $st  = ms_batch_status($b['master_id'], $b['id']);
+    $cum = ms_batch_cumulative_stats($b['master_id'], $b['id']);
+    $gl  = ms_batch_golive_summary($b['master_id'], $b['id']);
+    $batchStats[$key] = ['st' => $st, 'cum' => $cum, 'gl' => $gl];
+    $fleetTotals['targets']         += (int) $st['targets'];
+    $fleetTotals['built']           += (int) $cum['built_total'];
+    $fleetTotals['live']            += (int) $gl['live_total'];
+    $fleetTotals['failed']          += (int) $cum['failed_total'];
+    $fleetTotals['spent']           += (float) $cum['spent_total'];
+    $fleetTotals['live_today']      += (int) $gl['live_today'];
+    $fleetTotals['scheduled_today'] += (int) $gl['scheduled_today'];
+    $fleetTotals['ready']           += (int) $gl['ready'];
+}
+
 // How many batches each site owns — deleting a site takes its batches with it, so the
 // confirm dialog has to say so out loud.
 $batchCounts = [];
@@ -140,6 +163,7 @@ function fmt_date(string $iso): string {
 .batch-main     { flex:1; min-width:220px; }
 .batch-name     { font-size:1rem; font-weight:700; color:#111; margin:0 0 3px; }
 .batch-master   { font-size:.78rem; color:#6b7280; margin:0; }
+.batch-golive   { font-size:.78rem; color:#166534; margin:2px 0 0; }
 .batch-nums     { display:flex; gap:18px; font-size:.8rem; color:#6b7280; flex-wrap:wrap; }
 .batch-nums b   { display:block; color:#374151; font-size:.95rem; }
 .batch-acts     { display:flex; gap:7px; flex-wrap:wrap; }
@@ -327,9 +351,31 @@ function fmt_date(string $iso): string {
             <button type="button" class="btn-sm-outline" id="batch-sort-btn" onclick="toggleBatchSort()">Sort by # &#8645;</button>
             <span id="batch-search-count" style="font-size:.82rem;color:#6b7280"></span>
         </div>
+        <div class="batch-row" style="background:#f8fafc;">
+            <div class="batch-main">
+                <p class="batch-name">All batches</p>
+                <?php
+                $fleetGlBits = [];
+                if ($fleetTotals['live_today'])      $fleetGlBits[] = $fleetTotals['live_today'] . ' live today';
+                if ($fleetTotals['scheduled_today']) $fleetGlBits[] = $fleetTotals['scheduled_today'] . ' scheduled today';
+                if ($fleetTotals['ready'])           $fleetGlBits[] = $fleetTotals['ready'] . ' ready';
+                ?>
+                <?php if ($fleetGlBits): ?>
+                <p class="batch-golive" title="Go-live snapshot across every batch"><?= implode(' &middot; ', array_map('h', $fleetGlBits)) ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="batch-nums">
+                <span title="Target domains across every batch"><b><?= (int) $fleetTotals['targets'] ?></b> targets</span>
+                <span title="Domains currently built, across every batch's whole run history"><b><?= (int) $fleetTotals['built'] ?></b> built</span>
+                <span title="Domains currently live" style="color:#166534;"><b style="color:#166534;"><?= (int) $fleetTotals['live'] ?></b> live</span>
+                <?php if ($fleetTotals['failed']): ?><span title="Domains whose most recent attempt failed"><b style="color:#991b1b;"><?= (int) $fleetTotals['failed'] ?></b> failed</span><?php endif; ?>
+                <?php if ($fleetTotals['spent'] > 0): ?><span title="Total AI/build cost across every batch, ever"><b>$<?= number_format((float) $fleetTotals['spent'], 2) ?></b> spent</span><?php endif; ?>
+            </div>
+        </div>
         <div id="batch-list">
         <?php foreach ($batches as $b):
-            $st  = ms_batch_status($b['master_id'], $b['id']);
+            $bs   = $batchStats[$b['master_id'] . '/' . $b['id']];
+            $st   = $bs['st']; $cum = $bs['cum']; $gl = $bs['gl'];
             $col = ['running' => ['#1d4ed8', '#dbeafe'], 'done' => ['#166534', '#dcfce7'],
                     'failed'  => ['#991b1b', '#fee2e2'], 'stale' => ['#92400e', '#fef3c7']][$st['state']] ?? ['#475569', '#f1f5f9'];
         ?>
@@ -337,14 +383,25 @@ function fmt_date(string $iso): string {
             <div class="batch-main">
                 <p class="batch-name" id="bname-<?= h($b['master_id']) ?>-<?= h($b['id']) ?>"><?= isset($b['seq']) ? '<span style="color:#94a3b8;font-weight:400">#' . (int) $b['seq'] . '</span> ' : '' ?><?= h($b['name'] ?? $b['id']) ?></p>
                 <p class="batch-master">copies from Master site <strong><?= h($siteNames[$b['master_id']] ?? $b['master_id']) ?></strong></p>
+                <?php
+                $glBits = [];
+                if ($gl['live_today'])       $glBits[] = $gl['live_today'] . ' live today';
+                if ($gl['scheduled_today'])  $glBits[] = $gl['scheduled_today'] . ' scheduled today';
+                if ($gl['ready'])            $glBits[] = $gl['ready'] . ' ready';
+                if ($gl['scheduled_next2'])  $glBits[] = $gl['scheduled_next2'] . ' scheduled in next 2 days';
+                ?>
+                <?php if ($glBits): ?>
+                <p class="batch-golive" title="Go-live snapshot for this batch's domains"><?= implode(' &middot; ', array_map('h', $glBits)) ?></p>
+                <?php endif; ?>
             </div>
             <div class="batch-nums">
-                <span><b><?= (int) $st['targets'] ?></b> targets</span>
+                <span title="Target domains in this batch's list"><b><?= (int) $st['targets'] ?></b> targets</span>
                 <?php if ($st['has_run']): ?>
-                <span><b><?= (int) $st['ok'] ?></b> built</span>
-                <?php if ($st['failed']): ?><span><b style="color:#991b1b;"><?= (int) $st['failed'] ?></b> failed</span><?php endif; ?>
-                <?php if ($st['cost'] > 0): ?><span><b>$<?= number_format((float) $st['cost'], 2) ?></b> spent</span><?php endif; ?>
-                <span class="batch-state" style="color:<?= $col[0] ?>;background:<?= $col[1] ?>;align-self:center;"><?= h($st['state']) ?></span>
+                <span title="Domains currently built, across this batch's whole run history (not just the last run)"><b><?= (int) $cum['built_total'] ?></b> built</span>
+                <span title="Domains currently live" style="color:#166534;"><b style="color:#166534;"><?= (int) $gl['live_total'] ?></b> live</span>
+                <?php if ($cum['failed_total']): ?><span title="Domains whose most recent attempt failed"><b style="color:#991b1b;"><?= (int) $cum['failed_total'] ?></b> failed</span><?php endif; ?>
+                <?php if ($cum['spent_total'] > 0): ?><span title="Total AI/build cost across all <?= (int) $cum['runs_count'] ?> run(s) of this batch, ever"><b>$<?= number_format((float) $cum['spent_total'], 2) ?></b> spent</span><?php endif; ?>
+                <span class="batch-state" style="color:<?= $col[0] ?>;background:<?= $col[1] ?>;align-self:center;" title="Status of the most recent run"><?= h($st['state']) ?></span>
                 <?php else: ?>
                 <span style="align-self:center;color:#9ca3af;">never run</span>
                 <?php endif; ?>

@@ -982,6 +982,94 @@ function ms_batch_latest_run(string $masterId, string $batchId): ?array {
     return $file ? ms_read_run($file) : null;
 }
 
+/**
+ * True lifetime totals for a batch — what the home panel's "built" and "spent" numbers
+ * actually need, as opposed to ms_batch_status()'s 'ok'/'cost', which deliberately only
+ * describe the SINGLE MOST RECENT run (admin/batch.php labels them "last run" for exactly
+ * that reason, and its phase tracker needs that meaning to show live run progress).
+ *
+ * A batch commonly runs many times — a handful of domains at a time, or the same domain
+ * re-run after a Correct & Regenerate fix — so "last run" can read as "10 built" on a
+ * batch that has actually built 50+ domains across its history, or as a stale $ figure
+ * that resets to a small number the moment anyone runs one more domain. This instead:
+ *   - sums cost_usd across EVERY run file ever recorded for the batch (money spent is
+ *     money spent, however many runs it took — nothing to de-duplicate there), and
+ *   - walks every run's per-domain results in chronological (filename) order, keeping
+ *     only the LATEST known status per domain, so a domain rebuilt 5 times counts once,
+ *     under whatever its most recent attempt actually left it as.
+ */
+function ms_batch_cumulative_stats(string $masterId, string $batchId): array {
+    $dir = ms_batch_dir($masterId, $batchId) . '/runs';
+    $out = ['built_total' => 0, 'failed_total' => 0, 'spent_total' => 0.0, 'runs_count' => 0];
+    $files = glob($dir . '/*.json');
+    if (!$files) return $out;
+    sort($files); // timestamp-prefixed filenames sort chronologically
+    $latestStatus = [];
+    foreach ($files as $f) {
+        $d = ms_read_run($f);
+        if (!$d) continue;
+        $out['runs_count']++;
+        $out['spent_total'] += (float) ($d['totals']['cost_usd'] ?? 0);
+        foreach (($d['results'] ?? []) as $r) {
+            $dom = (string) ($r['domain'] ?? '');
+            if ($dom === '') continue;
+            $latestStatus[$dom] = (string) ($r['status'] ?? '');
+        }
+    }
+    // Per-domain status is 'ok' | 'failed' | 'running' | 'unknown' (run_campaign.php) — only
+    // 'failed' is an actual failure. A domain whose latest run is still 'running' (this
+    // function can observe a run file mid-write, while it's actively building right now)
+    // or 'unknown' (queued, not reached yet) is neither built nor failed; counting it as
+    // failed would flag an in-progress build as broken.
+    foreach ($latestStatus as $status) {
+        if ($status === 'ok') $out['built_total']++;
+        elseif ($status === 'failed') $out['failed_total']++;
+    }
+    return $out;
+}
+
+/**
+ * Go-live snapshot for a batch's own domains, scoped to just the numbers the batch-list
+ * card wants: how many are live right now, how many of those went live specifically
+ * today, how many are ready to schedule, and how many are already queued to go out today
+ * vs. in the next 2 days after that.
+ * Pulls from the same infra pipeline/state data rollout.php's own go-live grid reads
+ * (admin/infra/lib/fleet_view.php) — scoped here to one batch's domain list instead of
+ * every tracked domain. "ready" uses the exact same definition rollout.php's label()
+ * does: upload done, staged/queued, and not already scheduled.
+ */
+function ms_batch_golive_summary(string $masterId, string $batchId): array {
+    require_once __DIR__ . '/../../admin/infra/lib/fleet_view.php';
+    require_once __DIR__ . '/../../admin/infra/lib/state.php';
+
+    $out = ['live_total' => 0, 'live_today' => 0, 'ready' => 0, 'scheduled_today' => 0, 'scheduled_next2' => 0];
+    $csv = ms_batch_dir($masterId, $batchId) . '/params.csv';
+    if (!is_file($csv)) return $out;
+    $targets = ms_parse_csv($csv)['rows'] ?? [];
+    $domains = [];
+    foreach ($targets as $t) {
+        $d = strtolower(trim((string) ($t['domain'] ?? '')));
+        if ($d !== '') $domains[] = $d;
+    }
+    if (!$domains) return $out;
+
+    $today    = infra_today();
+    $tomorrow = infra_date_plus(1);
+    $dayAfter = infra_date_plus(2);
+
+    foreach (infra_fleet_view_rows($domains) as $r) {
+        if ($r['status'] === 'live') {
+            $out['live_total']++;
+            if ($r['released_at'] !== '' && substr($r['released_at'], 0, 10) === $today) $out['live_today']++;
+        }
+        $scheduled = $r['go_live_at'] !== '' && $r['status'] !== 'live';
+        if ($scheduled && $r['go_live_at'] === $today) $out['scheduled_today']++;
+        elseif ($scheduled && in_array($r['go_live_at'], [$tomorrow, $dayAfter], true)) $out['scheduled_next2']++;
+        if (!empty($r['ready']) && !$scheduled) $out['ready']++;
+    }
+    return $out;
+}
+
 /** One-line summary for a batch row on the home panel. */
 function ms_batch_status(string $masterId, string $batchId): array {
     $s = [
