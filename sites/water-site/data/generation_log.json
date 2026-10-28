@@ -2022,5 +2022,30 @@
     "output_tokens": 80417,
     "api_calls": 70,
     "estimated_cost_usd": 1.315704
+  },
+  {
+    "run_id": "6f20470c-008e-468e-84a5-60c6cc172ff6",
+    "started_at": "2026-10-28T02:33:24.354275Z",
+    "finished_at": "2026-10-28T04:10:50.129219Z",
+    "duration_ms": 5845774,
+    "dry_run": false,
+    "options": {
+      "site": "water-site",
+      "page": "landing",
+      "all": false,
+      "file": null,
+      "refresh": false,
+      "research": true
+    },
+    "pages_written": 0,
+    "pages_skipped": 0,
+    "pages_backed_up": 0,
+    "errors": 0,
+    "blocks_generated": 0,
+    "cities_researched": 88,
+    "input_tokens": 92140,
+    "output_tokens": 195872,
+    "api_calls": 176,
+    "estimated_cost_usd": 3.2145
   }
 ]
