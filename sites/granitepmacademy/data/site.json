@@ -4222,7 +4222,7 @@
                     "hs_btn2_url": "#cpmai_schedule",
                     "hs_caption1": "✓ For PMs Managing AI Projects",
                     "hs_caption2": "3-Day Intensive Format · Live-Virtual & On-Demand",
-                    "hs_photo_alt": "AI project management training",
+                    "hs_photo_alt": "Project manager earning PMI-CPMAI certification training",
                     "hs_image_side": "right",
                     "hs_bg_color": "#0d1b3e",
                     "hs_photo": "sites/granitepmacademy/uploads/media/hero_professional.webp",
@@ -4238,6 +4238,43 @@
                     "_ai_type": "national_hero_subtext",
                     "_ai_input_hash": "9fc00c977195c59a",
                     "_ai_locked": true
+                },
+                {
+                    "type": "stats",
+                    "skin": "",
+                    "stats_heading": "The AI Project Management Gap, By the Numbers",
+                    "stats_heading_level": "h2",
+                    "stats_bg_color": "custom",
+                    "stats_text_color": "#ffffff",
+                    "stats_bg_custom": "#0d1b3e",
+                    "stats_items": [
+                        {
+                            "number": "80%+",
+                            "label": "of AI projects fail to deliver their intended business value — RAND Corporation"
+                        },
+                        {
+                            "number": "2x",
+                            "label": "the failure rate of traditional (non-AI) IT projects — RAND Corporation"
+                        },
+                        {
+                            "number": "~20%",
+                            "label": "of project managers report strong practical AI skills today — PMI, 2025"
+                        },
+                        {
+                            "number": "62%",
+                            "label": "average wage premium for AI skills, up from 25% in 2024 — PwC Global AI Jobs Barometer"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "bg_color": "#ffffff",
+                    "text_color": "#1a2e5a",
+                    "padding": "normal",
+                    "heading_level": "h2",
+                    "heading_text": "Why Most AI Projects Fail — And What It Means for Your Career",
+                    "text": "<p>RAND Corporation interviewed 65 experienced data scientists and engineers across government and industry to understand why AI projects fail at twice the rate of ordinary IT projects. Their finding: the root causes are overwhelmingly organizational, not technical. Among industry respondents who had experienced an AI project failure, 84% named leadership and organizational issues — not broken models or bad code — as the primary cause.</p><p>The five root causes RAND identified — solving the wrong problem, missing or ungoverned data, choosing technology before understanding the user, inadequate infrastructure, and tasks too hard for AI to solve — are exactly the gaps PMI-CPMAI training addresses: scoping AI projects correctly, managing data as a project resource, governing AI risk, and leading stakeholders through a fundamentally different kind of delivery. A data scientist can build a model. Someone still has to run the project around it — and PMI's own 2025 research found only about 1 in 5 project managers currently have strong practical AI skills. That gap is the opportunity this credential is built for.</p>",
+                    "skin": "light"
                 },
                 {
                     "type": "ai_block",
@@ -4355,7 +4392,7 @@
                     "skin": "light",
                     "heading_level": "h2",
                     "heading_text": "National Recognition That Advances PM Careers",
-                    "text": "<p>The CPMAI Certification is recognized across industries nationwide—from IT and healthcare to construction, finance, and government—as a mark of standardized project-management competence. Employers across the country increasingly list this credential as preferred or required in project-manager job postings, signaling that certified professionals meet rigorous standards for planning, execution, and stakeholder management. Project managers who earn this credential typically command stronger earning power than their uncertified peers, reflecting the value organizations place on verified expertise and formal methodology training.</p><p>The credential opens pathways to career advancement by demonstrating readiness for larger, more complex projects and leadership roles. Professionals who complete CPMAI Certification through Granite PM Academy gain the credibility needed to move into senior project roles, manage cross-functional teams, and take on strategic initiatives. Whether you are transitioning into project management or seeking to accelerate your advancement, this certification signals to employers that you possess the knowledge and discipline required to deliver results—making it a direct investment in your professional trajectory and long-term earning potential.</p>",
+                    "text": "<p>Demand for AI-literate project managers is accelerating faster than almost any other skill category in the job market. U.S. job postings requiring AI skills grew 144% year-over-year as of 2026 — roughly eight times faster than job postings overall — according to PwC's Global AI Jobs Barometer. The wage premium for AI skills has climbed every year the report has run: 25% in 2024, 57% in 2025, and 62% in 2026. AI project manager salaries now average roughly $102,000, with senior technical roles commanding $195,000 or more.</p><p>PMI-CPMAI gives you a credential that puts a number on that skill, verified by the same institute that sets the standard for project management itself. Professionals who complete PMI-CPMAI training through Granite PM Academy gain the credibility to move into senior AI-program roles, manage cross-functional teams bridging PM and data science, and take on the strategic initiatives organizations are actively struggling to staff. Whether you are transitioning into AI project delivery or accelerating an existing PM career, this certification signals to employers that you're one of the roughly 1-in-5 project managers who already has the practical AI skills they're hiring for.</p>",
                     "_ai_generated": true,
                     "_ai_generated_at": "2026-07-15T05:04:00.525586Z",
                     "_ai_model": "claude-haiku-4-5-20251001",
@@ -4367,26 +4404,40 @@
                     "type": "steps",
                     "skin": "",
                     "anchor": "curriculum",
-                    "steps_heading": "PMI-CPMAI Training — 3-Day Curriculum",
+                    "steps_heading": "The 5 Official PMI-CPMAI Exam Domains",
                     "steps_heading_level": "h2",
+                    "steps_subtext": "PMI built the PMI-CPMAI exam from a real job-task analysis of working AI project professionals. These are the five domains the exam actually tests, and what Granite PM Academy's training covers in depth.",
+                    "steps_style": "card",
                     "steps_items": [
                         {
                             "image": "",
                             "alt": "",
-                            "heading": "Day 1: AI Fundamentals for Project Managers",
-                            "text": "AI, machine learning, and deep learning — demystified for PMs. Types of AI projects and their unique PM challenges. The AI project lifecycle vs. traditional and agile project lifecycles. Data as a project resource: data quality, governance, and pipeline management. Stakeholder management in AI contexts: communicating with data scientists, executives, and end users. AI project scoping and feasibility assessment."
+                            "heading": "Identify Business Needs and Solutions — 26%",
+                            "text": "The largest domain on the exam. Covers translating a business problem into AI-ready scope: running stakeholder interviews, assessing whether AI is even the right tool for the job, conducting a risk assessment, writing a project scope statement, calculating ROI, and building the business case that gets an AI initiative funded in the first place."
                         },
                         {
                             "image": "",
                             "alt": "",
-                            "heading": "Day 2: Responsible AI, Risk & Governance",
-                            "text": "Responsible AI frameworks: fairness, transparency, accountability, and privacy. AI bias — types, sources, detection, and mitigation strategies. Regulatory landscape: GDPR, EU AI Act, and sector-specific AI compliance requirements. AI risk management: unique risk categories in AI project delivery. Model governance and documentation requirements. Change management for AI implementation: organizational readiness and adoption."
+                            "heading": "Identify Data Needs — 26%",
+                            "text": "Tied for the largest domain — because without the right data, nothing else in an AI project matters. Covers defining exactly what data is needed, locating the people and systems that have it, evaluating whether it's good enough to use, and communicating data readiness (or the lack of it) to leadership in terms they can act on."
                         },
                         {
                             "image": "",
                             "alt": "",
-                            "heading": "Day 3: AI Delivery, Tools & Measuring Value",
-                            "text": "Agile and iterative delivery for AI projects: MLOps and model deployment cycles. AI vendor and procurement management. Measuring AI project value: KPIs, ROI frameworks, and business impact. Practical AI tools for PMs: scheduling, risk, reporting, and communication tools. AI-assisted project management — what works and what doesn't. CPMAI certification exam overview and application guidance."
+                            "heading": "Operationalize AI Solution — 17%",
+                            "text": "Deployment and everything after it: building a rollout plan, coordinating the actual deployment across technical teams, governing the model once it's live, tracking performance metrics, managing the transition to ongoing support, and building the contingency plan for when something goes wrong in production."
+                        },
+                        {
+                            "image": "",
+                            "alt": "",
+                            "heading": "Manage AI Model Development and Evaluation — 16%",
+                            "text": "The PM's role while a model is actively being built: overseeing which techniques and algorithms get used, managing quality assurance and training cycles, directing data preparation work, and making the go/no-go call on whether a model is actually ready to move forward."
+                        },
+                        {
+                            "image": "",
+                            "alt": "",
+                            "heading": "Support Responsible and Trustworthy AI Efforts — 15%",
+                            "text": "The smallest domain by weight, but threaded through every other one. Covers privacy and security planning, transparency in how AI decisions get made, bias detection and mitigation, regulatory compliance, and the audit trail that proves an organization built its AI responsibly."
                         }
                     ]
                 },
@@ -4737,8 +4788,12 @@
                             "answer": "Yes. CPMAI training qualifies as professional development in most organizational L&D budgets. We provide formal invoicing and purchase orders. For organizations standing up AI programs, group pricing and dedicated sessions are available — contact us for a custom quote."
                         },
                         {
-                            "question": "What are the eligibility requirements for CPMAI Certification?",
-                            "answer": "<p>CPMAI Certification typically requires a foundational project management background and relevant work experience. Exact prerequisites vary by program level. Most candidates hold or are pursuing PMP® or CAPM® credentials, though this is not always mandatory. Review specific program requirements during registration to confirm your qualifications.</p>"
+                            "question": "What are the eligibility requirements for PMI-CPMAI Certification?",
+                            "answer": "<p>None. PMI's own exam content outline states that PMI-CPMAI \"requires no prior project management, technical, or AI experience or certifications to enroll.\" There's one real requirement, though: PMI requires completion of the PMI-CPMAI Exam Prep Course before you can schedule or take the exam — it's not optional supplementary study, it's the gateway. Granite PM Academy's 3-day course satisfies that requirement directly.</p>"
+                        },
+                        {
+                            "question": "Is the PMI-CPMAI Exam Prep Course required?",
+                            "answer": "<p>Yes — this is the one piece most people don't realize until they look it up. PMI's exam content outline states plainly: \"Completion of the PMI-CPMAI Exam Prep Course is required to schedule and take the PMI-CPMAI exam.\" You cannot sit for the exam without it, regardless of your background. Granite PM Academy's 3-day live-virtual or on-demand course is a PMI-recognized way to satisfy this requirement, after which you schedule your exam directly through your myPMI dashboard.</p>"
                         },
                         {
                             "question": "How does CPMAI Certification compare to PMP or CAPM?",
@@ -4761,8 +4816,8 @@
                             "answer": "<p>Granite PM Academy's CPMAI training is $1,495 for the 3-day live-virtual format or $795 for on-demand access (the PMI-CPMAI exam fee is paid separately to PMI). Return on investment includes career acceleration, expanded job prospects in AI project roles, and positioning for leadership. Many employers value the credential when hiring or promoting to AI-focused positions, and most organizations' L&D budgets cover the cost as professional development.</p>"
                         },
                         {
-                            "question": "What topics are covered on the CPMAI exam?",
-                            "answer": "<p>The CPMAI exam assesses competency in AI-specific project frameworks, risk management in ML environments, team leadership for cognitive systems, and business acumen in AI implementation. Content emphasizes real-world scenarios where traditional PM practices meet AI complexity. Study materials and exam prep courses align exam questions with hands-on application.</p>"
+                            "question": "What topics are covered on the PMI-CPMAI exam, and how is it formatted?",
+                            "answer": "<p>Per PMI's official exam content outline, the PMI-CPMAI exam is 120 questions (100 scored, 20 unscored pretest questions mixed in) over 160 minutes, taken through Pearson VUE either in person or online-proctored. The 120 questions are split across 5 domains: Identify Business Needs and Solutions (26%), Identify Data Needs (26%), Operationalize AI Solution (17%), Manage AI Model Development and Evaluation (16%), and Support Responsible and Trustworthy AI Efforts (15%). You get up to 3 attempts within a 1-year eligibility period if you don't pass the first time.</p>"
                         }
                     ],
                     "ai_type_id": "national_faq",
@@ -4827,7 +4882,7 @@
                 "bc_mid_url": "",
                 "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"WebPage\",\n      \"@id\": \"https://granitepmacademy.com/cpmai-certification-training/#webpage\",\n      \"url\": \"https://granitepmacademy.com/cpmai-certification-training/\",\n      \"name\": \"PMI-CPMAI Certification Training — AI for Project Managers | Granite PM Academy\",\n      \"description\": \"PMI-CPMAI certification training for project managers. Learn to lead AI projects with confidence. 3-day live-virtual ($1,495) or on-demand ($795). PMI Premier Authorized.\",\n      \"isPartOf\": {\n        \"@id\": \"https://granitepmacademy.com/#website\"\n      },\n      \"about\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"breadcrumb\": {\n        \"@type\": \"BreadcrumbList\",\n        \"itemListElement\": [\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 1,\n            \"name\": \"Home\",\n            \"item\": \"https://granitepmacademy.com/\"\n          },\n          {\n            \"@type\": \"ListItem\",\n            \"position\": 2,\n            \"name\": \"PMI-CPMAI Certification Training\",\n            \"item\": \"https://granitepmacademy.com/cpmai-certification-training/\"\n          }\n        ]\n      }\n    },\n    {\n      \"@type\": \"Course\",\n      \"@id\": \"https://granitepmacademy.com/cpmai-certification-training/#course\",\n      \"name\": \"PMI-CPMAI Certification Training\",\n      \"description\": \"PMI Certified Professional in Managing AI (PMI-CPMAI) training for PMs who lead AI-driven projects. Covers the AI project lifecycle, data management, responsible AI governance, regulatory compliance, and practical AI tool application. No data science background required.\",\n      \"url\": \"https://granitepmacademy.com/cpmai-certification-training/\",\n      \"provider\": {\n        \"@id\": \"https://granitepmacademy.com/#organization\"\n      },\n      \"offers\": [\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"Live Virtual (3-Day)\",\n          \"price\": \"1495\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/cpmai-certification-training/\"\n        },\n        {\n          \"@type\": \"Offer\",\n          \"name\": \"On-Demand (Self-Paced)\",\n          \"price\": \"795\",\n          \"priceCurrency\": \"USD\",\n          \"availability\": \"https://schema.org/InStock\",\n          \"url\": \"https://granitepmacademy.com/cpmai-certification-training/\"\n        }\n      ],\n      \"educationalCredentialAwarded\": {\n        \"@id\": \"https://granitepmacademy.com/cpmai-certification-training/#credential\"\n      }\n    },\n    {\n      \"@type\": \"EducationalOccupationalCredential\",\n      \"@id\": \"https://granitepmacademy.com/cpmai-certification-training/#credential\",\n      \"name\": \"PMI Certified Professional in Managing AI (PMI-CPMAI)\",\n      \"description\": \"PMI-CPMAI prepares project managers to lead AI-driven projects — covering the AI project lifecycle, data strategy, responsible AI, and governance. Designed for PMs, not data scientists.\",\n      \"credentialCategory\": \"Professional Certification\",\n      \"recognizedBy\": {\n        \"@type\": \"Organization\",\n        \"name\": \"Project Management Institute (PMI)\",\n        \"url\": \"https://www.pmi.org\"\n      },\n      \"url\": \"https://granitepmacademy.com/cpmai-certification-training/\"\n    },\n    {\n      \"@type\": \"FAQPage\",\n      \"mainEntity\": [\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the PMI-CPMAI certification?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMI-CPMAI (PMI Certified Professional in Managing AI) is a specialized credential for project managers who lead, manage, or contribute to AI-driven projects. It covers the AI project lifecycle, data management for PMs, responsible AI governance, regulatory compliance, risk management, and practical AI tool application — without requiring a data science background.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Do I need a data science or technical background for the CPMAI?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"No. The CPMAI is designed for project managers, not data scientists. The curriculum addresses AI at the level a PM needs to lead AI projects effectively — understanding concepts, managing data-dependent work, governing AI risks, and measuring business value. You do not need coding, statistics, or ML engineering skills.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Who should get the CPMAI?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"PMP-holders and experienced PMs who want to specialize in AI project delivery; technology and IT program managers overseeing digital transformation; business analysts working on AI initiatives; product managers building AI-powered products; and PMO leaders who need to govern AI projects consistently across a portfolio.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Is the CPMAI a PMI credential?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. PMI acquired Cognilytica, the methodology's original developer, in September 2024, and the credential is now officially PMI-CPMAI (PMI Certified Professional in Managing AI) — a credential of the Project Management Institute itself, not a separate third-party certification. Granite PM Academy delivers this training as a PMI Premier Authorized Training Partner.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is included in the CPMAI training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"3 days of instruction (live-virtual or on-demand); AI project lifecycle and framework content; responsible AI and governance modules; data management for PMs; regulatory compliance (GDPR, EU AI Act overview); AI risk management; practical AI tool guidance; and CPMAI exam preparation. The certification exam fee is paid separately to the certifying body.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"What is the difference between live-virtual and on-demand CPMAI training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Live-virtual is a 3-day instructor-led course in a real-time online classroom — a subject-matter expert guides every session and answers questions live. On-demand gives you the same curriculum as self-paced recorded content you can access immediately on your own schedule. Both formats deliver the full CPMAI curriculum.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Why is AI project management a distinct skill from regular project management?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"AI projects have fundamentally different characteristics from traditional IT projects: data is both a dependency and a deliverable; model performance is probabilistic, not binary; deployment introduces ongoing monitoring requirements; and regulatory and ethical governance add dimensions that traditional PM frameworks weren't designed to handle. AI projects fail at higher rates than traditional IT projects, and the primary cause is PM-level, not technical.\"\n          }\n        },\n        {\n          \"@type\": \"Question\",\n          \"name\": \"Can my employer pay for CPMAI training?\",\n          \"acceptedAnswer\": {\n            \"@type\": \"Answer\",\n            \"text\": \"Yes. CPMAI training qualifies as professional development in most organizational L&D budgets. We provide formal invoicing and purchase orders. For organizations standing up AI programs, group pricing and dedicated sessions are available — contact us for a custom quote.\"\n          }\n        }\n      ]\n    }\n  ]\n}",
                 "primary_keyword": "PMI-CPMAI Certification",
-                "secondary_keywords": "CPMAI certification, PMI Certified Professional in Managing AI, AI project management certification, Cognitive Project Management for AI, AI for project managers"
+                "secondary_keywords": "CPMAI certification, PMI Certified Professional in Managing AI, PMI-CPMAI exam prep course, AI project management certification, Cognitive Project Management for AI, AI for project managers"
             }
         },
         "page_contact": {
